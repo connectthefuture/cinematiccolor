@@ -6,6 +6,7 @@ Invoke - Tasks
 
 from __future__ import print_function, unicode_literals
 
+import subprocess
 from invoke import task
 from invoke.exceptions import Failure
 from itertools import chain
@@ -19,11 +20,13 @@ __email__ = 'colour-science@googlegroups.com'
 __status__ = 'Production'
 
 __all__ = [
-    'ROOT_DOCUMENT_NAME', 'message_box', 'clean', 'formatting', 'build_pdf',
-    'build_html'
+    'ROOT_DOCUMENT_NAME', 'ROOT_HTML_DIRECTORY_NAME', 'message_box', 'clean',
+    'formatting', 'build_pdf', 'build_html'
 ]
 
 ROOT_DOCUMENT_NAME = 'cinematic-color.tex'
+
+ROOT_HTML_DIRECTORY_NAME = 'cinematic-color'
 
 def message_box(message, width=79, padding=3, print_callable=print):
     """
@@ -208,3 +211,26 @@ def build_html(ctx):
     message_box('Building "HTML" website...')
 
     ctx.run('latex2html -long_titles 255 {0}'.format(ROOT_DOCUMENT_NAME))
+
+@task(build_html)
+def gh_deploy(ctx):
+    """
+    Deploys the *HTML* website to *Github Pages*.
+
+    Parameters
+    ----------
+    ctx : invoke.context.Context
+        Context.
+
+    Returns
+    -------
+    bool
+        Task success.
+    """
+
+    message_box('Deploying "HTML" website to "Github Pages"...')
+
+    result = ctx.run('git rev-parse HEAD', hide='both')
+    sha = result.stdout.strip().split('\n')[0]
+    ctx.run('ghp-import -m "Deploy {0} with \"ghp-import\"." -p {1}'.format(
+        sha, ROOT_HTML_DIRECTORY_NAME))
