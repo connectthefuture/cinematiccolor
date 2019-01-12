@@ -1,0 +1,249 @@
+\section{LUTs and Transforms}
+
+Lookup tables (LUTs) are a technique for optimizing the evaluation of functions that are expensive to compute and inexpensive to cache, or for sampling process such as printing to film which are not definable mathematically. By precomputing the evaluation of a function over a domain of common inputs, expensive runtime operations can be replaced with inexpensive table lookups. If the table lookups can be performed faster than computing the results from scratch, then the use of a lookup table will yield significant performance gains. For input values that fall between the table's samples, an interpolation algorithm can generate reasonable approximations by averaging nearby samples. LUTs are also useful when wanting to separate the calculation of a transform from its application. For example, in color pipelines it is often useful to “bake” a series of color transforms into a single lookup table, which is then suitable for distribution and re-use, even in situations where the original data sets are not appropriate for distribution.
+
+It is important to bear in mind that a LUT is a “black box” transforming one set of values into a new set of values. A color transform expressed as a LUT will be designed for input in a particular color encoding, and will produce output which may be in the same or a different encoding. If the image data to be transformed is not in the correct format for the LUT, then it is necessary to first transform it by using a mathematical method, or even with another LUT. Most LUT formats have no way of defining what their expected input is, nor the encoding of their output, so it is useful to make this clear either in the naming of the LUT file or in a comment line within the LUT.
+
+The values listed in the tables can be calculated by iterating over the possible input values, and applying the required transform mathematically, or by creating what is called a CMS (Color Management System) pattern image that incorporates all possible input values, passing it through the transform as if it was any other image, and then reading back the resulting color values to create the table. The image is simply a linear ramp to generate a 1D LUT, or a grid of all possible permutations of RGB, at the chosen LUT intervals, for a 3D LUT.
+
+\subsection{1D LUTs}
+
+A lookup table is characterized by its dimensionality, that is, the number of indices necessary to index an output value. The simplest LUTs are indexed by a single variable and thus referred to as one-dimensional (or 1D) LUTs.
+
+
+
+
+
+These graphs demonstrate simple color correction operators suitable for baking into 1D LUT representations.
+Consider an analytical color operator, f(x), applied to an 8 bit greyscale image. The naive implementation would be to step through the image and for each pixel to evaluate the function. However, one may observe that no matter how complex the function, it can evaluate to only one of 255 output values (corresponding to each unique input). Thus, an alternate implementation would be to tabulate the function's result for each possible input value, then to transform each pixel at runtime by looking up the stored solution. Assuming that integer table lookups are efficient (they are), and that the rasterized image has more than 255 total pixels (it likely does) using a LUT will lead to a significant speedup.
+
+All color operators that operate on channels independently can be accelerated using 1D LUTs, including the brightness, gamma, and contrast operators. By assigning a 1D LUT to each color channel individually, it is possible to implement more sophisticated operations such as color balancing. For those familiar with the Photoshop, all Curves and Levels operations can be accelerated with 1D LUTs.
+
+Unfortunately, many useful color operators do not operate on channels independently and are thus impossible to implement using a single-dimensional LUT. For example, consider the luminance operator that converts colored pixels into their greyscale equivalent. Because each output value is derived as a weighted average of the input channels, it is not possible to express such an operator using a 1D LUT. All other operators that rely on such channel crosstalk are equally inexpressible. Likewise for transforms derived from sampling complex non-linear processes such as film print emulation.
+
+\subsection{3D LUTs}
+
+Three-dimensional lookup tables offer the obvious solution to the inherent limitation of single-dimensional LUTs, allowing tabular data indexed on three independent parameters. Whereas a 1D LUT requires only 4 elements to sample 4 locations in an input range, the corresponding 3D LUT requires 43 = 64 elements. Beware of this added dimensionality; 3D LUTs grow very quickly as a function of their linear sampling rate, as does the processing power required, particularly in real-time systems. As a direct implication of smaller LUT sizes, high-quality interpolation takes on a greater significance for 3D LUTs. The two most commonly used interpolation methods are tri-linear and tetrahedral.
+
+
+
+Complex color operators can be expressed using 3D LUTs, as completely arbitrary input-output mappings are allowed. For this reason, 3D LUTs have long been embraced by color scientists and are one of the tools commonly used for gamut mapping. In fact, 3D LUTs are used within ICC profiles to model the complex device behaviors necessary for accurate color image reproduction.
+
+The majority of color operators are expressible using 3D LUTs. Simple operators (such as gamma, brightness, and contrast) are trivial to encode. More complex transforms, such as hue and saturation modifications, are also possible. Most important, the color operations typical of professional color-grading systems are expressible (such as the independent warping of user-specified sections of the color gamut).
+
+Unfortunately, in real-world scenarios, not all color transforms are definable as direct input-output mappings. In the general case, 3D LUTs can express only those transforms that obey the following characteristics:
+
+A pixel's computation must be independent of the spatial image position. Color operators that are influenced by neighboring values, such as Bayesian-matting in Chuang et al. (2001) or classical garbage masks in Brinkman (1999), are not expressible in lookup-table form.
+The color transform must be reasonably continuous, as sparsely sampled data sets are ill-suited to represent discontinuous transformations. If smoothly interpolating over the sampled transform grid yields unacceptable results, lookup tables are not the appropriate acceleration technique.
+
+Careful attention must be paid when crafting 3D LUTs due to a large number of degrees of freedom offered. It is all too easy to create a transform that yields pleasing results on some subset of source imagery, but then reveals discontinuities when applied to alternative imagery. Both directly visualizing the 3D lattice and running image gradients through the color processing allow such discontinuities to be discovered ahead of time.
+
+The input color space must lie within a well-defined domain. An analytically defined brightness operator can generate valid results over the entire domain of real numbers. However, that same operator baked into a lookup table will be valid over only a limited domain (for example, perhaps only in the range 0-1).
+
+\subsection{Using Shaper LUTs}
+
+All lookup tables are a sampling of some underlying function, whether that function is explicitly known or not. For example, the function f(x) = 1 / (1 + e-1.5x)  is a mathematical function that can be evaluated for any input values of x. The function can also be represented using a small lookup table over a particular domain by evaluating the function at various intervals. Table x shows a small lookup table with 5 samples representing the function over the input range of -5 to 5.
+Input
+Output
+-5.00
+0.001
+-2.50
+0.023
+0.00
+0.500
+2.50
+0.977
+5.00
+0.999
+
+When plotting the table values as in Figure X one can see the sample point output values in the lookup table correspond exactly to the output values of the underlying function. The limitation of lookup tables, however, is that values between the sample points must be interpolated from values within the table.
+
+Figure X shows the results of using linear interpolation to determine the output values between the sample points.  The figure illustrates how if care is not taken in choosing the location of the samples it can lead to a substantial error between the output of the lookup table and the result that would have been obtained using the underlying function the table was intended to model. This is particularly true in where the underlying function exhibits a high degree of curvature between the samples. Another limitation of lookup tables is that the output for values outside the input range (e.g. -5 to 5) used to build the lookup table are undefined.
+
+When building lookup tables, care should be taken to choose optimal locations for the table samples to minimize the error associated with the interpolation. Figure X shows an example of a table with optimal, non-uniform set of sample points. It should be noted that only a few lookup table formats (e.g. Academy CLF and Cinespace) support non-uniform sampling but the example below shows how the error can be minimized when sample points are chosen with respect to the function they are intended emulate.
+
+In the example above, the node placement is optimized to minimize error uniformly across the entire domain. Depending on exactly what the values on the x-axis and y-axis of the graph represent, it may not yield the best results to minimize error in this fashion.  Often in VFX and HDR workflows, due to the nature of the human visual system, it’s more visually appealing to minimize the error in a visually uniform space. A quick and dirty way to do this is to logarithmically distribute the sample points. This will shift the largest errors to the brighter parts of the pictures where the eye is less capable of discerning the error.  Figure X shows the function and logarithmically distributed point sampling.
+
+
+The concept of optimal placement of sample points can be extended to 3D LUTs where it is common to wrap a 3D LUT in a matched set of 1D ‘shaper’ LUTs.  Say the ceiling is set at a pixel value of 100.0. Dividing this into equally sampled regions for a 32x32x32 LUT yields a cell size of about 3. Assuming a reasonable exposure transform, almost all perceptually significant results are going to be compressed into the few lowest cells, wasting the majority of the data set and using potentially inaccurate interpolation over the large steps in those lowest cells. It is preferable to place the samples in the most visually significant locations, which typically occur closer to the dark end of the gamut. This is achieved by wrapping the 3D lookup-table transform with a matched pair of 1D shaper LUTs. The ideal shaper LUT maps the input HDR color space to a normalized, perceptually uniform color space. The 3D LUT is then applied. After the 3D transform the image may be mapped through a further 1D transform, such as the inverse of the original 1D LUT, mapping the pixel data back into the original dynamic range.
+
+This second shaper is only necessary for transforms such as those from linear to linear. If the transform is linear to log, or linear to `video’, only an input shaper is normally needed. Shaper LUTs may be separate files, applied sequentially with the 3D LUT, or may be included in a single 1D+3D combined LUT.
+
+\subsection{Half Float LUTs}
+
+An additional LUT technique that is becoming more widely available is the Half Float LUT. There are only 65536 possible 16 bit half floating-point values. As such, it is possible to apply a function to each of these values in sequence and record the results in a LUT. The value used for indexing into the table is not the floating-point value, as that is practically unbounded and would pose interpolation and quantization issues. Instead, the 16 bit half value is converted to its bitwise integer equivalent. This value is then used as the index into the table.
+
+The 16 bit float value ranges and their integer equivalents are as follows:
+        # 0 to 31743 = positive values 0.0 to 65504.0
+        # 31744 = Inf
+        # 31745 to 32767 = NaN
+        # 32768 to 64511 = negative values 0.0 to -65504.0
+        # 64512 = -Inf
+        # 64513 to 65535 = NaN
+Support for Half Float LUTs can be found in the Common LUT Format that is part of the ACES specification.
+
+\subsection{Creating LUTs}
+
+LUTs are fundamentally lists of output values, corresponding to input values, and most LUT formats store these as plain text lists or XML. Some binary formats exist, usually for efficiency in hardware LUT implementations, and for these, it is often simpler to create a human-readable LUT first and then convert with suitable utility software to the binary form.
+
+A CMS Image generated by Nuke. This pattern is only 9^3 (dividing R, G & B into 9 levels each)
+for clarity, resulting in 9 × 9 × 9 = 729 different colored patches
+Grading and compositing systems include the functionality to read such images and generate LUTs, either from transforms applied by their own processes, or externally, in which case the nature of the process may be unknown, or even secret.
+
+If the transform to be applied is a known mathematical one, perhaps a specific color space transform, LUTs can be baked using Colour Science for Python, for example. A simple code example to do this for an unspecified transform where output = f(input) is shown below:
+import colour
+LUT = colour.LUT3D(name='LUT Name')
+LUT.domain = ([[-0.07, -0.07, -0.07], [1.09, 1.09, 1.09]])
+LUT.comments = ['First comment', 'Second comment']
+LUT.table = colour.LUT3D.linear_table(size=33, domain=LUT.domain)
+LUT.table = f(LUT.table)
+colour.write_LUT(LUT, '/path/to/lut/file.cube')
+
+This procedure is all that is needed when the LUT in question is to be applied to an output referred image, or a log image in the 0-1 range. However when a shaper is required, to create a LUT for HDR image data, the situation is more complex. Decisions need to be made, and there is no one correct solution. Sometimes the possible range of the input data is known – if it comes from a specific camera perhaps – but it is often necessary to decide on a sensible input range, and accept that data outside this range may be clipped. It is also useful to consider what data may be clipped in the final output, so as not to waste input range on unnecessary values. For example, if baking a LUT to apply the ACES RRT plus an SDR ODT to ACES linear data, any shaper which includes input values above 16.3 is wasteful, as these will be clipped by the ODT. A balance needs to be struck between covering a sufficient range, and not spreading the available table entries too thinly, which can result in distortions from interpolation if the shaper does not include enough points for the range. It can be helpful to calculate forward and reverse shapers and pass a linear ramp through a concatenation of the two, looking for deviations from a straight line (particularly near black) after the round trip.
+
+A linear ramp transformed from ACEScct to ACEScg and back using a 12 bit 1D LUT.
+In the plot above, because of the wide range covered by ACEScct, the first interval of the linear to log LUT covers the ACEScct range 0.0-0.304 (-0.007-0.047 linear). Interpolating linearly for values in this large interval, when they are in fact logarithmically spaced, results in this “kink”. For the full range covered by ACEScct, a 16 bits are needed before the distortion becomes negligible with uniformly spaced samples. The alternative is to use a non-uniform shaper if the LUT format supports that. The OCIO ACES config, for example, takes the latter approach by including only log to linear shaper LUTs, and using them in the reverse direction for linear to log conversions. The Python code snippet below generates a Cinespace LUT which has a logarithmically spaced input domain and a linearly spaced output table and thus will not show the issue.
+
+from colour import LUT1D, write_LUT
+from colour.models import log_decoding_ACEScct
+
+table = np.linspace(0, 1, 4096)
+domain = log_decoding_ACEScct(table)
+LUT = LUT1D(table, 'Linear to ACEScct', domain)
+write_LUT(LUT, '/path/to/lut_file.csp')
+
+While GUI tools, such as LightSpace and Lattice, are available and can create and convert both 1D and 3D LUTs, they cannot work with LUTs which include both a 1D shaper and a 3D cube in the same file. Neither can Nuke’s GenerateLUT node. Therefore it is necessary either to manually split the process under consideration into the 1D and 3D components, and bake separate LUTs, or else use command line tools such as OCIO’s ociobakelut which have options to select a shaper space and range for formats which support combined 1D + 3D LUTs. For example, the command below will create a Cinespace LUT which will apply the ACES RRT plus Rec. 709 ODT:
+
+ociobakelut --inputspace "ACES - ACES2065-1" --iconfig "/Library/Application Support/OpenColorIO/aces_1.0.3/config.ocio" --shaperspace "Utility - Log2 48 nits Shaper" --outputspace "Output - Rec.709" --format cinespace ACES_RRT_709_ODT.csp
+
+Using Colour Science for Python, as previously, it is possible to write the shaper and cube components of a transform to a Resolve .cube or Cinespace .csp LUT. The code listed below creates a shaper ranging from six stops below mid-grey to six stops above it, and a cube which applies the transform which is the difference between the shaper and f(input):
+
+import colour
+import numpy as np
+
+domain = [0.18 * 2 ** -6, 0.18 * 2 ** 6]
+shaper = colour.LUT1D(size=16384, domain=domain)
+shaper.table = 0.5 + np.log2(shaper.table / 0.18) / 12
+
+# Inverse shaper used only for cube calculation
+def inverse_shaper(x):
+    return 0.18 * 2 ** (12*(x - 0.5))
+
+cube = colour.LUT3D(name='LUT Name', size=33)
+
+# Apply the transform to the identity cube
+# pre-transformed by the inverse of the shaper
+cube.table = f( inverse_shaper(cube.table) )
+
+LUT = colour.LUTSequence(shaper, cube)
+colour.write_LUT(LUT, '/path/to/lut/file.cube')
+
+Because most LUTs are text files, it is possible to process and convert them with simple text processing scripts. For example, while ociobakelut can create a LUT including a shaper in the Houdini format which can be used in the OCIOFileTransform node of Nuke, this same LUT file cannot be applied in DaVinci Resolve. Resolve supports combined 1D + 3D LUTs, but the format required is not currently available with ociobakelut in OCIO v1. However the Houdini and Resolve combined LUT formats are sufficiently similar, that the necessary conversion can be performed easily with a script, or even manually using a spreadsheet application.
+
+Houdini .lut version (not usable size) of the ociobakelut output above:
+DaVinci Resolve .cube version of the same LUT:
+Version		3
+Format		any
+Type		3D+1D
+From		0.001989 16.291740
+To		0.000000 1.000000
+Black		0.000000
+White		1.000000
+Length		3 9
+LUT:
+Pre {
+	0.000000
+	0.769326
+	0.846195
+	0.891173
+	0.923091
+	0.947849
+	0.968078
+	0.985183
+	1.000000
+}
+3D {
+	0.000000 0.000000 0.000000
+	0.534865 0.000000 0.000000
+	1.000000 0.254877 0.543403
+	0.000000 0.446770 0.000000
+	0.462596 0.411305 0.000000
+	1.000000 0.253674 0.542072
+	0.290448 1.000000 0.636457
+	0.289485 1.000000 0.636227
+	1.000000 1.000000 0.736428
+	0.000000 0.000000 0.400418
+	0.527788 0.000000 0.398828
+	1.000000 0.252359 0.671285
+	0.000000 0.422871 0.384992
+	0.389530 0.389530 0.389530
+	1.000000 0.252446 0.670820
+	0.279933 1.000000 0.680195
+	0.278750 1.000000 0.680725
+	1.000000 1.000000 0.783296
+	0.000000 0.062706 1.000000
+	0.000000 0.062739 1.000000
+	1.000000 0.340477 1.000000
+	0.000000 0.062698 1.000000
+	0.000000 0.062714 1.000000
+	1.000000 0.339629 1.000000
+	0.000000 1.000000 1.000000
+	0.000000 1.000000 1.000000
+	1.000000 1.000000 1.000000
+ }
+LUT_1D_SIZE 9
+LUT_1D_INPUT_RANGE 0.001989 16.291740
+
+LUT_3D_SIZE 3
+LUT_3D_INPUT_RANGE 0.0 1.0
+
+0.000000 0.000000 0.000000
+0.769326 0.769326 0.769326
+0.846195 0.846195 0.846195
+0.891173 0.891173 0.891173
+0.923091 0.923091 0.923091
+0.947849 0.947849 0.947849
+0.968078 0.968078 0.968078
+0.985183 0.985183 0.985183
+1.000000 1.000000 1.000000
+
+0.000000 0.000000 0.000000
+0.534865 0.000000 0.000000
+1.000000 0.254877 0.543403
+0.000000 0.446770 0.000000
+0.462596 0.411305 0.000000
+1.000000 0.253674 0.542072
+0.290448 1.000000 0.636457
+0.289485 1.000000 0.636227
+1.000000 1.000000 0.736428
+0.000000 0.000000 0.400418
+0.527788 0.000000 0.398828
+1.000000 0.252359 0.671285
+0.000000 0.422871 0.384992
+0.389530 0.389530 0.389530
+1.000000 0.252446 0.670820
+0.279933 1.000000 0.680195
+0.278750 1.000000 0.680725
+1.000000 1.000000 0.783296
+0.000000 0.062706 1.000000
+0.000000 0.062739 1.000000
+1.000000 0.340477 1.000000
+0.000000 0.062698 1.000000
+0.000000 0.062714 1.000000
+1.000000 0.339629 1.000000
+0.000000 1.000000 1.000000
+0.000000 1.000000 1.000000
+1.000000 1.000000 1.000000
+
+Note the similarity between the tables. Only the headers and the number of columns in the shaper LUT differ.
+
+Particularly when baking a combined LUT, testing is necessary to ensure that the resulting LUT is supported and correctly applied in the intended application. Different implementations support various LUT specifications to varying degrees, and it is not unheard of for LUTs to appear to be correctly read, but for the parsing to get out of step, producing a result which may superficially match the intent for some, but not all images. For example, the Iridas and Resolve .cube LUT formats are broadly similar, but the tokens for input range differ, and may not be read properly (or at all) by some LUT parsers. It is always wise, where possible, to compare the result of the LUT with a reference implementation of the transform on a variety of images.
+
+\subsection{GPU Implementations}
+
+While LUTs remain widely used for real-time image processing, there is a move in many systems towards the use of shaders to apply color transforms on the GPU. This allows for mathematically precise transforms, without the range limitations or interpolation errors which can occur with LUTs. The distortion shown in Figure XX would not happen is a shader was used for the transforms.
+
+Shaders also have the advantage that they can apply spatial operations, having access to the x,y coordinates of the pixel being processed, as well as the values of neighboring pixels. Some implementations also permit parameters of the transforms to be exposed to the user to create transforms which can be varied dynamically.
+
+Examples include GLSL, or proprietary variations such as Autodesk’s Matchbox Shaders (also adopted by FilmLight) and DCTL for DaVinci Resolve.
+

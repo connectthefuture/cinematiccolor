@@ -1,0 +1,19 @@
+\section{Camera Characterization}
+
+The process of characterizing a camera objective is that after signal processing, captured data represents the relative scene-referred linear light values at the focal plane. Different approaches exist to achieve this result but the standard practise in the industry is to define a 3x3 matrix (or multiple 3x3 matrices) mapping from the camera native color space to CIE XYZ or any relevant RGB color space.
+
+Because cameras are not fully colorimetric, the matrix is built to minimize the error with respect to the human visual system, and thus approximate a colorimetric response. The ideal approach to characterization involves acquiring the spectral sensitivities of the camera. This is commonly achieved with a monochromator, an optical device allowing the selection of narrow-band wavelengths of light, and thus the measurement of the complete camera response by sweeping through the visible spectrum. Camera makers and third-party organizations often provide matrices for CIE Standard Illuminant A or ISO 7589 Studio Tungsten Illuminant (3200K) and CIE Standard Illuminant D Series D65 or CIE Illuminant D Series D55. Additional matrices can be generated if the camera is intended to be used under dramatically different illumination conditions.
+
+The error minimization between the camera sensitivities and the reference dataset is usually done with a least-squares regression and it is preferable to convert the RGB values into a perceptually uniform color space or a CAM prior to doing so.
+
+When it is not possible to acquire the spectral response of the camera, color rendition charts such as X-Rite ColorChecker Classic or SG can be used to generate a color correction matrix.
+
+The X-Rite  ColorChecker Classic is commonly used to validate camera characterizations; the patches have known reflectance values. This is a synthetic color rendition chart generated with Colour Science for Python.
+Usage of a color rendition chart introduces bias toward the chart reflectances and thus eventually increases errors in respect to other unknown reflectances. The process is also subject to inaccuracies when the capture is done in an uncontrolled environment. While tempting, using only a chart as the ground truth for camera characterization should generally be avoided. Nonetheless, it helps remarkably to assess the quality of camera characterization and various other aspects of the captured data. It can also be used to generate a color correction matrix for a difficult shot or specific illumination conditions.
+
+
+Procedure P-2013-001 from A.M.P.A.S (2015) while focused on ACES is recommended for people willing to endeavor to do camera characterization as it contains relevant points that are generic enough to be applied in non-ACES context.
+
+
+Writing in-progress…
+

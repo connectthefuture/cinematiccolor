@@ -1,0 +1,43 @@
+\chapter{Color Science}
+
+Color science is the scientific domain studying the human perception of color, its measurement, and characterization. Terminology in a scientific field is critical to understanding that field and precisely discussing its concepts. Color is ubiquitous in our lives but typically not well understood.
+
+Mark D. Fairchild writes:
+“Almost everyone knows what color is. After all, they have had firsthand experience of it since shortly after birth. However, very few can precisely describe their color experiences or even precisely define color.”
+
+The International Commission on Illumination (CIE) defines perceived color as the “characteristic of visual perception that can be described by attributes of hue, brightness (or lightness) and colo(u)rfulness (or saturation or chroma).”
+
+This document is necessarily an overview of color science. The foundational texts listed below can provide a deeper understanding.
+Digital Color Management: Encoding Solutions, 2nd Edition by Madden and Giorgianni (2007) provides an in-depth analysis of the nature of color images, digital color encoding, color management systems and digital color interchange.
+Color Appearance Models by Fairchild (2013) is the reference for the fundamental concepts and phenomena of color appearance.
+The Reproduction of Colour (6th ed.) by Hunt (2004) describes the fundamental principles of colorimetry, color appearance, color reproduction for photography, television, printing and electronic imaging.
+Digital Video and HD, Second Edition: Algorithms and Interfaces by Poynton (2012) details the theory and engineering of digital video systems.
+Color Science: Concepts and Methods, Quantitative Data and Formulae by Wyszecki and Stiles (1982) is the authoritative reference for colorimetry.
+The authors of this paper are greatly indebted to the writers of these books.
+
+Dr. Robert W.G. Hunt passed away during the writing of this section. His work is foundational to the color science community. Dr. Hunt’s contributions to the understanding of human color perception and its application to the engineering of photographic systems laid the foundation for much of the color science that is used in the motion picture and gaming industries today. Besides being a brilliant scientist, Dr. Hunt was a kind man always willing to share his knowledge, whether formally in one of the many classes he taught, or informally over coffee or a meal. Dr. Hunt’s true passion was teaching others. A few of the authors of this document had the good fortune to have known and learned from Dr. Hunt and were saddened to hear of his passing. His contributions to the field, friendship and mentorship will be missed.
+
+A tribute to Dr. Robert W.G. Hunt: Light dispersion through a prism (bottom right) with the rainbow of color components lighting up The Reproduction of Colour (6th ed.) by Hunt (2004).
+
+Color management depends fundamentally on colorimetry, the measurement of color. Without colorimetry, it is not possible to characterize cameras and displays or understand the imaging principles that permeate the rest of computer graphics. While it is possible to immediately dive into color pipelines, having a rudimentary understanding of concepts such as spectral measurement, tristimulus values, or color appearance provides a richer understanding of why some approaches to color management are successful, and some are not.
+
+This section endeavors to stay generic and abstract. It does not focus on particular workflow details but provides the necessary foundations for understanding section 3. This section abundantly references the history of color science because the understanding of the past is essential for the comprehension of the present: knowing how colorimetry evolved explains the current practices. The physical nature of light and the quantities used for its analysis are examined. The anatomy of the human visual system (HVS) is reviewed with a particular focus on the eye and the primary adaptation mechanisms. Basic colorimetry is presented, providing the requisites for converting spectral measurements to RGB values or understanding perceptual uniformity. Advanced colorimetry, the gateway to color appearance modeling, is summarily exposed. Then, the representation of color is described, driving the section toward concrete concepts in direct relation with motion pictures color management. Finally, color imaging systems and the image capture, signal processing, and image formation stages are explained using digital imaging devices such as motion pictures cameras or LCD displays.
+
+Key Points
+Color science studies the human perception of color, its measurement, and characterization.
+Proper terminology usage is critical to the understanding of a scientific field.
+Color is the characteristic of a visual perception.
+Color management depends on colorimetry, the measurement of color.
+
+\input{color-science/electromagnetic-spectrum.tex}
+
+\input{color-science/human-visual-system.tex}
+
+\input{color-science/basic-colorimetry.tex}
+
+\input{color-science/advanced-colorimetry.tex}
+
+\input{color-science/representing-color.tex}
+
+\input{color-science/color-imaging-systems.tex}
+

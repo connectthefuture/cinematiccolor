@@ -1,0 +1,950 @@
+\chapter{Color Science}
+
+Color science is the scientific domain studying the human perception of color, its measurement, and characterization. Terminology in a scientific field is critical to understanding that field and precisely discussing its concepts. Color is ubiquitous in our lives but typically not well understood.
+
+Mark D. Fairchild writes:
+“Almost everyone knows what color is. After all, they have had firsthand experience of it since shortly after birth. However, very few can precisely describe their color experiences or even precisely define color.”
+
+The International Commission on Illumination (CIE) defines perceived color as the “characteristic of visual perception that can be described by attributes of hue, brightness (or lightness) and colo(u)rfulness (or saturation or chroma).”
+
+This document is necessarily an overview of color science. The foundational texts listed below can provide a deeper understanding.
+Digital Color Management: Encoding Solutions, 2nd Edition by Madden and Giorgianni (2007) provides an in-depth analysis of the nature of color images, digital color encoding, color management systems and digital color interchange.
+Color Appearance Models by Fairchild (2013) is the reference for the fundamental concepts and phenomena of color appearance.
+The Reproduction of Colour (6th ed.) by Hunt (2004) describes the fundamental principles of colorimetry, color appearance, color reproduction for photography, television, printing and electronic imaging.
+Digital Video and HD, Second Edition: Algorithms and Interfaces by Poynton (2012) details the theory and engineering of digital video systems.
+Color Science: Concepts and Methods, Quantitative Data and Formulae by Wyszecki and Stiles (1982) is the authoritative reference for colorimetry.
+The authors of this paper are greatly indebted to the writers of these books.
+
+Dr. Robert W.G. Hunt passed away during the writing of this section. His work is foundational to the color science community. Dr. Hunt’s contributions to the understanding of human color perception and its application to the engineering of photographic systems laid the foundation for much of the color science that is used in the motion picture and gaming industries today. Besides being a brilliant scientist, Dr. Hunt was a kind man always willing to share his knowledge, whether formally in one of the many classes he taught, or informally over coffee or a meal. Dr. Hunt’s true passion was teaching others. A few of the authors of this document had the good fortune to have known and learned from Dr. Hunt and were saddened to hear of his passing. His contributions to the field, friendship and mentorship will be missed.
+
+A tribute to Dr. Robert W.G. Hunt: Light dispersion through a prism (bottom right) with the rainbow of color components lighting up The Reproduction of Colour (6th ed.) by Hunt (2004).
+
+Color management depends fundamentally on colorimetry, the measurement of color. Without colorimetry, it is not possible to characterize cameras and displays or understand the imaging principles that permeate the rest of computer graphics. While it is possible to immediately dive into color pipelines, having a rudimentary understanding of concepts such as spectral measurement, tristimulus values, or color appearance provides a richer understanding of why some approaches to color management are successful, and some are not.
+
+This section endeavors to stay generic and abstract. It does not focus on particular workflow details but provides the necessary foundations for understanding section 3. This section abundantly references the history of color science because the understanding of the past is essential for the comprehension of the present: knowing how colorimetry evolved explains the current practices. The physical nature of light and the quantities used for its analysis are examined. The anatomy of the human visual system (HVS) is reviewed with a particular focus on the eye and the primary adaptation mechanisms. Basic colorimetry is presented, providing the requisites for converting spectral measurements to RGB values or understanding perceptual uniformity. Advanced colorimetry, the gateway to color appearance modeling, is summarily exposed. Then, the representation of color is described, driving the section toward concrete concepts in direct relation with motion pictures color management. Finally, color imaging systems and the image capture, signal processing, and image formation stages are explained using digital imaging devices such as motion pictures cameras or LCD displays.
+
+Key Points
+Color science studies the human perception of color, its measurement, and characterization.
+Proper terminology usage is critical to the understanding of a scientific field.
+Color is the characteristic of a visual perception.
+Color management depends on colorimetry, the measurement of color.
+
+\section{Electromagnetic Spectrum}
+
+Color is a perceived sensation that occurs when light interacts with the HVS. The CIE defines light as the “electromagnetic radiation that is considered from the point of view of its ability to excite the human visual system.”
+
+The electromagnetic spectrum from approximately 360-780 nm is visible to human observers and called the visible spectrum. Note that color sensations produced above are limited to those the particular display used to view this document can represent.
+
+In Opticks, Isaac Newton (1704) investigates the fundamental nature of light and color by describing the refraction of light by prisms. Newton demonstrated that a prism can separate seemingly achromatic light into components perceived as distinct hues, with each hue refracted at a unique and consistent angle; that this separated light may be recombined, either entirely to recover the achromatic color, or selectively, by which he could produce any desired color sensation.
+
+Comparison of an original scene on the left and a version where its light is dispersed horizontally with a Star Analyser 100 (SA-100) diffraction grating demonstrating that the seemingly white light from the Sun illuminating the scene is composed of distinct hues.
+
+Newton asserted that color is a visual sensation and not an inherent property of the light or object materials. He supported this assertion by noting that a magenta (purple) sensation can be created by combining red and violet components of two spectra, but this sensation is not produced by any single component of refracted light.
+
+The measurement of the radiation across the entire electromagnetic spectrum is known as radiometry. In this document, the focus is almost entirely on radiation within the visible spectrum. Photometry is a subset of radiometry concerned solely with radiation within the visible spectrum, where the measurement of energy at a particular wavelength in that spectrum is weighted by the sensitivity of the HVS at that wavelength. A comprehensive description of radiometry and photometry is beyond the scope of this document, but the next sections define some necessary radiometric and photometric quantities used in digital imaging and color science. Their descriptions below are taken from Wyszecki and Stiles (2000).
+
+\subsection{Radiometric Quantities of Interest}
+
+Radiant power (or radiant flux) (Pe) is radiant energy emitted, transferred, or received through a surface, in a unit time interval.   It has a unit of Watt (Joules.sec-1).
+Irradiance (Ee) at a point of a surface is the quotient of the radiant power incident on an infinitesimal surface element containing the point, by the area of that surface element. It has a unit of Watt.m-2.
+Radiance Exitance (or radiosity) (Me) at a point of a surface is the quotient of the radiant power emitted by an infinitesimal surface element containing the point, by the area of that surface element.   It has a unit of Watt.m-2. 
+Radiance Intensity (Ie) of a source in a given direction is the quotient of the radiant power emitted by the source in an infinitesimal element of solid angle containing the given direction by the element of solid angle.   It has a unit of Watt.sr-1.
+Radiance (Le) in a given direction at a point on the surface of a source or a receiver, or at a point on the path of a beam, is the quotient of the radiant power leaving, arriving at, or passing through an element of surface at this point and propagated in directions defined by an elementary cone containing the given direction, by the product of the solid angle of the cone and the area of the orthogonal projection of the surface element on a plane perpendicular to the given direction.   It has a unit of Watt.m-2.sr-1.
+
+\subsection{Photometric Quantities of Interest}
+
+Photometric quantities
+Luminous power (or luminous flux) (Pv) is the quantity derived from radiant power by evaluating the radiant energy according to its action upon a selective receptor, the spectral sensitivity of which is defined by a standard luminous efficiency function.   It has a unit of Lumen (lm.sec-1).
+Illuminance (Ev) at a point of a surface is the quotient of the luminous power incident on an infinitesimal element of the surface containing the point under consideration, by the area of that surface element.   It has a unit of lm.m-2 (or Lux).
+Luminous Exitance (or luminous emittance) (Mv) from a point on a surface is the quotient of the luminous power emitted from an infinitesimal element of the surface containing the point under consideration, by the area of that surface element.   It has a unit of lm.m-2 (or Lux).
+Luminous Intensity (Iv) in a given direction is the quotient of the luminous power emitted by a point source in an infinitesimal cone containing the given direction, by the solid angle of that cone.   It has a unit of candela (cd).
+Luminance (Lv) at a point of a surface and in a given direction is the quotient of the luminous intensity in the given direction of an infinitesimal element of the surface containing the point under consideration, by the orthogonally projected area of the surface element on a plane perpendicular to the given direction.   It has a unit of cd.m-2. A convenient non-SI (International System of Units) shorthand for the luminance unit is nit from the latin nitere, to shine.
+Relative Luminance (Y) is luminance normalized to the range 0-1 or 0-100, relative to a reference white Luminance value.
+Key Points
+Color is perceived when light interacts with the HVS.
+Light is the visible portion of the electromagnetic spectrum.
+Achromatic light can be separated into distinct hues by prisms. Those distinct hues can be recombined by prisms to recover the achromatic light.
+Color is not an inherent property of the light or object materials:  magenta does not exist as a distinct hue but is perceived when combined red and blue hues.
+Radiometry is the measurement of radiation across the entire electromagnetic spectrum.
+Photometry is the measurement of radiation weighted by the sensitivity of the HVS across the visible spectrum.
+
+\subsection{Spectral Distribution}
+
+In radiometry and photometry, the radiant power emitted by a light source or illuminant, or reflected, transmitted or absorbed by a surface is characterized by a spectral distribution giving the power of the light per unit area per unit wavelength or the percentage of light reflected, transmitted or absorbed per unit wavelength.
+
+
+Four CIE illuminants spectral power distributions. A and D65 are respectively CIE Standard Illuminant A and CIE Standard Illuminant D65 and are described in section 2.3.4. F2 is CIE Illuminant F2, a fluorescent type light and HeNe Laser (Normalised) is a Helium-Neon laser measured by Deglr6328 (2006).
+
+The visible spectrum is considered for electromagnetic radiation with wavelengths in the range of approximately 360-780 nanometers (nm). The spectral sensitivity of the human eye peaks under daylight-like illumination towards the middle of this range, at 555nm (yellow-green). At the extremes, radiant energy below 360nm (ultraviolet)  or above 780nm (infrared) appears indistinguishable from black, no matter how intense.
+
+
+Reflectance, transmittance and absorptance spectra of a Sorghum Halepense leaf from LOPEX93. Chlorophyll absorbs a large quantity of blue and red radiation giving leaves their green color.
+Light, through its fluctuations and spectral quality, has contributed to shaping the adaptation of many species. Chlorophyll, contained in plants chloroplasts, is a pigment which absorbs light during photosynthesis. It absorbs violet, blue and red wavelengths while reflecting green wavelengths. 
+
+Sparks, DasSarma, and Reid (2006) and DasSarma and Schwieterman (2018) have proposed the hypothesis that early photosynthetic organisms may have used retinal pigment which has a peak absorption centered at 550nm, thus absorbing most of the green wavelengths. The chlorophyll based organisms that appeared later adapted by absorbing the remaining regions of the electromagnetic spectrum.
+
+
+
+Solar spectral irradiance compared to CIE 1924 Photopic Standard Observer, note how both peak around 555nm.
+
+The solar spectral irradiance is thought to be a fundamental driver of the evolution of the HVS and peaks in the central region of the visible spectrum. Boynton (1990) says that "this coincidence is probably not accidental, but is more likely the product of biological evolution." Wang, Tang, and Yan (2011) have shown that the spectral sensitivities of photoreceptors of different species of moray eel were correlated with the photic characteristics of their habitats.
+
+Key Points
+A spectral distribution characterizes, at each wavelength, the radiant power emitted by a light source or the percentage of light reflected, transmitted or absorbed by a surface.
+The wavelengths range of the visible spectrum is approximately 360-780nm.
+Spectral sensitivity of the HVS peaks at 555nm, ultraviolet radiation below 360nm or infrared radiation above 780nm is invisible.
+The solar spectral irradiance peaks in the central region of the visible spectrum and is thought to be an essential driver of the evolution of the HVS.
+
+
+\section{Human Visual System}
+
+Visual perception, a process by which humans acquire knowledge about their environment, is initiated when environmental light enters the eye and induces electrical signals subsequently processed within the brain where an image is formed. Acquiring knowledge is a cognitive process distinct from strict optical mechanisms. There are optical similarities between a camera and the eye in the way they capture an image of the environment but a camera does not have perceptual capabilities or cognitive abilities; it does not know about the world.
+
+The principal components on the visual pathway are as follows:
+Eye
+Optic nerve
+Optic chiasma
+Optic tract
+Lateral geniculate body
+Optic radiation
+Visual cortex
+Visual association cortex
+
+Principal components of the human visual system.
+Wikipedia. (n.d.). Human visual pathway. Retrieved October 14, 2018, from https://commons.wikimedia.org/wiki/File:Human_visual_pathway.svg
+
+Their study is beyond the scope of this document but it is important to highlight that while the light from the environment is captured and converted to electrical impulses by the eye, most of the information extraction happens in the cerebral cortex and multiple interpretations of the sensory stimulation are possible. 
+
+Rotating snakes: Circular snakes appear to rotate spontaneously.
+Kitaoka, A. (2003). Rotating snakes. Retrieved October 14, 2018, from http://www.ritsumei.ac.jp/~akitaoka/rotsnake.gif
+
+Optical illusions are the result of light stimuli producing ambiguous and conflicting interpretations. They are important because they demonstrate that the stimulation of the eye does not entirely determine perception. Our perceptions correspond to the models the HVS has constructed rather than the original sensory stimulation. Palmer (1999) explains that "the observer constructs a model of what environmental situation might have produced the observed pattern of sensory stimulation." 
+Key Points
+Visual perception allows human to acquire knowledge about their environment.
+Knowledge acquisition is a cognitive process.
+Camera and the eye have optical similarities, but a camera does not have cognitive abilities.
+Most of the information extraction happens in the cerebral cortex.
+Optical illusions demonstrate that eye stimulation is not solely responsible for our perceptions: the HVS constructs a best-fitting model of the environmental situation.
+
+\subsection{The Eye}
+
+The eye is of particular interest being the sensor with which the HVS probes the environmental light.
+
+Cross section of the human eye.
+https://commons.wikimedia.org/wiki/File:Eyesection.svg
+
+The light pathway through the eye starts at the cornea, a transparent and curved organized group of tissue layers. The cornea represents the largest index of refraction (1.376) change at its interface with air. It contributes 3/4 of the eye focusing power although its focus is fixed.
+Upon exiting the cornea, the light traverses the aqueous humor, a water-like fluid with a refractive index of 1.336, filling the anterior and posterior chambers of the eye and providing nutrition to the surrounding tissues.
+
+Similar to a camera diaphragm, the iris, a ciliary muscle, controls the pupil size and therefore the amount of light reaching the retina. The pupil diameter varies from 7mm in dark viewing conditions to 3mm in bright viewing conditions
+
+The light not absorbed by the iris enters the lens which provides the accommodation function (optical power change) by adjusting its shape allowing to focus at various distances. Its biconvex shape becomes flattened thus decreasing optical power to focus at a distance and fatter to increase optical power to focus at nearby objects. Its refraction index varies from edges to center (1.386 to 1.406) to reduce chromatic aberration.
+
+The light traverses the vitreous humor, a thick fluid with a refractive index of 1.336, filling the space between the lens and the retina, to finally reach the retina.
+
+Key Points
+The eye is the HVS light sensor and is analogous to a camera.
+Light enters the HVS through the cornea, the eye element with the strongest focusing power.
+The iris controls the amount of light reaching the back of the eye by changing the pupil diameter akin to a camera diaphragm.
+The lens allows the eye to focus on objects at varying distances by changing its shape, i.e. accommodation.
+
+\subsection{Retina}
+
+The retina is a light-sensitive tissue composed of layers of neurons connected by synapses and receiving the optical image formed by the front eye elements. It contains the photoreceptor cells, the initial signal processing and transmission elements of the HVS.
+
+We move our head and eyes so that the image of objects we look at falls on the fovea, a 1.5mm central pit area of the retina with increased density of photoreceptor cells and responsible for high-resolution vision.
+
+Light traverses almost all the retinal layers before reaching the photoreceptor cells. Light triggers chemical changes in the photoreceptor cells which in turn, send a signal to the bipolar and horizontal cells. The signal is then propagated to the amacrine cells and ganglion cells, and finally to the optic nerve. 
+
+
+Each synapse between the neural cells can perform an arithmetical operation such as amplification, gain control or nonlinear mapping, giving the eye the ability to perform spatial and temporal optical image sharpening.
+
+
+The retina layers.
+https://commons.wikimedia.org/wiki/File:Retina_layers.svg - colour-science.org
+
+Key Points
+The retina contains the photoreceptor cells, the initial signal processing and transmission elements of the HVS.
+The fovea is a central retinal area with increased photoreceptor cells density, our heads and eyes are moving so that objects images fall on it.
+Neural cells perform optical image sharpening.
+
+\subsection{Photoreceptors}
+
+The photoreceptors are a type of neuron specialized for phototransduction, a process by which light is converted into electrical signals. There are two main classes of retinal photoreceptors:
+Cone cell
+Rod cells
+The third class of photoreceptor cells within the retina is the Intrinsically Photosensitive Retinal Ganglion Cells (ipRGC) which play a significant role in the modulation of circadian rhythms, pupillary response, and adaptation.
+
+\subsubsection{Cones and Photopic Vision}
+
+Cone cells mediate photopic vision, which is vision under daytime illumination conditions, and are responsible for color perception. In the photoreceptor layer of the retina, cone cells of types L, M, S (sensitive to Long, Medium and Short wavelengths respectively) measure light with respective peak absorption at wavelengths of about 564 nm, 534 nm, and 420 nm.
+
+Photopic vision luminance levels are usually defined for Luminance > 10 cd/m2.
+
+The long, medium, and short cone fundamentals for 2 degrees showing respective peak absorption at wavelengths of about 564 nm, 534 nm, and 420 nm.
+
+Most humans possess L, M, and S cone cells with similar distributions and peak absorptions, however a significant part of the population is affected by some form of color vision deficiency or color blindness. The most common types are:
+Protanomaly: Defective L cone cells; the complete absence of L cone cells is known as Protanopia or red-dichromacy.
+Deuteranomaly: Defective M cone cells with peak of sensitivity moved towards the red sensitive cones; the complete absence of M cone cells is known as Deuteranopia.
+Tritanomaly: defective S cone cells, an alleviated form of blue-yellow color blindness; the complete absence of S cone cells is known as Tritanopia.
+Monochromats only carry a single type of cone cells.
+Tetrachromats carry four types of cone cells.
+
+\subsubsection{Rods and Scotopic Vision}
+
+The rod cells mediate scotopic vision, which is vision under dark illumination conditions and where rods are the principle active photoreceptors. They measure light with peak absorption at a wavelength of about 507 nm.
+
+Scotopic vision luminance levels are defined for Luminance < 0.001 cd/m2. The rod cells are about 100 times more sensitive to light than the cone cells.
+
+\subsubsection{Mesopic Vision}
+Mesopic vision is the result of the photopic vision and scotopic vision being active at the same time and occurs at low illumination conditions, and is usually defined for luminance in range 0.001 to 3 cd/m2.
+CIE 1924 Photopic and CIE 1951 Scotopic Standard Observers. They are presented along with a Photopic Luminance Mesopic Luminous Efficiency Function modeling the sensitivity of the HVS for illumination levels between Photopic and Scotopic visions at 20% Photopic Luminance.
+
+\subsubsection{Distribution}
+
+The distribution of photoreceptors in the retina, note their total absence in the blind spot.
+https://commons.wikimedia.org/wiki/File:Human_photoreceptor_distribution.svg
+
+There are around 6.8×106 cones cells and approximately 110-125×106 rod cells in the retina. Cone cells are concentrated in the fovea and sparsely distributed in the peripheral retina. The asymmetry in the L, M and S cone cells distribution, the absence of S cone cells in the fovea centralis and their wide spacing into its periphery account for chromatic aberration. When the image is focused on the fovea centralis where reside the L and M cone cells, the S cone cells receive the shorter wavelength components. The axial chromatic aberration of the lens blur those components, thus a lower spatial resolution is required for the S cone cells.
+
+No rod cells are located in the central fovea region, allowing for increased spatial acuity to be conveyed by the cone cells. The blind spot is a notable area without photoreceptors and where the ganglion cell axons leave the eye to form the optic nerve.
+
+A single cone cell feeds its signals into a single ganglion cell while hundreds of rods pool their responses to feed into a single ganglion cell establishing a system of information compression between the photoreceptors and the optical nerve.
+
+Key Points
+There are two main classes of photoreceptor cells in the retina: cones and rods.
+Cone cells are responsible for color perception, and photopic vision, the vision under daytime illumination conditions, with luminance levels defined for Luminance > 10 cd/m2.
+Rod cells are responsible for scotopic vision, the vision under dark illumination conditions, with  luminance levels defined for Luminance < 0.001 cd/m2
+Rod cells are about 100 times more sensitive to light than the cone cells.
+
+\subsection{Dynamic Range}
+
+From starlight luminance levels around 10-4 cd/m2 to sunlight luminance levels reaching 105 cd/m2 or over 109 cd/m2 for a direct Sun luminance measurement, our world exhibits a wide dynamic range. In this context, dynamic range is the ratio between the maximum and minimum measurable light quantity in a scene.
+
+The dynamic range of the human visual system.
+
+The dynamic range of the HVS is the ratio between the most luminous stimulus causing complete photoreceptors bleaching with no damage and the smallest detectable light stimulus. Hood and Finkelstein (1986) and Ferwerda, Pattanaik, Shirley and Greenberg (1996) report from 10-6 to 10 cd/m2 for scotopic light levels and from 0.01 to 108 cd/m2 for the photopic range. However, the HVS, like any capture imaging devices, is unable to perceive this full range at once. Only a fraction is observable simultaneously, inducing HVS adaptation to illumination level variations.
+
+The simultaneous dynamic range or steady-state dynamic range is defined as the ratio between the highest and lowest luminance values at which objects are detected while being in a state of full adaptation. It is the range of stimulus intensities over which photoreceptors are able to signal a change. Kunkel and Reinhard (2009) performed a series of psychophysical experiments on a high dynamic range display and determined that the HVS simultaneous dynamic range spans a range of 12.3 stops (3.7 log10 units) under illumination conditions with an adapting field varying from 1.78 cd/m2 to 17.8 cd/m2. They also found that the upper detection threshold was higher when the HVS is adapted to a brighter environment and thus that the maximum display luminance should be increased accordingly.
+
+In the context of motion pictures and games, it is useful to talk about dynamic range in terms of photographic stops, i.e. doubling or halving of luminance. Stops are calculated as the log2 of the test luminance relative to a reference luminance level.
+
+Relative exposure in stops is the log2 of the luminance relative to some reference exposure level. Any normalization factor suffices for relative comparisons.
+
+EV
+-8
+-3
+-2
+-1
+-0.5
+0
+0.5
+1
+2
+3
+8
+2^EV
+0.004
+0.125
+0.250
+0.500
+0.707
+1
+1.414
+2
+4
+8
+256
+Scene-referred exposure values are often referenced in units of stops (EV), as the range between values is large for direct numerical comparisons. For example, it is difficult to get an intuition for what it means to reduce the exposure of an image by a factor of 0.004, it is generally more intuitive to refer to the same quantity as "-8 stops".
+
+Key Points
+The dynamic range of a scene is the ratio between the maximum and minimum measurable light quantity.
+The dynamic range of the HVS is the ratio between the most intense non-damaging luminous stimulus and the smallest detectable light stimulus.
+The HVS, like cameras, only perceive a fraction of the full extent of its dynamic range simultaneously.
+The HVS simultaneous or steady-state dynamic range spans over 12.3 stops; the upper detection threshold rises with a brighter environment and thus requires brighter displays.
+Dynamic range is often expressed in stops, a doubling or halving of luminance.
+
+\subsection{Adaptation}
+
+The human visual system dynamically adapts to different illumination levels to improve the visual response. The three essential adaptation mechanisms of the HVS are:
+Dark adaptation
+Light adaptation
+Chromatic adaptation
+
+\subsubsection{Dark Adaptation}
+
+Dark adaptation occurs when luminance level decreases. As a result of the lack of illumination, the observer’s visual system adapts to the stimuli and the visual sensitivity increases. Initially, upon entering a dark area, the cone cells’ sensitivity increases to reach full adaptation after around 10 minutes, when the rod cells’ sensitivity outperforms that of the cones, and complete adaptation is reached within 30 minutes.
+
+A notable effect of the rod cells driving the visual system at low luminance level is that there is not enough light energy to be able to discriminate colors. Another notable effect,  the Purkinje Effect or Purkinje Shift, characterizes the HVS peak luminance sensitivity shift toward shorter wavelengths of the visible spectrum.
+
+\subsubsection{Light Adaptation}
+
+Light adaptation is similar to dark adaption, but instead, the visual sensitivity decreases with luminance level increase. The adaptation process happening when entering a bright area is faster than dark adaptation. The rod cells first saturate as rhodopsin the photopigment of the rods, photo-bleaches, while the cone cells continue to adapt reaching peak sensitivity within 5-10 minutes.
+
+\subsubsection{Chromatic Adaptation}
+
+The CIE defines chromatic adaptation as the "visual process whereby approximate compensation is made for changes in the colo(u)rs of stimuli, especially in the case of changes in illuminants".
+
+Chromatic adaptation controls the independent sensitivity of the three cones cells type and is the most important adaptation mechanism in color appearance. A white object viewed under different lighting conditions (daylight, tungsten or incandescent lighting) retains its white appearance because the sensitivity of the cone cells is independently adjusted to compensate for the changes in energy level at the wavelength ranges they are sensitive to. Chromatic adaptation can be thought of as analogous to the automatic white balancing feature of a camera.
+
+It is important to make a distinction between the adapted white, defined by the CIE as the "colour stimulus that an observer who is adapted to the viewing environment would judge to be perfectly achromatic and to have a luminance factor of unity" and the adopted white defined as the "spectral radiance distribution as seen by an image capture or measurement device and converted to colour signals that are considered to be perfectly achromatic and to have an observer adaptive luminance factor of unity; i.e., colour signals that are considered to correspond to a perfect white diffuser". The adopted white, used in the color imaging system, is specified and known while the adapted white of the HVS can only be estimated.
+
+Chromatic adaptation occurs at a faster rate than dark and light adaptation. Rinner and Gegenfurtner (2000) measured two separate adaptation mechanisms representing 40% of the total adaptation for color appearance and 100% of the total adaptation for color discrimination: a fast component with a half-life of 40–70ms and a slower component with a half-life of about 20s, agreeing with the findings of Fairchild and Reniff (1995). They also identified a third higher order component with a half-life under 10ms. Induced by cortical computations, it is situated after the other adaptive stages. It only affects color appearance and is responsible for 60% of the total adaptation for color appearance. Chromatic adaptation reaches 90% completion after 60s and is complete within 2 minutes
+
+Through a series of experiments that measured the spatial, temporal, and chromatic properties of chromatic-adaptation mechanisms, Fairchild (1993) has shown clear evidence that along the well known sensory mechanisms supporting an automatic response to a stimulus, e.g. retinal gain control, there were also cognitive mechanisms dependent on the observer knowledge of the scene content.
+The cognitive mechanisms are very effective when viewing hard-copy images, e.g. print of a photograph: they allow the observer to discount the scene illuminant, but they do not work with soft-copy displays, e.g. a monitor displaying the photograph, as those cannot be interpreted as illuminated objects and thus only sensory mechanisms are active.
+
+Key Points
+Lack of illumination triggers dark adaptation, rod cells sensitivity increases and outperforms that of the cones; full adaptation occurs within 30 minutes.
+Light adaptation happens when entering a bright area, rod cells saturate while cone cells are adapting;  full adaptation occurs within 5-10 minutes.
+Chromatic adaptation controls the independent sensitivity of the cone cells, causing objects to retain their appearance under different illumination conditions; chromatic adaptation is fast: it happens in the course of a few milliseconds and reaches completion within 2 minutes.
+Chromatic adaptation is commonly compared to the white-balancing feature of a camera.
+
+\subsection{Non-Linearity of the HVS}
+
+The response of the rods to increasing field luminance on a log-log scale. Davson, H. (1990). Physiology of the Eye. Macmillan International Higher Education. ISBN:134909997X - colour-science.org
+
+The just-noticeable difference (JND) is the minimum change in stimulus intensity required to produce a detectable variation in sensory experience. Weber's law states that the JND between two stimuli is proportional to the magnitude of the stimuli: an increment is judged relative to the previous amount.
+
+In Elements of psychophysics, Fechner (1860) mathematically characterized Weber’s law showing that it follows a logarithmic transformation: the subjective sensation of a stimulus is proportional to the logarithm of the stimulus intensity. Fechner’s scaling has been found to apply to the perception of brightness, at moderate and high brightness, with perceived brightness being proportional to the logarithm of the actual intensity. 
+
+At lower levels of brightness, the De Vries-Rose law applies which states that the perception of brightness is proportional to the square root of the actual intensity. 
+
+Stevens generalises Fechner's law: the results of the physical-perceptual relationship of his experiments on a logarithmic scale were characterized by straight lines with different slopes, suggesting that the relationship between perceptual magnitude and stimulus intensity follows a power law with varying exponent.
+
+
+Perceived magnitude of stimuli of increased intensity following a power law with varying exponent and displayed on a linear scale. Stevens, S. S. (1975). Psychophysics: introduction to its perceptual, neural, and social prospects. (Wiley, Ed.) (2nd ed.). Wiley. ISBN:9780471824374 
+
+Stimuli of figure 2.x.x displayed on a log-log scale and characterized by straight lines with different slopes. Stevens, S. S. (1975). Psychophysics: introduction to its perceptual, neural, and social prospects. (Wiley, Ed.) (2nd ed.). Wiley. ISBN:9780471824374
+
+Because of the various HVS adaptation mechanisms, perceived brightness has a non-linear relationship with the actual physical intensity of the stimulus. A cube root commonly approximates it. Multiple models of lightness were proposed leading to the creation of CIE L* in 1976. CIE L* characterizes the perceptual response to relative luminance.
+
+
+CIE L* characterizes the perceptual response to relative luminance.
+
+CIE L* was developed for colorimetric measurements of colored samples under a uniform illumination source. It was not tested for high illumination conditions with color stimuli orders of magnitude below or above a perfect white diffuse reflector. The resulting uncertainty in Lightness prediction for High Dynamic Range (HDR) imaging applications leads scientific research into searching for a better function. Fairchild and Wyble (2010) and Fairchild and Chen (2011) proposed a new physiologically-plausible hyperbolic function based on Michaelis-Menten kinetics, a model of enzyme kinetics. Abebe, Pouli, Larabi, and Reinhard (2017) modified Fairchild and Chen (2011) function to account for emissive color stimuli. As the writing of this document, the CIE has not yet adopted a new suitable function.
+
+With the related objective of finding a function adapted to HDR image formation, Miller (2014) designed the Perceptual Quantizer (PQ). It is an important function, standardized by the Society of Motion Picture and Television Engineers as SMPTE ST 2084 and this document frequently refers to it.
+
+Key Points
+
+Writing in-progress…
+
+
+\section{Basic Colorimetry}
+
+\subsection{Origins of Colorimetry}
+
+In the late 19th century, Young and Helmholtz proposed that color vision is conveyed through a limited number of receptors sensitive to different portions of the visible spectrum. Maxwell (1860) used linear algebra to prove Young–Helmholtz trichromatic theory and invented color matching experiments and modern colorimetry. The trichromatic theory explains the metamerism phenomenon: two samples matching under some lighting conditions might look different under others.
+
+
+Hering proposed the opponent color theory around 1920 to explain phenomena not accounted for by the trichromatic theory. He noted that specific pairs of colors did not occur at the same time and place: a reddish-green or yellowish-blue. We, however, do see reddish-yellows and greenish-blues. He thought there were three receptor types with bipolar response to red-green, yellow-blue, and light-dark.
+
+The Modern Opponent Colors Theory with a trichromatic first stage mediated by the cones and opponent colors encoding in the second stage. Stockman, A., & Brainard, D. H. (2010). Color vision mechanisms. The Optical Society of America Handbook of Optics, 11.1–11.104. ISBN:0071498915 - colour-science.org
+
+The modern color vision theory,  foundational basis of colorimetry, combines both Young–Helmholtz's Trichromatic Theory and Hering’s Opponent Colors Theory: Color vision in the first stage is trichromatic and executed by the cone cells. In the second stage, upper retinal layers encode the cone cells signals into an achromatic signal V(λ) = L + M and two cone opponent chromatic signals such as RG = L - M, YB = L + M - S.
+2.3.2 Measuring Light
+The CIE defines colorimetry as the measurement of color stimuli based on a set of conventions. Electromagnetic radiation measurements are performed with instruments such as spectroradiometers, spectrophotometers, or tristimulus colorimeters for the case of visible radiation.
+
+Spectroradiometry and spectrophotometry need to be described as their naming with regard to radiometry and photometry can be confusing.
+Spectroradiometry measures the amount of light radiated as a function of wavelength, i.e. radiance, or irradiated, i.e. irradiance.
+Spectrophotometry measures the amount of light reflected, transmitted, or absorbed as a function of wavelength, i.e. reflectance, or transmitted, i.e. transmittance.
+Both disciplines measure a radiometric quantity (radiant flux) and not a photometric one contrary to what the spectrophotometry name might imply. Spectroradiometers, measuring radiance or irradiance, and spectrophotometers, measuring reflectance or transmittance, produce spectral distributions with a narrowband interval, e.g. 1nm, 5nm or 10nm.
+
+On the other hand, tristimulus colorimeters use red, green and blue filters that emulate the HVS spectral response to light. They produce a single triplet of values by measuring wideband radiant energy and are used in digital imaging to calibrate displays. Because they mimic the HVS, tristimulus colorimeters are also subject to the metamerism phenomenon.
+
+\subsection{Blackbody Radiation, Light sources and Illuminants}
+
+All ordinary matter emits electromagnetic radiation when its temperature is above absolute zero. Even black holes are predicted to emit Hawking radiation, a form of blackbody radiation caused by the creation of sub-atomic particles near the event horizon. 
+
+A blackbody or Planckian radiator is an ideal thermal radiator that absorbs all incident radiation, disregarding the wavelength, the direction of incidence or the polarization completely. In thermal equilibrium, it emits electromagnetic radiation (blackbody radiation) with a characteristic spectral distribution that depends only on its temperature and is given by Planck's Law.
+
+
+
+When their temperature increases past 750 Kelvin, blackbodies start to emit visible electromagnetic radiation, i.e. light.
+
+Various blackbody spectral power distributions in temperature domain 1250-10000K, note how their radiation peak slides into the visible spectrum range as their temperature increase.
+
+Blackbodies are fundamental to both astronomy and color science allowing one to determine the color of a thermal radiator knowing only its temperature. Conversely, its temperature can be computed from its color.
+In 1931, using Planck's Law, the CIE was able to unambiguously and mathematically describe a standard tungsten light source: the CIE Standard Illuminant A with a color temperature of 2856K. 
+
+
+ASTM G-173 ETR Extraterrestrial Radiation (solar spectrum at top of atmosphere) at mean Earth-Sun distance compared to a Blackbody at 5778K. The differences between the curves are mostly explained by the fact that the Sun is not a perfect blackbody.
+The Sun, principal light source on Earth with an effective surface temperature of 5,778K, is close to an ideal thermal radiator. Its spectrum exhibits numerous absorption and emission spectral lines, i.e. the Fraunhofer lines, resulting from the interactions of atoms, atom nuclei, and molecules with photons in its atmosphere. The Sun is not a solid body and has multiple layers with different temperatures: corona, chromosphere, photosphere, convective zone, radiative zone, and core. The photosphere, the layer of gas constituting the visible surface of the Sun, is the principal source of the radiation we receive and the region where most of the aforementioned spectral lines are forming. When solar radiation traverses the Earth atmosphere, it interacts with it, producing absorption, emission and scattering events that further modify its spectrum.
+
+Profile image of the daylight spectrum captured with a DIY spectroscope and a CANON 5D Mark II DSLR camera. Major Fraunhofer Lines are annotated for reference. The black curve represents the luminance of the spectrum at each wavelength. The white curve is a reference spectrum concurrently captured with an Ocean Optics STS-VIS spectrometer. While the spectroscope has a very high resolution, the overall curve shape is dramatically different to that of the spectrometer one: the DSLR spectral sensitivities, its infrared filter, and reflections in the spectroscope tube are all contributing to alter the curve, making it unsuitable for precise measurements.
+CIE Illuminants B and C were intended to respectively model noon sunlight (correlated color temperature (CCT) of 4874K) and average daylight (CCT of 6774K). They are realised by combining a light source modeling CIE Standard Illuminant A with Davis-Gibson liquid filters from David and Gibson (1931). Because of the low illuminance levels achieved with such light sources and their poor performance in the near-ultraviolet region (which is essential for fluorescent materials), they were deprecated in favor of the CIE Illuminant D Series created by Judd, MacAdam, and Wyszecki (1964). 
+
+The CIE Illuminant D Series models a broad range of daylight phases inclusive of direct sunlight, sunlight with cloud coverage, full overcast coverage, and blue skylight. For standardization purposes, "CIE Standard Illuminant D Series D65 should be used in all colorimetric calculations requiring representative daylight unless there are specific reasons for using a different illuminant" (ISO 11664-2:2007(E)/CIES014-2/E:2006).
+
+CIE Illuminants B, C, and CIE Standard Illuminant D Series D65. Note how the CIE Illuminants B and C curves are different to the CIE Standard Illuminant D Series D65 curve in the 300nm-380nm near-ultraviolet region.
+From a terminology standpoint, it is meaningful to understand that illuminants and light sources are different:
+An illuminant is a standardized table of values or mathematical function representing an ideal light source.
+A light source is a physical emitter of visible radiant energy.
+
+\subsection{Reflectance, Transmittance and Absorptance}
+
+Emitted light interacts with surfaces of the world and is either reflected, transmitted or absorbed. The measured radiant flux is the summation of the light reflection, transmission, and absorption at each wavelength such as:
+Φ(λ) = R(λ) + T(λ) + A(λ)
+where Φ(λ) is the measured radiant flux, R(λ), T(λ) and A(λ) are respectively the surface reflectance, transmittance, and absorptance. They are ordinarily expressed as fractions of Φ(λ) in range 0-1.
+
+Clover leaf reflectance, transmittance, and absorptance spectra from LOPEX93, note that the wavelengths represented are purposely reaching near-infrared: even though invisible, the spectra have values in that portion and exhibit a lot of variation.
+Because they are also a function of the illumination and viewing geometry, i.e. the angle between the light incident at the surface and the angle of the instrument, a complete description requires capturing the Bidirectional Reflectance Distribution Function (BRDF) or Bidirectional Transmittance Distribution Function (BTDF). High-quality BxDF data capture is not only difficult, but its usage is also non-trivial thus for practical purposes the CIE defines 4 standard illuminations and viewing geometries. They are described in CIE 015:2004 Colorimetry, 3rd Edition. 
+
+\subsection{Standard Observers}
+
+The perception of incident light to the HVS varies from one observer to another. Thus to avoid ambiguity when characterizing color, the CIE standardized various functions for use with colorimetric calculations.
+
+The first one, the CIE 1924 Photopic Standard Observer luminous efficiency function V(λ), a fundamental function modeling the wavelength dependent sensitivity of the HVS, was established in 1924.
+
+V(λ) - CIE 1924 Photopic Standard Observer modeling the wavelength dependent sensitivity of the HVS.
+
+It was derived for a 2° angular subtense viewing field from several independent experiments whose results were weight assembled by Gibson and Tyndall (1923).
+
+The first row shows the computed swatches and spectral distributions of two synthetic green and red LED lights with equal radiant power. In the second row, the red LED light luminous flux has been scaled to match that of the green LED light.
+
+To an observer viewing a red light and a green light with equal radiant power, the green light appears brighter than the red: in the above figure their luminous fluxes are 40500lm, and 3500lm respectively. If the red light luminous flux is scaled to match that of the green light, then both lights are perceived to have similar brightness. The consequence of this scaling is that the red light radiant power increased by one order of magnitude.
+
+In the late 1920's, Wright (1928) and Guild (1931) independently conducted a series of color matching experiments to quantify the color ability of an average human observer which laid the foundations for the specification of the CIE XYZ color space. The results obtained were summarized by the Wright & Guild 1931 2° RGB― color Matching Functions (CMFs): they represent the amounts of three monochromatic primary colors R, G, B needed to match the test color at a single wavelength of light.
+
+
+Wright & Guild 1931 2° RGB― CMFs present a negative lobe.
+
+Wright & Guild 1931 2° RGB― CMFs present negative values that are inconvenient for various reasons: they make RGB tristimulus values computation more difficult, requiring separately summing products with positive and negative signs and then a final differencing of the sums. Computation of photometric quantities like luminance is more laborious for similar reasons, and finally, the development of direct-reading tristimulus colorimeters is challenging because of the sign change.
+
+These reasons lead the CIE to transform the Wright & Guild 1931 2° RGB CMFs into a new set of functions based on new primary stimuli X, Y, Z: The CIE 1931 2° Standard Observer XYZ― color matching functions. When conceiving the linear transformation that converts Wright & Guild 1931 2° RGB― CMFs into the CIE 1931 2° Standard Observer XYZ CMFs, the CIE ensured that the Y― function was equal to the CIE 1924 Photopic Standard Observer luminous efficiency function V(λ) and that all the functions were positive.
+ 
+
+The CIE 1931 2° Standard Observer, a linear transformation of Wright & Guild 1931 2° RGB CMFs designed to remove the negative lobe of the later.
+ 
+Among other factors such as age, color vision sensitivity is affected by the angle subtended by the objects being observed. In the 1960s it was found that cones were present in a broader region of the eye than that initially covered by the experiments that lead to the CIE 1931 2° Standard Observer specification. As a result, color computations done with the CIE 1931 2° Standard Observer do not always correlate to visual observation.
+
+In 1964, the CIE defined an additional standard observer: the CIE 1964 10° Standard Observer derived from the results of Stiles and Burch (1959) and Speranskaya (1959) investigations with large-field color matching experiments.
+
+
+The CIE 1964 10° Standard Observer corrects some deficiencies of the CIE 1931 2° Standard Observer, especially in the blue wavelengths. It should be used when dealing with a field of view of more than 4°.
+
+The CIE 1964 10° Standard Observer is believed to be a better representation of the spectral response of human vision and recommended by the CIE when dealing with a field of view of more than 4°. For example, the CIE 1964 10° Standard Observer is commonly used in color formulation and color quality control whereas the CIE 1931 2° Standard Observer tend to be used with applications that deals with small samples or samples viewed at great distance.
+
+Virtually all computer graphics applications use the CIE 1931 2° Standard Observer. Motion picture color management also adopts it as it is suited for computer graphics and imagery:
+Interface elements, e.g. icons, color pickers and swatches, and image inner features tend to be small and subtend a small angle. Hunt (2004) says that "in colour reproductions, the interest generally lies much more in patches of colour of about 2° angular size than 10°, and the 1931 CIE data may therefore be used with confidence."
+The CIE 1931 2° Standard Observer only involves the fovea where the cones are present, i.e. color vision, and great care was taken to avoid rod intrusion when the CIE 1964 10° Standard Observer data was assembled with the consequence that similar care must be taken when evaluating 10° subtending fields.
+Recently, the CIE TC 1-36 technical committee report (CIE 170-1:2006, 2006) established the CIE 2012 10° Standard Observer as the new physiologically relevant fundamental CIE color matching functions. They are a linear transformations of Stockman & Sharpe 10° Cone Fundamentals LMS10 spectral sensitivity functions which can be used to derive any CMFs given physiological parameters such as the age of the observer and the field size.
+
+The transition to those new CMFs might happen in the future but there are open questions on how to migrate dataset that are not spectrally defined, e.g. what are the chromaticity coordinates of the sRGB color space in the CIE 2012 10° Standard Observer?
+
+\subsection{CIE XYZ Tristimulus Values and Metamerism}
+
+\subsubsection{CIE XYZ Tristimulus Values}
+
+Spectral radiant energy is converted into CIE XYZ tristimulus values by integrating the product of the spectral distribution of a sample with the spectral power distribution of a light source (or illuminant) and with the CMFS. Their values for the color of a surface with spectral reflectance β(λ) under an illuminant of relative spectral power S(λ) are calculated using the following integral equations:
+
+
+Equation x.x of the computation of X tristimulus value is illustrated in figure x.x where the reflectance of a sample of sand is multiplied by CIE Standard Illuminant D Series D65, the color matching function X― and the normalization factor k.
+
+Integration of the spectral reflectance distribution of a sample of sand for X tristimulus value. Note that this process must be repeated for Y― and Z― shown in dashed green and blue lines to obtain the corresponding Y and Z tristimulus values.
+
+\subsubsection{Metamerism}
+
+The conversion of spectral radiant energy into CIE XYZ tristimulus values reduces complex light color information spanning many wavelengths into three sensory quantities. From a mathematical standpoint, the tristimulus conversion equations X.X.X are demonstrating the phenomenon: the integrals represent the area under the multiplied spectral distribution curves of the sample, light, and CMFS. However, an infinite number of light and sample curve combinations yield the same area: tristimulus values are multi-valued, and metamerism occurs because of the lack of injectivity. A consequence of this reduction is that two samples viewed under the same illumination conditions can produce an identical cone cells response and thus yield matching CIE XYZ tristimulus values. The two samples are said to be metamers, and changing the illumination conditions might result into a metameric failure: this is the metamerism phenomenon.
+
+
+Metameric failure example, the two spheres use generated metameric spectral reflectance distributions that yield matching color under CIE Illuminant E but not under CIE Standard Illuminant A.
+
+\subsection{CIE xyY Color Space and Chromaticity Diagram}
+
+It is convenient to use a 2D representation of colors where luminance is separated from chroma. The CIE xyY color space is constructed through a projective transformation that isolates the Y luminance axis of the CIE XYZ color space and yields a tuple of chromaticity coordinates (x, y):
+
+The CIE 1931 Chromaticity Diagram is a 2D projection of the volume of all the colors seen by the CIE 1931 2° Standard Observer along the Y luminance axis of the CIE xyY color space.
+
+The CIE 1931 Chromaticity Diagram and Pointer (1980)'s Gamut, a gamut of real surface colors. Note that similarly to the figures showcasing the visible spectrum, the colors are accurate within the limits of what the display can represent.
+
+The curved edge encompassing the colors is known as the Spectral Locus and is composed of physically realizable monochromatic colors, each label on the diagram is such a color. The encompassed colors are mixtures of the edge monochromatic colors. The region outside does not correspond to physically-possible colors, those chromaticity coordinates outside the spectral locus are referred to as "imaginary". They are often useful for mathematical encoding purposes but are not realizable in any display system. The line closing the horseshoe shape is known as the line of purples.
+
+The volume (or area) of colors either "present in a specific scene, artwork, photograph, photomechanical, or other reproduction; capable of being created using a particular output device and/or medium" is defined by the CIE as the color gamut. Color gamuts are generally represented on the chromaticity diagram as flat, two-dimensional surfaces with uniform luminance. They are specified with a set of tuple of chromaticity coordinates (x, y). The chosen luminance value, often 1, is arbitrary and depends on the use case. For analysis and visualization purposes, it is valuable to draw multiple variants of a color gamut at different luminance values as its surface boundary changes accordingly. By extension, color gamuts such as Pointer (1980)'s gamut of real surface colors, specified with a set of triplets of CIE xyY color space coordinates are representing three-dimensional volumes.
+
+\subsection{Perceptually Uniform Color Spaces and Color Difference}
+
+Although it is not immediately apparent, the chromaticity diagram is a very poor representation of our color perception. Distances between colors in the CIE xyY color space do not directly relate to their apparent perceptual differences. Two adjacent colors may be perceived as different, while colors far apart may be indistinguishable. The degree to which a given color space accurately maps geometric distance to perceptual distance is referred to as its level of perceptual uniformity.
+
+
+MacAdam (1942) ellipses, i.e. indistinguishable color regions, plotted in the CIE 1931 chromaticity diagram and the CIE 1976 UCS chromaticity diagram with improved perceptual uniformity: the ellipses are rounder. Note how the green region of the CIE 1931 chromaticity diagram is highly stretched compared to the same region in the CIE 1976 UCS chromaticity diagram or compared to the blue region in both diagrams. An ideal color space would transform the ellipses into circles. Note that the ellipses axes are 10 times their actual length and that it is possible to generate in-between ellipses by interpolation. Data from Table 2(5.4.1) in Wyszecki, G., & Stiles, W. S. (2000). Color Science: Concepts and Methods, Quantitative Data and Formulae. Wiley. ISBN:978-0471399186
+
+Perceptual uniformity can be a desirable quality for a color space: it supports accurate color differences and lightness prediction. A perceptually uniform color space improves performance of various image processing algorithms such as lossy image compression, denoising, segmentation or device characterisation, image quality modeling and color appearance modeling.
+
+Gamut mapping, the process by which colors lying outside a gamut are mapped inside it, is preferably performed in a perceptually uniform color space because the correlation between the perceptual attributes is reduced and thus hue is minimally affected when the lightness and chroma attributes are individually adjusted to reduce the gamut size.
+
+The non-uniformity of the CIE 1931 Chromaticity Diagram led to the adoption by the CIE in 1960 of the uniform color space devised by MacAdam (1937). The CIE 1960 Uniform Color Space (UCS) is nowadays primarily used to represent the correlated color temperature (CCT) of light sources or illuminants as the isolines are perpendicular to the Planckian locus. The isolines represent delta uv: for a given CCT and its corresponding color, increasing or decreasing delta uv will bias the color toward green or magenta. The tint control in white balancing algorithms is effectively delta uv scaled by a constant.
+ 
+CIE 1960 UCS Chromaticity Diagram with Planckian Locus and perpendicular Iso-Temperature lines.
+
+Conversion from tristimulus values to CIE 1960 UCS color space UVW values is performed as follows:
+UVW = ⅔ × X, Y, ½ × (-X + 3 × Y + Z)
+The chromaticity coordinates uv are then obtained by a perspective projection similarly to the one of CIE xyY color space:
+uv =U / (U + V + W), V / (U + V + W)
+
+The CIE 1976 UCS Chromaticity Diagram, based on CIE L*u*v* color space, superseded the CIE 1960 UCS Chromaticity Diagram.
+
+CIE 1976 UCS Chromaticity Diagram based on CIE L*u*v* color space.
+
+The conversion from tristimulus values to CIE L*u*v* color space is longer than CIE 1960 UCS and is found in the Appendix.
+Other uniform color spaces beyond CIE L*u*v* have been defined: the IPT color space by Ebner and Fairchild (1998) is excellent at predicting perceived hue. CAM16-UCS by Li, Li, Wang, Zu, Luo, Cui, Melgosa, Brill and Pointer (2017) is a uniform color space based on CAM16 that offers good general performance. The ICtCp color space by Lu, Pu, Yin et al. (2016) and the JzAzBz color space by Safdar, Cui, Kim, and Luo (2017) extend perceptual uniformity to high dynamic range and adopt the PQ curve as the basis for Lightness prediction.
+
+The need for quantifying how much two color samples are different was one of the incentives for the CIE to design a perceptually uniform color space and ultimately adopt both the CIE L*a*b* and CIE L*u*v* color spaces in 1976. Color differences are measured as the Euclidean distance between a reference color sample and a test color sample in the CIE L*a*b* color space as follows:
+∆E*76 = √ ((L*r - L*t)2 + (a*r - a*t)2  + (b*r - b*t)2)
+where ∆E*76 is the color difference, L*r, a*r, b*r , and L*t, a*t, b*t are the reference and test color sample. 
+
+While the CIE L*a*b* color space features decent perceptual uniformity, it was deemed unsatisfactory when comparing some pair of colors, compelling the CIE into improving the metric with the CIE 1994 (∆E*94) and subsequent CIE 2000  (∆E*00)  quasimetrics. It is appropriate to measure color differences in the CAM16-UCS, ICtCp and JzAzBz color spaces using Euclidean distance.
+
+\subsection{Additive RGB color spaces}
+
+Additive RGB color spaces are the color representation that most people interact with on a daily basis; our display technology is based on the additive mixing of 3 red, green and blue primaries.
+
+The first RGB color space, CIE RGB, was created by Wright & Guild (1931) when they performed their color matching experiments. The three monochromatic primary colors R, G, B used to match a test color at a single wavelength of light once plotted on the CIE 1931 Chromaticity Diagram, are located on the spectral locus and respectively have the following wavelengths: 700.0 nm, 546.1 nm, and 435.8 nm. sRGB is the ubiquitous RGB color space created by Hewlett Packard and Microsoft in 1996, standardized as IEC 61966-2-1:1999, in an attempt to define a standard color space for use with monitors, printers, and on the Internet. Many other RGB color spaces exist and are reviewed in the Appendix. This section of the document focuses instead on the components of an RGB color space and provides some disambiguation of terminology.
+
+It is common to see operators in digital content creation (DCC) applications or functions in various game engines, libraries, color processing tools labeled as "linear to sRGB". The consequence of poor wording is that people often don't understand that sRGB is probably more than a "linear to sRGB" operator or function. Some resources purport to explain how sRGB and linear color spaces differ.
+First and foremost, while the CIE RGB and sRGB color space gamuts are intrinsically representing radiometrically linear light values, their color component transfer functions are radically different: CIE RGB has no defined encoding and decoding color component transfer functions; they are considered to be linear; however sRGB adopts non-linear color encoding and decoding component transfer functions following a power law.
+
+The confusion comes from the fact that generally, people don't mention which component of the additive RGB color space they are referring to. The following three components are required to fully specify an additive RGB color space:
+
+Primaries
+White point
+Color Component Transfer Functions
+
+Noticeably, the ISO 22028-1:2016 Standard defines an additive RGB color space as follows:
+
+	Additive RGB color space
+
+Colorimetric color space having three color primaries (generally red, green and blue) such that CIE XYZ tristimulus values can be determined from the RGB color space values by forming a weighted combination of the CIE XYZ tristimulus values for the individual color primaries, where the weights are proportional to the radiometrically linear color space values for the corresponding color primaries.
+
+Note 1 to entry: A simple linear 3 × 3 matrix transformation can be used to transform between CIE XYZ tristimulus values and the radiometrically linear color space values for an additive RGB color space.
+
+Note 2 to entry: Additive RGB color spaces are defined by specifying the CIE chromaticity values for a set of additive RGB primaries and a color space white point, together with a color component transfer function.
+
+\subsubsection{Primaries}
+
+The primaries’ chromaticity coordinates define the gamut that can be encoded by a given RGB color space. It is essential to understand that while commonly represented as triangles on a Chromaticity Diagram, RGB color space gamuts define the boundaries of an actual 3D volume within the CIE xyY color space. The shape of the volume is not simply an extruded triangle because each primary reaches unity at a different luminance value. From that point the luminance can only rise by increasing one or both of the other channels, and consequently decreasing saturation. Maximum luminance is only achieved when the three channels reach unity, which corresponds to the achromatic point at the top of the volume.
+A gamut, per definition, only contains physically realizable colors but RGB color space primaries can be located outside of the spectral locus, in such cases, the gamut is the intersection between the given RGB color space volume and the volume of physically realizable colors.
+
+sRGB color space gamut visualized in CIE xyY color space. The shape of the volume is the result of the transformation of an RGB unit cube to CIE XYZ color space followed by a transformation to CIE xyY color space.
+
+
+sRGB, DCI-P3 and BT.2020 RGB color space gamuts in the CIE 1931 chromaticity diagram.
+
+\subsubsection{White Point}
+
+The white point is defined by the CIE as the "achromatic reference stimulus in a chromaticity diagram that corresponds to the stimulus that produces an image area that has the perception of white". Any colors lying on the neutral axis line defined by the white point and its vertical projection toward the bottom of the RGB color space gamut, no matter their Luminance, are neutral to that RGB color space and thus achromatic.
+
+Various RGB color spaces white points in the CIE 1960 UCS chromaticity diagram, note that the ACES white point is not precisely equal to CIE Illuminant D Series D60.
+
+Typical white points are chosen as CIE Standard Illuminants. In 1953, the National Television System Committee (NTSC) published a standard for color television that used CIE Illuminant C. As noted in section 2.3.3, CIE Illuminant C was superseded by the CIE Standard Illuminant D Series D65 and became the illuminant for the PAL and SECAM analog encoding systems for color television in the 1960s.
+In the 1990s, desktop publishing CRT color monitors often adopted a white point close to CCT 9300 K which was deemed too high by the professional printing industry and graphic arts to suitably soft proof images. Printing workflows use CIE Illuminant D Series D50 (ISO 3664:1975) as it is somewhere between average daylight and incandescent light. CIE Illuminant D Series D50 is the illuminant adopted by the International Color Consortium (ICC) established in 1993 by eight imaging companies "for the purpose of creating, promoting and encouraging the standardization and evolution of an open, vendor-neutral, cross-platform color management architecture and components."
+
+Two white points were suggested as an alternative to the high CRT CCT: CIE Illuminant D Series D50 and CIE Standard Illuminant D Series D65. Images displayed on monitors calibrated to CIE Illuminant D Series D50 were deemed dull and yellow in dim to average viewing conditions.
+
+Following on from PAL and SECAM color television, and also as a consequence of the broad adoption of the sRGB IEC 61966-2-1:1999 standard, most modern computer display systems use CIE Standard Illuminant D Series D65.
+
+Digital cinema as per the recommendation of the Digital Cinema Initiative (DCI) adopts the DCI-P3 white point based on a Xenon arc lamp spectral power distribution. ACES uses a white point close to CIE Standard Illuminant D Series D60: its lower CCT makes it more pleasing for dark viewing conditions typical of theatrical exhibition.
+
+\subsubsection{Color Component Transfer Functions}
+The color component transfer functions (CCTFs), defined as "single variable, monotonic mathematical function applied individually to one or more colour channels of a colour space" by  ISO 22028-1:2016 Standard generally perform the mapping between linear light components and a non-linear R'G'B' component signal value, most of the time for coding optimization and bandwidth performance and/or to improve the visual uniformity of a color space.
+
+\paragraph{Encoding Color Component Transfer Functions}
+
+The Encoding CCTF, commonly an Opto-Electronic Transfer Function (OETF) or inverse Electro-Optical Transfer Function (EOTF), maps estimated linear light components in a scene to a non-linear R'G'B' component signal value.
+
+sRGB, Rec. 709 and Cineon Encoding color Component Transfer Functions, note how the Cineon curve imposes a substantial compression to the input domain allowing it to encode a wider dynamic range.
+
+Typical OETFs are expressed by a power function with an exponent between 0.4 and 0.5. They can also be defined as piece-wise functions such as the sRGB or Rec. 709 OETFs. OETFs are necessary for the faithful representation of images and perceptual coding in relation to display non-linear response and the non-linearity of the human visual system.
+
+Digital cinema cameras usually adopt logarithmic encoding functions such as Sony S-Log, ALEXA LogC or Canon C-Log allowing storage of a much wider dynamic range from the original scene compared to a generic Rec. 709 HDTV camera. To some degree, they are considered as flavors of the Cineon encoding found in the Kodak Cineon System, an early 1990s computer-based digital film system. The main difference between digital cinema cameras encodings and Cineon is that the latter is a logarithmic encoding directly corresponding to the optical density of the film negative. In order to know the relationship between a Cineon encoding and scene light, it is necessary also to know the characteristic curve of the film stock.
+
+
+\paragraph{Decoding Color Component Transfer Functions}
+
+The Decoding CCTF, commonly an EOTF or inverse OETF, maps a non-linear R'G'B' video component signal to a linear light components at the display. It describes how a display, such as a TV or a projector, responds to an incoming electrical signal and how it converts code values into visible light.
+
+
+sRGB, Rec. 1886 and Gamma 2.2 Decoding color Component Transfer Functions. Note that the sRGB transfer function used as an EOTF is subject to debate as seen in section 4.1.3.
+
+Typical EOTFs are expressed by a power function with an exponent between 2.2 and 2.6 such as BT.1886 for Standard Dynamic Range (SDR) television or a piece-wise function for display using the exact sRGB transfer function as EOTF. High Dynamic Range (HDR) television as standardized by BT.2100 adopts Hybrid Log-Gamma (HLG) or PQ EOTFs.
+
+A listing of commonly used OETFs and EOTFs is included in the Appendix with the specific formulae and constants used for each.
+
+\section{Advanced Colorimetry}
+
+Thus far, mainly unrelated color, i.e. color in isolation such as street lights against the night darkness has been considered. However, real objects and their colors are rarely perceived in isolation, on the contrary, objects are almost systematically seen in the context of many others. Therefore, their colors are said to be related.
+
+Fairchild (2013) presents the perception of gray and brown colors as an example illustrating related colors:
+
+It is not possible to see unrelated colors that appear either gray or brown. Gray is an achromatic color with lightness significantly lower than white. Brown is an orange color with low lightness. Both of these color name definitions require specific lightness levels. [...] To convince yourself, search for a light that can be viewed in isolation (i.e., completely dark environment) and that appears either gray or brown.
+
+One might infer that color appearance is affected by its surroundings and this is indeed the case. The study of color appearance is the objective of advanced colorimetry.
+
+Fairchild (2013) references a citation from Wyszecki (1973) describing basic colorimetry first:
+
+Colorimetry, in its strict sense, is a tool used to making a prediction on whether two lights (visual stimuli) of different spectral power distributions will match in color for certain given conditions of observation. The prediction is made by determining the tristimulus values of the two visual stimuli. If the tristimulus values of a stimulus are identical to those of the other stimulus, a color match will be observed by an average observer with normal color vision. 
+
+And then advanced colorimetry:
+
+Colorimetry in its broader sense includes methods of assessing the appearance of color stimuli presented to the observer in complicated surroundings as they may occur in everyday life. This is considered the ultimate goal of colorimetry, but because of its enormous complexity, this goal is far from being reached. On the other hand, certain more restricted aspects of the overall problem of predicting color appearance of stimuli seem somewhat less elusive. The outstanding examples are the measurement of color differences, whiteness, and chromatic adaptation. Though these problems are still essentially unresolved, the developments in these areas are of considerable interest and practical importance.
+
+Advanced colorimetry and color appearance models extend basic colorimetry by making predictions about the perception of color under various viewing conditions. While its exploration is out of the scope of this document, viewing conditions, elementary terminology and various color appearance phenomena will be defined as some are necessary to understand various concepts touched on. Fairchild (2013) is a recommended reading for in-depth information, and Luo et Li (2013) for a quick primer centered around CIECAM02.
+
+\subsection{Viewing Conditions}
+
+The elements of the viewing field modify the color appearance of a test stimulus (typically a uniform patch subtending 2 degrees or an image).
+Color stimuli presented with their viewing field. 
+Ralph Breaks the Internet Image copyright ©Disney. All Rights Reserved.
+
+The viewing field elements are defined as follows
+Reference White: Used to scale the Lightness of the test stimulus and is assigned the value of 100. Reference white does not exist when viewing unrelated color. In the context of image viewing, it is the white border surrounding an image.
+Proximal Field: The immediate environment of the test stimulus subtending 2 degrees in all directions from the edge of the stimulus.
+Background: The environment of the test stimulus subtending 10 degrees in all directions from the edge of the proximal field.
+Surround: The field outside the background, generally qualified as being dark, dim, average or bright and taken as being respectively 0%, 0% to 20%, 20% to 100% or 100% and over of the reference white luminance.
+Adapting Field: The total environment of the test stimulus, including the proximal field, the background and the surround and extending to the limit of vision in all directions.
+
+The following table enumerates different but common real-life viewing scenarios with surrounds ranging from dark to bright.
+Viewing Scenario
+Ambient Illumination in Lx (or cd/m2)
+Scene or Device White Luminance in cd/m2
+Adapting Field Luminance in cd/m2
+Adopted White Point
+Surround
+Viewing Slides in Dark Room
+0 (0)
+150
+30
+Projector
+Dark
+Viewing Self-Luminous Display at Home
+38 (12)
+80
+20
+Display
+and
+Ambient
+Dim
+Viewing Self-Luminous Display under Office Illumination
+500 (159.2)
+80
+15
+Display
+Average
+Surface color Evaluation in a Light Booth
+1,000 (318.3)
+318.3
+60
+Light Booth
+Average
+Viewing a Smartphone in Outdoor Sunny Daylight
+100,000 (31,830)
+ 634
+7,500
+Outdoor Daylight
+Bright
+
+\subsection{Terminology}
+
+The following definitions are given as written by the CIE. The definition of colo(u)r is repeated for completeness.
+Colo(u)r:  Characteristic of visual perception that can be described by attributes of hue, brightness (or lightness) and colorfulness (or saturation or chroma).
+Hue:  Attribute of a visual perception according to which an area appears to be similar to one of the colors: red, yellow, green, and blue, or to a combination of adjacent pairs of these colors considered in a closed ring.
+Brightness: Attribute of a visual perception according to which an area appears to emit, or reflect, more or less light.
+Lightness: Brightness of an area judged relative to the brightness of a similarly illuminated area that appears to be white or highly transmitting.
+colorfulness: Attribute of a visual perception according to which the perceived color of an area appears to be more or less chromatic.
+Chroma: colorfulness of an area judged as a proportion of the brightness of a similarly illuminated area that appears white or highly transmitting.
+Saturation: colorfulness of an area judged in proportion to its brightness.
+Unrelated Colo(u)r: Colo(u)r perceived to belong to an area seen in isolation from other colo(u)rs.
+Related Colo(u)r: Colo(u)r perceived to belong to an area seen in relation to other colo(u)rs.
+
+\subsection{Color Appearance Phenomena}
+
+\subsubsection{Lateral-Brightness Adaptation}
+
+Bartleson and Breneman (1967) have shown that perceived contrast of images changes depending on their surround: Images seen with a dark surround appear to have less contrast than if viewed with a dim, average or bright surround.
+
+Lateral-Brightness Adaptation: the left image exhibits more contrast because of the white background compared to the right version. Note that the image must be looked at fullscreen for full effect.
+Fairchild, M. D. (n.d.). The HDR Photographic Survey. Retrieved April 15, 2015, from http://rit-mcsl.org/fairchild/HDRPS/HDRthumbs.html
+
+\subsubsection{Simultaneous Contrast}
+Simultaneous contrast induces a shift in the color appearance of stimuli when their background color changes.
+
+The shifts induced follow opponent color theory:
+A light background induces a darker stimulus.
+A dark background induces a lighter stimulus.
+Red induces green, green induces red, blue induces yellow and yellow induces blue.
+
+Simultaneous Contrast: the red squares have the same code values (Fairchild, 2013).
+
+\subsubsection{Crispening}
+
+Crispening is characterized by the induced increase in the perceived color difference between two stimuli by a background with a color similar to that of the stimuli themselves.
+
+Crispening: the code values on each row are the same.
+Wikipedia. (n.d.). Crispening effect. Retrieved October 13, 2018, from https://de.wikipedia.org/wiki/Crispening-Effekt
+
+\subsubsection{Spreading}
+
+Spreading occurs when the spatial frequency of the color stimuli increases resulting in a simultaneous contrast decrease and an apparent mixture of the stimuli with the surround.
+
+Spreading: reds, yellows, and blues all have respectively the same code values.
+Fairchild, M. D. (2013). Color Appearance Models (3rd ed.). Wiley. ISBN:B00DAYO8E2
+
+\subsubsection{Bezold-Brücke Hue Shift}
+
+The Bezold–Brücke Hue Shift is a change in hue perception of a monochromatic color stimulus as its luminance changes. An expansion of wavelengths appearing yellow or blue, and a decrease in wavelengths appearing green or red occurs as stimulus luminance increases.
+
+\subsubsection{Abney Effect}
+
+The Abney Effect describes the perceived variation in hue of a color stimulus induced by variation of the stimulus colorimetric purity.
+
+Abney Effect: the central stimulus has more colorimetric purity than the surrounding ones and thus has a different perceived hue.
+
+\subsubsection{Purkinje Effect}
+
+The Purkinje Effect or Purkinje Shift describes the shift toward the blue end of the color spectrum of peak luminance sensitivity of the HVS at low illumination levels.
+Two objects, one red and one blue which appear to have the same lightness in daylight will appear differently under scotopic illumination levels: the red will appear nearly black and the blue relatively light.
+
+\subsubsection{Helmholtz–Kohlrausch Effect}
+
+The Helmholtz–Kohlrausch Effect describes the perceived variation in brightness of a color stimulus induced by increased saturation and hue variation of the stimulus while keeping its luminance constant.
+Helmholtz–Kohlrausch Effect: the luminance of each sample is the same as that of the background and constant. The bottom part of the image represents an achromatic version of each above sample.
+
+\subsubsection{Hunt Effect, Hunt (1952)}
+
+The Hunt Effect describes the perceived colorfulness increase of color stimuli induced by luminance increase. Conversely the colorfulness of colors decreases as the adapting light intensity is reduced. 
+Hunt (1952) also found that at high illumination levels, increasing the test color intensity caused most colors to become bluer.
+
+\subsubsection{Stevens Effect, Stevens and Stevens (1963)}
+
+The Stevens Effect describes the perceived brightness (or lightness) contrast increase of color stimuli induced by luminance increase.
+
+\subsubsection{Helson-Judd Effect, Helson (1938)}
+
+The Helson-Judd effect happens when a light source illuminates a greyscale, light regions of the greyscale exhibit chroma of the same hue of the light source while dark regions exhibit chroma of the complementary hue of the light source. The Helson-Judd effect is subtle and is usually not accounted for in practical situations.
+
+\section{Representing Color}
+
+\subsection{Digital Image - Raster Graphics}
+
+A digital image is a rectangular data structure (a 2 or 3-dimensional array) of picture elements (pixels). 
+
+The color of a pixel is determined by a single code for achromatic images or multiple codes for chromatic images, commonly three.
+
+Raster graphics represent color image data as a rectangular grid of code triplets.
+
+The word code implies that a function encoded each pixel color, selecting the appropriate function depends on many factors and requires the introduction of concepts such as color encodings, image states, quantization or perceptual coding.
+
+\subsection{Quantization}
+
+Quantization is the process of mapping a continuous input signal (or sizeable discrete set of input values) to a smaller discrete set of output values (or codes). Quantization is ubiquitous in digital image processing and used to reduce images storage requirements through file size reduction or to lower bandwidth requirements when streaming images.
+
+During quantization, the information between each quantizer step is discarded and irretrievably lost which makes it a lossy compression technique. The difference between the input value and the code value is known as the quantization error or signal distortion.
+
+4-bit quantization of a continuous sinusoidal signal, there are 24==16 quantizer steps.
+
+
+Quantization error decreases the signal-to-noise ratio (SNR) which in the context of digital imaging typically creates banding and contouring artifacts. They can be reduced by introducing a small amount of noise (≈ ½ quantizer step) before the quantization, this is called dithering, and even though it also reduces the SNR, the noise introduced by dithering is usually more compelling than banding artifacts, although it may increase the required bandwidth for compressed deliverables.
+
+\subsection{Perceptual Coding}
+
+As Poynton (1998) explains, a color imaging system is perceptually uniform if a small perturbation of a component value is approximately equally perceptible across the range of that value.
+
+Most electronic color imaging systems account for the non-linearity of the HVS and its logarithmic perceptual response to brightness when encoding RGB scene relative luminance values (linear-light values) into R’G’B’ perceptually uniform values using an OETF. The encoding process makes the reduction of bandwidth and the number of bits required per pixel possible by optimizing digital codes allocation as described in the next section.
+
+Comparing 4 bit linear and perceptually uniform quantization of an image.
+Image copyright © Disney 2018
+
+Old cathode ray tube (CRTs) displays’ electron gun characteristics imposed an EOTF that is approximately the inverse of the HVS perception of brightness. The combination of HVS perceptual response to brightness with the CRT power function produces code values displayed in a perceptually uniform way. Non-linear coding was well understood by the engineers who designed the NTSC television system and was necessary to achieve good visual performance. Modern Standard Dynamic Range (SDR) display devices, e.g. Liquid Crystal Display (LCD), plasma, and Digital Light Processing (DLP), replicate this behavior by imposing a 2.2, 2.4 or 2.6 power function through signal processing circuitry. Their response to the input signal is often reasonably modeled using a gain-offset-gamma (GOG) approximation.
+
+L = (gain × V + offset)ɣ
+where L is the normalized luminance emitted from the display, V is the normalized input device code value, and γ is the Gamma exponent and is discussed in details in section 2.5.5.
+
+As described in section 2.2.6, an increment in Luminance is judged relative to the previous amount. The difference between a Luminance value L and a Luminance value L + ΔL is noticeable for ΔL > ~0.01L. In other words, the just-noticeable-difference (JND) between two Luminance values is about 1%.
+
+The 1.01 (101 / 100) ratio is known as the Weber contrast or Weber fraction. On a linear-light values scale from code 0 to code 255, code 100 is the location where the Weber contrast reaches 1% It increases for codes below 100, raising the perceptible difference between adjacent codes and possibly producing banding and contouring artifacts while decreasing for codes over 100, higher codes become wasteful and could be discarded without affecting the perception of the image.
+An ideal non-linear transfer function allocates code values to minimize the just-noticeable difference. Advanced approaches, e.g. DICOM GSDF and PQ, account for the spatial frequency behavior of the HVS and leverage Barten (2003) Contrast Sensitivity Function (CSF) to model almost optimal functions.
+
+A linear-light values scale showing various Weber contrast values.
+Poynton, C. (2012). Digital Video and HD, Second Edition: Algorithms and Interfaces (2nd ed.). Elsevier / Morgan Kaufmann. ISBN:978-0123919267
+
+
+The contrast ratio is the ratio between the lowest luminance (reference black) and the highest luminance (reference white) that an electronic color imaging system is capable of producing. The artifact devoid contrast ratio is the ratio between the lowest luminance value that can be reproduced without artifacts (code 100 on a linear system) and the peak luminance of the system.
+
+For 8 bit linear-light code values, the artifact devoid contrast ratio is only 2.55:1 (255 / 100). The "code 100" problem as Poynton (2003) terms it, can be addressed by using 12 bit coding (4095 code values) yielding an artifact devoid contrast ratio of 40.95:1, however, most of those codes cannot be visually discriminated.
+
+On the other hand, using a logarithmic or power based perceptual coding, the required number of code values can be dramatically reduced, for example maintaining a 1.01 Weber contrast over scene relative luminance range of [0.01, 100] (contrast ratio of 100:1), requires approximately 462 codes (≈ 9 bits).
+
+
+Perceptual coding is not required when using 16 bit integer (artifacts free contrast ratio of 655.35:1) or half float-representations (Weber contrast of 0.1%, 2^10 = 1024 code values per stop) but file formats adopting those representations are more costly in term of storage and computation.
+
+\subsection{Floating-Point & Logarithmic Representations}
+
+Integer representations are not appropriate for storing linear high-dynamic range scene-referred imagery due to the typical luminance distribution in real-world scenes, even when they are middle-grey normalized. Floating-point systems gracefully address the precision issues associated with encoding scene-referred linear imagery. They represent numbers approximately to a fixed number of significant digits, i.e. the significand, scaled by an exponent in some fixed base, e.g. 2, 10 or 16.
+
+The same unit can represent different orders of magnitude, for example, the temperature of the cosmic microwave background radiation is -270.45 °C while the quasar 3C273 temperature has been estimated to 10 trillion °C. Whereas with integer representations, the interval between two consecutive values is the same throughout the domain, with floating point representations the intervals increase as the exponent does. Fractional values can be represented using a negative exponent, and one bit is reserved to indicate the sign, allowing the coding of negative values as well.
+4 × 2-3 = 4 × ⅛ = ½
+5 × 2-3 = 5 × ⅛ = ⅝
+6 × 2-3 = 6 × ⅛ = ¾
+…
+4 × 22 = 16
+5 × 22 = 20
+6 × 22 = 24
+…
+4 × 28 = 1024
+5 × 28 = 1280
+6 × 28 = 1536
+This approach allows for an almost ideal representation of scene-referred imagery, providing adequate precision in both the shadows and the highlights. In modern visual effects and color pipelines, OpenEXR by Industrial Light & Magic (2003) is most commonly used to store floating-point imagery and helped to popularize the 16 bit half-float format.
+For games, where the balance between performance and memory use (or both) and quality often lies firmly towards performance, smaller floating point formats dropping the sign bit or having less precision (or both) are common. For more information on these, please refer to sections 3.4.3, 3.4.4.1 and 3.5.3.
+For storage and performance reasons, it is common to encode high-dynamic range, scene-referred color spaces with integer representations. Digital motion picture cameras often record 10 or 12 bit integer media, e.g. ProRes, X-AVC, HDCAM SR or DPX files using an integer logarithmic encoding. It allows for most of the benefits of floating point representations, without actually requiring floating-point storage media. Being integer, logarithmic image data is also suitable for transporting over SDI. In logarithmic encodings, successive code values in the integer log space map to multiplicative values in linear space. Put more intuitively, this is analogous to converting each pixel to a representation of the number of stops above or below a reference level, and then storing an integer representation of this quantity.
+
+As logarithmic images encode an extensive dynamic range, most mid-tone pixels reside in the central portion of the encoded scale. Thus, if you directly display a logarithmic image on a sRGB monitor, it exhibits low contrast.
+
+Marcie, a famous reference image in theatrical exhibition and DI workflows, is shown as logarithmically encoded and exhibit low contrast. Image copyright © Eastman Kodak Company.
+
+\subsection{Gamma}
+
+Gamma (γ) is a numerical parameter giving the exponent of a power function assumed to approximate the relationship between a signal quantity (such as a video signal code) and light power.
+
+Encoding gamma (γE), characteristic of OETFs uses an exponent approximately between 0.4 and 0.5 while decoding gamma (γD), characteristic of EOTFs uses an exponent approximately between 2.2 and 2.6.
+
+The various gamma values are usually dependent on the color imaging systems and their defined viewing conditions. A color imaging system achieves representation of a scene in a way that matches viewer expectation of the appearance of that scene instead of attempting to reproduce physical color stimuli quantities. An outdoor sunlight scene can have luminance over 50,000 cd/m2 but may be displayed on a consumer electronic display with a white peak luminance of 320 cd/m2.
+
+Object
+Luminance cd/m2
+Relative Exposure
+Sun
+1,600,000,000
+23.9
+Incandescent lamp (filament)
+23,000,000
+17.8
+White paper in sunlight
+(Maximum value of PQ)
+10,000
+6.6
+Blue Sky
+(Maximum value of HLG)
+5000
+5.6
+Dolby Pulsar HDR reference monitor
+4000
+
+
+HDR reference monitor
+1000
+
+
+White paper in office lighting (500 lux)
+standard television reference monitor
+100
+0
+preferred values for indoor lighting
+50 - 500
+-1.0 - 2.3
+Digital Cinema Projector
+48
+-1.1
+White paper in candlelight (5 lux)
+1
+-6.6
+Night vision (rods in the retina)
+0.01
+-13.3
+
+The different viewing conditions and image formation medium/device capabilities impose that scene luminance must be mapped to image formation medium/device luminance.
+
+As described in 2.5.3 Color Appearance Phenomena, the Lateral-Brightness Adaptation Effect (by virtue of the surround change) and the Steven Effect (by virtue of the display device peak luminance depending on the viewing conditions) will affect the perceived image contrast and is critical to the faithful reproduction of images in the home or theater viewing conditions.
+
+A simple but efficient way to compensate for the different surrounds, viewing conditions and display peak luminance when exhibiting pictures is to increase their contrast as the viewing conditions get darker. Typically, the surround brightness and the display peak luminance will be lower as well. Hunt (2004) reports that to overcome the loss in apparent contrast, the end-to-end system function or Opto-Optical Transfer Function (OOTF) for a digital color imaging system may have appropriate the, controversial, exponent values of 1, 1.25, and 1.5 respectively for bright, dim, and dark surrounds. The surround effect is likely overpredicted when those values are used in color appearance models to transform image lightness contrast based on the relative luminance of the surround. Daniels, Giorgianni and Fairchild (1997) report exponent values of 1, 1.06, and 1.16 as general guidelines.
+Gamma and its correction on a system, the combination of the different encoding and decoding gammas yields an end-to-end (OOTF) system gamma which increases perceived image contrast.
+
+\subsection{Color Encodings}
+
+A color encoding is a digital representation of colors for image processing, storage, and interchange between systems. Madden and Giorgianni (2007) define it as the numerical specification of color information.
+
+A color encoding specification (CES) is a fully specified color encoding scheme and must define both the following components:
+
+Color Encoding Method determining the meaning of the encoded data or what will be represented by the data.
+Color Encoding Data Metric characterizing the color space and the numerical units used to encode the data or how the representation will be numerically expressed.
+It may also include the specification for data file format, data compression method and other relevant attributes.
+
+-
+The Academy Color Encoding System (ACES) used in this document to illustrate many color management concepts, implements various color encodings united into a unified paradigm supporting a wide range of input and output devices.
+
+\section{Color Imaging Systems}
+
+A color imaging system embodies any combination of chemical, electronic and optical technologies and devices required to perform image capture, signal processing, and image formation. The document only scratches the surface of the many possible combinations. The HVS is it·self a color imaging system: light is captured by the eye, signals are generated and an image is formed in the mind. Interested readers should refer to Madden and Giorgianni (2007) for a comprehensive publication on color imaging systems.
+
+\subsection{Image Capture}
+
+Image formation imposes that a signal was captured and processed in the first place.
+In section 2.3.2, spectroradiometers, spectrophotometers, and tristimulus colorimeters are presented as the instruments used to perform color stimuli measurements in Colorimetry.
+
+While most of the time they are used to perform unrelated color measurements for a single sample, they share similar principles and components with cameras and telescopes:
+An entrance slit akin to the tiny aperture of pinhole cameras
+Collimating lenses or mirrors akin to telescope mirrors or camera lenses beaming and guiding the light toward the measuring portion of the instrument.
+A prism or diffraction grating that spreads the light beam so that individual components can be measured at a discrete interval.
+A Complementary Metal Oxide Semiconductor (CMOS) or Charged-Coupled Device (CCD) similar to those of movie or astrophotography cameras.
+
+Typical spectrometer components.
+Biology Wiki. (n.d.). Spectrometer. Retrieved October 14, 2018, from http://biologywiki.apps01.yorku.ca/index.php?title=File:Spectrometer.png
+
+
+
+Optical diagram of a typical DSLR.
+Unknown. (n.d.). DSLR Optical Diagram. Retrieved October 14, 2018, from https://www.dpreview.com/forums/post/61693925
+
+CMOS sensors tend to be cheaper to produce, have less power consumption, e.g. 100 times less, but usually exhibit more noise than CCD sensors. CMOS sensors are typically found in consumer and motion pictures cameras while CCD sensors are usually used in astrophotography and scientific applications requiring the lowest noise profile possible. 
+
+Both sensor types register photons hits, which upon conversion to electrons are stored into charge packets that are then read out.
+
+A successful and accurate color imaging system must have color reproduction characteristics following the HVS, and thus must be trichromatic. Image capture devices such as consumer and movie cameras attempt to be colorimetric by satisfying the Maxwell-Ives criterion which states that their spectral responses, i.e. their sensitivities, must be a linear combination of the CMFs to reduce metameric failures.
+
+Nikon 5100 sensitivities compared to HVS cone fundamentals for 2 degrees.
+In practice, most consumer and motion pictures cameras are not colorimetric, and compromises are made to increase performance such as offsetting the red response of the sensor to longer wavelengths to reduce the noise arising from a peak centered like those of the L cones.
+
+Traditionally, photographs and movies were captured using photographic film. However, with the digital transition and advent of digital capture in the 2000s, this practice is nowadays becoming rarer thus it will not be described in favor of electronic color imaging systems.
+
+While some high-end camera systems use an expensive set of three dichroic filters, three CCD sensors and, a beam-splitter prism, the vast majority of consumer and motion pictures cameras adopt a Bayer Color Filter Array (CFA) with a single sensor. The Bayer CFA is an arrangement of colored filters over the sensor photosites. The exact bandpass characteristics of the filters vary between cameras, but they are designed to transmit red, green and blue light. Because the HVS sensitivity peaks at 555nm, there are twice as many green filtered photosites as there are red or blue. This Bayer CFA was invented by Bryce Bayer at Eastman Kodak and patented in 1976. It empowered the production of much cheaper and compact image capturing systems at the price of reduced image quality due to the loss in spatial resolution and increased noise.
+
+
+Close-up of a Bayer CFA mosaiced image on the left, the RGGB CFA mask in the middle and the demosaiced image with Directional Filtering and a posteriori Decision from Menon (2007).
+
+\subsection{Signal Processing}
+
+The raw image data must be processed to be displayed. Multiple operations are performed in succession until the image is ready. However, there is not a single, and unique path to that end and two cameras or raw processing applications might take different ways for a similar result. A typical process may adopt those steps:
+Linearization
+Black Level Subtraction
+White Level Scaling
+Clipping
+White Balancing
+Demosaicing
+Conversion to Working RGB Color Space
+With raw image captured by a Bayer CFA camera already linearly encoded or whose data is already linearized, the thermal black encoding level must be subtracted. The black subtracted image data is then rescaled in range 0-1 with the scale factor being the inverse of the difference between the white level, i.e. the saturation encoding level, point after which the sensor behaves non-linearly, or camera circuitry introduces clipping, and the maximum black level for a given channel. The scaled image is clipped so that no values are outside range 0-1.
+
+The clipped image is white balanced so that achromatic colors of the scene stay neutral once reproduced. The process is similar to the HVS chromatic adaptation ability. Viggiano and Henrietta (2004) compared the accuracy of various white balancing methods and found "that the illuminant-dependent characterization produced the best results, sharpened camera RGB and native camera RGB were next best, XYZ and Von Kries were often not far behind, and balancing in the -709 primaries was significantly worse."
+
+The Von Kries chromatic adaptation method is described because of its widespread usage in other contexts such as conversion between RGB color space with different white points. It involves converting the image to a LMS color space representing the cone fundamentals sensitivities and perform gain adjustments on each one of the Long, Medium and Short components as follows:
+
+Where L', M', S' are the white-balanced LMS cone values, Lw, Mw, Sw are the LMS cone values of a reference achromatic object in the scene, e.g. a perfect white diffuser, and L, M, S are the non white-balanced LMS cone values. The conversion from CIE XYZ tristimulus values to LMS color space is performed with a chromatic adaptation matrix such as Bradford or CAT02.
+
+CAT02 chromatic adaptation matrix.
+
+Once white balanced, the image must then be demosaiced to produce RGB pixel values for all the photosites. Many different demosaicing algorithms exist to estimate the values for the two unrecorded channels at each photosite. Fast ones, such as bilinear interpolation, used in real-time applications or for previewing purposes and editorial. Algorithms such as Adaptive Homogeneity-Directed (AHD) from Hirakawa and Parks (2005) or Demosaicing With Directional Filtering and a posteriori Decision (DDFAPD) from Menon (2007) produce much higher quality results but are slower. In the context of digital imagery that will be heavily post-processed, it is often preferable to use a demosaicing algorithm producing softer results and thus less prone to edge artifacts and then add sharpening selectively as part of the finishing process.
+
+Upon demosaicing, the resulting image must be mapped from its native color space, often referred to as Camera RGB, to the CIE XYZ color space or any relevant RGB color space. The transformation is usually performed using a 3x3 matrix applied to the linear Camera RGB values. This matrix is the result of the camera characterization process described in section 4.8. and is ordinarily given by the camera makers or third-party organizations such as Adobe Systems with their camera .dcp profiles or the A.M.P.A.S with some of their ACES Input Device Transforms (IDT).
+
+At this stage, the image is almost ready to be displayed: It requires a Look Transform and Output Transform as described in sections 3.1.3 and 3.14 to be faithfully represented.
+
+\subsection{Image Formation}
+
+Image formation is the final stage of a color imaging system. The processed image signals are used to drive the display device color-forming elements: the display primaries.
+
+As indicated in section 2.3.9, the vast majority of modern electronic display devices use an additive image formation process: from the venerable CRT to the high-end modern phosphor laser cinema projector, and including LCD, plasma, OLED and DLP.
+Display primaries of a consumer smartphone and a consumer tablet. Spectral data courtesy of fluxometer.com.
+LCD, plasma and OLED displays form images using red, green and blue light emitting adjacent elements. The colors are mixed when the light emitted by each element reaches the observer HVS, and overlaps onto the retina to generate the final color stimuli.
+
+On the other hand, DLP and projectors form images by combining modulated red, green and blue light directly on the projection screen, creating the final color stimuli and reflecting it toward the observer HVS.
+
+Writing in-progress…

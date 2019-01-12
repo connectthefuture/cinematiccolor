@@ -1,0 +1,1085 @@
+\chapter{Appendix}
+
+\section{Common RGB Color Encodings: Primaries, White Points and Transfer Functions}
+
+
+
+
+
+An RGB color encoding is defined by its primaries, white point and transfer functions. Output-referred encodings have only an Electro-Optical Transfer Function (EOTF) which defines the relationship between code value and display light. This may be defined relative to display peak luminance, or as an absolute encoding in terms of display cd/m2. Scene-referred encodings have only an Opto-Electrical Transfer Function (OETF) which defines the relationship between relative scene light and the encoded value. Some encodings, such as Hybrid Log-Gamma (HLG), define a relationship to both scene and display light, so have both an OETF and and EOTF. Encoded values may be represented either as floating point numbers, or by integers at a specific bit depth. The equations given in the following sections are for the floating point form. Logarithmic encodings of image data can fit a high dynamic range into the 0-1 range, which makes them suitable for storing in integer file formats or transmitting over SDI.
+
+The primaries and white points of some common color encodings are plotted on the CIE 1931 chromaticity diagram above. The subsequent sections give more detail on the usage of each color encoding, together with the various encoding and decoding functions. The complete set of all forward and reverse encoding and decoding functions (an EOTF is not normally the inverse of the corresponding OETF, creating an Optical to Optical Transfer Function, or OOTF) is available in Colour Science for Python, together with the matrices to transform to CIE XYZ, referred to as the Normalized Primary Matrix (NPM) of a color space, and their inverses.
+
+\subsection{Rec. 709}
+
+ITU-R BT.709, commonly referred to as Rec. 709, specifies a D65 white point and a piecewise transfer function. It is important to be aware that the transfer function given for Rec. 709 is an encoding function (OETF) for a video camera, not an EOTF for a display, making it a scene-referred encoding. It is, in fact, rare to find the Rec. 709 curve implemented exactly in any camera, as video cameras often include a ‘knee’ for highlight compression and other user controls which cause the image to diverge from the standard. This means that it is not normally possible to accurately invert Rec. 709 material to scene-referred linear. Where necessary, ITU-R BT.2087-0 recommends the use of a simple square function to revert material from a Rec. 709 camera to scene-referred linear.
+
+The encoding function specified in Rec. 709 is:
+
+	if L ≥ 0.018:
+            		V = 1.099 × L0.45 - 0.099
+	else:
+		V = L × 4.5
+
+Where L is scene light, normalized to 0-1, and V is the encoded value. This output value is also normalized to 0-1 but is usually stored as an integer, in either full or legal range (see Section 4.7).
+
+
+
+
+Red
+Green
+Blue
+White Point
+0.640, 0.330
+0.300, 0.600
+0.150, 0.060
+0.3127, 0.3290 (D65)
+
+\subsection{BT.1886}
+
+The ACES Still Life reference image encoded with the Rec. 709 (BT.1886) Output Transform.
+Copyright © A.M.P.A.S.
+The EOTF used for display of Rec. 709 material is specified by ITU-R BT.1886, which was introduced later, as no EOTF was specified originally in Rec. 709. It is a variation on a gamma curve, intended to more accurately replicate the response of legacy CRT displays. The BT.1886 equation takes account of the black level of the display in use, but for display technologies, such as OLED, which are capable of producing a true black, BT.1886 becomes a pure 2.4 gamma power law curve. In fact, standard practice is to calibrate OLED displays to a non-zero black level. However, when encoding material for an unspecified BT.1886 display, where the black level is unknown, the norm is to use a pure 2.4 gamma, as is done in the ACES Rec. 709 Output Transform, for example.
+
+A BT.1886 display uses the primaries as defined by Rec. 709, and the following EOTF:
+
+	L = a × (V + b)2.4
+
+Where L is the screen luminance and V the encoded signal (ranged 0-1). The constants a and b are calculated from the target black level LB and white level LW (normally 100 cd/m2 for a grading reference monitor, but often considerably higher for a consumer TV) using the following equations:
+	a = (LW1/2.4 − LB1/2.4)2.4
+	b = LB1/2.4 / (LW1/2.4 − LB1/2.4)
+
+When encoding desired display colorimetry for BT.1886 display, where the black level of the display is unknown (as is always the situation when delivering video for a wide audience) the recommended approach is to use a value of zero for LB. For this reason, the ACES Rec. 709 Output Transform uses pure 2.4 gamma.
+
+\subsection{sRGB}
+
+The ACES Still Life reference image encoded with the sRGB Output Transform.
+Copyright © A.M.P.A.S.
+Due to differences in inherent display technologies, there is substantial variation in the appearance of RGB when the same code values are sent to multiple displays, making the unambiguous distribution of RGB imagery difficult. As a solution, a standard idealized computer display has been defined, sRGB, which real displays often attempt to reproduce. The intent of sRGB (Standard RGB) is to define the color characteristics of a standardized RGB display, such that imagery on one monitor matches the appearance of a different monitor. Older display technologies (such as CRTs) naturally approach the sRGB specification. However, modern technologies, such as LCD and OLED which have very different inherent image responses, typically provide an option to emulate the sRGB specification to maintain compatibility with existing imagery.
+
+sRGB uses the primaries and D65 white point specified in ITU-R BT.709, and thus can represent the same gamut of colors as Rec. 709.
+
+The sRGB encoding function is defined as:
+
+	if L > 0.003131:
+            		V = 1.055 × L1/2.4 - 0.055
+	else:
+		V = L × 12.92
+
+Where L is the luminance of the image normalized to the range 0-1 and V is the resulting encoded signal. The sRGB encoded signal is commonly stored as an 8 bit integer, which would be round(V × 255).
+
+The sRGB decoding function is defined as:
+
+	if V > 0.04045:
+            		L = ((V + 0.055) / 1.055)2.4
+	else:
+		L = V / 12.92
+
+There is some debate about the EOTF to be used for displaying sRGB image data. Since the sRGB transfer function approximates 2.2 gamma, some take from the specification that it defines an OETF to be used when encoding image data for a display with 2.2 gamma, and that the linear portion near black exists only to minimize quantization error in integer implementations. Others contend that the sRGB decoding function should be used as the EOTF so that the sRGB curve can be used to exactly encode desired display colorimetry.
+
+Since there is no agreement on this matter, outside a situation where both the encoding of the image data and the calibration of the display are within your control, it is not possible to be certain of the exact luminance which will result on an end user's sRGB display from a given encoding.
+
+The situation is complicated still further by viewing environment. One of the aims of the sRGB specification was to define a standard for display of video material on a computer monitor such that there is a perceptual match between a video monitor in its expected viewing environment and a computer monitor in a brighter environment. This would suggest that video images should not be modified for viewing on a sRGB monitor, as the necessary compensation is already built into the display. ACES provides separate Output Transforms for Rec.709 and sRGB, intended to produce the same display colorimetry on the two display standards. This is however only an appropriate approach if the two displays are to be viewed in the same environment.
+
+
+
+Red
+Green
+Blue
+White Point
+0.640, 0.330
+0.300, 0.600
+0.150, 0.060
+0.3127, 0.3290 (D65)
+
+\subsection{Rec. 2020}
+
+The ACES Still Life reference image encoded with the Rec. 2020 100 nits Output Transform
+Copyright © A.M.P.A.S.
+ITU-R BT.2020, commonly called Rec. 2020 defines a color space wider than Rec. 709, using D65 white, which was initially defined for wide gamut standard dynamic range encodings, but whose primaries have been adopted for HDR. These primaries are in fact normally used simply as encoding primaries, with the colors limited to a smaller gamut such as P3, since no current display covers the Rec. 2020 gamut. Like Rec. 709, the Rec. 2020 specification defines an encoding curve for a hypothetical SDR camera which is in fact almost never used. The OETF defined by Rec. 2020 is:
+
+	if L ≥ β:
+            		V = α × L0.45 - (α - 1)
+	else:
+		V = L × 4.5
+
+The values of α and β are defined as 1.09929682680944 and 0.018053968510807 respectively at full precision, but the document clarifies that for practical purposes in 10 bit systems the values 1.099 and 0.018 can be used (making this the same equation as that for Rec. 709) and for 12 bit systems, 1.0993 and 0.0181 can be used.
+
+In SDR, Rec. 2020 specifies a display with a BT.1886 EOTF. But in fact, Rec. 2020 is more commonly used only as a set of primaries for an output referred encoding, together with either ST.2084 or HLG curves.
+
+Red
+Green
+Blue
+White Point
+0.708, 0.292
+0.170, 0.797
+0.131, 0.046
+0.3127, 0.3290 (D65)
+
+\subsection{ST.2084 / PQ}
+
+The ACES Still Life reference image encoded with the ST.2084 1000 nits Output Transform.
+Copyright © A.M.P.A.S.
+SMPTE ST.2084 is an output referred encoding curve used for high dynamic range displays, normally in conjunction with Rec. 2020 primaries. It can encode values up to 10,000 cd/m2, and was originally specified by Dolby under the name PQ, for Perceptual Quantizer. To encode such a wide range without visible banding, ST.2084 requires at least 12 bit processing to be used in production. For delivery at least 10 bits are required, and although visible banding is possible at this bit depth, experiments by Dolby have indicated that noise present in real-world images makes this banding imperceptible. Integer codings may use either “narrow range” or “full range” (see section 4.7).
+
+Because PQ is perceptually uniform, it can be a useful working space for applying grades, or as a shaper for LUTs (see section 4.4.3) and some game engines do exactly this, transforming from linear to PQ in order to apply a look as a 3D LUT, and then transforming back to linear for further processing.
+
+ITU-R BT.2100 specifies both an OETF and EOTF for PQ, which are not the inverse of one another, creating a non-unity OOTF. While in theory, this allows PQ to be used as a scene referred encoding, in practice, no digital cinema camera currently implements this, and the encoding function exists in the spec only for completeness. It is important to be aware that the BT.2100 OETF is not the same as the OETF specified in SMPTE ST.2084, which is simply the inverse of the EOTF.
+
+The ST.2084 EOTF is an absolute encoding, defined by the following equation:
+
+	L = 10000 × ((V1/m2 - c1) / (c2 - c3 × V1/m2))1/m1
+
+Where L is the display luminance in cd/m2 and the constants are:
+	m1 = 2610 / 16384
+	m2 = 2523 / 4096 × 128
+	c1 = 3424 / 4096
+	c2 = 2413 / 4096 × 32
+	c3 = 2392 / 4096 × 32
+
+
+
+While the output of the ST.2084 EOTF is defined in absolute units of cd/m2, the input to the function is less rigorously defined. As such, there is some debate as to what transform to apply to scene-referred linear data before converting to ST.2084. The most basic approach would be to simply scale the scene-referred linear values to set diffuse white to a particular display brightness and then encode with the inverse of the ST.2084 EOTF. However, this would make display light directly proportional to scene light and, as has been discussed in Section 2, due to the difference in absolute luminance and viewing environment, this will not normally give a perceptual match. Some form of view transform is usually required. This can be left to the colorist to add as part of the look, but a base transform which adds some contrast and roll-off in the highlights and shadows can be beneficial. It is also worth bearing in mind that the traditional lift, gamma, and gain operators are particularly unsuitable for acting on ST.2084 image data, where 0-1 represent zero to 10,000 cd/m2. Highlights, in particular, can swing uncontrollably into extreme values as a result of small changes. Modern grading systems offer alternate grading operators tailored to the needs of HDR grading.
+
+The most universally available view transforms for HDR are the ACES Output Transforms. Versions are included for 1000, 2000, and 4000 cd/m2. These aim to provide an HDR image which is perceptually similar to the result of the ACES SDR Output Transforms, placing diffuse white at about 86 cd/m2, and reserving the higher luminances for specular highlights and in-frame light sources. This is in line with the original intent of the ST.2084 specification, which says that it “is intended to enable the creation of video images with an increased luminance range; not for the creation of video images with overall higher luminance levels.” However, as more experience has been gained with delivering in HDR, many people have come to feel that a higher level for diffuse white is preferable and that, particularly given the higher brightnesses of current consumer SDR televisions and computer displays, this gives a better perceptual match between SDR and HDR versions of the same image. ITU-R BT.2408-0 recommends setting diffuse white at 203 cd/m2, but acknowledges that it is a creative choice. This kind of exposure offset can be achieved in ACES as part of an HDR specific Look Transform which simply applies gain in linear. The parametric Output Transforms which form part of ACES 1.1 include a parameter for “mid-point luminance” (18% grey) but this is not currently exposed to end users and is fixed at 15 cd/m2 to provide backward compatibility with ACES 1.0.3.
+
+Some manufacturers implement view transforms for HDR in their cameras for on-set HDR monitoring, and provide LUTs which match those transforms for use in post. ARRI’s ALF-2 and RED’s IPP2 LUTs can be used as output transforms for LogC/ALEXA Wide Gamut and Log3G10/RED Wide Gamut working spaces respectively, and other color encodings can be transformed to those to make them suitable as input for the LUTs. Some grading systems implement these as options in their color management pipelines, and also offer their own proprietary view transforms. When using a proprietary tone mapping algorithm it is important to ensure that a method is available, usually by baking a LUT, for implementing the transforms in other software.
+
+\subsection{Hybrid Log Gamma (HLG)}
+
+The ACES Still Life reference image encoded with the HLG Output Transform.
+Notice that the image looks “normal”, if somewhat muted on an SDR display.
+Copyright © A.M.P.A.S.
+Hybrid Log Gamma is an encoding designed by the BBC in collaboration with NHK. It is defined as a scene referred encoding so is based on an OETF but also defines an EOTF to work in conjunction with it. When concatenated, these produce the encoding’s OOTF, a system gamma, which defines the relationship between scene light and display light. The HLG OOTF is a power function whose exponent is dependent on the peak white of the particular display. It is also, unlike most transfer functions, not simply applied to each RGB component independently, but rather it incorporates the luminance value, a weighted sum of the three linear components, in the calculation.
+
+Part of the design intent of HLG is that the OETF encodes a high dynamic range scene using a curve which is broadly similar to that which might be used by a traditional SDR video camera with a highlight compressing ‘knee’. This means that an HLG signal displayed on an SDR monitor, which has no way of interpreting the signal as HDR and simply applies a BT.1886 EOTF, will produce a reasonable looking image. Because HLG encodings normally use Rec. 2020 primaries, rather than Rec. 709, the image is likely to look somewhat desaturated, but it will be watchable. This backward compatibility is intended to enable HLG signals to be processed through legacy SDR infrastructure in studios and outside broadcast trucks, without all monitors needing to be replaced with HDR displays. In order to provide this kind of compatibility, it is recommended to set exposure so diffuse white falls at 75% in HLG. On a 1000 cd/m2 display this will produce the same 203 cd/m2 luminance as using ST.2084 according to ITU-R BT.2408-0, as mentioned above.
+
+Whilst HLG provides additional headroom for highlights by ‘emulating’ a traditional SDR camera knee, a large increase in dynamic range is also achieved by no longer using a linear part of the OETF near black. This is a significant difference from the SDR Rec. 709 curve. Not having a linear portion to the OETF means that noise reduction in the blacks must be achieved by alternative processing in the camera.
+
+The HLG encoding function is defined by ITU-R BT.2100 as:
+
+	If L ≤ 1/12:
+		V = sqrt(3 × L)
+	else:
+		V = a × ln(12 × L - b) + c
+
+Where the constants are:
+
+	a = 0.17883277
+	b = 1 - 4 × a
+	c = 0.5 - a × ln(4 × a)
+
+And L is normalized such that the entire scene dynamic range to be encoded is scaled to the 0-1 range.
+
+
+
+The HLG EOTF is defined in terms of its OOTF, which is:
+
+	RD = α × YSγ-1  × RS
+	GD = α × YSγ-1 × GS
+	BD = α × YSγ-1 × BS
+
+Where [RS, GS, BS] is the scene light for the three components, and [RD, GD, BD] is the display light for the components. YS is the scene luminance, calculated as:
+
+	YS = 0.2627 × RS + 0.6780 × GS + 0.0593 × BS
+
+And:
+α = LW
+	γ = 1.2 + 0.42 × Log10(LW ￼/ 1000)
+
+The values of RS, GS and BS are derived by inverting the encoding function for each component using the following formula:
+
+E = max(0, V × (1 - β) + β)
+	If E ≤ 0.5:
+L = E2 / 3
+else:
+	L = (exp((E - c) / a) + b) / 12
+Where:
+β = sqrt(3 × (LB / LW)1/γ)
+
+
+
+In practice, while HLG may be used as a scene referred encoding in situations such as live sports broadcasting, an HLG deliverable is often created from an ST.2084 display-referred master by applying the ST.2084 EOTF followed by the inverse HLG EOTF for a notional 1000 cd/m2 display to compute the HLG signal needed to produce the same displayed image as the ST.2084 signal.
+
+\subsection{P3 DCI}
+
+The ACES Still Life reference image encoded with the P3 DCI Output Transform.
+Note that this output transform includes a “D60 sim”, giving the image a slight magenta tint when viewed on an sRGB (D65) display. On the intended P3 DCI display neutrals would appear with ACES (~D60) white.
+Copyright © A.M.P.A.S.
+DCI-P3 is a color space commonly used in digital cinema production, as it is well suited to theatrical presentation since it describes the native primaries of a DLP projector. Whereas the sRGB specification uses a color encoding suited for the desktop environment, the DCI-P3 specification uses a color encoding suited for theatrical luminance levels.
+
+A projector calibrated to DCI-P3 uses a pure 2.6 gamma EOTF with a white point of 0.314, 0.351. The P3 primaries are wide-gamut relative to desktop standards; pure sRGB red is relatively desaturated with a distinctly orange-red hue, while pure P3 red is “blood” red, almost on the spectral locus. The DCI white point is not necessarily the creative white point used in mastering. Productions are free to master to any white point they prefer, provided all mastered colors fall within the allowed DCI gamut. Indeed, for artistic considerations, the DCI white point is often avoided due to its greenish cast relative to the daylight curve.
+
+
+Red
+Green
+Blue
+White Point
+0.680, 0.320
+0.265, 0.690
+0.150, 0.060
+0.314, 0.351
+
+\subsection{P3 D65}
+
+The ACES Still Life reference image encoded with the P3 D65 48 nits Output Transform.
+Copyright © A.M.P.A.S.
+The Primaries of P3 are also used in combination with a D65 white point. Where projectors are calibrated to P3 D65 the same 2.6 gamma as P3 DCI is used, but for wide gamut desktop displays the EOTF used is 2.2 gamma. In addition, P3 D65 is often used as a “limiting gamut” when a wider gamut such as BT. 2020 is used as the encoding gamut, but where the target display is not capable of covering that gamut.
+
+\subsection{X’Y’Z’}
+
+The ACES Still Life reference image encoded with the DCDM Output Transform.
+On an sRGB display it is low contrast (due to the 2.6 gamma) and the colors appear incorrect, since XYZ values are being interpreted as if they were RGB.
+Copyright © A.M.P.A.S.
+The Digital Cinema Initiative (DCI) specification defines the standard for digital cinema mastering and theatrical exhibition, including colorimetry. The encoding specified for DCP mastering is  X’Y’Z‘ (called “x-prime, y-prime, z-prime”). It is an output-referred, gamma 2.6 encoding of CIE-XYZ, with a reference white at 48cd/m2. As the X’Y’Z’ coding space spans an area larger than the visual gamut, the minimum display gamut specified by DCI is that of P3.
+
+The intent of the X’Y’Z’ coding space is display-referred, such that the full-color appearance of the theatrical imagery, such as any film emulation 3D LUTs, are fully baked into the X’Y’Z’ image. Therefore, an image in X’Y’Z’ is completely unambiguous; there should be essentially no color variation between properly calibrated theatrical digital projectors.
+The DCI specification chose a gamma 2.6 encoding after a series of perceptual experiments using “golden-eye observers” to maximize the bit-depth fidelity under theatrical viewing conditions. DCI specifies 12 bits per channel, which is intended to prevent banding artifacts under even the most trying conditions. DCI also specifies a series of color patches which are useful in calibration. (Please refer to the DCI specification for additional details.) X’Y’Z’ files are encoded using JPEG-2000 compression, which is a lossy, wavelet compression codec. No inter-frame compression is used, which allows for both forward and backward scrubbing. The DCI specification also defines two resolutions known as “2K” and “4K”. The 2K raster is 2048x1080 and the 4K raster is 4096x2160. DCI compliant films must fill at least one of these axes. Material with an aspect ratio of 1.85:1 - “flat” - is typically delivered for a 2K release at 1998x1080, and 2.39:1 - “scope” - is delivered for a 2K release at 2048x858. For 4K release, double these sizes. DCP encoders accept 16 bit tiffs, so the convention is to utilize the full 16 bit coding range of 0-65535, and then to let the compressor just use the high order 12 bits.
+
+The method for conversion from a DCI P3 encoding to X’Y’Z’ is:
+	XYZ = 	  0.44516982   0.27713441   0.17228267 	  R2.6
+		  0.20949168   0.72159525   0.06891307	      ×	  G2.6
+		  0.00000000   0.04706056   0.90735539   	  B2.6
+	X’Y’Z’ = round(4095 × (clamp(XYZ) × 48 / 52.37)1/2.6)
+Where R, G and B are 2.6 gamma coded DCI P3 values in the range 0-1.
+
+The matrix shown converts [1, 1, 1] to [3794, 3960, 3890], the reference code values for DCI white. A different matrix is needed for material mastered to a different white point, i.e. encoded for a projector with a different white point and a viewer adapted to that white. A change of creative white baked into a P3-DCI encoding (such as the ACES “D60 sim”) does not require a change of matrix.
+
+The value of 48/52.37 is called the normalizing constant and is included to permit mastering with creative white points other than the DCI calibration white. Equal DCDM code values produce Equal Energy white (Illuminant E – the result of a flat spectral power distribution). Unequal code values are needed to produce other whites, such as DCI white, or D65. If code values of [4095, 4095, 4095] produced Equal Energy white at 48 cd/m2, the values needed to produce D65 white at 48 cd/m2 would be [4016, 4095, 4232] and 4232 is outside the range possible with 12 bit integer coding.
+
+See Kennel (2007) for additional details on mastering for digital cinema. The full DCI specification by Digital Cinema Initiatives (2018) is freely available online; highly recommended reading for those involved in theatrical mastering.
+
+\subsection{ALEXA LogC}
+
+LogC is the encoding used in the ARRI ALEXA series of cameras, including the AMIRA. It is used together with the ALEXA Wide Gamut primaries and a white point of D65. The exact encoding curve varies slightly with the Exposure Index (EI) set on the camera, keeping 18% grey to an encoded value of 400/1023, and applying highlight compression at EI values above 1600 to prevent sensor clipping falling above the LogC 0-1 range. The exact linearization curves for LogC at all EI values are included as 1D LUTs in the Input Transforms in the ACES GitHub repository, together with the Python code which generates those 1D LUTs. However, in many cases, the simplified form of the curve for EI800 is sufficient, for which the encoding function is:
+
+	if L > cut:
+		V = c × log10(a × L + b) + d
+else:
+V = e × L + f
+
+At EI800 the values of the constants are:
+
+	cut = 0.010591
+	a = 5.555556
+	b = 0.052272
+	c = 0.247190
+	d = 0.385537
+e = 5.367655
+￼	f = 0.092809
+
+The decoding function is:
+
+	if V > e × cut + f:
+L = (10(V − d) / c − b) / a
+else:
+(V − f) / e
+
+
+
+Red
+Green
+Blue
+White Point
+0.6840, 0.3130
+0.2210, 0.8480
+0.0861, -0.1020
+0.3127, 0.3290 (D65)
+
+\subsection{Blackmagic Film}
+Cameras from Blackmagic Design (BMD) use different log encoding curves, depending on the model. The mathematical encoding curves are not currently published, and neither are the primaries. However 1D LUTs for linearization are provided with DaVinci Resolve, and these can be used in other applications. The encoding primaries of log material from Blackmagic cameras can be converted using the Colour Space effect in Resolve.
+
+\subsection{Canon CLog}
+
+Canon cameras offer a range of options for encoding curves and primaries, making for a very large number of permutations. Primaries can be selected from Cinema Gamut, Rec. 2020 and Rec. 709 (see sections above for the latter three). For the encoding curve, there is a choice of Canon Log 1, 2 and 3. It is important to ascertain which primaries and Canon Log variant were used when shooting, in order to linearize correctly and transform to the working color space. Many applications are unable to read the Canon metadata which specifies the recording primaries and encoding curve, so it can be useful to open the media in the Canon XF Utility, available from Canon’s website, and make a note of the settings.
+
+The latest iteration of Canon Log is Canon Log 3, for which the encoding function is:
+
+	if L < -0.014:
+		V = −0.42889912 × log10(1 - 14.98325 × L) + 0.07623209
+	else if L ≤ 0.014:
+		V = 2.3069815 × L + 0.073059361
+	else:
+V =  0.42889912 × log10(1 + 14.98325 × L) + 0.069886632
+
+However, this is complicated by the fact that this formula takes as its input what Canon refers to as “linear IRE”. This is given by dividing the more commonly used reflectance value by 0.9. Thus 18% grey would be input to the function not as 0.18, but rather as 0.2. Also the function returns ‘IRE’ but Canon Log image data is more likely to be stored as unscaled code values, so while the function returns 0.327954 for an input of 0.2, the 10 bit code value stored for 18% grey will be round(64 + 0.327954 × (940 - 64)) = 351.
+
+
+
+Bearing the above in mind, the decoding function for Canon Log 3 “IRE” to “linear IRE” is:
+
+	if V < 0.04076162:
+		L = - (10(0.07623209 − V ) / 0.42889912 − 1) / 14.98325
+	else if V ≤ 0.105357102:
+		L = (V - 0.073059361) / 2.3069815
+	else:
+		L = (10( V − 0.069886632 ) / 0.42889912 − 1) / 14.98325
+
+Red
+Green
+Blue
+White Point
+0.740, 0.270
+0.170, 1.140
+0.080, -0.100
+0.3127, 0.3290 (D65)
+
+\subsection{GoPro ProTune}
+ProTune “Flat” is a log mode available in the GoPro range of action cameras. It allows disabling of much of the image processing normally applied in camera. The curve encodes the range 0-1 to log values in the range 0-1, so linearization will not yield values >1 unless gain is subsequently applied. Equally, the curve is not able to encode negative values, but because the sensor A/D has a black offset, this should be subtracted after linearization, which may result in some negative values.
+
+The encoding function is:
+
+	V = ln(L × 112 + 1) / ln(113)
+
+
+
+The decoding function is:
+
+	L = (113V − 1) / 112
+
+
+Red
+Green
+Blue
+White Point
+0.698448, 0.193026
+0.329555, 1.024597
+0.108443, -0.034679
+0.3127, 0.3290 (D65)
+
+\subsection{Panasonic V-Log}
+
+V-Log, paired with V-Gamut is the log recording format used by the Panasonic Varicam range of cameras, as well as the AU-EVA1. Some of the lower end Panasonic cameras such as the Lumix range offer V-Log L recording. This uses exactly the same curve as V-Log, simply with the upper part of the dynamic range unused, so the same linearization function can be used.
+
+The V-Log encoding function is:
+
+	if L < 0.01:
+		V = 5.6 × L + 0.125
+	else:
+		V = c × log10(L + b) + d
+
+Where the constants are:
+
+	b = 0.00873
+c = 0.241514
+d = 0.598206
+
+
+
+The V-Log decoding function is:
+
+	if V < 0.181:
+		L = (V − 0.125) / 5.6
+	else:
+		L = 10.0(V − d) / c – b
+
+
+Red
+Green
+Blue
+White Point
+0.730, 0.280
+0.165, 0.840
+0.100, -0.030
+0.3127, 0.3290 (D65)
+
+\subsection{RED Log3G10}
+Over the years, RED have used various log encodings and primaries with their cameras, and the details of these have not been published. The current RED IPP2 image processing uses primaries called RED Wide Gamut RGB, paired with a log encoding called Log3G10, the details of which have been published in a white paper. The numbers 3 and 10 in the name indicate that 18% grey is encoded as ⅓, and the curve encodes 10 stops above mid-grey; that is to say, 0.18 × 210 is encoded as 1.0 in Log3G10.
+
+The encoding function is:
+
+	if L < -0.01:
+		V = (L + 0.01) × 15.1927
+	else:
+		V = a × log10(b × (L + 0.01) + 1)
+
+Where the constants are:
+
+	a = 0.224282
+b = 155.975327
+
+
+
+The decoding function is:
+
+	if V < 0:
+		L = (V / 15.1927) − 0.01
+	else:
+		L = ((10V / a − 1) / b) − 0.01
+
+
+Red
+Green
+Blue
+White Point
+0.780308, 0.304253
+0.121595, 1.493994
+0.095612, -0.084589
+0.3127, 0.3290 (D65)
+
+\subsection{Sony SLog}
+
+Sony has offered a range of encoding curves in their cameras, with the latest being S-Log3. The original S-Log is now deprecated, and not something likely to be seen on current productions. S-Log2 and S-Log3 are still both current. S-Log2 is normally paired with S-Gamut primaries, whereas S-Log3 may be paired either with S-Gamut3 or S-Gamut3.Cine primaries. S-Gamut and S-Gamut3 use the same wide gamut primaries; it is simply that the matrices used in the camera to transform to them from the sensor native color space are different. As has been mentioned previously in Section 3.3.1, a 3x3 camera matrix can only ever be an approximation of the ideal transform to set of encoding primaries. S-Gamut and S-Gamut3 use different optimizations. S-Gamut3 has the additional advantage that the transform to ACES is the same at all color temperatures, whereas for S-Gamut, two Input Transforms are provided by Sony for use under tungsten and daylight. S-Gamut3.Cine is slightly less wide gamut than S-Gamut3, and was designed to be more closely aligned with P3 primaries, making manual grading to P3 simpler. In a scene-referred workflow there is no benefit to this, and indeed recording in S-Gamut3.Cine will clip some colors which may be present in the scene, compared to S-Gamut3. Nonetheless, many people use S-Gamut3.Cine as the default camera setting, so it is important to ascertain which was used. As with Canon footage, using Sony’s own software can be a useful way of reading metadata from the files which might not otherwise be available. Some Sony cameras also include XML files with the media, which can provide useful information.
+
+The S-Log2 encoding function is:
+
+	if L ≥ 0:
+		V = (64 + 876×(0.432699 × log10(155 × L / 197.1 + 0.037584) + 0.646596)) / 1023
+	else:
+		V = (64 + 876 × (L × 3.53881278538813 / 0.9 + 0.030001222851889303)) / 1023
+
+The S-Log3 encoding function is:
+
+	if L ≥ 0.01125:
+		V = (420 + log10((L + 0.01) / 0.19) × 261.5) / 1023
+	else:
+		V = (L × 76.2102946929 / 0.01125 + 95) / 1023
+
+
+The S-Log2 decoding function is:
+
+	if V ≥ (64 + 0.030001222851889303 × 876) / 1023:
+		L = 197.1×(10((V×1023 – 64) / 876 – 0.646596) / 0.432699  – 0.037584) / 155
+	else:
+		L = 0.9×( (V×1023 − 64) / 876 – 0.030001222851889303 ) / 3.53881278538813
+
+The S-Log3 decoding function is:
+
+	if V ≥ 171.2102946929 / 1023:
+		L = 10(V × 1023 − 420) / 261.5 × 0.19 − 0.01
+	else:
+		L = (V × 1023 – 95) × 0.01125000 / 76.2102946929
+
+
+
+Red
+Green
+Blue
+White Point
+0.730, 0.280
+0.140, 0.855
+0.100, -0.050
+0.3127, 0.3290 (D65)
+
+
+Red
+Green
+Blue
+White Point
+0.766, 0.275
+0.225, 0.800
+0.089, -0.087
+0.3127, 0.3290 (D65)
+
+\subsection{ACEScc}
+
+ACEScc is a logarithmic variant of the ACES color space for use in grading. It is a pure log curve, so each stop change of exposure is represented by an equal offset of the ACEScc value throughout the range. It uses AP1 primaries, which are the same as those used by ACEScg. Being a pure log curve, ACEScc cannot encode negative values (although the ACES spec asks that implementers provide some means of handling negative values in order to preserve them through a transform to ACEScc and back). It encodes a very wide dynamic range, with 1.0 representing a linear value of 222.86, or 10.27 stops above mid-grey.
+
+An integer form of ACEScc is ACESproxy, designed for on set live grading, such that CDL corrections applied to the 0-100% ‘IRE’ range of ACESproxy will give the same result when the same corrections are applied to ACEScc. ACESproxy exists in 10 and 12 bit variants. ACEScc can be converted to ACESproxy with the following equation:
+
+	ACESproxy = 16 × 2n-8 + clamp(ACEScc) × 219× 2n-8
+
+Where n is the bit depth.
+
+The encoding function of ACEScc is:
+
+	if L ≥ 0:
+		V = (9.72 − 16) / 17.52
+	else if L < 2-15:
+		V = (log2(2-16 + L × 0.5) + 9.72) / 17.52
+	else:
+		V = (log2(L) + 9.72) / 17.52
+
+
+
+The decoding function is:
+
+	If V ≤ (9.72 - 15) / 17.52:
+		L = (2V × 17.52 − 9.72 − 2-16) × 2
+	else if V < (log2(65504) + 9.72) / 17.52:
+		L = 2V × 17.52 − 9.72
+	else:
+		L = 65504
+
+
+Red
+Green
+Blue
+White Point
+0.713, 0.293
+0.165, 0.830
+0.128, 0.044
+0.32168, 0.33767
+
+\subsection{ACEScct}
+ACEScct is a variation on ACEScc, which is identical through most of the curve but adds a linear portion near black to create a toe, and to allow for the encoding of negative values. Because the toe of the resulting curve makes it more similar to camera log encodings than the pure log of ACEScc, it responds in a more comparable way to grading operations.
+
+The ACEScct encoding function is:
+
+	if L ≤ 0.0078125:
+		V = 10.5402377416545 × L + 0.0729055341958355
+	else:
+		V = (log2(L) + 9.72) / 17.52
+
+
+
+The decoding function is:
+
+	if V ≤ 0.155251141552511:
+		L = (V − 0.0729055341958355) / 10.5402377416545
+	else if V < (log2(65504) + 9.72) / 17.52:
+		L = 2V × 17.52 − 9.72
+	else:
+		L = 65504
+
+\subsection{Cineon}
+
+The Cineon log encoding differs from digital motion-picture camera log encodings in that Cineon is a logarithmic encoding of the actual optical density of the film negative. The non-linearities and cross-channel effects of film mean that there are no CIE xy values which can be said to be the primaries of a Cineon encoding. This means that there is not one formula which precisely reverts Cineon film scans to scene-referred linear. Various functions are proposed for linearising film scans.
+
+The Cineon linearization function used by Nuke (which RED also use as REDlogFIlm) is:
+	L = (10(1023 × V - 685) / 300 − 0.0108) / (1 − 0.0108)
+
+
+
+And its inverse is:
+	V = (log10(V × (1 − 0.0108) + 0.0108) × 300 + 685) / 1023
+
+Another option is the ‘Pivoted log lin’ formula (PLogLin):
+	L = 10.0(V × 1023 − 445) × 0.002 / 0.6 × 0.18
+
+
+
+And its inverse:
+	V = (log10(L / 0.18) × 0.6 / 0.002 + 445) / 1023
+
+The constants in the PLogLin equation are derived from a linear grey value of 0.18 mapping to a 10 bit value of 445, and a negative gamma of 0.6 with a density of 0.002 per 10 bit code value.
+
+\section{OpenColorIO (OCIO)}
+
+OpenColorIO (OCIO) is an open-source color pipeline originally created by Jeremy Selan, and sponsored by Sony Picture Imageworks. It is currently maintained by a group of developers including X Y Z from companies A B C. OpenColorIO has two major goals: consistent color transforms, and consistent image display, across multi-application cinematic color pipelines.
+
+On the left is a log DPX image loaded in a compositing application. On the right, a scene-referred linear EXR representation of the same image is loaded in a different application. Both applications utilize OpenColorIO to provide matched image display and color space conversions, referencing an externally defined color configuration. Image courtesy of the Kodak Corporation.
+The design goal behind OCIO is to decouple the color pipeline API from the specific color transforms selected, allowing supervisors to tightly manage and experiment with color pipelines from a single location. Unlike other color management solutions such as ICC, OpenColorIO is natively designed to handle both scene-referred and display-referred imagery. All color transforms are loaded at runtime, from a color configuration external to any individual application. OCIO does not make any assumptions about the imagery; all color transformations are “opt-in.” This is different from the color management often built-in to applications, where it is often difficult to track down the specific LUTs / gamma transforms automatically applied without the user’s awareness.
+
+OCIO color configuration files define all of the conversions that may be used. For example, if you are using a particular camera’s color space, one would define the conversion from the camera’s color encoding to scene-referred linear. You can also specify the display transforms for multiple displays in a similar manner. OCIO transforms can rely on a variety of built-in building-blocks, including all common math operations and the majority of common lookup table formats. OCIO also has full support for both CPU and GPU pathways, in addition to full support for CDLs and per-shot looks.
+
+The OCIO project also includes some of the real color configurations for film productions, such as those used in Cloudy with a Chance of Meatballs and Spider-Man, enabling users to experiment with validated color pipelines. OCIO also ships with a configuration compatible with Academy ACES 1.0 and greater, allowing the use of an ACES pipeline in applications without native support.
+
+OpenColorIO is in use at many of the major visual effects and animation studios, and is also supported out of the box in a variety of commercial software. See opencolorio.org for up-to-date information on supported software, and to download the source code for use at home.
+
+\section{Colour Science for Python}
+
+Colour Science for Python (Colour) is an open source Python package, freely available under the New BSD License, implementing a wide range of transforms and algorithms related to color science. It is managed by Thomas Mansencal, one of the authors of this paper, and includes code contributed by color scientists and experts from academia and VFX facilities around the world. The list of functions included is constantly growing, and users are encouraged to make suggestions for any gaps that they perceive in the coverage.
+
+While some of the modules are quite specialized and may not be relevant to day to day tasks for anybody other than those involved in high-end color research, there are many functions which are extremely useful for constructing and testing image processing pipelines, and visualizing data. Utility functions are included for reading and writing image files, and almost all the functions are written to process n-dimensional arrays of data in parallel using NumPy. Where processing image sequences directly in Python with Colour is not practical, transforms can be baked into LUTs (see the following section) for use in other applications and real-time systems.
+
+The plotting module can create diagrams of color spaces and image data in a variety of forms; most of the diagrams in this document were created using Colour.
+
+Colour always tries to follow the naming conventions and approach of the relevant literature, and as such is a comprehensive resource of information on the state of the art in color science and image processing. Tabular data from a wide range of sources is included, such as spectral power distributions, color matching functions, and Pointer’s gamut. Simply reading the code and documentation of Colour can be very educational, even if implementing image processing using other approaches.
+
+The Colour website hosts Jupyter notebooks on a variety of topics, demonstrating uses of the modules, and discussing some of the derivations of the data included. There are also various projects built using Colour, such as an implementation for Nuke, and utilities for merging and manipulating HDRI image captures.
+
+\section{LUTs and Transforms}
+
+Lookup tables (LUTs) are a technique for optimizing the evaluation of functions that are expensive to compute and inexpensive to cache, or for sampling process such as printing to film which are not definable mathematically. By precomputing the evaluation of a function over a domain of common inputs, expensive runtime operations can be replaced with inexpensive table lookups. If the table lookups can be performed faster than computing the results from scratch, then the use of a lookup table will yield significant performance gains. For input values that fall between the table's samples, an interpolation algorithm can generate reasonable approximations by averaging nearby samples. LUTs are also useful when wanting to separate the calculation of a transform from its application. For example, in color pipelines it is often useful to “bake” a series of color transforms into a single lookup table, which is then suitable for distribution and re-use, even in situations where the original data sets are not appropriate for distribution.
+
+It is important to bear in mind that a LUT is a “black box” transforming one set of values into a new set of values. A color transform expressed as a LUT will be designed for input in a particular color encoding, and will produce output which may be in the same or a different encoding. If the image data to be transformed is not in the correct format for the LUT, then it is necessary to first transform it by using a mathematical method, or even with another LUT. Most LUT formats have no way of defining what their expected input is, nor the encoding of their output, so it is useful to make this clear either in the naming of the LUT file or in a comment line within the LUT.
+
+The values listed in the tables can be calculated by iterating over the possible input values, and applying the required transform mathematically, or by creating what is called a CMS (Color Management System) pattern image that incorporates all possible input values, passing it through the transform as if it was any other image, and then reading back the resulting color values to create the table. The image is simply a linear ramp to generate a 1D LUT, or a grid of all possible permutations of RGB, at the chosen LUT intervals, for a 3D LUT.
+
+\subsection{1D LUTs}
+
+A lookup table is characterized by its dimensionality, that is, the number of indices necessary to index an output value. The simplest LUTs are indexed by a single variable and thus referred to as one-dimensional (or 1D) LUTs.
+
+
+
+
+
+These graphs demonstrate simple color correction operators suitable for baking into 1D LUT representations.
+Consider an analytical color operator, f(x), applied to an 8 bit greyscale image. The naive implementation would be to step through the image and for each pixel to evaluate the function. However, one may observe that no matter how complex the function, it can evaluate to only one of 255 output values (corresponding to each unique input). Thus, an alternate implementation would be to tabulate the function's result for each possible input value, then to transform each pixel at runtime by looking up the stored solution. Assuming that integer table lookups are efficient (they are), and that the rasterized image has more than 255 total pixels (it likely does) using a LUT will lead to a significant speedup.
+
+All color operators that operate on channels independently can be accelerated using 1D LUTs, including the brightness, gamma, and contrast operators. By assigning a 1D LUT to each color channel individually, it is possible to implement more sophisticated operations such as color balancing. For those familiar with the Photoshop, all Curves and Levels operations can be accelerated with 1D LUTs.
+
+Unfortunately, many useful color operators do not operate on channels independently and are thus impossible to implement using a single-dimensional LUT. For example, consider the luminance operator that converts colored pixels into their greyscale equivalent. Because each output value is derived as a weighted average of the input channels, it is not possible to express such an operator using a 1D LUT. All other operators that rely on such channel crosstalk are equally inexpressible. Likewise for transforms derived from sampling complex non-linear processes such as film print emulation.
+
+\subsection{3D LUTs}
+
+Three-dimensional lookup tables offer the obvious solution to the inherent limitation of single-dimensional LUTs, allowing tabular data indexed on three independent parameters. Whereas a 1D LUT requires only 4 elements to sample 4 locations in an input range, the corresponding 3D LUT requires 43 = 64 elements. Beware of this added dimensionality; 3D LUTs grow very quickly as a function of their linear sampling rate, as does the processing power required, particularly in real-time systems. As a direct implication of smaller LUT sizes, high-quality interpolation takes on a greater significance for 3D LUTs. The two most commonly used interpolation methods are tri-linear and tetrahedral.
+
+
+
+Complex color operators can be expressed using 3D LUTs, as completely arbitrary input-output mappings are allowed. For this reason, 3D LUTs have long been embraced by color scientists and are one of the tools commonly used for gamut mapping. In fact, 3D LUTs are used within ICC profiles to model the complex device behaviors necessary for accurate color image reproduction.
+
+The majority of color operators are expressible using 3D LUTs. Simple operators (such as gamma, brightness, and contrast) are trivial to encode. More complex transforms, such as hue and saturation modifications, are also possible. Most important, the color operations typical of professional color-grading systems are expressible (such as the independent warping of user-specified sections of the color gamut).
+
+Unfortunately, in real-world scenarios, not all color transforms are definable as direct input-output mappings. In the general case, 3D LUTs can express only those transforms that obey the following characteristics:
+
+A pixel's computation must be independent of the spatial image position. Color operators that are influenced by neighboring values, such as Bayesian-matting in Chuang et al. (2001) or classical garbage masks in Brinkman (1999), are not expressible in lookup-table form.
+The color transform must be reasonably continuous, as sparsely sampled data sets are ill-suited to represent discontinuous transformations. If smoothly interpolating over the sampled transform grid yields unacceptable results, lookup tables are not the appropriate acceleration technique.
+
+Careful attention must be paid when crafting 3D LUTs due to a large number of degrees of freedom offered. It is all too easy to create a transform that yields pleasing results on some subset of source imagery, but then reveals discontinuities when applied to alternative imagery. Both directly visualizing the 3D lattice and running image gradients through the color processing allow such discontinuities to be discovered ahead of time.
+
+The input color space must lie within a well-defined domain. An analytically defined brightness operator can generate valid results over the entire domain of real numbers. However, that same operator baked into a lookup table will be valid over only a limited domain (for example, perhaps only in the range 0-1).
+
+\subsection{Using Shaper LUTs}
+
+All lookup tables are a sampling of some underlying function, whether that function is explicitly known or not. For example, the function f(x) = 1 / (1 + e-1.5x)  is a mathematical function that can be evaluated for any input values of x. The function can also be represented using a small lookup table over a particular domain by evaluating the function at various intervals. Table x shows a small lookup table with 5 samples representing the function over the input range of -5 to 5.
+Input
+Output
+-5.00
+0.001
+-2.50
+0.023
+0.00
+0.500
+2.50
+0.977
+5.00
+0.999
+
+When plotting the table values as in Figure X one can see the sample point output values in the lookup table correspond exactly to the output values of the underlying function. The limitation of lookup tables, however, is that values between the sample points must be interpolated from values within the table.
+
+Figure X shows the results of using linear interpolation to determine the output values between the sample points.  The figure illustrates how if care is not taken in choosing the location of the samples it can lead to a substantial error between the output of the lookup table and the result that would have been obtained using the underlying function the table was intended to model. This is particularly true in where the underlying function exhibits a high degree of curvature between the samples. Another limitation of lookup tables is that the output for values outside the input range (e.g. -5 to 5) used to build the lookup table are undefined.
+
+When building lookup tables, care should be taken to choose optimal locations for the table samples to minimize the error associated with the interpolation. Figure X shows an example of a table with optimal, non-uniform set of sample points. It should be noted that only a few lookup table formats (e.g. Academy CLF and Cinespace) support non-uniform sampling but the example below shows how the error can be minimized when sample points are chosen with respect to the function they are intended emulate.
+
+In the example above, the node placement is optimized to minimize error uniformly across the entire domain. Depending on exactly what the values on the x-axis and y-axis of the graph represent, it may not yield the best results to minimize error in this fashion.  Often in VFX and HDR workflows, due to the nature of the human visual system, it’s more visually appealing to minimize the error in a visually uniform space. A quick and dirty way to do this is to logarithmically distribute the sample points. This will shift the largest errors to the brighter parts of the pictures where the eye is less capable of discerning the error.  Figure X shows the function and logarithmically distributed point sampling.
+
+
+The concept of optimal placement of sample points can be extended to 3D LUTs where it is common to wrap a 3D LUT in a matched set of 1D ‘shaper’ LUTs.  Say the ceiling is set at a pixel value of 100.0. Dividing this into equally sampled regions for a 32x32x32 LUT yields a cell size of about 3. Assuming a reasonable exposure transform, almost all perceptually significant results are going to be compressed into the few lowest cells, wasting the majority of the data set and using potentially inaccurate interpolation over the large steps in those lowest cells. It is preferable to place the samples in the most visually significant locations, which typically occur closer to the dark end of the gamut. This is achieved by wrapping the 3D lookup-table transform with a matched pair of 1D shaper LUTs. The ideal shaper LUT maps the input HDR color space to a normalized, perceptually uniform color space. The 3D LUT is then applied. After the 3D transform the image may be mapped through a further 1D transform, such as the inverse of the original 1D LUT, mapping the pixel data back into the original dynamic range.
+
+This second shaper is only necessary for transforms such as those from linear to linear. If the transform is linear to log, or linear to `video’, only an input shaper is normally needed. Shaper LUTs may be separate files, applied sequentially with the 3D LUT, or may be included in a single 1D+3D combined LUT.
+
+\subsection{Half Float LUTs}
+
+An additional LUT technique that is becoming more widely available is the Half Float LUT. There are only 65536 possible 16 bit half floating-point values. As such, it is possible to apply a function to each of these values in sequence and record the results in a LUT. The value used for indexing into the table is not the floating-point value, as that is practically unbounded and would pose interpolation and quantization issues. Instead, the 16 bit half value is converted to its bitwise integer equivalent. This value is then used as the index into the table.
+
+The 16 bit float value ranges and their integer equivalents are as follows:
+        # 0 to 31743 = positive values 0.0 to 65504.0
+        # 31744 = Inf
+        # 31745 to 32767 = NaN
+        # 32768 to 64511 = negative values 0.0 to -65504.0
+        # 64512 = -Inf
+        # 64513 to 65535 = NaN
+Support for Half Float LUTs can be found in the Common LUT Format that is part of the ACES specification.
+
+\subsection{Creating LUTs}
+
+LUTs are fundamentally lists of output values, corresponding to input values, and most LUT formats store these as plain text lists or XML. Some binary formats exist, usually for efficiency in hardware LUT implementations, and for these, it is often simpler to create a human-readable LUT first and then convert with suitable utility software to the binary form.
+
+A CMS Image generated by Nuke. This pattern is only 9^3 (dividing R, G & B into 9 levels each)
+for clarity, resulting in 9 × 9 × 9 = 729 different colored patches
+Grading and compositing systems include the functionality to read such images and generate LUTs, either from transforms applied by their own processes, or externally, in which case the nature of the process may be unknown, or even secret.
+
+If the transform to be applied is a known mathematical one, perhaps a specific color space transform, LUTs can be baked using Colour Science for Python, for example. A simple code example to do this for an unspecified transform where output = f(input) is shown below:
+import colour
+LUT = colour.LUT3D(name='LUT Name')
+LUT.domain = ([[-0.07, -0.07, -0.07], [1.09, 1.09, 1.09]])
+LUT.comments = ['First comment', 'Second comment']
+LUT.table = colour.LUT3D.linear_table(size=33, domain=LUT.domain)
+LUT.table = f(LUT.table)
+colour.write_LUT(LUT, '/path/to/lut/file.cube')
+
+This procedure is all that is needed when the LUT in question is to be applied to an output referred image, or a log image in the 0-1 range. However when a shaper is required, to create a LUT for HDR image data, the situation is more complex. Decisions need to be made, and there is no one correct solution. Sometimes the possible range of the input data is known – if it comes from a specific camera perhaps – but it is often necessary to decide on a sensible input range, and accept that data outside this range may be clipped. It is also useful to consider what data may be clipped in the final output, so as not to waste input range on unnecessary values. For example, if baking a LUT to apply the ACES RRT plus an SDR ODT to ACES linear data, any shaper which includes input values above 16.3 is wasteful, as these will be clipped by the ODT. A balance needs to be struck between covering a sufficient range, and not spreading the available table entries too thinly, which can result in distortions from interpolation if the shaper does not include enough points for the range. It can be helpful to calculate forward and reverse shapers and pass a linear ramp through a concatenation of the two, looking for deviations from a straight line (particularly near black) after the round trip.
+
+A linear ramp transformed from ACEScct to ACEScg and back using a 12 bit 1D LUT.
+In the plot above, because of the wide range covered by ACEScct, the first interval of the linear to log LUT covers the ACEScct range 0.0-0.304 (-0.007-0.047 linear). Interpolating linearly for values in this large interval, when they are in fact logarithmically spaced, results in this “kink”. For the full range covered by ACEScct, a 16 bits are needed before the distortion becomes negligible with uniformly spaced samples. The alternative is to use a non-uniform shaper if the LUT format supports that. The OCIO ACES config, for example, takes the latter approach by including only log to linear shaper LUTs, and using them in the reverse direction for linear to log conversions. The Python code snippet below generates a Cinespace LUT which has a logarithmically spaced input domain and a linearly spaced output table and thus will not show the issue.
+
+from colour import LUT1D, write_LUT
+from colour.models import log_decoding_ACEScct
+
+table = np.linspace(0, 1, 4096)
+domain = log_decoding_ACEScct(table)
+LUT = LUT1D(table, 'Linear to ACEScct', domain)
+write_LUT(LUT, '/path/to/lut_file.csp')
+
+While GUI tools, such as LightSpace and Lattice, are available and can create and convert both 1D and 3D LUTs, they cannot work with LUTs which include both a 1D shaper and a 3D cube in the same file. Neither can Nuke’s GenerateLUT node. Therefore it is necessary either to manually split the process under consideration into the 1D and 3D components, and bake separate LUTs, or else use command line tools such as OCIO’s ociobakelut which have options to select a shaper space and range for formats which support combined 1D + 3D LUTs. For example, the command below will create a Cinespace LUT which will apply the ACES RRT plus Rec. 709 ODT:
+
+ociobakelut --inputspace "ACES - ACES2065-1" --iconfig "/Library/Application Support/OpenColorIO/aces_1.0.3/config.ocio" --shaperspace "Utility - Log2 48 nits Shaper" --outputspace "Output - Rec.709" --format cinespace ACES_RRT_709_ODT.csp
+
+Using Colour Science for Python, as previously, it is possible to write the shaper and cube components of a transform to a Resolve .cube or Cinespace .csp LUT. The code listed below creates a shaper ranging from six stops below mid-grey to six stops above it, and a cube which applies the transform which is the difference between the shaper and f(input):
+
+import colour
+import numpy as np
+
+domain = [0.18 * 2 ** -6, 0.18 * 2 ** 6]
+shaper = colour.LUT1D(size=16384, domain=domain)
+shaper.table = 0.5 + np.log2(shaper.table / 0.18) / 12
+
+# Inverse shaper used only for cube calculation
+def inverse_shaper(x):
+    return 0.18 * 2 ** (12*(x - 0.5))
+
+cube = colour.LUT3D(name='LUT Name', size=33)
+
+# Apply the transform to the identity cube
+# pre-transformed by the inverse of the shaper
+cube.table = f( inverse_shaper(cube.table) )
+
+LUT = colour.LUTSequence(shaper, cube)
+colour.write_LUT(LUT, '/path/to/lut/file.cube')
+
+Because most LUTs are text files, it is possible to process and convert them with simple text processing scripts. For example, while ociobakelut can create a LUT including a shaper in the Houdini format which can be used in the OCIOFileTransform node of Nuke, this same LUT file cannot be applied in DaVinci Resolve. Resolve supports combined 1D + 3D LUTs, but the format required is not currently available with ociobakelut in OCIO v1. However the Houdini and Resolve combined LUT formats are sufficiently similar, that the necessary conversion can be performed easily with a script, or even manually using a spreadsheet application.
+
+Houdini .lut version (not usable size) of the ociobakelut output above:
+DaVinci Resolve .cube version of the same LUT:
+Version		3
+Format		any
+Type		3D+1D
+From		0.001989 16.291740
+To		0.000000 1.000000
+Black		0.000000
+White		1.000000
+Length		3 9
+LUT:
+Pre {
+	0.000000
+	0.769326
+	0.846195
+	0.891173
+	0.923091
+	0.947849
+	0.968078
+	0.985183
+	1.000000
+}
+3D {
+	0.000000 0.000000 0.000000
+	0.534865 0.000000 0.000000
+	1.000000 0.254877 0.543403
+	0.000000 0.446770 0.000000
+	0.462596 0.411305 0.000000
+	1.000000 0.253674 0.542072
+	0.290448 1.000000 0.636457
+	0.289485 1.000000 0.636227
+	1.000000 1.000000 0.736428
+	0.000000 0.000000 0.400418
+	0.527788 0.000000 0.398828
+	1.000000 0.252359 0.671285
+	0.000000 0.422871 0.384992
+	0.389530 0.389530 0.389530
+	1.000000 0.252446 0.670820
+	0.279933 1.000000 0.680195
+	0.278750 1.000000 0.680725
+	1.000000 1.000000 0.783296
+	0.000000 0.062706 1.000000
+	0.000000 0.062739 1.000000
+	1.000000 0.340477 1.000000
+	0.000000 0.062698 1.000000
+	0.000000 0.062714 1.000000
+	1.000000 0.339629 1.000000
+	0.000000 1.000000 1.000000
+	0.000000 1.000000 1.000000
+	1.000000 1.000000 1.000000
+ }
+LUT_1D_SIZE 9
+LUT_1D_INPUT_RANGE 0.001989 16.291740
+
+LUT_3D_SIZE 3
+LUT_3D_INPUT_RANGE 0.0 1.0
+
+0.000000 0.000000 0.000000
+0.769326 0.769326 0.769326
+0.846195 0.846195 0.846195
+0.891173 0.891173 0.891173
+0.923091 0.923091 0.923091
+0.947849 0.947849 0.947849
+0.968078 0.968078 0.968078
+0.985183 0.985183 0.985183
+1.000000 1.000000 1.000000
+
+0.000000 0.000000 0.000000
+0.534865 0.000000 0.000000
+1.000000 0.254877 0.543403
+0.000000 0.446770 0.000000
+0.462596 0.411305 0.000000
+1.000000 0.253674 0.542072
+0.290448 1.000000 0.636457
+0.289485 1.000000 0.636227
+1.000000 1.000000 0.736428
+0.000000 0.000000 0.400418
+0.527788 0.000000 0.398828
+1.000000 0.252359 0.671285
+0.000000 0.422871 0.384992
+0.389530 0.389530 0.389530
+1.000000 0.252446 0.670820
+0.279933 1.000000 0.680195
+0.278750 1.000000 0.680725
+1.000000 1.000000 0.783296
+0.000000 0.062706 1.000000
+0.000000 0.062739 1.000000
+1.000000 0.340477 1.000000
+0.000000 0.062698 1.000000
+0.000000 0.062714 1.000000
+1.000000 0.339629 1.000000
+0.000000 1.000000 1.000000
+0.000000 1.000000 1.000000
+1.000000 1.000000 1.000000
+
+Note the similarity between the tables. Only the headers and the number of columns in the shaper LUT differ.
+
+Particularly when baking a combined LUT, testing is necessary to ensure that the resulting LUT is supported and correctly applied in the intended application. Different implementations support various LUT specifications to varying degrees, and it is not unheard of for LUTs to appear to be correctly read, but for the parsing to get out of step, producing a result which may superficially match the intent for some, but not all images. For example, the Iridas and Resolve .cube LUT formats are broadly similar, but the tokens for input range differ, and may not be read properly (or at all) by some LUT parsers. It is always wise, where possible, to compare the result of the LUT with a reference implementation of the transform on a variety of images.
+
+\subsection{GPU Implementations}
+
+While LUTs remain widely used for real-time image processing, there is a move in many systems towards the use of shaders to apply color transforms on the GPU. This allows for mathematically precise transforms, without the range limitations or interpolation errors which can occur with LUTs. The distortion shown in Figure XX would not happen is a shader was used for the transforms.
+
+Shaders also have the advantage that they can apply spatial operations, having access to the x,y coordinates of the pixel being processed, as well as the values of neighboring pixels. Some implementations also permit parameters of the transforms to be exposed to the user to create transforms which can be varied dynamically.
+
+Examples include GLSL, or proprietary variations such as Autodesk’s Matchbox Shaders (also adopted by FilmLight) and DCTL for DaVinci Resolve.
+
+\section{ASC CDL}
+
+The world of color grading, particularly as it is handled onset, has a huge amount of variation. Even though it is common to apply a “primary grade” (consisting of a scale operation, some offsets, and maybe a gamma and saturation adjustment), every manufacturer has historically applied these adjustments in a different order, which sadly eliminates the portability of grading information. The American Society of Cinematographers (ASC) has thus created a color correction specification to bring about a bit of order. Similar to the EDL, Edit Decision List, in use by editorial systems, the ASC came up with the Color Decision List (CDL) format. This specification defines the math for what is expected on a “primary” correction.
+
+The CDL defines a color correction, with a fixed series of steps/ordering:
+ Scaling (3 channels)
+ Offset (3 channels)
+ Power (exponent) (3 channels)
+ Saturation (scalar, with a fixed Rec. 709 luminance target)
+
+Having a fixed order is not always ideal. For example, given a single CDL you cannot desaturate the image to grey-scale, and then tint the image using scales and offsets. (The opposite is possible, of course). But having an unambiguous way to interchange simple grade data is a huge improvement in interoperability. The ASC has also defined an XML format for the grade data. The Scaling, Offset and Power are sent as 9 numbers (the SOP) and saturation is sent as a single number (SAT).
+
+	<ColorCorrectionCollection>
+	<ColorCorrection id="example_correction_01">
+			<SOPNode>
+		<Slope> 1.1 1.1 1.1 </Slope>
+		<Offset> -0.05 -0.01 0.05 </Offset>
+		<Power> 1.0 1.0 1.0 </Power>
+	</SOPNode>
+	<SatNode>
+		<Saturation> 1.1 </Saturation>
+	</SatNode>
+</ColorCorrection>
+	</ColorCorrectionCollection>
+
+Example .ccc (Color Correction Collection) xml file demonstrating the SOP and Sat elements.
+
+So what does the CDL not define? Color space. As previously mentioned, if one applies an additive offset to logarithmic encoded data, the result is very different than if the same offset is applied to scene-referred linear imagery. The CDL also does not require one to specify if any viewing LUTs were used. This ambiguity is both CDL’s biggest strength and its biggest weakness. It is a weakness because if one receives a CDL file in isolation the color correction is still not particularly well defined. However, this is also CDLs biggest strength, as it enables CDLs to be highly versatile - serving as building blocks across many color pipelines. For example, CDLs can be used to send both plate neutralizations (log offsets) between facilities and also to store output-referred color corrections crafted onset.
+
+\section{ACES CTL}
+
+All of the transforms, both input and output, for ACES have a reference implementation defined using the Color Transformation Language (CTL); contributed by Industrial Light & Magic. CTL is an interpreted language similar in spirit to shader languages commonly used in renderers, but with a focus on color transforms. CTL provides a rich color correction API, including scattered data interpolation. CTL is run independently per pixel and is thus suitable for baking into 1D/3D LUTs, allowing for real-time “baked” performance. Unfortunately, though, CTL transforms are not currently supported natively on most platforms so current practice is to bake their logic into platform specific operations and/or 3D LUTs.
+
+\section{Full and Legal ranges}
+
+\subsection{Legal Range}
+
+When image data is stored or transmitted in an integer form, such as DPX files or over SDI signals, it is necessary to map the levels in the image to the available code values. When digital representation of video signals was devised, it was decided to allow for overshoot and undershoot outside the range from black to white, in order not to clip analog signals which might not sit accurately within that range. Thus it was decided that black should be coded as 8 bit 16 or 10 bit 64, and white should be coded as 8 bit 235 or 10 bit 940. This coding is referred to by a number of names, including Legal Range, SMPTE Range, Narrow Range, Video Range, and Head Range. The mapping from an output referred float representation (v) where display black is represented by 0.0 and display white by 1.0 can be generalized as follows:
+
+	legal = round(2(n - 8) × (16 + 219 × v))
+
+where n is the encoding bit depth.
+
+\subsection{Full Range}
+
+The alternative is simply to use all the available integer code values to encode the range from black to white. This approach is unable to represent so-called “super-white” and “sub-black” (or “super-black” – a contradiction in terms, because the Latin prefix “super” means “above”) values. This coding is referred to as Full Range, Data Range or CG Range. It is also sometimes confusingly called RGB Range, due to to the fact that Y'CbCr coding uses legal range to code the Y' signal, so RGB is deemed to use the alternate coding, even though this is not always the case. Full range coding can be generalized as:
+
+	full = round(v × (2n - 1))
+
+where again n is the encoding bit depth.
+
+A third encoding exists which uses the range from 64-1023 in 10 bit to encode the signal. This is sometimes called Extended Range coding or SMPTE+, and is sometimes used for HLG, although the term Extended Range may also be used to refer to Full Range coding. This kind of ambiguity regarding terminology makes discussion of the issues related to range complex. For the sake of simplicity, this document will ignore Extended Range, as that relates primarily to broadcast video. For completeness, the equation for SMPTE+ is given here:
+
+	SMPTE+ = 2(n - 4) +  v × (2n − 2(n - 4) − 1)
+
+where n is the bit depth, and v is the 0.0-1.0 normalized HLG signal being encoded, for example.
+
+Even when discussing full and legal range there is still the possibility for confusion, as some applications use the two terms to mean the opposites of the definitions given here. And also, for example, when choosing the 'legal' option in an application it is important to understand whether this means that the image data is to be 'treated as' legal range or 'scaled to' legal range. Some additional confusion is caused by the fact that because of the overshoot and undershoot capabilities of legal range coding, it is able to code 'illegal' pixel values – that is values outside the 0-100% 'IRE' range which could fail a broadcast legal QC check. A full range coding will clamp these values. They are thus ‘legalized’ when using full range coding, whereas a legal range signal requires clamping to the 64-940 range in order to be ‘legalized’.
+
+These codings date back to the early days of digital video, where the analog signals being coded had specific meanings for 'black' and 'white' in terms of video level. When using an integer coding to represent a log signal, the log values 0.0 and 1.0 no longer have particular significance, and their meaning varies between the different log codings. The reference 10 bit code values of a log signal are those which are created in a DPX exported from the manufacturer’s raw decoding software, but the way those values are mapped to the SDI code values output by the camera (and hence also the values stored in Y’CbCr based recording formats such as ProRes) varies between manufacturers.
+
+ARRI, for example, have chosen to map their LogC coding to the legal range of the SDI output of their cameras (previously there was a menu option to map it to full range – which was referred to as 'Extended' – but this is no longer available) and to do the same with the code values sent to the ProRes encoders in their cameras. Because during decoding most software ProRes decoders apply a legal to full scale to the legal range values used internally in ProRes, lens cap black will appear as 9.3% on a waveform connected to the camera, and LogC ProRes will decode to a float value of 0.093 (before linearization). An ARRIRAW recording of the same black image will also decode to a LogC value of 0.093.
+
+
+
+Sony, on the other hand, maps their cameras' S-Log3 encoding to the entire range of code values available on the SDI output of the camera, and send the same value to the encoders for their internal recordings. So S-Log3 lens cap black will appear at 3.5% on a waveform, and a Sony raw recording of that same lens cap black will decode to an unlinearized S-Log3 value of 0.093.
+
+
+
+Correct linearization, using ACES Input Transforms, for example, is reliant upon the image data input to the transform being appropriately scaled. A ProRes log recording from a Sony (or Canon or Panasonic) camera is one of the situations where errors are likely to occur. If an S-Log3 ProRes recording is handled in the standard manner, which is appropriate for an ARRI or RED recording, a legal to full scale will be applied (possibly automatically and invisibly by the decoding software, as happens in Nuke for example) inappropriately, meaning that the sensor black level will be mapped to too low a code value, resulting in negative values after linearization. It is important to look out for this, as the result may not be immediately apparent, simply resulting in slightly crushed shadows when viewed through the display transform.
+
+There is further complexity caused by the fact that in ‘baked video’ modes Sony cameras map the video black to the white range to the legal range of the SDI output and internal recordings. This means that different scaling is required in post for log and video recordings. Sony's proprietary internal recording formats contain metadata, identifying the image data as log or baked video, and some applications are able to automatically scale the decode based on this. However, it is always worthwhile checking that scaling has been applied correctly.  Most ProRes decoders have no way of knowing whether the recorded image is S-Log3 or baked video (ProRes recordings will often come from external recorders, which simply receive an SDI signal with no information about the content) so it is up to the user to set the correct scaling.
+
+Avid software is unusual in decoding ProRes without scaling, so LogC black will appear by default as 0.116 (8 bit code value 30) in the Avid UI. But because no scaling is applied to SDI output from Avid, the signal will still be at 9.3% on an SDI waveform, matching LogC black from a camera. Avid has options to apply to scale between legal and full range in the input settings for media and also has the option to apply a legal to full scale to the image displayed in the UI.
+
+Hardware LUT boxes or LUT processors built into monitors apply simple 3D cubes, without shaper LUTs or defined input domains. They, therefore, map an input range from 0-1 to an output range of 0-1, but it varies from device to device whether this 0-1 range is mapped from the full range 0-1023 SDI code values at the input of the LUT box, or the 64-940 legal range within those code values. Likewise, the 0-1 output of the LUT will normally be mapped to output SDI code values using an inverse of the input scaling. Some LUT boxes have control software which allows the user to select input and output scaling, but many work in only one mode, and it is often not clearly documented what that mode is. Therefore when building a LUT to be applied in a hardware LUT box, it is vital to ascertain what mapping the LUT box uses. Often this can only be done by loading specifically designed LUTs (such as LUTs where every table value is equal to 940/1023) into the LUT box and checking the output on a waveform monitor.
+
+In conclusion, it is crucial that you check your pipeline to ensure that any scaling between legal and full range is only being applied where necessary, and is happening in the correct direction. Look out also for “double scaling” where a scale is applied unnecessarily because one has already been applied invisibly by the application. Part of the round trip testing that you should always perform is to make sure that any scaling applied at the start of the VFX pipeline is inverted at the end of it so that what is passed to DI matches the original media, if it is sent in the original format. If sent as scene-referred linear EXR files they must match the result of a linearization performed in the DI system on the original media, using an ACES Input Transform for example. Equally, it is important to confirm that color baked renders for editorial match the graded dailies of the original plates. Due to the different handling of range scaling by different NLEs, and the options for the editor to change the interpretation of the files, the only way to be certain of this is by thorough testing.
+
+
+Output-referred image shown as intended
+
+(b) The same image with a full-to-legal scale inappropriately applied. Note the raised blacks and clipping below peak white.
+
+
+(c) The same image with a legal-to-full scale inappropriately applied. Both whites and blacks are clamped.
+
+\section{Chroma Decoupling}
+
+Due to the human visual system’s greater sensitivity to detail in luminance than color, it is common to convert image data to a color opponent encoding such as Y′CBCR and to subsample the chroma channels in order to reduce bandwidth and storage requirements with minimal impact on the appearance of the image. While this is useful for monitoring and delivery, within a VFX pipeline it is preferable to maintain full resolution in all channels. A reduction in chroma resolution which is imperceptible to the eye, may have a negative impact on keying and other image processing.
+ITU-R BT.709 specifies the transform from R′G′B′ (note the primes, indicating that the image data is non-linearly encoded, not scene-referred linear) to Y′CBCR for HDTV, and these are the equations used by default in most software encoders and decoders, and almost all hardware implementations. The equations are as follows:
+	E′Y = 0.2126×E′R + 0.7152×E′G + 0.0722×E′B
+	E′CB =  (E′B − E′Y) / 1.8556
+	E′CR =  (E′R − E′Y) / 1.5748
+Where E′R, E′G and E′B are the non-linearly coded R′G′B′ values ranged 0-1, and E′Y, E′CB and E′CR are the resulting luma (it is important to differentiate this from luminance) and color difference signals. The luma is ranged 0-1 and the two color difference signals are ranged −0.5 to 0.5.
+The coefficients in the luma equation are derived from the second line of the Normalised Primary Matrix (RGB to CIE XYZ matrix) for the Rec. 709 primaries with D65 white, rounded to four decimal places. These are the coefficients which would convert scene-referred linear RGB to CIE luminance. Thus E′Y is an approximation of a non-linear coding of the relative luminance of a Rec. 709 color. For achromatic colors (R = G = B) it matches exactly.
+When integer coded for transmission over SDI or HDMI, or storage in a file, these values are mapped to integer using the following equations:
+	D′Y = round((219×E′Y + 16)×2(n − 8))
+	D′CB = round((224×E′CB + 128)×2(n − 8))
+	D′CR = round((224×E′CR + 128)×2(n − 8))
+Where n is the bit depth.
+JPEG coding uses a variation on this, where the 0-1 of the luma signal is mapped to the entire 0-255 range, and the −0.5 to 0.5 of the chroma components is mapped to 0-256, and the values then clamped to the 0-255 range for storage as 8 bit integer. But JPEG uses the older ITU-R BT.601 luma weightings (0.299, 0.587 and 0.114).
+ITU-R BT.2020 specifies a different set of equations, with luma weighting coefficients derived from the Rec. 2020 primaries. It also defines two different color difference codings.
+The first is referred to as “non-constant luminance” because it follows the form of the Rec. 709 coding, where Y′ is not a non-linear encoding of relative luminance (a weighted sum of linear R, G and B) but rather is a weighted sum of the already non-linearly encoded R′, G′ and B′. The equations are as follows:
+	Y' = 0.2627×R'  0.6780×G'  0.0593×B'
+	C′B = (B′ − Y′) / 1.8814
+	C′R = (R′ − Y′) / 1.4746
+The second is referred to as “constant luminance” encoding, and takes linear R, G and B as input. The equations are as follows:
+	Y′C = f(0.2627×R  0.6780×G  0.0593×B)
+Where f(x) is the non-linear encoding function (the Rec. 2020 OETF, as given in Section 4.1.4). R, G and B are then non-linearly encoded with the same function to produce R′, G′ and B′, and the colour difference signals calculated as follows:
+	if NB ≤ B′ − Y′C ≤ 0:
+C′BC = (B′ − Y′C ) / −2×NB
+else if 0 < B′ − Y′C ≤ PB :
+	C′BC = (B′ − Y′C ) / 2×PB
+	if NR ≤ R′ − Y′C ≤ 0:
+C′RC = (R′ − Y′C ) / −2×NR
+else if 0 < R′ − Y′C ≤ PR :
+	C′RC = (R′ − Y′C ) / 2×PR
+Where the constants are given precisely in the spec, but it is also noted that for practical purposes the following values can be used:
+	PB = 0.7910
+NB = 0.9702
+PR = 0.4969
+NR = 0.8591
+ITU-R BT.2020 specifies a new color difference encoding for HDR,  ICTCP.This is referred to as “constant intensity” encoding, and was originally developed by Dolby. This encoding first transforms linear RGB, range 0-1, to LMS using the following equations:
+	L = (1688×R + 2146×G + 262×B) / 4096
+M = (683×R + 2951×G + 462×B) / 4096
+S = (99×R + 309×G + 3688×B) / 4096
+These are then non-linearly encoded using either the PQ inverse EOTF or the HLG OETF, as appropriate, to produce L′M′S′, which is encoded as  ICTCP using the following equations:
+	I = 0.5L' + 0.5M'
+	CT = (6610×L' −13613×M' + 7003×S') / 4096
+CP = (17933×L' − 17390×M' − 543×S') / 4096
+Integer coding of all these uses the same method as given above for ITU-R BT.709. ITU-R BT.2020 additionally specifies a “full range” integer coding, as opposed to the standard coding (referred to as “narrow range”, see Section 4.7.1) where the luma / intensity component is encoded using:
+	D = round((2n − 1)×E′)
+and the chroma components using:
+	D = round((2n − 1)×E′ + 2(n − 1))
+
+
+Writing in progress…
+
+\section{Camera Characterization}
+
+The process of characterizing a camera objective is that after signal processing, captured data represents the relative scene-referred linear light values at the focal plane. Different approaches exist to achieve this result but the standard practise in the industry is to define a 3x3 matrix (or multiple 3x3 matrices) mapping from the camera native color space to CIE XYZ or any relevant RGB color space.
+
+Because cameras are not fully colorimetric, the matrix is built to minimize the error with respect to the human visual system, and thus approximate a colorimetric response. The ideal approach to characterization involves acquiring the spectral sensitivities of the camera. This is commonly achieved with a monochromator, an optical device allowing the selection of narrow-band wavelengths of light, and thus the measurement of the complete camera response by sweeping through the visible spectrum. Camera makers and third-party organizations often provide matrices for CIE Standard Illuminant A or ISO 7589 Studio Tungsten Illuminant (3200K) and CIE Standard Illuminant D Series D65 or CIE Illuminant D Series D55. Additional matrices can be generated if the camera is intended to be used under dramatically different illumination conditions.
+
+The error minimization between the camera sensitivities and the reference dataset is usually done with a least-squares regression and it is preferable to convert the RGB values into a perceptually uniform color space or a CAM prior to doing so.
+
+When it is not possible to acquire the spectral response of the camera, color rendition charts such as X-Rite ColorChecker Classic or SG can be used to generate a color correction matrix.
+
+The X-Rite  ColorChecker Classic is commonly used to validate camera characterizations; the patches have known reflectance values. This is a synthetic color rendition chart generated with Colour Science for Python.
+Usage of a color rendition chart introduces bias toward the chart reflectances and thus eventually increases errors in respect to other unknown reflectances. The process is also subject to inaccuracies when the capture is done in an uncontrolled environment. While tempting, using only a chart as the ground truth for camera characterization should generally be avoided. Nonetheless, it helps remarkably to assess the quality of camera characterization and various other aspects of the captured data. It can also be used to generate a color correction matrix for a difficult shot or specific illumination conditions.
+
+
+Procedure P-2013-001 from A.M.P.A.S (2015) while focused on ACES is recommended for people willing to endeavor to do camera characterization as it contains relevant points that are generic enough to be applied in non-ACES context.
+
+
+Writing in-progress…
+
+\section{File Formats}
+
+There are an ever increasing number of file formats, many of which support a variety of encodings, so some common sense is needed when choosing between them. Usually, it is best to minimize transforms and conversions, so sticking to as few file formats as possible is generally best.
+
+Given production, post-production, and delivery have very different requirements, they would justifiably have different file formats. Production and image capture need a file format with minimal compression and maximum information. For real-time capture write speeds are important and large file sizes are common. Post-production is more interested in moving and processing information than production, so there is some pressure to reduce the file size, but also to have easy read encoding. It is still important to preserve maximum information, but more efficient encodings are typical.
+XXX
+Delivery formats are mostly dictated by the end client and should match their archive and distribution architecture. Since many of the bigger organizations are heavily invested in their libraries and archives, changes to delivery formats are slower than in other areas. Storage and flexibility are the driving forces for distribution, so heavier compression and display referred files are most common. However, some companies are now asking for ungraded and/or scene-referred masters along with metadata for versioning.
+XXX
+
+\subsection{DPX}
+
+DPX is a SMPTE standardized image format that is commonly used in the motion-picture industry. While the DPX format supports a variety of pixel types including float32, it is most commonly associated with uncompressed 10 bit and 16 bit unsigned integer RGB imagery. Unlike EXR - which is synonymous with scene-referred linear colorimetry, DPX does not have a canonical color space. It is common for DPX to store any number of integer camera log encodings, in addition to broadcast-ready Rec. 709. Generally, if you’ve got a DPX file the only way to know for sure what you have is through communication with the person who created it, or detailed forensic analysis failing that. DPX has limited metadata support, including a few settings related to colorimetry, but beware these flags. Even under the best of intentions DPX metadata is rarely preserved for long.
+
+\subsection{EXR}
+
+OpenEXR is an open-source image format created by ILM in 1999, which has near universal adoption in the VFX and animation industries. OpenEXR is intended for storing floating point, scene-referred linear imagery. Although OpenEXR was not the first image format suitable for storing HDR float data, it is the most popular in film production due to its efficient lossless compression codecs, support for 16 bit half float pixel type and support for other features such as data window/display window tracking, multiple layers, deep frame buffers, rich metadata encoding, and the lack of legacy format baggage.
+
+In our experience, the half data format is sufficient for color images, color channels being those viewed using tone rendering, examples of which include beauty renders, specular color, diffuse color, per-light color AOVs, etc. For data channels requiring high precision representations of physical attributes, such as depth, normals or control maps, full 32 bit float is available and often necessary.
+
+The maximum value for float-16 is 65504.0f. The minimum positive value that can be represented without a decrease in numerical precision, is 6.1035e-05f. It is important to remember when dealing with floating-point data, that the bits are allocated very differently from integer encodings. Whereas integer encodings have a uniform allocation of bits over the entire coding space, the floating-point encodings have increased precision in the low end and decreased precision in the high end. Consequently, if one has an unsigned 16 bit integer image, converts to a float-16 representation, and then converts back, fewer than 16 bits of precision are maintained.
+
+OpenEXR supports a variety of compression options. Piz (wavelet) probably offers the highest lossless compression ratio on grainy material but is relatively expensive computationally. The zip options offer a reasonable compression ratio on computer-generated elements and is less computationally intense. The b44 codec is lossy; intended for real-time playback. OpenEXR also can store a tiled, mipmapped representation, and is thus suitable for use as a renderer texture format. OpenEXR 2.0 added deep buffer support: an arbitrary number of depth-samples per pixels, at the expense of increased storage requirements.
+
+Because image data stored in OpenEXR files is normally scene-referred linear, a viewing transform is required to display the image. Metadata can be included which specifies the primaries of the image data but as with DPX, this metadata should not be trusted in general. A naive transform to an output-referred space such as sRGB will clip any data above 1.0. As part of the ACES standardization effort, a constrained version of OpenEXR was specified in SMPTE as ST 2065-4:2013.  This standard specifies the on-disk bit representation of image data and critical metadata.  One of the metadata fields specified in ST 2065-4 is the “ACES Image Container” flag which is intended to indicate an OpenEXR image is a compliant ST 2065-4 file.  ACES ST 2065-4 files are encoded as scene-referred linear images using the AP0 primaries and should be viewed through an ACES output transform. This ensures that anybody viewing the image sees it in a way which perceptually matches what any other viewer sees, independent of display or viewing environment.
+XXX
+
+\section{Software}
+
+This is a list of software applications mentioned elsewhere in the document. It is not intended to be comprehensive. Nor should it be taken as an endorsement of one particular application over another.
+
+\subsection{Open Source Software}
+
+DCRAW, Dave Coffin
+Open source raw development software, giving greater control of image processing than is available in manufacturers’ software. It also permits bypassing of many of the ‘sweeteners’ often included, and thus allows decoding to a more pure scene-referred image. https://www.cybercom.net/~dcoffin/dcraw/
+
+OpenColorIO
+See Section 4.2 above
+http://opencolorio.org
+
+OpenImageIO
+An open source library for reading, writing and manipulating image files, with particular emphasis on formats used in VFX, and not supported in standard image reader/writers. https://openimageio.org
+
+\subsection{Commercial Software}
+After Effects, Adobe
+
+Baselight, FilmLight
+
+CryEngine, Crytek
+
+Flame, Autodesk
+
+Fusion, Blackmagic Design
+
+Lattice, Video Village
+LUT creation and conversion application for Mac OS. https://lattice.videovillage.co
+
+LightSpace, Light Illusion
+Display calibration software for Windows, which is also able to create and manipulate LUTs. https://www.lightillusion.com
+
+LiveGrade, Pomfort
+Mac OS software for controlling LUT boxes to grade a live signal and save the grades and other metadata to be applied elsewhere. Works together with other software from Pomfort for managing metadata and creating dailies. https://pomfort.com/livegradepro
+
+Lumberyard, Amazon
+
+Lustre, Autodesk
+
+Mistika, SGO
+
+Nuke, Foundry
+
+Nucoda, Digital Vision
+
+On-Set Dailies, Colorfront
+
+Prelight, FilmLight
+Look creation software for Mac OS based around BLG (Baselight Saved Grade) but also capable of working in a more limited ASC CDL mode. Available in a free version which allows a DIT or Cinematographer to work with the full Baselight toolset to create looks using still images, and a paid version which can control LUT boxes for live grading and metadata management. https://www.filmlight.ltd.uk/products/prelight/overview_pl.php
+
+Resolve, Blackmagic Design
+
+Unity, Unity Technologies
+
+Unreal Engine, Epic Games
+
+\section{Acknowledgements}
+Illustrations from 2012 by Kazunori Tanaka.
+Illustrations from 2018 provided by authors.
+
+A very special thanks goes to:
+Sony Pictures Imageworks
+Rob Bredow, for this opportunity to contribute in a public forum.
+Erik Strauss, Bob Peitzman, the Katana team, and Imageworks’ artists.
+All contributors to OpenColorIO, including Malcolm Humphreys, Ben Dickson, Mark Fickett, Brian Hall, and Sean Cooper.
+The Foundry
+The Academy’s Science and Technology Scientific and Technical Council, including Ray Feeney, Alex Forsythe, and Andy Maltz.
+Josh Pines, Stefan Luka, Alex, and Joseph Slomka
+The Visual Effects Society
+Jeremy Selan is an Imaging Supervisor at Sony Pictures Imageworks specializing in color, lighting, and compositing. His work has been used on dozens of motion pictures including The Amazing Spider-Man, Alice in Wonderland, and The Smurfs. Jeremy is a co-founder of Katana, and also the founder of OpenColorIO. His work on color processing has been previously featured in GPU Gems 2, Siggraph 2005's Electronic Theater, and the 2012 Siggraph Course, Cinematic Color.

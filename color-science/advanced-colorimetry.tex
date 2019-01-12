@@ -1,0 +1,152 @@
+\section{Advanced Colorimetry}
+
+Thus far, mainly unrelated color, i.e. color in isolation such as street lights against the night darkness has been considered. However, real objects and their colors are rarely perceived in isolation, on the contrary, objects are almost systematically seen in the context of many others. Therefore, their colors are said to be related.
+
+Fairchild (2013) presents the perception of gray and brown colors as an example illustrating related colors:
+
+It is not possible to see unrelated colors that appear either gray or brown. Gray is an achromatic color with lightness significantly lower than white. Brown is an orange color with low lightness. Both of these color name definitions require specific lightness levels. [...] To convince yourself, search for a light that can be viewed in isolation (i.e., completely dark environment) and that appears either gray or brown.
+
+One might infer that color appearance is affected by its surroundings and this is indeed the case. The study of color appearance is the objective of advanced colorimetry.
+
+Fairchild (2013) references a citation from Wyszecki (1973) describing basic colorimetry first:
+
+Colorimetry, in its strict sense, is a tool used to making a prediction on whether two lights (visual stimuli) of different spectral power distributions will match in color for certain given conditions of observation. The prediction is made by determining the tristimulus values of the two visual stimuli. If the tristimulus values of a stimulus are identical to those of the other stimulus, a color match will be observed by an average observer with normal color vision. 
+
+And then advanced colorimetry:
+
+Colorimetry in its broader sense includes methods of assessing the appearance of color stimuli presented to the observer in complicated surroundings as they may occur in everyday life. This is considered the ultimate goal of colorimetry, but because of its enormous complexity, this goal is far from being reached. On the other hand, certain more restricted aspects of the overall problem of predicting color appearance of stimuli seem somewhat less elusive. The outstanding examples are the measurement of color differences, whiteness, and chromatic adaptation. Though these problems are still essentially unresolved, the developments in these areas are of considerable interest and practical importance.
+
+Advanced colorimetry and color appearance models extend basic colorimetry by making predictions about the perception of color under various viewing conditions. While its exploration is out of the scope of this document, viewing conditions, elementary terminology and various color appearance phenomena will be defined as some are necessary to understand various concepts touched on. Fairchild (2013) is a recommended reading for in-depth information, and Luo et Li (2013) for a quick primer centered around CIECAM02.
+
+\subsection{Viewing Conditions}
+
+The elements of the viewing field modify the color appearance of a test stimulus (typically a uniform patch subtending 2 degrees or an image).
+Color stimuli presented with their viewing field. 
+Ralph Breaks the Internet Image copyright ©Disney. All Rights Reserved.
+
+The viewing field elements are defined as follows
+Reference White: Used to scale the Lightness of the test stimulus and is assigned the value of 100. Reference white does not exist when viewing unrelated color. In the context of image viewing, it is the white border surrounding an image.
+Proximal Field: The immediate environment of the test stimulus subtending 2 degrees in all directions from the edge of the stimulus.
+Background: The environment of the test stimulus subtending 10 degrees in all directions from the edge of the proximal field.
+Surround: The field outside the background, generally qualified as being dark, dim, average or bright and taken as being respectively 0%, 0% to 20%, 20% to 100% or 100% and over of the reference white luminance.
+Adapting Field: The total environment of the test stimulus, including the proximal field, the background and the surround and extending to the limit of vision in all directions.
+
+The following table enumerates different but common real-life viewing scenarios with surrounds ranging from dark to bright.
+Viewing Scenario
+Ambient Illumination in Lx (or cd/m2)
+Scene or Device White Luminance in cd/m2
+Adapting Field Luminance in cd/m2
+Adopted White Point
+Surround
+Viewing Slides in Dark Room
+0 (0)
+150
+30
+Projector
+Dark
+Viewing Self-Luminous Display at Home
+38 (12)
+80
+20
+Display
+and
+Ambient
+Dim
+Viewing Self-Luminous Display under Office Illumination
+500 (159.2)
+80
+15
+Display
+Average
+Surface color Evaluation in a Light Booth
+1,000 (318.3)
+318.3
+60
+Light Booth
+Average
+Viewing a Smartphone in Outdoor Sunny Daylight
+100,000 (31,830)
+ 634
+7,500
+Outdoor Daylight
+Bright
+
+\subsection{Terminology}
+
+The following definitions are given as written by the CIE. The definition of colo(u)r is repeated for completeness.
+Colo(u)r:  Characteristic of visual perception that can be described by attributes of hue, brightness (or lightness) and colorfulness (or saturation or chroma).
+Hue:  Attribute of a visual perception according to which an area appears to be similar to one of the colors: red, yellow, green, and blue, or to a combination of adjacent pairs of these colors considered in a closed ring.
+Brightness: Attribute of a visual perception according to which an area appears to emit, or reflect, more or less light.
+Lightness: Brightness of an area judged relative to the brightness of a similarly illuminated area that appears to be white or highly transmitting.
+colorfulness: Attribute of a visual perception according to which the perceived color of an area appears to be more or less chromatic.
+Chroma: colorfulness of an area judged as a proportion of the brightness of a similarly illuminated area that appears white or highly transmitting.
+Saturation: colorfulness of an area judged in proportion to its brightness.
+Unrelated Colo(u)r: Colo(u)r perceived to belong to an area seen in isolation from other colo(u)rs.
+Related Colo(u)r: Colo(u)r perceived to belong to an area seen in relation to other colo(u)rs.
+
+\subsection{Color Appearance Phenomena}
+
+\subsubsection{Lateral-Brightness Adaptation}
+
+Bartleson and Breneman (1967) have shown that perceived contrast of images changes depending on their surround: Images seen with a dark surround appear to have less contrast than if viewed with a dim, average or bright surround.
+
+Lateral-Brightness Adaptation: the left image exhibits more contrast because of the white background compared to the right version. Note that the image must be looked at fullscreen for full effect.
+Fairchild, M. D. (n.d.). The HDR Photographic Survey. Retrieved April 15, 2015, from http://rit-mcsl.org/fairchild/HDRPS/HDRthumbs.html
+
+\subsubsection{Simultaneous Contrast}
+Simultaneous contrast induces a shift in the color appearance of stimuli when their background color changes.
+
+The shifts induced follow opponent color theory:
+A light background induces a darker stimulus.
+A dark background induces a lighter stimulus.
+Red induces green, green induces red, blue induces yellow and yellow induces blue.
+
+Simultaneous Contrast: the red squares have the same code values (Fairchild, 2013).
+
+\subsubsection{Crispening}
+
+Crispening is characterized by the induced increase in the perceived color difference between two stimuli by a background with a color similar to that of the stimuli themselves.
+
+Crispening: the code values on each row are the same.
+Wikipedia. (n.d.). Crispening effect. Retrieved October 13, 2018, from https://de.wikipedia.org/wiki/Crispening-Effekt
+
+\subsubsection{Spreading}
+
+Spreading occurs when the spatial frequency of the color stimuli increases resulting in a simultaneous contrast decrease and an apparent mixture of the stimuli with the surround.
+
+Spreading: reds, yellows, and blues all have respectively the same code values.
+Fairchild, M. D. (2013). Color Appearance Models (3rd ed.). Wiley. ISBN:B00DAYO8E2
+
+\subsubsection{Bezold-Brücke Hue Shift}
+
+The Bezold–Brücke Hue Shift is a change in hue perception of a monochromatic color stimulus as its luminance changes. An expansion of wavelengths appearing yellow or blue, and a decrease in wavelengths appearing green or red occurs as stimulus luminance increases.
+
+\subsubsection{Abney Effect}
+
+The Abney Effect describes the perceived variation in hue of a color stimulus induced by variation of the stimulus colorimetric purity.
+
+Abney Effect: the central stimulus has more colorimetric purity than the surrounding ones and thus has a different perceived hue.
+
+\subsubsection{Purkinje Effect}
+
+The Purkinje Effect or Purkinje Shift describes the shift toward the blue end of the color spectrum of peak luminance sensitivity of the HVS at low illumination levels.
+Two objects, one red and one blue which appear to have the same lightness in daylight will appear differently under scotopic illumination levels: the red will appear nearly black and the blue relatively light.
+
+\subsubsection{Helmholtz–Kohlrausch Effect}
+
+The Helmholtz–Kohlrausch Effect describes the perceived variation in brightness of a color stimulus induced by increased saturation and hue variation of the stimulus while keeping its luminance constant.
+Helmholtz–Kohlrausch Effect: the luminance of each sample is the same as that of the background and constant. The bottom part of the image represents an achromatic version of each above sample.
+
+\subsubsection{Hunt Effect, Hunt (1952)}
+
+The Hunt Effect describes the perceived colorfulness increase of color stimuli induced by luminance increase. Conversely the colorfulness of colors decreases as the adapting light intensity is reduced. 
+Hunt (1952) also found that at high illumination levels, increasing the test color intensity caused most colors to become bluer.
+
+\subsubsection{Stevens Effect, Stevens and Stevens (1963)}
+
+The Stevens Effect describes the perceived brightness (or lightness) contrast increase of color stimuli induced by luminance increase.
+
+\subsubsection{Helson-Judd Effect, Helson (1938)}
+
+The Helson-Judd effect happens when a light source illuminates a greyscale, light regions of the greyscale exhibit chroma of the same hue of the light source while dark regions exhibit chroma of the complementary hue of the light source. The Helson-Judd effect is subtle and is usually not accounted for in practical situations.
+

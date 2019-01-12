@@ -1,0 +1,92 @@
+\section{Critical Monitoring}
+
+DI grading is done in a viewing environment that exactly mirrors the final primary exhibition. Digital intermediate (and mastering) typically have very tight tolerances on calibration, as the decisions made in this process are the last time image color appearance is tweaked.
+
+An issue in some feature production is that the typical artist display does not match the eventual theatrical viewing specification or environment; some audiences will see more color detail than the original artist. Workstations commonly use sRGB or Rec. 709 displays, which represent the smallest color space and lowest dynamic range used in distribution. Workstation displays are often not even calibrated beyond an eyeball check. Theatrical releases use the slightly wider P3 color space and there is a fast-growing home market for HDR content, which also uses a P3 limited color space but has considerably more dynamic range than traditional displays. Streaming companies like Netflix are increasingly producing original content in HDR.
+
+Histograms are a useful tool when analyzing image fidelity, and often help forensically track down if post-processing has been applied to an image. For example, log frames from certain motion-picture cameras often do not make full use of the integer coding space. This can be detected in the histogram and is helpful in tracking down an image color space when the original is unknown. The application of sharpening filters, detectable from their residual undershoot and overshoot, can also be observed in the histograms. It is possible to detect if image quantization has occurred, appearing as tell-tale “comb-like” peaks and valleys in the histogram. Leveraging histograms computed on HSV-transformed imagery as a final quality-check has been proven to be an invaluable tool.
+
+There are other image artifacts, such as aliasing, that are best inspected on moving imagery. For example, the use of interpolation kernels, such as nearest-neighbor or bilinear, are often unobjectionable on still imagery yet artifact-inducing on slowly animating transforms, particularly near horizontal lines. Always be on the lookout for moire patterns and other high-frequency artifacts, particularly when such filters have been applied to imagery with fine details, such as cloth, or wave patterns. If all digital imagery were ideally sampled, this would not be an issue. However, camera manufacturers have a tendency to bias imagery to be overly-sharp and motion transformations accentuate such artifacts. Over sharpening is less common with high-end digital cinema cameras.
+
+For stereo deliveries, it’s critical to quality check both eyes individually, as well as together in a proper stereo viewing environment. There are many stereo artifacts which are only visible on true 3D displays, and catching these early on is most cost-effective.
+
+\subsection{Cinema Projection}
+
+Mastering for digital cinema should be done in an equivalent theatrical setting with matched digital projection. Film print is rarely the primary release today, but if the project does call for it, the DI grade is usually in a theatrical environment with a digital projector, with a film emulation 3D-LUT made in conjunction with the film lab to confirm a visual match with the stock, chemistry, and processing. Producing a calibrated film LUT is expensive and time-consuming, so it is more common to create a DCI P3 master and match the film release to that. 
+
+If possible, attending the grade or an early test screening is informative and educational.
+
+\subsection{Reference Monitors}
+
+Home theater mastering should be done in an “idealized” home environment. Usually, the idealized home environment is slightly darker than the real home environment and display gamma of 2.4 is used to compensate. When seen in a room with more ambient light the master will look correct with 2.2 display gamma, which is the target for consumer televisions. The purpose of the darker environment for mastering is to make shadow detail and colors more discernible, thereby creating a more accurate master. Rec. 709 does not specify the display gamma but this was later clarified in BT. 1886.
+
+Note that whilst sRGB and Rec. 709 share the same primary color coordinates, the display gamma is quite different and decisions on tonal detail should not be made on one for the other. The purpose of sRGB as a preview color space is more to assess the content than the look.
+
+Similarly, many motion pictures designed for theatrical release are finished on a calibrated monitor rather than a projector. Many of the monitors in use calibrate well to DCI P3 and the room lighting is often close to the theatrical experience. In this situation, the main cause of problems is the size of the screen and only experience will tell how the perception of the image will differ on the big screen. Techniques such as vignetting work well to focus attention on a small display but can reduce the sense of space in a theatre, reminding the audience that they are in a dark room watching a screen.
+
+A final obvious consideration is the display calibration: cheaper displays drift quicker than more expensive ones, but all displays used for finishing and critical decision making need regular checks and calibration. Often calibration is done using display menus, but calibration LUTs, loaded into the display or an external LUT box can be quicker and more accurate. For a calibration LUT to be effective the display's native gamut must exceed that of the target.
+
+\subsection{HDR Displays}
+
+Consumer HDR displays are commercially available today and content can come from video streaming, Blu-ray players, games machines and even live transmissions. The professional HDR displays are extremely expensive, often 10 times more than conventional SDR displays, and therefore rarer. The brightest consumer displays reach about 1000 nit. The brightest professional reference monitor is currently 4000 nits but only available through Dolby. The brightest commercially available professional reference display is currently the FSI XM310K, which reaches 3000 nits. There are several reference displays that are 1000 nits or better and that meet the other criteria for HDR. HDR display mastering must be done on a display of at least 1000 nits, with full P3 gamut and a white point of D65. Scene-referred sources, VFX and CG content should preserve as much highlight range as possible in order that the mapping to the display range can be chosen for creative reasons, rather than imposed by technical limitations. Clipping generally looks bad on HDR displays. 
+
+\subsection{Color Management for Mastering}
+
+Ideally, a single Master is created and all versions taken from it using metadata, transforms or trims. To achieve the best results the Master should be created and approved in the highest dynamic range and widest color gamut, but even then care is needed to map the Master data to each version. A poor mapping may produce artifacts that range from minor to catastrophic but is always avoidable.
+
+Sometimes it is unavoidable that the first Master is not the ideal dynamic range or color gamut and sometimes it is limited in other ways, such as bit depth or lossy compression. In this situation, the best route to delivering other versions is to go back to the project file and remove the embedded limitations of the first Master. A typical problem in this scenario is managing expectations when approval has been given for a Master of limited range. Some clients insist on a faithful transition between formats, even if the limitations of the approved Master are carried over to the other versions. Others are more open minded and prefer to forego absolute accuracy in favor of higher quality versions.
+
+When media is used in a scene-referred workflow it is important to manage detail and artistic intent through the pipeline. The following details from the Disney movie “Moana” illustrate how color management is used at each stage so that tonal information is preserved throughout. 
+
+Image ©Disney. All Rights Reserved.
+This is a representation of an extract from the scene-referred linear EXR source. Since there is no tone mapping much of the tonal information in the shadows and the highlights appears clipped. It is a useful scene-referred image, but hard to monitor in a meaningful way without tone mapping and the display transform approved for the project.
+
+
+Image ©Disney. All Rights Reserved.
+This is a representation of the same scene-referred linear EXR with 4 stops less exposure. Most of the image is now close to the display black point, but of course still, present in the EXR file. Dropping the exposure shows that there is good highlight information in the image and that the dynamic range is greater than the display can handle without some tone mapping or clipping.
+
+
+Image ©Disney. All Rights Reserved.
+This representation has 2.2 gamma applied. Gamma brings the shadow detail into range on a Rec. 709 display, but information above 1.0 is still clipped. This is evident in the eye of the fire goddess, Te Fiti, the brighter parts of the sea and the sky. 
+
+Image ©Disney. All Rights Reserved.
+This is the EXR file with 2.2 gamma and 4 stops less exposure. Again it reveals that there is highlight information but it is a poor representation of the artistic intent. 
+
+Image ©Disney. All Rights Reserved.
+Here the image has had a PQ EOTF added and the color gamut converted to Rec. 2020. Some tone-mapping has also been applied. On an HDR display the full impact of the color and dynamic range are visible, but the image looks flat and desaturated on a 709 display. Color encoding to high-dynamic range and a wider color gamut uses lower code values, with less color separation, than would be used by Rec. 709 for the same display colorimetry. In this example, the detail in the highlights of the water is retained, but the detail in the eye of the lava creature has been limited for artistic reasons. The scene-referred linear EXR clearly has more detail in tone and color than is shown in this PQ image and the PQ  Rec. 2020 encoding certainly has the capability to show that detail. However, the effect on the final audience is not based merely on a technical transform and the colorist must consider the emotional response too. The important factor is that an informed decision is only made if the detail is present in the source. If there was no detail in the original EXR then the more limited version is the only option and that could impact the look of other scenes or even the whole project.
+
+
+Image ©Disney. All Rights Reserved.
+This is a colorimetric Rec. 709 transform with 2.2 gamma of the PQ Rec. 2020 version. Again, this results in clipping, not just in the eye, but also the sea and sky, as it uses picture information from only the lowest part of the HDR range. The clipping goes beyond the white highlights but also manifests as over-saturated loss of detail in the blue of the wave.
+
+
+Image ©Disney. All Rights Reserved.
+This image is also from a Rec. 709 2.2 gamma export, but this time using creative tone mapping. The artistic intent of the bright eye is retained, even to the point of a slight yellow tint. This version retains all the detail of the sea tonal range and color separation without clipping.
+
+
+Image ©Disney. All Rights Reserved.
+A butterfly wipe between the tone mapped version (top) and the clipped transform (bottom) shows the benefit of mapping over blind transforms. Sometimes tone mapping is achieved with mathematical algorithms and sometimes this level of control is the domain of the colorist.
+
+\subsubsection{Gamut Mapping}
+
+Tone mapping is concerned with dynamic range, which can affect color, as the previous example showed. Gamut mapping adjusts colors between different color gamuts. Understanding how to read files without a display of the correct gamut is a useful skill.
+
+Image ©Disney. All Rights Reserved.
+This is a crop from the original P3 gamut source. It will only look as intended on a P3 calibrated display. On a Rec. 709 or sRGB display the image will appear less saturated than it should, but the color detail is visible.
+
+
+Image ©Disney. All Rights Reserved.
+Here is the same crop, converted to Rec. 709 with clipping in the red channel evident on the cheek, shirt and background. The saturation level is now correct and the transfer function and white point remain the same but the clipping artifacts are objectionable and an unnecessary compromise since there is no clipping in the P3 source. The clipped colors are valid in the P3 gamut, but out of the Rec. 709 gamut.
+
+
+Image ©Disney. All Rights Reserved.
+This version shows a gamut warning. The zebra pattern identifies all areas of the P3 source that are outside of the 709 gamut and helps to direct the artist to where artifacts will occur if no further action is taken.
+
+
+Image ©Disney. All Rights Reserved.
+This version shows the Rec. 709 gamut master after gamut mapping the colors that were outside of the Rec. 709 gamut to appropriate colors inside the Rec. 709 gamut to avoid clipping in the red channel. The difference is subtle on the printed page but significantly better than the clipped approach. Most colors that were already visible in the Rec. 709 gamut remain unchanged, only the out of gamut colors and those with the highest saturation are different. The result has minimal impact on artistic intent, retains the highly saturated look and yet avoids a loss of detail in the 709 version. 
+
+
+Image copyright © Disney 2018
+This butterfly split of the clipped image on the left and the mapped image on the right shows the improvement in the cheek and the hem of the shirt. Had the original master been the Rec. 709 version on the right, the P3 version would look identical to the Rec. 709 version when seen on a P3 display, though it would still look less saturated when seen incorrectly on a Rec. 709 display. No gamut mapping would be required. However, the opportunity to push the saturated look that is clearly intended, to the limits of P3 would be lost.
+

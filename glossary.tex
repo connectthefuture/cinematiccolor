@@ -1,0 +1,141 @@
+\chapter{Glossary}
+
+ACES (Academy Color Encoding System)
+Color management system standardized by A.M.P.A.S. which defines a wide gamut scene-referred linear working space, and the transforms needed to map to that from other color encodings. ACES also defines the transforms to display ACES image data on various standard displays, as well as metadata to communicate creative intent and other information. The acronym ACES may also stand for Academy Color Encoding Specification, the ACES2065-1 color encoding.
+
+ASC CDL
+American Society of Cinematographers Color Decision List. See Appendix 4.5 for more detail. A list of color parameters that can be shared as XML or within EDL files and applied in most color grading systems.
+
+Block Compression
+A form of lossy texture compression, usually hardware accelerated, which operates on fixed resolution blocks. Typically these blocks are 4x4 with compression ratios of 4:1 or 8:1, but this is not always the case. Follow the links in the “Block compression” part of Appendix 4.14.4 for more details.
+
+Bokeh
+The appearance of the out of focus part of an image, characterised by discs with the same shape as the iris of the lens, which are most apparent around bright sources.
+
+BT.2100
+ITU-R BT.2100, referred to as BT.2100 or Rec. 2100 is the main ITU standards document for HDR. It defines the OETF and EOTF for both PQ and HLG, as well as specifying an OOTF for each. It also gives the spatial and temporal characteristics (pixel dimensions and frame rate) for HDR, and details of Y’CbCr encodings and SDI transmission.
+
+CSI
+Colorist Society International (CSI) strives to advance the craft, education and awareness of the art and science of color grading and color correction. ColoristSociety.com
+
+Code Values
+Discrete values for 8, 10, 12 or 16 bit integer encodings. For example, a 10 bit image has 1024 code values, numbering from 0 to 1023.
+
+Color Management
+Techniques used to ensure that the intended appearance of an image is reproduced in the same way everywhere it is viewed. This may include Color Appearance Modeling to account for differences in viewing environment and display brightness, or may simply ensure identical absolute display colorimetry on all displays (within the limitations of a particular display).
+
+Digital Intermediate (DI)
+The process of manipulating color and other characteristics of digital images prior to theatrical release. DI is currently used for both film and video markets and uses software with a data workflow rather than hardware and a tape-based pipeline. The term was originally used by Kodak to define a workflow from film negatives to digital manipulation and back to film. (from http://www.finalcolor.com/glossary-1/). It is commonly used in VFX to mean color grading and finishing, which is a narrower definition than the term originally intended but is the preferred meaning in this document. 
+
+Defocus
+The optical effect caused by light rays converging in front of or behind the plane of the sensor in a camera. Simulated in post by convolving the image with a kernel with the same shape as the lens iris, and size proportional to the desired defocus.
+
+Display-referred see output referred image state
+
+Dmin
+Minimum density on the characteristic curve of a film stock’s response.
+
+Display Transform
+See Output Transform
+
+D65
+The CIE standard daylight illuminant (approximately 6504K, although not actually on the Planckian locus) used as the white point for televisions, HD video monitors and most computer displays. The CIE defines the chromaticity coordinates of D65 as (0.31272, 0.32903) but Rec. 709 and many other color encoding specifications use a form rounded to four decimal places.
+
+EDL (Edit Decision List)
+Text file used to convey the shots used in a cut, and their positions in the timeline, between different editing and grading systems. Historically EDLs were used to transfer edits from non-linear offline editing systems (and before that tape based offlines) to the high quality multi-machine tape editing systems. Various forms exist, but the most commonly used are based on the CMX3600 format.
+
+EOTF (Electro-Optical Transfer Function)
+The mathematical mapping between the output-referred pixel values and the luminance on a particular display.
+
+Encoding gamut
+The gamut chosen by a camera manufacturer for use in mapping the specific response from their sensor and filter’s spectral response curves to chromaticities.
+
+Gamut
+The range of colors able to be represented by positive values in a particular color encoding. Gamuts are often shown as triangles on a CIE xy or u*v* plot, but these, in fact, are only a projection of the volume of the color gamut, as the luminance component is not shown.
+
+HDR (High Dynamic Range) 
+HDR has multiple meanings: It is a set of techniques that allow a greater dynamic range of exposures or values (i.e. a wider range of values between light and dark areas) to be handled than normal digital imaging techniques.
+HDR image capture encodes a wider than normal dynamic range from the scene, without applying any tone mapping or other processing to make the result suitable for direct display. This may be done either by combining multiple bracketed exposures from a lower dynamic range device, or by using a camera which has an inherently high dynamic range.
+HDR image processing is the most common usage in this document and within the VFX community. It is used to mean working with wide dynamic range scene referred data in a manner which preserves the dynamic range, either by using unclamped floating point linear processing, or a logarithmic representation of the linear image data.
+HDR display is a set of new technologies which use screen brightness significantly greater than conventional displays. These displays use either a Perceptual Quantizer (PQ/ ST.2084) or Hybrid Log Gamma (HLG) EOTF to display images. Colorists, consumers, and distributors are likely to mean HDR displays when they use the term HDR. 
+Note: The term HDR is also used to refer to images which use local tone mapping to prepare a high dynamic range image for a standard dynamic range display, producing the unnatural looking images often seen online. This document does not ever use the term in that sense.
+
+HLG (Hybrid Log Gamma)
+HDR encoding developed by the BBC and NHK, and specified in ITU-R BT.2100, which defines an OETF and EOTF, producing a system gamma OOTF. Unlike ST.2084, HLG is a relative standard, with output brightness dependent on the black and white levels of the display.
+
+IDT see Input Transform
+
+Input Transform
+Transform provided by a camera manufacturer, or specified by A.M.P.A.S, to map a source encoding to ACES2065-1.
+
+IRE
+While strictly a unit of measurement of the voltage in composite video signals, the term IRE is commonly used to refer to the level of any signal between black and white as a percentage, with 0 IRE being black and 100 IRE white. It is often used to abstract the encoded signal from the code values used to represent it, so in "Legal Range" 0 IRE is 10 bit 64 and 100 IRE is 940. In "Full Range" 0 IRE is 0 and 100 IRE is 1023.
+
+Look Management
+Techniques used to communicate the intended appearance of an image, including creative as well as technical transforms, so that the same Look can be seen by all involved.
+
+LMT 
+See Look Transform 
+
+Look Transform
+In an ACES pipeline a transform applied downstream of grading operations to impart an overall look to a show or scene.
+
+LUT Box
+Hardware image processing device capable of applying transforms implemented as LUTs to SDI or HDMI signals.
+
+Munsell Renotation System
+System developed by Professor Albert H. Munsell in the early 20th century which describes colors in terms of perceptually uniform hue, value (lightness) and chroma.
+
+NTSC (National Television System Committee)
+Organization in the US founded to standardize the format for television broadcasts. Commonly used to refer to the color television standard defined by that committee. NTSC is a standard definition interlaced format with 29.97 frames (59.94 fields) per second, but the term is often loosely used to refer to any 30 or 29.97 fps video format, to distinguish it from formats based on the European PAL 25 frames (50 fields) per second system. The precise frame rate is in fact 30 × 1000/1001.
+
+ODT (Output Device Transform) 
+See Output Transform
+
+OECF (Opto-Electronic Conversion Function) 
+See OETF
+
+OETF (Opto-Electronic Transfer Function)
+The mathematical mapping between scene light and scene-referred pixel values.
+
+OOTF (Optical to Optical Transfer Function)
+The mathematical mapping used to convert between scene-referred and display-referred image data for the purposes of picture rendering.
+
+Output-referred image state
+Image state associated with image data that represents the colorimetry of the elements of an image that has undergone color rendering appropriate for a specified real or virtual output device and viewing conditions.
+
+Output Transform
+The ACES term for what is also called a Display Transform, a mathematical mapping which transforms scene-referred image data into display-referred, targeting a particular class of display. This transform is not purely colorimetric, but includes tone mapping and picture rendering.
+
+Picture rendering
+A modification of the image contrast to create a perceptual match between scene and display.
+
+Protect
+To choose operations, formats and processing pipelines that do not clip intensities, gamuts or image content, even where not noticeable in the current form, in order to preserve maximum flexibility downstream.
+
+PQ (Perceptual Quantizer aka Perceptual Quantisation)
+EOTF standardized by SMPTE ST.2084 for HDR displays. PQ is an output referred absolute encoding of HDR display luminance, covering the range from 0 to 10,000 cd/m2. Originally designed by Dolby under the name PQ for Perceptual Quantizer, because each PQ code value increment represents an equal increase in perceived brightness throughout the range. Quantizer and Quantization are used interchangeably in discussions about PQ. Quantizer was used originally by Dolby, but Quantization become more commonly used later on, as in the ITU-R BT.2100 document.
+
+Rushes
+Original unmodified files recorded by a camera. Historically the term referred to the exposed negative or recorded video tape, but the term is now used to refer either to the files on the camera media, or a copy of those files made on set or in a data lab.
+
+Scene-referred image state
+Image state associated with image data that represents estimates of the colorimetry of the elements of a scene. Scene-referred image data typically represents relative scene colorimetry estimates. Absolute scene colorimetry estimates may be calculated using a scaling factor.
+
+SDR (Standard Dynamic Range)
+Term used to describe display systems not capable of high dynamic range; normally used in contrast to HDR displays. Also used to describe output-referred image data restricted to the 0-1 range (or integer equivalent) suitable for display on SDR displays.
+
+Small Floats
+These are floating-point representations with fewer bits than the usual 16-bit implementations. Overall range is similar to 16-bit since the 5-bit exponent is preserved, but a reduced size mantissa reduces precision and the sign bit is dropped. Links with more information be found in the “Small float formats” part of Appendix 4.14.4.
+
+ST.2084
+See PQ
+
+Trims
+Grading adjustments made after grading of the primary master is complete, in order to make the image suitable for a secondary deliverable.
+
+View Transform 
+See OOTF
+
+Working Space
+The color space in which a particular set of operations is performed. The choice of working space has a significant effect on the way such operations act. Some spaces may be more appropriate than others for certain operations, and some may be entirely unsuitable. A color pipeline is likely to use different working spaces at different points. They are often transient color spaces, existing only within a grading or compositing system, with transforms to and from the working space applied either side of the operations.

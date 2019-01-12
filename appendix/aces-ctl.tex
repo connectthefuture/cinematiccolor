@@ -1,0 +1,4 @@
+\section{ACES CTL}
+
+All of the transforms, both input and output, for ACES have a reference implementation defined using the Color Transformation Language (CTL); contributed by Industrial Light & Magic. CTL is an interpreted language similar in spirit to shader languages commonly used in renderers, but with a focus on color transforms. CTL provides a rich color correction API, including scattered data interpolation. CTL is run independently per pixel and is thus suitable for baking into 1D/3D LUTs, allowing for real-time “baked” performance. Unfortunately, though, CTL transforms are not currently supported natively on most platforms so current practice is to bake their logic into platform specific operations and/or 3D LUTs.
+

@@ -1,0 +1,60 @@
+\section{Archives}
+
+Like color management, an archival procedure is relatively straightforward if it is included in planning from the start and incredibly traumatic if it has to be implemented after everything else. In a planned environment, archiving is little more than good housekeeping but the cost of introducing it retroactively can often be prohibitive.  One of the initial driving forces behind ACES was the lack of standards around color in archiving, and The Academy have recently published their Academy Digital Source Master draft specification, with the aim of standardizing the delivery archiving of ACES projects.
+
+Project managers should consider how long the archive needs to last and to what purpose. The duration might be until the production is complete, delivered and fully signed off with the intention that even if a team has moved on to other things, all elements could be restored and work resumed should the need arise. This archive is separate from the day to day storage used by each department or facility, it is an untouched copy that is available if data is lost, corrupted or inaccessible. Alternatively, the archive could be part of a comprehensive asset management system intended to protect and future-proof valuable content. In theory, both scenarios face the same problems, but the solutions for risk management will differ in practice.
+
+The challenges associated with archives can be simply stated as:
+preservation of the data
+preservation of the means to access the data
+ease of access
+low maintenance
+
+As a rule, the best-preserved data is the least easy to access. A painting locked in a bank vault has a better chance of surviving intact than a painting on the wall of a cafe. Similarly, the safest digital files are those that do not have direct access by a host of users. Access to the original digital data requires a physical reader device, a compatible operating system with suitable software and the necessary ancillary support to view or use the data correctly. Within the concerns of this paper, that includes a display calibrated to the correct color gamut or the means to create a correct transform to interpret the images as intended. There should also be a file, document or metadata that specifies the correct color gamut. The metadata for HDR10 and Dolby Vision requires this but other formats assume that a display gamut. The Thomson Viper camera is a good long-term example of the pitfalls for archives. It was one of the first cameras to capture data rather than video or film. Much of the media shot on it was stored on videotape and required proprietary LUTs to correctly remove the inherent green bias. In the decade since the camera was introduced, those VTRs have become scarce. To retrieve Viper data, the tapes would have to have been well stored and you would have to locate a VTR. Additionally, there are no Input Transforms to bring Viper Filmstream data into an ACES workflow.
+
+Preserving lossless copies of the digital data requires an ongoing managed schedule of refreshing, migrating and replicating the data. 
+
+Refreshing is the transfer of data between two types of the same storage medium to protect against corruption or drive failure. This requires at least three copies so that any time one becomes different to the others, it is replaced. Checksum hashes should be calculated from the original media, and stored alongside each copy, so that its integrity can be subsequently verified. Even the loss of one bit can render an entire file unusable and there is a condition known as bit-rot that is statistically relevant to larger libraries. When an archive reaches a certain size some bit-rot is certain, although where it occurs is not. However, the highest risk to digital data is at the time of access and is caused either by operator error, or accidental deletion. For this reason, most archives do not allow access to the source content, they only allow content to be copied out of the archive. 
+
+Duplicating the data is called Replication and of course, the more copies that exist, the less an asset is vulnerable to being lost. In the days of film, every release print made was a form of replication that increased the chances of an asset surviving. Unfortunately, however, there is a conflict of interest when an asset has commercial value. A studio that derives its income from sales of its content does not want countless copies in the market and therefore needs to plan and fund replication of high-quality master copies. When DVD and Rec. 709 broadcast were the biggest markets, studios archived to HD. As SDR HD has become more omnipresent, studios are moving to HDR UHD mastering. A few are already storing scene-referred copies of the graded and ungraded DI Masters with metadata that manages versioning for sound, picture format, length, and localization. This impacts the production and post-production pipeline since deliverables that are immediately compatible with the archive are likely to be a contractual requirement and that could narrow the workflow options. Replication and refreshing should include geo-redundant sites to avoid total failure in the event of a fire or similar catastrophe.
+
+Short term archival needs might be covered by refreshing and replicating, but long-term preservation also requires planned migration. Migration is the transfer of data to newer technologies. That could be a new file format, an updated operating system or different storage media.  The move from analog to digital and the move from tape to file delivery are both examples of migration. The cost of migration for an archive can be very high, so it is good practice to future proof the assets as much as possible. Working scene-referred and keeping a scene-referred master saves very expensive re-mastering later and gives content a longer shelf life. However, migration of storage media, operating systems and file formats still apply. Often visual effects, editors and colorists save projects as part of the archive backup, but these have a relatively limited usefulness as software evolves and unless changes are requested projects are rarely migrated.
+
+\subsection{Open Archives Information System (OAIS)}
+
+In the 1970’s NASA recorded vast amounts of data from its space program and had an urgent need to develop a standard for practical long-term preservation of digital files. The resulting OAIS has since been the foundation for the digital archives of governments, libraries and content archives, large and small, around the world. The latest version is the Magenta Book of 2012 which describes the recommended practice for an organization of people and systems to protect and make available digital information. The word “Open” in the title refers to transparency of the system rather than meaning that access to the information should be unrestricted. It has been ratified as ISO 14721:2012.
+
+The model uses the following terms for its components:
+Producers create content and are production and post-production for purposes of this paper
+Archive is the physical data storage of completed material, not work in progress.
+Managers are those responsible for the policies that govern the Archive
+Consumers are those that have legitimate access to the Archive content, not the end user.
+
+
+OAIS Archive Model
+
+It defines an Information Object as the product of a Data Object plus its Representation Information.
+Data Object is a digital file, for example, an image file.
+Representation Information is everything needed to understand that file. In the example of an image file that must include the file format, how to read that format and also everything required to display the file correctly.
+Information Object is content that is preserved in the archive. Without the representation information, the data is at risk of being lost since there is an unreasonable assumption that the Knowledge Base for reading and understanding the information will always be universally known. The recommended practice likens this to a simple English text, without a suitable dictionary and grammar explanation.
+
+OAIS Information Object
+
+The simple information object is moved in and out of the archive and stored there as an Information Package, which consists of Content Information and Preservation Description Information (PDI). There needs to be some Packaging Information that keeps these two elements together and Descriptive Information that describes what the Information Package contains. The Descriptive Information could be as simple as a file name, or a more complicated list of delivery specifications.
+
+Information Package
+
+The PDI clearly identifies the Content Information and the model goes on to identify five types of information that should be recorded.
+	Provenance describes the source, history, and ownership of the material
+	Context describes any relationships with other content, for example, an episode in a series. It might contain other relationships such as the originating studio, producer or director.
+	Reference information should include any unique identifiers that are or could be used to recognize the content in one or more systems
+	Fixity is protection from undocumented alteration and could be in the form of a checksum or other method of ensuring that the information is as described
+	Access Rights contains the terms of access, ownership, licensing, and permission for preservation operations as well as specifications for rights enforcement and access control.
+
+The Reference Model for an Open Archival Information System Magenta Book goes into a lot more detail on setting up, managing and using an archive, which is beyond the scope of this paper. This basic introduction to data management is however relevant at all stages of data production, manipulation and delivery and is worth bearing in mind when sharing digital files between software, departments or organizations.
+
+\subsection{Archive Elements}
+
+The primary archival asset for motion picture projects is the master deliverable or deliverables since these are ready for use as long as their formats are current. File names and/or metadata should clearly identify the intended display description including the primaries, the EOTF and the white point. HDR10 and Dolby Vision formats include this information in their metadata. With DCP and IMF packages there can be a single master with alternative scenes and soundtracks included in the package, together with metadata to generate other versions. 
+
+Some content owners demand an ungraded master for archiving. This is more useful if the DI project is also available, though the content owner is rarely the keeper of any project files. Projects for DI grades, editing or VFX are difficult to preserve intact. Software and hardware changes eventually  leave projects unusable, so a good archive will keep the software version, operating system and hardware if it needs to recover projects. The project will also need the source files to be fully usable and many facilities use a fixed folder structure for each project to make a full backup easier.

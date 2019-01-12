@@ -1,0 +1,12 @@
+\section{Colour Science for Python}
+
+Colour Science for Python (Colour) is an open source Python package, freely available under the New BSD License, implementing a wide range of transforms and algorithms related to color science. It is managed by Thomas Mansencal, one of the authors of this paper, and includes code contributed by color scientists and experts from academia and VFX facilities around the world. The list of functions included is constantly growing, and users are encouraged to make suggestions for any gaps that they perceive in the coverage.
+
+While some of the modules are quite specialized and may not be relevant to day to day tasks for anybody other than those involved in high-end color research, there are many functions which are extremely useful for constructing and testing image processing pipelines, and visualizing data. Utility functions are included for reading and writing image files, and almost all the functions are written to process n-dimensional arrays of data in parallel using NumPy. Where processing image sequences directly in Python with Colour is not practical, transforms can be baked into LUTs (see the following section) for use in other applications and real-time systems.
+
+The plotting module can create diagrams of color spaces and image data in a variety of forms; most of the diagrams in this document were created using Colour.
+
+Colour always tries to follow the naming conventions and approach of the relevant literature, and as such is a comprehensive resource of information on the state of the art in color science and image processing. Tabular data from a wide range of sources is included, such as spectral power distributions, color matching functions, and Pointer’s gamut. Simply reading the code and documentation of Colour can be very educational, even if implementing image processing using other approaches.
+
+The Colour website hosts Jupyter notebooks on a variety of topics, demonstrating uses of the modules, and discussing some of the derivations of the data included. There are also various projects built using Colour, such as an implementation for Nuke, and utilities for merging and manipulating HDRI image captures.
+

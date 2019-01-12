@@ -1,0 +1,36 @@
+\section{Academy Color Encoding System (ACES)}
+
+The Academy of Motion Picture Arts and Sciences has defined a standard for scene-referred linear floating-point workflow components and best practices, the Academy Color Encoding System (ACES), which is in line with many of the approaches outlined in this document. ACES-based workflows define a scene-referred working space, and a reference viewing transform, in order to standardize floating-point linear interchange for moving image content in general and an archival master for motion pictures in particular.
+As stated in the introduction, ACES presents an excellent embodiment of a general model of color processing that will be mirrored in most of the examples discussed in this paper. ACES will be referenced throughout this document because it is open, well-documented and widely available. It provides a great starting point for exploration. This should not be taken as a suggestion that ACES is the only option. The decisions about which color transforms and spaces to use should be based on the requirements and constraints of a given project.
+
+\subsection{Input Transforms}
+
+Input Transforms, previously referred to as Input Device Transforms or IDTs, for specific cameras, convert input colorimetry to a scene-referred linear wide gamut working space, ACES2065-1. Camera manufacturers typically publish Input Transforms for their specific encoding gamuts and transfer functions.
+
+Film scans are a special case, where the Academy has defined a new density encoding standard, the Academy Density Exchange Encoding (ADX), which is stored in a DPX file. Both 10- and 16-bit variants of ADX are provided, which encode for different negative density ranges. The Transform from ADX to ACES2026-1 is not film-stock specific, but uses a generic film input linearization. The Academy publishes details of the transforms from Status M to ADX for a variety of stocks in Annex C of Technical Bulletin TB-2014-005.
+
+\subsection{Working Space}
+
+At the core of ACES is the Academy Color Encoding Specification, called ACES2065-1 for short. This color space is a high-dynamic range, scene-referred linear space with a color gamut that encompasses that of the human visual system. The color gamut is referred to as AP0. ACES2065-1 is a relative, rather than absolute, encoding and codes exposed middle grey as 0.18. When stored on disk, ACES files are stored in a constrained version of the OpenEXR (EXR) format, with an ACES Container metadata flag set to identify them as such. Standard ACES files are uncompressed half-float, but processing in ACES is not necessarily limited to half-float.
+
+In the ACES workflow, the intent is for artistic changes to be made by manipulating the scene-referred linear ACES data, as viewed through an Output Transform. 
+
+The two ACES working gamuts - AP0 and AP1
+While the linear ACES2065-1 space is used for storage and interchange of ACES images, it is not an ideal working space for all operations. Because the primaries of ACES2065-1 (AP0) fall considerably outside the spectral locus in order to enclose it entirely, the results of using this as an RGB space for CGI rendering are less than ideal mathematically and for the user experience. See Section 3.4.6.2 for a more in-depth discussion. A subsidiary color space, called ACEScg, is defined in ACES to address these issues. ACEScg’s primaries, known as the AP1 gamut, fall only just outside the spectral locus. This allows CG renders and compositing operations to behave in a more intuitive manner.
+     
+Figure X, The ACEScc and ACEScct logarithmic encoding curves
+
+Because the math of color grading operations likewise does not always work intuitively with linear data, ACES defines a pure log working space, ACEScc, with AP1 primaries, for grading use. A variant with a toe, ACEScct, was added later and reacts to grading operations in a manner similar to camera log curves, giving the colorist a familiar feel to the controls.
+
+ACEScg, ACEScc and ACEScct are intended only to be transient internal working spaces for 3D, compositing and grading systems. None of them are intended to be written to files, although some facilities do use ACEScg-encoded files for interchange. Care should be taken if doing this as image metadata specifying the stored color space is notoriously unreliable. This was the central motive for having only a single defined format for storage on disk, the ACES OpenEXR container (ACES2065-4, specified by SMPTE ST.2065-4). An ACEScg file incorrectly treated as if it were an ACES2065-1 file will not yield the intended result.
+
+\subsection{Look Transform}
+
+In ACES, the look of a project can be defined by a Look Transform, previously referred to as a Look Modification Transform, or LMT, applied before the Output Transform. The advantage of this approach is that technically the Look Transform should not have to change regardless of whether the Output Transform chosen is for a sRGB desktop monitor, a DCI-P3 projector or an HDR TV. In practice, a slight trim is often used to compensate for different aesthetic choices between display gamuts. ACEScc and ACEScct are most commonly used as the space for crafting Looks within ACES projects. A Look Transform based on a grade in ACEScc or ACEScct should, according to the specification, include a transform to that space from ACES2065-1 and a transform back to ACES2065-1 at the end. Implementations may apply the transform directly in the working space, such as ACEScg, rather than in ACES2065-1.
+
+The Academy Technical Bulletin TB-2014-10 describes the application of a Look Transform using the Academy Common LUT Format (CLF). Since CLF is not yet widely supported, any look applied using a LUT or grading operation which spans an entire scene or show, and is used in series with per-shot adjustments can be considered to be a Look Transform.
+
+\subsection{Output Transform (RRT and ODT)}
+
+The Academy also defines Output Transforms, the transform necessary for viewing ACES image data on different classes of displays.  An Output Transform is the concatenation of two transforms. First, the Reference Rendering Transform (RRT) applies a local contrast boost and tone maps scene-referred linear imagery for the purposes of picture rendering. See Section 3.2.1.1 for a more in-depth discussion of transforming scene-referred linear imagery for display. Second, the Output Device Transform (ODT). It is used to provide gamut mapping and further tone mapping to the target output device. The RRT portion is constant across all displays. The ODT varies between classes of display devices. Output Transforms are provided for common display specifications such as sRGB, Rec. 709, DCI-P3, X’Y’Z’ and ST.2084 1000, 2000 and 4000 nits.
+
