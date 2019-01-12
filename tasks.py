@@ -171,7 +171,7 @@ def formatting(ctx, yapf=False):
         ctx.run('yapf -p -i -r .')
 
 
-@task
+@task(clean)
 def build_pdf(ctx):
     """
     Builds the *PDF*.
@@ -192,7 +192,7 @@ def build_pdf(ctx):
     ctx.run('latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME))
 
 
-@task
+@task(clean)
 def build_html(ctx):
     """
     Builds the *HTML* website.
