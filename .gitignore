@@ -1,6 +1,9 @@
 *.aux
+*.dvi
+*.idv
 *.fdb_latexmk
 *.fls
+*.lg
 *.log
 *.pdf
 *.synctex.gz
@@ -8,3 +11,4 @@
 *.pyc
 *.pyo
 __pycache__
+cinematic-color/
