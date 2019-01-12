@@ -189,8 +189,9 @@ def build_pdf(ctx):
 
     message_box('Building "PDF"...')
 
-    ctx.run('latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME))
-
+    ctx.run('latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            warn=True)
+    ctx.run('pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME))
 
 @task(clean)
 def build_html(ctx):
