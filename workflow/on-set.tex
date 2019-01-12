@@ -1,4 +1,4 @@
-\section{On set}
+\section{On Set}
 
 An illustration of the recommended color managed approach for cinema or TV
 *This LUT is generated from a CDL or proprietary saved grade format, which is then updated with any changes made in the dailies grade, and passed to DI as a start point
@@ -14,11 +14,11 @@ The monitoring output from the camera is the first opportunity for the productio
 
 Color management should be used at every stage of the pipeline, and for material acquired with a digital camera, this can begin on set. All current digital cinema cameras capture a wide dynamic range and color gamut, and their encoding primaries and transfer functions are published by the manufacturers. Whether the recording is being made in a raw or camera log format, a log signal is usually available from a monitoring output of the camera. These are high-dynamic range, scene-referred representations of the image and can be used to apply a viewing transform, with or without a look included, which can be replicated and refined as the image passes through the various stages of post-production.
 
-  
+
 As can be seen from the above plots of some common camera log curves, the basic shape of all the curves is quite similar, with each having a straight line for a large part of the curve with a toe where it is compressed towards black. The value for lens cap black is often based on the 10 bit Cineon code value of 95 for Dmin. The straight line segment, in a plot with a logarithmic x-axis such as this, shows that the encoding is truly logarithmic in that part of the range, with an equal number of code values per stop. Its slope varies between encodings, as does the exposure represented by a log value of 1.0. It is therefore important to know what the encoding curve used for a given log image is, in order to be able to linearize it correctly. A LUT or ACES Input Transform designed for one camera may give a superficially pleasing result with an image from a different camera  but could cause unwanted clipping or distortion which is not obvious on all images. Using an incorrect LUT or Input Transform for aesthetic purposes is a risky strategy, which can cause problems further down the line. It is strongly recommended to use a correct linearization, and a separate operation for the look. It is important to understand that although a camera may use an encoding curve which has a particular dynamic range, this should not be taken to suggest that the camera itself can capture that range. The Sony FS7 for example, at default EI, clips six stops above mid-grey which maps to an S-Log3 value of 0.866. Values above this will not occur, even though S-Log3 can encode 7.74 stops above grey. Details of the encoding and decoding equations for various log curves is given in Appendix 4.1.
 
 The cameral log encoding of the ‘A’ Camera on a production is often chosen as the working format for the final DI, since log encodings lend themselves well to the kinds of adjustments made during grading. They are constrained to the 0-1 range, or integer encoding of that range, and map the dynamic range of the scene evenly across the code values. Images from other types of camera can be transformed into the ‘A’ Camera’s log encoding. Alternatively, all cameras can be transformed into a non-camera-specific log working space such as ACEScct for grading. Ideally, this choice should be made in advance in consultation with the DI colorist, so any grading adjustments use the same working space.
-    
+
 
 Plots of the primaries of some common camera encodings
 
@@ -99,13 +99,13 @@ Along with the main camera image, it is important for VFX shots to capture addit
 
 Depending on the complexity of the VFX work envisaged, it may be necessary to take LIDAR scans of the set or HDRI environment captures. Chrome and grey spheres are often shot as quick lighting reference but should not be relied upon beyond that. The color handling of the LIDAR scanner or HDR capture device should be characterized before being used on set so as to understand the limitations of the devices. Most LIDAR scanners don’t capture color at either sufficient resolution or bit depth, so the result shouldn’t be used for anything beyond alignment. Many turnkey HDR capture devices, for example, offer only limited specification or control over color gamut. They mainly focus on the intensity range that can be captured. In this case, it is essential to shoot a Macbeth Chart with the main shooting camera, a DSLR used for reference and the HDR capture camera.
 
-Lens distortion grids should be shot with all lenses used on the production, and notes should be taken as to which lens is used on each shot. These will be used later to remove lens distortions and vignetting. 
+Lens distortion grids should be shot with all lenses used on the production, and notes should be taken as to which lens is used on each shot. These will be used later to remove lens distortions and vignetting.
 
 For VFX shots it is inadvisable to simply rely on the camera sheets or script notes, as these can often conflict. Embedded metadata in the captured images can be invaluable in helping verify notes and report data.
 
 \subsection{HDR Environment Capture}
 
-An HDR environment map captured for ‘The Avengers: Infinity War”. Luminance ranges go from 0 to 17100 
+An HDR environment map captured for ‘The Avengers: Infinity War”. Luminance ranges go from 0 to 17100
 Images are © 2018 MARVEL
 
 Panoramic HDR captures are the standard approach to capture onset lighting. A new HDR panorama should be captured each time the lighting changes. The classic technique to capture HDR panoramas for use as environment maps, first pioneered by Gene Miller, was to photograph a chrome ball, as  Recent advances in hardware now allow for directly capturing the scene-illumination, either with a camera using multiple, bracketed exposures or with dedicated hardware. One extension to this methodology is to capture the scene from multiple locations or heights. Triangulating the location of the lights in the series of captures allows for placement of area lights in the 3D scene with plausible energy estimations. Placed area lights allow for physically plausible rendering of local illumination effects, which contrasts with traditional skydome rendering approaches which assume infinitely distant lights. See Duiker (2003) and Selan (2011) for additional discussion.

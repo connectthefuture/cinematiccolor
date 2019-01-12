@@ -22,7 +22,7 @@ On the other hand, tristimulus colorimeters use red, green and blue filters that
 
 \subsection{Blackbody Radiation, Light sources and Illuminants}
 
-All ordinary matter emits electromagnetic radiation when its temperature is above absolute zero. Even black holes are predicted to emit Hawking radiation, a form of blackbody radiation caused by the creation of sub-atomic particles near the event horizon. 
+All ordinary matter emits electromagnetic radiation when its temperature is above absolute zero. Even black holes are predicted to emit Hawking radiation, a form of blackbody radiation caused by the creation of sub-atomic particles near the event horizon.
 
 A blackbody or Planckian radiator is an ideal thermal radiator that absorbs all incident radiation, disregarding the wavelength, the direction of incidence or the polarization completely. In thermal equilibrium, it emits electromagnetic radiation (blackbody radiation) with a characteristic spectral distribution that depends only on its temperature and is given by Planck's Law.
 
@@ -33,14 +33,14 @@ When their temperature increases past 750 Kelvin, blackbodies start to emit visi
 Various blackbody spectral power distributions in temperature domain 1250-10000K, note how their radiation peak slides into the visible spectrum range as their temperature increase.
 
 Blackbodies are fundamental to both astronomy and color science allowing one to determine the color of a thermal radiator knowing only its temperature. Conversely, its temperature can be computed from its color.
-In 1931, using Planck's Law, the CIE was able to unambiguously and mathematically describe a standard tungsten light source: the CIE Standard Illuminant A with a color temperature of 2856K. 
+In 1931, using Planck's Law, the CIE was able to unambiguously and mathematically describe a standard tungsten light source: the CIE Standard Illuminant A with a color temperature of 2856K.
 
 
 ASTM G-173 ETR Extraterrestrial Radiation (solar spectrum at top of atmosphere) at mean Earth-Sun distance compared to a Blackbody at 5778K. The differences between the curves are mostly explained by the fact that the Sun is not a perfect blackbody.
 The Sun, principal light source on Earth with an effective surface temperature of 5,778K, is close to an ideal thermal radiator. Its spectrum exhibits numerous absorption and emission spectral lines, i.e. the Fraunhofer lines, resulting from the interactions of atoms, atom nuclei, and molecules with photons in its atmosphere. The Sun is not a solid body and has multiple layers with different temperatures: corona, chromosphere, photosphere, convective zone, radiative zone, and core. The photosphere, the layer of gas constituting the visible surface of the Sun, is the principal source of the radiation we receive and the region where most of the aforementioned spectral lines are forming. When solar radiation traverses the Earth atmosphere, it interacts with it, producing absorption, emission and scattering events that further modify its spectrum.
 
 Profile image of the daylight spectrum captured with a DIY spectroscope and a CANON 5D Mark II DSLR camera. Major Fraunhofer Lines are annotated for reference. The black curve represents the luminance of the spectrum at each wavelength. The white curve is a reference spectrum concurrently captured with an Ocean Optics STS-VIS spectrometer. While the spectroscope has a very high resolution, the overall curve shape is dramatically different to that of the spectrometer one: the DSLR spectral sensitivities, its infrared filter, and reflections in the spectroscope tube are all contributing to alter the curve, making it unsuitable for precise measurements.
-CIE Illuminants B and C were intended to respectively model noon sunlight (correlated color temperature (CCT) of 4874K) and average daylight (CCT of 6774K). They are realised by combining a light source modeling CIE Standard Illuminant A with Davis-Gibson liquid filters from David and Gibson (1931). Because of the low illuminance levels achieved with such light sources and their poor performance in the near-ultraviolet region (which is essential for fluorescent materials), they were deprecated in favor of the CIE Illuminant D Series created by Judd, MacAdam, and Wyszecki (1964). 
+CIE Illuminants B and C were intended to respectively model noon sunlight (correlated color temperature (CCT) of 4874K) and average daylight (CCT of 6774K). They are realised by combining a light source modeling CIE Standard Illuminant A with Davis-Gibson liquid filters from David and Gibson (1931). Because of the low illuminance levels achieved with such light sources and their poor performance in the near-ultraviolet region (which is essential for fluorescent materials), they were deprecated in favor of the CIE Illuminant D Series created by Judd, MacAdam, and Wyszecki (1964).
 
 The CIE Illuminant D Series models a broad range of daylight phases inclusive of direct sunlight, sunlight with cloud coverage, full overcast coverage, and blue skylight. For standardization purposes, "CIE Standard Illuminant D Series D65 should be used in all colorimetric calculations requiring representative daylight unless there are specific reasons for using a different illuminant" (ISO 11664-2:2007(E)/CIES014-2/E:2006).
 
@@ -56,7 +56,7 @@ Emitted light interacts with surfaces of the world and is either reflected, tran
 where Φ(λ) is the measured radiant flux, R(λ), T(λ) and A(λ) are respectively the surface reflectance, transmittance, and absorptance. They are ordinarily expressed as fractions of Φ(λ) in range 0-1.
 
 Clover leaf reflectance, transmittance, and absorptance spectra from LOPEX93, note that the wavelengths represented are purposely reaching near-infrared: even though invisible, the spectra have values in that portion and exhibit a lot of variation.
-Because they are also a function of the illumination and viewing geometry, i.e. the angle between the light incident at the surface and the angle of the instrument, a complete description requires capturing the Bidirectional Reflectance Distribution Function (BRDF) or Bidirectional Transmittance Distribution Function (BTDF). High-quality BxDF data capture is not only difficult, but its usage is also non-trivial thus for practical purposes the CIE defines 4 standard illuminations and viewing geometries. They are described in CIE 015:2004 Colorimetry, 3rd Edition. 
+Because they are also a function of the illumination and viewing geometry, i.e. the angle between the light incident at the surface and the angle of the instrument, a complete description requires capturing the Bidirectional Reflectance Distribution Function (BRDF) or Bidirectional Transmittance Distribution Function (BTDF). High-quality BxDF data capture is not only difficult, but its usage is also non-trivial thus for practical purposes the CIE defines 4 standard illuminations and viewing geometries. They are described in CIE 015:2004 Colorimetry, 3rd Edition.
 
 \subsection{Standard Observers}
 
@@ -80,10 +80,10 @@ Wright & Guild 1931 2° RGB― CMFs present a negative lobe.
 Wright & Guild 1931 2° RGB― CMFs present negative values that are inconvenient for various reasons: they make RGB tristimulus values computation more difficult, requiring separately summing products with positive and negative signs and then a final differencing of the sums. Computation of photometric quantities like luminance is more laborious for similar reasons, and finally, the development of direct-reading tristimulus colorimeters is challenging because of the sign change.
 
 These reasons lead the CIE to transform the Wright & Guild 1931 2° RGB CMFs into a new set of functions based on new primary stimuli X, Y, Z: The CIE 1931 2° Standard Observer XYZ― color matching functions. When conceiving the linear transformation that converts Wright & Guild 1931 2° RGB― CMFs into the CIE 1931 2° Standard Observer XYZ CMFs, the CIE ensured that the Y― function was equal to the CIE 1924 Photopic Standard Observer luminous efficiency function V(λ) and that all the functions were positive.
- 
+
 
 The CIE 1931 2° Standard Observer, a linear transformation of Wright & Guild 1931 2° RGB CMFs designed to remove the negative lobe of the later.
- 
+
 Among other factors such as age, color vision sensitivity is affected by the angle subtended by the objects being observed. In the 1960s it was found that cones were present in a broader region of the eye than that initially covered by the experiments that lead to the CIE 1931 2° Standard Observer specification. As a result, color computations done with the CIE 1931 2° Standard Observer do not always correlate to visual observation.
 
 In 1964, the CIE defined an additional standard observer: the CIE 1964 10° Standard Observer derived from the results of Stiles and Burch (1959) and Speranskaya (1959) investigations with large-field color matching experiments.
@@ -142,7 +142,7 @@ Perceptual uniformity can be a desirable quality for a color space: it supports 
 Gamut mapping, the process by which colors lying outside a gamut are mapped inside it, is preferably performed in a perceptually uniform color space because the correlation between the perceptual attributes is reduced and thus hue is minimally affected when the lightness and chroma attributes are individually adjusted to reduce the gamut size.
 
 The non-uniformity of the CIE 1931 Chromaticity Diagram led to the adoption by the CIE in 1960 of the uniform color space devised by MacAdam (1937). The CIE 1960 Uniform Color Space (UCS) is nowadays primarily used to represent the correlated color temperature (CCT) of light sources or illuminants as the isolines are perpendicular to the Planckian locus. The isolines represent delta uv: for a given CCT and its corresponding color, increasing or decreasing delta uv will bias the color toward green or magenta. The tint control in white balancing algorithms is effectively delta uv scaled by a constant.
- 
+
 CIE 1960 UCS Chromaticity Diagram with Planckian Locus and perpendicular Iso-Temperature lines.
 
 Conversion from tristimulus values to CIE 1960 UCS color space UVW values is performed as follows:
@@ -159,11 +159,11 @@ Other uniform color spaces beyond CIE L*u*v* have been defined: the IPT color sp
 
 The need for quantifying how much two color samples are different was one of the incentives for the CIE to design a perceptually uniform color space and ultimately adopt both the CIE L*a*b* and CIE L*u*v* color spaces in 1976. Color differences are measured as the Euclidean distance between a reference color sample and a test color sample in the CIE L*a*b* color space as follows:
 ∆E*76 = √ ((L*r - L*t)2 + (a*r - a*t)2  + (b*r - b*t)2)
-where ∆E*76 is the color difference, L*r, a*r, b*r , and L*t, a*t, b*t are the reference and test color sample. 
+where ∆E*76 is the color difference, L*r, a*r, b*r , and L*t, a*t, b*t are the reference and test color sample.
 
 While the CIE L*a*b* color space features decent perceptual uniformity, it was deemed unsatisfactory when comparing some pair of colors, compelling the CIE into improving the metric with the CIE 1994 (∆E*94) and subsequent CIE 2000  (∆E*00)  quasimetrics. It is appropriate to measure color differences in the CAM16-UCS, ICtCp and JzAzBz color spaces using Euclidean distance.
 
-\subsection{Additive RGB color spaces}
+\subsection{Additive RGB Color Spaces}
 
 Additive RGB color spaces are the color representation that most people interact with on a daily basis; our display technology is based on the additive mixing of 3 red, green and blue primaries.
 
