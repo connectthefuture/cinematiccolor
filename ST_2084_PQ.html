@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>ST.2084 / PQ</TITLE>
+<META NAME="description" CONTENT="ST.2084 / PQ">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Hybrid_Log_Gamma_HLG.html">
+<LINK REL="previous" HREF="Rec_2020.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="Hybrid_Log_Gamma_HLG.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2189"
+  HREF="Hybrid_Log_Gamma_HLG.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2185"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2179"
+  HREF="Rec_2020.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2187"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2190"
+  HREF="Hybrid_Log_Gamma_HLG.html">Hybrid Log Gamma (HLG)</A>
+<B> Up:</B> <A NAME="tex2html2186"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2180"
+  HREF="Rec_2020.html">Rec. 2020</A>
+ &nbsp; <B>  <A NAME="tex2html2188"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00615000000000000000">
+ST.2084 / PQ</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">The ACES Still Life reference image encoded with the ST.2084 1000 nits Output Transform.
+Copyright © A.M.P.A.S.
+SMPTE ST.2084 is an output referred encoding curve used for high dynamic range displays, normally in conjunction with Rec. 2020 primaries. It can encode values up to 10,000 cd/m2, and was originally specified by Dolby under the name PQ, for Perceptual Quantizer. To encode such a wide range without visible banding, ST.2084 requires at least 12 bit processing to be used in production. For delivery at least 10 bits are required, and although visible banding is possible at this bit depth, experiments by Dolby have indicated that noise present in real-world images makes this banding imperceptible. Integer codings may use either “narrow range” or “full range” (see section 4.7).
+</BIG>
+<P>
+<BIG CLASS="LARGE">Because PQ is perceptually uniform, it can be a useful working space for applying grades, or as a shaper for LUTs (see section 4.4.3) and some game engines do exactly this, transforming from linear to PQ in order to apply a look as a 3D LUT, and then transforming back to linear for further processing.
+</BIG>
+<P>
+<BIG CLASS="LARGE">ITU-R BT.2100 specifies both an OETF and EOTF for PQ, which are not the inverse of one another, creating a non-unity OOTF. While in theory, this allows PQ to be used as a scene referred encoding, in practice, no digital cinema camera currently implements this, and the encoding function exists in the spec only for completeness. It is important to be aware that the BT.2100 OETF is not the same as the OETF specified in SMPTE ST.2084, which is simply the inverse of the EOTF.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The ST.2084 EOTF is an absolute encoding, defined by the following equation:
+</BIG>
+<P>
+<BIG CLASS="LARGE">L = 10000 × ((V1/m2 - c1) / (c2 - c3 × V1/m2))1/m1
+</BIG>
+<P>
+<BIG CLASS="LARGE">Where L is the display luminance in cd/m2 and the constants are:
+	m1 = 2610 / 16384
+	m2 = 2523 / 4096 × 128
+	c1 = 3424 / 4096
+	c2 = 2413 / 4096 × 32
+	c3 = 2392 / 4096 × 32
+</BIG>
+<P>
+<BIG CLASS="LARGE">While the output of the ST.2084 EOTF is defined in absolute units of cd/m2, the input to the function is less rigorously defined. As such, there is some debate as to what transform to apply to scene-referred linear data before converting to ST.2084. The most basic approach would be to simply scale the scene-referred linear values to set diffuse white to a particular display brightness and then encode with the inverse of the ST.2084 EOTF. However, this would make display light directly proportional to scene light and, as has been discussed in Section 2, due to the difference in absolute luminance and viewing environment, this will not normally give a perceptual match. Some form of view transform is usually required. This can be left to the colorist to add as part of the look, but a base transform which adds some contrast and roll-off in the highlights and shadows can be beneficial. It is also worth bearing in mind that the traditional lift, gamma, and gain operators are particularly unsuitable for acting on ST.2084 image data, where 0-1 represent zero to 10,000 cd/m2. Highlights, in particular, can swing uncontrollably into extreme values as a result of small changes. Modern grading systems offer alternate grading operators tailored to the needs of HDR grading.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The most universally available view transforms for HDR are the ACES Output Transforms. Versions are included for 1000, 2000, and 4000 cd/m2. These aim to provide an HDR image which is perceptually similar to the result of the ACES SDR Output Transforms, placing diffuse white at about 86 cd/m2, and reserving the higher luminances for specular highlights and in-frame light sources. This is in line with the original intent of the ST.2084 specification, which says that it “is intended to enable the creation of video images with an increased luminance range; not for the creation of video images with overall higher luminance levels.” However, as more experience has been gained with delivering in HDR, many people have come to feel that a higher level for diffuse white is preferable and that, particularly given the higher brightnesses of current consumer SDR televisions and computer displays, this gives a better perceptual match between SDR and HDR versions of the same image. ITU-R BT.2408-0 recommends setting diffuse white at 203 cd/m2, but acknowledges that it is a creative choice. This kind of exposure offset can be achieved in ACES as part of an HDR specific Look Transform which simply applies gain in linear. The parametric Output Transforms which form part of ACES 1.1 include a parameter for “mid-point luminance” (18
+Some manufacturers implement view transforms for HDR in their cameras for on-set HDR monitoring, and provide LUTs which match those transforms for use in post. ARRI’s ALF-2 and RED’s IPP2 LUTs can be used as output transforms for LogC/ALEXA Wide Gamut and Log3G10/RED Wide Gamut working spaces respectively, and other color encodings can be transformed to those to make them suitable as input for the LUTs. Some grading systems implement these as options in their color management pipelines, and also offer their own proprietary view transforms. When using a proprietary tone mapping algorithm it is important to ensure that a method is available, usually by baking a LUT, for implementing the transforms in other software.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2189"
+  HREF="Hybrid_Log_Gamma_HLG.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2185"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2179"
+  HREF="Rec_2020.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2187"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2190"
+  HREF="Hybrid_Log_Gamma_HLG.html">Hybrid Log Gamma (HLG)</A>
+<B> Up:</B> <A NAME="tex2html2186"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2180"
+  HREF="Rec_2020.html">Rec. 2020</A>
+ &nbsp; <B>  <A NAME="tex2html2188"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

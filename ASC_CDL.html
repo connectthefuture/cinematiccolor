@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>ASC CDL</TITLE>
+<META NAME="description" CONTENT="ASC CDL">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="ACES_CTL.html">
+<LINK REL="previous" HREF="LUTs_Transforms.html">
+<LINK REL="up" HREF="Appendix.html">
+<LINK REL="next" HREF="ACES_CTL.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2465"
+  HREF="ACES_CTL.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2461"
+  HREF="Appendix.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2455"
+  HREF="GPU_Implementations.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2463"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2466"
+  HREF="ACES_CTL.html">ACES CTL</A>
+<B> Up:</B> <A NAME="tex2html2462"
+  HREF="Appendix.html">Appendix</A>
+<B> Previous:</B> <A NAME="tex2html2456"
+  HREF="GPU_Implementations.html">GPU Implementations</A>
+ &nbsp; <B>  <A NAME="tex2html2464"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00650000000000000000">
+ASC CDL</A>
+</H1>
+<P>
+<BIG CLASS="LARGE">The world of color grading, particularly as it is handled onset, has a huge amount of variation. Even though it is common to apply a “primary grade” (consisting of a scale operation, some offsets, and maybe a gamma and saturation adjustment), every manufacturer has historically applied these adjustments in a different order, which sadly eliminates the portability of grading information. The American Society of Cinematographers (ASC) has thus created a color correction specification to bring about a bit of order. Similar to the EDL, Edit Decision List, in use by editorial systems, the ASC came up with the Color Decision List (CDL) format. This specification defines the math for what is expected on a “primary” correction.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The CDL defines a color correction, with a fixed series of steps/ordering:
+ Scaling (3 channels)
+ Offset (3 channels)
+ Power (exponent) (3 channels)
+ Saturation (scalar, with a fixed Rec. 709 luminance target)
+</BIG>
+<P>
+<BIG CLASS="LARGE">Having a fixed order is not always ideal. For example, given a single CDL you cannot desaturate the image to grey-scale, and then tint the image using scales and offsets. (The opposite is possible, of course). But having an unambiguous way to interchange simple grade data is a huge improvement in interoperability. The ASC has also defined an XML format for the grade data. The Scaling, Offset and Power are sent as 9 numbers (the SOP) and saturation is sent as a single number (SAT).
+</BIG>
+<P>
+<BIG CLASS="LARGE">&lt;ColorCorrectionCollection&gt;
+	&lt;ColorCorrection id="example_correction_01"&gt;
+			&lt;SOPNode&gt;
+		&lt;Slope&gt; 1.1 1.1 1.1 &lt;/Slope&gt;
+		&lt;Offset&gt; -0.05 -0.01 0.05 &lt;/Offset&gt;
+		&lt;Power&gt; 1.0 1.0 1.0 &lt;/Power&gt;
+	&lt;/SOPNode&gt;
+	&lt;SatNode&gt;
+		&lt;Saturation&gt; 1.1 &lt;/Saturation&gt;
+	&lt;/SatNode&gt;
+&lt;/ColorCorrection&gt;
+	&lt;/ColorCorrectionCollection&gt;
+</BIG>
+<P>
+<BIG CLASS="LARGE">Example .ccc (Color Correction Collection) xml file demonstrating the SOP and Sat elements.
+</BIG>
+<P>
+<BIG CLASS="LARGE">So what does the CDL not define? Color space. As previously mentioned, if one applies an additive offset to logarithmic encoded data, the result is very different than if the same offset is applied to scene-referred linear imagery. The CDL also does not require one to specify if any viewing LUTs were used. This ambiguity is both CDL’s biggest strength and its biggest weakness. It is a weakness because if one receives a CDL file in isolation the color correction is still not particularly well defined. However, this is also CDLs biggest strength, as it enables CDLs to be highly versatile - serving as building blocks across many color pipelines. For example, CDLs can be used to send both plate neutralizations (log offsets) between facilities and also to store output-referred color corrections crafted onset.
+</BIG>
+<P>
+<BIG CLASS="LARGE"></BIG>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2465"
+  HREF="ACES_CTL.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2461"
+  HREF="Appendix.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2455"
+  HREF="GPU_Implementations.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2463"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2466"
+  HREF="ACES_CTL.html">ACES CTL</A>
+<B> Up:</B> <A NAME="tex2html2462"
+  HREF="Appendix.html">Appendix</A>
+<B> Previous:</B> <A NAME="tex2html2456"
+  HREF="GPU_Implementations.html">GPU Implementations</A>
+ &nbsp; <B>  <A NAME="tex2html2464"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

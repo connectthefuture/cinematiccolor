@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>The Rendering Gamut Impact</TITLE>
+<META NAME="description" CONTENT="The Rendering Gamut Impact">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="previous" HREF="Scene_Referred_Linear_is_Pr.html">
+<LINK REL="up" HREF="Lighting_Shading_Rendering.html">
+<LINK REL="next" HREF="Compositing.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1708"
+  HREF="Compositing.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1704"
+  HREF="Lighting_Shading_Rendering.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1700"
+  HREF="Scene_Referred_Linear_is_Pr.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1706"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1709"
+  HREF="Compositing.html">Compositing</A>
+<B> Up:</B> <A NAME="tex2html1705"
+  HREF="Lighting_Shading_Rendering.html">Lighting, Shading, and Rendering</A>
+<B> Previous:</B> <A NAME="tex2html1701"
+  HREF="Scene_Referred_Linear_is_Pr.html">Scene-Referred Linear is Preferred</A>
+ &nbsp; <B>  <A NAME="tex2html1707"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00546200000000000000">
+The Rendering Gamut Impact</A>
+</H3>
+<P>
+<BIG CLASS="LARGE">A shot from “Rogue One: A Star Wars Story” with a green beam of light that is far outside of the Rec. 709 gamut.
+</BIG>
+<P>
+<BIG CLASS="LARGE">One decision that has taken on more prominence recently is the choice of gamut to use for rendering. It is important to acknowledge that the rendering gamut affects the way computations are performed, especially indirect lighting as shown by Agland (2014). Rendering an image using sRGB textures and then converting it to ACEScg will yield a different image than having rendered with ACEScg textures in the first place.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Mathematical operations are dependent on the chosen basis vectors. In the space of color, the basis vectors are defined by the choice of RGB color space primaries. The same operations performed in different RGB color spaces will yield different tristimulus values once converted back to CIE XYZ color space. For example multiplication, division and power operations are dependent on the RGB color space primaries while addition and subtraction are not. Quoting Rick Sayre from Pixar:
+</BIG>
+<P>
+<BIG CLASS="LARGE">“The RGB basis vectors typically become non-orthogonal when transformed to XYZ, and definitely so in this case. Thus there should be no surprise that component-wise multiply does not yield a proper transform between two non-orthogonal spaces.”
+</BIG>
+<P>
+<BIG CLASS="LARGE">Illustration of the effect of multiplying various colors by themselves into different RGB color spaces: the resulting colors are different. The various samples are generated as follows: 3 random sRGB color space values are picked and converted to the three studied RGB color spaces, they are exponentiated, converted back to sRGB color space, plotted in the CIE 1931 Chromaticity Diagram on the left and displayed as swatches on the right.
+This introduces the concept that some RGB color spaces are more suitable than others when it comes to 3D content generation and computer graphics imagery in general. This problem is typically solved by using spectral rendering or leveraging a spectral renderer as the ground truth base against which the RGB color space is selected.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Renders of the same scene using Rec. 709 primaries (first row), 47 spectral bins (second row), Rec. 2020 primaries (third row), spectral minus Rec. 709 primaries render residuals (fourth row), spectral minus Rec. 2020 primaries render residuals (fifth row). The last row shows composite images assembled with three vertical stripes of respectively the Rec. 709 primaries, spectral and, Rec. 2020 primaries renders.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Tests and research conducted by Ward and Eydelberg-Vileshin (2002), Langlands and Mansencal (2014) and Mansencal (2014) showed that gamuts with primaries closest to the spectral locus, i.e. spectrally sharp primaries, tend to minimize the errors compared to spectral ground truth renders.
+Usage of gamuts such as Sharp RGB, Rec. 2020 or ACEScg is often beneficial for this reason but it is contextual and sometimes, Rec. 709 can perform slightly better. In the previous image, direct illumination tends to match between the renders. Areas that show the effect of multiple light bounces, i.e., the ceiling, in the Rec. 709 and Rec. 2020 primaries renders tend to exhibit increased saturation, especially in the Rec. 709 primaries render or slight loss of energy, especially in the Rec. 2020 render. Excluding outliers, e.g., the visible light source, the RMSE with the spectral render are 0.0083 and 0.0116 for respectively the Rec. 2020 primaries and Rec. 709 primaries renders.
+</BIG>
+<P>
+<BIG CLASS="LARGE">As of the writing, these is no first principal or formal mathematical proof that one particular working space is best for computer graphics. As demonstrated, any choice of gamut will introduce error relative to ground truth spectral renders though wide gamut spaces such as Rec. 2020 or ACEScg tend to match spectral ground truth renders most closely. The working-space gamut is typically chosen based on the deliverable needs of the project as well as authoring constraints of the production. If the show needs to deliver finals covering Rec. 2020, Rec. 709 and DCI-P3, it is important to choose a color space and authoring workflow that will cover these gamuts. See 3.4.1 Visual Effects, 3.4.2 Animation and 3.4.3 Games for considerations specific to different types of projects.
+</BIG>
+<P>
+<BIG CLASS="LARGE"></BIG>
+<P>
+<BIG CLASS="LARGE"></BIG>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1708"
+  HREF="Compositing.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1704"
+  HREF="Lighting_Shading_Rendering.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1700"
+  HREF="Scene_Referred_Linear_is_Pr.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1706"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1709"
+  HREF="Compositing.html">Compositing</A>
+<B> Up:</B> <A NAME="tex2html1705"
+  HREF="Lighting_Shading_Rendering.html">Lighting, Shading, and Rendering</A>
+<B> Previous:</B> <A NAME="tex2html1701"
+  HREF="Scene_Referred_Linear_is_Pr.html">Scene-Referred Linear is Preferred</A>
+ &nbsp; <B>  <A NAME="tex2html1707"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

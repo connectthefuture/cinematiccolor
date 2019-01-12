@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Color Science</TITLE>
+<META NAME="description" CONTENT="Color Science">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Workflow.html">
+<LINK REL="previous" HREF="Introduction.html">
+<LINK REL="up" HREF="cinematic-color.html">
+<LINK REL="next" HREF="Electromagnetic_Spectrum.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html483"
+  HREF="Electromagnetic_Spectrum.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html479"
+  HREF="cinematic-color.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html473"
+  HREF="Color_Management_Challenges.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html481"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html484"
+  HREF="Electromagnetic_Spectrum.html">Electromagnetic Spectrum</A>
+<B> Up:</B> <A NAME="tex2html480"
+  HREF="cinematic-color.html">Color for Motion Pictures</A>
+<B> Previous:</B> <A NAME="tex2html474"
+  HREF="Color_Management_Challenges.html">Color Management Challenges in</A>
+ &nbsp; <B>  <A NAME="tex2html482"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00400000000000000000">
+Color Science</A>
+</H1>
+<P>
+<BIG CLASS="LARGE">Color science is the scientific domain studying the human perception of color, its measurement, and characterization. Terminology in a scientific field is critical to understanding that field and precisely discussing its concepts. Color is ubiquitous in our lives but typically not well understood.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Mark D. Fairchild writes:
+“Almost everyone knows what color is. After all, they have had firsthand experience of it since shortly after birth. However, very few can precisely describe their color experiences or even precisely define color.”
+</BIG>
+<P>
+<BIG CLASS="LARGE">The International Commission on Illumination (CIE) defines perceived color as the “characteristic of visual perception that can be described by attributes of hue, brightness (or lightness) and colo(u)rfulness (or saturation or chroma).”
+</BIG>
+<P>
+<BIG CLASS="LARGE">This document is necessarily an overview of color science. The foundational texts listed below can provide a deeper understanding.
+Digital Color Management: Encoding Solutions, 2nd Edition by Madden and Giorgianni (2007) provides an in-depth analysis of the nature of color images, digital color encoding, color management systems and digital color interchange.
+Color Appearance Models by Fairchild (2013) is the reference for the fundamental concepts and phenomena of color appearance.
+The Reproduction of Colour (6th ed.) by Hunt (2004) describes the fundamental principles of colorimetry, color appearance, color reproduction for photography, television, printing and electronic imaging.
+Digital Video and HD, Second Edition: Algorithms and Interfaces by Poynton (2012) details the theory and engineering of digital video systems.
+Color Science: Concepts and Methods, Quantitative Data and Formulae by Wyszecki and Stiles (1982) is the authoritative reference for colorimetry.
+The authors of this paper are greatly indebted to the writers of these books.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Dr. Robert W.G. Hunt passed away during the writing of this section. His work is foundational to the color science community. Dr. Hunt’s contributions to the understanding of human color perception and its application to the engineering of photographic systems laid the foundation for much of the color science that is used in the motion picture and gaming industries today. Besides being a brilliant scientist, Dr. Hunt was a kind man always willing to share his knowledge, whether formally in one of the many classes he taught, or informally over coffee or a meal. Dr. Hunt’s true passion was teaching others. A few of the authors of this document had the good fortune to have known and learned from Dr. Hunt and were saddened to hear of his passing. His contributions to the field, friendship and mentorship will be missed.
+</BIG>
+<P>
+<BIG CLASS="LARGE">A tribute to Dr. Robert W.G. Hunt: Light dispersion through a prism (bottom right) with the rainbow of color components lighting up The Reproduction of Colour (6th ed.) by Hunt (2004).
+</BIG>
+<P>
+<BIG CLASS="LARGE">Color management depends fundamentally on colorimetry, the measurement of color. Without colorimetry, it is not possible to characterize cameras and displays or understand the imaging principles that permeate the rest of computer graphics. While it is possible to immediately dive into color pipelines, having a rudimentary understanding of concepts such as spectral measurement, tristimulus values, or color appearance provides a richer understanding of why some approaches to color management are successful, and some are not.
+</BIG>
+<P>
+<BIG CLASS="LARGE">This section endeavors to stay generic and abstract. It does not focus on particular workflow details but provides the necessary foundations for understanding section 3. This section abundantly references the history of color science because the understanding of the past is essential for the comprehension of the present: knowing how colorimetry evolved explains the current practices. The physical nature of light and the quantities used for its analysis are examined. The anatomy of the human visual system (HVS) is reviewed with a particular focus on the eye and the primary adaptation mechanisms. Basic colorimetry is presented, providing the requisites for converting spectral measurements to RGB values or understanding perceptual uniformity. Advanced colorimetry, the gateway to color appearance modeling, is summarily exposed. Then, the representation of color is described, driving the section toward concrete concepts in direct relation with motion pictures color management. Finally, color imaging systems and the image capture, signal processing, and image formation stages are explained using digital imaging devices such as motion pictures cameras or LCD displays.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Key Points
+Color science studies the human perception of color, its measurement, and characterization.
+Proper terminology usage is critical to the understanding of a scientific field.
+Color is the characteristic of a visual perception.
+Color management depends on colorimetry, the measurement of color.
+</BIG>
+<P>
+<BIG CLASS="LARGE"></BIG>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html485"
+  HREF="Electromagnetic_Spectrum.html">Electromagnetic Spectrum</A>
+<UL>
+<LI><A NAME="tex2html486"
+  HREF="Radiometric_Quantities_Inte.html">Radiometric Quantities of Interest</A>
+<LI><A NAME="tex2html487"
+  HREF="Photometric_Quantities_Inte.html">Photometric Quantities of Interest</A>
+<LI><A NAME="tex2html488"
+  HREF="Spectral_Distribution.html">Spectral Distribution</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html489"
+  HREF="Human_Visual_System.html">Human Visual System</A>
+<UL>
+<LI><A NAME="tex2html490"
+  HREF="Eye.html">The Eye</A>
+<LI><A NAME="tex2html491"
+  HREF="Retina.html">Retina</A>
+<LI><A NAME="tex2html492"
+  HREF="Photoreceptors.html">Photoreceptors</A>
+<UL>
+<LI><A NAME="tex2html493"
+  HREF="Cones_Photopic_Vision.html">Cones and Photopic Vision</A>
+<LI><A NAME="tex2html494"
+  HREF="Rods_Scotopic_Vision.html">Rods and Scotopic Vision</A>
+<LI><A NAME="tex2html495"
+  HREF="Mesopic_Vision.html">Mesopic Vision</A>
+<LI><A NAME="tex2html496"
+  HREF="Distribution.html">Distribution</A>
+</UL>
+<LI><A NAME="tex2html497"
+  HREF="Dynamic_Range.html">Dynamic Range</A>
+<LI><A NAME="tex2html498"
+  HREF="Adaptation.html">Adaptation</A>
+<UL>
+<LI><A NAME="tex2html499"
+  HREF="Dark_Adaptation.html">Dark Adaptation</A>
+<LI><A NAME="tex2html500"
+  HREF="Light_Adaptation.html">Light Adaptation</A>
+<LI><A NAME="tex2html501"
+  HREF="Chromatic_Adaptation.html">Chromatic Adaptation</A>
+</UL>
+<LI><A NAME="tex2html502"
+  HREF="Non_Linearity_HVS.html">Non-Linearity of the HVS</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html503"
+  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
+<UL>
+<LI><A NAME="tex2html504"
+  HREF="Origins_Colorimetry.html">Origins of Colorimetry</A>
+<LI><A NAME="tex2html505"
+  HREF="Blackbody_Radiation_Light_s.html">Blackbody Radiation, Light sources and Illuminants</A>
+<LI><A NAME="tex2html506"
+  HREF="Reflectance_Transmittance_A.html">Reflectance, Transmittance and Absorptance</A>
+<LI><A NAME="tex2html507"
+  HREF="Standard_Observers.html">Standard Observers</A>
+<LI><A NAME="tex2html508"
+  HREF="CIE_XYZ_Tristimulus_Values_.html">CIE XYZ Tristimulus Values and Metamerism</A>
+<UL>
+<LI><A NAME="tex2html509"
+  HREF="CIE_XYZ_Tristimulus_Values.html">CIE XYZ Tristimulus Values</A>
+<LI><A NAME="tex2html510"
+  HREF="Metamerism.html">Metamerism</A>
+</UL>
+<LI><A NAME="tex2html511"
+  HREF="CIE_xyY_Color_Space_Chromat.html">CIE xyY Color Space and Chromaticity Diagram</A>
+<LI><A NAME="tex2html512"
+  HREF="Perceptually_Uniform_Color_.html">Perceptually Uniform Color Spaces and Color Difference</A>
+<LI><A NAME="tex2html513"
+  HREF="Additive_RGB_Color_Spaces.html">Additive RGB Color Spaces</A>
+<UL>
+<LI><A NAME="tex2html514"
+  HREF="Primaries.html">Primaries</A>
+<LI><A NAME="tex2html515"
+  HREF="White_Point.html">White Point</A>
+<LI><A NAME="tex2html516"
+  HREF="Color_Component_Transfer_Fu.html">Color Component Transfer Functions</A>
+<UL>
+<LI><A NAME="tex2html517"
+  HREF="Encoding_Color_Component_Tr.html">Encoding Color Component Transfer Functions</A>
+<LI><A NAME="tex2html518"
+  HREF="Decoding_Color_Component_Tr.html">Decoding Color Component Transfer Functions</A>
+</UL>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html519"
+  HREF="Advanced_Colorimetry.html">Advanced Colorimetry</A>
+<UL>
+<LI><A NAME="tex2html520"
+  HREF="Viewing_Conditions.html">Viewing Conditions</A>
+<LI><A NAME="tex2html521"
+  HREF="Terminology.html">Terminology</A>
+<LI><A NAME="tex2html522"
+  HREF="Color_Appearance_Phenomena.html">Color Appearance Phenomena</A>
+<UL>
+<LI><A NAME="tex2html523"
+  HREF="Lateral_Brightness_Adaptati.html">Lateral-Brightness Adaptation</A>
+<LI><A NAME="tex2html524"
+  HREF="Simultaneous_Contrast.html">Simultaneous Contrast</A>
+<LI><A NAME="tex2html525"
+  HREF="Crispening.html">Crispening</A>
+<LI><A NAME="tex2html526"
+  HREF="Spreading.html">Spreading</A>
+<LI><A NAME="tex2html527"
+  HREF="Bezold_BrA_ensuremath_frac_.html">Bezold-Brücke Hue Shift</A>
+<LI><A NAME="tex2html528"
+  HREF="Abney_Effect.html">Abney Effect</A>
+<LI><A NAME="tex2html529"
+  HREF="Purkinje_Effect.html">Purkinje Effect</A>
+<LI><A NAME="tex2html530"
+  HREF="HelmholtzaKohlrausch_Effect.html">Helmholtz–Kohlrausch Effect</A>
+<LI><A NAME="tex2html531"
+  HREF="Hunt_Effect_Hunt_1952.html">Hunt Effect, Hunt (1952)</A>
+<LI><A NAME="tex2html532"
+  HREF="Stevens_Effect_Stevens_Stev.html">Stevens Effect, Stevens and Stevens (1963)</A>
+<LI><A NAME="tex2html533"
+  HREF="Helson_Judd_Effect_Helson_1.html">Helson-Judd Effect, Helson (1938)</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html534"
+  HREF="Representing_Color.html">Representing Color</A>
+<UL>
+<LI><A NAME="tex2html535"
+  HREF="Digital_Image_Raster_Graphi.html">Digital Image - Raster Graphics</A>
+<LI><A NAME="tex2html536"
+  HREF="Quantization.html">Quantization</A>
+<LI><A NAME="tex2html537"
+  HREF="Perceptual_Coding.html">Perceptual Coding</A>
+<LI><A NAME="tex2html538"
+  HREF="Floating_Point_Logarithmic_.html">Floating-Point &amp; Logarithmic Representations</A>
+<LI><A NAME="tex2html539"
+  HREF="Gamma.html">Gamma</A>
+<LI><A NAME="tex2html540"
+  HREF="Color_Encodings.html">Color Encodings</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html541"
+  HREF="Color_Imaging_Systems.html">Color Imaging Systems</A>
+<UL>
+<LI><A NAME="tex2html542"
+  HREF="Image_Capture.html">Image Capture</A>
+<LI><A NAME="tex2html543"
+  HREF="Signal_Processing.html">Signal Processing</A>
+<LI><A NAME="tex2html544"
+  HREF="Image_Formation.html">Image Formation</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html483"
+  HREF="Electromagnetic_Spectrum.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html479"
+  HREF="cinematic-color.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html473"
+  HREF="Color_Management_Challenges.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html481"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html484"
+  HREF="Electromagnetic_Spectrum.html">Electromagnetic Spectrum</A>
+<B> Up:</B> <A NAME="tex2html480"
+  HREF="cinematic-color.html">Color for Motion Pictures</A>
+<B> Previous:</B> <A NAME="tex2html474"
+  HREF="Color_Management_Challenges.html">Color Management Challenges in</A>
+ &nbsp; <B>  <A NAME="tex2html482"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Compositing</TITLE>
+<META NAME="description" CONTENT="Compositing">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="DI_Grading.html">
+<LINK REL="previous" HREF="Visual_Effects_Animation_Ga.html">
+<LINK REL="up" HREF="Workflow.html">
+<LINK REL="next" HREF="Scene_Referred_Linear_is_Pr.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1720"
+  HREF="Scene_Referred_Linear_is_Pr.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1716"
+  HREF="Workflow.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1710"
+  HREF="Rendering_Gamut_Impact.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1718"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1721"
+  HREF="Scene_Referred_Linear_is_Pr.html">Scene-Referred Linear is Preferred</A>
+<B> Up:</B> <A NAME="tex2html1717"
+  HREF="Workflow.html">Workflow</A>
+<B> Previous:</B> <A NAME="tex2html1711"
+  HREF="Rendering_Gamut_Impact.html">The Rendering Gamut Impact</A>
+ &nbsp; <B>  <A NAME="tex2html1719"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00550000000000000000">
+Compositing</A>
+</H1>
+<P>
+<BIG CLASS="LARGE">A shot from “Rogue One: A Star Wars Story”, starting with a CG background plate (top), adding in a live-action foreground element (middle) and the final composite image (bottom). All three images have an Output Transform for a Rec. 709 display.
+© and ™ Lucasfilm Ltd. All Rights Reserved
+</BIG>
+<P>
+<BIG CLASS="LARGE">Compositing is the process where live-action and CG elements are manipulated and merged. Image processing in scene-referred linear and logarithmic encoding spaces are both useful, though scene-referred linear is the default. As in lighting, image display typically leverages viewing transforms that emulate the final output. Examples of commercially available compositing applications include Foundry Nuke, Adobe After Effects, Blackmagic Design Fusion, and Autodesk Flame.
+</BIG>
+<P>
+<BIG CLASS="LARGE">In feature film visual effects, live-action photographic plates are typically represented on disk either as raw captures of the camera data, as a log encoding of the linear camera data, often as DPX files, or as linear EXR files. Log files are typically encoded using the encoding primaries of the source camera, such as ALEXA Wide Gamut, whereas EXR files may use camera primaries or generalized primaries such as the AP0 primaries of ACES2065-1.  When working with log frames, the compositing package typically converts the images to scene-referred linear on input using a manufacturer specified transfer function, and a matrix transform to the working-space gamut if required, and converts back to the original color space on output. In its simplest form, the end to end compositing process represents a no-op, aiming to leave pixels not modified by the effect exactly as they were in the original plate. Such behavior is absolutely critical, as typically not all the shots will go through the VFX workflow, and VFX processed shots must seamlessly intercut with the remainder of the motion picture.
+</BIG>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1722"
+  HREF="Scene_Referred_Linear_is_Pr.html">Scene-Referred Linear is Preferred for Compositing</A>
+<LI><A NAME="tex2html1723"
+  HREF="Scene_Referred_Linear_Compo.html">Scene-Referred Linear Compositing Challenges</A>
+<LI><A NAME="tex2html1724"
+  HREF="Negative_Values.html">Negative Values</A>
+<LI><A NAME="tex2html1725"
+  HREF="Working_with_Log_Imagery.html">Working with Log Imagery</A>
+<LI><A NAME="tex2html1726"
+  HREF="Plate_Timing_Neutralization.html">Plate Timing, Neutralization, and Grading</A>
+<LI><A NAME="tex2html1727"
+  HREF="Premultiplication.html">Premultiplication</A>
+<LI><A NAME="tex2html1728"
+  HREF="Technical_Checks.html">Technical Checks</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1720"
+  HREF="Scene_Referred_Linear_is_Pr.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1716"
+  HREF="Workflow.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1710"
+  HREF="Rendering_Gamut_Impact.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1718"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1721"
+  HREF="Scene_Referred_Linear_is_Pr.html">Scene-Referred Linear is Preferred</A>
+<B> Up:</B> <A NAME="tex2html1717"
+  HREF="Workflow.html">Workflow</A>
+<B> Previous:</B> <A NAME="tex2html1711"
+  HREF="Rendering_Gamut_Impact.html">The Rendering Gamut Impact</A>
+ &nbsp; <B>  <A NAME="tex2html1719"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

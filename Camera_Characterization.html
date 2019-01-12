@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Camera Characterization</TITLE>
+<META NAME="description" CONTENT="Camera Characterization">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="File_Formats.html">
+<LINK REL="previous" HREF="Chroma_Decoupling.html">
+<LINK REL="up" HREF="Appendix.html">
+<LINK REL="next" HREF="File_Formats.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2537"
+  HREF="File_Formats.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2533"
+  HREF="Appendix.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2527"
+  HREF="Chroma_Decoupling.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2535"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2538"
+  HREF="File_Formats.html">File Formats</A>
+<B> Up:</B> <A NAME="tex2html2534"
+  HREF="Appendix.html">Appendix</A>
+<B> Previous:</B> <A NAME="tex2html2528"
+  HREF="Chroma_Decoupling.html">Chroma Decoupling</A>
+ &nbsp; <B>  <A NAME="tex2html2536"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00690000000000000000">
+Camera Characterization</A>
+</H1>
+<P>
+<BIG CLASS="LARGE">The process of characterizing a camera objective is that after signal processing, captured data represents the relative scene-referred linear light values at the focal plane. Different approaches exist to achieve this result but the standard practise in the industry is to define a 3x3 matrix (or multiple 3x3 matrices) mapping from the camera native color space to CIE XYZ or any relevant RGB color space.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Because cameras are not fully colorimetric, the matrix is built to minimize the error with respect to the human visual system, and thus approximate a colorimetric response. The ideal approach to characterization involves acquiring the spectral sensitivities of the camera. This is commonly achieved with a monochromator, an optical device allowing the selection of narrow-band wavelengths of light, and thus the measurement of the complete camera response by sweeping through the visible spectrum. Camera makers and third-party organizations often provide matrices for CIE Standard Illuminant A or ISO 7589 Studio Tungsten Illuminant (3200K) and CIE Standard Illuminant D Series D65 or CIE Illuminant D Series D55. Additional matrices can be generated if the camera is intended to be used under dramatically different illumination conditions.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The error minimization between the camera sensitivities and the reference dataset is usually done with a least-squares regression and it is preferable to convert the RGB values into a perceptually uniform color space or a CAM prior to doing so.
+</BIG>
+<P>
+<BIG CLASS="LARGE">When it is not possible to acquire the spectral response of the camera, color rendition charts such as X-Rite ColorChecker Classic or SG can be used to generate a color correction matrix.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The X-Rite  ColorChecker Classic is commonly used to validate camera characterizations; the patches have known reflectance values. This is a synthetic color rendition chart generated with Colour Science for Python.
+Usage of a color rendition chart introduces bias toward the chart reflectances and thus eventually increases errors in respect to other unknown reflectances. The process is also subject to inaccuracies when the capture is done in an uncontrolled environment. While tempting, using only a chart as the ground truth for camera characterization should generally be avoided. Nonetheless, it helps remarkably to assess the quality of camera characterization and various other aspects of the captured data. It can also be used to generate a color correction matrix for a difficult shot or specific illumination conditions.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Procedure P-2013-001 from A.M.P.A.S (2015) while focused on ACES is recommended for people willing to endeavor to do camera characterization as it contains relevant points that are generic enough to be applied in non-ACES context.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Writing in-progress…
+</BIG>
+<P>
+<BIG CLASS="LARGE"></BIG>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2537"
+  HREF="File_Formats.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2533"
+  HREF="Appendix.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2527"
+  HREF="Chroma_Decoupling.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2535"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2538"
+  HREF="File_Formats.html">File Formats</A>
+<B> Up:</B> <A NAME="tex2html2534"
+  HREF="Appendix.html">Appendix</A>
+<B> Previous:</B> <A NAME="tex2html2528"
+  HREF="Chroma_Decoupling.html">Chroma Decoupling</A>
+ &nbsp; <B>  <A NAME="tex2html2536"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

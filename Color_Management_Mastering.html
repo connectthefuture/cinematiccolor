@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Color Management for Mastering</TITLE>
+<META NAME="description" CONTENT="Color Management for Mastering">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="previous" HREF="HDR_Displays.html">
+<LINK REL="up" HREF="Critical_Monitoring.html">
+<LINK REL="next" HREF="Gamut_Mapping.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1963"
+  HREF="Gamut_Mapping.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1959"
+  HREF="Critical_Monitoring.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1955"
+  HREF="HDR_Displays.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1961"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1964"
+  HREF="Gamut_Mapping.html">Gamut Mapping</A>
+<B> Up:</B> <A NAME="tex2html1960"
+  HREF="Critical_Monitoring.html">Critical Monitoring</A>
+<B> Previous:</B> <A NAME="tex2html1956"
+  HREF="HDR_Displays.html">HDR Displays</A>
+ &nbsp; <B>  <A NAME="tex2html1962"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00574000000000000000">
+Color Management for Mastering</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">Ideally, a single Master is created and all versions taken from it using metadata, transforms or trims. To achieve the best results the Master should be created and approved in the highest dynamic range and widest color gamut, but even then care is needed to map the Master data to each version. A poor mapping may produce artifacts that range from minor to catastrophic but is always avoidable.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Sometimes it is unavoidable that the first Master is not the ideal dynamic range or color gamut and sometimes it is limited in other ways, such as bit depth or lossy compression. In this situation, the best route to delivering other versions is to go back to the project file and remove the embedded limitations of the first Master. A typical problem in this scenario is managing expectations when approval has been given for a Master of limited range. Some clients insist on a faithful transition between formats, even if the limitations of the approved Master are carried over to the other versions. Others are more open minded and prefer to forego absolute accuracy in favor of higher quality versions.
+</BIG>
+<P>
+<BIG CLASS="LARGE">When media is used in a scene-referred workflow it is important to manage detail and artistic intent through the pipeline. The following details from the Disney movie “Moana” illustrate how color management is used at each stage so that tonal information is preserved throughout. 
+</BIG>
+<P>
+<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+This is a representation of an extract from the scene-referred linear EXR source. Since there is no tone mapping much of the tonal information in the shadows and the highlights appears clipped. It is a useful scene-referred image, but hard to monitor in a meaningful way without tone mapping and the display transform approved for the project.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+This is a representation of the same scene-referred linear EXR with 4 stops less exposure. Most of the image is now close to the display black point, but of course still, present in the EXR file. Dropping the exposure shows that there is good highlight information in the image and that the dynamic range is greater than the display can handle without some tone mapping or clipping.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+This representation has 2.2 gamma applied. Gamma brings the shadow detail into range on a Rec. 709 display, but information above 1.0 is still clipped. This is evident in the eye of the fire goddess, Te Fiti, the brighter parts of the sea and the sky. 
+</BIG>
+<P>
+<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+This is the EXR file with 2.2 gamma and 4 stops less exposure. Again it reveals that there is highlight information but it is a poor representation of the artistic intent. 
+</BIG>
+<P>
+<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+Here the image has had a PQ EOTF added and the color gamut converted to Rec. 2020. Some tone-mapping has also been applied. On an HDR display the full impact of the color and dynamic range are visible, but the image looks flat and desaturated on a 709 display. Color encoding to high-dynamic range and a wider color gamut uses lower code values, with less color separation, than would be used by Rec. 709 for the same display colorimetry. In this example, the detail in the highlights of the water is retained, but the detail in the eye of the lava creature has been limited for artistic reasons. The scene-referred linear EXR clearly has more detail in tone and color than is shown in this PQ image and the PQ  Rec. 2020 encoding certainly has the capability to show that detail. However, the effect on the final audience is not based merely on a technical transform and the colorist must consider the emotional response too. The important factor is that an informed decision is only made if the detail is present in the source. If there was no detail in the original EXR then the more limited version is the only option and that could impact the look of other scenes or even the whole project.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+This is a colorimetric Rec. 709 transform with 2.2 gamma of the PQ Rec. 2020 version. Again, this results in clipping, not just in the eye, but also the sea and sky, as it uses picture information from only the lowest part of the HDR range. The clipping goes beyond the white highlights but also manifests as over-saturated loss of detail in the blue of the wave.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+This image is also from a Rec. 709 2.2 gamma export, but this time using creative tone mapping. The artistic intent of the bright eye is retained, even to the point of a slight yellow tint. This version retains all the detail of the sea tonal range and color separation without clipping.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+A butterfly wipe between the tone mapped version (top) and the clipped transform (bottom) shows the benefit of mapping over blind transforms. Sometimes tone mapping is achieved with mathematical algorithms and sometimes this level of control is the domain of the colorist.
+</BIG>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1965"
+  HREF="Gamut_Mapping.html">Gamut Mapping</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1963"
+  HREF="Gamut_Mapping.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1959"
+  HREF="Critical_Monitoring.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1955"
+  HREF="HDR_Displays.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1961"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1964"
+  HREF="Gamut_Mapping.html">Gamut Mapping</A>
+<B> Up:</B> <A NAME="tex2html1960"
+  HREF="Critical_Monitoring.html">Critical Monitoring</A>
+<B> Previous:</B> <A NAME="tex2html1956"
+  HREF="HDR_Displays.html">HDR Displays</A>
+ &nbsp; <B>  <A NAME="tex2html1962"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

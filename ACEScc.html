@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>ACEScc</TITLE>
+<META NAME="description" CONTENT="ACEScc">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="ACEScct.html">
+<LINK REL="previous" HREF="Sony_SLog.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="ACEScct.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2333"
+  HREF="ACEScct.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2329"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2323"
+  HREF="Sony_SLog.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2331"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2334"
+  HREF="ACEScct.html">ACEScct</A>
+<B> Up:</B> <A NAME="tex2html2330"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2324"
+  HREF="Sony_SLog.html">Sony SLog</A>
+ &nbsp; <B>  <A NAME="tex2html2332"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION006117000000000000000">
+ACEScc</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">ACEScc is a logarithmic variant of the ACES color space for use in grading. It is a pure log curve, so each stop change of exposure is represented by an equal offset of the ACEScc value throughout the range. It uses AP1 primaries, which are the same as those used by ACEScg. Being a pure log curve, ACEScc cannot encode negative values (although the ACES spec asks that implementers provide some means of handling negative values in order to preserve them through a transform to ACEScc and back). It encodes a very wide dynamic range, with 1.0 representing a linear value of 222.86, or 10.27 stops above mid-grey.
+</BIG>
+<P>
+<BIG CLASS="LARGE">An integer form of ACEScc is ACESproxy, designed for on set live grading, such that CDL corrections applied to the 0-100
+	ACESproxy = 16 × 2n-8 + clamp(ACEScc) × 219× 2n-8
+</BIG>
+<P>
+<BIG CLASS="LARGE">Where n is the bit depth.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The encoding function of ACEScc is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if L ≥ 0:
+		V = (9.72 − 16) / 17.52
+	else if L &lt; 2-15:
+		V = (log2(2-16 + L × 0.5) + 9.72) / 17.52
+	else:
+		V = (log2(L) + 9.72) / 17.52
+</BIG>
+<P>
+<BIG CLASS="LARGE">The decoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">If V ≤ (9.72 - 15) / 17.52:
+		L = (2V × 17.52 − 9.72 − 2-16) × 2
+	else if V &lt; (log2(65504) + 9.72) / 17.52:
+		L = 2V × 17.52 − 9.72
+	else:
+		L = 65504
+</BIG>
+<P>
+<BIG CLASS="LARGE">Red
+Green
+Blue
+White Point
+0.713, 0.293
+0.165, 0.830
+0.128, 0.044
+0.32168, 0.33767
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2333"
+  HREF="ACEScct.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2329"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2323"
+  HREF="Sony_SLog.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2331"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2334"
+  HREF="ACEScct.html">ACEScct</A>
+<B> Up:</B> <A NAME="tex2html2330"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2324"
+  HREF="Sony_SLog.html">Sony SLog</A>
+ &nbsp; <B>  <A NAME="tex2html2332"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

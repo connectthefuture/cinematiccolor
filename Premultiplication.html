@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Premultiplication</TITLE>
+<META NAME="description" CONTENT="Premultiplication">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Technical_Checks.html">
+<LINK REL="previous" HREF="Plate_Timing_Neutralization.html">
+<LINK REL="up" HREF="Compositing.html">
+<LINK REL="next" HREF="Technical_Checks.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1789"
+  HREF="Technical_Checks.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1785"
+  HREF="Compositing.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1779"
+  HREF="Plate_Timing_Neutralization.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1787"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1790"
+  HREF="Technical_Checks.html">Technical Checks</A>
+<B> Up:</B> <A NAME="tex2html1786"
+  HREF="Compositing.html">Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1780"
+  HREF="Plate_Timing_Neutralization.html">Plate Timing, Neutralization, and</A>
+ &nbsp; <B>  <A NAME="tex2html1788"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00556000000000000000">
+Premultiplication</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">Premultiplication implies that one starts with an RGB color, adds the concept of transparency, and then premultiplies by it. This isn’t actually true. Premultiplied RGB is the natural representation for color and transparency and is the native output of renderers. A nice mental model for premultiplied RGBA is that the RGB channels represent how much light is emitted from within the region of the pixel, and alpha represents how much a pixel blocks light behind it. As alpha represents the fraction of occlusion, to maintain physical correctness alpha values must be between 0 and 1. RGB channels have no such constraints and can range from -infinity to infinity.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Furthermore, there is absolutely no issue with RGB colors greater than alpha. This is a common misconception. Even when alpha is zero, a positive RGB color is a completely reasonable approximation of a physical process that emits light without occluding anything behind it. Indeed, this situation is common in emissive FX renders such as fire. Fire will also scatter and absorb light from the environment but it may in such a negligible amount that a zero-valued alpha suffices.
+</BIG>
+<P>
+<BIG CLASS="LARGE">So how should unpremultiplied RGBA be interpreted? Unpremultiplied RGBA is most easily understood as, “If this pixel were fully opaque, how much light would have been emitted?” This representation is certainly useful in specific compositing contexts such as when pulling luma keys from CG elements, but as converting to unpremultiplied RGBA is a lossy approximation it’s prudent to only do the conversion when absolutely necessary.
+</BIG>
+<P>
+<BIG CLASS="LARGE">For additional information on premultiplied versus unpremultiplied RGBA representations, see Porter and Duff (1984) and Blinn (1998).
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1789"
+  HREF="Technical_Checks.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1785"
+  HREF="Compositing.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1779"
+  HREF="Plate_Timing_Neutralization.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1787"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1790"
+  HREF="Technical_Checks.html">Technical Checks</A>
+<B> Up:</B> <A NAME="tex2html1786"
+  HREF="Compositing.html">Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1780"
+  HREF="Plate_Timing_Neutralization.html">Plate Timing, Neutralization, and</A>
+ &nbsp; <B>  <A NAME="tex2html1788"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

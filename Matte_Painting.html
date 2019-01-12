@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Matte Painting</TITLE>
+<META NAME="description" CONTENT="Matte Painting">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Lighting_Shading_Rendering.html">
+<LINK REL="previous" HREF="Texture_Painting.html">
+<LINK REL="up" HREF="Visual_Effects_Animation_Ga.html">
+<LINK REL="next" HREF="Lighting_Shading_Rendering.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1674"
+  HREF="Lighting_Shading_Rendering.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1670"
+  HREF="Visual_Effects_Animation_Ga.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1664"
+  HREF="Textures_in_Games.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1672"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1675"
+  HREF="Lighting_Shading_Rendering.html">Lighting, Shading, and Rendering</A>
+<B> Up:</B> <A NAME="tex2html1671"
+  HREF="Visual_Effects_Animation_Ga.html">Visual Effects, Animation and</A>
+<B> Previous:</B> <A NAME="tex2html1665"
+  HREF="Textures_in_Games.html">Textures in Games</A>
+ &nbsp; <B>  <A NAME="tex2html1673"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00545000000000000000">
+Matte Painting</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">Matte painters and paint packages work in as many different ways as there are facilities and software packages. In this example, the painter works in an output-referred color space. As renders are natively in scene-referred linear, a mapping from the matte painting space to the rendering working space is required, regardless of which approach is chosen.
+It is often useful to consider matte painting and texture painting as two different color workflows. In matte painting, it is very common for the artist to want to paint values which will eventually utilize the full scene-referred linear dynamic range, even when working in an output-referred space. Thus, an inversion which allows for the creation of bright specular values is preferable. In such cases, it is often convenient to provide a visual preview both at a normal exposure, as well as a few stops darker, to let the artist have a good feel for the dynamic range in their plate. Applying an inversion in this context has many of the potential downsides described for texture painting, namely that an exact inverse isn’t guaranteed to exist for all color and that the inverse of a tone curve with strong highlight compression may lead to excessively bright values when an output-referred image is brought back into the working space.
+To avoid those issues, some workflows elect to perform matte painting on scene-referred values. The scene-referred values are typically encoded in a non-linear fashion for compatibility with integer based tools and to utilize the largest dynamic range possible. One option is to use a logarithmic encoding and to provide a viewing transform that incorporates the look for the show. This will be familiar to artists who have experience with films scans, but it also changes the feel of paint tools that are normally used in a display-referred context. Another option is to use a hybrid log-gamma encoding. This hybrid encoding uses a curve which is gamma-shaped for the standard range of image values and transitions into a logarithmic shape for bright values like highlights. The gamma portion of the curve allows tools that are built for a display-referred working space to continue to work as expected, including blending operations which are designed for gamma-encoded material. The logarithmic shape for highlights allows details to be preserved throughout the process. Artists can paint directly on the matte image without any additional viewing transform. A viewing transform that incorporates the look for the show is still useful, to see how the painted values will appear in their final presentation. These viewing transform can be applied using an ICC profile or a 3D LUT as supported by the paint application.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1674"
+  HREF="Lighting_Shading_Rendering.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1670"
+  HREF="Visual_Effects_Animation_Ga.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1664"
+  HREF="Textures_in_Games.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1672"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1675"
+  HREF="Lighting_Shading_Rendering.html">Lighting, Shading, and Rendering</A>
+<B> Up:</B> <A NAME="tex2html1671"
+  HREF="Visual_Effects_Animation_Ga.html">Visual Effects, Animation and</A>
+<B> Previous:</B> <A NAME="tex2html1665"
+  HREF="Textures_in_Games.html">Textures in Games</A>
+ &nbsp; <B>  <A NAME="tex2html1673"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

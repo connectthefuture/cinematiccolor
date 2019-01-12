@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>EXR</TITLE>
+<META NAME="description" CONTENT="EXR">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="previous" HREF="DPX.html">
+<LINK REL="up" HREF="File_Formats.html">
+<LINK REL="next" HREF="Software.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2573"
+  HREF="Software.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2569"
+  HREF="File_Formats.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2565"
+  HREF="DPX.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2571"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2574"
+  HREF="Software.html">Software</A>
+<B> Up:</B> <A NAME="tex2html2570"
+  HREF="File_Formats.html">File Formats</A>
+<B> Previous:</B> <A NAME="tex2html2566"
+  HREF="DPX.html">DPX</A>
+ &nbsp; <B>  <A NAME="tex2html2572"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION006102000000000000000">
+EXR</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">OpenEXR is an open-source image format created by ILM in 1999, which has near universal adoption in the VFX and animation industries. OpenEXR is intended for storing floating point, scene-referred linear imagery. Although OpenEXR was not the first image format suitable for storing HDR float data, it is the most popular in film production due to its efficient lossless compression codecs, support for 16 bit half float pixel type and support for other features such as data window/display window tracking, multiple layers, deep frame buffers, rich metadata encoding, and the lack of legacy format baggage.
+</BIG>
+<P>
+<BIG CLASS="LARGE">In our experience, the half data format is sufficient for color images, color channels being those viewed using tone rendering, examples of which include beauty renders, specular color, diffuse color, per-light color AOVs, etc. For data channels requiring high precision representations of physical attributes, such as depth, normals or control maps, full 32 bit float is available and often necessary.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The maximum value for float-16 is 65504.0f. The minimum positive value that can be represented without a decrease in numerical precision, is 6.1035e-05f. It is important to remember when dealing with floating-point data, that the bits are allocated very differently from integer encodings. Whereas integer encodings have a uniform allocation of bits over the entire coding space, the floating-point encodings have increased precision in the low end and decreased precision in the high end. Consequently, if one has an unsigned 16 bit integer image, converts to a float-16 representation, and then converts back, fewer than 16 bits of precision are maintained.
+</BIG>
+<P>
+<BIG CLASS="LARGE">OpenEXR supports a variety of compression options. Piz (wavelet) probably offers the highest lossless compression ratio on grainy material but is relatively expensive computationally. The zip options offer a reasonable compression ratio on computer-generated elements and is less computationally intense. The b44 codec is lossy; intended for real-time playback. OpenEXR also can store a tiled, mipmapped representation, and is thus suitable for use as a renderer texture format. OpenEXR 2.0 added deep buffer support: an arbitrary number of depth-samples per pixels, at the expense of increased storage requirements.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Because image data stored in OpenEXR files is normally scene-referred linear, a viewing transform is required to display the image. Metadata can be included which specifies the primaries of the image data but as with DPX, this metadata should not be trusted in general. A naive transform to an output-referred space such as sRGB will clip any data above 1.0. As part of the ACES standardization effort, a constrained version of OpenEXR was specified in SMPTE as ST 2065-4:2013.  This standard specifies the on-disk bit representation of image data and critical metadata.  One of the metadata fields specified in ST 2065-4 is the “ACES Image Container” flag which is intended to indicate an OpenEXR image is a compliant ST 2065-4 file.  ACES ST 2065-4 files are encoded as scene-referred linear images using the AP0 primaries and should be viewed through an ACES output transform. This ensures that anybody viewing the image sees it in a way which perceptually matches what any other viewer sees, independent of display or viewing environment.
+XXX
+</BIG>
+<P>
+<BIG CLASS="LARGE"></BIG>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2573"
+  HREF="Software.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2569"
+  HREF="File_Formats.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2565"
+  HREF="DPX.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2571"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2574"
+  HREF="Software.html">Software</A>
+<B> Up:</B> <A NAME="tex2html2570"
+  HREF="File_Formats.html">File Formats</A>
+<B> Previous:</B> <A NAME="tex2html2566"
+  HREF="DPX.html">DPX</A>
+ &nbsp; <B>  <A NAME="tex2html2572"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

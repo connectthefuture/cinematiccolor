@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Legal Range</TITLE>
+<META NAME="description" CONTENT="Legal Range">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Full_Range.html">
+<LINK REL="previous" HREF="Full_Legal_ranges.html">
+<LINK REL="up" HREF="Full_Legal_ranges.html">
+<LINK REL="next" HREF="Full_Range.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2503"
+  HREF="Full_Range.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2499"
+  HREF="Full_Legal_ranges.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2493"
+  HREF="Full_Legal_ranges.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2501"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2504"
+  HREF="Full_Range.html">Full Range</A>
+<B> Up:</B> <A NAME="tex2html2500"
+  HREF="Full_Legal_ranges.html">Full and Legal ranges</A>
+<B> Previous:</B> <A NAME="tex2html2494"
+  HREF="Full_Legal_ranges.html">Full and Legal ranges</A>
+ &nbsp; <B>  <A NAME="tex2html2502"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00671000000000000000">
+Legal Range</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">When image data is stored or transmitted in an integer form, such as DPX files or over SDI signals, it is necessary to map the levels in the image to the available code values. When digital representation of video signals was devised, it was decided to allow for overshoot and undershoot outside the range from black to white, in order not to clip analog signals which might not sit accurately within that range. Thus it was decided that black should be coded as 8 bit 16 or 10 bit 64, and white should be coded as 8 bit 235 or 10 bit 940. This coding is referred to by a number of names, including Legal Range, SMPTE Range, Narrow Range, Video Range, and Head Range. The mapping from an output referred float representation (v) where display black is represented by 0.0 and display white by 1.0 can be generalized as follows:
+</BIG>
+<P>
+<BIG CLASS="LARGE">legal = round(2(n - 8) × (16 + 219 × v))
+</BIG>
+<P>
+<BIG CLASS="LARGE">where n is the encoding bit depth.
+</BIG>
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

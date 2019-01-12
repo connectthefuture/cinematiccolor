@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Canon CLog</TITLE>
+<META NAME="description" CONTENT="Canon CLog">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="GoPro_ProTune.html">
+<LINK REL="previous" HREF="Blackmagic_Film.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="GoPro_ProTune.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2273"
+  HREF="GoPro_ProTune.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2269"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2263"
+  HREF="Blackmagic_Film.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2271"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2274"
+  HREF="GoPro_ProTune.html">GoPro ProTune</A>
+<B> Up:</B> <A NAME="tex2html2270"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2264"
+  HREF="Blackmagic_Film.html">Blackmagic Film</A>
+ &nbsp; <B>  <A NAME="tex2html2272"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION006112000000000000000">
+Canon CLog</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">Canon cameras offer a range of options for encoding curves and primaries, making for a very large number of permutations. Primaries can be selected from Cinema Gamut, Rec. 2020 and Rec. 709 (see sections above for the latter three). For the encoding curve, there is a choice of Canon Log 1, 2 and 3. It is important to ascertain which primaries and Canon Log variant were used when shooting, in order to linearize correctly and transform to the working color space. Many applications are unable to read the Canon metadata which specifies the recording primaries and encoding curve, so it can be useful to open the media in the Canon XF Utility, available from Canon’s website, and make a note of the settings.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The latest iteration of Canon Log is Canon Log 3, for which the encoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if L &lt; -0.014:
+		V = −0.42889912 × log10(1 - 14.98325 × L) + 0.07623209
+	else if L ≤ 0.014:
+		V = 2.3069815 × L + 0.073059361
+	else:
+V =  0.42889912 × log10(1 + 14.98325 × L) + 0.069886632
+</BIG>
+<P>
+<BIG CLASS="LARGE">However, this is complicated by the fact that this formula takes as its input what Canon refers to as “linear IRE”. This is given by dividing the more commonly used reflectance value by 0.9. Thus 18
+</BIG>
+<P>
+<BIG CLASS="LARGE">Bearing the above in mind, the decoding function for Canon Log 3 “IRE” to “linear IRE” is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if V &lt; 0.04076162:
+		L = - (10(0.07623209 − V ) / 0.42889912 − 1) / 14.98325
+	else if V ≤ 0.105357102:
+		L = (V - 0.073059361) / 2.3069815
+	else:
+		L = (10( V − 0.069886632 ) / 0.42889912 − 1) / 14.98325
+</BIG>
+<P>
+<BIG CLASS="LARGE">Red
+Green
+Blue
+White Point
+0.740, 0.270
+0.170, 1.140
+0.080, -0.100
+0.3127, 0.3290 (D65)
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2273"
+  HREF="GoPro_ProTune.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2269"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2263"
+  HREF="Blackmagic_Film.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2271"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2274"
+  HREF="GoPro_ProTune.html">GoPro ProTune</A>
+<B> Up:</B> <A NAME="tex2html2270"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2264"
+  HREF="Blackmagic_Film.html">Blackmagic Film</A>
+ &nbsp; <B>  <A NAME="tex2html2272"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>LUTs and Transforms</TITLE>
+<META NAME="description" CONTENT="LUTs and Transforms">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="ASC_CDL.html">
+<LINK REL="previous" HREF="Colour_Science_Python.html">
+<LINK REL="up" HREF="Appendix.html">
+<LINK REL="next" HREF="D_LUTs.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2391"
+  HREF="D_LUTs.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2387"
+  HREF="Appendix.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2381"
+  HREF="Colour_Science_Python.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2389"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2392"
+  HREF="D_LUTs.html">1D LUTs</A>
+<B> Up:</B> <A NAME="tex2html2388"
+  HREF="Appendix.html">Appendix</A>
+<B> Previous:</B> <A NAME="tex2html2382"
+  HREF="Colour_Science_Python.html">Colour Science for Python</A>
+ &nbsp; <B>  <A NAME="tex2html2390"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00640000000000000000">
+LUTs and Transforms</A>
+</H1>
+<P>
+<BIG CLASS="LARGE">Lookup tables (LUTs) are a technique for optimizing the evaluation of functions that are expensive to compute and inexpensive to cache, or for sampling process such as printing to film which are not definable mathematically. By precomputing the evaluation of a function over a domain of common inputs, expensive runtime operations can be replaced with inexpensive table lookups. If the table lookups can be performed faster than computing the results from scratch, then the use of a lookup table will yield significant performance gains. For input values that fall between the table's samples, an interpolation algorithm can generate reasonable approximations by averaging nearby samples. LUTs are also useful when wanting to separate the calculation of a transform from its application. For example, in color pipelines it is often useful to “bake” a series of color transforms into a single lookup table, which is then suitable for distribution and re-use, even in situations where the original data sets are not appropriate for distribution.
+</BIG>
+<P>
+<BIG CLASS="LARGE">It is important to bear in mind that a LUT is a “black box” transforming one set of values into a new set of values. A color transform expressed as a LUT will be designed for input in a particular color encoding, and will produce output which may be in the same or a different encoding. If the image data to be transformed is not in the correct format for the LUT, then it is necessary to first transform it by using a mathematical method, or even with another LUT. Most LUT formats have no way of defining what their expected input is, nor the encoding of their output, so it is useful to make this clear either in the naming of the LUT file or in a comment line within the LUT.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The values listed in the tables can be calculated by iterating over the possible input values, and applying the required transform mathematically, or by creating what is called a CMS (Color Management System) pattern image that incorporates all possible input values, passing it through the transform as if it was any other image, and then reading back the resulting color values to create the table. The image is simply a linear ramp to generate a 1D LUT, or a grid of all possible permutations of RGB, at the chosen LUT intervals, for a 3D LUT.
+</BIG>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2393"
+  HREF="D_LUTs.html">1D LUTs</A>
+<LI><A NAME="tex2html2394"
+  HREF="D_LUTs.html#SECTION00642000000000000000">3D LUTs</A>
+<LI><A NAME="tex2html2395"
+  HREF="Using_Shaper_LUTs.html">Using Shaper LUTs</A>
+<LI><A NAME="tex2html2396"
+  HREF="Half_Float_LUTs.html">Half Float LUTs</A>
+<LI><A NAME="tex2html2397"
+  HREF="Creating_LUTs.html">Creating LUTs</A>
+<LI><A NAME="tex2html2398"
+  HREF="GPU_Implementations.html">GPU Implementations</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2391"
+  HREF="D_LUTs.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2387"
+  HREF="Appendix.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2381"
+  HREF="Colour_Science_Python.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2389"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2392"
+  HREF="D_LUTs.html">1D LUTs</A>
+<B> Up:</B> <A NAME="tex2html2388"
+  HREF="Appendix.html">Appendix</A>
+<B> Previous:</B> <A NAME="tex2html2382"
+  HREF="Colour_Science_Python.html">Colour Science for Python</A>
+ &nbsp; <B>  <A NAME="tex2html2390"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

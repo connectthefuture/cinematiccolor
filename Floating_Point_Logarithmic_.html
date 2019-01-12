@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Floating-Point &amp; Logarithmic Representations</TITLE>
+<META NAME="description" CONTENT="Floating-Point &amp; Logarithmic Representations">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Gamma.html">
+<LINK REL="previous" HREF="Perceptual_Coding.html">
+<LINK REL="up" HREF="Representing_Color.html">
+<LINK REL="next" HREF="Gamma.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1249"
+  HREF="Gamma.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1245"
+  HREF="Representing_Color.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1239"
+  HREF="Perceptual_Coding.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1247"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1250"
+  HREF="Gamma.html">Gamma</A>
+<B> Up:</B> <A NAME="tex2html1246"
+  HREF="Representing_Color.html">Representing Color</A>
+<B> Previous:</B> <A NAME="tex2html1240"
+  HREF="Perceptual_Coding.html">Perceptual Coding</A>
+ &nbsp; <B>  <A NAME="tex2html1248"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00454000000000000000">
+Floating-Point &amp; Logarithmic Representations</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">Integer representations are not appropriate for storing linear high-dynamic range scene-referred imagery due to the typical luminance distribution in real-world scenes, even when they are middle-grey normalized. Floating-point systems gracefully address the precision issues associated with encoding scene-referred linear imagery. They represent numbers approximately to a fixed number of significant digits, i.e. the significand, scaled by an exponent in some fixed base, e.g. 2, 10 or 16.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The same unit can represent different orders of magnitude, for example, the temperature of the cosmic microwave background radiation is -270.45 °C while the quasar 3C273 temperature has been estimated to 10 trillion °C. Whereas with integer representations, the interval between two consecutive values is the same throughout the domain, with floating point representations the intervals increase as the exponent does. Fractional values can be represented using a negative exponent, and one bit is reserved to indicate the sign, allowing the coding of negative values as well.
+4 × 2-3 = 4 × ⅛ = ½
+5 × 2-3 = 5 × ⅛ = ⅝
+6 × 2-3 = 6 × ⅛ = ¾
+…
+4 × 22 = 16
+5 × 22 = 20
+6 × 22 = 24
+…
+4 × 28 = 1024
+5 × 28 = 1280
+6 × 28 = 1536
+This approach allows for an almost ideal representation of scene-referred imagery, providing adequate precision in both the shadows and the highlights. In modern visual effects and color pipelines, OpenEXR by Industrial Light &amp; Magic (2003) is most commonly used to store floating-point imagery and helped to popularize the 16 bit half-float format.
+For games, where the balance between performance and memory use (or both) and quality often lies firmly towards performance, smaller floating point formats dropping the sign bit or having less precision (or both) are common. For more information on these, please refer to sections 3.4.3, 3.4.4.1 and 3.5.3.
+For storage and performance reasons, it is common to encode high-dynamic range, scene-referred color spaces with integer representations. Digital motion picture cameras often record 10 or 12 bit integer media, e.g. ProRes, X-AVC, HDCAM SR or DPX files using an integer logarithmic encoding. It allows for most of the benefits of floating point representations, without actually requiring floating-point storage media. Being integer, logarithmic image data is also suitable for transporting over SDI. In logarithmic encodings, successive code values in the integer log space map to multiplicative values in linear space. Put more intuitively, this is analogous to converting each pixel to a representation of the number of stops above or below a reference level, and then storing an integer representation of this quantity.
+</BIG>
+<P>
+<BIG CLASS="LARGE">As logarithmic images encode an extensive dynamic range, most mid-tone pixels reside in the central portion of the encoded scale. Thus, if you directly display a logarithmic image on a sRGB monitor, it exhibits low contrast.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Marcie, a famous reference image in theatrical exhibition and DI workflows, is shown as logarithmically encoded and exhibit low contrast. Image copyright © Eastman Kodak Company.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1249"
+  HREF="Gamma.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1245"
+  HREF="Representing_Color.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1239"
+  HREF="Perceptual_Coding.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1247"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1250"
+  HREF="Gamma.html">Gamma</A>
+<B> Up:</B> <A NAME="tex2html1246"
+  HREF="Representing_Color.html">Representing Color</A>
+<B> Previous:</B> <A NAME="tex2html1240"
+  HREF="Perceptual_Coding.html">Perceptual Coding</A>
+ &nbsp; <B>  <A NAME="tex2html1248"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

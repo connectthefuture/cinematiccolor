@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Plate Timing, Neutralization, and Grading</TITLE>
+<META NAME="description" CONTENT="Plate Timing, Neutralization, and Grading">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Premultiplication.html">
+<LINK REL="previous" HREF="Working_with_Log_Imagery.html">
+<LINK REL="up" HREF="Compositing.html">
+<LINK REL="next" HREF="Premultiplication.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1777"
+  HREF="Premultiplication.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1773"
+  HREF="Compositing.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1767"
+  HREF="Working_with_Log_Imagery.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1775"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1778"
+  HREF="Premultiplication.html">Premultiplication</A>
+<B> Up:</B> <A NAME="tex2html1774"
+  HREF="Compositing.html">Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1768"
+  HREF="Working_with_Log_Imagery.html">Working with Log Imagery</A>
+ &nbsp; <B>  <A NAME="tex2html1776"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00555000000000000000">
+Plate Timing, Neutralization, and Grading</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">When working with plate photography it is often useful to apply primary color corrections for each plate to neutralize the lighting across a sequence. During the shoot, there will inevitably be color drift across the shots, produced by events like the sun moving behind a cloud or the lighting moved to different locations from one day to the next. Using neutralized plates in lighting and compositing leads to nice gains in efficiency as light rigs and sequence standards track better. In most workflows the plate neutralization is done at the top of the compositing graph, the CG neutral elements are composited in, and then before the file is written out the neutralization is undone. This approach is often called “reverse out,” and its advantage is that the output delivery is consistent with the input plate, independent of the color neutralization process. An analogous set of operations are often applied with lens distortion being removed at the head of a comp and then reapplied as one of the last steps.
+In some facilities, neutralized plates are written out to disk so everyone dealing with the images works with the neutralized result. This may be helpful to have if the background plate needs to be reflected or otherwise used in a CG render. The same is true with undistorted plates. It may be useful to write them to disk if a tracking or photogrammetry application, for example, can’t apply the same lens un-distortion as the compositing application.
+</BIG>
+<P>
+<BIG CLASS="LARGE">It is important to draw a distinction between the correction necessary for plate neutralizations, and the potentially more sophisticated Look that is crafted by the colorist. Color corrections used for plate neutralization must be reversible, and as such are typically handled as either simple offsets in camera log space or as simple gains in linear. More complex operations such as contrast and saturation are usually avoided as these type of corrections break the linearity of the plate, are often implemented differently in different software packages and will likely make compositing more difficult. In DI grading, the full suite of color operators can be used: contrast, keys, primaries, and secondaries, as there is no need to invert this process.
+</BIG>
+<P>
+<BIG CLASS="LARGE">For additional detail on the process of conforming sequences and neutralizing plates, see 3.6.1 Conforming.XXX
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1777"
+  HREF="Premultiplication.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1773"
+  HREF="Compositing.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1767"
+  HREF="Working_with_Log_Imagery.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1775"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1778"
+  HREF="Premultiplication.html">Premultiplication</A>
+<B> Up:</B> <A NAME="tex2html1774"
+  HREF="Compositing.html">Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1768"
+  HREF="Working_with_Log_Imagery.html">Working with Log Imagery</A>
+ &nbsp; <B>  <A NAME="tex2html1776"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

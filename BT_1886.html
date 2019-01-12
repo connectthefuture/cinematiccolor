@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>BT.1886</TITLE>
+<META NAME="description" CONTENT="BT.1886">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="sRGB.html">
+<LINK REL="previous" HREF="Rec_709.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="sRGB.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2153"
+  HREF="sRGB.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2149"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2143"
+  HREF="Rec_709.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2151"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2154"
+  HREF="sRGB.html">sRGB</A>
+<B> Up:</B> <A NAME="tex2html2150"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2144"
+  HREF="Rec_709.html">Rec. 709</A>
+ &nbsp; <B>  <A NAME="tex2html2152"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00612000000000000000">
+BT.1886</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">The ACES Still Life reference image encoded with the Rec. 709 (BT.1886) Output Transform.
+Copyright © A.M.P.A.S.
+The EOTF used for display of Rec. 709 material is specified by ITU-R BT.1886, which was introduced later, as no EOTF was specified originally in Rec. 709. It is a variation on a gamma curve, intended to more accurately replicate the response of legacy CRT displays. The BT.1886 equation takes account of the black level of the display in use, but for display technologies, such as OLED, which are capable of producing a true black, BT.1886 becomes a pure 2.4 gamma power law curve. In fact, standard practice is to calibrate OLED displays to a non-zero black level. However, when encoding material for an unspecified BT.1886 display, where the black level is unknown, the norm is to use a pure 2.4 gamma, as is done in the ACES Rec. 709 Output Transform, for example.
+</BIG>
+<P>
+<BIG CLASS="LARGE">A BT.1886 display uses the primaries as defined by Rec. 709, and the following EOTF:
+</BIG>
+<P>
+<BIG CLASS="LARGE">L = a × (V + b)2.4
+</BIG>
+<P>
+<BIG CLASS="LARGE">Where L is the screen luminance and V the encoded signal (ranged 0-1). The constants a and b are calculated from the target black level LB and white level LW (normally 100 cd/m2 for a grading reference monitor, but often considerably higher for a consumer TV) using the following equations:
+	a = (LW1/2.4 − LB1/2.4)2.4
+	b = LB1/2.4 / (LW1/2.4 − LB1/2.4)
+</BIG>
+<P>
+<BIG CLASS="LARGE">When encoding desired display colorimetry for BT.1886 display, where the black level of the display is unknown (as is always the situation when delivering video for a wide audience) the recommended approach is to use a value of zero for LB. For this reason, the ACES Rec. 709 Output Transform uses pure 2.4 gamma.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2153"
+  HREF="sRGB.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2149"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2143"
+  HREF="Rec_709.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2151"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2154"
+  HREF="sRGB.html">sRGB</A>
+<B> Up:</B> <A NAME="tex2html2150"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2144"
+  HREF="Rec_709.html">Rec. 709</A>
+ &nbsp; <B>  <A NAME="tex2html2152"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Scene-Referred Linear is Preferred for Lighting</TITLE>
+<META NAME="description" CONTENT="Scene-Referred Linear is Preferred for Lighting">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Rendering_Gamut_Impact.html">
+<LINK REL="previous" HREF="Lighting_Shading_Rendering.html">
+<LINK REL="up" HREF="Lighting_Shading_Rendering.html">
+<LINK REL="next" HREF="Rendering_Gamut_Impact.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1698"
+  HREF="Rendering_Gamut_Impact.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1694"
+  HREF="Lighting_Shading_Rendering.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1688"
+  HREF="Lighting_Shading_Rendering.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1696"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1699"
+  HREF="Rendering_Gamut_Impact.html">The Rendering Gamut Impact</A>
+<B> Up:</B> <A NAME="tex2html1695"
+  HREF="Lighting_Shading_Rendering.html">Lighting, Shading, and Rendering</A>
+<B> Previous:</B> <A NAME="tex2html1689"
+  HREF="Lighting_Shading_Rendering.html">Lighting, Shading, and Rendering</A>
+ &nbsp; <B>  <A NAME="tex2html1697"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00551000000000000000">
+Scene-Referred Linear is Preferred for Compositing</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">The benefits of scene-referred linear compositing are numerous; similar to the benefits found in rendering, shading, and lighting. All operations which blend energy with spatially neighboring pixels: motion blur, defocus, image distortion, and resizing, for example, have more physically plausible, aka realistic, results by default. Anti-aliasing works better. Light mixing preserves the appearance of the original renders. Most importantly, even simple compositing operations such as over produce more realistic results, particularly on semi-transparent elements like hair, volumetrics and fx elements.
+</BIG>
+<P>
+<BIG CLASS="LARGE">San Francisco City Hall at Night - An HDR scene-referred linear image (top left), Defocus applied to LDR output-referred values (top right), The original scene defocused in camera (bottom left), Defocus applied to the HDR scene-referred linear data before the output transform (bottom right). All four images use the ACES sRGB Output Transform.
+These image helps illustrate the energy implications of using different linearization philosophies. Pay particular attention to the appearance of the lights in the bell tower on the top of the dome. How much energy is represented in those pixels? The least realistic defocus effect is achieved by applying the filter kernel directly to the output-referred pixel values without any linearization. Since in this case there is only a small difference between the pixel values of the lights and that of diffuse white, the defocus causes the lights to be lost in the surrounding pixels.
+</BIG>
+<P>
+<BIG CLASS="LARGE">San Francisco City Hall at Night - The original scene defocused in camera (left), Defocus applied to the HDR scene-referred linear data before the output transform (middle). Defocus applied to pseudo-linearized output-referred data (right). All three images use the ACES sRGB Output Transform.
+Applying the same defocus to image data which has been converted to an approximation of scene-referred linear using a simple gamma or sRGB curve is an improvement, but still tends to de-emphasize the specular highlights. This is because even though the operation is being applied in ‘linear’, it is downstream of the output transform, and the highlights have already been tone mapped for a lower dynamic range display, restricting them to the 0-1 range, and thus do not have physically-plausible amounts of energy. Applications like Adobe After Effects work in this way by default when the “use linear” option is chosen for filters, simply removing an assumed 2.2 gamma before the filter and reapplying it afterward. Applying a defocus in scene-referred linear reveals a bokeh effect on each of the bell tower lights, mimicking the visual look of having performed this defocus during camera acquisition. This is because the pixel values are proportional to light in the original scene, and thus very bright pixels have sufficient energy to remain visible when blended with their neighbors. Other energy effects such as motion-blur achieve similar improvements in realism from working in a scene-referred linear space.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1698"
+  HREF="Rendering_Gamut_Impact.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1694"
+  HREF="Lighting_Shading_Rendering.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1688"
+  HREF="Lighting_Shading_Rendering.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1696"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1699"
+  HREF="Rendering_Gamut_Impact.html">The Rendering Gamut Impact</A>
+<B> Up:</B> <A NAME="tex2html1695"
+  HREF="Lighting_Shading_Rendering.html">Lighting, Shading, and Rendering</A>
+<B> Previous:</B> <A NAME="tex2html1689"
+  HREF="Lighting_Shading_Rendering.html">Lighting, Shading, and Rendering</A>
+ &nbsp; <B>  <A NAME="tex2html1697"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

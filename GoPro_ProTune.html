@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>GoPro ProTune</TITLE>
+<META NAME="description" CONTENT="GoPro ProTune">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Panasonic_V_Log.html">
+<LINK REL="previous" HREF="Canon_CLog.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="Panasonic_V_Log.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2285"
+  HREF="Panasonic_V_Log.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2281"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2275"
+  HREF="Canon_CLog.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2283"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2286"
+  HREF="Panasonic_V_Log.html">Panasonic V-Log</A>
+<B> Up:</B> <A NAME="tex2html2282"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2276"
+  HREF="Canon_CLog.html">Canon CLog</A>
+ &nbsp; <B>  <A NAME="tex2html2284"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION006113000000000000000">
+GoPro ProTune</A>
+</H2><BIG CLASS="LARGE">
+ProTune “Flat” is a log mode available in the GoPro range of action cameras. It allows disabling of much of the image processing normally applied in camera. The curve encodes the range 0-1 to log values in the range 0-1, so linearization will not yield values &gt;1 unless gain is subsequently applied. Equally, the curve is not able to encode negative values, but because the sensor A/D has a black offset, this should be subtracted after linearization, which may result in some negative values.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The encoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">V = ln(L × 112 + 1) / ln(113)
+</BIG>
+<P>
+<BIG CLASS="LARGE">The decoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">L = (113V − 1) / 112
+</BIG>
+<P>
+<BIG CLASS="LARGE">Red
+Green
+Blue
+White Point
+0.698448, 0.193026
+0.329555, 1.024597
+0.108443, -0.034679
+0.3127, 0.3290 (D65)
+</BIG>
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Using Shaper LUTs</TITLE>
+<META NAME="description" CONTENT="Using Shaper LUTs">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Half_Float_LUTs.html">
+<LINK REL="previous" HREF="D_LUTs.html">
+<LINK REL="up" HREF="LUTs_Transforms.html">
+<LINK REL="next" HREF="Half_Float_LUTs.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2419"
+  HREF="Half_Float_LUTs.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2415"
+  HREF="LUTs_Transforms.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2409"
+  HREF="D_LUTs.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2417"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2420"
+  HREF="Half_Float_LUTs.html">Half Float LUTs</A>
+<B> Up:</B> <A NAME="tex2html2416"
+  HREF="LUTs_Transforms.html">LUTs and Transforms</A>
+<B> Previous:</B> <A NAME="tex2html2410"
+  HREF="D_LUTs.html">1D LUTs</A>
+ &nbsp; <B>  <A NAME="tex2html2418"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00643000000000000000">
+Using Shaper LUTs</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">All lookup tables are a sampling of some underlying function, whether that function is explicitly known or not. For example, the function f(x) = 1 / (1 + e-1.5x)  is a mathematical function that can be evaluated for any input values of x. The function can also be represented using a small lookup table over a particular domain by evaluating the function at various intervals. Table x shows a small lookup table with 5 samples representing the function over the input range of -5 to 5.
+Input
+Output
+-5.00
+0.001
+-2.50
+0.023
+0.00
+0.500
+2.50
+0.977
+5.00
+0.999
+</BIG>
+<P>
+<BIG CLASS="LARGE">When plotting the table values as in Figure X one can see the sample point output values in the lookup table correspond exactly to the output values of the underlying function. The limitation of lookup tables, however, is that values between the sample points must be interpolated from values within the table.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Figure X shows the results of using linear interpolation to determine the output values between the sample points.  The figure illustrates how if care is not taken in choosing the location of the samples it can lead to a substantial error between the output of the lookup table and the result that would have been obtained using the underlying function the table was intended to model. This is particularly true in where the underlying function exhibits a high degree of curvature between the samples. Another limitation of lookup tables is that the output for values outside the input range (e.g. -5 to 5) used to build the lookup table are undefined.
+</BIG>
+<P>
+<BIG CLASS="LARGE">When building lookup tables, care should be taken to choose optimal locations for the table samples to minimize the error associated with the interpolation. Figure X shows an example of a table with optimal, non-uniform set of sample points. It should be noted that only a few lookup table formats (e.g. Academy CLF and Cinespace) support non-uniform sampling but the example below shows how the error can be minimized when sample points are chosen with respect to the function they are intended emulate.
+</BIG>
+<P>
+<BIG CLASS="LARGE">In the example above, the node placement is optimized to minimize error uniformly across the entire domain. Depending on exactly what the values on the x-axis and y-axis of the graph represent, it may not yield the best results to minimize error in this fashion.  Often in VFX and HDR workflows, due to the nature of the human visual system, it’s more visually appealing to minimize the error in a visually uniform space. A quick and dirty way to do this is to logarithmically distribute the sample points. This will shift the largest errors to the brighter parts of the pictures where the eye is less capable of discerning the error.  Figure X shows the function and logarithmically distributed point sampling.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The concept of optimal placement of sample points can be extended to 3D LUTs where it is common to wrap a 3D LUT in a matched set of 1D ‘shaper’ LUTs.  Say the ceiling is set at a pixel value of 100.0. Dividing this into equally sampled regions for a 32x32x32 LUT yields a cell size of about 3. Assuming a reasonable exposure transform, almost all perceptually significant results are going to be compressed into the few lowest cells, wasting the majority of the data set and using potentially inaccurate interpolation over the large steps in those lowest cells. It is preferable to place the samples in the most visually significant locations, which typically occur closer to the dark end of the gamut. This is achieved by wrapping the 3D lookup-table transform with a matched pair of 1D shaper LUTs. The ideal shaper LUT maps the input HDR color space to a normalized, perceptually uniform color space. The 3D LUT is then applied. After the 3D transform the image may be mapped through a further 1D transform, such as the inverse of the original 1D LUT, mapping the pixel data back into the original dynamic range.
+</BIG>
+<P>
+<BIG CLASS="LARGE">This second shaper is only necessary for transforms such as those from linear to linear. If the transform is linear to log, or linear to `video’, only an input shaper is normally needed. Shaper LUTs may be separate files, applied sequentially with the 3D LUT, or may be included in a single 1D+3D combined LUT.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2419"
+  HREF="Half_Float_LUTs.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2415"
+  HREF="LUTs_Transforms.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2409"
+  HREF="D_LUTs.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2417"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2420"
+  HREF="Half_Float_LUTs.html">Half Float LUTs</A>
+<B> Up:</B> <A NAME="tex2html2416"
+  HREF="LUTs_Transforms.html">LUTs and Transforms</A>
+<B> Previous:</B> <A NAME="tex2html2410"
+  HREF="D_LUTs.html">1D LUTs</A>
+ &nbsp; <B>  <A NAME="tex2html2418"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

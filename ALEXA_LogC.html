@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>ALEXA LogC</TITLE>
+<META NAME="description" CONTENT="ALEXA LogC">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Blackmagic_Film.html">
+<LINK REL="previous" HREF="XaYaZa.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="Blackmagic_Film.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2249"
+  HREF="Blackmagic_Film.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2245"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2239"
+  HREF="XaYaZa.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2247"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2250"
+  HREF="Blackmagic_Film.html">Blackmagic Film</A>
+<B> Up:</B> <A NAME="tex2html2246"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2240"
+  HREF="XaYaZa.html">X’Y’Z’</A>
+ &nbsp; <B>  <A NAME="tex2html2248"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION006110000000000000000">
+ALEXA LogC</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">LogC is the encoding used in the ARRI ALEXA series of cameras, including the AMIRA. It is used together with the ALEXA Wide Gamut primaries and a white point of D65. The exact encoding curve varies slightly with the Exposure Index (EI) set on the camera, keeping 18
+	if L &gt; cut:
+		V = c × log10(a × L + b) + d
+else:
+V = e × L + f
+</BIG>
+<P>
+<BIG CLASS="LARGE">At EI800 the values of the constants are:
+</BIG>
+<P>
+<BIG CLASS="LARGE">cut = 0.010591
+	a = 5.555556
+	b = 0.052272
+	c = 0.247190
+	d = 0.385537
+e = 5.367655
+￼	f = 0.092809
+</BIG>
+<P>
+<BIG CLASS="LARGE">The decoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if V &gt; e × cut + f:
+L = (10(V − d) / c − b) / a
+else:
+(V − f) / e
+</BIG>
+<P>
+<BIG CLASS="LARGE">Red
+Green
+Blue
+White Point
+0.6840, 0.3130
+0.2210, 0.8480
+0.0861, -0.1020
+0.3127, 0.3290 (D65)
+</BIG>
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

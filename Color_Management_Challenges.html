@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Color Management Challenges in Film, Visual Effects, Animation and Games</TITLE>
+<META NAME="description" CONTENT="Color Management Challenges in Film, Visual Effects, Animation and Games">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="previous" HREF="General_Model_Color_Process.html">
+<LINK REL="up" HREF="Introduction.html">
+<LINK REL="next" HREF="Color_Science.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html471"
+  HREF="Color_Science.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html467"
+  HREF="Introduction.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html463"
+  HREF="ACES.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html469"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html472"
+  HREF="Color_Science.html">Color Science</A>
+<B> Up:</B> <A NAME="tex2html468"
+  HREF="Introduction.html">Introduction</A>
+<B> Previous:</B> <A NAME="tex2html464"
+  HREF="ACES.html">ACES</A>
+ &nbsp; <B>  <A NAME="tex2html470"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00360000000000000000">
+Color Management Challenges in Film, Visual Effects, Animation and Games</A>
+</H1>
+<P>
+<BIG CLASS="LARGE">While the approaches in different industries and departments have converged, there are still many challenges when speaking about and working with color. They are:
+</BIG>
+<P>
+<BIG CLASS="LARGE">Multiple Requirements: It is difficult to lump on-set capture, visual effects, animation, games, grading and finishing into a single bucket, as each discipline has potentially different color pipeline goals and constraints. For example, in visual effects production, one of the golden rules is that image regions absent of visual effects should not be modified in any way. This places a constraint on color pipelines: that color conversions applied to the photography must be perfectly invertible. Animation and games have their own unique set of requirements, such as high-fidelity handling of saturated portions of the color gamut along with large areas of smooth color gradients. On-set capture teams are focused on a shot to shot consistency, capturing as much dynamic range with as little noise as possible. Grading teams have to deliver a set of final images that retain the intended look and feel of the production and take maximum advantage of the output device(s), standard dynamic range (SDR) and high-dynamic range (HDR). Thus, color pipelines must keep track of the “big picture” priorities but are often tailored to specific productions and groups.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Varying Terminology: Working with color in a single production setting can be a challenge. An additional complicating factor is the abundance of overlapping and overloaded terminology for describing color and operations on color. As more parts of the production pipeline interact, from on-set capture to visual effects to grading and mastering, the history, and constraints that defined how each group thinks and talks about color come in contact when they may not have previously. Terms like grade, HDR, linear, brightness, gamma, light, look development or LUT may have clear, but different, meanings in two adjacent production groups. On top of overloaded terms, many acronyms in use add a level of perceived complexity to what would otherwise be an easily understood process. The Glossary in the Appendix is our attempt to address some of this overloading of terms.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Various Color Philosophies: There are many schools of thought on how to best manage color in digital motion-picture production. There is far more variation in motion-picture color management than in desktop publishing. Some facilities render in high-dynamic range (HDR) color spaces. Other facilities prefer to render in low-dynamic range (LDR). Some facilities rely on the output display characteristics, like gamma, as the primary tool in crafting the final image appearance. Others do not. It is challenging to provide standardized workflows and toolsets when the current practice has such variation.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Multiple Inputs &amp; Outputs: In live-action productions, imagery is often acquired using a multitude of input capture devices: multiple digital motion picture cameras from different vendors, still cameras, “action cameras,” specialized HDR panorama cameras, LIDAR scanners, and it is desired to merge these different sources seamlessly. On the output side, the final image deliverables are tailored to distinct viewing environments: digital theatrical presentation, film theatrical presentation, SDR and HDR home theater, television broadcast, augmented and virtual reality devices. The rapid evolution of HDR display’s brightness and color gamut standards poses particular challenges for content creation and grading. Each of these outputs has different color considerations. Furthermore, artists often work on desktop displays with “office” viewing conditions, yet require a high-fidelity preview of the final appearance.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Complex Software Ecosystem: Another challenge is that the majority of the motion picture, visual effects, animation and games productions use many software tools: on-set monitoring, LUT boxes, image viewers, 2D and 3D painting applications, compositing applications, lighting tools, editing and grading suite, media generation and transcoding software  and so on. Although it is imperative that artists work in a color managed pipeline across multiple applications, color support is quite varied between software vendors. Ideally, all software tools that interchange images, perform color conversions or display images should be color managed consistently. This is not the case. Each production and facility has to understand the capabilities and behavior of the applications they elect to use as part of their pipeline design. The issue of interchange takes on an even more complex angle when you consider that multiple facilities often share image assets on a single production. Color management practices and technologies that encourage high-fidelity, consistent interchange are sorely needed.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Protecting Imagery: On-set capture, visual effects, and animation are not the end of the line for image processing. Digital intermediate (DI) Grading is a powerful tool for crafting the final appearance of a motion picture that may substantially impact the appearance of the final image. It is, therefore, a necessity for on-set capture and post-production color pipelines to protect the fidelity of the captured and rendered image, even under drastic color corrections. It is very likely that late stage color corrections will reveal underlying problems in the captured or computer-generated imagery if digital intermediate is not considered earlier in production. Artifacts not visible in production because of the viewing conditions or introduced by changes made in post-production might be very obvious in HDR or at 2 stops less exposure. The eventual application of compression is also a consideration.
+Future-Proofing Required: Display technology is continually evolving, most recently with high resolution (UltraHD), wide color gamut (Rec. 2020) and higher dynamic range (Rec. 2100). For large productions, it is very prudent to take all steps possible to future-proof the computer-generated (CG) imagery so that visual effects (VFX) elements can be repurposed and do not need to be recreated when the next generation of display technology appears. It is good practice to work and archive at the source resolution. Color space, bit depth, and dynamic range should also be protected. These requirements can be very demanding of storage, bandwidth and processing power in modern times, often resulting in the use of compression algorithms to ease the strain. Some of these may be visually lossless yet still impact the color pipeline in the later stages.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html471"
+  HREF="Color_Science.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html467"
+  HREF="Introduction.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html463"
+  HREF="ACES.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html469"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html472"
+  HREF="Color_Science.html">Color Science</A>
+<B> Up:</B> <A NAME="tex2html468"
+  HREF="Introduction.html">Introduction</A>
+<B> Previous:</B> <A NAME="tex2html464"
+  HREF="ACES.html">ACES</A>
+ &nbsp; <B>  <A NAME="tex2html470"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

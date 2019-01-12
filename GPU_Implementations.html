@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>GPU Implementations</TITLE>
+<META NAME="description" CONTENT="GPU Implementations">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="previous" HREF="Creating_LUTs.html">
+<LINK REL="up" HREF="LUTs_Transforms.html">
+<LINK REL="next" HREF="ASC_CDL.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2453"
+  HREF="ASC_CDL.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2449"
+  HREF="LUTs_Transforms.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2445"
+  HREF="Creating_LUTs.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2451"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2454"
+  HREF="ASC_CDL.html">ASC CDL</A>
+<B> Up:</B> <A NAME="tex2html2450"
+  HREF="LUTs_Transforms.html">LUTs and Transforms</A>
+<B> Previous:</B> <A NAME="tex2html2446"
+  HREF="Creating_LUTs.html">Creating LUTs</A>
+ &nbsp; <B>  <A NAME="tex2html2452"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00646000000000000000">
+GPU Implementations</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">While LUTs remain widely used for real-time image processing, there is a move in many systems towards the use of shaders to apply color transforms on the GPU. This allows for mathematically precise transforms, without the range limitations or interpolation errors which can occur with LUTs. The distortion shown in Figure XX would not happen is a shader was used for the transforms.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Shaders also have the advantage that they can apply spatial operations, having access to the x,y coordinates of the pixel being processed, as well as the values of neighboring pixels. Some implementations also permit parameters of the transforms to be exposed to the user to create transforms which can be varied dynamically.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Examples include GLSL, or proprietary variations such as Autodesk’s Matchbox Shaders (also adopted by FilmLight) and DCTL for DaVinci Resolve.
+</BIG>
+<P>
+<BIG CLASS="LARGE"></BIG>
+<BR><HR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Panasonic V-Log</TITLE>
+<META NAME="description" CONTENT="Panasonic V-Log">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="RED_Log3G10.html">
+<LINK REL="previous" HREF="GoPro_ProTune.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="RED_Log3G10.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2297"
+  HREF="RED_Log3G10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2293"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2287"
+  HREF="GoPro_ProTune.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2295"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2298"
+  HREF="RED_Log3G10.html">RED Log3G10</A>
+<B> Up:</B> <A NAME="tex2html2294"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2288"
+  HREF="GoPro_ProTune.html">GoPro ProTune</A>
+ &nbsp; <B>  <A NAME="tex2html2296"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION006114000000000000000">
+Panasonic V-Log</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">V-Log, paired with V-Gamut is the log recording format used by the Panasonic Varicam range of cameras, as well as the AU-EVA1. Some of the lower end Panasonic cameras such as the Lumix range offer V-Log L recording. This uses exactly the same curve as V-Log, simply with the upper part of the dynamic range unused, so the same linearization function can be used.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The V-Log encoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if L &lt; 0.01:
+		V = 5.6 × L + 0.125
+	else:
+		V = c × log10(L + b) + d
+</BIG>
+<P>
+<BIG CLASS="LARGE">Where the constants are:
+</BIG>
+<P>
+<BIG CLASS="LARGE">b = 0.00873
+c = 0.241514
+d = 0.598206
+</BIG>
+<P>
+<BIG CLASS="LARGE">The V-Log decoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if V &lt; 0.181:
+		L = (V − 0.125) / 5.6
+	else:
+		L = 10.0(V − d) / c – b
+</BIG>
+<P>
+<BIG CLASS="LARGE">Red
+Green
+Blue
+White Point
+0.730, 0.280
+0.165, 0.840
+0.100, -0.030
+0.3127, 0.3290 (D65)
+</BIG>
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Monitoring on set</TITLE>
+<META NAME="description" CONTENT="Monitoring on set">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Editorial.html">
+<LINK REL="previous" HREF="Camera_profiles.html">
+<LINK REL="up" HREF="On_Set.html">
+<LINK REL="next" HREF="Editorial.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1536"
+  HREF="Editorial.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1532"
+  HREF="On_Set.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1526"
+  HREF="Camera_profiles.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1534"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1537"
+  HREF="Editorial.html">Editorial</A>
+<B> Up:</B> <A NAME="tex2html1533"
+  HREF="On_Set.html">On Set</A>
+<B> Previous:</B> <A NAME="tex2html1527"
+  HREF="Camera_profiles.html">Camera profiles</A>
+ &nbsp; <B>  <A NAME="tex2html1535"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00532000000000000000">
+Monitoring on set</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">Most of the monitors used on set are likely to be provided by the video department and, since they are intended for checking of performance, framing and focus, may well not be accurately color calibrated. In order to maintain consistent color, at least one monitor should be properly calibrated, and in a more suitable environment (as specified by ITU-R BT.2035) for critical viewing of images, such as a blacked out tent. This is usually the responsibility of the Digital Imaging Technician (DIT).
+</BIG>
+<P>
+<BIG CLASS="LARGE">The image displayed on this monitor is derived from the log feed from the camera, allowing the DIT to examine the unmodified scene-referred image using a waveform, false color, and other tools, in order to check exposure and shadow and highlight latitude. The image can then be viewed through the desired display transform, applied either by a LUT box or internal processing in the monitor.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The log output from the camera is likely to be a 10 bit SDI signal (often mirroring the floating point log encoding used in the DI) and is therefore well suited to the application of look transforms to preview the intended appearance of the film. However, it may well not represent the image at the full precision being recorded. Therefore, rather than being baked into the image, looks are normally represented in metadata form, which can travel with the rushes to be applied as appropriate later. The transform applied may be one universal Show LUT, per scene LUTs, the default LUT for that camera, or the image may be graded live by the DIT using dedicated software.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The ACES system defines an XML sidecar file, called ACESclip, which carries various metadata, including Look Transforms. At the moment this is not widely supported by post-production software, so while it may well become the de-facto approach in future, other workflows are normally used at this time. This can consist of proprietary saved grade formats or project files from DI software, or CDL may be used for greater compatibility at the expense of sophistication. See Appendix 4.5 for a description of the CDL format. LUTs are usually also created for baking into dailies and other look preview purposes.
+</BIG>
+<P>
+<BIG CLASS="LARGE">A dailies colorist may then adjust the transform on a per shot basis to balance the image. Whatever transform is baked into the dailies and editorial, transcodes must then be tracked through post-production, so that VFX artists can see the same look when working on a shot, and bake it into renders for editorial, thus matching the original plate. If the colorist updates the grade, in advance of the final color, the transforms used in VFX should be updated to match this.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Something to be aware of when dealing with log encodings is that although, for example, both LogC and S-Log3 code black as&nbsp;0.093, the output of an ALEXA and an F55 with the lens cap on will be different. The ALEXA output will be at 9.3
+While wide gamut and HDR monitors are available for use on set, it is still most common for the DIT’s monitor to be calibrated to the BT.1886 / Rec. 709 standard. Since there is a great deal of creative choice available in an HDR grade, and indeed variation in HDR view transforms, viewing the image with a generic HDR output transform will not necessarily be representative of the final HDR deliverable. Although the camera may be capturing a wide color gamut, the vast majority of colors found in photographic images are contained within the Rec. 709 gamut, so using this as a baseline output transform is normally considered adequate. Where HDR monitoring is used on set, an SDR version should always be referred to as well.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Key Points
+The log output from a camera can be used to apply a look using the same approaches as will be used in the DI
+Looks exist in the monitoring path only, and are communicated as metadata
+ASC CDL is the lowest common denominator for communicating a look, as it operates identically in all systems
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1536"
+  HREF="Editorial.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1532"
+  HREF="On_Set.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1526"
+  HREF="Camera_profiles.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1534"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1537"
+  HREF="Editorial.html">Editorial</A>
+<B> Up:</B> <A NAME="tex2html1533"
+  HREF="On_Set.html">On Set</A>
+<B> Previous:</B> <A NAME="tex2html1527"
+  HREF="Camera_profiles.html">Camera profiles</A>
+ &nbsp; <B>  <A NAME="tex2html1535"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

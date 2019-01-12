@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Additive RGB Color Spaces</TITLE>
+<META NAME="description" CONTENT="Additive RGB Color Spaces">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="previous" HREF="Perceptually_Uniform_Color_.html">
+<LINK REL="up" HREF="Basic_Colorimetry.html">
+<LINK REL="next" HREF="Primaries.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html919"
+  HREF="Primaries.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html915"
+  HREF="Basic_Colorimetry.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html911"
+  HREF="Perceptually_Uniform_Color_.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html917"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html920"
+  HREF="Primaries.html">Primaries</A>
+<B> Up:</B> <A NAME="tex2html916"
+  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
+<B> Previous:</B> <A NAME="tex2html912"
+  HREF="Perceptually_Uniform_Color_.html">Perceptually Uniform Color Spaces</A>
+ &nbsp; <B>  <A NAME="tex2html918"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00438000000000000000">
+Additive RGB Color Spaces</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">Additive RGB color spaces are the color representation that most people interact with on a daily basis; our display technology is based on the additive mixing of 3 red, green and blue primaries.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The first RGB color space, CIE RGB, was created by Wright &amp; Guild (1931) when they performed their color matching experiments. The three monochromatic primary colors R, G, B used to match a test color at a single wavelength of light once plotted on the CIE 1931 Chromaticity Diagram, are located on the spectral locus and respectively have the following wavelengths: 700.0 nm, 546.1 nm, and 435.8 nm. sRGB is the ubiquitous RGB color space created by Hewlett Packard and Microsoft in 1996, standardized as IEC 61966-2-1:1999, in an attempt to define a standard color space for use with monitors, printers, and on the Internet. Many other RGB color spaces exist and are reviewed in the Appendix. This section of the document focuses instead on the components of an RGB color space and provides some disambiguation of terminology.
+</BIG>
+<P>
+<BIG CLASS="LARGE">It is common to see operators in digital content creation (DCC) applications or functions in various game engines, libraries, color processing tools labeled as "linear to sRGB". The consequence of poor wording is that people often don't understand that sRGB is probably more than a "linear to sRGB" operator or function. Some resources purport to explain how sRGB and linear color spaces differ.
+First and foremost, while the CIE RGB and sRGB color space gamuts are intrinsically representing radiometrically linear light values, their color component transfer functions are radically different: CIE RGB has no defined encoding and decoding color component transfer functions; they are considered to be linear; however sRGB adopts non-linear color encoding and decoding component transfer functions following a power law.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The confusion comes from the fact that generally, people don't mention which component of the additive RGB color space they are referring to. The following three components are required to fully specify an additive RGB color space:
+</BIG>
+<P>
+<BIG CLASS="LARGE">Primaries
+White point
+Color Component Transfer Functions
+</BIG>
+<P>
+<BIG CLASS="LARGE">Noticeably, the ISO 22028-1:2016 Standard defines an additive RGB color space as follows:
+</BIG>
+<P>
+<BIG CLASS="LARGE">Additive RGB color space
+</BIG>
+<P>
+<BIG CLASS="LARGE">Colorimetric color space having three color primaries (generally red, green and blue) such that CIE XYZ tristimulus values can be determined from the RGB color space values by forming a weighted combination of the CIE XYZ tristimulus values for the individual color primaries, where the weights are proportional to the radiometrically linear color space values for the corresponding color primaries.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Note 1 to entry: A simple linear 3 × 3 matrix transformation can be used to transform between CIE XYZ tristimulus values and the radiometrically linear color space values for an additive RGB color space.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Note 2 to entry: Additive RGB color spaces are defined by specifying the CIE chromaticity values for a set of additive RGB primaries and a color space white point, together with a color component transfer function.
+</BIG>
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html921"
+  HREF="Primaries.html">Primaries</A>
+<LI><A NAME="tex2html922"
+  HREF="White_Point.html">White Point</A>
+<LI><A NAME="tex2html923"
+  HREF="Color_Component_Transfer_Fu.html">Color Component Transfer Functions</A>
+<UL>
+<LI><A NAME="tex2html924"
+  HREF="Encoding_Color_Component_Tr.html">Encoding Color Component Transfer Functions</A>
+<LI><A NAME="tex2html925"
+  HREF="Decoding_Color_Component_Tr.html">Decoding Color Component Transfer Functions</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html919"
+  HREF="Primaries.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html915"
+  HREF="Basic_Colorimetry.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html911"
+  HREF="Perceptually_Uniform_Color_.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html917"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html920"
+  HREF="Primaries.html">Primaries</A>
+<B> Up:</B> <A NAME="tex2html916"
+  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
+<B> Previous:</B> <A NAME="tex2html912"
+  HREF="Perceptually_Uniform_Color_.html">Perceptually Uniform Color Spaces</A>
+ &nbsp; <B>  <A NAME="tex2html918"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

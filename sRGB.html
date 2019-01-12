@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>sRGB</TITLE>
+<META NAME="description" CONTENT="sRGB">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Rec_2020.html">
+<LINK REL="previous" HREF="BT_1886.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="Rec_2020.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2165"
+  HREF="Rec_2020.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2161"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2155"
+  HREF="BT_1886.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2163"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2166"
+  HREF="Rec_2020.html">Rec. 2020</A>
+<B> Up:</B> <A NAME="tex2html2162"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2156"
+  HREF="BT_1886.html">BT.1886</A>
+ &nbsp; <B>  <A NAME="tex2html2164"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00613000000000000000">
+sRGB</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">The ACES Still Life reference image encoded with the sRGB Output Transform.
+Copyright © A.M.P.A.S.
+Due to differences in inherent display technologies, there is substantial variation in the appearance of RGB when the same code values are sent to multiple displays, making the unambiguous distribution of RGB imagery difficult. As a solution, a standard idealized computer display has been defined, sRGB, which real displays often attempt to reproduce. The intent of sRGB (Standard RGB) is to define the color characteristics of a standardized RGB display, such that imagery on one monitor matches the appearance of a different monitor. Older display technologies (such as CRTs) naturally approach the sRGB specification. However, modern technologies, such as LCD and OLED which have very different inherent image responses, typically provide an option to emulate the sRGB specification to maintain compatibility with existing imagery.
+</BIG>
+<P>
+<BIG CLASS="LARGE">sRGB uses the primaries and D65 white point specified in ITU-R BT.709, and thus can represent the same gamut of colors as Rec. 709.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The sRGB encoding function is defined as:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if L &gt; 0.003131:
+            		V = 1.055 × L1/2.4 - 0.055
+	else:
+		V = L × 12.92
+</BIG>
+<P>
+<BIG CLASS="LARGE">Where L is the luminance of the image normalized to the range 0-1 and V is the resulting encoded signal. The sRGB encoded signal is commonly stored as an 8 bit integer, which would be round(V × 255).
+</BIG>
+<P>
+<BIG CLASS="LARGE">The sRGB decoding function is defined as:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if V &gt; 0.04045:
+            		L = ((V + 0.055) / 1.055)2.4
+	else:
+		L = V / 12.92
+</BIG>
+<P>
+<BIG CLASS="LARGE">There is some debate about the EOTF to be used for displaying sRGB image data. Since the sRGB transfer function approximates 2.2 gamma, some take from the specification that it defines an OETF to be used when encoding image data for a display with 2.2 gamma, and that the linear portion near black exists only to minimize quantization error in integer implementations. Others contend that the sRGB decoding function should be used as the EOTF so that the sRGB curve can be used to exactly encode desired display colorimetry.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Since there is no agreement on this matter, outside a situation where both the encoding of the image data and the calibration of the display are within your control, it is not possible to be certain of the exact luminance which will result on an end user's sRGB display from a given encoding.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The situation is complicated still further by viewing environment. One of the aims of the sRGB specification was to define a standard for display of video material on a computer monitor such that there is a perceptual match between a video monitor in its expected viewing environment and a computer monitor in a brighter environment. This would suggest that video images should not be modified for viewing on a sRGB monitor, as the necessary compensation is already built into the display. ACES provides separate Output Transforms for Rec.709 and sRGB, intended to produce the same display colorimetry on the two display standards. This is however only an appropriate approach if the two displays are to be viewed in the same environment.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Red
+Green
+Blue
+White Point
+0.640, 0.330
+0.300, 0.600
+0.150, 0.060
+0.3127, 0.3290 (D65)
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2165"
+  HREF="Rec_2020.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2161"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2155"
+  HREF="BT_1886.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2163"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2166"
+  HREF="Rec_2020.html">Rec. 2020</A>
+<B> Up:</B> <A NAME="tex2html2162"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2156"
+  HREF="BT_1886.html">BT.1886</A>
+ &nbsp; <B>  <A NAME="tex2html2164"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

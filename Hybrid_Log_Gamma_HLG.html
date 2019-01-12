@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Hybrid Log Gamma (HLG)</TITLE>
+<META NAME="description" CONTENT="Hybrid Log Gamma (HLG)">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="P3_DCI.html">
+<LINK REL="previous" HREF="ST_2084_PQ.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="P3_DCI.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2201"
+  HREF="P3_DCI.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2197"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2191"
+  HREF="ST_2084_PQ.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2199"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2202"
+  HREF="P3_DCI.html">P3 DCI</A>
+<B> Up:</B> <A NAME="tex2html2198"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2192"
+  HREF="ST_2084_PQ.html">ST.2084 / PQ</A>
+ &nbsp; <B>  <A NAME="tex2html2200"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00616000000000000000">
+Hybrid Log Gamma (HLG)</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">The ACES Still Life reference image encoded with the HLG Output Transform.
+Notice that the image looks “normal”, if somewhat muted on an SDR display.
+Copyright © A.M.P.A.S.
+Hybrid Log Gamma is an encoding designed by the BBC in collaboration with NHK. It is defined as a scene referred encoding so is based on an OETF but also defines an EOTF to work in conjunction with it. When concatenated, these produce the encoding’s OOTF, a system gamma, which defines the relationship between scene light and display light. The HLG OOTF is a power function whose exponent is dependent on the peak white of the particular display. It is also, unlike most transfer functions, not simply applied to each RGB component independently, but rather it incorporates the luminance value, a weighted sum of the three linear components, in the calculation.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Part of the design intent of HLG is that the OETF encodes a high dynamic range scene using a curve which is broadly similar to that which might be used by a traditional SDR video camera with a highlight compressing ‘knee’. This means that an HLG signal displayed on an SDR monitor, which has no way of interpreting the signal as HDR and simply applies a BT.1886 EOTF, will produce a reasonable looking image. Because HLG encodings normally use Rec. 2020 primaries, rather than Rec. 709, the image is likely to look somewhat desaturated, but it will be watchable. This backward compatibility is intended to enable HLG signals to be processed through legacy SDR infrastructure in studios and outside broadcast trucks, without all monitors needing to be replaced with HDR displays. In order to provide this kind of compatibility, it is recommended to set exposure so diffuse white falls at 75
+Whilst HLG provides additional headroom for highlights by ‘emulating’ a traditional SDR camera knee, a large increase in dynamic range is also achieved by no longer using a linear part of the OETF near black. This is a significant difference from the SDR Rec. 709 curve. Not having a linear portion to the OETF means that noise reduction in the blacks must be achieved by alternative processing in the camera.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The HLG encoding function is defined by ITU-R BT.2100 as:
+</BIG>
+<P>
+<BIG CLASS="LARGE">If L ≤ 1/12:
+		V = sqrt(3 × L)
+	else:
+		V = a × ln(12 × L - b) + c
+</BIG>
+<P>
+<BIG CLASS="LARGE">Where the constants are:
+</BIG>
+<P>
+<BIG CLASS="LARGE">a = 0.17883277
+	b = 1 - 4 × a
+	c = 0.5 - a × ln(4 × a)
+</BIG>
+<P>
+<BIG CLASS="LARGE">And L is normalized such that the entire scene dynamic range to be encoded is scaled to the 0-1 range.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The HLG EOTF is defined in terms of its OOTF, which is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">RD = α × YSγ-1  × RS
+	GD = α × YSγ-1 × GS
+	BD = α × YSγ-1 × BS
+</BIG>
+<P>
+<BIG CLASS="LARGE">Where [RS, GS, BS] is the scene light for the three components, and [RD, GD, BD] is the display light for the components. YS is the scene luminance, calculated as:
+</BIG>
+<P>
+<BIG CLASS="LARGE">YS = 0.2627 × RS + 0.6780 × GS + 0.0593 × BS
+</BIG>
+<P>
+<BIG CLASS="LARGE">And:
+α = LW
+	γ = 1.2 + 0.42 × Log10(LW ￼/ 1000)
+</BIG>
+<P>
+<BIG CLASS="LARGE">The values of RS, GS and BS are derived by inverting the encoding function for each component using the following formula:
+</BIG>
+<P>
+<BIG CLASS="LARGE">E = max(0, V × (1 - β) + β)
+	If E ≤ 0.5:
+L = E2 / 3
+else:
+	L = (exp((E - c) / a) + b) / 12
+Where:
+β = sqrt(3 × (LB / LW)1/γ)
+</BIG>
+<P>
+<BIG CLASS="LARGE">In practice, while HLG may be used as a scene referred encoding in situations such as live sports broadcasting, an HLG deliverable is often created from an ST.2084 display-referred master by applying the ST.2084 EOTF followed by the inverse HLG EOTF for a notional 1000 cd/m2 display to compute the HLG signal needed to produce the same displayed image as the ST.2084 signal.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2201"
+  HREF="P3_DCI.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2197"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2191"
+  HREF="ST_2084_PQ.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2199"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2202"
+  HREF="P3_DCI.html">P3 DCI</A>
+<B> Up:</B> <A NAME="tex2html2198"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2192"
+  HREF="ST_2084_PQ.html">ST.2084 / PQ</A>
+ &nbsp; <B>  <A NAME="tex2html2200"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

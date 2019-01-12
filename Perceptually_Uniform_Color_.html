@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Perceptually Uniform Color Spaces and Color Difference</TITLE>
+<META NAME="description" CONTENT="Perceptually Uniform Color Spaces and Color Difference">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Additive_RGB_Color_Spaces.html">
+<LINK REL="previous" HREF="CIE_xyY_Color_Space_Chromat.html">
+<LINK REL="up" HREF="Basic_Colorimetry.html">
+<LINK REL="next" HREF="Additive_RGB_Color_Spaces.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html909"
+  HREF="Additive_RGB_Color_Spaces.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html905"
+  HREF="Basic_Colorimetry.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html899"
+  HREF="CIE_xyY_Color_Space_Chromat.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html907"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html910"
+  HREF="Additive_RGB_Color_Spaces.html">Additive RGB Color Spaces</A>
+<B> Up:</B> <A NAME="tex2html906"
+  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
+<B> Previous:</B> <A NAME="tex2html900"
+  HREF="CIE_xyY_Color_Space_Chromat.html">CIE xyY Color Space</A>
+ &nbsp; <B>  <A NAME="tex2html908"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00437000000000000000">
+Perceptually Uniform Color Spaces and Color Difference</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">Although it is not immediately apparent, the chromaticity diagram is a very poor representation of our color perception. Distances between colors in the CIE xyY color space do not directly relate to their apparent perceptual differences. Two adjacent colors may be perceived as different, while colors far apart may be indistinguishable. The degree to which a given color space accurately maps geometric distance to perceptual distance is referred to as its level of perceptual uniformity.
+</BIG>
+<P>
+<BIG CLASS="LARGE">MacAdam (1942) ellipses, i.e. indistinguishable color regions, plotted in the CIE 1931 chromaticity diagram and the CIE 1976 UCS chromaticity diagram with improved perceptual uniformity: the ellipses are rounder. Note how the green region of the CIE 1931 chromaticity diagram is highly stretched compared to the same region in the CIE 1976 UCS chromaticity diagram or compared to the blue region in both diagrams. An ideal color space would transform the ellipses into circles. Note that the ellipses axes are 10 times their actual length and that it is possible to generate in-between ellipses by interpolation. Data from Table 2(5.4.1) in Wyszecki, G., &amp; Stiles, W. S. (2000). Color Science: Concepts and Methods, Quantitative Data and Formulae. Wiley. ISBN:978-0471399186
+</BIG>
+<P>
+<BIG CLASS="LARGE">Perceptual uniformity can be a desirable quality for a color space: it supports accurate color differences and lightness prediction. A perceptually uniform color space improves performance of various image processing algorithms such as lossy image compression, denoising, segmentation or device characterisation, image quality modeling and color appearance modeling.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Gamut mapping, the process by which colors lying outside a gamut are mapped inside it, is preferably performed in a perceptually uniform color space because the correlation between the perceptual attributes is reduced and thus hue is minimally affected when the lightness and chroma attributes are individually adjusted to reduce the gamut size.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The non-uniformity of the CIE 1931 Chromaticity Diagram led to the adoption by the CIE in 1960 of the uniform color space devised by MacAdam (1937). The CIE 1960 Uniform Color Space (UCS) is nowadays primarily used to represent the correlated color temperature (CCT) of light sources or illuminants as the isolines are perpendicular to the Planckian locus. The isolines represent delta uv: for a given CCT and its corresponding color, increasing or decreasing delta uv will bias the color toward green or magenta. The tint control in white balancing algorithms is effectively delta uv scaled by a constant.
+</BIG>
+<P>
+<BIG CLASS="LARGE">CIE 1960 UCS Chromaticity Diagram with Planckian Locus and perpendicular Iso-Temperature lines.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Conversion from tristimulus values to CIE 1960 UCS color space UVW values is performed as follows:
+UVW = ⅔ × X, Y, ½ × (-X + 3 × Y + Z)
+The chromaticity coordinates uv are then obtained by a perspective projection similarly to the one of CIE xyY color space:
+uv =U / (U + V + W), V / (U + V + W)
+</BIG>
+<P>
+<BIG CLASS="LARGE">The CIE 1976 UCS Chromaticity Diagram, based on CIE L*u*v* color space, superseded the CIE 1960 UCS Chromaticity Diagram.
+</BIG>
+<P>
+<BIG CLASS="LARGE">CIE 1976 UCS Chromaticity Diagram based on CIE L*u*v* color space.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The conversion from tristimulus values to CIE L*u*v* color space is longer than CIE 1960 UCS and is found in the Appendix.
+Other uniform color spaces beyond CIE L*u*v* have been defined: the IPT color space by Ebner and Fairchild (1998) is excellent at predicting perceived hue. CAM16-UCS by Li, Li, Wang, Zu, Luo, Cui, Melgosa, Brill and Pointer (2017) is a uniform color space based on CAM16 that offers good general performance. The ICtCp color space by Lu, Pu, Yin et al. (2016) and the JzAzBz color space by Safdar, Cui, Kim, and Luo (2017) extend perceptual uniformity to high dynamic range and adopt the PQ curve as the basis for Lightness prediction.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The need for quantifying how much two color samples are different was one of the incentives for the CIE to design a perceptually uniform color space and ultimately adopt both the CIE L*a*b* and CIE L*u*v* color spaces in 1976. Color differences are measured as the Euclidean distance between a reference color sample and a test color sample in the CIE L*a*b* color space as follows:
+∆E*76 = √ ((L*r - L*t)2 + (a*r - a*t)2  + (b*r - b*t)2)
+where ∆E*76 is the color difference, L*r, a*r, b*r , and L*t, a*t, b*t are the reference and test color sample.
+</BIG>
+<P>
+<BIG CLASS="LARGE">While the CIE L*a*b* color space features decent perceptual uniformity, it was deemed unsatisfactory when comparing some pair of colors, compelling the CIE into improving the metric with the CIE 1994 (∆E*94) and subsequent CIE 2000  (∆E*00)  quasimetrics. It is appropriate to measure color differences in the CAM16-UCS, ICtCp and JzAzBz color spaces using Euclidean distance.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html909"
+  HREF="Additive_RGB_Color_Spaces.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html905"
+  HREF="Basic_Colorimetry.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html899"
+  HREF="CIE_xyY_Color_Space_Chromat.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html907"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html910"
+  HREF="Additive_RGB_Color_Spaces.html">Additive RGB Color Spaces</A>
+<B> Up:</B> <A NAME="tex2html906"
+  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
+<B> Previous:</B> <A NAME="tex2html900"
+  HREF="CIE_xyY_Color_Space_Chromat.html">CIE xyY Color Space</A>
+ &nbsp; <B>  <A NAME="tex2html908"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

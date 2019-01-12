@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Scene-Referred Linear Compositing Challenges</TITLE>
+<META NAME="description" CONTENT="Scene-Referred Linear Compositing Challenges">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Negative_Values.html">
+<LINK REL="previous" HREF="Scene_Referred_Linear_is_Pr.html">
+<LINK REL="up" HREF="Compositing.html">
+<LINK REL="next" HREF="Negative_Values.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1741"
+  HREF="Negative_Values.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1737"
+  HREF="Compositing.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1731"
+  HREF="Scene_Referred_Linear_is_Pr.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1739"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1742"
+  HREF="Negative_Values.html">Negative Values</A>
+<B> Up:</B> <A NAME="tex2html1738"
+  HREF="Compositing.html">Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1732"
+  HREF="Scene_Referred_Linear_is_Pr.html">Scene-Referred Linear is Preferred</A>
+ &nbsp; <B>  <A NAME="tex2html1740"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00552000000000000000">
+Scene-Referred Linear Compositing Challenges</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">There are some challenges with working with high-dynamic ranges in compositing. First, filtering operators that use sharp, negative lobed kernels like as lanczos, keys, and sinc are very susceptible to ringing, i.e. negative values around highlights. While interpolatory filters such as box, gaussian, bilinear and bicubic cannot cause this artifact, they tend to introduce softening. When sharp filtering is required like lens distortions, resizing, and other spatial warping techniques a variety of approaches are useful to mitigate such HDR artifacts. A non-exhaustive set of methods are listed below
+</BIG>
+<P>
+<BIG CLASS="LARGE">The simplest approach to mitigating overshoot/undershoot artifacts is to roll off the highlights, process the image, and then unroll the highlights back. While this does not preserve highlight energy as it has the net effect of reducing specular intensity, the results are visually pleasing. The approach is also suitable for processing images with alpha.
+For images without alpha, converting to log, filtering, and converting back will greatly reduce the visual impact of overshoot and undershoot. Though log-space processing results in a gross distortion of energy, for conversions which don’t integrate large portions of the image, such as lens distortion effects for plates and not blurs, this works well.
+For images without alpha, a similar method is to apply a simple invertible tonemap, filtering, and then inverting back. A method as simple as 1/(1+color) produces pleasing results by effectively weighting each sample as a function of its brightness.
+Another approach to HDR filtering is to apply a simple camera flare model, where very bright highlights share their energy with neighboring pixels.
+</BIG>
+<P>
+<BIG CLASS="LARGE">For all approaches that undertake a form of perceptual encoding, care must be taken to ensure enough precision is maintained during filtering. 16-bit floating point may not be suitable.
+</BIG>
+<P>
+<BIG CLASS="LARGE">An image with negative black halos around highlights, produced by a Lanczos 6 resizing filter with negative lobes (left) and the image converted to a log space before resizing, thus avoiding negative black haloes (right).
+Applying negative-lobed filter kernels to high-dynamic range images, may cause visually-significant ringing artifacts introducing black silhouettes around sharp specular highlights. Ringing artifacts may be avoided when using sharp filters on HDR imagery by processing in alternate color spaces, such as log, using energy-roll off approaches, or by pre-flaring highlight regions. This image demonstrates the results of the roll-off technique.
+</BIG>
+<P>
+<BIG CLASS="LARGE">Another challenge in working with scene-referred linear data in compositing is that tricks often relied upon in integer compositing may not be effective when applied to floating-point imagery. For example, the screen operator, which remains effective when applied to matte passes, is sometimes used on RGB data to emulate a “partial add”. As the screen operator is ill-defined above 1.0, unexpected results will occur when applied to HDR data. Some compositing packages swap out screen for max when either input is outside of 0.0-1.0, but this is primarily to prevent artifacts and is not artistically helpful.  Alternative “partial add” maths such as hypotenuse are useful but do not exactly replicate the original intent of screen. Another related issue to beware of when compositing is that when combining HDR image, alphas must not go outside the range of 0 to 1. While it is entirely reasonable for the RGB channels to have any values, even negative in certain situations, compositing operators such as over, produce totally invalid results on alphas outside of the range 0 to 1.
+</BIG>
+<P>
+<BIG CLASS="LARGE">One subtlety of working with floating point imagery is that artists must become familiar with some of the corner cases in floating-point representations: NaNs and Infs. For example, when dividing by very small values, such as during un-premultiplication, it is possible to drive a color value up high enough to generate infinity. NaNs are also frequent and may be introduced during lighting and shading inside the renderer, or during divide by zero operations. Both NaNs and Inf can cause issues in compositing if not detected and cleaned, as most image processing algorithms are not robust to their presence and generally fail in unexpected ways.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1741"
+  HREF="Negative_Values.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1737"
+  HREF="Compositing.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1731"
+  HREF="Scene_Referred_Linear_is_Pr.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1739"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1742"
+  HREF="Negative_Values.html">Negative Values</A>
+<B> Up:</B> <A NAME="tex2html1738"
+  HREF="Compositing.html">Compositing</A>
+<B> Previous:</B> <A NAME="tex2html1732"
+  HREF="Scene_Referred_Linear_is_Pr.html">Scene-Referred Linear is Preferred</A>
+ &nbsp; <B>  <A NAME="tex2html1740"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

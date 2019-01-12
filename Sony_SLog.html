@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Sony SLog</TITLE>
+<META NAME="description" CONTENT="Sony SLog">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="ACEScc.html">
+<LINK REL="previous" HREF="RED_Log3G10.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="ACEScc.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2321"
+  HREF="ACEScc.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2317"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2311"
+  HREF="RED_Log3G10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2319"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2322"
+  HREF="ACEScc.html">ACEScc</A>
+<B> Up:</B> <A NAME="tex2html2318"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2312"
+  HREF="RED_Log3G10.html">RED Log3G10</A>
+ &nbsp; <B>  <A NAME="tex2html2320"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION006116000000000000000">
+Sony SLog</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">Sony has offered a range of encoding curves in their cameras, with the latest being S-Log3. The original S-Log is now deprecated, and not something likely to be seen on current productions. S-Log2 and S-Log3 are still both current. S-Log2 is normally paired with S-Gamut primaries, whereas S-Log3 may be paired either with S-Gamut3 or S-Gamut3.Cine primaries. S-Gamut and S-Gamut3 use the same wide gamut primaries; it is simply that the matrices used in the camera to transform to them from the sensor native color space are different. As has been mentioned previously in Section 3.3.1, a 3x3 camera matrix can only ever be an approximation of the ideal transform to set of encoding primaries. S-Gamut and S-Gamut3 use different optimizations. S-Gamut3 has the additional advantage that the transform to ACES is the same at all color temperatures, whereas for S-Gamut, two Input Transforms are provided by Sony for use under tungsten and daylight. S-Gamut3.Cine is slightly less wide gamut than S-Gamut3, and was designed to be more closely aligned with P3 primaries, making manual grading to P3 simpler. In a scene-referred workflow there is no benefit to this, and indeed recording in S-Gamut3.Cine will clip some colors which may be present in the scene, compared to S-Gamut3. Nonetheless, many people use S-Gamut3.Cine as the default camera setting, so it is important to ascertain which was used. As with Canon footage, using Sony’s own software can be a useful way of reading metadata from the files which might not otherwise be available. Some Sony cameras also include XML files with the media, which can provide useful information.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The S-Log2 encoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if L ≥ 0:
+		V = (64 + 876×(0.432699 × log10(155 × L / 197.1 + 0.037584) + 0.646596)) / 1023
+	else:
+		V = (64 + 876 × (L × 3.53881278538813 / 0.9 + 0.030001222851889303)) / 1023
+</BIG>
+<P>
+<BIG CLASS="LARGE">The S-Log3 encoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if L ≥ 0.01125:
+		V = (420 + log10((L + 0.01) / 0.19) × 261.5) / 1023
+	else:
+		V = (L × 76.2102946929 / 0.01125 + 95) / 1023
+</BIG>
+<P>
+<BIG CLASS="LARGE">The S-Log2 decoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if V ≥ (64 + 0.030001222851889303 × 876) / 1023:
+		L = 197.1×(10((V×1023 – 64) / 876 – 0.646596) / 0.432699  – 0.037584) / 155
+	else:
+		L = 0.9×( (V×1023 − 64) / 876 – 0.030001222851889303 ) / 3.53881278538813
+</BIG>
+<P>
+<BIG CLASS="LARGE">The S-Log3 decoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if V ≥ 171.2102946929 / 1023:
+		L = 10(V × 1023 − 420) / 261.5 × 0.19 − 0.01
+	else:
+		L = (V × 1023 – 95) × 0.01125000 / 76.2102946929
+</BIG>
+<P>
+<BIG CLASS="LARGE">Red
+Green
+Blue
+White Point
+0.730, 0.280
+0.140, 0.855
+0.100, -0.050
+0.3127, 0.3290 (D65)
+</BIG>
+<P>
+<BIG CLASS="LARGE">Red
+Green
+Blue
+White Point
+0.766, 0.275
+0.225, 0.800
+0.089, -0.087
+0.3127, 0.3290 (D65)
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2321"
+  HREF="ACEScc.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2317"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2311"
+  HREF="RED_Log3G10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2319"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2322"
+  HREF="ACEScc.html">ACEScc</A>
+<B> Up:</B> <A NAME="tex2html2318"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2312"
+  HREF="RED_Log3G10.html">RED Log3G10</A>
+ &nbsp; <B>  <A NAME="tex2html2320"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

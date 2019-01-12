@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>X’Y’Z’</TITLE>
+<META NAME="description" CONTENT="X’Y’Z’">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="ALEXA_LogC.html">
+<LINK REL="previous" HREF="P3_D65.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="ALEXA_LogC.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2237"
+  HREF="ALEXA_LogC.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2233"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2227"
+  HREF="P3_D65.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2235"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2238"
+  HREF="ALEXA_LogC.html">ALEXA LogC</A>
+<B> Up:</B> <A NAME="tex2html2234"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2228"
+  HREF="P3_D65.html">P3 D65</A>
+ &nbsp; <B>  <A NAME="tex2html2236"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00619000000000000000">
+X’Y’Z’</A>
+</H2>
+<P>
+<BIG CLASS="LARGE">The ACES Still Life reference image encoded with the DCDM Output Transform.
+On an sRGB display it is low contrast (due to the 2.6 gamma) and the colors appear incorrect, since XYZ values are being interpreted as if they were RGB.
+Copyright © A.M.P.A.S.
+The Digital Cinema Initiative (DCI) specification defines the standard for digital cinema mastering and theatrical exhibition, including colorimetry. The encoding specified for DCP mastering is  X’Y’Z‘ (called “x-prime, y-prime, z-prime”). It is an output-referred, gamma 2.6 encoding of CIE-XYZ, with a reference white at 48cd/m2. As the X’Y’Z’ coding space spans an area larger than the visual gamut, the minimum display gamut specified by DCI is that of P3.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The intent of the X’Y’Z’ coding space is display-referred, such that the full-color appearance of the theatrical imagery, such as any film emulation 3D LUTs, are fully baked into the X’Y’Z’ image. Therefore, an image in X’Y’Z’ is completely unambiguous; there should be essentially no color variation between properly calibrated theatrical digital projectors.
+The DCI specification chose a gamma 2.6 encoding after a series of perceptual experiments using “golden-eye observers” to maximize the bit-depth fidelity under theatrical viewing conditions. DCI specifies 12 bits per channel, which is intended to prevent banding artifacts under even the most trying conditions. DCI also specifies a series of color patches which are useful in calibration. (Please refer to the DCI specification for additional details.) X’Y’Z’ files are encoded using JPEG-2000 compression, which is a lossy, wavelet compression codec. No inter-frame compression is used, which allows for both forward and backward scrubbing. The DCI specification also defines two resolutions known as “2K” and “4K”. The 2K raster is 2048x1080 and the 4K raster is 4096x2160. DCI compliant films must fill at least one of these axes. Material with an aspect ratio of 1.85:1 - “flat” - is typically delivered for a 2K release at 1998x1080, and 2.39:1 - “scope” - is delivered for a 2K release at 2048x858. For 4K release, double these sizes. DCP encoders accept 16 bit tiffs, so the convention is to utilize the full 16 bit coding range of 0-65535, and then to let the compressor just use the high order 12 bits.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The method for conversion from a DCI P3 encoding to X’Y’Z’ is:
+	XYZ = 	  0.44516982   0.27713441   0.17228267 	  R2.6
+		  0.20949168   0.72159525   0.06891307	      ×	  G2.6
+		  0.00000000   0.04706056   0.90735539   	  B2.6
+	X’Y’Z’ = round(4095 × (clamp(XYZ) × 48 / 52.37)1/2.6)
+Where R, G and B are 2.6 gamma coded DCI P3 values in the range 0-1.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The matrix shown converts [1, 1, 1] to [3794, 3960, 3890], the reference code values for DCI white. A different matrix is needed for material mastered to a different white point, i.e. encoded for a projector with a different white point and a viewer adapted to that white. A change of creative white baked into a P3-DCI encoding (such as the ACES “D60 sim”) does not require a change of matrix.
+</BIG>
+<P>
+<BIG CLASS="LARGE">The value of 48/52.37 is called the normalizing constant and is included to permit mastering with creative white points other than the DCI calibration white. Equal DCDM code values produce Equal Energy white (Illuminant E – the result of a flat spectral power distribution). Unequal code values are needed to produce other whites, such as DCI white, or D65. If code values of [4095, 4095, 4095] produced Equal Energy white at 48 cd/m2, the values needed to produce D65 white at 48 cd/m2 would be [4016, 4095, 4232] and 4232 is outside the range possible with 12 bit integer coding.
+</BIG>
+<P>
+<BIG CLASS="LARGE">See Kennel (2007) for additional details on mastering for digital cinema. The full DCI specification by Digital Cinema Initiatives (2018) is freely available online; highly recommended reading for those involved in theatrical mastering.
+</BIG>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2237"
+  HREF="ALEXA_LogC.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2233"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2227"
+  HREF="P3_D65.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2235"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2238"
+  HREF="ALEXA_LogC.html">ALEXA LogC</A>
+<B> Up:</B> <A NAME="tex2html2234"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2228"
+  HREF="P3_D65.html">P3 D65</A>
+ &nbsp; <B>  <A NAME="tex2html2236"
+  HREF="Contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

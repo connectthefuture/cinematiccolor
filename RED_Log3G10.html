@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>RED Log3G10</TITLE>
+<META NAME="description" CONTENT="RED Log3G10">
+<META NAME="keywords" CONTENT="cinematic-color">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cinematic-color.css">
+
+<LINK REL="next" HREF="Sony_SLog.html">
+<LINK REL="previous" HREF="Panasonic_V_Log.html">
+<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
+<LINK REL="next" HREF="Sony_SLog.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2309"
+  HREF="Sony_SLog.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2305"
+  HREF="Common_RGB_Color_Encodings_.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2299"
+  HREF="Panasonic_V_Log.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2307"
+  HREF="Contents.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2310"
+  HREF="Sony_SLog.html">Sony SLog</A>
+<B> Up:</B> <A NAME="tex2html2306"
+  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
+<B> Previous:</B> <A NAME="tex2html2300"
+  HREF="Panasonic_V_Log.html">Panasonic V-Log</A>
+ &nbsp; <B>  <A NAME="tex2html2308"
+  HREF="Contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION006115000000000000000">
+RED Log3G10</A>
+</H2><BIG CLASS="LARGE">
+Over the years, RED have used various log encodings and primaries with their cameras, and the details of these have not been published. The current RED IPP2 image processing uses primaries called RED Wide Gamut RGB, paired with a log encoding called Log3G10, the details of which have been published in a white paper. The numbers 3 and 10 in the name indicate that 18
+The encoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if L &lt; -0.01:
+		V = (L + 0.01) × 15.1927
+	else:
+		V = a × log10(b × (L + 0.01) + 1)
+</BIG>
+<P>
+<BIG CLASS="LARGE">Where the constants are:
+</BIG>
+<P>
+<BIG CLASS="LARGE">a = 0.224282
+b = 155.975327
+</BIG>
+<P>
+<BIG CLASS="LARGE">The decoding function is:
+</BIG>
+<P>
+<BIG CLASS="LARGE">if V &lt; 0:
+		L = (V / 15.1927) − 0.01
+	else:
+		L = ((10V / a − 1) / b) − 0.01
+</BIG>
+<P>
+<BIG CLASS="LARGE">Red
+Green
+Blue
+White Point
+0.780308, 0.304253
+0.121595, 1.493994
+0.095612, -0.084589
+0.3127, 0.3290 (D65)
+</BIG>
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>
