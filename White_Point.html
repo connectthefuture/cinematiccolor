@@ -1,101 +1,254 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>White Point</TITLE>
-<META NAME="description" CONTENT="White Point">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="next" HREF="Color_Component_Transfer_Fu.html">
-<LINK REL="previous" HREF="Primaries.html">
-<LINK REL="up" HREF="Additive_RGB_Color_Spaces.html">
-<LINK REL="next" HREF="Color_Component_Transfer_Fu.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html948"
-  HREF="Color_Component_Transfer_Fu.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html944"
-  HREF="Additive_RGB_Color_Spaces.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html938"
-  HREF="Primaries.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html946"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html949"
-  HREF="Color_Component_Transfer_Fu.html">Color Component Transfer Functions</A>
-<B> Up:</B> <A NAME="tex2html945"
-  HREF="Additive_RGB_Color_Spaces.html">Additive RGB Color Spaces</A>
-<B> Previous:</B> <A NAME="tex2html939"
-  HREF="Primaries.html">Primaries</A>
- &nbsp; <B>  <A NAME="tex2html947"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H3><A NAME="SECTION00438200000000000000">
-White Point</A>
-</H3>
-<P>
-<BIG CLASS="LARGE">The white point is defined by the CIE as the "achromatic reference stimulus in a chromaticity diagram that corresponds to the stimulus that produces an image area that has the perception of white". Any colors lying on the neutral axis line defined by the white point and its vertical projection toward the bottom of the RGB color space gamut, no matter their Luminance, are neutral to that RGB color space and thus achromatic.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Various RGB color spaces white points in the CIE 1960 UCS chromaticity diagram, note that the ACES white point is not precisely equal to CIE Illuminant D Series D60.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Typical white points are chosen as CIE Standard Illuminants. In 1953, the National Television System Committee (NTSC) published a standard for color television that used CIE Illuminant C. As noted in section 2.3.3, CIE Illuminant C was superseded by the CIE Standard Illuminant D Series D65 and became the illuminant for the PAL and SECAM analog encoding systems for color television in the 1960s.
+<html>
+ <head>
+  <title>
+   White Point
+  </title>
+  <meta content="White Point" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="Color_Component_Transfer_Fu.html" rel="next"/>
+  <link href="Primaries.html" rel="previous"/>
+  <link href="Additive_RGB_Color_Spaces.html" rel="up"/>
+  <link href="Color_Component_Transfer_Fu.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h3>
+   <a name="SECTION00438200000000000000">
+    White Point
+   </a>
+  </h3>
+  <p>
+   The white point is defined by the CIE as the "achromatic reference stimulus in a chromaticity diagram that corresponds to the stimulus that produces an image area that has the perception of white". Any colors lying on the neutral axis line defined by the white point and its vertical projection toward the bottom of the RGB color space gamut, no matter their Luminance, are neutral to that RGB color space and thus achromatic.
+  </p>
+  <p>
+   Various RGB color spaces white points in the CIE 1960 UCS chromaticity diagram, note that the ACES white point is not precisely equal to CIE Illuminant D Series D60.
+  </p>
+  <p>
+   Typical white points are chosen as CIE Standard Illuminants. In 1953, the National Television System Committee (NTSC) published a standard for color television that used CIE Illuminant C. As noted in section 2.3.3, CIE Illuminant C was superseded by the CIE Standard Illuminant D Series D65 and became the illuminant for the PAL and SECAM analog encoding systems for color television in the 1960s.
 In the 1990s, desktop publishing CRT color monitors often adopted a white point close to CCT 9300 K which was deemed too high by the professional printing industry and graphic arts to suitably soft proof images. Printing workflows use CIE Illuminant D Series D50 (ISO 3664:1975) as it is somewhere between average daylight and incandescent light. CIE Illuminant D Series D50 is the illuminant adopted by the International Color Consortium (ICC) established in 1993 by eight imaging companies "for the purpose of creating, promoting and encouraging the standardization and evolution of an open, vendor-neutral, cross-platform color management architecture and components."
-</BIG>
-<P>
-<BIG CLASS="LARGE">Two white points were suggested as an alternative to the high CRT CCT: CIE Illuminant D Series D50 and CIE Standard Illuminant D Series D65. Images displayed on monitors calibrated to CIE Illuminant D Series D50 were deemed dull and yellow in dim to average viewing conditions.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Following on from PAL and SECAM color television, and also as a consequence of the broad adoption of the sRGB IEC 61966-2-1:1999 standard, most modern computer display systems use CIE Standard Illuminant D Series D65.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Digital cinema as per the recommendation of the Digital Cinema Initiative (DCI) adopts the DCI-P3 white point based on a Xenon arc lamp spectral power distribution. ACES uses a white point close to CIE Standard Illuminant D Series D60: its lower CCT makes it more pleasing for dark viewing conditions typical of theatrical exhibition.
-</BIG>
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html948"
-  HREF="Color_Component_Transfer_Fu.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html944"
-  HREF="Additive_RGB_Color_Spaces.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html938"
-  HREF="Primaries.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html946"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html949"
-  HREF="Color_Component_Transfer_Fu.html">Color Component Transfer Functions</A>
-<B> Up:</B> <A NAME="tex2html945"
-  HREF="Additive_RGB_Color_Spaces.html">Additive RGB Color Spaces</A>
-<B> Previous:</B> <A NAME="tex2html939"
-  HREF="Primaries.html">Primaries</A>
- &nbsp; <B>  <A NAME="tex2html947"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+   Two white points were suggested as an alternative to the high CRT CCT: CIE Illuminant D Series D50 and CIE Standard Illuminant D Series D65. Images displayed on monitors calibrated to CIE Illuminant D Series D50 were deemed dull and yellow in dim to average viewing conditions.
+  </p>
+  <p>
+   Following on from PAL and SECAM color television, and also as a consequence of the broad adoption of the sRGB IEC 61966-2-1:1999 standard, most modern computer display systems use CIE Standard Illuminant D Series D65.
+  </p>
+  <p>
+   Digital cinema as per the recommendation of the Digital Cinema Initiative (DCI) adopts the DCI-P3 white point based on a Xenon arc lamp spectral power distribution. ACES uses a white point close to CIE Standard Illuminant D Series D60: its lower CCT makes it more pleasing for dark viewing conditions typical of theatrical exhibition.
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="Color_Component_Transfer_Fu.html" name="tex2html948">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Additive_RGB_Color_Spaces.html" name="tex2html944">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="Primaries.html" name="tex2html938">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html946">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="Color_Component_Transfer_Fu.html" name="tex2html949">
+    Color Component Transfer Functions
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Additive_RGB_Color_Spaces.html" name="tex2html945">
+    Additive RGB Color Spaces
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="Primaries.html" name="tex2html939">
+    Primaries
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html947">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

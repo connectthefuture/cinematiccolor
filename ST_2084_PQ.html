@@ -1,114 +1,267 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>ST.2084 / PQ</TITLE>
-<META NAME="description" CONTENT="ST.2084 / PQ">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="next" HREF="Hybrid_Log_Gamma_HLG.html">
-<LINK REL="previous" HREF="Rec_2020.html">
-<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
-<LINK REL="next" HREF="Hybrid_Log_Gamma_HLG.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2189"
-  HREF="Hybrid_Log_Gamma_HLG.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2185"
-  HREF="Common_RGB_Color_Encodings_.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2179"
-  HREF="Rec_2020.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2187"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2190"
-  HREF="Hybrid_Log_Gamma_HLG.html">Hybrid Log Gamma (HLG)</A>
-<B> Up:</B> <A NAME="tex2html2186"
-  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
-<B> Previous:</B> <A NAME="tex2html2180"
-  HREF="Rec_2020.html">Rec. 2020</A>
- &nbsp; <B>  <A NAME="tex2html2188"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION00615000000000000000">
-ST.2084 / PQ</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">The ACES Still Life reference image encoded with the ST.2084 1000 nits Output Transform.
-Copyright © A.M.P.A.S.
-SMPTE ST.2084 is an output referred encoding curve used for high dynamic range displays, normally in conjunction with Rec. 2020 primaries. It can encode values up to 10,000 cd/m2, and was originally specified by Dolby under the name PQ, for Perceptual Quantizer. To encode such a wide range without visible banding, ST.2084 requires at least 12 bit processing to be used in production. For delivery at least 10 bits are required, and although visible banding is possible at this bit depth, experiments by Dolby have indicated that noise present in real-world images makes this banding imperceptible. Integer codings may use either “narrow range” or “full range” (see section 4.7).
-</BIG>
-<P>
-<BIG CLASS="LARGE">Because PQ is perceptually uniform, it can be a useful working space for applying grades, or as a shaper for LUTs (see section 4.4.3) and some game engines do exactly this, transforming from linear to PQ in order to apply a look as a 3D LUT, and then transforming back to linear for further processing.
-</BIG>
-<P>
-<BIG CLASS="LARGE">ITU-R BT.2100 specifies both an OETF and EOTF for PQ, which are not the inverse of one another, creating a non-unity OOTF. While in theory, this allows PQ to be used as a scene referred encoding, in practice, no digital cinema camera currently implements this, and the encoding function exists in the spec only for completeness. It is important to be aware that the BT.2100 OETF is not the same as the OETF specified in SMPTE ST.2084, which is simply the inverse of the EOTF.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The ST.2084 EOTF is an absolute encoding, defined by the following equation:
-</BIG>
-<P>
-<BIG CLASS="LARGE">L = 10000 × ((V1/m2 - c1) / (c2 - c3 × V1/m2))1/m1
-</BIG>
-<P>
-<BIG CLASS="LARGE">Where L is the display luminance in cd/m2 and the constants are:
+<html>
+ <head>
+  <title>
+   ST.2084 / PQ
+  </title>
+  <meta content="ST.2084 / PQ" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="Hybrid_Log_Gamma_HLG.html" rel="next"/>
+  <link href="Rec_2020.html" rel="previous"/>
+  <link href="Common_RGB_Color_Encodings.html" rel="up"/>
+  <link href="Hybrid_Log_Gamma_HLG.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION00615000000000000000">
+    ST.2084 / PQ
+   </a>
+  </h2>
+  <p>
+   The ACES Still Life reference image encoded with the ST.2084 1000 nits Output Transform.
+Copyright &copy; A.M.P.A.S.
+SMPTE ST.2084 is an output referred encoding curve used for high dynamic range displays, normally in conjunction with Rec. 2020 primaries. It can encode values up to 10,000 cd/m2, and was originally specified by Dolby under the name PQ, for Perceptual Quantizer. To encode such a wide range without visible banding, ST.2084 requires at least 12 bit processing to be used in production. For delivery at least 10 bits are required, and although visible banding is possible at this bit depth, experiments by Dolby have indicated that noise present in real-world images makes this banding imperceptible. Integer codings may use either &ldquo;narrow range&rdquo; or &ldquo;full range&rdquo; (see section 4.7).
+  </p>
+  <p>
+   Because PQ is perceptually uniform, it can be a useful working space for applying grades, or as a shaper for LUTs (see section 4.4.3) and some game engines do exactly this, transforming from linear to PQ in order to apply a look as a 3D LUT, and then transforming back to linear for further processing.
+  </p>
+  <p>
+   ITU-R BT.2100 specifies both an OETF and EOTF for PQ, which are not the inverse of one another, creating a non-unity OOTF. While in theory, this allows PQ to be used as a scene referred encoding, in practice, no digital cinema camera currently implements this, and the encoding function exists in the spec only for completeness. It is important to be aware that the BT.2100 OETF is not the same as the OETF specified in SMPTE ST.2084, which is simply the inverse of the EOTF.
+  </p>
+  <p>
+   The ST.2084 EOTF is an absolute encoding, defined by the following equation:
+  </p>
+  <p>
+   L = 10000 &times; ((V1/m2 - c1) / (c2 - c3 &times; V1/m2))1/m1
+  </p>
+  <p>
+   Where L is the display luminance in cd/m2 and the constants are:
 	m1 = 2610 / 16384
-	m2 = 2523 / 4096 × 128
+	m2 = 2523 / 4096 &times; 128
 	c1 = 3424 / 4096
-	c2 = 2413 / 4096 × 32
-	c3 = 2392 / 4096 × 32
-</BIG>
-<P>
-<BIG CLASS="LARGE">While the output of the ST.2084 EOTF is defined in absolute units of cd/m2, the input to the function is less rigorously defined. As such, there is some debate as to what transform to apply to scene-referred linear data before converting to ST.2084. The most basic approach would be to simply scale the scene-referred linear values to set diffuse white to a particular display brightness and then encode with the inverse of the ST.2084 EOTF. However, this would make display light directly proportional to scene light and, as has been discussed in Section 2, due to the difference in absolute luminance and viewing environment, this will not normally give a perceptual match. Some form of view transform is usually required. This can be left to the colorist to add as part of the look, but a base transform which adds some contrast and roll-off in the highlights and shadows can be beneficial. It is also worth bearing in mind that the traditional lift, gamma, and gain operators are particularly unsuitable for acting on ST.2084 image data, where 0-1 represent zero to 10,000 cd/m2. Highlights, in particular, can swing uncontrollably into extreme values as a result of small changes. Modern grading systems offer alternate grading operators tailored to the needs of HDR grading.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The most universally available view transforms for HDR are the ACES Output Transforms. Versions are included for 1000, 2000, and 4000 cd/m2. These aim to provide an HDR image which is perceptually similar to the result of the ACES SDR Output Transforms, placing diffuse white at about 86 cd/m2, and reserving the higher luminances for specular highlights and in-frame light sources. This is in line with the original intent of the ST.2084 specification, which says that it “is intended to enable the creation of video images with an increased luminance range; not for the creation of video images with overall higher luminance levels.” However, as more experience has been gained with delivering in HDR, many people have come to feel that a higher level for diffuse white is preferable and that, particularly given the higher brightnesses of current consumer SDR televisions and computer displays, this gives a better perceptual match between SDR and HDR versions of the same image. ITU-R BT.2408-0 recommends setting diffuse white at 203 cd/m2, but acknowledges that it is a creative choice. This kind of exposure offset can be achieved in ACES as part of an HDR specific Look Transform which simply applies gain in linear. The parametric Output Transforms which form part of ACES 1.1 include a parameter for “mid-point luminance” (18
-Some manufacturers implement view transforms for HDR in their cameras for on-set HDR monitoring, and provide LUTs which match those transforms for use in post. ARRI’s ALF-2 and RED’s IPP2 LUTs can be used as output transforms for LogC/ALEXA Wide Gamut and Log3G10/RED Wide Gamut working spaces respectively, and other color encodings can be transformed to those to make them suitable as input for the LUTs. Some grading systems implement these as options in their color management pipelines, and also offer their own proprietary view transforms. When using a proprietary tone mapping algorithm it is important to ensure that a method is available, usually by baking a LUT, for implementing the transforms in other software.
-</BIG>
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2189"
-  HREF="Hybrid_Log_Gamma_HLG.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2185"
-  HREF="Common_RGB_Color_Encodings_.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2179"
-  HREF="Rec_2020.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2187"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2190"
-  HREF="Hybrid_Log_Gamma_HLG.html">Hybrid Log Gamma (HLG)</A>
-<B> Up:</B> <A NAME="tex2html2186"
-  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
-<B> Previous:</B> <A NAME="tex2html2180"
-  HREF="Rec_2020.html">Rec. 2020</A>
- &nbsp; <B>  <A NAME="tex2html2188"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+	c2 = 2413 / 4096 &times; 32
+	c3 = 2392 / 4096 &times; 32
+  </p>
+  <p>
+   While the output of the ST.2084 EOTF is defined in absolute units of cd/m2, the input to the function is less rigorously defined. As such, there is some debate as to what transform to apply to scene-referred linear data before converting to ST.2084. The most basic approach would be to simply scale the scene-referred linear values to set diffuse white to a particular display brightness and then encode with the inverse of the ST.2084 EOTF. However, this would make display light directly proportional to scene light and, as has been discussed in Section 2, due to the difference in absolute luminance and viewing environment, this will not normally give a perceptual match. Some form of view transform is usually required. This can be left to the colorist to add as part of the look, but a base transform which adds some contrast and roll-off in the highlights and shadows can be beneficial. It is also worth bearing in mind that the traditional lift, gamma, and gain operators are particularly unsuitable for acting on ST.2084 image data, where 0-1 represent zero to 10,000 cd/m2. Highlights, in particular, can swing uncontrollably into extreme values as a result of small changes. Modern grading systems offer alternate grading operators tailored to the needs of HDR grading.
+  </p>
+  <p>
+   The most universally available view transforms for HDR are the ACES Output Transforms. Versions are included for 1000, 2000, and 4000 cd/m2. These aim to provide an HDR image which is perceptually similar to the result of the ACES SDR Output Transforms, placing diffuse white at about 86 cd/m2, and reserving the higher luminances for specular highlights and in-frame light sources. This is in line with the original intent of the ST.2084 specification, which says that it &ldquo;is intended to enable the creation of video images with an increased luminance range; not for the creation of video images with overall higher luminance levels.&rdquo; However, as more experience has been gained with delivering in HDR, many people have come to feel that a higher level for diffuse white is preferable and that, particularly given the higher brightnesses of current consumer SDR televisions and computer displays, this gives a better perceptual match between SDR and HDR versions of the same image. ITU-R BT.2408-0 recommends setting diffuse white at 203 cd/m2, but acknowledges that it is a creative choice. This kind of exposure offset can be achieved in ACES as part of an HDR specific Look Transform which simply applies gain in linear. The parametric Output Transforms which form part of ACES 1.1 include a parameter for &ldquo;mid-point luminance&rdquo; (18
+Some manufacturers implement view transforms for HDR in their cameras for on-set HDR monitoring, and provide LUTs which match those transforms for use in post. ARRI&rsquo;s ALF-2 and RED&rsquo;s IPP2 LUTs can be used as output transforms for LogC/ALEXA Wide Gamut and Log3G10/RED Wide Gamut working spaces respectively, and other color encodings can be transformed to those to make them suitable as input for the LUTs. Some grading systems implement these as options in their color management pipelines, and also offer their own proprietary view transforms. When using a proprietary tone mapping algorithm it is important to ensure that a method is available, usually by baking a LUT, for implementing the transforms in other software.
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="Hybrid_Log_Gamma_HLG.html" name="tex2html2189">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Common_RGB_Color_Encodings.html" name="tex2html2185">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="Rec_2020.html" name="tex2html2179">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html2187">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="Hybrid_Log_Gamma_HLG.html" name="tex2html2190">
+    Hybrid Log Gamma (HLG)
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Common_RGB_Color_Encodings.html" name="tex2html2186">
+    Common RGB Color Encodings
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="Rec_2020.html" name="tex2html2180">
+    Rec. 2020
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html2188">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

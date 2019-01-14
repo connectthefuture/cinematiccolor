@@ -1,108 +1,261 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>Floating-Point &amp; Logarithmic Representations</TITLE>
-<META NAME="description" CONTENT="Floating-Point &amp; Logarithmic Representations">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="next" HREF="Gamma.html">
-<LINK REL="previous" HREF="Perceptual_Coding.html">
-<LINK REL="up" HREF="Representing_Color.html">
-<LINK REL="next" HREF="Gamma.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1249"
-  HREF="Gamma.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1245"
-  HREF="Representing_Color.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1239"
-  HREF="Perceptual_Coding.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1247"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1250"
-  HREF="Gamma.html">Gamma</A>
-<B> Up:</B> <A NAME="tex2html1246"
-  HREF="Representing_Color.html">Representing Color</A>
-<B> Previous:</B> <A NAME="tex2html1240"
-  HREF="Perceptual_Coding.html">Perceptual Coding</A>
- &nbsp; <B>  <A NAME="tex2html1248"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION00454000000000000000">
-Floating-Point &amp; Logarithmic Representations</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">Integer representations are not appropriate for storing linear high-dynamic range scene-referred imagery due to the typical luminance distribution in real-world scenes, even when they are middle-grey normalized. Floating-point systems gracefully address the precision issues associated with encoding scene-referred linear imagery. They represent numbers approximately to a fixed number of significant digits, i.e. the significand, scaled by an exponent in some fixed base, e.g. 2, 10 or 16.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The same unit can represent different orders of magnitude, for example, the temperature of the cosmic microwave background radiation is -270.45 °C while the quasar 3C273 temperature has been estimated to 10 trillion °C. Whereas with integer representations, the interval between two consecutive values is the same throughout the domain, with floating point representations the intervals increase as the exponent does. Fractional values can be represented using a negative exponent, and one bit is reserved to indicate the sign, allowing the coding of negative values as well.
-4 × 2-3 = 4 × ⅛ = ½
-5 × 2-3 = 5 × ⅛ = ⅝
-6 × 2-3 = 6 × ⅛ = ¾
-…
-4 × 22 = 16
-5 × 22 = 20
-6 × 22 = 24
-…
-4 × 28 = 1024
-5 × 28 = 1280
-6 × 28 = 1536
+<html>
+ <head>
+  <title>
+   Floating-Point &amp; Logarithmic Representations
+  </title>
+  <meta content="Floating-Point &amp; Logarithmic Representations" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="Gamma.html" rel="next"/>
+  <link href="Perceptual_Coding.html" rel="previous"/>
+  <link href="Representing_Color.html" rel="up"/>
+  <link href="Gamma.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION00454000000000000000">
+    Floating-Point &amp; Logarithmic Representations
+   </a>
+  </h2>
+  <p>
+   Integer representations are not appropriate for storing linear high-dynamic range scene-referred imagery due to the typical luminance distribution in real-world scenes, even when they are middle-grey normalized. Floating-point systems gracefully address the precision issues associated with encoding scene-referred linear imagery. They represent numbers approximately to a fixed number of significant digits, i.e. the significand, scaled by an exponent in some fixed base, e.g. 2, 10 or 16.
+  </p>
+  <p>
+   The same unit can represent different orders of magnitude, for example, the temperature of the cosmic microwave background radiation is -270.45 &deg;C while the quasar 3C273 temperature has been estimated to 10 trillion &deg;C. Whereas with integer representations, the interval between two consecutive values is the same throughout the domain, with floating point representations the intervals increase as the exponent does. Fractional values can be represented using a negative exponent, and one bit is reserved to indicate the sign, allowing the coding of negative values as well.
+4 &times; 2-3 = 4 &times; ⅛ = &frac12;
+5 &times; 2-3 = 5 &times; ⅛ = ⅝
+6 &times; 2-3 = 6 &times; ⅛ = &frac34;
+&hellip;
+4 &times; 22 = 16
+5 &times; 22 = 20
+6 &times; 22 = 24
+&hellip;
+4 &times; 28 = 1024
+5 &times; 28 = 1280
+6 &times; 28 = 1536
 This approach allows for an almost ideal representation of scene-referred imagery, providing adequate precision in both the shadows and the highlights. In modern visual effects and color pipelines, OpenEXR by Industrial Light &amp; Magic (2003) is most commonly used to store floating-point imagery and helped to popularize the 16 bit half-float format.
 For games, where the balance between performance and memory use (or both) and quality often lies firmly towards performance, smaller floating point formats dropping the sign bit or having less precision (or both) are common. For more information on these, please refer to sections 3.4.3, 3.4.4.1 and 3.5.3.
 For storage and performance reasons, it is common to encode high-dynamic range, scene-referred color spaces with integer representations. Digital motion picture cameras often record 10 or 12 bit integer media, e.g. ProRes, X-AVC, HDCAM SR or DPX files using an integer logarithmic encoding. It allows for most of the benefits of floating point representations, without actually requiring floating-point storage media. Being integer, logarithmic image data is also suitable for transporting over SDI. In logarithmic encodings, successive code values in the integer log space map to multiplicative values in linear space. Put more intuitively, this is analogous to converting each pixel to a representation of the number of stops above or below a reference level, and then storing an integer representation of this quantity.
-</BIG>
-<P>
-<BIG CLASS="LARGE">As logarithmic images encode an extensive dynamic range, most mid-tone pixels reside in the central portion of the encoded scale. Thus, if you directly display a logarithmic image on a sRGB monitor, it exhibits low contrast.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Marcie, a famous reference image in theatrical exhibition and DI workflows, is shown as logarithmically encoded and exhibit low contrast. Image copyright © Eastman Kodak Company.
-</BIG>
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1249"
-  HREF="Gamma.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1245"
-  HREF="Representing_Color.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1239"
-  HREF="Perceptual_Coding.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1247"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1250"
-  HREF="Gamma.html">Gamma</A>
-<B> Up:</B> <A NAME="tex2html1246"
-  HREF="Representing_Color.html">Representing Color</A>
-<B> Previous:</B> <A NAME="tex2html1240"
-  HREF="Perceptual_Coding.html">Perceptual Coding</A>
- &nbsp; <B>  <A NAME="tex2html1248"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+   As logarithmic images encode an extensive dynamic range, most mid-tone pixels reside in the central portion of the encoded scale. Thus, if you directly display a logarithmic image on a sRGB monitor, it exhibits low contrast.
+  </p>
+  <p>
+   Marcie, a famous reference image in theatrical exhibition and DI workflows, is shown as logarithmically encoded and exhibit low contrast. Image copyright &copy; Eastman Kodak Company.
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="Gamma.html" name="tex2html1249">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Representing_Color.html" name="tex2html1245">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="Perceptual_Coding.html" name="tex2html1239">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html1247">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="Gamma.html" name="tex2html1250">
+    Gamma
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Representing_Color.html" name="tex2html1246">
+    Representing Color
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="Perceptual_Coding.html" name="tex2html1240">
+    Perceptual Coding
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html1248">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

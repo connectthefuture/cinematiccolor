@@ -1,131 +1,284 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>Full Range</TITLE>
-<META NAME="description" CONTENT="Full Range">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="previous" HREF="Legal_Range.html">
-<LINK REL="up" HREF="Full_Legal_ranges.html">
-<LINK REL="next" HREF="Chroma_Decoupling.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2513"
-  HREF="Chroma_Decoupling.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2509"
-  HREF="Full_Legal_ranges.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2505"
-  HREF="Legal_Range.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2511"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2514"
-  HREF="Chroma_Decoupling.html">Chroma Decoupling</A>
-<B> Up:</B> <A NAME="tex2html2510"
-  HREF="Full_Legal_ranges.html">Full and Legal ranges</A>
-<B> Previous:</B> <A NAME="tex2html2506"
-  HREF="Legal_Range.html">Legal Range</A>
- &nbsp; <B>  <A NAME="tex2html2512"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION00672000000000000000">
-Full Range</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">The alternative is simply to use all the available integer code values to encode the range from black to white. This approach is unable to represent so-called “super-white” and “sub-black” (or “super-black” – a contradiction in terms, because the Latin prefix “super” means “above”) values. This coding is referred to as Full Range, Data Range or CG Range. It is also sometimes confusingly called RGB Range, due to to the fact that Y'CbCr coding uses legal range to code the Y' signal, so RGB is deemed to use the alternate coding, even though this is not always the case. Full range coding can be generalized as:
-</BIG>
-<P>
-<BIG CLASS="LARGE">full = round(v × (2n - 1))
-</BIG>
-<P>
-<BIG CLASS="LARGE">where again n is the encoding bit depth.
-</BIG>
-<P>
-<BIG CLASS="LARGE">A third encoding exists which uses the range from 64-1023 in 10 bit to encode the signal. This is sometimes called Extended Range coding or SMPTE+, and is sometimes used for HLG, although the term Extended Range may also be used to refer to Full Range coding. This kind of ambiguity regarding terminology makes discussion of the issues related to range complex. For the sake of simplicity, this document will ignore Extended Range, as that relates primarily to broadcast video. For completeness, the equation for SMPTE+ is given here:
-</BIG>
-<P>
-<BIG CLASS="LARGE">SMPTE+ = 2(n - 4) +  v × (2n − 2(n - 4) − 1)
-</BIG>
-<P>
-<BIG CLASS="LARGE">where n is the bit depth, and v is the 0.0-1.0 normalized HLG signal being encoded, for example.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Even when discussing full and legal range there is still the possibility for confusion, as some applications use the two terms to mean the opposites of the definitions given here. And also, for example, when choosing the 'legal' option in an application it is important to understand whether this means that the image data is to be 'treated as' legal range or 'scaled to' legal range. Some additional confusion is caused by the fact that because of the overshoot and undershoot capabilities of legal range coding, it is able to code 'illegal' pixel values – that is values outside the 0-100
-These codings date back to the early days of digital video, where the analog signals being coded had specific meanings for 'black' and 'white' in terms of video level. When using an integer coding to represent a log signal, the log values 0.0 and 1.0 no longer have particular significance, and their meaning varies between the different log codings. The reference 10 bit code values of a log signal are those which are created in a DPX exported from the manufacturer’s raw decoding software, but the way those values are mapped to the SDI code values output by the camera (and hence also the values stored in Y’CbCr based recording formats such as ProRes) varies between manufacturers.
-</BIG>
-<P>
-<BIG CLASS="LARGE">ARRI, for example, have chosen to map their LogC coding to the legal range of the SDI output of their cameras (previously there was a menu option to map it to full range – which was referred to as 'Extended' – but this is no longer available) and to do the same with the code values sent to the ProRes encoders in their cameras. Because during decoding most software ProRes decoders apply a legal to full scale to the legal range values used internally in ProRes, lens cap black will appear as 9.3
-</BIG>
-<P>
-<BIG CLASS="LARGE">Sony, on the other hand, maps their cameras' S-Log3 encoding to the entire range of code values available on the SDI output of the camera, and send the same value to the encoders for their internal recordings. So S-Log3 lens cap black will appear at 3.5
-</BIG>
-<P>
-<BIG CLASS="LARGE">Correct linearization, using ACES Input Transforms, for example, is reliant upon the image data input to the transform being appropriately scaled. A ProRes log recording from a Sony (or Canon or Panasonic) camera is one of the situations where errors are likely to occur. If an S-Log3 ProRes recording is handled in the standard manner, which is appropriate for an ARRI or RED recording, a legal to full scale will be applied (possibly automatically and invisibly by the decoding software, as happens in Nuke for example) inappropriately, meaning that the sensor black level will be mapped to too low a code value, resulting in negative values after linearization. It is important to look out for this, as the result may not be immediately apparent, simply resulting in slightly crushed shadows when viewed through the display transform.
-</BIG>
-<P>
-<BIG CLASS="LARGE">There is further complexity caused by the fact that in ‘baked video’ modes Sony cameras map the video black to the white range to the legal range of the SDI output and internal recordings. This means that different scaling is required in post for log and video recordings. Sony's proprietary internal recording formats contain metadata, identifying the image data as log or baked video, and some applications are able to automatically scale the decode based on this. However, it is always worthwhile checking that scaling has been applied correctly.  Most ProRes decoders have no way of knowing whether the recorded image is S-Log3 or baked video (ProRes recordings will often come from external recorders, which simply receive an SDI signal with no information about the content) so it is up to the user to set the correct scaling.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Avid software is unusual in decoding ProRes without scaling, so LogC black will appear by default as 0.116 (8 bit code value 30) in the Avid UI. But because no scaling is applied to SDI output from Avid, the signal will still be at 9.3
+<html>
+ <head>
+  <title>
+   Full Range
+  </title>
+  <meta content="Full Range" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="Legal_Range.html" rel="previous"/>
+  <link href="Full_Legal_ranges.html" rel="up"/>
+  <link href="Chroma_Decoupling.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION00672000000000000000">
+    Full Range
+   </a>
+  </h2>
+  <p>
+   The alternative is simply to use all the available integer code values to encode the range from black to white. This approach is unable to represent so-called &ldquo;super-white&rdquo; and &ldquo;sub-black&rdquo; (or &ldquo;super-black&rdquo; &ndash; a contradiction in terms, because the Latin prefix &ldquo;super&rdquo; means &ldquo;above&rdquo;) values. This coding is referred to as Full Range, Data Range or CG Range. It is also sometimes confusingly called RGB Range, due to to the fact that Y'CbCr coding uses legal range to code the Y' signal, so RGB is deemed to use the alternate coding, even though this is not always the case. Full range coding can be generalized as:
+  </p>
+  <p>
+   full = round(v &times; (2n - 1))
+  </p>
+  <p>
+   where again n is the encoding bit depth.
+  </p>
+  <p>
+   A third encoding exists which uses the range from 64-1023 in 10 bit to encode the signal. This is sometimes called Extended Range coding or SMPTE+, and is sometimes used for HLG, although the term Extended Range may also be used to refer to Full Range coding. This kind of ambiguity regarding terminology makes discussion of the issues related to range complex. For the sake of simplicity, this document will ignore Extended Range, as that relates primarily to broadcast video. For completeness, the equation for SMPTE+ is given here:
+  </p>
+  <p>
+   SMPTE+ = 2(n - 4) +  v &times; (2n &minus; 2(n - 4) &minus; 1)
+  </p>
+  <p>
+   where n is the bit depth, and v is the 0.0-1.0 normalized HLG signal being encoded, for example.
+  </p>
+  <p>
+   Even when discussing full and legal range there is still the possibility for confusion, as some applications use the two terms to mean the opposites of the definitions given here. And also, for example, when choosing the 'legal' option in an application it is important to understand whether this means that the image data is to be 'treated as' legal range or 'scaled to' legal range. Some additional confusion is caused by the fact that because of the overshoot and undershoot capabilities of legal range coding, it is able to code 'illegal' pixel values &ndash; that is values outside the 0-100
+These codings date back to the early days of digital video, where the analog signals being coded had specific meanings for 'black' and 'white' in terms of video level. When using an integer coding to represent a log signal, the log values 0.0 and 1.0 no longer have particular significance, and their meaning varies between the different log codings. The reference 10 bit code values of a log signal are those which are created in a DPX exported from the manufacturer&rsquo;s raw decoding software, but the way those values are mapped to the SDI code values output by the camera (and hence also the values stored in Y&rsquo;CbCr based recording formats such as ProRes) varies between manufacturers.
+  </p>
+  <p>
+   ARRI, for example, have chosen to map their LogC coding to the legal range of the SDI output of their cameras (previously there was a menu option to map it to full range &ndash; which was referred to as 'Extended' &ndash; but this is no longer available) and to do the same with the code values sent to the ProRes encoders in their cameras. Because during decoding most software ProRes decoders apply a legal to full scale to the legal range values used internally in ProRes, lens cap black will appear as 9.3
+  </p>
+  <p>
+   Sony, on the other hand, maps their cameras' S-Log3 encoding to the entire range of code values available on the SDI output of the camera, and send the same value to the encoders for their internal recordings. So S-Log3 lens cap black will appear at 3.5
+  </p>
+  <p>
+   Correct linearization, using ACES Input Transforms, for example, is reliant upon the image data input to the transform being appropriately scaled. A ProRes log recording from a Sony (or Canon or Panasonic) camera is one of the situations where errors are likely to occur. If an S-Log3 ProRes recording is handled in the standard manner, which is appropriate for an ARRI or RED recording, a legal to full scale will be applied (possibly automatically and invisibly by the decoding software, as happens in Nuke for example) inappropriately, meaning that the sensor black level will be mapped to too low a code value, resulting in negative values after linearization. It is important to look out for this, as the result may not be immediately apparent, simply resulting in slightly crushed shadows when viewed through the display transform.
+  </p>
+  <p>
+   There is further complexity caused by the fact that in &lsquo;baked video&rsquo; modes Sony cameras map the video black to the white range to the legal range of the SDI output and internal recordings. This means that different scaling is required in post for log and video recordings. Sony's proprietary internal recording formats contain metadata, identifying the image data as log or baked video, and some applications are able to automatically scale the decode based on this. However, it is always worthwhile checking that scaling has been applied correctly.  Most ProRes decoders have no way of knowing whether the recorded image is S-Log3 or baked video (ProRes recordings will often come from external recorders, which simply receive an SDI signal with no information about the content) so it is up to the user to set the correct scaling.
+  </p>
+  <p>
+   Avid software is unusual in decoding ProRes without scaling, so LogC black will appear by default as 0.116 (8 bit code value 30) in the Avid UI. But because no scaling is applied to SDI output from Avid, the signal will still be at 9.3
 Hardware LUT boxes or LUT processors built into monitors apply simple 3D cubes, without shaper LUTs or defined input domains. They, therefore, map an input range from 0-1 to an output range of 0-1, but it varies from device to device whether this 0-1 range is mapped from the full range 0-1023 SDI code values at the input of the LUT box, or the 64-940 legal range within those code values. Likewise, the 0-1 output of the LUT will normally be mapped to output SDI code values using an inverse of the input scaling. Some LUT boxes have control software which allows the user to select input and output scaling, but many work in only one mode, and it is often not clearly documented what that mode is. Therefore when building a LUT to be applied in a hardware LUT box, it is vital to ascertain what mapping the LUT box uses. Often this can only be done by loading specifically designed LUTs (such as LUTs where every table value is equal to 940/1023) into the LUT box and checking the output on a waveform monitor.
-</BIG>
-<P>
-<BIG CLASS="LARGE">In conclusion, it is crucial that you check your pipeline to ensure that any scaling between legal and full range is only being applied where necessary, and is happening in the correct direction. Look out also for “double scaling” where a scale is applied unnecessarily because one has already been applied invisibly by the application. Part of the round trip testing that you should always perform is to make sure that any scaling applied at the start of the VFX pipeline is inverted at the end of it so that what is passed to DI matches the original media, if it is sent in the original format. If sent as scene-referred linear EXR files they must match the result of a linearization performed in the DI system on the original media, using an ACES Input Transform for example. Equally, it is important to confirm that color baked renders for editorial match the graded dailies of the original plates. Due to the different handling of range scaling by different NLEs, and the options for the editor to change the interpretation of the files, the only way to be certain of this is by thorough testing.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Output-referred image shown as intended
-</BIG>
-<P>
-<BIG CLASS="LARGE">(b) The same image with a full-to-legal scale inappropriately applied. Note the raised blacks and clipping below peak white.
-</BIG>
-<P>
-<BIG CLASS="LARGE">(c) The same image with a legal-to-full scale inappropriately applied. Both whites and blacks are clamped.
-</BIG>
-<P>
-<BIG CLASS="LARGE"></BIG>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2513"
-  HREF="Chroma_Decoupling.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2509"
-  HREF="Full_Legal_ranges.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2505"
-  HREF="Legal_Range.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2511"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2514"
-  HREF="Chroma_Decoupling.html">Chroma Decoupling</A>
-<B> Up:</B> <A NAME="tex2html2510"
-  HREF="Full_Legal_ranges.html">Full and Legal ranges</A>
-<B> Previous:</B> <A NAME="tex2html2506"
-  HREF="Legal_Range.html">Legal Range</A>
- &nbsp; <B>  <A NAME="tex2html2512"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+   In conclusion, it is crucial that you check your pipeline to ensure that any scaling between legal and full range is only being applied where necessary, and is happening in the correct direction. Look out also for &ldquo;double scaling&rdquo; where a scale is applied unnecessarily because one has already been applied invisibly by the application. Part of the round trip testing that you should always perform is to make sure that any scaling applied at the start of the VFX pipeline is inverted at the end of it so that what is passed to DI matches the original media, if it is sent in the original format. If sent as scene-referred linear EXR files they must match the result of a linearization performed in the DI system on the original media, using an ACES Input Transform for example. Equally, it is important to confirm that color baked renders for editorial match the graded dailies of the original plates. Due to the different handling of range scaling by different NLEs, and the options for the editor to change the interpretation of the files, the only way to be certain of this is by thorough testing.
+  </p>
+  <p>
+   Output-referred image shown as intended
+  </p>
+  <p>
+   (b) The same image with a full-to-legal scale inappropriately applied. Note the raised blacks and clipping below peak white.
+  </p>
+  <p>
+   (c) The same image with a legal-to-full scale inappropriately applied. Both whites and blacks are clamped.
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="Chroma_Decoupling.html" name="tex2html2513">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Full_Legal_ranges.html" name="tex2html2509">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="Legal_Range.html" name="tex2html2505">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html2511">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="Chroma_Decoupling.html" name="tex2html2514">
+    Chroma Decoupling
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Full_Legal_ranges.html" name="tex2html2510">
+    Full and Legal ranges
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="Legal_Range.html" name="tex2html2506">
+    Legal Range
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html2512">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

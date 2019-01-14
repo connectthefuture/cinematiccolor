@@ -1,135 +1,288 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+ <head>
+  <title>
+   Standard Observers
+  </title>
+  <meta content="Standard Observers" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="CIE_XYZ_Tristimulus_Values_.html" rel="next"/>
+  <link href="Reflectance_Transmittance_A.html" rel="previous"/>
+  <link href="Basic_Colorimetry.html" rel="up"/>
+  <link href="CIE_XYZ_Tristimulus_Values_.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION00434000000000000000">
+    Standard Observers
+   </a>
+  </h2>
+  <p>
+   The perception of incident light to the HVS varies from one observer to another. Thus to avoid ambiguity when characterizing color, the CIE standardized various functions for use with colorimetric calculations.
+  </p>
+  <p>
+   The first one, the CIE 1924 Photopic Standard Observer luminous efficiency function V(&lambda;), a fundamental function modeling the wavelength dependent sensitivity of the HVS, was established in 1924.
+  </p>
+  <p>
+   V(&lambda;) - CIE 1924 Photopic Standard Observer modeling the wavelength dependent sensitivity of the HVS.
+  </p>
+  <p>
+   It was derived for a 2&deg; angular subtense viewing field from several independent experiments whose results were weight assembled by Gibson and Tyndall (1923).
+  </p>
+  <p>
+   The first row shows the computed swatches and spectral distributions of two synthetic green and red LED lights with equal radiant power. In the second row, the red LED light luminous flux has been scaled to match that of the green LED light.
+  </p>
+  <p>
+   To an observer viewing a red light and a green light with equal radiant power, the green light appears brighter than the red: in the above figure their luminous fluxes are 40500lm, and 3500lm respectively. If the red light luminous flux is scaled to match that of the green light, then both lights are perceived to have similar brightness. The consequence of this scaling is that the red light radiant power increased by one order of magnitude.
 
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>Standard Observers</TITLE>
-<META NAME="description" CONTENT="Standard Observers">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="next" HREF="CIE_XYZ_Tristimulus_Values_.html">
-<LINK REL="previous" HREF="Reflectance_Transmittance_A.html">
-<LINK REL="up" HREF="Basic_Colorimetry.html">
-<LINK REL="next" HREF="CIE_XYZ_Tristimulus_Values_.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html849"
-  HREF="CIE_XYZ_Tristimulus_Values_.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html845"
-  HREF="Basic_Colorimetry.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html839"
-  HREF="Reflectance_Transmittance_A.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html847"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html850"
-  HREF="CIE_XYZ_Tristimulus_Values_.html">CIE XYZ Tristimulus Values</A>
-<B> Up:</B> <A NAME="tex2html846"
-  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
-<B> Previous:</B> <A NAME="tex2html840"
-  HREF="Reflectance_Transmittance_A.html">Reflectance, Transmittance and Absorptance</A>
- &nbsp; <B>  <A NAME="tex2html848"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION00434000000000000000">
-Standard Observers</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">The perception of incident light to the HVS varies from one observer to another. Thus to avoid ambiguity when characterizing color, the CIE standardized various functions for use with colorimetric calculations.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The first one, the CIE 1924 Photopic Standard Observer luminous efficiency function V(λ), a fundamental function modeling the wavelength dependent sensitivity of the HVS, was established in 1924.
-</BIG>
-<P>
-<BIG CLASS="LARGE">V(λ) - CIE 1924 Photopic Standard Observer modeling the wavelength dependent sensitivity of the HVS.
-</BIG>
-<P>
-<BIG CLASS="LARGE">It was derived for a 2° angular subtense viewing field from several independent experiments whose results were weight assembled by Gibson and Tyndall (1923).
-</BIG>
-<P>
-<BIG CLASS="LARGE">The first row shows the computed swatches and spectral distributions of two synthetic green and red LED lights with equal radiant power. In the second row, the red LED light luminous flux has been scaled to match that of the green LED light.
-</BIG>
-<P>
-<BIG CLASS="LARGE">To an observer viewing a red light and a green light with equal radiant power, the green light appears brighter than the red: in the above figure their luminous fluxes are 40500lm, and 3500lm respectively. If the red light luminous flux is scaled to match that of the green light, then both lights are perceived to have similar brightness. The consequence of this scaling is that the red light radiant power increased by one order of magnitude.
-
-In the late 1920's, Wright (1928) and Guild (1931) independently conducted a series of color matching experiments to quantify the color ability of an average human observer which laid the foundations for the specification of the CIE XYZ color space. The results obtained were summarized by the Wright &amp; Guild 1931 2° RGB― color Matching Functions (CMFs): they represent the amounts of three monochromatic primary colors R, G, B needed to match the test color at a single wavelength of light.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Wright &amp; Guild 1931 2° RGB― CMFs present a negative lobe.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Wright &amp; Guild 1931 2° RGB― CMFs present negative values that are inconvenient for various reasons: they make RGB tristimulus values computation more difficult, requiring separately summing products with positive and negative signs and then a final differencing of the sums. Computation of photometric quantities like luminance is more laborious for similar reasons, and finally, the development of direct-reading tristimulus colorimeters is challenging because of the sign change.
-</BIG>
-<P>
-<BIG CLASS="LARGE">These reasons lead the CIE to transform the Wright &amp; Guild 1931 2° RGB CMFs into a new set of functions based on new primary stimuli X, Y, Z: The CIE 1931 2° Standard Observer XYZ― color matching functions. When conceiving the linear transformation that converts Wright &amp; Guild 1931 2° RGB― CMFs into the CIE 1931 2° Standard Observer XYZ CMFs, the CIE ensured that the Y― function was equal to the CIE 1924 Photopic Standard Observer luminous efficiency function V(λ) and that all the functions were positive.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The CIE 1931 2° Standard Observer, a linear transformation of Wright &amp; Guild 1931 2° RGB CMFs designed to remove the negative lobe of the later.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Among other factors such as age, color vision sensitivity is affected by the angle subtended by the objects being observed. In the 1960s it was found that cones were present in a broader region of the eye than that initially covered by the experiments that lead to the CIE 1931 2° Standard Observer specification. As a result, color computations done with the CIE 1931 2° Standard Observer do not always correlate to visual observation.
-</BIG>
-<P>
-<BIG CLASS="LARGE">In 1964, the CIE defined an additional standard observer: the CIE 1964 10° Standard Observer derived from the results of Stiles and Burch (1959) and Speranskaya (1959) investigations with large-field color matching experiments.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The CIE 1964 10° Standard Observer corrects some deficiencies of the CIE 1931 2° Standard Observer, especially in the blue wavelengths. It should be used when dealing with a field of view of more than 4°.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The CIE 1964 10° Standard Observer is believed to be a better representation of the spectral response of human vision and recommended by the CIE when dealing with a field of view of more than 4°. For example, the CIE 1964 10° Standard Observer is commonly used in color formulation and color quality control whereas the CIE 1931 2° Standard Observer tend to be used with applications that deals with small samples or samples viewed at great distance.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Virtually all computer graphics applications use the CIE 1931 2° Standard Observer. Motion picture color management also adopts it as it is suited for computer graphics and imagery:
-Interface elements, e.g. icons, color pickers and swatches, and image inner features tend to be small and subtend a small angle. Hunt (2004) says that "in colour reproductions, the interest generally lies much more in patches of colour of about 2° angular size than 10°, and the 1931 CIE data may therefore be used with confidence."
-The CIE 1931 2° Standard Observer only involves the fovea where the cones are present, i.e. color vision, and great care was taken to avoid rod intrusion when the CIE 1964 10° Standard Observer data was assembled with the consequence that similar care must be taken when evaluating 10° subtending fields.
-Recently, the CIE TC 1-36 technical committee report (CIE 170-1:2006, 2006) established the CIE 2012 10° Standard Observer as the new physiologically relevant fundamental CIE color matching functions. They are a linear transformations of Stockman &amp; Sharpe 10° Cone Fundamentals LMS10 spectral sensitivity functions which can be used to derive any CMFs given physiological parameters such as the age of the observer and the field size.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The transition to those new CMFs might happen in the future but there are open questions on how to migrate dataset that are not spectrally defined, e.g. what are the chromaticity coordinates of the sRGB color space in the CIE 2012 10° Standard Observer?
-</BIG>
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html849"
-  HREF="CIE_XYZ_Tristimulus_Values_.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html845"
-  HREF="Basic_Colorimetry.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html839"
-  HREF="Reflectance_Transmittance_A.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html847"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html850"
-  HREF="CIE_XYZ_Tristimulus_Values_.html">CIE XYZ Tristimulus Values</A>
-<B> Up:</B> <A NAME="tex2html846"
-  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
-<B> Previous:</B> <A NAME="tex2html840"
-  HREF="Reflectance_Transmittance_A.html">Reflectance, Transmittance and Absorptance</A>
- &nbsp; <B>  <A NAME="tex2html848"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+In the late 1920's, Wright (1928) and Guild (1931) independently conducted a series of color matching experiments to quantify the color ability of an average human observer which laid the foundations for the specification of the CIE XYZ color space. The results obtained were summarized by the Wright &amp; Guild 1931 2&deg; RGB― color Matching Functions (CMFs): they represent the amounts of three monochromatic primary colors R, G, B needed to match the test color at a single wavelength of light.
+  </p>
+  <p>
+   Wright &amp; Guild 1931 2&deg; RGB― CMFs present a negative lobe.
+  </p>
+  <p>
+   Wright &amp; Guild 1931 2&deg; RGB― CMFs present negative values that are inconvenient for various reasons: they make RGB tristimulus values computation more difficult, requiring separately summing products with positive and negative signs and then a final differencing of the sums. Computation of photometric quantities like luminance is more laborious for similar reasons, and finally, the development of direct-reading tristimulus colorimeters is challenging because of the sign change.
+  </p>
+  <p>
+   These reasons lead the CIE to transform the Wright &amp; Guild 1931 2&deg; RGB CMFs into a new set of functions based on new primary stimuli X, Y, Z: The CIE 1931 2&deg; Standard Observer XYZ― color matching functions. When conceiving the linear transformation that converts Wright &amp; Guild 1931 2&deg; RGB― CMFs into the CIE 1931 2&deg; Standard Observer XYZ CMFs, the CIE ensured that the Y― function was equal to the CIE 1924 Photopic Standard Observer luminous efficiency function V(&lambda;) and that all the functions were positive.
+  </p>
+  <p>
+   The CIE 1931 2&deg; Standard Observer, a linear transformation of Wright &amp; Guild 1931 2&deg; RGB CMFs designed to remove the negative lobe of the later.
+  </p>
+  <p>
+   Among other factors such as age, color vision sensitivity is affected by the angle subtended by the objects being observed. In the 1960s it was found that cones were present in a broader region of the eye than that initially covered by the experiments that lead to the CIE 1931 2&deg; Standard Observer specification. As a result, color computations done with the CIE 1931 2&deg; Standard Observer do not always correlate to visual observation.
+  </p>
+  <p>
+   In 1964, the CIE defined an additional standard observer: the CIE 1964 10&deg; Standard Observer derived from the results of Stiles and Burch (1959) and Speranskaya (1959) investigations with large-field color matching experiments.
+  </p>
+  <p>
+   The CIE 1964 10&deg; Standard Observer corrects some deficiencies of the CIE 1931 2&deg; Standard Observer, especially in the blue wavelengths. It should be used when dealing with a field of view of more than 4&deg;.
+  </p>
+  <p>
+   The CIE 1964 10&deg; Standard Observer is believed to be a better representation of the spectral response of human vision and recommended by the CIE when dealing with a field of view of more than 4&deg;. For example, the CIE 1964 10&deg; Standard Observer is commonly used in color formulation and color quality control whereas the CIE 1931 2&deg; Standard Observer tend to be used with applications that deals with small samples or samples viewed at great distance.
+  </p>
+  <p>
+   Virtually all computer graphics applications use the CIE 1931 2&deg; Standard Observer. Motion picture color management also adopts it as it is suited for computer graphics and imagery:
+Interface elements, e.g. icons, color pickers and swatches, and image inner features tend to be small and subtend a small angle. Hunt (2004) says that "in colour reproductions, the interest generally lies much more in patches of colour of about 2&deg; angular size than 10&deg;, and the 1931 CIE data may therefore be used with confidence."
+The CIE 1931 2&deg; Standard Observer only involves the fovea where the cones are present, i.e. color vision, and great care was taken to avoid rod intrusion when the CIE 1964 10&deg; Standard Observer data was assembled with the consequence that similar care must be taken when evaluating 10&deg; subtending fields.
+Recently, the CIE TC 1-36 technical committee report (CIE 170-1:2006, 2006) established the CIE 2012 10&deg; Standard Observer as the new physiologically relevant fundamental CIE color matching functions. They are a linear transformations of Stockman &amp; Sharpe 10&deg; Cone Fundamentals LMS10 spectral sensitivity functions which can be used to derive any CMFs given physiological parameters such as the age of the observer and the field size.
+  </p>
+  <p>
+   The transition to those new CMFs might happen in the future but there are open questions on how to migrate dataset that are not spectrally defined, e.g. what are the chromaticity coordinates of the sRGB color space in the CIE 2012 10&deg; Standard Observer?
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="CIE_XYZ_Tristimulus_Values_.html" name="tex2html849">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Basic_Colorimetry.html" name="tex2html845">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="Reflectance_Transmittance_A.html" name="tex2html839">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html847">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="CIE_XYZ_Tristimulus_Values_.html" name="tex2html850">
+    CIE XYZ Tristimulus Values
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Basic_Colorimetry.html" name="tex2html846">
+    Basic Colorimetry
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="Reflectance_Transmittance_A.html" name="tex2html840">
+    Reflectance, Transmittance and Absorptance
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html848">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

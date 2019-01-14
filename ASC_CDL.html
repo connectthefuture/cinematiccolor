@@ -1,71 +1,201 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>ASC CDL</TITLE>
-<META NAME="description" CONTENT="ASC CDL">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="next" HREF="ACES_CTL.html">
-<LINK REL="previous" HREF="LUTs_Transforms.html">
-<LINK REL="up" HREF="Appendix.html">
-<LINK REL="next" HREF="ACES_CTL.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2465"
-  HREF="ACES_CTL.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2461"
-  HREF="Appendix.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2455"
-  HREF="GPU_Implementations.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2463"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2466"
-  HREF="ACES_CTL.html">ACES CTL</A>
-<B> Up:</B> <A NAME="tex2html2462"
-  HREF="Appendix.html">Appendix</A>
-<B> Previous:</B> <A NAME="tex2html2456"
-  HREF="GPU_Implementations.html">GPU Implementations</A>
- &nbsp; <B>  <A NAME="tex2html2464"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H1><A NAME="SECTION00650000000000000000">
-ASC CDL</A>
-</H1>
-<P>
-<BIG CLASS="LARGE">The world of color grading, particularly as it is handled onset, has a huge amount of variation. Even though it is common to apply a “primary grade” (consisting of a scale operation, some offsets, and maybe a gamma and saturation adjustment), every manufacturer has historically applied these adjustments in a different order, which sadly eliminates the portability of grading information. The American Society of Cinematographers (ASC) has thus created a color correction specification to bring about a bit of order. Similar to the EDL, Edit Decision List, in use by editorial systems, the ASC came up with the Color Decision List (CDL) format. This specification defines the math for what is expected on a “primary” correction.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The CDL defines a color correction, with a fixed series of steps/ordering:
+<html>
+ <head>
+  <title>
+   ASC CDL
+  </title>
+  <meta content="ASC CDL" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="ACES_CTL.html" rel="next"/>
+  <link href="LUTs_Transforms.html" rel="previous"/>
+  <link href="Appendix.html" rel="up"/>
+  <link href="ACES_CTL.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h1>
+   <a name="SECTION00650000000000000000">
+    ASC CDL
+   </a>
+  </h1>
+  <p>
+   The world of color grading, particularly as it is handled onset, has a huge amount of variation. Even though it is common to apply a &ldquo;primary grade&rdquo; (consisting of a scale operation, some offsets, and maybe a gamma and saturation adjustment), every manufacturer has historically applied these adjustments in a different order, which sadly eliminates the portability of grading information. The American Society of Cinematographers (ASC) has thus created a color correction specification to bring about a bit of order. Similar to the EDL, Edit Decision List, in use by editorial systems, the ASC came up with the Color Decision List (CDL) format. This specification defines the math for what is expected on a &ldquo;primary&rdquo; correction.
+  </p>
+  <p>
+   The CDL defines a color correction, with a fixed series of steps/ordering:
  Scaling (3 channels)
  Offset (3 channels)
  Power (exponent) (3 channels)
  Saturation (scalar, with a fixed Rec. 709 luminance target)
-</BIG>
-<P>
-<BIG CLASS="LARGE">Having a fixed order is not always ideal. For example, given a single CDL you cannot desaturate the image to grey-scale, and then tint the image using scales and offsets. (The opposite is possible, of course). But having an unambiguous way to interchange simple grade data is a huge improvement in interoperability. The ASC has also defined an XML format for the grade data. The Scaling, Offset and Power are sent as 9 numbers (the SOP) and saturation is sent as a single number (SAT).
-</BIG>
-<P>
-<BIG CLASS="LARGE">&lt;ColorCorrectionCollection&gt;
+  </p>
+  <p>
+   Having a fixed order is not always ideal. For example, given a single CDL you cannot desaturate the image to grey-scale, and then tint the image using scales and offsets. (The opposite is possible, of course). But having an unambiguous way to interchange simple grade data is a huge improvement in interoperability. The ASC has also defined an XML format for the grade data. The Scaling, Offset and Power are sent as 9 numbers (the SOP) and saturation is sent as a single number (SAT).
+  </p>
+  <p>
+   &lt;ColorCorrectionCollection&gt;
 	&lt;ColorCorrection id="example_correction_01"&gt;
 			&lt;SOPNode&gt;
 		&lt;Slope&gt; 1.1 1.1 1.1 &lt;/Slope&gt;
@@ -77,39 +207,62 @@ ASC CDL</A>
 	&lt;/SatNode&gt;
 &lt;/ColorCorrection&gt;
 	&lt;/ColorCorrectionCollection&gt;
-</BIG>
-<P>
-<BIG CLASS="LARGE">Example .ccc (Color Correction Collection) xml file demonstrating the SOP and Sat elements.
-</BIG>
-<P>
-<BIG CLASS="LARGE">So what does the CDL not define? Color space. As previously mentioned, if one applies an additive offset to logarithmic encoded data, the result is very different than if the same offset is applied to scene-referred linear imagery. The CDL also does not require one to specify if any viewing LUTs were used. This ambiguity is both CDL’s biggest strength and its biggest weakness. It is a weakness because if one receives a CDL file in isolation the color correction is still not particularly well defined. However, this is also CDLs biggest strength, as it enables CDLs to be highly versatile - serving as building blocks across many color pipelines. For example, CDLs can be used to send both plate neutralizations (log offsets) between facilities and also to store output-referred color corrections crafted onset.
-</BIG>
-<P>
-<BIG CLASS="LARGE"></BIG>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2465"
-  HREF="ACES_CTL.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2461"
-  HREF="Appendix.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2455"
-  HREF="GPU_Implementations.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2463"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2466"
-  HREF="ACES_CTL.html">ACES CTL</A>
-<B> Up:</B> <A NAME="tex2html2462"
-  HREF="Appendix.html">Appendix</A>
-<B> Previous:</B> <A NAME="tex2html2456"
-  HREF="GPU_Implementations.html">GPU Implementations</A>
- &nbsp; <B>  <A NAME="tex2html2464"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+   Example .ccc (Color Correction Collection) xml file demonstrating the SOP and Sat elements.
+  </p>
+  <p>
+   So what does the CDL not define? Color space. As previously mentioned, if one applies an additive offset to logarithmic encoded data, the result is very different than if the same offset is applied to scene-referred linear imagery. The CDL also does not require one to specify if any viewing LUTs were used. This ambiguity is both CDL&rsquo;s biggest strength and its biggest weakness. It is a weakness because if one receives a CDL file in isolation the color correction is still not particularly well defined. However, this is also CDLs biggest strength, as it enables CDLs to be highly versatile - serving as building blocks across many color pipelines. For example, CDLs can be used to send both plate neutralizations (log offsets) between facilities and also to store output-referred color corrections crafted onset.
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="ACES_CTL.html" name="tex2html2465">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Appendix.html" name="tex2html2461">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="GPU_Implementations.html" name="tex2html2455">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html2463">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="ACES_CTL.html" name="tex2html2466">
+    ACES CTL
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Appendix.html" name="tex2html2462">
+    Appendix
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="GPU_Implementations.html" name="tex2html2456">
+    GPU Implementations
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html2464">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

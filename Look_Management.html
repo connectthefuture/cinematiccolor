@@ -1,118 +1,271 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>Look Management</TITLE>
-<META NAME="description" CONTENT="Look Management">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="previous" HREF="Establishing_Look.html">
-<LINK REL="up" HREF="Look.html">
-<LINK REL="next" HREF="On_Set.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1494"
-  HREF="On_Set.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1490"
-  HREF="Look.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1486"
-  HREF="Displaying_Scene_Referred_I.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1492"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1495"
-  HREF="On_Set.html">On Set</A>
-<B> Up:</B> <A NAME="tex2html1491"
-  HREF="Look.html">The Look</A>
-<B> Previous:</B> <A NAME="tex2html1487"
-  HREF="Displaying_Scene_Referred_I.html">Displaying Scene-Referred Imagery</A>
- &nbsp; <B>  <A NAME="tex2html1493"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION00522000000000000000">
-Look Management</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">Locking down the Look early on is a critical first step in crafting cinematic images, as it underpins every other part of the process. The remainder of the pipeline relies on visualizations that are created by working, translating or transcoding the Look and this is known as Look Management.
-</BIG>
-<P>
-<BIG CLASS="LARGE">An overview of the filmmaking process shows that Look Management is core to each stage. The mistaken belief that the Look is the product of just the DP during shooting, or the colorist during mastering discourages a well-managed pipeline, without which the visual effects process is rather in the dark. Decisions earlier in the chain cannot easily be protected without a carefully color managed pipeline. Meaningful tests should be performed early on, saving a lot of work and some potentially unpleasant surprises later. In high-end productions changes to the Look can be suggested all through post-production and communicated to everyone else via color decision lists of some sort. The CDL is one such mechanism but is quite limited in scope, there are other more complex proprietary solutions in use.
-</BIG>
-<P>
-<BIG CLASS="LARGE">When a look is applied to imagery as it is captured or saved to disk, it’s called “baking the Look”. The Look should not be baked in at the source or early in post-production. If the Look is baked in early, all the problems of output-referred workflows are very apparent, especially if the Look is strong. Continuity is more difficult and there is very little latitude to alter or modify the Look later on. Exposures, color balance, and lighting have to be close to perfect since there is little more information for the colorist to use in the final stages. VFX could still be delivered scene-referred, but the expectation is that they match the main content. Delivering to multiple formats is still possible, but usually, any differences that take advantage of wider tonal range or color gamut are severely limited. It is strongly recommended that the Look is NOT baked in until the final DI grading stage.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Working with multiple gamuts is a subject that can’t be avoided for a show of even moderate complexity. Almost every camera has a different encoding gamut. The working gamut used for a show will likely be distinct from any of the camera encoding gamuts. The working gamut will also likely be distinct from the final output display gamut. This is guaranteed if the show will be seen on multiple types of displays. The advent of the multi-gamut workflow has added an additional layer of complexity to setting up a project and communicating between artists, departments and companies. As such, it is especially important to define the choice of gamuts to be used for capture, grading, lighting, rendering, compositing, and final display as early as possible and to agree on how and when the gamut choices should be presented to users. For many artists, a successful setup will be one where they aren’t aware of the gamuts being used. OpenColorIO (2003)’s “role” feature allows some of these choices to be safely hidden from artists. It is very easy to get lost in a thicket of similar, but not quite matching, gamuts if images and color data aren’t properly tracked or labeled.
-</BIG>
-<P>
-<BIG CLASS="LARGE">One of the benefits of ACES in the world of multiple gamuts is that it provides a clear standard for mapping between the different sets of gamuts used for cameras, rendering, compositing, grading, and final output.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The choice of working gamut affects the feel of controls and operations that affect color. Choosing a space that is too wide may break some operators, like keyers, or may just make otherwise familiar operators and controls feel unfamiliar to artists. Working in the camera encoding gamut may be useful for these jobs. For some operations, a compositor may transform to the camera encoding gamut, apply the operation and then transform back to the working gamut. This is similar in spirit to the time-honored trick of resizing in log described in 3.5.4 Working with Log Imagery.
-</BIG>
-<P>
-<BIG CLASS="LARGE">When the reference Look is created in a DI grading system, the process is saved just as it is in case it needs to be modified or used to derive other looks. The Look itself is sampled in a 3D LUT format that can be loaded into color managed applications. Because some applications have specific requirements for the LUT formatting, it is not unusual to generate multiple LUTs. However, it is preferable to find a common LUT format that works with as many applications as possible with a high fidelity. Exporting the Look as a LUT is the easiest way to share it but using a parameter based method such as CDL is also an option for simpler looks. Many facilities use the combination of a show LUT with a CDL in front of it.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Once the Look has been established for a CG animation project the process that created it is saved just as it is in DI grading systems. The best solution is to use a color management system, like OpenColorIO, that is shared across all the applications and can apply Looks contextually. This allows for a high degree of automation in Look Management and can help eliminate operator error. Tagging images with metadata can assist this system by automatically managing looks across productions and also within a production when multiple looks are employed. A good color management system should be able to generate notes that can feedback to artists working at their desktops and also feed forward to the colorist for DI grading.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Games tend to be produced primarily using a single toolset, the “engine”. Within the engine itself, color management is largely handled automatically, being a single piece of software. For assets that are created externally to the engine, like textures and sometimes materials, it is desirable to have a representation of the Look of the project that can be used in the authoring packages used for those assets for validation purposes. In this case it is common to export a LUT or other representation of the Look, much like animation and live-action. Color management must also be handled with defined import/export paths allowing management of externally created content, ideally via similar tools to VFX/Animation but are sometimes handled manually.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Key Points
+<html>
+ <head>
+  <title>
+   Look Management
+  </title>
+  <meta content="Look Management" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="Establishing_Look.html" rel="previous"/>
+  <link href="Look.html" rel="up"/>
+  <link href="On_Set.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION00522000000000000000">
+    Look Management
+   </a>
+  </h2>
+  <p>
+   Locking down the Look early on is a critical first step in crafting cinematic images, as it underpins every other part of the process. The remainder of the pipeline relies on visualizations that are created by working, translating or transcoding the Look and this is known as Look Management.
+  </p>
+  <p>
+   An overview of the filmmaking process shows that Look Management is core to each stage. The mistaken belief that the Look is the product of just the DP during shooting, or the colorist during mastering discourages a well-managed pipeline, without which the visual effects process is rather in the dark. Decisions earlier in the chain cannot easily be protected without a carefully color managed pipeline. Meaningful tests should be performed early on, saving a lot of work and some potentially unpleasant surprises later. In high-end productions changes to the Look can be suggested all through post-production and communicated to everyone else via color decision lists of some sort. The CDL is one such mechanism but is quite limited in scope, there are other more complex proprietary solutions in use.
+  </p>
+  <p>
+   When a look is applied to imagery as it is captured or saved to disk, it&rsquo;s called &ldquo;baking the Look&rdquo;. The Look should not be baked in at the source or early in post-production. If the Look is baked in early, all the problems of output-referred workflows are very apparent, especially if the Look is strong. Continuity is more difficult and there is very little latitude to alter or modify the Look later on. Exposures, color balance, and lighting have to be close to perfect since there is little more information for the colorist to use in the final stages. VFX could still be delivered scene-referred, but the expectation is that they match the main content. Delivering to multiple formats is still possible, but usually, any differences that take advantage of wider tonal range or color gamut are severely limited. It is strongly recommended that the Look is NOT baked in until the final DI grading stage.
+  </p>
+  <p>
+   Working with multiple gamuts is a subject that can&rsquo;t be avoided for a show of even moderate complexity. Almost every camera has a different encoding gamut. The working gamut used for a show will likely be distinct from any of the camera encoding gamuts. The working gamut will also likely be distinct from the final output display gamut. This is guaranteed if the show will be seen on multiple types of displays. The advent of the multi-gamut workflow has added an additional layer of complexity to setting up a project and communicating between artists, departments and companies. As such, it is especially important to define the choice of gamuts to be used for capture, grading, lighting, rendering, compositing, and final display as early as possible and to agree on how and when the gamut choices should be presented to users. For many artists, a successful setup will be one where they aren&rsquo;t aware of the gamuts being used. OpenColorIO (2003)&rsquo;s &ldquo;role&rdquo; feature allows some of these choices to be safely hidden from artists. It is very easy to get lost in a thicket of similar, but not quite matching, gamuts if images and color data aren&rsquo;t properly tracked or labeled.
+  </p>
+  <p>
+   One of the benefits of ACES in the world of multiple gamuts is that it provides a clear standard for mapping between the different sets of gamuts used for cameras, rendering, compositing, grading, and final output.
+  </p>
+  <p>
+   The choice of working gamut affects the feel of controls and operations that affect color. Choosing a space that is too wide may break some operators, like keyers, or may just make otherwise familiar operators and controls feel unfamiliar to artists. Working in the camera encoding gamut may be useful for these jobs. For some operations, a compositor may transform to the camera encoding gamut, apply the operation and then transform back to the working gamut. This is similar in spirit to the time-honored trick of resizing in log described in 3.5.4 Working with Log Imagery.
+  </p>
+  <p>
+   When the reference Look is created in a DI grading system, the process is saved just as it is in case it needs to be modified or used to derive other looks. The Look itself is sampled in a 3D LUT format that can be loaded into color managed applications. Because some applications have specific requirements for the LUT formatting, it is not unusual to generate multiple LUTs. However, it is preferable to find a common LUT format that works with as many applications as possible with a high fidelity. Exporting the Look as a LUT is the easiest way to share it but using a parameter based method such as CDL is also an option for simpler looks. Many facilities use the combination of a show LUT with a CDL in front of it.
+  </p>
+  <p>
+   Once the Look has been established for a CG animation project the process that created it is saved just as it is in DI grading systems. The best solution is to use a color management system, like OpenColorIO, that is shared across all the applications and can apply Looks contextually. This allows for a high degree of automation in Look Management and can help eliminate operator error. Tagging images with metadata can assist this system by automatically managing looks across productions and also within a production when multiple looks are employed. A good color management system should be able to generate notes that can feedback to artists working at their desktops and also feed forward to the colorist for DI grading.
+  </p>
+  <p>
+   Games tend to be produced primarily using a single toolset, the &ldquo;engine&rdquo;. Within the engine itself, color management is largely handled automatically, being a single piece of software. For assets that are created externally to the engine, like textures and sometimes materials, it is desirable to have a representation of the Look of the project that can be used in the authoring packages used for those assets for validation purposes. In this case it is common to export a LUT or other representation of the Look, much like animation and live-action. Color management must also be handled with defined import/export paths allowing management of externally created content, ideally via similar tools to VFX/Animation but are sometimes handled manually.
+  </p>
+  <p>
+   Key Points
 Look Management visualises the Look through production and post-production
-Irreversibly applying the Look is called “baking in the Look”
+Irreversibly applying the Look is called &ldquo;baking in the Look&rdquo;
 The Look should not be baked in until the final DI grading stage
 Look Management should consider multiple gamut sources and deliverables
 Metadata is crucial for good Look Management
-</BIG>
-<P>
-<BIG CLASS="LARGE"></BIG>
-<P>
-<BIG CLASS="LARGE"></BIG>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1494"
-  HREF="On_Set.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1490"
-  HREF="Look.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1486"
-  HREF="Displaying_Scene_Referred_I.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1492"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1495"
-  HREF="On_Set.html">On Set</A>
-<B> Up:</B> <A NAME="tex2html1491"
-  HREF="Look.html">The Look</A>
-<B> Previous:</B> <A NAME="tex2html1487"
-  HREF="Displaying_Scene_Referred_I.html">Displaying Scene-Referred Imagery</A>
- &nbsp; <B>  <A NAME="tex2html1493"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="On_Set.html" name="tex2html1494">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Look.html" name="tex2html1490">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="Displaying_Scene_Referred_I.html" name="tex2html1486">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html1492">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="On_Set.html" name="tex2html1495">
+    On Set
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Look.html" name="tex2html1491">
+    The Look
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="Displaying_Scene_Referred_I.html" name="tex2html1487">
+    Displaying Scene-Referred Imagery
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html1493">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

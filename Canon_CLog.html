@@ -1,86 +1,216 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>Canon CLog</TITLE>
-<META NAME="description" CONTENT="Canon CLog">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="next" HREF="GoPro_ProTune.html">
-<LINK REL="previous" HREF="Blackmagic_Film.html">
-<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
-<LINK REL="next" HREF="GoPro_ProTune.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2273"
-  HREF="GoPro_ProTune.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2269"
-  HREF="Common_RGB_Color_Encodings_.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2263"
-  HREF="Blackmagic_Film.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2271"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2274"
-  HREF="GoPro_ProTune.html">GoPro ProTune</A>
-<B> Up:</B> <A NAME="tex2html2270"
-  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
-<B> Previous:</B> <A NAME="tex2html2264"
-  HREF="Blackmagic_Film.html">Blackmagic Film</A>
- &nbsp; <B>  <A NAME="tex2html2272"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION006112000000000000000">
-Canon CLog</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">Canon cameras offer a range of options for encoding curves and primaries, making for a very large number of permutations. Primaries can be selected from Cinema Gamut, Rec. 2020 and Rec. 709 (see sections above for the latter three). For the encoding curve, there is a choice of Canon Log 1, 2 and 3. It is important to ascertain which primaries and Canon Log variant were used when shooting, in order to linearize correctly and transform to the working color space. Many applications are unable to read the Canon metadata which specifies the recording primaries and encoding curve, so it can be useful to open the media in the Canon XF Utility, available from Canon’s website, and make a note of the settings.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The latest iteration of Canon Log is Canon Log 3, for which the encoding function is:
-</BIG>
-<P>
-<BIG CLASS="LARGE">if L &lt; -0.014:
-		V = −0.42889912 × log10(1 - 14.98325 × L) + 0.07623209
-	else if L ≤ 0.014:
-		V = 2.3069815 × L + 0.073059361
+<html>
+ <head>
+  <title>
+   Canon CLog
+  </title>
+  <meta content="Canon CLog" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="GoPro_ProTune.html" rel="next"/>
+  <link href="Blackmagic_Film.html" rel="previous"/>
+  <link href="Common_RGB_Color_Encodings.html" rel="up"/>
+  <link href="GoPro_ProTune.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION006112000000000000000">
+    Canon CLog
+   </a>
+  </h2>
+  <p>
+   Canon cameras offer a range of options for encoding curves and primaries, making for a very large number of permutations. Primaries can be selected from Cinema Gamut, Rec. 2020 and Rec. 709 (see sections above for the latter three). For the encoding curve, there is a choice of Canon Log 1, 2 and 3. It is important to ascertain which primaries and Canon Log variant were used when shooting, in order to linearize correctly and transform to the working color space. Many applications are unable to read the Canon metadata which specifies the recording primaries and encoding curve, so it can be useful to open the media in the Canon XF Utility, available from Canon&rsquo;s website, and make a note of the settings.
+  </p>
+  <p>
+   The latest iteration of Canon Log is Canon Log 3, for which the encoding function is:
+  </p>
+  <p>
+   if L &lt; -0.014:
+		V = &minus;0.42889912 &times; log10(1 - 14.98325 &times; L) + 0.07623209
+	else if L &le; 0.014:
+		V = 2.3069815 &times; L + 0.073059361
 	else:
-V =  0.42889912 × log10(1 + 14.98325 × L) + 0.069886632
-</BIG>
-<P>
-<BIG CLASS="LARGE">However, this is complicated by the fact that this formula takes as its input what Canon refers to as “linear IRE”. This is given by dividing the more commonly used reflectance value by 0.9. Thus 18
-</BIG>
-<P>
-<BIG CLASS="LARGE">Bearing the above in mind, the decoding function for Canon Log 3 “IRE” to “linear IRE” is:
-</BIG>
-<P>
-<BIG CLASS="LARGE">if V &lt; 0.04076162:
-		L = - (10(0.07623209 − V ) / 0.42889912 − 1) / 14.98325
-	else if V ≤ 0.105357102:
+V =  0.42889912 &times; log10(1 + 14.98325 &times; L) + 0.069886632
+  </p>
+  <p>
+   However, this is complicated by the fact that this formula takes as its input what Canon refers to as &ldquo;linear IRE&rdquo;. This is given by dividing the more commonly used reflectance value by 0.9. Thus 18
+  </p>
+  <p>
+   Bearing the above in mind, the decoding function for Canon Log 3 &ldquo;IRE&rdquo; to &ldquo;linear IRE&rdquo; is:
+  </p>
+  <p>
+   if V &lt; 0.04076162:
+		L = - (10(0.07623209 &minus; V ) / 0.42889912 &minus; 1) / 14.98325
+	else if V &le; 0.105357102:
 		L = (V - 0.073059361) / 2.3069815
 	else:
-		L = (10( V − 0.069886632 ) / 0.42889912 − 1) / 14.98325
-</BIG>
-<P>
-<BIG CLASS="LARGE">Red
+		L = (10( V &minus; 0.069886632 ) / 0.42889912 &minus; 1) / 14.98325
+  </p>
+  <p>
+   Red
 Green
 Blue
 White Point
@@ -88,33 +218,56 @@ White Point
 0.170, 1.140
 0.080, -0.100
 0.3127, 0.3290 (D65)
-</BIG>
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2273"
-  HREF="GoPro_ProTune.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2269"
-  HREF="Common_RGB_Color_Encodings_.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2263"
-  HREF="Blackmagic_Film.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2271"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2274"
-  HREF="GoPro_ProTune.html">GoPro ProTune</A>
-<B> Up:</B> <A NAME="tex2html2270"
-  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
-<B> Previous:</B> <A NAME="tex2html2264"
-  HREF="Blackmagic_Film.html">Blackmagic Film</A>
- &nbsp; <B>  <A NAME="tex2html2272"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="GoPro_ProTune.html" name="tex2html2273">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Common_RGB_Color_Encodings.html" name="tex2html2269">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="Blackmagic_Film.html" name="tex2html2263">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html2271">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="GoPro_ProTune.html" name="tex2html2274">
+    GoPro ProTune
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Common_RGB_Color_Encodings.html" name="tex2html2270">
+    Common RGB Color Encodings
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="Blackmagic_Film.html" name="tex2html2264">
+    Blackmagic Film
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html2272">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

@@ -1,97 +1,250 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>Colour Science for Python</TITLE>
-<META NAME="description" CONTENT="Colour Science for Python">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="next" HREF="LUTs_Transforms.html">
-<LINK REL="previous" HREF="OpenColorIO_OCIO.html">
-<LINK REL="up" HREF="Appendix.html">
-<LINK REL="next" HREF="LUTs_Transforms.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2379"
-  HREF="LUTs_Transforms.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2375"
-  HREF="Appendix.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2369"
-  HREF="OpenColorIO_OCIO.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2377"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2380"
-  HREF="LUTs_Transforms.html">LUTs and Transforms</A>
-<B> Up:</B> <A NAME="tex2html2376"
-  HREF="Appendix.html">Appendix</A>
-<B> Previous:</B> <A NAME="tex2html2370"
-  HREF="OpenColorIO_OCIO.html">OpenColorIO (OCIO)</A>
- &nbsp; <B>  <A NAME="tex2html2378"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H1><A NAME="SECTION00630000000000000000">
-Colour Science for Python</A>
-</H1>
-<P>
-<BIG CLASS="LARGE">Colour Science for Python (Colour) is an open source Python package, freely available under the New BSD License, implementing a wide range of transforms and algorithms related to color science. It is managed by Thomas Mansencal, one of the authors of this paper, and includes code contributed by color scientists and experts from academia and VFX facilities around the world. The list of functions included is constantly growing, and users are encouraged to make suggestions for any gaps that they perceive in the coverage.
-</BIG>
-<P>
-<BIG CLASS="LARGE">While some of the modules are quite specialized and may not be relevant to day to day tasks for anybody other than those involved in high-end color research, there are many functions which are extremely useful for constructing and testing image processing pipelines, and visualizing data. Utility functions are included for reading and writing image files, and almost all the functions are written to process n-dimensional arrays of data in parallel using NumPy. Where processing image sequences directly in Python with Colour is not practical, transforms can be baked into LUTs (see the following section) for use in other applications and real-time systems.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The plotting module can create diagrams of color spaces and image data in a variety of forms; most of the diagrams in this document were created using Colour.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Colour always tries to follow the naming conventions and approach of the relevant literature, and as such is a comprehensive resource of information on the state of the art in color science and image processing. Tabular data from a wide range of sources is included, such as spectral power distributions, color matching functions, and Pointer’s gamut. Simply reading the code and documentation of Colour can be very educational, even if implementing image processing using other approaches.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The Colour website hosts Jupyter notebooks on a variety of topics, demonstrating uses of the modules, and discussing some of the derivations of the data included. There are also various projects built using Colour, such as an implementation for Nuke, and utilities for merging and manipulating HDRI image captures.
-</BIG>
-<P>
-<BIG CLASS="LARGE"></BIG>
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2379"
-  HREF="LUTs_Transforms.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2375"
-  HREF="Appendix.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2369"
-  HREF="OpenColorIO_OCIO.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2377"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2380"
-  HREF="LUTs_Transforms.html">LUTs and Transforms</A>
-<B> Up:</B> <A NAME="tex2html2376"
-  HREF="Appendix.html">Appendix</A>
-<B> Previous:</B> <A NAME="tex2html2370"
-  HREF="OpenColorIO_OCIO.html">OpenColorIO (OCIO)</A>
- &nbsp; <B>  <A NAME="tex2html2378"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+<html>
+ <head>
+  <title>
+   Colour Science for Python
+  </title>
+  <meta content="Colour Science for Python" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="LUTs_Transforms.html" rel="next"/>
+  <link href="OpenColorIO_OCIO.html" rel="previous"/>
+  <link href="Appendix.html" rel="up"/>
+  <link href="LUTs_Transforms.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h1>
+   <a name="SECTION00630000000000000000">
+    Colour Science for Python
+   </a>
+  </h1>
+  <p>
+   Colour Science for Python (Colour) is an open source Python package, freely available under the New BSD License, implementing a wide range of transforms and algorithms related to color science. It is managed by Thomas Mansencal, one of the authors of this paper, and includes code contributed by color scientists and experts from academia and VFX facilities around the world. The list of functions included is constantly growing, and users are encouraged to make suggestions for any gaps that they perceive in the coverage.
+  </p>
+  <p>
+   While some of the modules are quite specialized and may not be relevant to day to day tasks for anybody other than those involved in high-end color research, there are many functions which are extremely useful for constructing and testing image processing pipelines, and visualizing data. Utility functions are included for reading and writing image files, and almost all the functions are written to process n-dimensional arrays of data in parallel using NumPy. Where processing image sequences directly in Python with Colour is not practical, transforms can be baked into LUTs (see the following section) for use in other applications and real-time systems.
+  </p>
+  <p>
+   The plotting module can create diagrams of color spaces and image data in a variety of forms; most of the diagrams in this document were created using Colour.
+  </p>
+  <p>
+   Colour always tries to follow the naming conventions and approach of the relevant literature, and as such is a comprehensive resource of information on the state of the art in color science and image processing. Tabular data from a wide range of sources is included, such as spectral power distributions, color matching functions, and Pointer&acirc;&euro;&trade;s gamut. Simply reading the code and documentation of Colour can be very educational, even if implementing image processing using other approaches.
+  </p>
+  <p>
+   The Colour website hosts Jupyter notebooks on a variety of topics, demonstrating uses of the modules, and discussing some of the derivations of the data included. There are also various projects built using Colour, such as an implementation for Nuke, and utilities for merging and manipulating HDRI image captures.
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="LUTs_Transforms.html" name="tex2html2379">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Appendix.html" name="tex2html2375">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="OpenColorIO_OCIO.html" name="tex2html2369">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html2377">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="LUTs_Transforms.html" name="tex2html2380">
+    LUTs and Transforms
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Appendix.html" name="tex2html2376">
+    Appendix
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="OpenColorIO_OCIO.html" name="tex2html2370">
+    OpenColorIO (OCIO)
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html2378">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

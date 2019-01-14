@@ -1,97 +1,227 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>Sony SLog</TITLE>
-<META NAME="description" CONTENT="Sony SLog">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="next" HREF="ACEScc.html">
-<LINK REL="previous" HREF="RED_Log3G10.html">
-<LINK REL="up" HREF="Common_RGB_Color_Encodings_.html">
-<LINK REL="next" HREF="ACEScc.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html2321"
-  HREF="ACEScc.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2317"
-  HREF="Common_RGB_Color_Encodings_.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2311"
-  HREF="RED_Log3G10.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2319"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2322"
-  HREF="ACEScc.html">ACEScc</A>
-<B> Up:</B> <A NAME="tex2html2318"
-  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
-<B> Previous:</B> <A NAME="tex2html2312"
-  HREF="RED_Log3G10.html">RED Log3G10</A>
- &nbsp; <B>  <A NAME="tex2html2320"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION006116000000000000000">
-Sony SLog</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">Sony has offered a range of encoding curves in their cameras, with the latest being S-Log3. The original S-Log is now deprecated, and not something likely to be seen on current productions. S-Log2 and S-Log3 are still both current. S-Log2 is normally paired with S-Gamut primaries, whereas S-Log3 may be paired either with S-Gamut3 or S-Gamut3.Cine primaries. S-Gamut and S-Gamut3 use the same wide gamut primaries; it is simply that the matrices used in the camera to transform to them from the sensor native color space are different. As has been mentioned previously in Section 3.3.1, a 3x3 camera matrix can only ever be an approximation of the ideal transform to set of encoding primaries. S-Gamut and S-Gamut3 use different optimizations. S-Gamut3 has the additional advantage that the transform to ACES is the same at all color temperatures, whereas for S-Gamut, two Input Transforms are provided by Sony for use under tungsten and daylight. S-Gamut3.Cine is slightly less wide gamut than S-Gamut3, and was designed to be more closely aligned with P3 primaries, making manual grading to P3 simpler. In a scene-referred workflow there is no benefit to this, and indeed recording in S-Gamut3.Cine will clip some colors which may be present in the scene, compared to S-Gamut3. Nonetheless, many people use S-Gamut3.Cine as the default camera setting, so it is important to ascertain which was used. As with Canon footage, using Sony’s own software can be a useful way of reading metadata from the files which might not otherwise be available. Some Sony cameras also include XML files with the media, which can provide useful information.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The S-Log2 encoding function is:
-</BIG>
-<P>
-<BIG CLASS="LARGE">if L ≥ 0:
-		V = (64 + 876×(0.432699 × log10(155 × L / 197.1 + 0.037584) + 0.646596)) / 1023
+<html>
+ <head>
+  <title>
+   Sony SLog
+  </title>
+  <meta content="Sony SLog" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="ACEScc.html" rel="next"/>
+  <link href="RED_Log3G10.html" rel="previous"/>
+  <link href="Common_RGB_Color_Encodings.html" rel="up"/>
+  <link href="ACEScc.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION006116000000000000000">
+    Sony SLog
+   </a>
+  </h2>
+  <p>
+   Sony has offered a range of encoding curves in their cameras, with the latest being S-Log3. The original S-Log is now deprecated, and not something likely to be seen on current productions. S-Log2 and S-Log3 are still both current. S-Log2 is normally paired with S-Gamut primaries, whereas S-Log3 may be paired either with S-Gamut3 or S-Gamut3.Cine primaries. S-Gamut and S-Gamut3 use the same wide gamut primaries; it is simply that the matrices used in the camera to transform to them from the sensor native color space are different. As has been mentioned previously in Section 3.3.1, a 3x3 camera matrix can only ever be an approximation of the ideal transform to set of encoding primaries. S-Gamut and S-Gamut3 use different optimizations. S-Gamut3 has the additional advantage that the transform to ACES is the same at all color temperatures, whereas for S-Gamut, two Input Transforms are provided by Sony for use under tungsten and daylight. S-Gamut3.Cine is slightly less wide gamut than S-Gamut3, and was designed to be more closely aligned with P3 primaries, making manual grading to P3 simpler. In a scene-referred workflow there is no benefit to this, and indeed recording in S-Gamut3.Cine will clip some colors which may be present in the scene, compared to S-Gamut3. Nonetheless, many people use S-Gamut3.Cine as the default camera setting, so it is important to ascertain which was used. As with Canon footage, using Sony&rsquo;s own software can be a useful way of reading metadata from the files which might not otherwise be available. Some Sony cameras also include XML files with the media, which can provide useful information.
+  </p>
+  <p>
+   The S-Log2 encoding function is:
+  </p>
+  <p>
+   if L &ge; 0:
+		V = (64 + 876&times;(0.432699 &times; log10(155 &times; L / 197.1 + 0.037584) + 0.646596)) / 1023
 	else:
-		V = (64 + 876 × (L × 3.53881278538813 / 0.9 + 0.030001222851889303)) / 1023
-</BIG>
-<P>
-<BIG CLASS="LARGE">The S-Log3 encoding function is:
-</BIG>
-<P>
-<BIG CLASS="LARGE">if L ≥ 0.01125:
-		V = (420 + log10((L + 0.01) / 0.19) × 261.5) / 1023
+		V = (64 + 876 &times; (L &times; 3.53881278538813 / 0.9 + 0.030001222851889303)) / 1023
+  </p>
+  <p>
+   The S-Log3 encoding function is:
+  </p>
+  <p>
+   if L &ge; 0.01125:
+		V = (420 + log10((L + 0.01) / 0.19) &times; 261.5) / 1023
 	else:
-		V = (L × 76.2102946929 / 0.01125 + 95) / 1023
-</BIG>
-<P>
-<BIG CLASS="LARGE">The S-Log2 decoding function is:
-</BIG>
-<P>
-<BIG CLASS="LARGE">if V ≥ (64 + 0.030001222851889303 × 876) / 1023:
-		L = 197.1×(10((V×1023 – 64) / 876 – 0.646596) / 0.432699  – 0.037584) / 155
+		V = (L &times; 76.2102946929 / 0.01125 + 95) / 1023
+  </p>
+  <p>
+   The S-Log2 decoding function is:
+  </p>
+  <p>
+   if V &ge; (64 + 0.030001222851889303 &times; 876) / 1023:
+		L = 197.1&times;(10((V&times;1023 &ndash; 64) / 876 &ndash; 0.646596) / 0.432699  &ndash; 0.037584) / 155
 	else:
-		L = 0.9×( (V×1023 − 64) / 876 – 0.030001222851889303 ) / 3.53881278538813
-</BIG>
-<P>
-<BIG CLASS="LARGE">The S-Log3 decoding function is:
-</BIG>
-<P>
-<BIG CLASS="LARGE">if V ≥ 171.2102946929 / 1023:
-		L = 10(V × 1023 − 420) / 261.5 × 0.19 − 0.01
+		L = 0.9&times;( (V&times;1023 &minus; 64) / 876 &ndash; 0.030001222851889303 ) / 3.53881278538813
+  </p>
+  <p>
+   The S-Log3 decoding function is:
+  </p>
+  <p>
+   if V &ge; 171.2102946929 / 1023:
+		L = 10(V &times; 1023 &minus; 420) / 261.5 &times; 0.19 &minus; 0.01
 	else:
-		L = (V × 1023 – 95) × 0.01125000 / 76.2102946929
-</BIG>
-<P>
-<BIG CLASS="LARGE">Red
+		L = (V &times; 1023 &ndash; 95) &times; 0.01125000 / 76.2102946929
+  </p>
+  <p>
+   Red
 Green
 Blue
 White Point
@@ -99,9 +229,9 @@ White Point
 0.140, 0.855
 0.100, -0.050
 0.3127, 0.3290 (D65)
-</BIG>
-<P>
-<BIG CLASS="LARGE">Red
+  </p>
+  <p>
+   Red
 Green
 Blue
 White Point
@@ -109,33 +239,56 @@ White Point
 0.225, 0.800
 0.089, -0.087
 0.3127, 0.3290 (D65)
-</BIG>
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html2321"
-  HREF="ACEScc.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html2317"
-  HREF="Common_RGB_Color_Encodings_.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html2311"
-  HREF="RED_Log3G10.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html2319"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html2322"
-  HREF="ACEScc.html">ACEScc</A>
-<B> Up:</B> <A NAME="tex2html2318"
-  HREF="Common_RGB_Color_Encodings_.html">Common RGB Color Encodings:</A>
-<B> Previous:</B> <A NAME="tex2html2312"
-  HREF="RED_Log3G10.html">RED Log3G10</A>
- &nbsp; <B>  <A NAME="tex2html2320"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="ACEScc.html" name="tex2html2321">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Common_RGB_Color_Encodings.html" name="tex2html2317">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="RED_Log3G10.html" name="tex2html2311">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html2319">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="ACEScc.html" name="tex2html2322">
+    ACEScc
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Common_RGB_Color_Encodings.html" name="tex2html2318">
+    Common RGB Color Encodings
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="RED_Log3G10.html" name="tex2html2312">
+    RED Log3G10
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html2320">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

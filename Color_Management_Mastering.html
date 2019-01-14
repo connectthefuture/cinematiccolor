@@ -1,131 +1,291 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>Color Management for Mastering</TITLE>
-<META NAME="description" CONTENT="Color Management for Mastering">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="previous" HREF="HDR_Displays.html">
-<LINK REL="up" HREF="Critical_Monitoring.html">
-<LINK REL="next" HREF="Gamut_Mapping.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1963"
-  HREF="Gamut_Mapping.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1959"
-  HREF="Critical_Monitoring.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1955"
-  HREF="HDR_Displays.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1961"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1964"
-  HREF="Gamut_Mapping.html">Gamut Mapping</A>
-<B> Up:</B> <A NAME="tex2html1960"
-  HREF="Critical_Monitoring.html">Critical Monitoring</A>
-<B> Previous:</B> <A NAME="tex2html1956"
-  HREF="HDR_Displays.html">HDR Displays</A>
- &nbsp; <B>  <A NAME="tex2html1962"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION00574000000000000000">
-Color Management for Mastering</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">Ideally, a single Master is created and all versions taken from it using metadata, transforms or trims. To achieve the best results the Master should be created and approved in the highest dynamic range and widest color gamut, but even then care is needed to map the Master data to each version. A poor mapping may produce artifacts that range from minor to catastrophic but is always avoidable.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Sometimes it is unavoidable that the first Master is not the ideal dynamic range or color gamut and sometimes it is limited in other ways, such as bit depth or lossy compression. In this situation, the best route to delivering other versions is to go back to the project file and remove the embedded limitations of the first Master. A typical problem in this scenario is managing expectations when approval has been given for a Master of limited range. Some clients insist on a faithful transition between formats, even if the limitations of the approved Master are carried over to the other versions. Others are more open minded and prefer to forego absolute accuracy in favor of higher quality versions.
-</BIG>
-<P>
-<BIG CLASS="LARGE">When media is used in a scene-referred workflow it is important to manage detail and artistic intent through the pipeline. The following details from the Disney movie “Moana” illustrate how color management is used at each stage so that tonal information is preserved throughout. 
-</BIG>
-<P>
-<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+<html>
+ <head>
+  <title>
+   Color Management for Mastering
+  </title>
+  <meta content="Color Management for Mastering" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="HDR_Displays.html" rel="previous"/>
+  <link href="Critical_Monitoring.html" rel="up"/>
+  <link href="Gamut_Mapping.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION00574000000000000000">
+    Color Management for Mastering
+   </a>
+  </h2>
+  <p>
+   Ideally, a single Master is created and all versions taken from it using metadata, transforms or trims. To achieve the best results the Master should be created and approved in the highest dynamic range and widest color gamut, but even then care is needed to map the Master data to each version. A poor mapping may produce artifacts that range from minor to catastrophic but is always avoidable.
+  </p>
+  <p>
+   Sometimes it is unavoidable that the first Master is not the ideal dynamic range or color gamut and sometimes it is limited in other ways, such as bit depth or lossy compression. In this situation, the best route to delivering other versions is to go back to the project file and remove the embedded limitations of the first Master. A typical problem in this scenario is managing expectations when approval has been given for a Master of limited range. Some clients insist on a faithful transition between formats, even if the limitations of the approved Master are carried over to the other versions. Others are more open minded and prefer to forego absolute accuracy in favor of higher quality versions.
+  </p>
+  <p>
+   When media is used in a scene-referred workflow it is important to manage detail and artistic intent through the pipeline. The following details from the Disney movie &ldquo;Moana&rdquo; illustrate how color management is used at each stage so that tonal information is preserved throughout.
+  </p>
+  <p>
+   Image &copy;Disney. All Rights Reserved.
 This is a representation of an extract from the scene-referred linear EXR source. Since there is no tone mapping much of the tonal information in the shadows and the highlights appears clipped. It is a useful scene-referred image, but hard to monitor in a meaningful way without tone mapping and the display transform approved for the project.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+  </p>
+  <p>
+   Image &copy;Disney. All Rights Reserved.
 This is a representation of the same scene-referred linear EXR with 4 stops less exposure. Most of the image is now close to the display black point, but of course still, present in the EXR file. Dropping the exposure shows that there is good highlight information in the image and that the dynamic range is greater than the display can handle without some tone mapping or clipping.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
-This representation has 2.2 gamma applied. Gamma brings the shadow detail into range on a Rec. 709 display, but information above 1.0 is still clipped. This is evident in the eye of the fire goddess, Te Fiti, the brighter parts of the sea and the sky. 
-</BIG>
-<P>
-<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
-This is the EXR file with 2.2 gamma and 4 stops less exposure. Again it reveals that there is highlight information but it is a poor representation of the artistic intent. 
-</BIG>
-<P>
-<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+  </p>
+  <p>
+   Image &copy;Disney. All Rights Reserved.
+This representation has 2.2 gamma applied. Gamma brings the shadow detail into range on a Rec. 709 display, but information above 1.0 is still clipped. This is evident in the eye of the fire goddess, Te Fiti, the brighter parts of the sea and the sky.
+  </p>
+  <p>
+   Image &copy;Disney. All Rights Reserved.
+This is the EXR file with 2.2 gamma and 4 stops less exposure. Again it reveals that there is highlight information but it is a poor representation of the artistic intent.
+  </p>
+  <p>
+   Image &copy;Disney. All Rights Reserved.
 Here the image has had a PQ EOTF added and the color gamut converted to Rec. 2020. Some tone-mapping has also been applied. On an HDR display the full impact of the color and dynamic range are visible, but the image looks flat and desaturated on a 709 display. Color encoding to high-dynamic range and a wider color gamut uses lower code values, with less color separation, than would be used by Rec. 709 for the same display colorimetry. In this example, the detail in the highlights of the water is retained, but the detail in the eye of the lava creature has been limited for artistic reasons. The scene-referred linear EXR clearly has more detail in tone and color than is shown in this PQ image and the PQ  Rec. 2020 encoding certainly has the capability to show that detail. However, the effect on the final audience is not based merely on a technical transform and the colorist must consider the emotional response too. The important factor is that an informed decision is only made if the detail is present in the source. If there was no detail in the original EXR then the more limited version is the only option and that could impact the look of other scenes or even the whole project.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+  </p>
+  <p>
+   Image &copy;Disney. All Rights Reserved.
 This is a colorimetric Rec. 709 transform with 2.2 gamma of the PQ Rec. 2020 version. Again, this results in clipping, not just in the eye, but also the sea and sky, as it uses picture information from only the lowest part of the HDR range. The clipping goes beyond the white highlights but also manifests as over-saturated loss of detail in the blue of the wave.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+  </p>
+  <p>
+   Image &copy;Disney. All Rights Reserved.
 This image is also from a Rec. 709 2.2 gamma export, but this time using creative tone mapping. The artistic intent of the bright eye is retained, even to the point of a slight yellow tint. This version retains all the detail of the sea tonal range and color separation without clipping.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Image ©Disney. All Rights Reserved.
+  </p>
+  <p>
+   Image &copy;Disney. All Rights Reserved.
 A butterfly wipe between the tone mapped version (top) and the clipped transform (bottom) shows the benefit of mapping over blind transforms. Sometimes tone mapping is achieved with mathematical algorithms and sometimes this level of control is the domain of the colorist.
-</BIG>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1965"
-  HREF="Gamut_Mapping.html">Gamut Mapping</A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1963"
-  HREF="Gamut_Mapping.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1959"
-  HREF="Critical_Monitoring.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1955"
-  HREF="HDR_Displays.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1961"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1964"
-  HREF="Gamut_Mapping.html">Gamut Mapping</A>
-<B> Up:</B> <A NAME="tex2html1960"
-  HREF="Critical_Monitoring.html">Critical Monitoring</A>
-<B> Previous:</B> <A NAME="tex2html1956"
-  HREF="HDR_Displays.html">HDR Displays</A>
- &nbsp; <B>  <A NAME="tex2html1962"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+   <br/>
+  </p>
+  <hr/>
+  <!--Table of Child-Links-->
+  <a name="CHILD_LINKS">
+   <strong>
+    Subsections
+   </strong>
+  </a>
+  <ul class="ChildLinks">
+   <li>
+    <a href="Gamut_Mapping.html" name="tex2html1965">
+     Gamut Mapping
+    </a>
+   </li>
+  </ul>
+  <!--End of Table of Child-Links-->
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="Gamut_Mapping.html" name="tex2html1963">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Critical_Monitoring.html" name="tex2html1959">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="HDR_Displays.html" name="tex2html1955">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html1961">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="Gamut_Mapping.html" name="tex2html1964">
+    Gamut Mapping
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Critical_Monitoring.html" name="tex2html1960">
+    Critical Monitoring
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="HDR_Displays.html" name="tex2html1956">
+    HDR Displays
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html1962">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

@@ -1,132 +1,305 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>Additive RGB Color Spaces</TITLE>
-<META NAME="description" CONTENT="Additive RGB Color Spaces">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="previous" HREF="Perceptually_Uniform_Color_.html">
-<LINK REL="up" HREF="Basic_Colorimetry.html">
-<LINK REL="next" HREF="Primaries.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html919"
-  HREF="Primaries.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html915"
-  HREF="Basic_Colorimetry.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html911"
-  HREF="Perceptually_Uniform_Color_.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html917"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html920"
-  HREF="Primaries.html">Primaries</A>
-<B> Up:</B> <A NAME="tex2html916"
-  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
-<B> Previous:</B> <A NAME="tex2html912"
-  HREF="Perceptually_Uniform_Color_.html">Perceptually Uniform Color Spaces</A>
- &nbsp; <B>  <A NAME="tex2html918"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION00438000000000000000">
-Additive RGB Color Spaces</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">Additive RGB color spaces are the color representation that most people interact with on a daily basis; our display technology is based on the additive mixing of 3 red, green and blue primaries.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The first RGB color space, CIE RGB, was created by Wright &amp; Guild (1931) when they performed their color matching experiments. The three monochromatic primary colors R, G, B used to match a test color at a single wavelength of light once plotted on the CIE 1931 Chromaticity Diagram, are located on the spectral locus and respectively have the following wavelengths: 700.0 nm, 546.1 nm, and 435.8 nm. sRGB is the ubiquitous RGB color space created by Hewlett Packard and Microsoft in 1996, standardized as IEC 61966-2-1:1999, in an attempt to define a standard color space for use with monitors, printers, and on the Internet. Many other RGB color spaces exist and are reviewed in the Appendix. This section of the document focuses instead on the components of an RGB color space and provides some disambiguation of terminology.
-</BIG>
-<P>
-<BIG CLASS="LARGE">It is common to see operators in digital content creation (DCC) applications or functions in various game engines, libraries, color processing tools labeled as "linear to sRGB". The consequence of poor wording is that people often don't understand that sRGB is probably more than a "linear to sRGB" operator or function. Some resources purport to explain how sRGB and linear color spaces differ.
+<html>
+ <head>
+  <title>
+   Additive RGB Color Spaces
+  </title>
+  <meta content="Additive RGB Color Spaces" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="Perceptually_Uniform_Color_.html" rel="previous"/>
+  <link href="Basic_Colorimetry.html" rel="up"/>
+  <link href="Primaries.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION00438000000000000000">
+    Additive RGB Color Spaces
+   </a>
+  </h2>
+  <p>
+   Additive RGB color spaces are the color representation that most people interact with on a daily basis; our display technology is based on the additive mixing of 3 red, green and blue primaries.
+  </p>
+  <p>
+   The first RGB color space, CIE RGB, was created by Wright &amp; Guild (1931) when they performed their color matching experiments. The three monochromatic primary colors R, G, B used to match a test color at a single wavelength of light once plotted on the CIE 1931 Chromaticity Diagram, are located on the spectral locus and respectively have the following wavelengths: 700.0 nm, 546.1 nm, and 435.8 nm. sRGB is the ubiquitous RGB color space created by Hewlett Packard and Microsoft in 1996, standardized as IEC 61966-2-1:1999, in an attempt to define a standard color space for use with monitors, printers, and on the Internet. Many other RGB color spaces exist and are reviewed in the Appendix. This section of the document focuses instead on the components of an RGB color space and provides some disambiguation of terminology.
+  </p>
+  <p>
+   It is common to see operators in digital content creation (DCC) applications or functions in various game engines, libraries, color processing tools labeled as "linear to sRGB". The consequence of poor wording is that people often don't understand that sRGB is probably more than a "linear to sRGB" operator or function. Some resources purport to explain how sRGB and linear color spaces differ.
 First and foremost, while the CIE RGB and sRGB color space gamuts are intrinsically representing radiometrically linear light values, their color component transfer functions are radically different: CIE RGB has no defined encoding and decoding color component transfer functions; they are considered to be linear; however sRGB adopts non-linear color encoding and decoding component transfer functions following a power law.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The confusion comes from the fact that generally, people don't mention which component of the additive RGB color space they are referring to. The following three components are required to fully specify an additive RGB color space:
-</BIG>
-<P>
-<BIG CLASS="LARGE">Primaries
+  </p>
+  <p>
+   The confusion comes from the fact that generally, people don't mention which component of the additive RGB color space they are referring to. The following three components are required to fully specify an additive RGB color space:
+  </p>
+  <p>
+   Primaries
 White point
 Color Component Transfer Functions
-</BIG>
-<P>
-<BIG CLASS="LARGE">Noticeably, the ISO 22028-1:2016 Standard defines an additive RGB color space as follows:
-</BIG>
-<P>
-<BIG CLASS="LARGE">Additive RGB color space
-</BIG>
-<P>
-<BIG CLASS="LARGE">Colorimetric color space having three color primaries (generally red, green and blue) such that CIE XYZ tristimulus values can be determined from the RGB color space values by forming a weighted combination of the CIE XYZ tristimulus values for the individual color primaries, where the weights are proportional to the radiometrically linear color space values for the corresponding color primaries.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Note 1 to entry: A simple linear 3 × 3 matrix transformation can be used to transform between CIE XYZ tristimulus values and the radiometrically linear color space values for an additive RGB color space.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Note 2 to entry: Additive RGB color spaces are defined by specifying the CIE chromaticity values for a set of additive RGB primaries and a color space white point, together with a color component transfer function.
-</BIG>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html921"
-  HREF="Primaries.html">Primaries</A>
-<LI><A NAME="tex2html922"
-  HREF="White_Point.html">White Point</A>
-<LI><A NAME="tex2html923"
-  HREF="Color_Component_Transfer_Fu.html">Color Component Transfer Functions</A>
-<UL>
-<LI><A NAME="tex2html924"
-  HREF="Encoding_Color_Component_Tr.html">Encoding Color Component Transfer Functions</A>
-<LI><A NAME="tex2html925"
-  HREF="Decoding_Color_Component_Tr.html">Decoding Color Component Transfer Functions</A>
-</UL></UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html919"
-  HREF="Primaries.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html915"
-  HREF="Basic_Colorimetry.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html911"
-  HREF="Perceptually_Uniform_Color_.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html917"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html920"
-  HREF="Primaries.html">Primaries</A>
-<B> Up:</B> <A NAME="tex2html916"
-  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
-<B> Previous:</B> <A NAME="tex2html912"
-  HREF="Perceptually_Uniform_Color_.html">Perceptually Uniform Color Spaces</A>
- &nbsp; <B>  <A NAME="tex2html918"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+   Noticeably, the ISO 22028-1:2016 Standard defines an additive RGB color space as follows:
+  </p>
+  <p>
+   Additive RGB color space
+  </p>
+  <p>
+   Colorimetric color space having three color primaries (generally red, green and blue) such that CIE XYZ tristimulus values can be determined from the RGB color space values by forming a weighted combination of the CIE XYZ tristimulus values for the individual color primaries, where the weights are proportional to the radiometrically linear color space values for the corresponding color primaries.
+  </p>
+  <p>
+   Note 1 to entry: A simple linear 3 &Atilde;&mdash; 3 matrix transformation can be used to transform between CIE XYZ tristimulus values and the radiometrically linear color space values for an additive RGB color space.
+  </p>
+  <p>
+   Note 2 to entry: Additive RGB color spaces are defined by specifying the CIE chromaticity values for a set of additive RGB primaries and a color space white point, together with a color component transfer function.
+  </p>
+  <p>
+   <br/>
+  </p>
+  <hr/>
+  <!--Table of Child-Links-->
+  <a name="CHILD_LINKS">
+   <strong>
+    Subsections
+   </strong>
+  </a>
+  <ul class="ChildLinks">
+   <li>
+    <a href="Primaries.html" name="tex2html921">
+     Primaries
+    </a>
+   </li>
+   <li>
+    <a href="White_Point.html" name="tex2html922">
+     White Point
+    </a>
+   </li>
+   <li>
+    <a href="Color_Component_Transfer_Fu.html" name="tex2html923">
+     Color Component Transfer Functions
+    </a>
+    <ul>
+     <li>
+      <a href="Encoding_Color_Component_Tr.html" name="tex2html924">
+       Encoding Color Component Transfer Functions
+      </a>
+     </li>
+     <li>
+      <a href="Decoding_Color_Component_Tr.html" name="tex2html925">
+       Decoding Color Component Transfer Functions
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <!--End of Table of Child-Links-->
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="Primaries.html" name="tex2html919">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Basic_Colorimetry.html" name="tex2html915">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="Perceptually_Uniform_Color_.html" name="tex2html911">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html917">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="Primaries.html" name="tex2html920">
+    Primaries
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Basic_Colorimetry.html" name="tex2html916">
+    Basic Colorimetry
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="Perceptually_Uniform_Color_.html" name="tex2html912">
+    Perceptually Uniform Color Spaces
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html918">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

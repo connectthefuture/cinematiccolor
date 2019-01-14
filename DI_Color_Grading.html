@@ -1,115 +1,281 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>DI Color Grading</TITLE>
-<META NAME="description" CONTENT="DI Color Grading">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="previous" HREF="Color_Managed_Scene_Referre.html">
-<LINK REL="up" HREF="DI_Grading.html">
-<LINK REL="next" HREF="DI_Grading_Tools.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html1864"
-  HREF="DI_Grading_Tools.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1860"
-  HREF="DI_Grading.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1856"
-  HREF="Color_Managed_Scene_Referre.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1862"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1865"
-  HREF="DI_Grading_Tools.html">DI Grading Tools</A>
-<B> Up:</B> <A NAME="tex2html1861"
-  HREF="DI_Grading.html">DI Grading</A>
-<B> Previous:</B> <A NAME="tex2html1857"
-  HREF="Color_Managed_Scene_Referre.html">Color Managed Scene Referred</A>
- &nbsp; <B>  <A NAME="tex2html1863"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION00564000000000000000">
-DI Color Grading</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">The final DI grade takes place after the conform, but often before picture lock. If possible the colorist starts the grade before VFX are ready and expects to add them to the conformed timeline along with further editorial changes. The grade has three main objectives. First, it must match consecutive scenes seamlessly, even though they may come from different sources or different color gamuts. Second, it is the final stage before delivery and the whole project, not just the images must look the best it can. Whilst the phase is known as DI grading, the DI colorist acts as a crucial QC of the finished master. The DI grade may be the only environment to have large, calibrated displays and might also be the first time that final audio, VFX, titles and composites are seen under critical monitoring conditions. In the ideal world, problems would be sent back to the appropriate team, but as red carpet day looms it is often the colorist who has to fix any remaining problems, even if those problems are sound sync, reflections of the crew in shot or errors in the credits. Thirdly, most important of all, the grade must enhance the concept by communicating emotion, environment and clarity. Like VFX, the best grades are often the least noticeable yet still manage to add depth to the narrative or content. Early on in the DI process, the colorist, editor and VFX departments collaborate and interact. A post-production supervisor might manage the interaction, but as deadlines loom, remaining changes are increasingly left for the colorist. It saves time and helps to keep things running smoothly if files are exchanged in an orderly way.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The project Look is designed to some degree in pre-production. In animation, the look is usually established quite early on. In games, the look evolves as the game develops. In DI grading the Look can be established and communicated through a common transform or show LUT or it might be left until the final DI grade itself. If the colorist is given access to the scene-referred source files and information on their color gamut, a well-managed color pipeline can and should be used through the final mastering stages. Raw camera captures usually contain sufficient metadata to identify their encoding and color space. However, if the files have already been encoded to a more manageable wrapper, ProRes, for example, problems can arise. Colorists often receive files that are either not scene-referred, or the information about their true origin has been lost along the way. When this happens, the colorist can only use experience and good judgment to grade the project and the opportunity to finish through a properly color managed workflow is often lost. If it is absolutely necessary to simplify the DI grade by working from a conformed source in a compressed wrapper format instead of the original source files it is crucial to preserve information about the source and history of  each shot and useful to ensure that all scenes are correctly transformed into the same scene referred working color space. Failure to do so can result in problems and a loss of quality that should have been easily avoided.
-</BIG>
-<P>
-<BIG CLASS="LARGE">When EXR source images or camera raw files are delivered for DI grading the established Look for standard dynamic range is used to begin the initial grade for digital cinema. The source images may be supplemented with additional matte images created by VFX that allow individual characters, or even specific elements like hair or eyes, to be isolated for color grading. Following the completion and approval of the digital cinema grade, a trim pass is performed for theatrical 3D exhibition. Typically this will involve an increase in contrast and saturation to compensate for the lower projection brightness in this environment. Next, a trim pass is performed for theatrical HDR. The standard range look is swapped out for a matching look with extended highlight range. Because theatrical HDR is capable of much darker blacks than standard digital cinema projection, black levels may be further adjusted during the trim pass to maintain appropriate levels of contrast. Rec. 709 for home deliverables is also derived from the digital cinema grade as a trim pass. In this case, a gamma adjustment is made for the change in the viewing environment. Also, the Rec. 709 color gamut is smaller than the digital cinema P3 gamut so some amount of gamut compression may be necessary to preserve image details that would otherwise clip. Lastly, a home HDR grade is performed using the digital grade as a starting point, but substituting an HDR look that targets the much brighter highlight range, color and shadow detail achievable on HDR televisions. The home HDR grade is followed by an analysis to generate HDR metadata. For deliverables that require dynamic metadata, such as Dolby Vision, the HDR master is reviewed by the colorist on different displays and further metadata adjustments recorded.
-</BIG>
-<P>
-<BIG CLASS="LARGE">There is a range of grading systems in use today, and very few of their tools are interchangeable with each other, let alone VFX software. This makes it a challenge for VFX teams to apply reversible transforms or to view accurate simulations of the DI grade without baking it in. The most common methods of previewing VFX are LUTs and CDL. Most color grading systems can export grades as a LUT, however, the limitations of LUTs apply. The two main limitations are that they apply changes to the whole image, with no ability to apply specific changes to selected areas of the image, and that they often clip or produce interpolation errors. See the Appendix 4.4 LUTs and Transforms for a more in-depth discussion. 
-</BIG>
-<P>
-<BIG CLASS="LARGE">Whenever possible, it is best to preview shots in a grading suite or theatrical environment as a confidence check. When there are multiple facilities contributing to different aspects of the show it eventually comes down to getting together in a color suite with a calibrated and controlled environment to ensure that all of the moving pieces do in fact work together. For example, if two VFX plates are cut together and one is slightly warmer, removing red would make a purple suit not match the following shot, so the purple needs to be adjusted separately. Adjusting individual elements through the use of mattes, keys and shapes is called secondary correction. This goes for the sky, skin tones, background and more, even without an overall change in direction of the Look. Often the Look continues to evolve after production and VFX right up to the finishing of the project, which happens in the grading suite.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Key Points
-</BIG>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html1866"
-  HREF="DI_Grading_Tools.html">DI Grading Tools</A>
-<UL>
-<LI><A NAME="tex2html1867"
-  HREF="External_Mattes.html">External Mattes</A>
-</UL>
-<BR>
-<LI><A NAME="tex2html1868"
-  HREF="DI_Grading_Workflows.html">DI Grading Workflows</A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html1864"
-  HREF="DI_Grading_Tools.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html1860"
-  HREF="DI_Grading.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html1856"
-  HREF="Color_Managed_Scene_Referre.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html1862"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html1865"
-  HREF="DI_Grading_Tools.html">DI Grading Tools</A>
-<B> Up:</B> <A NAME="tex2html1861"
-  HREF="DI_Grading.html">DI Grading</A>
-<B> Previous:</B> <A NAME="tex2html1857"
-  HREF="Color_Managed_Scene_Referre.html">Color Managed Scene Referred</A>
- &nbsp; <B>  <A NAME="tex2html1863"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+<html>
+ <head>
+  <title>
+   DI Color Grading
+  </title>
+  <meta content="DI Color Grading" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="Color_Managed_Scene_Referre.html" rel="previous"/>
+  <link href="DI_Grading.html" rel="up"/>
+  <link href="DI_Grading_Tools.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION00564000000000000000">
+    DI Color Grading
+   </a>
+  </h2>
+  <p>
+   The final DI grade takes place after the conform, but often before picture lock. If possible the colorist starts the grade before VFX are ready and expects to add them to the conformed timeline along with further editorial changes. The grade has three main objectives. First, it must match consecutive scenes seamlessly, even though they may come from different sources or different color gamuts. Second, it is the final stage before delivery and the whole project, not just the images must look the best it can. Whilst the phase is known as DI grading, the DI colorist acts as a crucial QC of the finished master. The DI grade may be the only environment to have large, calibrated displays and might also be the first time that final audio, VFX, titles and composites are seen under critical monitoring conditions. In the ideal world, problems would be sent back to the appropriate team, but as red carpet day looms it is often the colorist who has to fix any remaining problems, even if those problems are sound sync, reflections of the crew in shot or errors in the credits. Thirdly, most important of all, the grade must enhance the concept by communicating emotion, environment and clarity. Like VFX, the best grades are often the least noticeable yet still manage to add depth to the narrative or content. Early on in the DI process, the colorist, editor and VFX departments collaborate and interact. A post-production supervisor might manage the interaction, but as deadlines loom, remaining changes are increasingly left for the colorist. It saves time and helps to keep things running smoothly if files are exchanged in an orderly way.
+  </p>
+  <p>
+   The project Look is designed to some degree in pre-production. In animation, the look is usually established quite early on. In games, the look evolves as the game develops. In DI grading the Look can be established and communicated through a common transform or show LUT or it might be left until the final DI grade itself. If the colorist is given access to the scene-referred source files and information on their color gamut, a well-managed color pipeline can and should be used through the final mastering stages. Raw camera captures usually contain sufficient metadata to identify their encoding and color space. However, if the files have already been encoded to a more manageable wrapper, ProRes, for example, problems can arise. Colorists often receive files that are either not scene-referred, or the information about their true origin has been lost along the way. When this happens, the colorist can only use experience and good judgment to grade the project and the opportunity to finish through a properly color managed workflow is often lost. If it is absolutely necessary to simplify the DI grade by working from a conformed source in a compressed wrapper format instead of the original source files it is crucial to preserve information about the source and history of  each shot and useful to ensure that all scenes are correctly transformed into the same scene referred working color space. Failure to do so can result in problems and a loss of quality that should have been easily avoided.
+  </p>
+  <p>
+   When EXR source images or camera raw files are delivered for DI grading the established Look for standard dynamic range is used to begin the initial grade for digital cinema. The source images may be supplemented with additional matte images created by VFX that allow individual characters, or even specific elements like hair or eyes, to be isolated for color grading. Following the completion and approval of the digital cinema grade, a trim pass is performed for theatrical 3D exhibition. Typically this will involve an increase in contrast and saturation to compensate for the lower projection brightness in this environment. Next, a trim pass is performed for theatrical HDR. The standard range look is swapped out for a matching look with extended highlight range. Because theatrical HDR is capable of much darker blacks than standard digital cinema projection, black levels may be further adjusted during the trim pass to maintain appropriate levels of contrast. Rec. 709 for home deliverables is also derived from the digital cinema grade as a trim pass. In this case, a gamma adjustment is made for the change in the viewing environment. Also, the Rec. 709 color gamut is smaller than the digital cinema P3 gamut so some amount of gamut compression may be necessary to preserve image details that would otherwise clip. Lastly, a home HDR grade is performed using the digital grade as a starting point, but substituting an HDR look that targets the much brighter highlight range, color and shadow detail achievable on HDR televisions. The home HDR grade is followed by an analysis to generate HDR metadata. For deliverables that require dynamic metadata, such as Dolby Vision, the HDR master is reviewed by the colorist on different displays and further metadata adjustments recorded.
+  </p>
+  <p>
+   There is a range of grading systems in use today, and very few of their tools are interchangeable with each other, let alone VFX software. This makes it a challenge for VFX teams to apply reversible transforms or to view accurate simulations of the DI grade without baking it in. The most common methods of previewing VFX are LUTs and CDL. Most color grading systems can export grades as a LUT, however, the limitations of LUTs apply. The two main limitations are that they apply changes to the whole image, with no ability to apply specific changes to selected areas of the image, and that they often clip or produce interpolation errors. See the Appendix 4.4 LUTs and Transforms for a more in-depth discussion.
+  </p>
+  <p>
+   Whenever possible, it is best to preview shots in a grading suite or theatrical environment as a confidence check. When there are multiple facilities contributing to different aspects of the show it eventually comes down to getting together in a color suite with a calibrated and controlled environment to ensure that all of the moving pieces do in fact work together. For example, if two VFX plates are cut together and one is slightly warmer, removing red would make a purple suit not match the following shot, so the purple needs to be adjusted separately. Adjusting individual elements through the use of mattes, keys and shapes is called secondary correction. This goes for the sky, skin tones, background and more, even without an overall change in direction of the Look. Often the Look continues to evolve after production and VFX right up to the finishing of the project, which happens in the grading suite.
+  </p>
+  <p>
+   Key Points
+  </p>
+  <p>
+   <br/>
+  </p>
+  <hr/>
+  <!--Table of Child-Links-->
+  <a name="CHILD_LINKS">
+   <strong>
+    Subsections
+   </strong>
+  </a>
+  <ul class="ChildLinks">
+   <li>
+    <a href="DI_Grading_Tools.html" name="tex2html1866">
+     DI Grading Tools
+    </a>
+    <ul>
+     <li>
+      <a href="External_Mattes.html" name="tex2html1867">
+       External Mattes
+      </a>
+     </li>
+    </ul>
+    <br/>
+   </li>
+   <li>
+    <a href="DI_Grading_Workflows.html" name="tex2html1868">
+     DI Grading Workflows
+    </a>
+   </li>
+  </ul>
+  <!--End of Table of Child-Links-->
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="DI_Grading_Tools.html" name="tex2html1864">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="DI_Grading.html" name="tex2html1860">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="Color_Managed_Scene_Referre.html" name="tex2html1856">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html1862">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="DI_Grading_Tools.html" name="tex2html1865">
+    DI Grading Tools
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="DI_Grading.html" name="tex2html1861">
+    DI Grading
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="Color_Managed_Scene_Referre.html" name="tex2html1857">
+    Color Managed Scene Referred
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html1863">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

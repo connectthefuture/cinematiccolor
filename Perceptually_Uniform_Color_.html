@@ -1,124 +1,277 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>Perceptually Uniform Color Spaces and Color Difference</TITLE>
-<META NAME="description" CONTENT="Perceptually Uniform Color Spaces and Color Difference">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="next" HREF="Additive_RGB_Color_Spaces.html">
-<LINK REL="previous" HREF="CIE_xyY_Color_Space_Chromat.html">
-<LINK REL="up" HREF="Basic_Colorimetry.html">
-<LINK REL="next" HREF="Additive_RGB_Color_Spaces.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html909"
-  HREF="Additive_RGB_Color_Spaces.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html905"
-  HREF="Basic_Colorimetry.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html899"
-  HREF="CIE_xyY_Color_Space_Chromat.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html907"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html910"
-  HREF="Additive_RGB_Color_Spaces.html">Additive RGB Color Spaces</A>
-<B> Up:</B> <A NAME="tex2html906"
-  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
-<B> Previous:</B> <A NAME="tex2html900"
-  HREF="CIE_xyY_Color_Space_Chromat.html">CIE xyY Color Space</A>
- &nbsp; <B>  <A NAME="tex2html908"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H2><A NAME="SECTION00437000000000000000">
-Perceptually Uniform Color Spaces and Color Difference</A>
-</H2>
-<P>
-<BIG CLASS="LARGE">Although it is not immediately apparent, the chromaticity diagram is a very poor representation of our color perception. Distances between colors in the CIE xyY color space do not directly relate to their apparent perceptual differences. Two adjacent colors may be perceived as different, while colors far apart may be indistinguishable. The degree to which a given color space accurately maps geometric distance to perceptual distance is referred to as its level of perceptual uniformity.
-</BIG>
-<P>
-<BIG CLASS="LARGE">MacAdam (1942) ellipses, i.e. indistinguishable color regions, plotted in the CIE 1931 chromaticity diagram and the CIE 1976 UCS chromaticity diagram with improved perceptual uniformity: the ellipses are rounder. Note how the green region of the CIE 1931 chromaticity diagram is highly stretched compared to the same region in the CIE 1976 UCS chromaticity diagram or compared to the blue region in both diagrams. An ideal color space would transform the ellipses into circles. Note that the ellipses axes are 10 times their actual length and that it is possible to generate in-between ellipses by interpolation. Data from Table 2(5.4.1) in Wyszecki, G., &amp; Stiles, W. S. (2000). Color Science: Concepts and Methods, Quantitative Data and Formulae. Wiley. ISBN:978-0471399186
-</BIG>
-<P>
-<BIG CLASS="LARGE">Perceptual uniformity can be a desirable quality for a color space: it supports accurate color differences and lightness prediction. A perceptually uniform color space improves performance of various image processing algorithms such as lossy image compression, denoising, segmentation or device characterisation, image quality modeling and color appearance modeling.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Gamut mapping, the process by which colors lying outside a gamut are mapped inside it, is preferably performed in a perceptually uniform color space because the correlation between the perceptual attributes is reduced and thus hue is minimally affected when the lightness and chroma attributes are individually adjusted to reduce the gamut size.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The non-uniformity of the CIE 1931 Chromaticity Diagram led to the adoption by the CIE in 1960 of the uniform color space devised by MacAdam (1937). The CIE 1960 Uniform Color Space (UCS) is nowadays primarily used to represent the correlated color temperature (CCT) of light sources or illuminants as the isolines are perpendicular to the Planckian locus. The isolines represent delta uv: for a given CCT and its corresponding color, increasing or decreasing delta uv will bias the color toward green or magenta. The tint control in white balancing algorithms is effectively delta uv scaled by a constant.
-</BIG>
-<P>
-<BIG CLASS="LARGE">CIE 1960 UCS Chromaticity Diagram with Planckian Locus and perpendicular Iso-Temperature lines.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Conversion from tristimulus values to CIE 1960 UCS color space UVW values is performed as follows:
-UVW = ⅔ × X, Y, ½ × (-X + 3 × Y + Z)
+<html>
+ <head>
+  <title>
+   Perceptually Uniform Color Spaces and Color Difference
+  </title>
+  <meta content="Perceptually Uniform Color Spaces and Color Difference" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="Additive_RGB_Color_Spaces.html" rel="next"/>
+  <link href="CIE_xyY_Color_Space_Chromat.html" rel="previous"/>
+  <link href="Basic_Colorimetry.html" rel="up"/>
+  <link href="Additive_RGB_Color_Spaces.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h2>
+   <a name="SECTION00437000000000000000">
+    Perceptually Uniform Color Spaces and Color Difference
+   </a>
+  </h2>
+  <p>
+   Although it is not immediately apparent, the chromaticity diagram is a very poor representation of our color perception. Distances between colors in the CIE xyY color space do not directly relate to their apparent perceptual differences. Two adjacent colors may be perceived as different, while colors far apart may be indistinguishable. The degree to which a given color space accurately maps geometric distance to perceptual distance is referred to as its level of perceptual uniformity.
+  </p>
+  <p>
+   MacAdam (1942) ellipses, i.e. indistinguishable color regions, plotted in the CIE 1931 chromaticity diagram and the CIE 1976 UCS chromaticity diagram with improved perceptual uniformity: the ellipses are rounder. Note how the green region of the CIE 1931 chromaticity diagram is highly stretched compared to the same region in the CIE 1976 UCS chromaticity diagram or compared to the blue region in both diagrams. An ideal color space would transform the ellipses into circles. Note that the ellipses axes are 10 times their actual length and that it is possible to generate in-between ellipses by interpolation. Data from Table 2(5.4.1) in Wyszecki, G., &amp; Stiles, W. S. (2000). Color Science: Concepts and Methods, Quantitative Data and Formulae. Wiley. ISBN:978-0471399186
+  </p>
+  <p>
+   Perceptual uniformity can be a desirable quality for a color space: it supports accurate color differences and lightness prediction. A perceptually uniform color space improves performance of various image processing algorithms such as lossy image compression, denoising, segmentation or device characterisation, image quality modeling and color appearance modeling.
+  </p>
+  <p>
+   Gamut mapping, the process by which colors lying outside a gamut are mapped inside it, is preferably performed in a perceptually uniform color space because the correlation between the perceptual attributes is reduced and thus hue is minimally affected when the lightness and chroma attributes are individually adjusted to reduce the gamut size.
+  </p>
+  <p>
+   The non-uniformity of the CIE 1931 Chromaticity Diagram led to the adoption by the CIE in 1960 of the uniform color space devised by MacAdam (1937). The CIE 1960 Uniform Color Space (UCS) is nowadays primarily used to represent the correlated color temperature (CCT) of light sources or illuminants as the isolines are perpendicular to the Planckian locus. The isolines represent delta uv: for a given CCT and its corresponding color, increasing or decreasing delta uv will bias the color toward green or magenta. The tint control in white balancing algorithms is effectively delta uv scaled by a constant.
+  </p>
+  <p>
+   CIE 1960 UCS Chromaticity Diagram with Planckian Locus and perpendicular Iso-Temperature lines.
+  </p>
+  <p>
+   Conversion from tristimulus values to CIE 1960 UCS color space UVW values is performed as follows:
+UVW = ⅔ &times; X, Y, &frac12; &times; (-X + 3 &times; Y + Z)
 The chromaticity coordinates uv are then obtained by a perspective projection similarly to the one of CIE xyY color space:
 uv =U / (U + V + W), V / (U + V + W)
-</BIG>
-<P>
-<BIG CLASS="LARGE">The CIE 1976 UCS Chromaticity Diagram, based on CIE L*u*v* color space, superseded the CIE 1960 UCS Chromaticity Diagram.
-</BIG>
-<P>
-<BIG CLASS="LARGE">CIE 1976 UCS Chromaticity Diagram based on CIE L*u*v* color space.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The conversion from tristimulus values to CIE L*u*v* color space is longer than CIE 1960 UCS and is found in the Appendix.
+  </p>
+  <p>
+   The CIE 1976 UCS Chromaticity Diagram, based on CIE L*u*v* color space, superseded the CIE 1960 UCS Chromaticity Diagram.
+  </p>
+  <p>
+   CIE 1976 UCS Chromaticity Diagram based on CIE L*u*v* color space.
+  </p>
+  <p>
+   The conversion from tristimulus values to CIE L*u*v* color space is longer than CIE 1960 UCS and is found in the Appendix.
 Other uniform color spaces beyond CIE L*u*v* have been defined: the IPT color space by Ebner and Fairchild (1998) is excellent at predicting perceived hue. CAM16-UCS by Li, Li, Wang, Zu, Luo, Cui, Melgosa, Brill and Pointer (2017) is a uniform color space based on CAM16 that offers good general performance. The ICtCp color space by Lu, Pu, Yin et al. (2016) and the JzAzBz color space by Safdar, Cui, Kim, and Luo (2017) extend perceptual uniformity to high dynamic range and adopt the PQ curve as the basis for Lightness prediction.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The need for quantifying how much two color samples are different was one of the incentives for the CIE to design a perceptually uniform color space and ultimately adopt both the CIE L*a*b* and CIE L*u*v* color spaces in 1976. Color differences are measured as the Euclidean distance between a reference color sample and a test color sample in the CIE L*a*b* color space as follows:
-∆E*76 = √ ((L*r - L*t)2 + (a*r - a*t)2  + (b*r - b*t)2)
+  </p>
+  <p>
+   The need for quantifying how much two color samples are different was one of the incentives for the CIE to design a perceptually uniform color space and ultimately adopt both the CIE L*a*b* and CIE L*u*v* color spaces in 1976. Color differences are measured as the Euclidean distance between a reference color sample and a test color sample in the CIE L*a*b* color space as follows:
+∆E*76 = &radic; ((L*r - L*t)2 + (a*r - a*t)2  + (b*r - b*t)2)
 where ∆E*76 is the color difference, L*r, a*r, b*r , and L*t, a*t, b*t are the reference and test color sample.
-</BIG>
-<P>
-<BIG CLASS="LARGE">While the CIE L*a*b* color space features decent perceptual uniformity, it was deemed unsatisfactory when comparing some pair of colors, compelling the CIE into improving the metric with the CIE 1994 (∆E*94) and subsequent CIE 2000  (∆E*00)  quasimetrics. It is appropriate to measure color differences in the CAM16-UCS, ICtCp and JzAzBz color spaces using Euclidean distance.
-</BIG>
-<P>
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html909"
-  HREF="Additive_RGB_Color_Spaces.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html905"
-  HREF="Basic_Colorimetry.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html899"
-  HREF="CIE_xyY_Color_Space_Chromat.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html907"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html910"
-  HREF="Additive_RGB_Color_Spaces.html">Additive RGB Color Spaces</A>
-<B> Up:</B> <A NAME="tex2html906"
-  HREF="Basic_Colorimetry.html">Basic Colorimetry</A>
-<B> Previous:</B> <A NAME="tex2html900"
-  HREF="CIE_xyY_Color_Space_Chromat.html">CIE xyY Color Space</A>
- &nbsp; <B>  <A NAME="tex2html908"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+   While the CIE L*a*b* color space features decent perceptual uniformity, it was deemed unsatisfactory when comparing some pair of colors, compelling the CIE into improving the metric with the CIE 1994 (∆E*94) and subsequent CIE 2000  (∆E*00)  quasimetrics. It is appropriate to measure color differences in the CAM16-UCS, ICtCp and JzAzBz color spaces using Euclidean distance.
+  </p>
+  <p>
+  </p>
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="Additive_RGB_Color_Spaces.html" name="tex2html909">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Basic_Colorimetry.html" name="tex2html905">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="CIE_xyY_Color_Space_Chromat.html" name="tex2html899">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html907">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="Additive_RGB_Color_Spaces.html" name="tex2html910">
+    Additive RGB Color Spaces
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Basic_Colorimetry.html" name="tex2html906">
+    Basic Colorimetry
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="CIE_xyY_Color_Space_Chromat.html" name="tex2html900">
+    CIE xyY Color Space
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html908">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

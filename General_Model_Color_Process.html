@@ -1,135 +1,295 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
-<HTML>
-<HEAD>
-<TITLE>A General Model of Color Processing</TITLE>
-<META NAME="description" CONTENT="A General Model of Color Processing">
-<META NAME="keywords" CONTENT="cinematic-color">
-<META NAME="resource-type" CONTENT="document">
-<META NAME="distribution" CONTENT="global">
-
-<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
-<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
-
-<LINK REL="STYLESHEET" HREF="cinematic-color.css">
-
-<LINK REL="next" HREF="Color_Management_Challenges.html">
-<LINK REL="previous" HREF="Converging_Approaches.html">
-<LINK REL="up" HREF="Introduction.html">
-<LINK REL="next" HREF="ACES.html">
-</HEAD>
-
-<BODY >
-
-<DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html450"
-  HREF="ACES.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html446"
-  HREF="Introduction.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html440"
-  HREF="Converging_Approaches.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html448"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html451"
-  HREF="ACES.html">ACES</A>
-<B> Up:</B> <A NAME="tex2html447"
-  HREF="Introduction.html">Introduction</A>
-<B> Previous:</B> <A NAME="tex2html441"
-  HREF="Converging_Approaches.html">Converging Approaches</A>
- &nbsp; <B>  <A NAME="tex2html449"
-  HREF="Contents.html">Contents</A></B> 
-<BR>
-<BR></DIV>
-<!--End of Navigation Panel-->
-
-<H1><A NAME="SECTION00350000000000000000">
-A General Model of Color Processing</A>
-</H1>
-<P>
-<BIG CLASS="LARGE">Digital color management follows a clear general path tightly coupled with digital imaging. The high-level diagram below covers this path, from reflectance, image formation, storage and processing to display.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The ‘Computer Graphics’ box hides a complex pipeline that largely mimics the physical processes that precede it in this diagram, with the goals of creating content that will blend seamlessly with the captured image. Key: Purple - physical light, Blue - stored light, Green - Synthetic light, Orange - perceived light
-</BIG>
-<P>
-<BIG CLASS="LARGE">While there are many imaging considerations along the full imaging pipeline, such as spatial and temporal considerations, this discussion restricted itself to the propagation and transformation of color in the imaging pipeline.
-</BIG>
-<P>
-<BIG CLASS="LARGE">The simplest example of the digital color pipeline for cinema is exemplified by a digital camera, covering the full imaging pipeline from lens to sensor to the display on the back of the camera. Even this simplest case involves processing and transforms that are a microcosm of more complex pipelines. From this example, it is possible to expand to cover pipelines and workflows that have processing steps in-camera, on-set, in a scanning house, with editors, in a renderer, visual effects, animation and games teams, colorists, distribution processing, cinemas, streaming services and everywhere in between. In this section, the paper will present simple models for thinking about color processing and understanding which aspects are important in each phase of production.
-</BIG>
-<P>
-<BIG CLASS="LARGE">In the simple case mentioned above, an image captured by a digital camera and displayed on the screen on the back of the camera, there are a series of states and transforms to consider:
-Light reflected off a surface, into camera’s lens and onto an image sensor
+<html>
+ <head>
+  <title>
+   A General Model of Color Processing
+  </title>
+  <meta content="A General Model of Color Processing" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="LaTeX2HTML v2018" name="Generator"/>
+  <meta content="text/css" http-equiv="Content-Style-Type"/>
+  <link href="cinematic-color.css" rel="STYLESHEET"/>
+  <link href="Color_Management_Challenges.html" rel="next"/>
+  <link href="Converging_Approaches.html" rel="previous"/>
+  <link href="Introduction.html" rel="up"/>
+  <link href="ACES.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="Intended_Audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="How_Read_this_Document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="Goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="Converging_Approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="General_Model_Color_Process.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="Color_Management_Challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Color_Science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="Electromagnetic_Spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="Human_Visual_System.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="Basic_Colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="Advanced_Colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="Representing_Color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="Color_Imaging_Systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="Academy_Color_Encoding_Syst.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="Look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="On_Set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="Visual_Effects_Animation_Ga.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="Compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="DI_Grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="Critical_Monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="Finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="Archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="Common_RGB_Color_Encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="OpenColorIO_OCIO.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="Colour_Science_Python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="LUTs_Transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="ASC_CDL.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="ACES_CTL.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="Full_Legal_ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="Chroma_Decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="Camera_Characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="File_Formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="Software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="Acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+       Glossary
+      </a>
+      <div aria-labelledby="glossary" class="dropdown-menu">
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+       Bibliography
+      </a>
+      <div aria-labelledby="bibliography" class="dropdown-menu">
+      </div>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!--End of Navigation Panel-->
+  <h1>
+   <a name="SECTION00350000000000000000">
+    A General Model of Color Processing
+   </a>
+  </h1>
+  <p>
+   Digital color management follows a clear general path tightly coupled with digital imaging. The high-level diagram below covers this path, from reflectance, image formation, storage and processing to display.
+  </p>
+  <p>
+   The &lsquo;Computer Graphics&rsquo; box hides a complex pipeline that largely mimics the physical processes that precede it in this diagram, with the goals of creating content that will blend seamlessly with the captured image. Key: Purple - physical light, Blue - stored light, Green - Synthetic light, Orange - perceived light
+  </p>
+  <p>
+   While there are many imaging considerations along the full imaging pipeline, such as spatial and temporal considerations, this discussion restricted itself to the propagation and transformation of color in the imaging pipeline.
+  </p>
+  <p>
+   The simplest example of the digital color pipeline for cinema is exemplified by a digital camera, covering the full imaging pipeline from lens to sensor to the display on the back of the camera. Even this simplest case involves processing and transforms that are a microcosm of more complex pipelines. From this example, it is possible to expand to cover pipelines and workflows that have processing steps in-camera, on-set, in a scanning house, with editors, in a renderer, visual effects, animation and games teams, colorists, distribution processing, cinemas, streaming services and everywhere in between. In this section, the paper will present simple models for thinking about color processing and understanding which aspects are important in each phase of production.
+  </p>
+  <p>
+   In the simple case mentioned above, an image captured by a digital camera and displayed on the screen on the back of the camera, there are a series of states and transforms to consider:
+Light reflected off a surface, into camera&rsquo;s lens and onto an image sensor
 Sensor photosite values encoded and stored in memory
 A transform to combine adjacent Red, Green and Blue photosites into single pixel values
-A “working space” image in memory
+A &ldquo;working space&rdquo; image in memory
 A transform to remap the intensities of the combined pixels for display
-A “displayable” image ready to be sent to the display hardware
+A &ldquo;displayable&rdquo; image ready to be sent to the display hardware
 The display hardware showing the image
-</BIG>
-<P>
-<BIG CLASS="LARGE">Optical diagram of a typical mirrorless digital camera.
+  </p>
+  <p>
+   Optical diagram of a typical mirrorless digital camera.
 Unknown. (n.d.). DSLR Optical Diagram. Retrieved October 14, 2018, from https://www.dpreview.com/forums/post/61693925
-</BIG>
-<P>
-<BIG CLASS="LARGE">The aspects of the example above that will show up repeatedly throughout this document are:
-</BIG>
-<P>
-<BIG CLASS="LARGE">Input, Working, Output: The example includes the stages that are common to most modern color pipelines, namely an Input, Capture or Generated image state, a Working image state used for editing and production and an Output image state used for display. There may be other steps along the way, but virtually all modern color pipeline designs contain these three distinct states. The Input image for a visual effects or animated feature or game may be the product of a renderer.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Scene-referred, Output-referred images: The sensor image in Step 3 represents the intensity of light in the scene, filtered through the camera’s lens and specific red, green and blue filters over each sensor photosite. The “working space” image from Step 5 also represents the intensity of light in the scene, but may be device-independent, at least slightly abstracted from the camera sensor and processing hardware. After being transformed for display, the image in Step 6 has values representing the activations necessary for each of the target display’s pixels.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Transforms - Input, Output, Look: Going between each image state is a transformation that has a specific, meaningful effect. The most widely used transforms will typically include a remapping of intensities and some degree of remapping of the color gamut: the underlying meaning of the red, green and blue of each pixel. There are many more exotic transforms, and often a number of these simpler transforms are concatenated. Transforms going from Input to the Working space are usually strictly defined based on the capabilities of the capture device and the attributes of the working space. Transforms from the Working space to the Output space usually combine an element of artistry, commonly referred to as “the Look”, with an explicit mapping based on the capabilities of the output device. Later sections of the document contain many examples of transforms used in practice.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Staged Processing: The process to go from light hitting the sensor to a display emitting light is defined by a specific, staged processing pipeline. Transforms take color from one image state to the next, constrained by the processing needs of each successive stage and the limitations and capabilities of the capture, processing and display hardware. Images may be written to disk or passed along an IO line representing the state of color at any of the points in the processing chain, as different applications or departments within production may be the source or the destination for the data.
-</BIG>
-<P>
-<BIG CLASS="LARGE">Meaning and Placement - Understanding how to work with an image or color data set is more natural when you can be clear about what the data is supposed to represent and where it lives in the production or product’s processing chain. These two elements, meaning and placement, provide the context needed to apply transformations and make aesthetic judgements in production.
-</BIG>
-<P>
-<BR><HR>
-<!--Table of Child-Links-->
-<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
-
-<UL CLASS="ChildLinks">
-<LI><A NAME="tex2html452"
-  HREF="ACES.html">ACES</A>
-</UL>
-<!--End of Table of Child-Links-->
-
-<DIV CLASS="navigation"><HR>
-<!--Navigation Panel-->
-<A NAME="tex2html450"
-  HREF="ACES.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
-<A NAME="tex2html446"
-  HREF="Introduction.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
-<A NAME="tex2html440"
-  HREF="Converging_Approaches.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
-<A NAME="tex2html448"
-  HREF="Contents.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
-<BR>
-<B> Next:</B> <A NAME="tex2html451"
-  HREF="ACES.html">ACES</A>
-<B> Up:</B> <A NAME="tex2html447"
-  HREF="Introduction.html">Introduction</A>
-<B> Previous:</B> <A NAME="tex2html441"
-  HREF="Converging_Approaches.html">Converging Approaches</A>
- &nbsp; <B>  <A NAME="tex2html449"
-  HREF="Contents.html">Contents</A></B> </DIV>
-<!--End of Navigation Panel-->
-
-</BODY>
-</HTML>
+  </p>
+  <p>
+   The aspects of the example above that will show up repeatedly throughout this document are:
+  </p>
+  <p>
+   Input, Working, Output: The example includes the stages that are common to most modern color pipelines, namely an Input, Capture or Generated image state, a Working image state used for editing and production and an Output image state used for display. There may be other steps along the way, but virtually all modern color pipeline designs contain these three distinct states. The Input image for a visual effects or animated feature or game may be the product of a renderer.
+  </p>
+  <p>
+   Scene-referred, Output-referred images: The sensor image in Step 3 represents the intensity of light in the scene, filtered through the camera&rsquo;s lens and specific red, green and blue filters over each sensor photosite. The &ldquo;working space&rdquo; image from Step 5 also represents the intensity of light in the scene, but may be device-independent, at least slightly abstracted from the camera sensor and processing hardware. After being transformed for display, the image in Step 6 has values representing the activations necessary for each of the target display&rsquo;s pixels.
+  </p>
+  <p>
+   Transforms - Input, Output, Look: Going between each image state is a transformation that has a specific, meaningful effect. The most widely used transforms will typically include a remapping of intensities and some degree of remapping of the color gamut: the underlying meaning of the red, green and blue of each pixel. There are many more exotic transforms, and often a number of these simpler transforms are concatenated. Transforms going from Input to the Working space are usually strictly defined based on the capabilities of the capture device and the attributes of the working space. Transforms from the Working space to the Output space usually combine an element of artistry, commonly referred to as &ldquo;the Look&rdquo;, with an explicit mapping based on the capabilities of the output device. Later sections of the document contain many examples of transforms used in practice.
+  </p>
+  <p>
+   Staged Processing: The process to go from light hitting the sensor to a display emitting light is defined by a specific, staged processing pipeline. Transforms take color from one image state to the next, constrained by the processing needs of each successive stage and the limitations and capabilities of the capture, processing and display hardware. Images may be written to disk or passed along an IO line representing the state of color at any of the points in the processing chain, as different applications or departments within production may be the source or the destination for the data.
+  </p>
+  <p>
+   Meaning and Placement - Understanding how to work with an image or color data set is more natural when you can be clear about what the data is supposed to represent and where it lives in the production or product&rsquo;s processing chain. These two elements, meaning and placement, provide the context needed to apply transformations and make aesthetic judgements in production.
+  </p>
+  <p>
+   <br/>
+  </p>
+  <hr/>
+  <!--Table of Child-Links-->
+  <a name="CHILD_LINKS">
+   <strong>
+    Subsections
+   </strong>
+  </a>
+  <ul class="ChildLinks">
+   <li>
+    <a href="ACES.html" name="tex2html452">
+     ACES
+    </a>
+   </li>
+  </ul>
+  <!--End of Table of Child-Links-->
+  <div class="navigation">
+   <hr/>
+   <!--Navigation Panel-->
+   <a href="ACES.html" name="tex2html450">
+    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
+   </a>
+   <a href="Introduction.html" name="tex2html446">
+    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
+   </a>
+   <a href="Converging_Approaches.html" name="tex2html440">
+    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
+   </a>
+   <a href="Contents.html" name="tex2html448">
+    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
+   </a>
+   <br/>
+   <b>
+    Next:
+   </b>
+   <a href="ACES.html" name="tex2html451">
+    ACES
+   </a>
+   <b>
+    Up:
+   </b>
+   <a href="Introduction.html" name="tex2html447">
+    Introduction
+   </a>
+   <b>
+    Previous:
+   </b>
+   <a href="Converging_Approaches.html" name="tex2html441">
+    Converging Approaches
+   </a>
+   &nbsp;
+   <b>
+    <a href="Contents.html" name="tex2html449">
+     Contents
+    </a>
+   </b>
+  </div>
+  <!--End of Navigation Panel-->
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>
