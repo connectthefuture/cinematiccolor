@@ -6,11 +6,15 @@ Invoke - Tasks
 
 from __future__ import print_function, unicode_literals
 
+import glob
+import os
 import subprocess
 from invoke import task
 from invoke.exceptions import Failure
 from itertools import chain
 from textwrap import TextWrapper
+
+import html
 
 __author__ = 'Colour Developers'
 __copyright__ = 'Copyright (C) 2018 - Colour Developers'
@@ -27,6 +31,7 @@ __all__ = [
 ROOT_DOCUMENT_NAME = 'cinematic-color.tex'
 
 ROOT_HTML_DIRECTORY_NAME = 'cinematic-color'
+
 
 def message_box(message, width=79, padding=3, print_callable=print):
     """
@@ -171,7 +176,7 @@ def formatting(ctx, yapf=False):
         ctx.run('yapf -p -i -r .')
 
 
-@task(clean)
+@task
 def build_pdf(ctx):
     """
     Builds the *PDF*.
@@ -189,12 +194,14 @@ def build_pdf(ctx):
 
     message_box('Building "PDF"...')
 
-    ctx.run('latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
-            warn=True)
+    ctx.run(
+        'latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+        warn=True)
     ctx.run('pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME))
 
-@task(clean)
-def build_html(ctx):
+
+@task
+def build_html(ctx, latex2html=True, copy_assets=True, process_html=True):
     """
     Builds the *HTML* website.
 
@@ -202,6 +209,12 @@ def build_html(ctx):
     ----------
     ctx : invoke.context.Context
         Context.
+    latex2html : bool
+        Whether to perform *HTML* conversion.
+    latex2html : bool
+        Whether to copy the assets.
+    process_html : bool
+        Whether to process the *HTML* files.
 
     Returns
     -------
@@ -211,9 +224,33 @@ def build_html(ctx):
 
     message_box('Building "HTML" website...')
 
-    ctx.run('latex2html -long_titles 255 {0}'.format(ROOT_DOCUMENT_NAME))
+    if latex2html:
+        ctx.run('latex2html '
+                '-long_titles 255 '
+                '-no_top_navigation '
+                '-bottom_navigation '
+                '{0}'.format(ROOT_DOCUMENT_NAME))
 
-@task(build_html)
+    if copy_assets:
+        ctx.run('cp -r assets cinematic-color/')
+
+    if process_html:
+        message_box('Processing "HTML"...')
+
+        contents_file = os.path.join(ROOT_HTML_DIRECTORY_NAME, 'Contents.html')
+        navigation = html.extract_navigation(contents_file)
+
+        for html_file in glob.glob(
+                os.path.join(ROOT_HTML_DIRECTORY_NAME, '*.html')):
+            if 'index.html' in html_file:
+                continue
+
+            print('Processing "{0}" file...'.format(html_file))
+
+            html.process_html(html_file, navigation)
+
+
+@task(clean, build_html)
 def gh_deploy(ctx):
     """
     Deploys the *HTML* website to *Github Pages*.
