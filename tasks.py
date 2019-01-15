@@ -16,11 +16,11 @@ from textwrap import TextWrapper
 
 import html
 
-__author__ = 'Colour Developers'
-__copyright__ = 'Copyright (C) 2018 - Colour Developers'
+__author__ = 'Cinematic Color Authors'
+__copyright__ = 'Copyright (C) 2019 - Cinematic Color Authors'
 __license__ = 'New BSD License - http://opensource.org/licenses/BSD-3-Clause'
-__maintainer__ = 'Colour Developers'
-__email__ = 'colour-science@googlegroups.com'
+__maintainer__ = 'Cinematic Color Authors'
+__email__ = 'ves-tech-color@googlegroups.com'
 __status__ = 'Production'
 
 __all__ = [
