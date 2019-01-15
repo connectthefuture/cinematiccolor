@@ -16,6 +16,7 @@
   <link href="Workflow.html" rel="up"/>
   <link href="Scene_Referred_Linear_is_Pr.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,112 +172,110 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h1>
-   <a name="SECTION00550000000000000000">
-    Compositing
-   </a>
-  </h1>
-  <p>
-   A shot from &ldquo;Rogue One: A Star Wars Story&rdquo;, starting with a CG background plate (top), adding in a live-action foreground element (middle) and the final composite image (bottom). All three images have an Output Transform for a Rec. 709 display.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h1>
+      <a name="SECTION00550000000000000000">
+       Compositing
+      </a>
+     </h1>
+     <p>
+      A shot from &ldquo;Rogue One: A Star Wars Story&rdquo;, starting with a CG background plate (top), adding in a live-action foreground element (middle) and the final composite image (bottom). All three images have an Output Transform for a Rec. 709 display.
 &copy; and &trade; Lucasfilm Ltd. All Rights Reserved
-  </p>
-  <p>
-   Compositing is the process where live-action and CG elements are manipulated and merged. Image processing in scene-referred linear and logarithmic encoding spaces are both useful, though scene-referred linear is the default. As in lighting, image display typically leverages viewing transforms that emulate the final output. Examples of commercially available compositing applications include Foundry Nuke, Adobe After Effects, Blackmagic Design Fusion, and Autodesk Flame.
-  </p>
-  <p>
-   In feature film visual effects, live-action photographic plates are typically represented on disk either as raw captures of the camera data, as a log encoding of the linear camera data, often as DPX files, or as linear EXR files. Log files are typically encoded using the encoding primaries of the source camera, such as ALEXA Wide Gamut, whereas EXR files may use camera primaries or generalized primaries such as the AP0 primaries of ACES2065-1.  When working with log frames, the compositing package typically converts the images to scene-referred linear on input using a manufacturer specified transfer function, and a matrix transform to the working-space gamut if required, and converts back to the original color space on output. In its simplest form, the end to end compositing process represents a no-op, aiming to leave pixels not modified by the effect exactly as they were in the original plate. Such behavior is absolutely critical, as typically not all the shots will go through the VFX workflow, and VFX processed shots must seamlessly intercut with the remainder of the motion picture.
-  </p>
-  <p>
-   <br/>
-  </p>
-  <hr/>
-  <!--Table of Child-Links-->
-  <a name="CHILD_LINKS">
-   <strong>
-    Subsections
-   </strong>
-  </a>
-  <ul class="ChildLinks">
-   <li>
-    <a href="Scene_Referred_Linear_is_Pr.html" name="tex2html1722">
-     Scene-Referred Linear is Preferred for Compositing
-    </a>
-   </li>
-   <li>
-    <a href="Scene_Referred_Linear_Compo.html" name="tex2html1723">
-     Scene-Referred Linear Compositing Challenges
-    </a>
-   </li>
-   <li>
-    <a href="Negative_Values.html" name="tex2html1724">
-     Negative Values
-    </a>
-   </li>
-   <li>
-    <a href="Working_with_Log_Imagery.html" name="tex2html1725">
-     Working with Log Imagery
-    </a>
-   </li>
-   <li>
-    <a href="Plate_Timing_Neutralization.html" name="tex2html1726">
-     Plate Timing, Neutralization, and Grading
-    </a>
-   </li>
-   <li>
-    <a href="Premultiplication.html" name="tex2html1727">
-     Premultiplication
-    </a>
-   </li>
-   <li>
-    <a href="Technical_Checks.html" name="tex2html1728">
-     Technical Checks
-    </a>
-   </li>
-  </ul>
-  <!--End of Table of Child-Links-->
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Scene_Referred_Linear_is_Pr.html" name="tex2html1720">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Workflow.html" name="tex2html1716">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Rendering_Gamut_Impact.html" name="tex2html1710">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1718">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Scene_Referred_Linear_is_Pr.html" name="tex2html1721">
-    Scene-Referred Linear is Preferred
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Workflow.html" name="tex2html1717">
-    Workflow
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Rendering_Gamut_Impact.html" name="tex2html1711">
-    The Rendering Gamut Impact
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1719">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      Compositing is the process where live-action and CG elements are manipulated and merged. Image processing in scene-referred linear and logarithmic encoding spaces are both useful, though scene-referred linear is the default. As in lighting, image display typically leverages viewing transforms that emulate the final output. Examples of commercially available compositing applications include Foundry Nuke, Adobe After Effects, Blackmagic Design Fusion, and Autodesk Flame.
+     </p>
+     <p>
+      In feature film visual effects, live-action photographic plates are typically represented on disk either as raw captures of the camera data, as a log encoding of the linear camera data, often as DPX files, or as linear EXR files. Log files are typically encoded using the encoding primaries of the source camera, such as ALEXA Wide Gamut, whereas EXR files may use camera primaries or generalized primaries such as the AP0 primaries of ACES2065-1.  When working with log frames, the compositing package typically converts the images to scene-referred linear on input using a manufacturer specified transfer function, and a matrix transform to the working-space gamut if required, and converts back to the original color space on output. In its simplest form, the end to end compositing process represents a no-op, aiming to leave pixels not modified by the effect exactly as they were in the original plate. Such behavior is absolutely critical, as typically not all the shots will go through the VFX workflow, and VFX processed shots must seamlessly intercut with the remainder of the motion picture.
+     </p>
+     <p>
+      <br/>
+     </p>
+     <hr/>
+     <a name="CHILD_LINKS">
+      <strong>
+       Contents
+      </strong>
+     </a>
+     <ul class="ChildLinks">
+      <li>
+       <a href="Scene_Referred_Linear_is_Pr.html" name="tex2html1722">
+        Scene-Referred Linear is Preferred for Compositing
+       </a>
+      </li>
+      <li>
+       <a href="Scene_Referred_Linear_Compo.html" name="tex2html1723">
+        Scene-Referred Linear Compositing Challenges
+       </a>
+      </li>
+      <li>
+       <a href="Negative_Values.html" name="tex2html1724">
+        Negative Values
+       </a>
+      </li>
+      <li>
+       <a href="Working_with_Log_Imagery.html" name="tex2html1725">
+        Working with Log Imagery
+       </a>
+      </li>
+      <li>
+       <a href="Plate_Timing_Neutralization.html" name="tex2html1726">
+        Plate Timing, Neutralization, and Grading
+       </a>
+      </li>
+      <li>
+       <a href="Premultiplication.html" name="tex2html1727">
+        Premultiplication
+       </a>
+      </li>
+      <li>
+       <a href="Technical_Checks.html" name="tex2html1728">
+        Technical Checks
+       </a>
+      </li>
+     </ul>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Scene_Referred_Linear_is_Pr.html" name="tex2html1721">
+       Scene-Referred Linear is Preferred
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Workflow.html" name="tex2html1717">
+       Workflow
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Rendering_Gamut_Impact.html" name="tex2html1711">
+       The Rendering Gamut Impact
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1719">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

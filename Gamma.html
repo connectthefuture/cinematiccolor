@@ -16,6 +16,7 @@
   <link href="Representing_Color.html" rel="up"/>
   <link href="Color_Encodings.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,23 +172,26 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00455000000000000000">
-    Gamma
-   </a>
-  </h2>
-  <p>
-   Gamma (&gamma;) is a numerical parameter giving the exponent of a power function assumed to approximate the relationship between a signal quantity (such as a video signal code) and light power.
-  </p>
-  <p>
-   Encoding gamma (&gamma;E), characteristic of OETFs uses an exponent approximately between 0.4 and 0.5 while decoding gamma (&gamma;D), characteristic of EOTFs uses an exponent approximately between 2.2 and 2.6.
-  </p>
-  <p>
-   The various gamma values are usually dependent on the color imaging systems and their defined viewing conditions. A color imaging system achieves representation of a scene in a way that matches viewer expectation of the appearance of that scene instead of attempting to reproduce physical color stimuli quantities. An outdoor sunlight scene can have luminance over 50,000 cd/m2 but may be displayed on a consumer electronic display with a white peak luminance of 320 cd/m2.
-  </p>
-  <p>
-   Object
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00455000000000000000">
+       Gamma
+      </a>
+     </h2>
+     <p>
+      Gamma (&gamma;) is a numerical parameter giving the exponent of a power function assumed to approximate the relationship between a signal quantity (such as a video signal code) and light power.
+     </p>
+     <p>
+      Encoding gamma (&gamma;E), characteristic of OETFs uses an exponent approximately between 0.4 and 0.5 while decoding gamma (&gamma;D), characteristic of EOTFs uses an exponent approximately between 2.2 and 2.6.
+     </p>
+     <p>
+      The various gamma values are usually dependent on the color imaging systems and their defined viewing conditions. A color imaging system achieves representation of a scene in a way that matches viewer expectation of the appearance of that scene instead of attempting to reproduce physical color stimuli quantities. An outdoor sunlight scene can have luminance over 50,000 cd/m2 but may be displayed on a consumer electronic display with a white peak luminance of 320 cd/m2.
+     </p>
+     <p>
+      Object
 Luminance cd/m2
 Relative Exposure
 Sun
@@ -210,13 +210,13 @@ Blue Sky
 5.6
 Dolby Pulsar HDR reference monitor
 4000
-  </p>
-  <p>
-   HDR reference monitor
+     </p>
+     <p>
+      HDR reference monitor
 1000
-  </p>
-  <p>
-   White paper in office lighting (500 lux)
+     </p>
+     <p>
+      White paper in office lighting (500 lux)
 standard television reference monitor
 100
 0
@@ -232,61 +232,58 @@ White paper in candlelight (5 lux)
 Night vision (rods in the retina)
 0.01
 -13.3
-  </p>
-  <p>
-   The different viewing conditions and image formation medium/device capabilities impose that scene luminance must be mapped to image formation medium/device luminance.
-  </p>
-  <p>
-   As described in 2.5.3 Color Appearance Phenomena, the Lateral-Brightness Adaptation Effect (by virtue of the surround change) and the Steven Effect (by virtue of the display device peak luminance depending on the viewing conditions) will affect the perceived image contrast and is critical to the faithful reproduction of images in the home or theater viewing conditions.
-  </p>
-  <p>
-   A simple but efficient way to compensate for the different surrounds, viewing conditions and display peak luminance when exhibiting pictures is to increase their contrast as the viewing conditions get darker. Typically, the surround brightness and the display peak luminance will be lower as well. Hunt (2004) reports that to overcome the loss in apparent contrast, the end-to-end system function or Opto-Optical Transfer Function (OOTF) for a digital color imaging system may have appropriate the, controversial, exponent values of 1, 1.25, and 1.5 respectively for bright, dim, and dark surrounds. The surround effect is likely overpredicted when those values are used in color appearance models to transform image lightness contrast based on the relative luminance of the surround. Daniels, Giorgianni and Fairchild (1997) report exponent values of 1, 1.06, and 1.16 as general guidelines.
+     </p>
+     <p>
+      The different viewing conditions and image formation medium/device capabilities impose that scene luminance must be mapped to image formation medium/device luminance.
+     </p>
+     <p>
+      As described in 2.5.3 Color Appearance Phenomena, the Lateral-Brightness Adaptation Effect (by virtue of the surround change) and the Steven Effect (by virtue of the display device peak luminance depending on the viewing conditions) will affect the perceived image contrast and is critical to the faithful reproduction of images in the home or theater viewing conditions.
+     </p>
+     <p>
+      A simple but efficient way to compensate for the different surrounds, viewing conditions and display peak luminance when exhibiting pictures is to increase their contrast as the viewing conditions get darker. Typically, the surround brightness and the display peak luminance will be lower as well. Hunt (2004) reports that to overcome the loss in apparent contrast, the end-to-end system function or Opto-Optical Transfer Function (OOTF) for a digital color imaging system may have appropriate the, controversial, exponent values of 1, 1.25, and 1.5 respectively for bright, dim, and dark surrounds. The surround effect is likely overpredicted when those values are used in color appearance models to transform image lightness contrast based on the relative luminance of the surround. Daniels, Giorgianni and Fairchild (1997) report exponent values of 1, 1.06, and 1.16 as general guidelines.
 Gamma and its correction on a system, the combination of the different encoding and decoding gammas yields an end-to-end (OOTF) system gamma which increases perceived image contrast.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Color_Encodings.html" name="tex2html1261">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Representing_Color.html" name="tex2html1257">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Floating_Point_Logarithmic_.html" name="tex2html1251">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1259">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Color_Encodings.html" name="tex2html1262">
-    Color Encodings
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Representing_Color.html" name="tex2html1258">
-    Representing Color
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Floating_Point_Logarithmic_.html" name="tex2html1252">
-    Floating-Point &amp; Logarithmic Representations
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1260">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Color_Encodings.html" name="tex2html1262">
+       Color Encodings
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Representing_Color.html" name="tex2html1258">
+       Representing Color
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Floating_Point_Logarithmic_.html" name="tex2html1252">
+       Floating-Point &amp; Logarithmic Representations
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1260">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

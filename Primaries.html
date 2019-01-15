@@ -16,6 +16,7 @@
   <link href="Additive_RGB_Color_Spaces.html" rel="up"/>
   <link href="White_Point.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,66 +172,66 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h3>
-   <a name="SECTION00438100000000000000">
-    Primaries
-   </a>
-  </h3>
-  <p>
-   The primaries&acirc;&euro;&trade; chromaticity coordinates define the gamut that can be encoded by a given RGB color space. It is essential to understand that while commonly represented as triangles on a Chromaticity Diagram, RGB color space gamuts define the boundaries of an actual 3D volume within the CIE xyY color space. The shape of the volume is not simply an extruded triangle because each primary reaches unity at a different luminance value. From that point the luminance can only rise by increasing one or both of the other channels, and consequently decreasing saturation. Maximum luminance is only achieved when the three channels reach unity, which corresponds to the achromatic point at the top of the volume.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h3>
+      <a name="SECTION00438100000000000000">
+       Primaries
+      </a>
+     </h3>
+     <p>
+      The primaries&acirc;&euro;&trade; chromaticity coordinates define the gamut that can be encoded by a given RGB color space. It is essential to understand that while commonly represented as triangles on a Chromaticity Diagram, RGB color space gamuts define the boundaries of an actual 3D volume within the CIE xyY color space. The shape of the volume is not simply an extruded triangle because each primary reaches unity at a different luminance value. From that point the luminance can only rise by increasing one or both of the other channels, and consequently decreasing saturation. Maximum luminance is only achieved when the three channels reach unity, which corresponds to the achromatic point at the top of the volume.
 A gamut, per definition, only contains physically realizable colors but RGB color space primaries can be located outside of the spectral locus, in such cases, the gamut is the intersection between the given RGB color space volume and the volume of physically realizable colors.
-  </p>
-  <p>
-   sRGB color space gamut visualized in CIE xyY color space. The shape of the volume is the result of the transformation of an RGB unit cube to CIE XYZ color space followed by a transformation to CIE xyY color space.
-  </p>
-  <p>
-   sRGB, DCI-P3 and BT.2020 RGB color space gamuts in the CIE 1931 chromaticity diagram.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="White_Point.html" name="tex2html936">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Additive_RGB_Color_Spaces.html" name="tex2html932">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Additive_RGB_Color_Spaces.html" name="tex2html926">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html934">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="White_Point.html" name="tex2html937">
-    White Point
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Additive_RGB_Color_Spaces.html" name="tex2html933">
-    Additive RGB Color Spaces
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Additive_RGB_Color_Spaces.html" name="tex2html927">
-    Additive RGB Color Spaces
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html935">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      sRGB color space gamut visualized in CIE xyY color space. The shape of the volume is the result of the transformation of an RGB unit cube to CIE XYZ color space followed by a transformation to CIE xyY color space.
+     </p>
+     <p>
+      sRGB, DCI-P3 and BT.2020 RGB color space gamuts in the CIE 1931 chromaticity diagram.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="White_Point.html" name="tex2html937">
+       White Point
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Additive_RGB_Color_Spaces.html" name="tex2html933">
+       Additive RGB Color Spaces
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Additive_RGB_Color_Spaces.html" name="tex2html927">
+       Additive RGB Color Spaces
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html935">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

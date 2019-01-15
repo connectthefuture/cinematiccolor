@@ -16,6 +16,7 @@
   <link href="Visual_Effects_Animation_Ga.html" rel="up"/>
   <link href="Games.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,65 +172,65 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00542000000000000000">
-    Animation
-   </a>
-  </h2>
-  <p>
-   A series of the elements used for a shot from &ldquo;The Incredibles 2&rdquo;. The three images represent the linear, Rec. 709 working space image (top) and the default look for a Rec. 709 display (middle) and the final show look for a Rec. 709 display.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00542000000000000000">
+       Animation
+      </a>
+     </h2>
+     <p>
+      A series of the elements used for a shot from &ldquo;The Incredibles 2&rdquo;. The three images represent the linear, Rec. 709 working space image (top) and the default look for a Rec. 709 display (middle) and the final show look for a Rec. 709 display.
  Images &copy; Disney/Pixar
 In animated features, all imagery is generated synthetically. Plate invertibility is a non-issue as there are no camera plates to match. The lack of real-world elements to match typically means that far more more latitude is allowed in the selection of viewing transforms. Despite such freedoms, it is often preferable to carry over those aspects of the traditional film workflow which are beneficial even in a fully-CG context. Think of an animated feature as creating a &ldquo;virtual movie-set&rdquo;, complete with a virtual camera, lighting and target display. Of course, while these virtual color transforms can be inspired by real-world counterparts, it is generally preferable to use idealizing simplifications which do not delve into the peculiarities inherent to color in physical imaging workflows.
 Physically-inspired animated feature color pipelines require selection of a working-space gamut and a visualization, look or output, transform. The working-space gamut is chosen based on the deliverable needs of the project as well as authoring constraints of the production. If the show needs to deliver finals covering Rec. 2020, Rec. 709 and DCI-P3, it is important to choose a color space and authoring workflow that will cover these gamuts. The gamut of desktop monitors is a limiting factor on the creative utilization of wide gamut colors. Ideally, they should be matched to the primary wide gamut deliverable. Multiple manufacturers offer monitors that support P3, making this a viable target gamut for the desktop. Care should be taken that the reference monitor is calibrated to the correct white point and EOTF as well as primaries.
 Like visual effects, the output transform for an animated feature was traditionally inspired by characteristics of film print stock but is now more commonly a product of the lighting supervisors, art directors and color scientists. It has diverged from film print stock characteristics due in part to the desire for bright saturated colors in animation, but also because digital cinema has become the primary market. It is now more common to match film prints to the digital cinema master than to match the digital cinema master to a film print. Like in visual effects, the output transform is only baked into intermediate deliveries such as editorial output or rough preview screenings. The delivery to the colorist should be the highest-fidelity representation of the rendered imagery. As floating-point images have gained more widespread support within software and hardware used outside of animation and systems like ACES become more widely used, it is now common to deliver floating-point EXR files directly from the CG pipeline to DI grading. Establishing a look for the output transform early in the animation process makes it the primary driver of the look of the final image. Grading for animations tends to have a lighter effect on the Look of the image than for visual effects, focusing on continuity and fine-tuning of the overall project.
 Animated-feature color workflows have historically relied upon a single-step viewing transform, which directly converts from linear to the display, often using a gamma transform. However, physically inspired animated-feature color workflows (which separate the negative vs. print transform) are becoming increasingly preferred due to the ease of working with HDR rendering spaces and the robust hand-off to DI.
 With the advent of multiple deliverables, often including HDR, working in a scene-referred space is particularly beneficial. The same scene-referred rendering can be passed through different display transforms, with only a trim pass in the final grade required to produce HDR and SDR deliverables.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Games.html" name="tex2html1627">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Visual_Effects_Animation_Ga.html" name="tex2html1623">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Visual_Effects.html" name="tex2html1617">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1625">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Games.html" name="tex2html1628">
-    Games
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Visual_Effects_Animation_Ga.html" name="tex2html1624">
-    Visual Effects, Animation and
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Visual_Effects.html" name="tex2html1618">
-    Visual Effects
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1626">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Games.html" name="tex2html1628">
+       Games
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Visual_Effects_Animation_Ga.html" name="tex2html1624">
+       Visual Effects, Animation and
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Visual_Effects.html" name="tex2html1618">
+       Visual Effects
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1626">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

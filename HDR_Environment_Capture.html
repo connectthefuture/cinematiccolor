@@ -15,6 +15,7 @@
   <link href="On_Set.html" rel="up"/>
   <link href="Visual_Effects_Animation_Ga.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -154,19 +155,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -174,69 +171,69 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00536000000000000000">
-    HDR Environment Capture
-   </a>
-  </h2>
-  <p>
-   An HDR environment map captured for &lsquo;The Avengers: Infinity War&rdquo;. Luminance ranges go from 0 to 17100
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00536000000000000000">
+       HDR Environment Capture
+      </a>
+     </h2>
+     <p>
+      An HDR environment map captured for &lsquo;The Avengers: Infinity War&rdquo;. Luminance ranges go from 0 to 17100
 Images are &copy; 2018 MARVEL
-  </p>
-  <p>
-   Panoramic HDR captures are the standard approach to capture onset lighting. A new HDR panorama should be captured each time the lighting changes. The classic technique to capture HDR panoramas for use as environment maps, first pioneered by Gene Miller, was to photograph a chrome ball, as  Recent advances in hardware now allow for directly capturing the scene-illumination, either with a camera using multiple, bracketed exposures or with dedicated hardware. One extension to this methodology is to capture the scene from multiple locations or heights. Triangulating the location of the lights in the series of captures allows for placement of area lights in the 3D scene with plausible energy estimations. Placed area lights allow for physically plausible rendering of local illumination effects, which contrasts with traditional skydome rendering approaches which assume infinitely distant lights. See Duiker (2003) and Selan (2011) for additional discussion.
-  </p>
-  <p>
-   Care must be taken when calibrating HDR lighting captures to account for colorimetry, linearity, and white balance, or the resulting lighting data may not integrate well with the computer-generated environments. It is common to use ND filters to darken the exposures, capturing even more information for the brightest parts of the environment for a given shutter speed and aperture. Fisheye lens usually won&rsquo;t work well with ND filters. Adding a diffuse sphere and other reference materials during scene capture is useful in validating the reconstruction of the lighting later on. For outdoor day-lit environments, reference photos of a diffuse sphere may be used to recover or validate the sun&rsquo;s light intensity, as it is not captured properly by even the best cameras.
-  </p>
-  <p>
-   There are some best practices when choosing the exposure and white balance for a HDR lighting capture, but there is an element of subjectivity in the choice of approach. Establishing the exposure of an 18
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Visual_Effects_Animation_Ga.html" name="tex2html1582">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="On_Set.html" name="tex2html1578">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Reference_Capture.html" name="tex2html1574">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1580">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Visual_Effects_Animation_Ga.html" name="tex2html1583">
-    Visual Effects, Animation and
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="On_Set.html" name="tex2html1579">
-    On Set
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Reference_Capture.html" name="tex2html1575">
-    Reference Capture
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1581">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      Panoramic HDR captures are the standard approach to capture onset lighting. A new HDR panorama should be captured each time the lighting changes. The classic technique to capture HDR panoramas for use as environment maps, first pioneered by Gene Miller, was to photograph a chrome ball, as  Recent advances in hardware now allow for directly capturing the scene-illumination, either with a camera using multiple, bracketed exposures or with dedicated hardware. One extension to this methodology is to capture the scene from multiple locations or heights. Triangulating the location of the lights in the series of captures allows for placement of area lights in the 3D scene with plausible energy estimations. Placed area lights allow for physically plausible rendering of local illumination effects, which contrasts with traditional skydome rendering approaches which assume infinitely distant lights. See Duiker (2003) and Selan (2011) for additional discussion.
+     </p>
+     <p>
+      Care must be taken when calibrating HDR lighting captures to account for colorimetry, linearity, and white balance, or the resulting lighting data may not integrate well with the computer-generated environments. It is common to use ND filters to darken the exposures, capturing even more information for the brightest parts of the environment for a given shutter speed and aperture. Fisheye lens usually won&rsquo;t work well with ND filters. Adding a diffuse sphere and other reference materials during scene capture is useful in validating the reconstruction of the lighting later on. For outdoor day-lit environments, reference photos of a diffuse sphere may be used to recover or validate the sun&rsquo;s light intensity, as it is not captured properly by even the best cameras.
+     </p>
+     <p>
+      There are some best practices when choosing the exposure and white balance for a HDR lighting capture, but there is an element of subjectivity in the choice of approach. Establishing the exposure of an 18
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Visual_Effects_Animation_Ga.html" name="tex2html1583">
+       Visual Effects, Animation and
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="On_Set.html" name="tex2html1579">
+       On Set
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Reference_Capture.html" name="tex2html1575">
+       Reference Capture
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1581">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

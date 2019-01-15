@@ -16,6 +16,7 @@
   <link href="Common_RGB_Color_Encodings.html" rel="up"/>
   <link href="sRGB.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,75 +172,75 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00612000000000000000">
-    BT.1886
-   </a>
-  </h2>
-  <p>
-   The ACES Still Life reference image encoded with the Rec. 709 (BT.1886) Output Transform.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00612000000000000000">
+       BT.1886
+      </a>
+     </h2>
+     <p>
+      The ACES Still Life reference image encoded with the Rec. 709 (BT.1886) Output Transform.
 Copyright &copy; A.M.P.A.S.
 The EOTF used for display of Rec. 709 material is specified by ITU-R BT.1886, which was introduced later, as no EOTF was specified originally in Rec. 709. It is a variation on a gamma curve, intended to more accurately replicate the response of legacy CRT displays. The BT.1886 equation takes account of the black level of the display in use, but for display technologies, such as OLED, which are capable of producing a true black, BT.1886 becomes a pure 2.4 gamma power law curve. In fact, standard practice is to calibrate OLED displays to a non-zero black level. However, when encoding material for an unspecified BT.1886 display, where the black level is unknown, the norm is to use a pure 2.4 gamma, as is done in the ACES Rec. 709 Output Transform, for example.
-  </p>
-  <p>
-   A BT.1886 display uses the primaries as defined by Rec. 709, and the following EOTF:
-  </p>
-  <p>
-   L = a &times; (V + b)2.4
-  </p>
-  <p>
-   Where L is the screen luminance and V the encoded signal (ranged 0-1). The constants a and b are calculated from the target black level LB and white level LW (normally 100 cd/m2 for a grading reference monitor, but often considerably higher for a consumer TV) using the following equations:
+     </p>
+     <p>
+      A BT.1886 display uses the primaries as defined by Rec. 709, and the following EOTF:
+     </p>
+     <p>
+      L = a &times; (V + b)2.4
+     </p>
+     <p>
+      Where L is the screen luminance and V the encoded signal (ranged 0-1). The constants a and b are calculated from the target black level LB and white level LW (normally 100 cd/m2 for a grading reference monitor, but often considerably higher for a consumer TV) using the following equations:
 	a = (LW1/2.4 &minus; LB1/2.4)2.4
 	b = LB1/2.4 / (LW1/2.4 &minus; LB1/2.4)
-  </p>
-  <p>
-   When encoding desired display colorimetry for BT.1886 display, where the black level of the display is unknown (as is always the situation when delivering video for a wide audience) the recommended approach is to use a value of zero for LB. For this reason, the ACES Rec. 709 Output Transform uses pure 2.4 gamma.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="sRGB.html" name="tex2html2153">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2149">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Rec_709.html" name="tex2html2143">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2151">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="sRGB.html" name="tex2html2154">
-    sRGB
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2150">
-    Common RGB Color Encodings
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Rec_709.html" name="tex2html2144">
-    Rec. 709
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2152">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      When encoding desired display colorimetry for BT.1886 display, where the black level of the display is unknown (as is always the situation when delivering video for a wide audience) the recommended approach is to use a value of zero for LB. For this reason, the ACES Rec. 709 Output Transform uses pure 2.4 gamma.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="sRGB.html" name="tex2html2154">
+       sRGB
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Common_RGB_Color_Encodings.html" name="tex2html2150">
+       Common RGB Color Encodings
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Rec_709.html" name="tex2html2144">
+       Rec. 709
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2152">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

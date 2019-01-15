@@ -16,6 +16,7 @@
   <link href="Common_RGB_Color_Encodings.html" rel="up"/>
   <link href="Rec_2020.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,52 +172,55 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00613000000000000000">
-    sRGB
-   </a>
-  </h2>
-  <p>
-   The ACES Still Life reference image encoded with the sRGB Output Transform.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00613000000000000000">
+       sRGB
+      </a>
+     </h2>
+     <p>
+      The ACES Still Life reference image encoded with the sRGB Output Transform.
 Copyright &copy; A.M.P.A.S.
 Due to differences in inherent display technologies, there is substantial variation in the appearance of RGB when the same code values are sent to multiple displays, making the unambiguous distribution of RGB imagery difficult. As a solution, a standard idealized computer display has been defined, sRGB, which real displays often attempt to reproduce. The intent of sRGB (Standard RGB) is to define the color characteristics of a standardized RGB display, such that imagery on one monitor matches the appearance of a different monitor. Older display technologies (such as CRTs) naturally approach the sRGB specification. However, modern technologies, such as LCD and OLED which have very different inherent image responses, typically provide an option to emulate the sRGB specification to maintain compatibility with existing imagery.
-  </p>
-  <p>
-   sRGB uses the primaries and D65 white point specified in ITU-R BT.709, and thus can represent the same gamut of colors as Rec. 709.
-  </p>
-  <p>
-   The sRGB encoding function is defined as:
-  </p>
-  <p>
-   if L &gt; 0.003131:
+     </p>
+     <p>
+      sRGB uses the primaries and D65 white point specified in ITU-R BT.709, and thus can represent the same gamut of colors as Rec. 709.
+     </p>
+     <p>
+      The sRGB encoding function is defined as:
+     </p>
+     <p>
+      if L &gt; 0.003131:
             		V = 1.055 &times; L1/2.4 - 0.055
 	else:
 		V = L &times; 12.92
-  </p>
-  <p>
-   Where L is the luminance of the image normalized to the range 0-1 and V is the resulting encoded signal. The sRGB encoded signal is commonly stored as an 8 bit integer, which would be round(V &times; 255).
-  </p>
-  <p>
-   The sRGB decoding function is defined as:
-  </p>
-  <p>
-   if V &gt; 0.04045:
+     </p>
+     <p>
+      Where L is the luminance of the image normalized to the range 0-1 and V is the resulting encoded signal. The sRGB encoded signal is commonly stored as an 8 bit integer, which would be round(V &times; 255).
+     </p>
+     <p>
+      The sRGB decoding function is defined as:
+     </p>
+     <p>
+      if V &gt; 0.04045:
             		L = ((V + 0.055) / 1.055)2.4
 	else:
 		L = V / 12.92
-  </p>
-  <p>
-   There is some debate about the EOTF to be used for displaying sRGB image data. Since the sRGB transfer function approximates 2.2 gamma, some take from the specification that it defines an OETF to be used when encoding image data for a display with 2.2 gamma, and that the linear portion near black exists only to minimize quantization error in integer implementations. Others contend that the sRGB decoding function should be used as the EOTF so that the sRGB curve can be used to exactly encode desired display colorimetry.
-  </p>
-  <p>
-   Since there is no agreement on this matter, outside a situation where both the encoding of the image data and the calibration of the display are within your control, it is not possible to be certain of the exact luminance which will result on an end user's sRGB display from a given encoding.
-  </p>
-  <p>
-   The situation is complicated still further by viewing environment. One of the aims of the sRGB specification was to define a standard for display of video material on a computer monitor such that there is a perceptual match between a video monitor in its expected viewing environment and a computer monitor in a brighter environment. This would suggest that video images should not be modified for viewing on a sRGB monitor, as the necessary compensation is already built into the display. ACES provides separate Output Transforms for Rec.709 and sRGB, intended to produce the same display colorimetry on the two display standards. This is however only an appropriate approach if the two displays are to be viewed in the same environment.
-  </p>
-  <p>
-   Red
+     </p>
+     <p>
+      There is some debate about the EOTF to be used for displaying sRGB image data. Since the sRGB transfer function approximates 2.2 gamma, some take from the specification that it defines an OETF to be used when encoding image data for a display with 2.2 gamma, and that the linear portion near black exists only to minimize quantization error in integer implementations. Others contend that the sRGB decoding function should be used as the EOTF so that the sRGB curve can be used to exactly encode desired display colorimetry.
+     </p>
+     <p>
+      Since there is no agreement on this matter, outside a situation where both the encoding of the image data and the calibration of the display are within your control, it is not possible to be certain of the exact luminance which will result on an end user's sRGB display from a given encoding.
+     </p>
+     <p>
+      The situation is complicated still further by viewing environment. One of the aims of the sRGB specification was to define a standard for display of video material on a computer monitor such that there is a perceptual match between a video monitor in its expected viewing environment and a computer monitor in a brighter environment. This would suggest that video images should not be modified for viewing on a sRGB monitor, as the necessary compensation is already built into the display. ACES provides separate Output Transforms for Rec.709 and sRGB, intended to produce the same display colorimetry on the two display standards. This is however only an appropriate approach if the two displays are to be viewed in the same environment.
+     </p>
+     <p>
+      Red
 Green
 Blue
 White Point
@@ -228,51 +228,48 @@ White Point
 0.300, 0.600
 0.150, 0.060
 0.3127, 0.3290 (D65)
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Rec_2020.html" name="tex2html2165">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2161">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="BT_1886.html" name="tex2html2155">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2163">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Rec_2020.html" name="tex2html2166">
-    Rec. 2020
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2162">
-    Common RGB Color Encodings
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="BT_1886.html" name="tex2html2156">
-    BT.1886
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2164">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Rec_2020.html" name="tex2html2166">
+       Rec. 2020
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Common_RGB_Color_Encodings.html" name="tex2html2162">
+       Common RGB Color Encodings
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="BT_1886.html" name="tex2html2156">
+       BT.1886
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2164">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

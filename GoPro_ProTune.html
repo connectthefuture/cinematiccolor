@@ -16,6 +16,7 @@
   <link href="Common_RGB_Color_Encodings.html" rel="up"/>
   <link href="Panasonic_V_Log.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,27 +172,30 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION006113000000000000000">
-    GoPro ProTune
-   </a>
-  </h2>
-  ProTune &ldquo;Flat&rdquo; is a log mode available in the GoPro range of action cameras. It allows disabling of much of the image processing normally applied in camera. The curve encodes the range 0-1 to log values in the range 0-1, so linearization will not yield values &gt;1 unless gain is subsequently applied. Equally, the curve is not able to encode negative values, but because the sensor A/D has a black offset, this should be subtracted after linearization, which may result in some negative values.
-  <p>
-   The encoding function is:
-  </p>
-  <p>
-   V = ln(L &times; 112 + 1) / ln(113)
-  </p>
-  <p>
-   The decoding function is:
-  </p>
-  <p>
-   L = (113V &minus; 1) / 112
-  </p>
-  <p>
-   Red
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION006113000000000000000">
+       GoPro ProTune
+      </a>
+     </h2>
+     ProTune &ldquo;Flat&rdquo; is a log mode available in the GoPro range of action cameras. It allows disabling of much of the image processing normally applied in camera. The curve encodes the range 0-1 to log values in the range 0-1, so linearization will not yield values &gt;1 unless gain is subsequently applied. Equally, the curve is not able to encode negative values, but because the sensor A/D has a black offset, this should be subtracted after linearization, which may result in some negative values.
+     <p>
+      The encoding function is:
+     </p>
+     <p>
+      V = ln(L &times; 112 + 1) / ln(113)
+     </p>
+     <p>
+      The decoding function is:
+     </p>
+     <p>
+      L = (113V &minus; 1) / 112
+     </p>
+     <p>
+      Red
 Green
 Blue
 White Point
@@ -203,51 +203,48 @@ White Point
 0.329555, 1.024597
 0.108443, -0.034679
 0.3127, 0.3290 (D65)
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Panasonic_V_Log.html" name="tex2html2285">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2281">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Canon_CLog.html" name="tex2html2275">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2283">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Panasonic_V_Log.html" name="tex2html2286">
-    Panasonic V-Log
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2282">
-    Common RGB Color Encodings
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Canon_CLog.html" name="tex2html2276">
-    Canon CLog
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2284">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Panasonic_V_Log.html" name="tex2html2286">
+       Panasonic V-Log
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Common_RGB_Color_Encodings.html" name="tex2html2282">
+       Common RGB Color Encodings
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Canon_CLog.html" name="tex2html2276">
+       Canon CLog
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2284">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

@@ -15,6 +15,7 @@
   <link href="Visual_Effects_Animation_Ga.html" rel="up"/>
   <link href="Scene_Referred_Linear_is_Pr.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -154,19 +155,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -174,90 +171,88 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00546000000000000000">
-    Lighting, Shading, and Rendering
-   </a>
-  </h2>
-  <p>
-   The stages of rendering, lighting, and shading most closely approximate physical realism when performed in a color space that is scene-referred linear, high-dynamic range and wide-gamut. Ideally, no color space conversions should be required during the rendering process, as all input assets such as textures, plate re-projections, and skydomes, can be linearized and gamut mapped beforehand.
-  </p>
-  <p>
-   Image viewing of scene-referred linear data is typically handled by converting to the color space being delivered to digital intermediate, often a log encoding of the color space, and then applying the view transform suitable for the specified display. For convenience, these transforms are typically baked into a single 3D LUT, though care must be taken to assure the LUT has suitable fidelity over an appropriate HDR domain. A simple cube 3D LUT is not suitable for use with linear data. A 1D shaper LUT, or mathematical transform needs to be applied prior to the cube to give the mesh points a more appropriate spacing. See Appendix 4.4 for more detail on LUTs.
-  </p>
-  <p>
-   A rendered image with no output transform applied (top), an image with a generic Rec. 709 output transform (middle) and the show&rsquo;s final look (bottom).
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00546000000000000000">
+       Lighting, Shading, and Rendering
+      </a>
+     </h2>
+     <p>
+      The stages of rendering, lighting, and shading most closely approximate physical realism when performed in a color space that is scene-referred linear, high-dynamic range and wide-gamut. Ideally, no color space conversions should be required during the rendering process, as all input assets such as textures, plate re-projections, and skydomes, can be linearized and gamut mapped beforehand.
+     </p>
+     <p>
+      Image viewing of scene-referred linear data is typically handled by converting to the color space being delivered to digital intermediate, often a log encoding of the color space, and then applying the view transform suitable for the specified display. For convenience, these transforms are typically baked into a single 3D LUT, though care must be taken to assure the LUT has suitable fidelity over an appropriate HDR domain. A simple cube 3D LUT is not suitable for use with linear data. A 1D shaper LUT, or mathematical transform needs to be applied prior to the cube to give the mesh points a more appropriate spacing. See Appendix 4.4 for more detail on LUTs.
+     </p>
+     <p>
+      A rendered image with no output transform applied (top), an image with a generic Rec. 709 output transform (middle) and the show&rsquo;s final look (bottom).
 Images from &ldquo;Moana&rdquo; Courtesy of Walt Disney Animation Studios. Images &copy; Disney. All rights reserved.
-  </p>
-  <p>
-   In this raw visualization of a high-dynamic range, scene-referred linear render, values from the source image greater than 1.0 are clipped when sent to the display. Using a naive gamma 2.2 visualization to map scene-referred linear to output-referred values results in an image with low apparent contrast and clipped highlights. Observe clipping in the wave and eye. Using an S-shaped tone curve applied in a log space to visualize the scene-referred linear render yields a pleasing appearance of contrast, with well-balanced highlight and shadow details.
-  </p>
-  <p>
-   <br/>
-  </p>
-  <hr/>
-  <!--Table of Child-Links-->
-  <a name="CHILD_LINKS">
-   <strong>
-    Subsections
-   </strong>
-  </a>
-  <ul class="ChildLinks">
-   <li>
-    <a href="Scene_Referred_Linear_is_Pr.html" name="tex2html1686">
-     Scene-Referred Linear is Preferred for Lighting
-    </a>
-   </li>
-   <li>
-    <a href="Rendering_Gamut_Impact.html" name="tex2html1687">
-     The Rendering Gamut Impact
-    </a>
-   </li>
-  </ul>
-  <!--End of Table of Child-Links-->
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Scene_Referred_Linear_is_Pr.html" name="tex2html1684">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Visual_Effects_Animation_Ga.html" name="tex2html1680">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Matte_Painting.html" name="tex2html1676">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1682">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Scene_Referred_Linear_is_Pr.html" name="tex2html1685">
-    Scene-Referred Linear is Preferred
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Visual_Effects_Animation_Ga.html" name="tex2html1681">
-    Visual Effects, Animation and
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Matte_Painting.html" name="tex2html1677">
-    Matte Painting
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1683">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      In this raw visualization of a high-dynamic range, scene-referred linear render, values from the source image greater than 1.0 are clipped when sent to the display. Using a naive gamma 2.2 visualization to map scene-referred linear to output-referred values results in an image with low apparent contrast and clipped highlights. Observe clipping in the wave and eye. Using an S-shaped tone curve applied in a log space to visualize the scene-referred linear render yields a pleasing appearance of contrast, with well-balanced highlight and shadow details.
+     </p>
+     <p>
+      <br/>
+     </p>
+     <hr/>
+     <a name="CHILD_LINKS">
+      <strong>
+       Contents
+      </strong>
+     </a>
+     <ul class="ChildLinks">
+      <li>
+       <a href="Scene_Referred_Linear_is_Pr.html" name="tex2html1686">
+        Scene-Referred Linear is Preferred for Lighting
+       </a>
+      </li>
+      <li>
+       <a href="Rendering_Gamut_Impact.html" name="tex2html1687">
+        The Rendering Gamut Impact
+       </a>
+      </li>
+     </ul>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Scene_Referred_Linear_is_Pr.html" name="tex2html1685">
+       Scene-Referred Linear is Preferred
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Visual_Effects_Animation_Ga.html" name="tex2html1681">
+       Visual Effects, Animation and
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Matte_Painting.html" name="tex2html1677">
+       Matte Painting
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1683">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

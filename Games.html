@@ -16,6 +16,7 @@
   <link href="Visual_Effects_Animation_Ga.html" rel="up"/>
   <link href="Texture_Painting.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,88 +172,88 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00543000000000000000">
-    Games
-   </a>
-  </h2>
-  <p>
-   A series of the elements used for a shot from Battlefield V. The three images represent the linear, Rec. 709 working space image (top), the ungraded image with a generic Rec. 709 output transform (middle) and the final show look for a Rec. 709 display.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00543000000000000000">
+       Games
+      </a>
+     </h2>
+     <p>
+      A series of the elements used for a shot from Battlefield V. The three images represent the linear, Rec. 709 working space image (top), the ungraded image with a generic Rec. 709 output transform (middle) and the final show look for a Rec. 709 display.
 Imagery from Battlefield V courtesy of Electronic Arts Inc, &copy; 2018 Electronic Arts Inc. All rights reserved.
 Games and real-time projects are very much like animations in that every aspect of the scene is simulated in CG: the virtual lights, cameras, set and characters, without being constrained to match a live-action plate. Developments in color processing in real time rendering have largely aligned with those in the visual effects and animation space, finding that approaches that maintain physical plausibility by computing lighting and material reflectance in scene-referred linear wide-gamut spaces and that separate the lighting and material reflectance from the display pipeline provide for the most realistic results and the most flexibility in targeting many types of displays.
-  </p>
-  <p>
-   Games have vastly reduced frame processing time compared to non-real-time CG, due to their frames being entirely generated in real-time, i.e. 30, 60, 90 frames per second or higher. As such they rarely have the luxury of working natively with 16 bit floating point data for textures, and instead operate primarily using heavily compressed hardware-accelerated texture formats which trade quality for a dramatic reduction in memory footprint and increase in performance. See section 3.4.4.1 Textures in games for more on this topic.
-  </p>
-  <p>
-   Another important performance, quality tradeoff to note is related to runtime floating point formats. When alpha channels are not needed and performance and/or memory footprint are more important than precision, games sometimes prefer to use floating point formats smaller than 16 bit. Colloquially known as &ldquo;small float&rdquo; or &ldquo;mini float&rdquo; formats, these floating point formats have the same 5 bit exponent size as 16 bit floats. They thus have very similar positive range to 16 bit floats, but they have a reduced size mantissa so precision is reduced. Most importantly these formats also do not have a sign bit, so do not support negative numbers and cannot store out-of-gamut colors. See &ldquo;Small floats&rdquo; in Appendix 4.11.
-  </p>
-  <p>
-   Much like animation, physically-inspired games color pipelines require selection of a working-space gamut and a visualization, or output, transform. The working-space gamut is chosen based on the deliverable needs of the game as well as authoring constraints of the production pipeline. If a game will need to render on devices covering Rec. 2020, Rec. 709 and P3, it will be important to choose a gamut and authoring workflow that will cover these display gamuts. At the time of writing, the majority of games are produced and rendered in the Rec. 709 / sRGB gamut, primarily for reasons of convenience including use of legacy assets and performance. Although some games do natively render in a wider gamut and it is expected for games to rapidly follow Animation into native support for wider color gamuts.
-  </p>
-  <p>
-   When it comes to gamut handling there does not seem to be a standardised approach in games. Many different options exist, each with their own tradeoffs, and it is likely different games will take different approaches depending on how this best suits their situation. Several options are highlighted below
-  </p>
-  <p>
-   The engine runs natively in the Rec. 709 gamut and all color data, such as textures, movies, and dynamically animated colors, are provided in this same gamut. Output may be in a wider gamut, but unless post processing also operates in a wider gamut then no wide gamut colors will be available.
+     </p>
+     <p>
+      Games have vastly reduced frame processing time compared to non-real-time CG, due to their frames being entirely generated in real-time, i.e. 30, 60, 90 frames per second or higher. As such they rarely have the luxury of working natively with 16 bit floating point data for textures, and instead operate primarily using heavily compressed hardware-accelerated texture formats which trade quality for a dramatic reduction in memory footprint and increase in performance. See section 3.4.4.1 Textures in games for more on this topic.
+     </p>
+     <p>
+      Another important performance, quality tradeoff to note is related to runtime floating point formats. When alpha channels are not needed and performance and/or memory footprint are more important than precision, games sometimes prefer to use floating point formats smaller than 16 bit. Colloquially known as &ldquo;small float&rdquo; or &ldquo;mini float&rdquo; formats, these floating point formats have the same 5 bit exponent size as 16 bit floats. They thus have very similar positive range to 16 bit floats, but they have a reduced size mantissa so precision is reduced. Most importantly these formats also do not have a sign bit, so do not support negative numbers and cannot store out-of-gamut colors. See &ldquo;Small floats&rdquo; in Appendix 4.11.
+     </p>
+     <p>
+      Much like animation, physically-inspired games color pipelines require selection of a working-space gamut and a visualization, or output, transform. The working-space gamut is chosen based on the deliverable needs of the game as well as authoring constraints of the production pipeline. If a game will need to render on devices covering Rec. 2020, Rec. 709 and P3, it will be important to choose a gamut and authoring workflow that will cover these display gamuts. At the time of writing, the majority of games are produced and rendered in the Rec. 709 / sRGB gamut, primarily for reasons of convenience including use of legacy assets and performance. Although some games do natively render in a wider gamut and it is expected for games to rapidly follow Animation into native support for wider color gamuts.
+     </p>
+     <p>
+      When it comes to gamut handling there does not seem to be a standardised approach in games. Many different options exist, each with their own tradeoffs, and it is likely different games will take different approaches depending on how this best suits their situation. Several options are highlighted below
+     </p>
+     <p>
+      The engine runs natively in the Rec. 709 gamut and all color data, such as textures, movies, and dynamically animated colors, are provided in this same gamut. Output may be in a wider gamut, but unless post processing also operates in a wider gamut then no wide gamut colors will be available.
 The engine runs natively in the Rec. 709 gamut and the majority of color data, such as textures, movies and dynamically animated colors, are provided in this same gamut. The renderer uses signed floating point formats internally and employs the &ldquo;scRGB&rdquo; gamut which uses the same color primaries as Rec. 709 but supports wider gamuts through the use of negative numbers. Selected color data may be authored in a wider gamut and encoded in scRGB, requiring use of signed floating point texture formats which usually carry memory and/or performance overheads. See 3.4.4.1 Textures in games for more detail. This option can be appealing if the vast majority of color data is not wide gamut, only a few selected wide gamut assets exist, the performance and memory overheads are acceptable, and no obvious rendering artefacts are visible. See 3.4.6.2 The Rendering Gamut Impact for more detail.
 The engine runs natively in a wider gamut, say P3 or Rec. 2020, and the engine employs color management to propagate the gamut of all color assets to the renderer. The renderer dynamically transforms all color data, such as textures, movies and dynamically animated colors, into the native gamut of the renderer at the cost of performance overhead in the renderer. Usually only gamut expansion is supported, as gamut reduction is more complex and expensive. A side benefit of this runtime transformation is that range compression/expansion (scale/bias) can be applied for free, allowing some artefacts associated with compressed textures to be minimised. Small float formats are supported. This option can be appealing if games can accommodate the additional rendering cost and complexity of managing the gamut mapping in the renderer.
 The engine runs natively in a wider gamut, say P3 or Rec. 2020, and the engine employs color management to transform the gamut of all color assets into the renderer&rsquo;s native gamut offline as a preprocessing step. This comes at the cost of a potential loss of quality due to quantisation and texture compression. See 3.4.4.1 Textures in games for more detail. The renderer presumes all colors are in the working gamut. Small float formats are supported. This option can be appealing if games cannot afford additional runtime performance overhead or renderer complexity but can accommodate some quality loss associated with storing wide gamut textures in low bit depth compressed formats, or are willing to pay the additional cost to disable texture compression and/or use less compressed formats in the case that visual artefacts are seen.
-  </p>
-  <p>
-   These are just a few examples of how gamut can be handled; it is likely that many more options exist and are in use. In any of the cases where wide gamut is supported, the necessary gamut reduction must be undertaken if outputting to a narrow gamut display. What is important to note is the need for color management of the source assets, and that the fundamental principles still align with the other CG approaches in this document regardless of how the renderer handles them.
-  </p>
-  <p>
-   Games also have a more varied approach to output transforms. Filmic Tonemapping by Duiker (2006) is a widely used approach that started with LUTs based on film print stock measurements but then gave way to analytical approximations, Hable (2010), to the original curve that form their own family of curves. Many games projects use the Reinhard (2005) algorithm, Drago (2003) Adaptive Logarithmic mapping and still other more ad-hoc approaches have been developed to suit each game. In recent releases, Unreal and Unity have both adopted elements of the ACES working spaces and output transforms. Games engines typically combine more limited output transforms with extensive, dynamic color correction controls, typically including an ability to use 3D LUTs.
-  </p>
-  <p>
-   As the range of displays widens to include larger variations in dynamic range and gamut, separating the working space gamut from the display gamut and the color correction from the output transform becomes increasingly important. One advantage games have over the other CG productions is the entirely real-time nature of their rendering. Games can dynamically adjust their display mapping to best suit the capability of the display and can rely less on fixed mastering levels like the current set of ACES Output Transforms. This can help achieve the best possible quality for each display, but also carries with it gameplay implications. It is important for both competitive and social gaming that gameplay-essential luminance ranges be visible on all displays, to ensure games remain playable and no gamer is at a disadvantage if they are playing on a less capable display. This dynamic display mapping requires knowledge of the display characteristics, which is not always easy to ascertain.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Texture_Painting.html" name="tex2html1639">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Visual_Effects_Animation_Ga.html" name="tex2html1635">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Animation.html" name="tex2html1629">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1637">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Texture_Painting.html" name="tex2html1640">
-    Texture Painting
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Visual_Effects_Animation_Ga.html" name="tex2html1636">
-    Visual Effects, Animation and
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Animation.html" name="tex2html1630">
-    Animation
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1638">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      These are just a few examples of how gamut can be handled; it is likely that many more options exist and are in use. In any of the cases where wide gamut is supported, the necessary gamut reduction must be undertaken if outputting to a narrow gamut display. What is important to note is the need for color management of the source assets, and that the fundamental principles still align with the other CG approaches in this document regardless of how the renderer handles them.
+     </p>
+     <p>
+      Games also have a more varied approach to output transforms. Filmic Tonemapping by Duiker (2006) is a widely used approach that started with LUTs based on film print stock measurements but then gave way to analytical approximations, Hable (2010), to the original curve that form their own family of curves. Many games projects use the Reinhard (2005) algorithm, Drago (2003) Adaptive Logarithmic mapping and still other more ad-hoc approaches have been developed to suit each game. In recent releases, Unreal and Unity have both adopted elements of the ACES working spaces and output transforms. Games engines typically combine more limited output transforms with extensive, dynamic color correction controls, typically including an ability to use 3D LUTs.
+     </p>
+     <p>
+      As the range of displays widens to include larger variations in dynamic range and gamut, separating the working space gamut from the display gamut and the color correction from the output transform becomes increasingly important. One advantage games have over the other CG productions is the entirely real-time nature of their rendering. Games can dynamically adjust their display mapping to best suit the capability of the display and can rely less on fixed mastering levels like the current set of ACES Output Transforms. This can help achieve the best possible quality for each display, but also carries with it gameplay implications. It is important for both competitive and social gaming that gameplay-essential luminance ranges be visible on all displays, to ensure games remain playable and no gamer is at a disadvantage if they are playing on a less capable display. This dynamic display mapping requires knowledge of the display characteristics, which is not always easy to ascertain.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Texture_Painting.html" name="tex2html1640">
+       Texture Painting
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Visual_Effects_Animation_Ga.html" name="tex2html1636">
+       Visual Effects, Animation and
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Animation.html" name="tex2html1630">
+       Animation
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1638">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

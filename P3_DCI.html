@@ -16,6 +16,7 @@
   <link href="Common_RGB_Color_Encodings.html" rel="up"/>
   <link href="P3_D65.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,23 +172,26 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00617000000000000000">
-    P3 DCI
-   </a>
-  </h2>
-  <p>
-   The ACES Still Life reference image encoded with the P3 DCI Output Transform.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00617000000000000000">
+       P3 DCI
+      </a>
+     </h2>
+     <p>
+      The ACES Still Life reference image encoded with the P3 DCI Output Transform.
 Note that this output transform includes a &ldquo;D60 sim&rdquo;, giving the image a slight magenta tint when viewed on an sRGB (D65) display. On the intended P3 DCI display neutrals would appear with ACES (&nbsp;D60) white.
 Copyright &copy; A.M.P.A.S.
 DCI-P3 is a color space commonly used in digital cinema production, as it is well suited to theatrical presentation since it describes the native primaries of a DLP projector. Whereas the sRGB specification uses a color encoding suited for the desktop environment, the DCI-P3 specification uses a color encoding suited for theatrical luminance levels.
-  </p>
-  <p>
-   A projector calibrated to DCI-P3 uses a pure 2.6 gamma EOTF with a white point of 0.314, 0.351. The P3 primaries are wide-gamut relative to desktop standards; pure sRGB red is relatively desaturated with a distinctly orange-red hue, while pure P3 red is &ldquo;blood&rdquo; red, almost on the spectral locus. The DCI white point is not necessarily the creative white point used in mastering. Productions are free to master to any white point they prefer, provided all mastered colors fall within the allowed DCI gamut. Indeed, for artistic considerations, the DCI white point is often avoided due to its greenish cast relative to the daylight curve.
-  </p>
-  <p>
-   Red
+     </p>
+     <p>
+      A projector calibrated to DCI-P3 uses a pure 2.6 gamma EOTF with a white point of 0.314, 0.351. The P3 primaries are wide-gamut relative to desktop standards; pure sRGB red is relatively desaturated with a distinctly orange-red hue, while pure P3 red is &ldquo;blood&rdquo; red, almost on the spectral locus. The DCI white point is not necessarily the creative white point used in mastering. Productions are free to master to any white point they prefer, provided all mastered colors fall within the allowed DCI gamut. Indeed, for artistic considerations, the DCI white point is often avoided due to its greenish cast relative to the daylight curve.
+     </p>
+     <p>
+      Red
 Green
 Blue
 White Point
@@ -199,51 +199,48 @@ White Point
 0.265, 0.690
 0.150, 0.060
 0.314, 0.351
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="P3_D65.html" name="tex2html2213">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2209">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Hybrid_Log_Gamma_HLG.html" name="tex2html2203">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2211">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="P3_D65.html" name="tex2html2214">
-    P3 D65
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2210">
-    Common RGB Color Encodings
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Hybrid_Log_Gamma_HLG.html" name="tex2html2204">
-    Hybrid Log Gamma (HLG)
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2212">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="P3_D65.html" name="tex2html2214">
+       P3 D65
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Common_RGB_Color_Encodings.html" name="tex2html2210">
+       Common RGB Color Encodings
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Hybrid_Log_Gamma_HLG.html" name="tex2html2204">
+       Hybrid Log Gamma (HLG)
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2212">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

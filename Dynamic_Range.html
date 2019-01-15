@@ -16,6 +16,7 @@
   <link href="Human_Visual_System.html" rel="up"/>
   <link href="Adaptation.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,32 +172,35 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00424000000000000000">
-    Dynamic Range
-   </a>
-  </h2>
-  <p>
-   From starlight luminance levels around 10-4 cd/m2 to sunlight luminance levels reaching 105 cd/m2 or over 109 cd/m2 for a direct Sun luminance measurement, our world exhibits a wide dynamic range. In this context, dynamic range is the ratio between the maximum and minimum measurable light quantity in a scene.
-  </p>
-  <p>
-   The dynamic range of the human visual system.
-  </p>
-  <p>
-   The dynamic range of the HVS is the ratio between the most luminous stimulus causing complete photoreceptors bleaching with no damage and the smallest detectable light stimulus. Hood and Finkelstein (1986) and Ferwerda, Pattanaik, Shirley and Greenberg (1996) report from 10-6 to 10 cd/m2 for scotopic light levels and from 0.01 to 108 cd/m2 for the photopic range. However, the HVS, like any capture imaging devices, is unable to perceive this full range at once. Only a fraction is observable simultaneously, inducing HVS adaptation to illumination level variations.
-  </p>
-  <p>
-   The simultaneous dynamic range or steady-state dynamic range is defined as the ratio between the highest and lowest luminance values at which objects are detected while being in a state of full adaptation. It is the range of stimulus intensities over which photoreceptors are able to signal a change. Kunkel and Reinhard (2009) performed a series of psychophysical experiments on a high dynamic range display and determined that the HVS simultaneous dynamic range spans a range of 12.3 stops (3.7 log10 units) under illumination conditions with an adapting field varying from 1.78 cd/m2 to 17.8 cd/m2. They also found that the upper detection threshold was higher when the HVS is adapted to a brighter environment and thus that the maximum display luminance should be increased accordingly.
-  </p>
-  <p>
-   In the context of motion pictures and games, it is useful to talk about dynamic range in terms of photographic stops, i.e. doubling or halving of luminance. Stops are calculated as the log2 of the test luminance relative to a reference luminance level.
-  </p>
-  <p>
-   Relative exposure in stops is the log2 of the luminance relative to some reference exposure level. Any normalization factor suffices for relative comparisons.
-  </p>
-  <p>
-   EV
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00424000000000000000">
+       Dynamic Range
+      </a>
+     </h2>
+     <p>
+      From starlight luminance levels around 10-4 cd/m2 to sunlight luminance levels reaching 105 cd/m2 or over 109 cd/m2 for a direct Sun luminance measurement, our world exhibits a wide dynamic range. In this context, dynamic range is the ratio between the maximum and minimum measurable light quantity in a scene.
+     </p>
+     <p>
+      The dynamic range of the human visual system.
+     </p>
+     <p>
+      The dynamic range of the HVS is the ratio between the most luminous stimulus causing complete photoreceptors bleaching with no damage and the smallest detectable light stimulus. Hood and Finkelstein (1986) and Ferwerda, Pattanaik, Shirley and Greenberg (1996) report from 10-6 to 10 cd/m2 for scotopic light levels and from 0.01 to 108 cd/m2 for the photopic range. However, the HVS, like any capture imaging devices, is unable to perceive this full range at once. Only a fraction is observable simultaneously, inducing HVS adaptation to illumination level variations.
+     </p>
+     <p>
+      The simultaneous dynamic range or steady-state dynamic range is defined as the ratio between the highest and lowest luminance values at which objects are detected while being in a state of full adaptation. It is the range of stimulus intensities over which photoreceptors are able to signal a change. Kunkel and Reinhard (2009) performed a series of psychophysical experiments on a high dynamic range display and determined that the HVS simultaneous dynamic range spans a range of 12.3 stops (3.7 log10 units) under illumination conditions with an adapting field varying from 1.78 cd/m2 to 17.8 cd/m2. They also found that the upper detection threshold was higher when the HVS is adapted to a brighter environment and thus that the maximum display luminance should be increased accordingly.
+     </p>
+     <p>
+      In the context of motion pictures and games, it is useful to talk about dynamic range in terms of photographic stops, i.e. doubling or halving of luminance. Stops are calculated as the log2 of the test luminance relative to a reference luminance level.
+     </p>
+     <p>
+      Relative exposure in stops is the log2 of the luminance relative to some reference exposure level. Any normalization factor suffices for relative comparisons.
+     </p>
+     <p>
+      EV
 -8
 -3
 -2
@@ -225,59 +225,56 @@
 8
 256
 Scene-referred exposure values are often referenced in units of stops (EV), as the range between values is large for direct numerical comparisons. For example, it is difficult to get an intuition for what it means to reduce the exposure of an image by a factor of 0.004, it is generally more intuitive to refer to the same quantity as "-8 stops".
-  </p>
-  <p>
-   Key Points
+     </p>
+     <p>
+      Key Points
 The dynamic range of a scene is the ratio between the maximum and minimum measurable light quantity.
 The dynamic range of the HVS is the ratio between the most intense non-damaging luminous stimulus and the smallest detectable light stimulus.
 The HVS, like cameras, only perceive a fraction of the full extent of its dynamic range simultaneously.
 The HVS simultaneous or steady-state dynamic range spans over 12.3 stops; the upper detection threshold rises with a brighter environment and thus requires brighter displays.
 Dynamic range is often expressed in stops, a doubling or halving of luminance.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Adaptation.html" name="tex2html715">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Human_Visual_System.html" name="tex2html711">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Distribution.html" name="tex2html705">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html713">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Adaptation.html" name="tex2html716">
-    Adaptation
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Human_Visual_System.html" name="tex2html712">
-    Human Visual System
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Distribution.html" name="tex2html706">
-    Distribution
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html714">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Adaptation.html" name="tex2html716">
+       Adaptation
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Human_Visual_System.html" name="tex2html712">
+       Human Visual System
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Distribution.html" name="tex2html706">
+       Distribution
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html714">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

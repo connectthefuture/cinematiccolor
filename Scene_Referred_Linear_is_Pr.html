@@ -16,6 +16,7 @@
   <link href="Lighting_Shading_Rendering.html" rel="up"/>
   <link href="Rendering_Gamut_Impact.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,67 +172,67 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00551000000000000000">
-    Scene-Referred Linear is Preferred for Compositing
-   </a>
-  </h2>
-  <p>
-   The benefits of scene-referred linear compositing are numerous; similar to the benefits found in rendering, shading, and lighting. All operations which blend energy with spatially neighboring pixels: motion blur, defocus, image distortion, and resizing, for example, have more physically plausible, aka realistic, results by default. Anti-aliasing works better. Light mixing preserves the appearance of the original renders. Most importantly, even simple compositing operations such as over produce more realistic results, particularly on semi-transparent elements like hair, volumetrics and fx elements.
-  </p>
-  <p>
-   San Francisco City Hall at Night - An HDR scene-referred linear image (top left), Defocus applied to LDR output-referred values (top right), The original scene defocused in camera (bottom left), Defocus applied to the HDR scene-referred linear data before the output transform (bottom right). All four images use the ACES sRGB Output Transform.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00551000000000000000">
+       Scene-Referred Linear is Preferred for Compositing
+      </a>
+     </h2>
+     <p>
+      The benefits of scene-referred linear compositing are numerous; similar to the benefits found in rendering, shading, and lighting. All operations which blend energy with spatially neighboring pixels: motion blur, defocus, image distortion, and resizing, for example, have more physically plausible, aka realistic, results by default. Anti-aliasing works better. Light mixing preserves the appearance of the original renders. Most importantly, even simple compositing operations such as over produce more realistic results, particularly on semi-transparent elements like hair, volumetrics and fx elements.
+     </p>
+     <p>
+      San Francisco City Hall at Night - An HDR scene-referred linear image (top left), Defocus applied to LDR output-referred values (top right), The original scene defocused in camera (bottom left), Defocus applied to the HDR scene-referred linear data before the output transform (bottom right). All four images use the ACES sRGB Output Transform.
 These image helps illustrate the energy implications of using different linearization philosophies. Pay particular attention to the appearance of the lights in the bell tower on the top of the dome. How much energy is represented in those pixels? The least realistic defocus effect is achieved by applying the filter kernel directly to the output-referred pixel values without any linearization. Since in this case there is only a small difference between the pixel values of the lights and that of diffuse white, the defocus causes the lights to be lost in the surrounding pixels.
-  </p>
-  <p>
-   San Francisco City Hall at Night - The original scene defocused in camera (left), Defocus applied to the HDR scene-referred linear data before the output transform (middle). Defocus applied to pseudo-linearized output-referred data (right). All three images use the ACES sRGB Output Transform.
+     </p>
+     <p>
+      San Francisco City Hall at Night - The original scene defocused in camera (left), Defocus applied to the HDR scene-referred linear data before the output transform (middle). Defocus applied to pseudo-linearized output-referred data (right). All three images use the ACES sRGB Output Transform.
 Applying the same defocus to image data which has been converted to an approximation of scene-referred linear using a simple gamma or sRGB curve is an improvement, but still tends to de-emphasize the specular highlights. This is because even though the operation is being applied in &lsquo;linear&rsquo;, it is downstream of the output transform, and the highlights have already been tone mapped for a lower dynamic range display, restricting them to the 0-1 range, and thus do not have physically-plausible amounts of energy. Applications like Adobe After Effects work in this way by default when the &ldquo;use linear&rdquo; option is chosen for filters, simply removing an assumed 2.2 gamma before the filter and reapplying it afterward. Applying a defocus in scene-referred linear reveals a bokeh effect on each of the bell tower lights, mimicking the visual look of having performed this defocus during camera acquisition. This is because the pixel values are proportional to light in the original scene, and thus very bright pixels have sufficient energy to remain visible when blended with their neighbors. Other energy effects such as motion-blur achieve similar improvements in realism from working in a scene-referred linear space.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Rendering_Gamut_Impact.html" name="tex2html1698">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Lighting_Shading_Rendering.html" name="tex2html1694">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Lighting_Shading_Rendering.html" name="tex2html1688">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1696">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Rendering_Gamut_Impact.html" name="tex2html1699">
-    The Rendering Gamut Impact
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Lighting_Shading_Rendering.html" name="tex2html1695">
-    Lighting, Shading, and Rendering
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Lighting_Shading_Rendering.html" name="tex2html1689">
-    Lighting, Shading, and Rendering
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1697">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Rendering_Gamut_Impact.html" name="tex2html1699">
+       The Rendering Gamut Impact
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Lighting_Shading_Rendering.html" name="tex2html1695">
+       Lighting, Shading, and Rendering
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Lighting_Shading_Rendering.html" name="tex2html1689">
+       Lighting, Shading, and Rendering
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1697">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

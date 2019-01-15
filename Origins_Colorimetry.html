@@ -16,6 +16,7 @@
   <link href="Basic_Colorimetry.html" rel="up"/>
   <link href="Blackbody_Radiation_Light_s.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,79 +172,79 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00431000000000000000">
-    Origins of Colorimetry
-   </a>
-  </h2>
-  <p>
-   In the late 19th century, Young and Helmholtz proposed that color vision is conveyed through a limited number of receptors sensitive to different portions of the visible spectrum. Maxwell (1860) used linear algebra to prove Young&ndash;Helmholtz trichromatic theory and invented color matching experiments and modern colorimetry. The trichromatic theory explains the metamerism phenomenon: two samples matching under some lighting conditions might look different under others.
-  </p>
-  <p>
-   Hering proposed the opponent color theory around 1920 to explain phenomena not accounted for by the trichromatic theory. He noted that specific pairs of colors did not occur at the same time and place: a reddish-green or yellowish-blue. We, however, do see reddish-yellows and greenish-blues. He thought there were three receptor types with bipolar response to red-green, yellow-blue, and light-dark.
-  </p>
-  <p>
-   The Modern Opponent Colors Theory with a trichromatic first stage mediated by the cones and opponent colors encoding in the second stage. Stockman, A., &amp; Brainard, D. H. (2010). Color vision mechanisms. The Optical Society of America Handbook of Optics, 11.1&ndash;11.104. ISBN:0071498915 - colour-science.org
-  </p>
-  <p>
-   The modern color vision theory,  foundational basis of colorimetry, combines both Young&ndash;Helmholtz's Trichromatic Theory and Hering&rsquo;s Opponent Colors Theory: Color vision in the first stage is trichromatic and executed by the cone cells. In the second stage, upper retinal layers encode the cone cells signals into an achromatic signal V(&lambda;) = L + M and two cone opponent chromatic signals such as RG = L - M, YB = L + M - S.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00431000000000000000">
+       Origins of Colorimetry
+      </a>
+     </h2>
+     <p>
+      In the late 19th century, Young and Helmholtz proposed that color vision is conveyed through a limited number of receptors sensitive to different portions of the visible spectrum. Maxwell (1860) used linear algebra to prove Young&ndash;Helmholtz trichromatic theory and invented color matching experiments and modern colorimetry. The trichromatic theory explains the metamerism phenomenon: two samples matching under some lighting conditions might look different under others.
+     </p>
+     <p>
+      Hering proposed the opponent color theory around 1920 to explain phenomena not accounted for by the trichromatic theory. He noted that specific pairs of colors did not occur at the same time and place: a reddish-green or yellowish-blue. We, however, do see reddish-yellows and greenish-blues. He thought there were three receptor types with bipolar response to red-green, yellow-blue, and light-dark.
+     </p>
+     <p>
+      The Modern Opponent Colors Theory with a trichromatic first stage mediated by the cones and opponent colors encoding in the second stage. Stockman, A., &amp; Brainard, D. H. (2010). Color vision mechanisms. The Optical Society of America Handbook of Optics, 11.1&ndash;11.104. ISBN:0071498915 - colour-science.org
+     </p>
+     <p>
+      The modern color vision theory,  foundational basis of colorimetry, combines both Young&ndash;Helmholtz's Trichromatic Theory and Hering&rsquo;s Opponent Colors Theory: Color vision in the first stage is trichromatic and executed by the cone cells. In the second stage, upper retinal layers encode the cone cells signals into an achromatic signal V(&lambda;) = L + M and two cone opponent chromatic signals such as RG = L - M, YB = L + M - S.
 2.3.2 Measuring Light
 The CIE defines colorimetry as the measurement of color stimuli based on a set of conventions. Electromagnetic radiation measurements are performed with instruments such as spectroradiometers, spectrophotometers, or tristimulus colorimeters for the case of visible radiation.
-  </p>
-  <p>
-   Spectroradiometry and spectrophotometry need to be described as their naming with regard to radiometry and photometry can be confusing.
+     </p>
+     <p>
+      Spectroradiometry and spectrophotometry need to be described as their naming with regard to radiometry and photometry can be confusing.
 Spectroradiometry measures the amount of light radiated as a function of wavelength, i.e. radiance, or irradiated, i.e. irradiance.
 Spectrophotometry measures the amount of light reflected, transmitted, or absorbed as a function of wavelength, i.e. reflectance, or transmitted, i.e. transmittance.
 Both disciplines measure a radiometric quantity (radiant flux) and not a photometric one contrary to what the spectrophotometry name might imply. Spectroradiometers, measuring radiance or irradiance, and spectrophotometers, measuring reflectance or transmittance, produce spectral distributions with a narrowband interval, e.g. 1nm, 5nm or 10nm.
-  </p>
-  <p>
-   On the other hand, tristimulus colorimeters use red, green and blue filters that emulate the HVS spectral response to light. They produce a single triplet of values by measuring wideband radiant energy and are used in digital imaging to calibrate displays. Because they mimic the HVS, tristimulus colorimeters are also subject to the metamerism phenomenon.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Blackbody_Radiation_Light_s.html" name="tex2html813">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Basic_Colorimetry.html" name="tex2html809">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Basic_Colorimetry.html" name="tex2html803">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html811">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Blackbody_Radiation_Light_s.html" name="tex2html814">
-    Blackbody Radiation, Light sources
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Basic_Colorimetry.html" name="tex2html810">
-    Basic Colorimetry
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Basic_Colorimetry.html" name="tex2html804">
-    Basic Colorimetry
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html812">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      On the other hand, tristimulus colorimeters use red, green and blue filters that emulate the HVS spectral response to light. They produce a single triplet of values by measuring wideband radiant energy and are used in digital imaging to calibrate displays. Because they mimic the HVS, tristimulus colorimeters are also subject to the metamerism phenomenon.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Blackbody_Radiation_Light_s.html" name="tex2html814">
+       Blackbody Radiation, Light sources
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Basic_Colorimetry.html" name="tex2html810">
+       Basic Colorimetry
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Basic_Colorimetry.html" name="tex2html804">
+       Basic Colorimetry
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html812">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

@@ -15,6 +15,7 @@
   <link href="Establishing_Look.html" rel="up"/>
   <link href="Look_Management.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -154,19 +155,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -174,84 +171,84 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h3>
-   <a name="SECTION00521100000000000000">
-    Displaying Scene-Referred Imagery
-   </a>
-  </h3>
-  <p>
-   One of the complexities associated with scene-referred imagery is display reproduction. While scene-referred imagery is natural for processing, displays can only reproduce a much lower dynamic (LDR) range. While at first glance it seems like a reasonable approach to directly map scene-referred linear directly to the display, at least for the overlapping portions of the contrast range, in practice this yields unpleasing results. See &ldquo;Color Management for Digital Cinema&rdquo; Giorgianni (2005), for further justification, and Section 3.2 for a visual example.
-  </p>
-  <p>
-   This challenge has been approached and intuitively solved by artists for millena. The world is a high dynamic range environment. Artists have striven to render artistic versions of reality on low dynamic  range media.  In the color community, there are many aspects to pleasingly reproducing high dynamic range pixels on a low dynamic range display, but one of the most important is known as tone mapping and is an active area of research. Surprisingly, many pleasing tonal renditions of high-dynamic range data to low dynamic range displays use similarly shaped transforms. On first glance this may be surprising, but when one sits down and designs a tone rendering transform there are convergent processes at work corresponding to what yields a pleasing image appearance. Other considerations for reproducing high dynamic range on low dynamic range displays include gamut mapping, highlight bleaching and saturation changes.
-  </p>
-  <p>
-   First, most tone renderings map a traditional scene grey exposure to a central value on the output display. Directly mapping the remaining scene-referred linear image to display results in an image with low apparent contrast as a consequence of the display surround. Thus, one adds a reconstruction slope greater than 1:1 to bump the mid-tone contrast.  Of course, with this increase, in contrast, the shadows and highlights are severely clipped, so a roll-off in contrast of lower than 1:1 is applied on both the high and low ends to allow for highlight and shadow detail to have smooth transitions. With this high contrast portion in the middle and low contrast portions at the extrema, the final curve resembles an &ldquo;S&rdquo; shape as shown below.
-  </p>
-  <p>
-   The ACES sRGB Output Transform applied to a ramp in the ACEScc color space.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h3>
+      <a name="SECTION00521100000000000000">
+       Displaying Scene-Referred Imagery
+      </a>
+     </h3>
+     <p>
+      One of the complexities associated with scene-referred imagery is display reproduction. While scene-referred imagery is natural for processing, displays can only reproduce a much lower dynamic (LDR) range. While at first glance it seems like a reasonable approach to directly map scene-referred linear directly to the display, at least for the overlapping portions of the contrast range, in practice this yields unpleasing results. See &ldquo;Color Management for Digital Cinema&rdquo; Giorgianni (2005), for further justification, and Section 3.2 for a visual example.
+     </p>
+     <p>
+      This challenge has been approached and intuitively solved by artists for millena. The world is a high dynamic range environment. Artists have striven to render artistic versions of reality on low dynamic  range media.  In the color community, there are many aspects to pleasingly reproducing high dynamic range pixels on a low dynamic range display, but one of the most important is known as tone mapping and is an active area of research. Surprisingly, many pleasing tonal renditions of high-dynamic range data to low dynamic range displays use similarly shaped transforms. On first glance this may be surprising, but when one sits down and designs a tone rendering transform there are convergent processes at work corresponding to what yields a pleasing image appearance. Other considerations for reproducing high dynamic range on low dynamic range displays include gamut mapping, highlight bleaching and saturation changes.
+     </p>
+     <p>
+      First, most tone renderings map a traditional scene grey exposure to a central value on the output display. Directly mapping the remaining scene-referred linear image to display results in an image with low apparent contrast as a consequence of the display surround. Thus, one adds a reconstruction slope greater than 1:1 to bump the mid-tone contrast.  Of course, with this increase, in contrast, the shadows and highlights are severely clipped, so a roll-off in contrast of lower than 1:1 is applied on both the high and low ends to allow for highlight and shadow detail to have smooth transitions. With this high contrast portion in the middle and low contrast portions at the extrema, the final curve resembles an &ldquo;S&rdquo; shape as shown below.
+     </p>
+     <p>
+      The ACES sRGB Output Transform applied to a ramp in the ACEScc color space.
 An &ldquo;S-shaped&rdquo; curve is traditionally used to cinematically tone render scene-referred HDR colorimetry into an image suitable for output on a low dynamic range display. The input axis is an ACEScc logarithmic base 2 coding of scene-referred linear pixels. The output axis corresponds to code-values for an sRGB display.
-  </p>
-  <p>
-   The final transfer curve from scene-referred linear to display is shockingly consistent between technologies, with both digital and film imaging pipelines having roughly matched end to end transforms. If a film color process is characterized from negative to print, it almost exactly produces this &ldquo;S-shaped&rdquo; transfer curve, which is not surprising given the pleasant tonal reproductions film offers. In traditional film imaging process, the negative stock captures a wide dynamic range and the print stock imparts a very pleasing tone mapping for reproduction on limited dynamic range devices (the theatrical print &ldquo;positive&rdquo;). Broadly speaking, film negatives encode an HDR scene-referred image, and the print embodies an output-referred tone mapping. For those interested in further details on the high-dynamic range imaging processes implicit in the film development process, see the Ansel Adams Photography Series [Adams 84].
-  </p>
-  <p>
-   It should be noted that while there is significant convergence on filmic tone mapping, a filmic curve may not be desirable in games, tv or film. Productions choosing to reproduce a particularly stylized visual, such as a cartoony or highly ambient-lit appearance, may not wish to see the additional contrast or toe from such an operator, so may elect to have a less pronounced curve.
-  </p>
-  <p>
-   To summarize, it is strongly advised not to directly map high-dynamic range scene-referred data to the display. A tone rendering is required, and there is great historical precedence for using a global &ldquo;S-Shaped&rdquo; operator. HDR scene-acquisition accurately records a wide range of scene-luminance values, and with a proper tone mapping operator, much of this range can be visually preserved during reproduction on low-dynamic range devices.
-  </p>
-  <p>
-   Please refer to Section 3.2 for a visual comparison between an S-shaped tone mapping operator versus a simple gamma transform.
-  </p>
-  <p>
-   Specific considerations taken into account when crafting the Look for a film, animation or game are discussed later in 3.6 DI Grading
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Look_Management.html" name="tex2html1484">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Establishing_Look.html" name="tex2html1480">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Establishing_Look.html" name="tex2html1476">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1482">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Look_Management.html" name="tex2html1485">
-    Look Management
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Establishing_Look.html" name="tex2html1481">
-    Establishing the Look
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Establishing_Look.html" name="tex2html1477">
-    Establishing the Look
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1483">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      The final transfer curve from scene-referred linear to display is shockingly consistent between technologies, with both digital and film imaging pipelines having roughly matched end to end transforms. If a film color process is characterized from negative to print, it almost exactly produces this &ldquo;S-shaped&rdquo; transfer curve, which is not surprising given the pleasant tonal reproductions film offers. In traditional film imaging process, the negative stock captures a wide dynamic range and the print stock imparts a very pleasing tone mapping for reproduction on limited dynamic range devices (the theatrical print &ldquo;positive&rdquo;). Broadly speaking, film negatives encode an HDR scene-referred image, and the print embodies an output-referred tone mapping. For those interested in further details on the high-dynamic range imaging processes implicit in the film development process, see the Ansel Adams Photography Series [Adams 84].
+     </p>
+     <p>
+      It should be noted that while there is significant convergence on filmic tone mapping, a filmic curve may not be desirable in games, tv or film. Productions choosing to reproduce a particularly stylized visual, such as a cartoony or highly ambient-lit appearance, may not wish to see the additional contrast or toe from such an operator, so may elect to have a less pronounced curve.
+     </p>
+     <p>
+      To summarize, it is strongly advised not to directly map high-dynamic range scene-referred data to the display. A tone rendering is required, and there is great historical precedence for using a global &ldquo;S-Shaped&rdquo; operator. HDR scene-acquisition accurately records a wide range of scene-luminance values, and with a proper tone mapping operator, much of this range can be visually preserved during reproduction on low-dynamic range devices.
+     </p>
+     <p>
+      Please refer to Section 3.2 for a visual comparison between an S-shaped tone mapping operator versus a simple gamma transform.
+     </p>
+     <p>
+      Specific considerations taken into account when crafting the Look for a film, animation or game are discussed later in 3.6 DI Grading
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Look_Management.html" name="tex2html1485">
+       Look Management
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Establishing_Look.html" name="tex2html1481">
+       Establishing the Look
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Establishing_Look.html" name="tex2html1477">
+       Establishing the Look
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1483">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

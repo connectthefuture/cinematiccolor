@@ -16,6 +16,7 @@
   <link href="Visual_Effects_Animation_Ga.html" rel="up"/>
   <link href="Textures_in_Games.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,99 +172,97 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00544000000000000000">
-    Texture Painting
-   </a>
-  </h2>
-  <p>
-   Theses color maps represent the color modulation of the diffuse, specular and reflection components of a surface shader and the beauty render.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00544000000000000000">
+       Texture Painting
+      </a>
+     </h2>
+     <p>
+      Theses color maps represent the color modulation of the diffuse, specular and reflection components of a surface shader and the beauty render.
 &copy; 2018 MARVEL
 Formerly a majority of 2D texture painting applications worked most intuitively in output-referred color spaces, where the painted image was directly displayed on the screen. However, the texture authoring landscape in the VFX industry has dramatically changed with the commercial release of Mari (2010) and other 3D paint packages like Substance Designer (2010) and Substance Painter (2014). These 3D painting packages adopt a scene-referred rendering workflow where artists are able to paint plausible reflectance values while reviewing their work in a viewport that approximates the shading and lighting of the final render and includes the in-house or client output transform. Because 3D viewports are driven by physically-based real-time renderers that strive to present a close approximation of the asset appearance as computed by the offline renderers, artists are able to paint much more in context.
-  </p>
-  <p>
-   Examples of the effect of varying material parameters. Each parameter is varied across the row from zero to one with the other parameters held constant. - Physically-Based Shading at Disney, Burley, 2012
-  </p>
-  <p>
-   One point worth discussing is the somewhat muddied question of whether a texture is scene-referred or output-referred, or if scene-referred, what that means. For diffuse textures, it is relatively easy to say what it represents at any point in the lighting and rendering pipeline: diffuse reflectance values specified in the working gamut used for asset development. For textures that represent specular roughness, normal distribution, sub-surface scattering mean free path or other more technical aspects of a surface&rsquo;s response to lighting, the texture may represent a linear value, a gamma-encoded value, a log value or values from another bespoke measurement space. The connection between these values and the working gamut for asset development is also less clear. The values in those textures are best thought of as being &ldquo;parameter-referred&rdquo; as they only have meaning for the parameterization of the surface shader being used. The choice of which parameters to expose for a given material and which measures and space to use for them is a subject of much debate. See Burley (2012) for an interesting discussion of the considerations involved in parameterizing surface shaders. Given the dependence on the surface shader parameterization, painting textures in a 3D paint package with a physically plausible shader that shares the parameterization of the production renderer becomes much more important. Painting textures in a 2D application for parameters that aren&rsquo;t easily mapped to a display can be an exercise in frustration, often leading to a guessing game as to what effect a change to the texture will have on the look of a 3D asset. Regardless of the approach chosen, one must distinguish painted color maps and data maps: bump maps, normal maps, iso maps, control maps, etc, which should not be processed colorimetrically.
-  </p>
-  <p>
-   A shot from &ldquo;Rogue One: A Star Wars Story&rdquo; including an X Wing model (top) with the painted diffuse (bottom, left), specular intensity (bottom, middle) and specular roughness (bottom, right) maps.
+     </p>
+     <p>
+      Examples of the effect of varying material parameters. Each parameter is varied across the row from zero to one with the other parameters held constant. - Physically-Based Shading at Disney, Burley, 2012
+     </p>
+     <p>
+      One point worth discussing is the somewhat muddied question of whether a texture is scene-referred or output-referred, or if scene-referred, what that means. For diffuse textures, it is relatively easy to say what it represents at any point in the lighting and rendering pipeline: diffuse reflectance values specified in the working gamut used for asset development. For textures that represent specular roughness, normal distribution, sub-surface scattering mean free path or other more technical aspects of a surface&rsquo;s response to lighting, the texture may represent a linear value, a gamma-encoded value, a log value or values from another bespoke measurement space. The connection between these values and the working gamut for asset development is also less clear. The values in those textures are best thought of as being &ldquo;parameter-referred&rdquo; as they only have meaning for the parameterization of the surface shader being used. The choice of which parameters to expose for a given material and which measures and space to use for them is a subject of much debate. See Burley (2012) for an interesting discussion of the considerations involved in parameterizing surface shaders. Given the dependence on the surface shader parameterization, painting textures in a 3D paint package with a physically plausible shader that shares the parameterization of the production renderer becomes much more important. Painting textures in a 2D application for parameters that aren&rsquo;t easily mapped to a display can be an exercise in frustration, often leading to a guessing game as to what effect a change to the texture will have on the look of a 3D asset. Regardless of the approach chosen, one must distinguish painted color maps and data maps: bump maps, normal maps, iso maps, control maps, etc, which should not be processed colorimetrically.
+     </p>
+     <p>
+      A shot from &ldquo;Rogue One: A Star Wars Story&rdquo; including an X Wing model (top) with the painted diffuse (bottom, left), specular intensity (bottom, middle) and specular roughness (bottom, right) maps.
 Texture reference might be sourced from the internet or other sources of output-referred imagery such as the JPG/TIFF output from a digital camera. In this scenario, a common approach is to utilize an inverse tone rendering, to convert output-referred imagery to a hypothetical scene-referred space. Conceptually, the texture artist is painting the tone rendered appearance of the texture, not the texture itself. There are a few challenges with this conversion from output-referred to scene-referred space. First, the tone rendering may not be invertible, particularly when filmic 3D LUTs are used for image preview. Second, traditional s-shaped tone renderings have very horizontal portions of the curve, which when inverted result in very steeply sloped transfer functions. This steep contrast has the effect of amplifying small changes in input code values. For example, a steep inverse could result in the situation where a single code value change in a painted texture could correspond to a delta of a stop or more of scene-referred linear light. This sensitivity is very challenging for artists to work with.
-  </p>
-  <p>
-   For text and logos, the goal is often to convert to scene-referred linear through the inverse of the project Look, specifically so that when the text or logos are integrated with other imagery and run through the forward version of the project Look, the original text and logo colors are returned. Thus, the overall effect is a no-op on the logo and text.
-  </p>
-  <p>
-   A common solution to these issues is to be a bit more modest in the goal of perfectly inverting the display transform. Simplifying the problem, we can instead aim to create an approximate 1D inverse, tuned to be well behaved both in terms of color performance and dynamic range. Of course, as a consequence of this simplification, the texture painting is not truly WYSIWYG. Thus, a residual difference visualization 3D LUT is crafted for accurate color preview in the texture painting tool.
-  </p>
-  <p>
-   Another axis of variation in texturing is when to perform the conversion to scene-referred linear. The suggested approach is to linearize prior to mipmap texture generation. The primary advantage of this approach is that scene-referred linear energy is preserved through all the mipmap levels, allowing for the highest fidelity sampling and fewest color space related artifacts. Further, disallowing color space conversions at shading time prevents shaders from using undesirable, non-linear, color math. The disadvantage is that the storage requirements for linearized data are potentially increased, i.e., even if a texture is painted at 8 bits of precision in an output-referred space, increased bit-depths are required after conversion to scene-referred linear. When dealing with 16 bit painted textures, this is less of a concern as the delta in file size is smaller.
-  </p>
-  <p>
-   It is common for facilities to have an Onset Capture department whose responsibility is to acquire the texture references for a show. They are often processed with a flavor of DCRaw, Libraw or a dedicated in-house tool that output the texture reference data as scene-referred linear light values encoded with the facility working color space inside an EXR file. In a controlled environment, the use of cross-polarizing filters and polarised lighting during acquisition further allows for increased reference texture fidelity as the specular response of the sample is attenuated producing a more useful representation of its reflectance. See 3.3.5 On-Set Reference Capture for more detail.
-  </p>
-  <p>
-   <br/>
-  </p>
-  <hr/>
-  <!--Table of Child-Links-->
-  <a name="CHILD_LINKS">
-   <strong>
-    Subsections
-   </strong>
-  </a>
-  <ul class="ChildLinks">
-   <li>
-    <a href="Textures_in_Games.html" name="tex2html1653">
-     Textures in Games
-    </a>
-   </li>
-  </ul>
-  <!--End of Table of Child-Links-->
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Textures_in_Games.html" name="tex2html1651">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Visual_Effects_Animation_Ga.html" name="tex2html1647">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Games.html" name="tex2html1641">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1649">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Textures_in_Games.html" name="tex2html1652">
-    Textures in Games
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Visual_Effects_Animation_Ga.html" name="tex2html1648">
-    Visual Effects, Animation and
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Games.html" name="tex2html1642">
-    Games
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1650">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      For text and logos, the goal is often to convert to scene-referred linear through the inverse of the project Look, specifically so that when the text or logos are integrated with other imagery and run through the forward version of the project Look, the original text and logo colors are returned. Thus, the overall effect is a no-op on the logo and text.
+     </p>
+     <p>
+      A common solution to these issues is to be a bit more modest in the goal of perfectly inverting the display transform. Simplifying the problem, we can instead aim to create an approximate 1D inverse, tuned to be well behaved both in terms of color performance and dynamic range. Of course, as a consequence of this simplification, the texture painting is not truly WYSIWYG. Thus, a residual difference visualization 3D LUT is crafted for accurate color preview in the texture painting tool.
+     </p>
+     <p>
+      Another axis of variation in texturing is when to perform the conversion to scene-referred linear. The suggested approach is to linearize prior to mipmap texture generation. The primary advantage of this approach is that scene-referred linear energy is preserved through all the mipmap levels, allowing for the highest fidelity sampling and fewest color space related artifacts. Further, disallowing color space conversions at shading time prevents shaders from using undesirable, non-linear, color math. The disadvantage is that the storage requirements for linearized data are potentially increased, i.e., even if a texture is painted at 8 bits of precision in an output-referred space, increased bit-depths are required after conversion to scene-referred linear. When dealing with 16 bit painted textures, this is less of a concern as the delta in file size is smaller.
+     </p>
+     <p>
+      It is common for facilities to have an Onset Capture department whose responsibility is to acquire the texture references for a show. They are often processed with a flavor of DCRaw, Libraw or a dedicated in-house tool that output the texture reference data as scene-referred linear light values encoded with the facility working color space inside an EXR file. In a controlled environment, the use of cross-polarizing filters and polarised lighting during acquisition further allows for increased reference texture fidelity as the specular response of the sample is attenuated producing a more useful representation of its reflectance. See 3.3.5 On-Set Reference Capture for more detail.
+     </p>
+     <p>
+      <br/>
+     </p>
+     <hr/>
+     <a name="CHILD_LINKS">
+      <strong>
+       Contents
+      </strong>
+     </a>
+     <ul class="ChildLinks">
+      <li>
+       <a href="Textures_in_Games.html" name="tex2html1653">
+        Textures in Games
+       </a>
+      </li>
+     </ul>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Textures_in_Games.html" name="tex2html1652">
+       Textures in Games
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Visual_Effects_Animation_Ga.html" name="tex2html1648">
+       Visual Effects, Animation and
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Games.html" name="tex2html1642">
+       Games
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1650">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

@@ -16,6 +16,7 @@
   <link href="Common_RGB_Color_Encodings.html" rel="up"/>
   <link href="ACEScc.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,53 +172,56 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION006116000000000000000">
-    Sony SLog
-   </a>
-  </h2>
-  <p>
-   Sony has offered a range of encoding curves in their cameras, with the latest being S-Log3. The original S-Log is now deprecated, and not something likely to be seen on current productions. S-Log2 and S-Log3 are still both current. S-Log2 is normally paired with S-Gamut primaries, whereas S-Log3 may be paired either with S-Gamut3 or S-Gamut3.Cine primaries. S-Gamut and S-Gamut3 use the same wide gamut primaries; it is simply that the matrices used in the camera to transform to them from the sensor native color space are different. As has been mentioned previously in Section 3.3.1, a 3x3 camera matrix can only ever be an approximation of the ideal transform to set of encoding primaries. S-Gamut and S-Gamut3 use different optimizations. S-Gamut3 has the additional advantage that the transform to ACES is the same at all color temperatures, whereas for S-Gamut, two Input Transforms are provided by Sony for use under tungsten and daylight. S-Gamut3.Cine is slightly less wide gamut than S-Gamut3, and was designed to be more closely aligned with P3 primaries, making manual grading to P3 simpler. In a scene-referred workflow there is no benefit to this, and indeed recording in S-Gamut3.Cine will clip some colors which may be present in the scene, compared to S-Gamut3. Nonetheless, many people use S-Gamut3.Cine as the default camera setting, so it is important to ascertain which was used. As with Canon footage, using Sony&rsquo;s own software can be a useful way of reading metadata from the files which might not otherwise be available. Some Sony cameras also include XML files with the media, which can provide useful information.
-  </p>
-  <p>
-   The S-Log2 encoding function is:
-  </p>
-  <p>
-   if L &ge; 0:
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION006116000000000000000">
+       Sony SLog
+      </a>
+     </h2>
+     <p>
+      Sony has offered a range of encoding curves in their cameras, with the latest being S-Log3. The original S-Log is now deprecated, and not something likely to be seen on current productions. S-Log2 and S-Log3 are still both current. S-Log2 is normally paired with S-Gamut primaries, whereas S-Log3 may be paired either with S-Gamut3 or S-Gamut3.Cine primaries. S-Gamut and S-Gamut3 use the same wide gamut primaries; it is simply that the matrices used in the camera to transform to them from the sensor native color space are different. As has been mentioned previously in Section 3.3.1, a 3x3 camera matrix can only ever be an approximation of the ideal transform to set of encoding primaries. S-Gamut and S-Gamut3 use different optimizations. S-Gamut3 has the additional advantage that the transform to ACES is the same at all color temperatures, whereas for S-Gamut, two Input Transforms are provided by Sony for use under tungsten and daylight. S-Gamut3.Cine is slightly less wide gamut than S-Gamut3, and was designed to be more closely aligned with P3 primaries, making manual grading to P3 simpler. In a scene-referred workflow there is no benefit to this, and indeed recording in S-Gamut3.Cine will clip some colors which may be present in the scene, compared to S-Gamut3. Nonetheless, many people use S-Gamut3.Cine as the default camera setting, so it is important to ascertain which was used. As with Canon footage, using Sony&rsquo;s own software can be a useful way of reading metadata from the files which might not otherwise be available. Some Sony cameras also include XML files with the media, which can provide useful information.
+     </p>
+     <p>
+      The S-Log2 encoding function is:
+     </p>
+     <p>
+      if L &ge; 0:
 		V = (64 + 876&times;(0.432699 &times; log10(155 &times; L / 197.1 + 0.037584) + 0.646596)) / 1023
 	else:
 		V = (64 + 876 &times; (L &times; 3.53881278538813 / 0.9 + 0.030001222851889303)) / 1023
-  </p>
-  <p>
-   The S-Log3 encoding function is:
-  </p>
-  <p>
-   if L &ge; 0.01125:
+     </p>
+     <p>
+      The S-Log3 encoding function is:
+     </p>
+     <p>
+      if L &ge; 0.01125:
 		V = (420 + log10((L + 0.01) / 0.19) &times; 261.5) / 1023
 	else:
 		V = (L &times; 76.2102946929 / 0.01125 + 95) / 1023
-  </p>
-  <p>
-   The S-Log2 decoding function is:
-  </p>
-  <p>
-   if V &ge; (64 + 0.030001222851889303 &times; 876) / 1023:
+     </p>
+     <p>
+      The S-Log2 decoding function is:
+     </p>
+     <p>
+      if V &ge; (64 + 0.030001222851889303 &times; 876) / 1023:
 		L = 197.1&times;(10((V&times;1023 &ndash; 64) / 876 &ndash; 0.646596) / 0.432699  &ndash; 0.037584) / 155
 	else:
 		L = 0.9&times;( (V&times;1023 &minus; 64) / 876 &ndash; 0.030001222851889303 ) / 3.53881278538813
-  </p>
-  <p>
-   The S-Log3 decoding function is:
-  </p>
-  <p>
-   if V &ge; 171.2102946929 / 1023:
+     </p>
+     <p>
+      The S-Log3 decoding function is:
+     </p>
+     <p>
+      if V &ge; 171.2102946929 / 1023:
 		L = 10(V &times; 1023 &minus; 420) / 261.5 &times; 0.19 &minus; 0.01
 	else:
 		L = (V &times; 1023 &ndash; 95) &times; 0.01125000 / 76.2102946929
-  </p>
-  <p>
-   Red
+     </p>
+     <p>
+      Red
 Green
 Blue
 White Point
@@ -229,9 +229,9 @@ White Point
 0.140, 0.855
 0.100, -0.050
 0.3127, 0.3290 (D65)
-  </p>
-  <p>
-   Red
+     </p>
+     <p>
+      Red
 Green
 Blue
 White Point
@@ -239,51 +239,48 @@ White Point
 0.225, 0.800
 0.089, -0.087
 0.3127, 0.3290 (D65)
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="ACEScc.html" name="tex2html2321">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2317">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="RED_Log3G10.html" name="tex2html2311">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2319">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="ACEScc.html" name="tex2html2322">
-    ACEScc
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2318">
-    Common RGB Color Encodings
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="RED_Log3G10.html" name="tex2html2312">
-    RED Log3G10
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2320">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="ACEScc.html" name="tex2html2322">
+       ACEScc
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Common_RGB_Color_Encodings.html" name="tex2html2318">
+       Common RGB Color Encodings
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="RED_Log3G10.html" name="tex2html2312">
+       RED Log3G10
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2320">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

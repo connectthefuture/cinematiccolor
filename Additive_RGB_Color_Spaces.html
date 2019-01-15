@@ -15,6 +15,7 @@
   <link href="Basic_Colorimetry.html" rel="up"/>
   <link href="Primaries.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -154,19 +155,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -174,127 +171,125 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00438000000000000000">
-    Additive RGB Color Spaces
-   </a>
-  </h2>
-  <p>
-   Additive RGB color spaces are the color representation that most people interact with on a daily basis; our display technology is based on the additive mixing of 3 red, green and blue primaries.
-  </p>
-  <p>
-   The first RGB color space, CIE RGB, was created by Wright &amp; Guild (1931) when they performed their color matching experiments. The three monochromatic primary colors R, G, B used to match a test color at a single wavelength of light once plotted on the CIE 1931 Chromaticity Diagram, are located on the spectral locus and respectively have the following wavelengths: 700.0 nm, 546.1 nm, and 435.8 nm. sRGB is the ubiquitous RGB color space created by Hewlett Packard and Microsoft in 1996, standardized as IEC 61966-2-1:1999, in an attempt to define a standard color space for use with monitors, printers, and on the Internet. Many other RGB color spaces exist and are reviewed in the Appendix. This section of the document focuses instead on the components of an RGB color space and provides some disambiguation of terminology.
-  </p>
-  <p>
-   It is common to see operators in digital content creation (DCC) applications or functions in various game engines, libraries, color processing tools labeled as "linear to sRGB". The consequence of poor wording is that people often don't understand that sRGB is probably more than a "linear to sRGB" operator or function. Some resources purport to explain how sRGB and linear color spaces differ.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00438000000000000000">
+       Additive RGB Color Spaces
+      </a>
+     </h2>
+     <p>
+      Additive RGB color spaces are the color representation that most people interact with on a daily basis; our display technology is based on the additive mixing of 3 red, green and blue primaries.
+     </p>
+     <p>
+      The first RGB color space, CIE RGB, was created by Wright &amp; Guild (1931) when they performed their color matching experiments. The three monochromatic primary colors R, G, B used to match a test color at a single wavelength of light once plotted on the CIE 1931 Chromaticity Diagram, are located on the spectral locus and respectively have the following wavelengths: 700.0 nm, 546.1 nm, and 435.8 nm. sRGB is the ubiquitous RGB color space created by Hewlett Packard and Microsoft in 1996, standardized as IEC 61966-2-1:1999, in an attempt to define a standard color space for use with monitors, printers, and on the Internet. Many other RGB color spaces exist and are reviewed in the Appendix. This section of the document focuses instead on the components of an RGB color space and provides some disambiguation of terminology.
+     </p>
+     <p>
+      It is common to see operators in digital content creation (DCC) applications or functions in various game engines, libraries, color processing tools labeled as "linear to sRGB". The consequence of poor wording is that people often don't understand that sRGB is probably more than a "linear to sRGB" operator or function. Some resources purport to explain how sRGB and linear color spaces differ.
 First and foremost, while the CIE RGB and sRGB color space gamuts are intrinsically representing radiometrically linear light values, their color component transfer functions are radically different: CIE RGB has no defined encoding and decoding color component transfer functions; they are considered to be linear; however sRGB adopts non-linear color encoding and decoding component transfer functions following a power law.
-  </p>
-  <p>
-   The confusion comes from the fact that generally, people don't mention which component of the additive RGB color space they are referring to. The following three components are required to fully specify an additive RGB color space:
-  </p>
-  <p>
-   Primaries
+     </p>
+     <p>
+      The confusion comes from the fact that generally, people don't mention which component of the additive RGB color space they are referring to. The following three components are required to fully specify an additive RGB color space:
+     </p>
+     <p>
+      Primaries
 White point
 Color Component Transfer Functions
-  </p>
-  <p>
-   Noticeably, the ISO 22028-1:2016 Standard defines an additive RGB color space as follows:
-  </p>
-  <p>
-   Additive RGB color space
-  </p>
-  <p>
-   Colorimetric color space having three color primaries (generally red, green and blue) such that CIE XYZ tristimulus values can be determined from the RGB color space values by forming a weighted combination of the CIE XYZ tristimulus values for the individual color primaries, where the weights are proportional to the radiometrically linear color space values for the corresponding color primaries.
-  </p>
-  <p>
-   Note 1 to entry: A simple linear 3 &Atilde;&mdash; 3 matrix transformation can be used to transform between CIE XYZ tristimulus values and the radiometrically linear color space values for an additive RGB color space.
-  </p>
-  <p>
-   Note 2 to entry: Additive RGB color spaces are defined by specifying the CIE chromaticity values for a set of additive RGB primaries and a color space white point, together with a color component transfer function.
-  </p>
-  <p>
-   <br/>
-  </p>
-  <hr/>
-  <!--Table of Child-Links-->
-  <a name="CHILD_LINKS">
-   <strong>
-    Subsections
-   </strong>
-  </a>
-  <ul class="ChildLinks">
-   <li>
-    <a href="Primaries.html" name="tex2html921">
-     Primaries
-    </a>
-   </li>
-   <li>
-    <a href="White_Point.html" name="tex2html922">
-     White Point
-    </a>
-   </li>
-   <li>
-    <a href="Color_Component_Transfer_Fu.html" name="tex2html923">
-     Color Component Transfer Functions
-    </a>
-    <ul>
-     <li>
-      <a href="Encoding_Color_Component_Tr.html" name="tex2html924">
-       Encoding Color Component Transfer Functions
+     </p>
+     <p>
+      Noticeably, the ISO 22028-1:2016 Standard defines an additive RGB color space as follows:
+     </p>
+     <p>
+      Additive RGB color space
+     </p>
+     <p>
+      Colorimetric color space having three color primaries (generally red, green and blue) such that CIE XYZ tristimulus values can be determined from the RGB color space values by forming a weighted combination of the CIE XYZ tristimulus values for the individual color primaries, where the weights are proportional to the radiometrically linear color space values for the corresponding color primaries.
+     </p>
+     <p>
+      Note 1 to entry: A simple linear 3 &Atilde;&mdash; 3 matrix transformation can be used to transform between CIE XYZ tristimulus values and the radiometrically linear color space values for an additive RGB color space.
+     </p>
+     <p>
+      Note 2 to entry: Additive RGB color spaces are defined by specifying the CIE chromaticity values for a set of additive RGB primaries and a color space white point, together with a color component transfer function.
+     </p>
+     <p>
+      <br/>
+     </p>
+     <hr/>
+     <a name="CHILD_LINKS">
+      <strong>
+       Contents
+      </strong>
+     </a>
+     <ul class="ChildLinks">
+      <li>
+       <a href="Primaries.html" name="tex2html921">
+        Primaries
+       </a>
+      </li>
+      <li>
+       <a href="White_Point.html" name="tex2html922">
+        White Point
+       </a>
+      </li>
+      <li>
+       <a href="Color_Component_Transfer_Fu.html" name="tex2html923">
+        Color Component Transfer Functions
+       </a>
+       <ul>
+        <li>
+         <a href="Encoding_Color_Component_Tr.html" name="tex2html924">
+          Encoding Color Component Transfer Functions
+         </a>
+        </li>
+        <li>
+         <a href="Decoding_Color_Component_Tr.html" name="tex2html925">
+          Decoding Color Component Transfer Functions
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Primaries.html" name="tex2html920">
+       Primaries
       </a>
-     </li>
-     <li>
-      <a href="Decoding_Color_Component_Tr.html" name="tex2html925">
-       Decoding Color Component Transfer Functions
+      <b>
+       Up:
+      </b>
+      <a href="Basic_Colorimetry.html" name="tex2html916">
+       Basic Colorimetry
       </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <!--End of Table of Child-Links-->
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Primaries.html" name="tex2html919">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Basic_Colorimetry.html" name="tex2html915">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Perceptually_Uniform_Color_.html" name="tex2html911">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html917">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Primaries.html" name="tex2html920">
-    Primaries
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Basic_Colorimetry.html" name="tex2html916">
-    Basic Colorimetry
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Perceptually_Uniform_Color_.html" name="tex2html912">
-    Perceptually Uniform Color Spaces
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html918">
-     Contents
-    </a>
-   </b>
+      <b>
+       Previous:
+      </b>
+      <a href="Perceptually_Uniform_Color_.html" name="tex2html912">
+       Perceptually Uniform Color Spaces
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html918">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

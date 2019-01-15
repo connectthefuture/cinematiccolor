@@ -16,6 +16,7 @@
   <link href="Common_RGB_Color_Encodings.html" rel="up"/>
   <link href="RED_Log3G10.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,43 +172,46 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION006114000000000000000">
-    Panasonic V-Log
-   </a>
-  </h2>
-  <p>
-   V-Log, paired with V-Gamut is the log recording format used by the Panasonic Varicam range of cameras, as well as the AU-EVA1. Some of the lower end Panasonic cameras such as the Lumix range offer V-Log L recording. This uses exactly the same curve as V-Log, simply with the upper part of the dynamic range unused, so the same linearization function can be used.
-  </p>
-  <p>
-   The V-Log encoding function is:
-  </p>
-  <p>
-   if L &lt; 0.01:
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION006114000000000000000">
+       Panasonic V-Log
+      </a>
+     </h2>
+     <p>
+      V-Log, paired with V-Gamut is the log recording format used by the Panasonic Varicam range of cameras, as well as the AU-EVA1. Some of the lower end Panasonic cameras such as the Lumix range offer V-Log L recording. This uses exactly the same curve as V-Log, simply with the upper part of the dynamic range unused, so the same linearization function can be used.
+     </p>
+     <p>
+      The V-Log encoding function is:
+     </p>
+     <p>
+      if L &lt; 0.01:
 		V = 5.6 &times; L + 0.125
 	else:
 		V = c &times; log10(L + b) + d
-  </p>
-  <p>
-   Where the constants are:
-  </p>
-  <p>
-   b = 0.00873
+     </p>
+     <p>
+      Where the constants are:
+     </p>
+     <p>
+      b = 0.00873
 c = 0.241514
 d = 0.598206
-  </p>
-  <p>
-   The V-Log decoding function is:
-  </p>
-  <p>
-   if V &lt; 0.181:
+     </p>
+     <p>
+      The V-Log decoding function is:
+     </p>
+     <p>
+      if V &lt; 0.181:
 		L = (V &minus; 0.125) / 5.6
 	else:
 		L = 10.0(V &minus; d) / c &ndash; b
-  </p>
-  <p>
-   Red
+     </p>
+     <p>
+      Red
 Green
 Blue
 White Point
@@ -219,51 +219,48 @@ White Point
 0.165, 0.840
 0.100, -0.030
 0.3127, 0.3290 (D65)
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="RED_Log3G10.html" name="tex2html2297">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2293">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="GoPro_ProTune.html" name="tex2html2287">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2295">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="RED_Log3G10.html" name="tex2html2298">
-    RED Log3G10
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2294">
-    Common RGB Color Encodings
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="GoPro_ProTune.html" name="tex2html2288">
-    GoPro ProTune
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2296">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="RED_Log3G10.html" name="tex2html2298">
+       RED Log3G10
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Common_RGB_Color_Encodings.html" name="tex2html2294">
+       Common RGB Color Encodings
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="GoPro_ProTune.html" name="tex2html2288">
+       GoPro ProTune
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2296">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

@@ -16,6 +16,7 @@
   <link href="DI_Color_Grading.html" rel="up"/>
   <link href="External_Mattes.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,138 +172,136 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h3>
-   <a name="SECTION00564100000000000000">
-    DI Grading Tools
-   </a>
-  </h3>
-  <p>
-   Color grading tools have evolved with technology. In the early days of film, adjustments were limited to exposure and color tinting. With color film came color timing with RGB printer lights, which are quite literally filtered lights to alter the color of the print copy. In the video era, analog and then digital tools were developed to optimize film transfers to video via a telecine. The DI grading software of today typically copies or emulates the historical processes, and adds new features from computer graphics, VFX, digital cameras and improved color science. New software grading tools appear slowly, often a long time after the technology that requires them. At the time of writing, there are few special tools for HDR display grades for example. Colorists consequently have become adept at repurposing tools to fit new needs. Grading software has become sophisticated enough that it is rarely possible to recognize the exact tool or software from the result. However, there are significant differences in alternative approaches to the grade. These differences must be considered part of the creative process but a review of the most common techniques can help to understand how a look is crafted and how look management is integral to the process. In short the tools used and the order in which they are used, affect the outcome.
-  </p>
-  <p>
-   The following section discusses tools and workflows in more detail as the workflow, or more specifically the working color space the tools are used with changes the effect of each tool. Some systems have tools that attempt to achieve the same behavior in each different color space, although that mandates a full color managed approach. Other systems have less sophisticated solutions in which the range of a tool is altered according to the color space and many systems have controls that can be tweaked by the user as needed. However, the most basic commonly used tools are surprisingly agnostic about where they are used, and consequently, they feel and react differently in different workflows. The controls are written with a capital, e.g. Offset, to distinguish them from pure mathematical operators e.g. offset.
-  </p>
-  <p>
-   For simplicity, an unmanaged color workflow reveals the raw nature of two different grading tools. An unmanaged workflow is a workflow in which the source color space, the timeline color space, and the output color space are all the same and so no transforms are applied by the system. This is still the default for many DI grading systems and many colorists continue to work this way since it is easier, usually requiring no project set up at all. This section, therefore, describes color grading tools as used in the older WYSIWYG approach and is output-referred. This is not the recommended approach but serves to best illustrate the nature of the toolsets and how they are used.
-  </p>
-  <p>
-   ARRI LogC source image with references. Image &copy; Geoff Boyle All rights reserved.
-  </p>
-  <p>
-   For the purposes of discussion, the above test image is processed in different ways. The source image has a deliberately wide dynamic range captured with an ARRI camera as ALEXA LogC. The color chart and the two faces at the top of the image are from the camera. Bottom left is a waveform representation of the processing applied to the image and below that a grayscale ramp from which the waveform is derived. The waveform does not reflect the image itself, only the processing applied. Bottom right is a vectorscope display of the color chart which was part of the camera capture. The vectorscope only shows the chromaticity of the chart after processing and is a useful way to compare saturation and hue shifts. The image above is unprocessed so the waveform and ramp show a true linear response. The following examples are not color graded in the true sense of the term, they are examples of the starting point for a DI grade. This type of adjustment to get a reasonable starting point is sometimes called the Technical Grade or a dailies grade. On a real job some color balancing is often needed too, but for this test, neither color balance nor saturation was adjusted. To obtain a realistic comparison the test image was graded using a limited toolset with a waveform as a reference. The grade sets a technical black level and enough contrast to use as much of the available dynamic range as possible, whilst retaining a pleasing result on both pale and dark skin in the same image on a calibrated Rec. 709 display.
-  </p>
-  <p>
-   These examples are not exhaustive, there are countless variations possible. The purpose of this exercise is to underline the absolute need for good Look Management. The above image is scene-referred, so the real world examples shown here are intended to demonstrate that using no color management or different color management causes the Look to change significantly. At best, this results in more work to maintain continuity. At worst the intended Look must be compromised or completely re-thought in order to deliver high-quality images. Goo d Look Management is all about consistency.
-  </p>
-  <p>
-   The three trackballs that make a grading control surface so recognizable are initially mapped to Lift Gamma and Gain (LGG) in most systems. Since these are the first available controls it is not surprising that they are the most commonly used by many colorists. The actual math behind the LGG set can differ between manufacturers, and a few systems offer several versions, but these tools originate from the telecine era of transferring film to video. Since film stocks have different response to light in the shadows, midtonesmid-tones and highlights, colorists needed separate controls for them to manage the film dynamic range in the much more limited video gamut.
-  </p>
-  <p>
-   The Lift or Black control pivots around white and affects all code values except white. The definition of white is typically code value 1023 in a 10 bit range but again can vary among tools and systems. The tool is ideal for balancing blacks in any color space because the darkest tones are always affected more than the lighter tones, but it is not very selective. A characteristic of this tool is that it pushes the darkest parts of the image, the blacks, harder than any other tone, so when lowering the black point it is prone to causing compressed or clipped shadow detail. In look creation, sometimes this is desirable and sometimes not.
-  </p>
-  <p>
-   Gain is similar in use to Lift but pivots around the black point or 0. Again different tools and systems can define the black value differently, but if the black point is anything above 0, further conditions need to be defined so that values below black are not affected. When increasing Gain to brighten an image, the brightest values are the first to be clipped or compressed.
-  </p>
-  <p>
-   The Gamma control varies between systems far more than lift and gain but is always a simple curve that distributes values towards shadows or highlights. It should normally not affect the absolute black or white level. In many systems, the Gamma control has a fixed range that is output-referred. Consequently, when used on a log source in a scene-referred workflow the code values that become black and white levels at the display are well within the range of the Gamma control and do affect blacks and whites. For this reason, many colorists avoid a simple Gamma control altogether.
-  </p>
-  <p>
-   ARRI LogC image graded with Lift, Gamma, Gain, and no color management. Image &copy; Geoff Boyle All rights reserved.
-  </p>
-  <p>
-   In the test image Lift was used to lower the deepest shadows to black on the waveform and Gain was used to bring the brightest details in the flowers to white on the waveform. A small Gamma control adjustment was then applied for a pleasing start point. Without color management, the saturation remains low and there is better hue separation in the warm colors than the cool ones. The result is a quite contrasty, hard looking, low saturated image. The waveform and ramp show clipping, but since none of the values in the test image are in the clipped range that is not a problem. However, it is worth noting that the definition of the white clip point is arbitrarily chosen by eye in this example. Setting the whites to clip in this way is the beginning of crafting a look.
-  </p>
-  <p>
-   When DI grading was first introduced around 2000, there was some controversy over the use of these video tools in a film to film process. In film timing, there were less sophisticated tools and many felt that in order to retain the essence of the negative to print chemical process, those tools should be more closely emulated. Interestingly, the resulting DI tools, Offset and Contrast, did not exist in any of the video hardware color grading systems, though there were comparable tools in the telecines themselves.
-  </p>
-  <p>
-   Offset is an additive function applied to all the image code values, so on its own, it does not differentiate any tonal range from another. It is confusingly labeled Offset, Black, Lift (incorrectly), Exposure, Density and probably some other terms according to the system in use.
-  </p>
-  <p>
-   In scene-referred linear, a gain operation is typically used to change the color balance and scene exposure. In log space, this roughly corresponds to additive offsets. If a mathematically exact log is used, they are in fact identical, though most manufacturers tweak the log encodings as previously mentioned. Log offset color adjustments per color channel are ubiquitous in motion-picture industry color grading and often referred to as the &ldquo;primary grade&rdquo;. Theatrical &ldquo;fades to black&rdquo; have a very particular appearance to them, which is a direct consequence of the fade being applied in log space, as viewed through the traditional &ldquo;S-shaped&rdquo; film emulation. Fade to blacks applied as gain operations in scene-referred linear have a roughly similar visual appearance, with specular highlights lingering on screen well beyond mid-tones.
-  </p>
-  <p>
-   The Contrast tool in a workflow that is not color managed is usually an s-curve with an adjustable pivot, applied after Offset. The contrast tool pushes low mid-tones towards black and high mid-tones towards white and approximately simulates the response of a film print stock. It has a less aggressive look than lift and gain and is similar to a color management tone map curve. In color managed systems the output transform is likely to include an s-curve and the Contrast tool might then be a straight line pivoting around an adjustable mid-point so that the two do not conflict. The overall visual result is still an s-curve.
-  </p>
-  <p>
-   ARRI LogC image graded with Offset / Contrast and no color management. Image &copy; Geoff Boyle All rights reserved.
-  </p>
-  <p>
-   In the test image, Contrast (S-Curve) was used to adjust the dynamic range to the display and  Offset to bring the range out of clipping. The contrast pivot point was adjusted to maximize the difference between shadows and highlights. Once again this was a purely technical approach based on the image content. Interestingly, this approach produces an even harder look and struggles to get a good representation of the darker skin. A lower contrast setting would work better for both faces but would have left the image looking milky with either lifted blacks or whites below peak. The waveform and ramp show that there is no clipping, which would make it better for a viewing LUT. Chromaticity is only slightly changed from the LGG example. When Offset is used with Contrast, the Contrast control shapes the results.
-  </p>
-  <p>
-   There is a third type of control found in many systems, that consists of three tools often described as shadows, mid-tones and highlights. These tools are more selective and curve away from a pivot point. The pivot points may be user-defined and the shadow, mid-tone and highlight ranges may or may not overlap, The result is something in between LGG and Offset/Contrast. A single grading system may have just these basic two tool sets or many more variations to choose from. In some systems, the tools are modified slightly by the project settings for color space, and in others, they can be redefined each time they are used. Where there are many variations of the primary tools, the processing order is important and again systems vary. Sometimes the processing order in each layer or node can be altered and sometimes not. When the processing order of tools is fixed, the colorist needs to use more layers/nodes to achieve the same result.
-  </p>
-  <p>
-   The above tools are all RGB. The 3 channels can be ganged together and used to manage brightness levels. This is called the Master control by colorists. Alternatively, each color channel can be adjusted separately either by a ball or circle or with a knob or slider. Adjusting individual channels allows balancing or neutralizing a color bias but is also used to create a look or style. Three channel RGB tools are commonly referred to as Primaries, not to be confused with RGB color space primaries.
-  </p>
-  <p>
-   In output-referred grading these primary adjustments are made to bring the image to a viewable state on the reference monitor in lieu of an output transform, whereas in scene-referred grading their result is subsequently processed through the output transform, which alters the effect of the controls. The decisions are based on aesthetics but intended to be neutral. The only definitive information in the image is an unexposed black, the precise values of all other tones and colors are unknown in the absence of Look Management.
-  </p>
-  <p>
-   The colorist crafts the Look after the initial technical grade using more refined and sophisticated tools. Secondary controls are used in conjunction with external mattes, keys, and shapes to achieve selective changes. The DI grade is built up in layers or nodes, depending on the interface, which can be interconnected and blended together. The secondary controls can be used as part of the Look, or to modify it. For example, if the Look is dark and moody it is common practice to use secondaries to brighten skin tones.
-  </p>
-  <p>
-   <br/>
-  </p>
-  <hr/>
-  <!--Table of Child-Links-->
-  <a name="CHILD_LINKS">
-   <strong>
-    Subsections
-   </strong>
-  </a>
-  <ul class="ChildLinks">
-   <li>
-    <a href="External_Mattes.html" name="tex2html1881">
-     External Mattes
-    </a>
-   </li>
-  </ul>
-  <!--End of Table of Child-Links-->
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="External_Mattes.html" name="tex2html1879">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="DI_Color_Grading.html" name="tex2html1875">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="DI_Color_Grading.html" name="tex2html1869">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1877">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="External_Mattes.html" name="tex2html1880">
-    External Mattes
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="DI_Color_Grading.html" name="tex2html1876">
-    DI Color Grading
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="DI_Color_Grading.html" name="tex2html1870">
-    DI Color Grading
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1878">
-     Contents
-    </a>
-   </b>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h3>
+      <a name="SECTION00564100000000000000">
+       DI Grading Tools
+      </a>
+     </h3>
+     <p>
+      Color grading tools have evolved with technology. In the early days of film, adjustments were limited to exposure and color tinting. With color film came color timing with RGB printer lights, which are quite literally filtered lights to alter the color of the print copy. In the video era, analog and then digital tools were developed to optimize film transfers to video via a telecine. The DI grading software of today typically copies or emulates the historical processes, and adds new features from computer graphics, VFX, digital cameras and improved color science. New software grading tools appear slowly, often a long time after the technology that requires them. At the time of writing, there are few special tools for HDR display grades for example. Colorists consequently have become adept at repurposing tools to fit new needs. Grading software has become sophisticated enough that it is rarely possible to recognize the exact tool or software from the result. However, there are significant differences in alternative approaches to the grade. These differences must be considered part of the creative process but a review of the most common techniques can help to understand how a look is crafted and how look management is integral to the process. In short the tools used and the order in which they are used, affect the outcome.
+     </p>
+     <p>
+      The following section discusses tools and workflows in more detail as the workflow, or more specifically the working color space the tools are used with changes the effect of each tool. Some systems have tools that attempt to achieve the same behavior in each different color space, although that mandates a full color managed approach. Other systems have less sophisticated solutions in which the range of a tool is altered according to the color space and many systems have controls that can be tweaked by the user as needed. However, the most basic commonly used tools are surprisingly agnostic about where they are used, and consequently, they feel and react differently in different workflows. The controls are written with a capital, e.g. Offset, to distinguish them from pure mathematical operators e.g. offset.
+     </p>
+     <p>
+      For simplicity, an unmanaged color workflow reveals the raw nature of two different grading tools. An unmanaged workflow is a workflow in which the source color space, the timeline color space, and the output color space are all the same and so no transforms are applied by the system. This is still the default for many DI grading systems and many colorists continue to work this way since it is easier, usually requiring no project set up at all. This section, therefore, describes color grading tools as used in the older WYSIWYG approach and is output-referred. This is not the recommended approach but serves to best illustrate the nature of the toolsets and how they are used.
+     </p>
+     <p>
+      ARRI LogC source image with references. Image &copy; Geoff Boyle All rights reserved.
+     </p>
+     <p>
+      For the purposes of discussion, the above test image is processed in different ways. The source image has a deliberately wide dynamic range captured with an ARRI camera as ALEXA LogC. The color chart and the two faces at the top of the image are from the camera. Bottom left is a waveform representation of the processing applied to the image and below that a grayscale ramp from which the waveform is derived. The waveform does not reflect the image itself, only the processing applied. Bottom right is a vectorscope display of the color chart which was part of the camera capture. The vectorscope only shows the chromaticity of the chart after processing and is a useful way to compare saturation and hue shifts. The image above is unprocessed so the waveform and ramp show a true linear response. The following examples are not color graded in the true sense of the term, they are examples of the starting point for a DI grade. This type of adjustment to get a reasonable starting point is sometimes called the Technical Grade or a dailies grade. On a real job some color balancing is often needed too, but for this test, neither color balance nor saturation was adjusted. To obtain a realistic comparison the test image was graded using a limited toolset with a waveform as a reference. The grade sets a technical black level and enough contrast to use as much of the available dynamic range as possible, whilst retaining a pleasing result on both pale and dark skin in the same image on a calibrated Rec. 709 display.
+     </p>
+     <p>
+      These examples are not exhaustive, there are countless variations possible. The purpose of this exercise is to underline the absolute need for good Look Management. The above image is scene-referred, so the real world examples shown here are intended to demonstrate that using no color management or different color management causes the Look to change significantly. At best, this results in more work to maintain continuity. At worst the intended Look must be compromised or completely re-thought in order to deliver high-quality images. Goo d Look Management is all about consistency.
+     </p>
+     <p>
+      The three trackballs that make a grading control surface so recognizable are initially mapped to Lift Gamma and Gain (LGG) in most systems. Since these are the first available controls it is not surprising that they are the most commonly used by many colorists. The actual math behind the LGG set can differ between manufacturers, and a few systems offer several versions, but these tools originate from the telecine era of transferring film to video. Since film stocks have different response to light in the shadows, midtonesmid-tones and highlights, colorists needed separate controls for them to manage the film dynamic range in the much more limited video gamut.
+     </p>
+     <p>
+      The Lift or Black control pivots around white and affects all code values except white. The definition of white is typically code value 1023 in a 10 bit range but again can vary among tools and systems. The tool is ideal for balancing blacks in any color space because the darkest tones are always affected more than the lighter tones, but it is not very selective. A characteristic of this tool is that it pushes the darkest parts of the image, the blacks, harder than any other tone, so when lowering the black point it is prone to causing compressed or clipped shadow detail. In look creation, sometimes this is desirable and sometimes not.
+     </p>
+     <p>
+      Gain is similar in use to Lift but pivots around the black point or 0. Again different tools and systems can define the black value differently, but if the black point is anything above 0, further conditions need to be defined so that values below black are not affected. When increasing Gain to brighten an image, the brightest values are the first to be clipped or compressed.
+     </p>
+     <p>
+      The Gamma control varies between systems far more than lift and gain but is always a simple curve that distributes values towards shadows or highlights. It should normally not affect the absolute black or white level. In many systems, the Gamma control has a fixed range that is output-referred. Consequently, when used on a log source in a scene-referred workflow the code values that become black and white levels at the display are well within the range of the Gamma control and do affect blacks and whites. For this reason, many colorists avoid a simple Gamma control altogether.
+     </p>
+     <p>
+      ARRI LogC image graded with Lift, Gamma, Gain, and no color management. Image &copy; Geoff Boyle All rights reserved.
+     </p>
+     <p>
+      In the test image Lift was used to lower the deepest shadows to black on the waveform and Gain was used to bring the brightest details in the flowers to white on the waveform. A small Gamma control adjustment was then applied for a pleasing start point. Without color management, the saturation remains low and there is better hue separation in the warm colors than the cool ones. The result is a quite contrasty, hard looking, low saturated image. The waveform and ramp show clipping, but since none of the values in the test image are in the clipped range that is not a problem. However, it is worth noting that the definition of the white clip point is arbitrarily chosen by eye in this example. Setting the whites to clip in this way is the beginning of crafting a look.
+     </p>
+     <p>
+      When DI grading was first introduced around 2000, there was some controversy over the use of these video tools in a film to film process. In film timing, there were less sophisticated tools and many felt that in order to retain the essence of the negative to print chemical process, those tools should be more closely emulated. Interestingly, the resulting DI tools, Offset and Contrast, did not exist in any of the video hardware color grading systems, though there were comparable tools in the telecines themselves.
+     </p>
+     <p>
+      Offset is an additive function applied to all the image code values, so on its own, it does not differentiate any tonal range from another. It is confusingly labeled Offset, Black, Lift (incorrectly), Exposure, Density and probably some other terms according to the system in use.
+     </p>
+     <p>
+      In scene-referred linear, a gain operation is typically used to change the color balance and scene exposure. In log space, this roughly corresponds to additive offsets. If a mathematically exact log is used, they are in fact identical, though most manufacturers tweak the log encodings as previously mentioned. Log offset color adjustments per color channel are ubiquitous in motion-picture industry color grading and often referred to as the &ldquo;primary grade&rdquo;. Theatrical &ldquo;fades to black&rdquo; have a very particular appearance to them, which is a direct consequence of the fade being applied in log space, as viewed through the traditional &ldquo;S-shaped&rdquo; film emulation. Fade to blacks applied as gain operations in scene-referred linear have a roughly similar visual appearance, with specular highlights lingering on screen well beyond mid-tones.
+     </p>
+     <p>
+      The Contrast tool in a workflow that is not color managed is usually an s-curve with an adjustable pivot, applied after Offset. The contrast tool pushes low mid-tones towards black and high mid-tones towards white and approximately simulates the response of a film print stock. It has a less aggressive look than lift and gain and is similar to a color management tone map curve. In color managed systems the output transform is likely to include an s-curve and the Contrast tool might then be a straight line pivoting around an adjustable mid-point so that the two do not conflict. The overall visual result is still an s-curve.
+     </p>
+     <p>
+      ARRI LogC image graded with Offset / Contrast and no color management. Image &copy; Geoff Boyle All rights reserved.
+     </p>
+     <p>
+      In the test image, Contrast (S-Curve) was used to adjust the dynamic range to the display and  Offset to bring the range out of clipping. The contrast pivot point was adjusted to maximize the difference between shadows and highlights. Once again this was a purely technical approach based on the image content. Interestingly, this approach produces an even harder look and struggles to get a good representation of the darker skin. A lower contrast setting would work better for both faces but would have left the image looking milky with either lifted blacks or whites below peak. The waveform and ramp show that there is no clipping, which would make it better for a viewing LUT. Chromaticity is only slightly changed from the LGG example. When Offset is used with Contrast, the Contrast control shapes the results.
+     </p>
+     <p>
+      There is a third type of control found in many systems, that consists of three tools often described as shadows, mid-tones and highlights. These tools are more selective and curve away from a pivot point. The pivot points may be user-defined and the shadow, mid-tone and highlight ranges may or may not overlap, The result is something in between LGG and Offset/Contrast. A single grading system may have just these basic two tool sets or many more variations to choose from. In some systems, the tools are modified slightly by the project settings for color space, and in others, they can be redefined each time they are used. Where there are many variations of the primary tools, the processing order is important and again systems vary. Sometimes the processing order in each layer or node can be altered and sometimes not. When the processing order of tools is fixed, the colorist needs to use more layers/nodes to achieve the same result.
+     </p>
+     <p>
+      The above tools are all RGB. The 3 channels can be ganged together and used to manage brightness levels. This is called the Master control by colorists. Alternatively, each color channel can be adjusted separately either by a ball or circle or with a knob or slider. Adjusting individual channels allows balancing or neutralizing a color bias but is also used to create a look or style. Three channel RGB tools are commonly referred to as Primaries, not to be confused with RGB color space primaries.
+     </p>
+     <p>
+      In output-referred grading these primary adjustments are made to bring the image to a viewable state on the reference monitor in lieu of an output transform, whereas in scene-referred grading their result is subsequently processed through the output transform, which alters the effect of the controls. The decisions are based on aesthetics but intended to be neutral. The only definitive information in the image is an unexposed black, the precise values of all other tones and colors are unknown in the absence of Look Management.
+     </p>
+     <p>
+      The colorist crafts the Look after the initial technical grade using more refined and sophisticated tools. Secondary controls are used in conjunction with external mattes, keys, and shapes to achieve selective changes. The DI grade is built up in layers or nodes, depending on the interface, which can be interconnected and blended together. The secondary controls can be used as part of the Look, or to modify it. For example, if the Look is dark and moody it is common practice to use secondaries to brighten skin tones.
+     </p>
+     <p>
+      <br/>
+     </p>
+     <hr/>
+     <a name="CHILD_LINKS">
+      <strong>
+       Contents
+      </strong>
+     </a>
+     <ul class="ChildLinks">
+      <li>
+       <a href="External_Mattes.html" name="tex2html1881">
+        External Mattes
+       </a>
+      </li>
+     </ul>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="External_Mattes.html" name="tex2html1880">
+       External Mattes
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="DI_Color_Grading.html" name="tex2html1876">
+       DI Color Grading
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="DI_Color_Grading.html" name="tex2html1870">
+       DI Color Grading
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1878">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

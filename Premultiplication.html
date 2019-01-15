@@ -16,6 +16,7 @@
   <link href="Compositing.html" rel="up"/>
   <link href="Technical_Checks.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,68 +172,68 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00556000000000000000">
-    Premultiplication
-   </a>
-  </h2>
-  <p>
-   Premultiplication implies that one starts with an RGB color, adds the concept of transparency, and then premultiplies by it. This isn&rsquo;t actually true. Premultiplied RGB is the natural representation for color and transparency and is the native output of renderers. A nice mental model for premultiplied RGBA is that the RGB channels represent how much light is emitted from within the region of the pixel, and alpha represents how much a pixel blocks light behind it. As alpha represents the fraction of occlusion, to maintain physical correctness alpha values must be between 0 and 1. RGB channels have no such constraints and can range from -infinity to infinity.
-  </p>
-  <p>
-   Furthermore, there is absolutely no issue with RGB colors greater than alpha. This is a common misconception. Even when alpha is zero, a positive RGB color is a completely reasonable approximation of a physical process that emits light without occluding anything behind it. Indeed, this situation is common in emissive FX renders such as fire. Fire will also scatter and absorb light from the environment but it may in such a negligible amount that a zero-valued alpha suffices.
-  </p>
-  <p>
-   So how should unpremultiplied RGBA be interpreted? Unpremultiplied RGBA is most easily understood as, &ldquo;If this pixel were fully opaque, how much light would have been emitted?&rdquo; This representation is certainly useful in specific compositing contexts such as when pulling luma keys from CG elements, but as converting to unpremultiplied RGBA is a lossy approximation it&rsquo;s prudent to only do the conversion when absolutely necessary.
-  </p>
-  <p>
-   For additional information on premultiplied versus unpremultiplied RGBA representations, see Porter and Duff (1984) and Blinn (1998).
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Technical_Checks.html" name="tex2html1789">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Compositing.html" name="tex2html1785">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Plate_Timing_Neutralization.html" name="tex2html1779">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1787">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Technical_Checks.html" name="tex2html1790">
-    Technical Checks
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Compositing.html" name="tex2html1786">
-    Compositing
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Plate_Timing_Neutralization.html" name="tex2html1780">
-    Plate Timing, Neutralization, and
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1788">
-     Contents
-    </a>
-   </b>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00556000000000000000">
+       Premultiplication
+      </a>
+     </h2>
+     <p>
+      Premultiplication implies that one starts with an RGB color, adds the concept of transparency, and then premultiplies by it. This isn&rsquo;t actually true. Premultiplied RGB is the natural representation for color and transparency and is the native output of renderers. A nice mental model for premultiplied RGBA is that the RGB channels represent how much light is emitted from within the region of the pixel, and alpha represents how much a pixel blocks light behind it. As alpha represents the fraction of occlusion, to maintain physical correctness alpha values must be between 0 and 1. RGB channels have no such constraints and can range from -infinity to infinity.
+     </p>
+     <p>
+      Furthermore, there is absolutely no issue with RGB colors greater than alpha. This is a common misconception. Even when alpha is zero, a positive RGB color is a completely reasonable approximation of a physical process that emits light without occluding anything behind it. Indeed, this situation is common in emissive FX renders such as fire. Fire will also scatter and absorb light from the environment but it may in such a negligible amount that a zero-valued alpha suffices.
+     </p>
+     <p>
+      So how should unpremultiplied RGBA be interpreted? Unpremultiplied RGBA is most easily understood as, &ldquo;If this pixel were fully opaque, how much light would have been emitted?&rdquo; This representation is certainly useful in specific compositing contexts such as when pulling luma keys from CG elements, but as converting to unpremultiplied RGBA is a lossy approximation it&rsquo;s prudent to only do the conversion when absolutely necessary.
+     </p>
+     <p>
+      For additional information on premultiplied versus unpremultiplied RGBA representations, see Porter and Duff (1984) and Blinn (1998).
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Technical_Checks.html" name="tex2html1790">
+       Technical Checks
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Compositing.html" name="tex2html1786">
+       Compositing
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Plate_Timing_Neutralization.html" name="tex2html1780">
+       Plate Timing, Neutralization, and
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1788">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

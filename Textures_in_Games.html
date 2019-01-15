@@ -15,6 +15,7 @@
   <link href="Texture_Painting.html" rel="up"/>
   <link href="Matte_Painting.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -154,19 +155,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -174,63 +171,63 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h3>
-   <a name="SECTION00544100000000000000">
-    Textures in Games
-   </a>
-  </h3>
-  As mentioned in section 3.4.3, games are often biased heavily towards the performance end of the performance, quality tradeoff. Games make much use of heavily compressed hardware-accelerated texture formats which trade quality for a dramatic reduction in memory footprint and increase in performance.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h3>
+      <a name="SECTION00544100000000000000">
+       Textures in Games
+      </a>
+     </h3>
+     As mentioned in section 3.4.3, games are often biased heavily towards the performance end of the performance, quality tradeoff. Games make much use of heavily compressed hardware-accelerated texture formats which trade quality for a dramatic reduction in memory footprint and increase in performance.
 Compressed textures are not required, but are often used. In addition, there is not always a one to one correlation between the storage format and the runtime format; some games transcode from one format to another to ensure minimal storage or loading overhead while still being able to leverage hardware texture compression in the renderer.
 By far the most common formats are 8 bit and unsigned (storing positive-only values) although some are 16 bit. 16 bit formats are larger and often slower, so tend to be used sparingly but are still useful especially those that are floating point with support for a sign bit. It is usual for textures to be authored at high quality, but resized and compressed in a conditioning pipeline before they are stored on disk or streamed.
 HDR formats are supported by hardware in various guises, including several variants of 16 bit floating point: uncompressed, small float formats with no sign bit, compressed with no sign bit and compressed with a sign bit, and compressed shared exponent formats like RGBE also with no sign bit.
 Since texture compression is lossy and involves bit depth reduction, artefacts including quantisation can be seen. In this case it can be beneficial to scale/bias SDR textures to use the full 0-1 range before compression, propagate this scale/bias to the game engine and remove it at runtime. This can minimise artefacts for a small per-texture runtime cost.
 See &ldquo;Block Compression&rdquo; in Appendix 4.10 for more information on compressed textures.
 Another GPU hardware feature used extensively by games is support for free OETF/EOTF application. Since scene-referred linear rendering is preferred, but textures are usually stored perceptually encoded, GPUs feature hardware to apply a free EOTF to each texel fetched, linearizing these values before filtering and before they are used as inputs to the renderer. In addition GPUs can apply a free OETF to a value before writing it to memory if this is required. Unfortunately, the only transfer function supported is the sRGB. See 4.1.3 sRGB for the definition of the sRGB transfer function. At time of writing there is no hardware support for any other transfer function, including PQ. Even with that support, it is important to note that only the transfer function part of the sRGB specification is provided; there is no gamut handling in hardware.
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Matte_Painting.html" name="tex2html1662">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Texture_Painting.html" name="tex2html1658">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Texture_Painting.html" name="tex2html1654">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1660">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Matte_Painting.html" name="tex2html1663">
-    Matte Painting
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Texture_Painting.html" name="tex2html1659">
-    Texture Painting
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Texture_Painting.html" name="tex2html1655">
-    Texture Painting
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1661">
-     Contents
-    </a>
-   </b>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Matte_Painting.html" name="tex2html1663">
+       Matte Painting
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Texture_Painting.html" name="tex2html1659">
+       Texture Painting
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Texture_Painting.html" name="tex2html1655">
+       Texture Painting
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1661">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

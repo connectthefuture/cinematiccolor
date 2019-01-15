@@ -16,6 +16,7 @@
   <link href="Common_RGB_Color_Encodings.html" rel="up"/>
   <link href="Blackmagic_Film.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,42 +172,45 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION006110000000000000000">
-    ALEXA LogC
-   </a>
-  </h2>
-  <p>
-   LogC is the encoding used in the ARRI ALEXA series of cameras, including the AMIRA. It is used together with the ALEXA Wide Gamut primaries and a white point of D65. The exact encoding curve varies slightly with the Exposure Index (EI) set on the camera, keeping 18
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION006110000000000000000">
+       ALEXA LogC
+      </a>
+     </h2>
+     <p>
+      LogC is the encoding used in the ARRI ALEXA series of cameras, including the AMIRA. It is used together with the ALEXA Wide Gamut primaries and a white point of D65. The exact encoding curve varies slightly with the Exposure Index (EI) set on the camera, keeping 18
 	if L &gt; cut:
 		V = c &times; log10(a &times; L + b) + d
 else:
 V = e &times; L + f
-  </p>
-  <p>
-   At EI800 the values of the constants are:
-  </p>
-  <p>
-   cut = 0.010591
+     </p>
+     <p>
+      At EI800 the values of the constants are:
+     </p>
+     <p>
+      cut = 0.010591
 	a = 5.555556
 	b = 0.052272
 	c = 0.247190
 	d = 0.385537
 e = 5.367655
 ￼	f = 0.092809
-  </p>
-  <p>
-   The decoding function is:
-  </p>
-  <p>
-   if V &gt; e &times; cut + f:
+     </p>
+     <p>
+      The decoding function is:
+     </p>
+     <p>
+      if V &gt; e &times; cut + f:
 L = (10(V &minus; d) / c &minus; b) / a
 else:
 (V &minus; f) / e
-  </p>
-  <p>
-   Red
+     </p>
+     <p>
+      Red
 Green
 Blue
 White Point
@@ -218,51 +218,48 @@ White Point
 0.2210, 0.8480
 0.0861, -0.1020
 0.3127, 0.3290 (D65)
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Blackmagic_Film.html" name="tex2html2249">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2245">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="X_Y_Z.html" name="tex2html2239">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2247">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Blackmagic_Film.html" name="tex2html2250">
-    Blackmagic Film
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Common_RGB_Color_Encodings.html" name="tex2html2246">
-    Common RGB Color Encodings
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="X_Y_Z.html" name="tex2html2240">
-    X'Y'Z'
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2248">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Blackmagic_Film.html" name="tex2html2250">
+       Blackmagic Film
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Common_RGB_Color_Encodings.html" name="tex2html2246">
+       Common RGB Color Encodings
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="X_Y_Z.html" name="tex2html2240">
+       X'Y'Z'
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2248">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

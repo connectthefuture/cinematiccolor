@@ -16,6 +16,7 @@
   <link href="Appendix.html" rel="up"/>
   <link href="D_LUTs.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,106 +172,104 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h1>
-   <a name="SECTION00640000000000000000">
-    LUTs and Transforms
-   </a>
-  </h1>
-  <p>
-   Lookup tables (LUTs) are a technique for optimizing the evaluation of functions that are expensive to compute and inexpensive to cache, or for sampling process such as printing to film which are not definable mathematically. By precomputing the evaluation of a function over a domain of common inputs, expensive runtime operations can be replaced with inexpensive table lookups. If the table lookups can be performed faster than computing the results from scratch, then the use of a lookup table will yield significant performance gains. For input values that fall between the table's samples, an interpolation algorithm can generate reasonable approximations by averaging nearby samples. LUTs are also useful when wanting to separate the calculation of a transform from its application. For example, in color pipelines it is often useful to &ldquo;bake&rdquo; a series of color transforms into a single lookup table, which is then suitable for distribution and re-use, even in situations where the original data sets are not appropriate for distribution.
-  </p>
-  <p>
-   It is important to bear in mind that a LUT is a &ldquo;black box&rdquo; transforming one set of values into a new set of values. A color transform expressed as a LUT will be designed for input in a particular color encoding, and will produce output which may be in the same or a different encoding. If the image data to be transformed is not in the correct format for the LUT, then it is necessary to first transform it by using a mathematical method, or even with another LUT. Most LUT formats have no way of defining what their expected input is, nor the encoding of their output, so it is useful to make this clear either in the naming of the LUT file or in a comment line within the LUT.
-  </p>
-  <p>
-   The values listed in the tables can be calculated by iterating over the possible input values, and applying the required transform mathematically, or by creating what is called a CMS (Color Management System) pattern image that incorporates all possible input values, passing it through the transform as if it was any other image, and then reading back the resulting color values to create the table. The image is simply a linear ramp to generate a 1D LUT, or a grid of all possible permutations of RGB, at the chosen LUT intervals, for a 3D LUT.
-  </p>
-  <p>
-   <br/>
-  </p>
-  <hr/>
-  <!--Table of Child-Links-->
-  <a name="CHILD_LINKS">
-   <strong>
-    Subsections
-   </strong>
-  </a>
-  <ul class="ChildLinks">
-   <li>
-    <a href="D_LUTs.html" name="tex2html2393">
-     1D LUTs
-    </a>
-   </li>
-   <li>
-    <a href="D_LUTs.html#SECTION00642000000000000000" name="tex2html2394">
-     3D LUTs
-    </a>
-   </li>
-   <li>
-    <a href="Using_Shaper_LUTs.html" name="tex2html2395">
-     Using Shaper LUTs
-    </a>
-   </li>
-   <li>
-    <a href="Half_Float_LUTs.html" name="tex2html2396">
-     Half Float LUTs
-    </a>
-   </li>
-   <li>
-    <a href="Creating_LUTs.html" name="tex2html2397">
-     Creating LUTs
-    </a>
-   </li>
-   <li>
-    <a href="GPU_Implementations.html" name="tex2html2398">
-     GPU Implementations
-    </a>
-   </li>
-  </ul>
-  <!--End of Table of Child-Links-->
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="D_LUTs.html" name="tex2html2391">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Appendix.html" name="tex2html2387">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Colour_Science_Python.html" name="tex2html2381">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2389">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="D_LUTs.html" name="tex2html2392">
-    1D LUTs
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Appendix.html" name="tex2html2388">
-    Appendix
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Colour_Science_Python.html" name="tex2html2382">
-    Colour Science for Python
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2390">
-     Contents
-    </a>
-   </b>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h1>
+      <a name="SECTION00640000000000000000">
+       LUTs and Transforms
+      </a>
+     </h1>
+     <p>
+      Lookup tables (LUTs) are a technique for optimizing the evaluation of functions that are expensive to compute and inexpensive to cache, or for sampling process such as printing to film which are not definable mathematically. By precomputing the evaluation of a function over a domain of common inputs, expensive runtime operations can be replaced with inexpensive table lookups. If the table lookups can be performed faster than computing the results from scratch, then the use of a lookup table will yield significant performance gains. For input values that fall between the table's samples, an interpolation algorithm can generate reasonable approximations by averaging nearby samples. LUTs are also useful when wanting to separate the calculation of a transform from its application. For example, in color pipelines it is often useful to &ldquo;bake&rdquo; a series of color transforms into a single lookup table, which is then suitable for distribution and re-use, even in situations where the original data sets are not appropriate for distribution.
+     </p>
+     <p>
+      It is important to bear in mind that a LUT is a &ldquo;black box&rdquo; transforming one set of values into a new set of values. A color transform expressed as a LUT will be designed for input in a particular color encoding, and will produce output which may be in the same or a different encoding. If the image data to be transformed is not in the correct format for the LUT, then it is necessary to first transform it by using a mathematical method, or even with another LUT. Most LUT formats have no way of defining what their expected input is, nor the encoding of their output, so it is useful to make this clear either in the naming of the LUT file or in a comment line within the LUT.
+     </p>
+     <p>
+      The values listed in the tables can be calculated by iterating over the possible input values, and applying the required transform mathematically, or by creating what is called a CMS (Color Management System) pattern image that incorporates all possible input values, passing it through the transform as if it was any other image, and then reading back the resulting color values to create the table. The image is simply a linear ramp to generate a 1D LUT, or a grid of all possible permutations of RGB, at the chosen LUT intervals, for a 3D LUT.
+     </p>
+     <p>
+      <br/>
+     </p>
+     <hr/>
+     <a name="CHILD_LINKS">
+      <strong>
+       Contents
+      </strong>
+     </a>
+     <ul class="ChildLinks">
+      <li>
+       <a href="D_LUTs.html" name="tex2html2393">
+        1D LUTs
+       </a>
+      </li>
+      <li>
+       <a href="D_LUTs.html#SECTION00642000000000000000" name="tex2html2394">
+        3D LUTs
+       </a>
+      </li>
+      <li>
+       <a href="Using_Shaper_LUTs.html" name="tex2html2395">
+        Using Shaper LUTs
+       </a>
+      </li>
+      <li>
+       <a href="Half_Float_LUTs.html" name="tex2html2396">
+        Half Float LUTs
+       </a>
+      </li>
+      <li>
+       <a href="Creating_LUTs.html" name="tex2html2397">
+        Creating LUTs
+       </a>
+      </li>
+      <li>
+       <a href="GPU_Implementations.html" name="tex2html2398">
+        GPU Implementations
+       </a>
+      </li>
+     </ul>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="D_LUTs.html" name="tex2html2392">
+       1D LUTs
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Appendix.html" name="tex2html2388">
+       Appendix
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Colour_Science_Python.html" name="tex2html2382">
+       Colour Science for Python
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2390">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

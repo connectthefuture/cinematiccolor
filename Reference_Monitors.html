@@ -16,6 +16,7 @@
   <link href="Critical_Monitoring.html" rel="up"/>
   <link href="HDR_Displays.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,68 +172,68 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00572000000000000000">
-    Reference Monitors
-   </a>
-  </h2>
-  <p>
-   Home theater mastering should be done in an &ldquo;idealized&rdquo; home environment. Usually, the idealized home environment is slightly darker than the real home environment and display gamma of 2.4 is used to compensate. When seen in a room with more ambient light the master will look correct with 2.2 display gamma, which is the target for consumer televisions. The purpose of the darker environment for mastering is to make shadow detail and colors more discernible, thereby creating a more accurate master. Rec. 709 does not specify the display gamma but this was later clarified in BT. 1886.
-  </p>
-  <p>
-   Note that whilst sRGB and Rec. 709 share the same primary color coordinates, the display gamma is quite different and decisions on tonal detail should not be made on one for the other. The purpose of sRGB as a preview color space is more to assess the content than the look.
-  </p>
-  <p>
-   Similarly, many motion pictures designed for theatrical release are finished on a calibrated monitor rather than a projector. Many of the monitors in use calibrate well to DCI P3 and the room lighting is often close to the theatrical experience. In this situation, the main cause of problems is the size of the screen and only experience will tell how the perception of the image will differ on the big screen. Techniques such as vignetting work well to focus attention on a small display but can reduce the sense of space in a theatre, reminding the audience that they are in a dark room watching a screen.
-  </p>
-  <p>
-   A final obvious consideration is the display calibration: cheaper displays drift quicker than more expensive ones, but all displays used for finishing and critical decision making need regular checks and calibration. Often calibration is done using display menus, but calibration LUTs, loaded into the display or an external LUT box can be quicker and more accurate. For a calibration LUT to be effective the display's native gamut must exceed that of the target.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="HDR_Displays.html" name="tex2html1941">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Critical_Monitoring.html" name="tex2html1937">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Cinema_Projection.html" name="tex2html1931">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1939">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="HDR_Displays.html" name="tex2html1942">
-    HDR Displays
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Critical_Monitoring.html" name="tex2html1938">
-    Critical Monitoring
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Cinema_Projection.html" name="tex2html1932">
-    Cinema Projection
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1940">
-     Contents
-    </a>
-   </b>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00572000000000000000">
+       Reference Monitors
+      </a>
+     </h2>
+     <p>
+      Home theater mastering should be done in an &ldquo;idealized&rdquo; home environment. Usually, the idealized home environment is slightly darker than the real home environment and display gamma of 2.4 is used to compensate. When seen in a room with more ambient light the master will look correct with 2.2 display gamma, which is the target for consumer televisions. The purpose of the darker environment for mastering is to make shadow detail and colors more discernible, thereby creating a more accurate master. Rec. 709 does not specify the display gamma but this was later clarified in BT. 1886.
+     </p>
+     <p>
+      Note that whilst sRGB and Rec. 709 share the same primary color coordinates, the display gamma is quite different and decisions on tonal detail should not be made on one for the other. The purpose of sRGB as a preview color space is more to assess the content than the look.
+     </p>
+     <p>
+      Similarly, many motion pictures designed for theatrical release are finished on a calibrated monitor rather than a projector. Many of the monitors in use calibrate well to DCI P3 and the room lighting is often close to the theatrical experience. In this situation, the main cause of problems is the size of the screen and only experience will tell how the perception of the image will differ on the big screen. Techniques such as vignetting work well to focus attention on a small display but can reduce the sense of space in a theatre, reminding the audience that they are in a dark room watching a screen.
+     </p>
+     <p>
+      A final obvious consideration is the display calibration: cheaper displays drift quicker than more expensive ones, but all displays used for finishing and critical decision making need regular checks and calibration. Often calibration is done using display menus, but calibration LUTs, loaded into the display or an external LUT box can be quicker and more accurate. For a calibration LUT to be effective the display's native gamut must exceed that of the target.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="HDR_Displays.html" name="tex2html1942">
+       HDR Displays
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Critical_Monitoring.html" name="tex2html1938">
+       Critical Monitoring
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Cinema_Projection.html" name="tex2html1932">
+       Cinema Projection
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1940">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

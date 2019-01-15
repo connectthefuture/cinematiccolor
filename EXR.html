@@ -15,6 +15,7 @@
   <link href="File_Formats.html" rel="up"/>
   <link href="Software.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -154,19 +155,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -174,72 +171,72 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION006102000000000000000">
-    EXR
-   </a>
-  </h2>
-  <p>
-   OpenEXR is an open-source image format created by ILM in 1999, which has near universal adoption in the VFX and animation industries. OpenEXR is intended for storing floating point, scene-referred linear imagery. Although OpenEXR was not the first image format suitable for storing HDR float data, it is the most popular in film production due to its efficient lossless compression codecs, support for 16 bit half float pixel type and support for other features such as data window/display window tracking, multiple layers, deep frame buffers, rich metadata encoding, and the lack of legacy format baggage.
-  </p>
-  <p>
-   In our experience, the half data format is sufficient for color images, color channels being those viewed using tone rendering, examples of which include beauty renders, specular color, diffuse color, per-light color AOVs, etc. For data channels requiring high precision representations of physical attributes, such as depth, normals or control maps, full 32 bit float is available and often necessary.
-  </p>
-  <p>
-   The maximum value for float-16 is 65504.0f. The minimum positive value that can be represented without a decrease in numerical precision, is 6.1035e-05f. It is important to remember when dealing with floating-point data, that the bits are allocated very differently from integer encodings. Whereas integer encodings have a uniform allocation of bits over the entire coding space, the floating-point encodings have increased precision in the low end and decreased precision in the high end. Consequently, if one has an unsigned 16 bit integer image, converts to a float-16 representation, and then converts back, fewer than 16 bits of precision are maintained.
-  </p>
-  <p>
-   OpenEXR supports a variety of compression options. Piz (wavelet) probably offers the highest lossless compression ratio on grainy material but is relatively expensive computationally. The zip options offer a reasonable compression ratio on computer-generated elements and is less computationally intense. The b44 codec is lossy; intended for real-time playback. OpenEXR also can store a tiled, mipmapped representation, and is thus suitable for use as a renderer texture format. OpenEXR 2.0 added deep buffer support: an arbitrary number of depth-samples per pixels, at the expense of increased storage requirements.
-  </p>
-  <p>
-   Because image data stored in OpenEXR files is normally scene-referred linear, a viewing transform is required to display the image. Metadata can be included which specifies the primaries of the image data but as with DPX, this metadata should not be trusted in general. A naive transform to an output-referred space such as sRGB will clip any data above 1.0. As part of the ACES standardization effort, a constrained version of OpenEXR was specified in SMPTE as ST 2065-4:2013.  This standard specifies the on-disk bit representation of image data and critical metadata.  One of the metadata fields specified in ST 2065-4 is the &ldquo;ACES Image Container&rdquo; flag which is intended to indicate an OpenEXR image is a compliant ST 2065-4 file.  ACES ST 2065-4 files are encoded as scene-referred linear images using the AP0 primaries and should be viewed through an ACES output transform. This ensures that anybody viewing the image sees it in a way which perceptually matches what any other viewer sees, independent of display or viewing environment.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION006102000000000000000">
+       EXR
+      </a>
+     </h2>
+     <p>
+      OpenEXR is an open-source image format created by ILM in 1999, which has near universal adoption in the VFX and animation industries. OpenEXR is intended for storing floating point, scene-referred linear imagery. Although OpenEXR was not the first image format suitable for storing HDR float data, it is the most popular in film production due to its efficient lossless compression codecs, support for 16 bit half float pixel type and support for other features such as data window/display window tracking, multiple layers, deep frame buffers, rich metadata encoding, and the lack of legacy format baggage.
+     </p>
+     <p>
+      In our experience, the half data format is sufficient for color images, color channels being those viewed using tone rendering, examples of which include beauty renders, specular color, diffuse color, per-light color AOVs, etc. For data channels requiring high precision representations of physical attributes, such as depth, normals or control maps, full 32 bit float is available and often necessary.
+     </p>
+     <p>
+      The maximum value for float-16 is 65504.0f. The minimum positive value that can be represented without a decrease in numerical precision, is 6.1035e-05f. It is important to remember when dealing with floating-point data, that the bits are allocated very differently from integer encodings. Whereas integer encodings have a uniform allocation of bits over the entire coding space, the floating-point encodings have increased precision in the low end and decreased precision in the high end. Consequently, if one has an unsigned 16 bit integer image, converts to a float-16 representation, and then converts back, fewer than 16 bits of precision are maintained.
+     </p>
+     <p>
+      OpenEXR supports a variety of compression options. Piz (wavelet) probably offers the highest lossless compression ratio on grainy material but is relatively expensive computationally. The zip options offer a reasonable compression ratio on computer-generated elements and is less computationally intense. The b44 codec is lossy; intended for real-time playback. OpenEXR also can store a tiled, mipmapped representation, and is thus suitable for use as a renderer texture format. OpenEXR 2.0 added deep buffer support: an arbitrary number of depth-samples per pixels, at the expense of increased storage requirements.
+     </p>
+     <p>
+      Because image data stored in OpenEXR files is normally scene-referred linear, a viewing transform is required to display the image. Metadata can be included which specifies the primaries of the image data but as with DPX, this metadata should not be trusted in general. A naive transform to an output-referred space such as sRGB will clip any data above 1.0. As part of the ACES standardization effort, a constrained version of OpenEXR was specified in SMPTE as ST 2065-4:2013.  This standard specifies the on-disk bit representation of image data and critical metadata.  One of the metadata fields specified in ST 2065-4 is the &ldquo;ACES Image Container&rdquo; flag which is intended to indicate an OpenEXR image is a compliant ST 2065-4 file.  ACES ST 2065-4 files are encoded as scene-referred linear images using the AP0 primaries and should be viewed through an ACES output transform. This ensures that anybody viewing the image sees it in a way which perceptually matches what any other viewer sees, independent of display or viewing environment.
 XXX
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Software.html" name="tex2html2573">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="File_Formats.html" name="tex2html2569">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="DPX.html" name="tex2html2565">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2571">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Software.html" name="tex2html2574">
-    Software
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="File_Formats.html" name="tex2html2570">
-    File Formats
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="DPX.html" name="tex2html2566">
-    DPX
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2572">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Software.html" name="tex2html2574">
+       Software
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="File_Formats.html" name="tex2html2570">
+       File Formats
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="DPX.html" name="tex2html2566">
+       DPX
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2572">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

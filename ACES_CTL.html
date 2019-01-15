@@ -16,6 +16,7 @@
   <link href="Appendix.html" rel="up"/>
   <link href="Full_Legal_ranges.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,59 +172,59 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h1>
-   <a name="SECTION00660000000000000000">
-    ACES CTL
-   </a>
-  </h1>
-  <p>
-   All of the transforms, both input and output, for ACES have a reference implementation defined using the Color Transformation Language (CTL); contributed by Industrial Light &amp; Magic. CTL is an interpreted language similar in spirit to shader languages commonly used in renderers, but with a focus on color transforms. CTL provides a rich color correction API, including scattered data interpolation. CTL is run independently per pixel and is thus suitable for baking into 1D/3D LUTs, allowing for real-time &ldquo;baked&rdquo; performance. Unfortunately, though, CTL transforms are not currently supported natively on most platforms so current practice is to bake their logic into platform specific operations and/or 3D LUTs.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Full_Legal_ranges.html" name="tex2html2477">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Appendix.html" name="tex2html2473">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="ASC_CDL.html" name="tex2html2467">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2475">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Full_Legal_ranges.html" name="tex2html2478">
-    Full and Legal ranges
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Appendix.html" name="tex2html2474">
-    Appendix
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="ASC_CDL.html" name="tex2html2468">
-    ASC CDL
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2476">
-     Contents
-    </a>
-   </b>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h1>
+      <a name="SECTION00660000000000000000">
+       ACES CTL
+      </a>
+     </h1>
+     <p>
+      All of the transforms, both input and output, for ACES have a reference implementation defined using the Color Transformation Language (CTL); contributed by Industrial Light &amp; Magic. CTL is an interpreted language similar in spirit to shader languages commonly used in renderers, but with a focus on color transforms. CTL provides a rich color correction API, including scattered data interpolation. CTL is run independently per pixel and is thus suitable for baking into 1D/3D LUTs, allowing for real-time &ldquo;baked&rdquo; performance. Unfortunately, though, CTL transforms are not currently supported natively on most platforms so current practice is to bake their logic into platform specific operations and/or 3D LUTs.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Full_Legal_ranges.html" name="tex2html2478">
+       Full and Legal ranges
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Appendix.html" name="tex2html2474">
+       Appendix
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="ASC_CDL.html" name="tex2html2468">
+       ASC CDL
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2476">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

@@ -15,6 +15,7 @@
   <link href="Look.html" rel="up"/>
   <link href="On_Set.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -154,19 +155,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -174,93 +171,93 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00522000000000000000">
-    Look Management
-   </a>
-  </h2>
-  <p>
-   Locking down the Look early on is a critical first step in crafting cinematic images, as it underpins every other part of the process. The remainder of the pipeline relies on visualizations that are created by working, translating or transcoding the Look and this is known as Look Management.
-  </p>
-  <p>
-   An overview of the filmmaking process shows that Look Management is core to each stage. The mistaken belief that the Look is the product of just the DP during shooting, or the colorist during mastering discourages a well-managed pipeline, without which the visual effects process is rather in the dark. Decisions earlier in the chain cannot easily be protected without a carefully color managed pipeline. Meaningful tests should be performed early on, saving a lot of work and some potentially unpleasant surprises later. In high-end productions changes to the Look can be suggested all through post-production and communicated to everyone else via color decision lists of some sort. The CDL is one such mechanism but is quite limited in scope, there are other more complex proprietary solutions in use.
-  </p>
-  <p>
-   When a look is applied to imagery as it is captured or saved to disk, it&rsquo;s called &ldquo;baking the Look&rdquo;. The Look should not be baked in at the source or early in post-production. If the Look is baked in early, all the problems of output-referred workflows are very apparent, especially if the Look is strong. Continuity is more difficult and there is very little latitude to alter or modify the Look later on. Exposures, color balance, and lighting have to be close to perfect since there is little more information for the colorist to use in the final stages. VFX could still be delivered scene-referred, but the expectation is that they match the main content. Delivering to multiple formats is still possible, but usually, any differences that take advantage of wider tonal range or color gamut are severely limited. It is strongly recommended that the Look is NOT baked in until the final DI grading stage.
-  </p>
-  <p>
-   Working with multiple gamuts is a subject that can&rsquo;t be avoided for a show of even moderate complexity. Almost every camera has a different encoding gamut. The working gamut used for a show will likely be distinct from any of the camera encoding gamuts. The working gamut will also likely be distinct from the final output display gamut. This is guaranteed if the show will be seen on multiple types of displays. The advent of the multi-gamut workflow has added an additional layer of complexity to setting up a project and communicating between artists, departments and companies. As such, it is especially important to define the choice of gamuts to be used for capture, grading, lighting, rendering, compositing, and final display as early as possible and to agree on how and when the gamut choices should be presented to users. For many artists, a successful setup will be one where they aren&rsquo;t aware of the gamuts being used. OpenColorIO (2003)&rsquo;s &ldquo;role&rdquo; feature allows some of these choices to be safely hidden from artists. It is very easy to get lost in a thicket of similar, but not quite matching, gamuts if images and color data aren&rsquo;t properly tracked or labeled.
-  </p>
-  <p>
-   One of the benefits of ACES in the world of multiple gamuts is that it provides a clear standard for mapping between the different sets of gamuts used for cameras, rendering, compositing, grading, and final output.
-  </p>
-  <p>
-   The choice of working gamut affects the feel of controls and operations that affect color. Choosing a space that is too wide may break some operators, like keyers, or may just make otherwise familiar operators and controls feel unfamiliar to artists. Working in the camera encoding gamut may be useful for these jobs. For some operations, a compositor may transform to the camera encoding gamut, apply the operation and then transform back to the working gamut. This is similar in spirit to the time-honored trick of resizing in log described in 3.5.4 Working with Log Imagery.
-  </p>
-  <p>
-   When the reference Look is created in a DI grading system, the process is saved just as it is in case it needs to be modified or used to derive other looks. The Look itself is sampled in a 3D LUT format that can be loaded into color managed applications. Because some applications have specific requirements for the LUT formatting, it is not unusual to generate multiple LUTs. However, it is preferable to find a common LUT format that works with as many applications as possible with a high fidelity. Exporting the Look as a LUT is the easiest way to share it but using a parameter based method such as CDL is also an option for simpler looks. Many facilities use the combination of a show LUT with a CDL in front of it.
-  </p>
-  <p>
-   Once the Look has been established for a CG animation project the process that created it is saved just as it is in DI grading systems. The best solution is to use a color management system, like OpenColorIO, that is shared across all the applications and can apply Looks contextually. This allows for a high degree of automation in Look Management and can help eliminate operator error. Tagging images with metadata can assist this system by automatically managing looks across productions and also within a production when multiple looks are employed. A good color management system should be able to generate notes that can feedback to artists working at their desktops and also feed forward to the colorist for DI grading.
-  </p>
-  <p>
-   Games tend to be produced primarily using a single toolset, the &ldquo;engine&rdquo;. Within the engine itself, color management is largely handled automatically, being a single piece of software. For assets that are created externally to the engine, like textures and sometimes materials, it is desirable to have a representation of the Look of the project that can be used in the authoring packages used for those assets for validation purposes. In this case it is common to export a LUT or other representation of the Look, much like animation and live-action. Color management must also be handled with defined import/export paths allowing management of externally created content, ideally via similar tools to VFX/Animation but are sometimes handled manually.
-  </p>
-  <p>
-   Key Points
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00522000000000000000">
+       Look Management
+      </a>
+     </h2>
+     <p>
+      Locking down the Look early on is a critical first step in crafting cinematic images, as it underpins every other part of the process. The remainder of the pipeline relies on visualizations that are created by working, translating or transcoding the Look and this is known as Look Management.
+     </p>
+     <p>
+      An overview of the filmmaking process shows that Look Management is core to each stage. The mistaken belief that the Look is the product of just the DP during shooting, or the colorist during mastering discourages a well-managed pipeline, without which the visual effects process is rather in the dark. Decisions earlier in the chain cannot easily be protected without a carefully color managed pipeline. Meaningful tests should be performed early on, saving a lot of work and some potentially unpleasant surprises later. In high-end productions changes to the Look can be suggested all through post-production and communicated to everyone else via color decision lists of some sort. The CDL is one such mechanism but is quite limited in scope, there are other more complex proprietary solutions in use.
+     </p>
+     <p>
+      When a look is applied to imagery as it is captured or saved to disk, it&rsquo;s called &ldquo;baking the Look&rdquo;. The Look should not be baked in at the source or early in post-production. If the Look is baked in early, all the problems of output-referred workflows are very apparent, especially if the Look is strong. Continuity is more difficult and there is very little latitude to alter or modify the Look later on. Exposures, color balance, and lighting have to be close to perfect since there is little more information for the colorist to use in the final stages. VFX could still be delivered scene-referred, but the expectation is that they match the main content. Delivering to multiple formats is still possible, but usually, any differences that take advantage of wider tonal range or color gamut are severely limited. It is strongly recommended that the Look is NOT baked in until the final DI grading stage.
+     </p>
+     <p>
+      Working with multiple gamuts is a subject that can&rsquo;t be avoided for a show of even moderate complexity. Almost every camera has a different encoding gamut. The working gamut used for a show will likely be distinct from any of the camera encoding gamuts. The working gamut will also likely be distinct from the final output display gamut. This is guaranteed if the show will be seen on multiple types of displays. The advent of the multi-gamut workflow has added an additional layer of complexity to setting up a project and communicating between artists, departments and companies. As such, it is especially important to define the choice of gamuts to be used for capture, grading, lighting, rendering, compositing, and final display as early as possible and to agree on how and when the gamut choices should be presented to users. For many artists, a successful setup will be one where they aren&rsquo;t aware of the gamuts being used. OpenColorIO (2003)&rsquo;s &ldquo;role&rdquo; feature allows some of these choices to be safely hidden from artists. It is very easy to get lost in a thicket of similar, but not quite matching, gamuts if images and color data aren&rsquo;t properly tracked or labeled.
+     </p>
+     <p>
+      One of the benefits of ACES in the world of multiple gamuts is that it provides a clear standard for mapping between the different sets of gamuts used for cameras, rendering, compositing, grading, and final output.
+     </p>
+     <p>
+      The choice of working gamut affects the feel of controls and operations that affect color. Choosing a space that is too wide may break some operators, like keyers, or may just make otherwise familiar operators and controls feel unfamiliar to artists. Working in the camera encoding gamut may be useful for these jobs. For some operations, a compositor may transform to the camera encoding gamut, apply the operation and then transform back to the working gamut. This is similar in spirit to the time-honored trick of resizing in log described in 3.5.4 Working with Log Imagery.
+     </p>
+     <p>
+      When the reference Look is created in a DI grading system, the process is saved just as it is in case it needs to be modified or used to derive other looks. The Look itself is sampled in a 3D LUT format that can be loaded into color managed applications. Because some applications have specific requirements for the LUT formatting, it is not unusual to generate multiple LUTs. However, it is preferable to find a common LUT format that works with as many applications as possible with a high fidelity. Exporting the Look as a LUT is the easiest way to share it but using a parameter based method such as CDL is also an option for simpler looks. Many facilities use the combination of a show LUT with a CDL in front of it.
+     </p>
+     <p>
+      Once the Look has been established for a CG animation project the process that created it is saved just as it is in DI grading systems. The best solution is to use a color management system, like OpenColorIO, that is shared across all the applications and can apply Looks contextually. This allows for a high degree of automation in Look Management and can help eliminate operator error. Tagging images with metadata can assist this system by automatically managing looks across productions and also within a production when multiple looks are employed. A good color management system should be able to generate notes that can feedback to artists working at their desktops and also feed forward to the colorist for DI grading.
+     </p>
+     <p>
+      Games tend to be produced primarily using a single toolset, the &ldquo;engine&rdquo;. Within the engine itself, color management is largely handled automatically, being a single piece of software. For assets that are created externally to the engine, like textures and sometimes materials, it is desirable to have a representation of the Look of the project that can be used in the authoring packages used for those assets for validation purposes. In this case it is common to export a LUT or other representation of the Look, much like animation and live-action. Color management must also be handled with defined import/export paths allowing management of externally created content, ideally via similar tools to VFX/Animation but are sometimes handled manually.
+     </p>
+     <p>
+      Key Points
 Look Management visualises the Look through production and post-production
 Irreversibly applying the Look is called &ldquo;baking in the Look&rdquo;
 The Look should not be baked in until the final DI grading stage
 Look Management should consider multiple gamut sources and deliverables
 Metadata is crucial for good Look Management
-  </p>
-  <p>
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="On_Set.html" name="tex2html1494">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Look.html" name="tex2html1490">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Displaying_Scene_Referred_I.html" name="tex2html1486">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1492">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="On_Set.html" name="tex2html1495">
-    On Set
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Look.html" name="tex2html1491">
-    The Look
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Displaying_Scene_Referred_I.html" name="tex2html1487">
-    Displaying Scene-Referred Imagery
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1493">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="On_Set.html" name="tex2html1495">
+       On Set
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Look.html" name="tex2html1491">
+       The Look
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Displaying_Scene_Referred_I.html" name="tex2html1487">
+       Displaying Scene-Referred Imagery
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1493">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

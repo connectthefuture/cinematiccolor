@@ -16,6 +16,7 @@
   <link href="Compositing.html" rel="up"/>
   <link href="Premultiplication.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,66 +172,66 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00555000000000000000">
-    Plate Timing, Neutralization, and Grading
-   </a>
-  </h2>
-  <p>
-   When working with plate photography it is often useful to apply primary color corrections for each plate to neutralize the lighting across a sequence. During the shoot, there will inevitably be color drift across the shots, produced by events like the sun moving behind a cloud or the lighting moved to different locations from one day to the next. Using neutralized plates in lighting and compositing leads to nice gains in efficiency as light rigs and sequence standards track better. In most workflows the plate neutralization is done at the top of the compositing graph, the CG neutral elements are composited in, and then before the file is written out the neutralization is undone. This approach is often called &ldquo;reverse out,&rdquo; and its advantage is that the output delivery is consistent with the input plate, independent of the color neutralization process. An analogous set of operations are often applied with lens distortion being removed at the head of a comp and then reapplied as one of the last steps.
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00555000000000000000">
+       Plate Timing, Neutralization, and Grading
+      </a>
+     </h2>
+     <p>
+      When working with plate photography it is often useful to apply primary color corrections for each plate to neutralize the lighting across a sequence. During the shoot, there will inevitably be color drift across the shots, produced by events like the sun moving behind a cloud or the lighting moved to different locations from one day to the next. Using neutralized plates in lighting and compositing leads to nice gains in efficiency as light rigs and sequence standards track better. In most workflows the plate neutralization is done at the top of the compositing graph, the CG neutral elements are composited in, and then before the file is written out the neutralization is undone. This approach is often called &ldquo;reverse out,&rdquo; and its advantage is that the output delivery is consistent with the input plate, independent of the color neutralization process. An analogous set of operations are often applied with lens distortion being removed at the head of a comp and then reapplied as one of the last steps.
 In some facilities, neutralized plates are written out to disk so everyone dealing with the images works with the neutralized result. This may be helpful to have if the background plate needs to be reflected or otherwise used in a CG render. The same is true with undistorted plates. It may be useful to write them to disk if a tracking or photogrammetry application, for example, can&rsquo;t apply the same lens un-distortion as the compositing application.
-  </p>
-  <p>
-   It is important to draw a distinction between the correction necessary for plate neutralizations, and the potentially more sophisticated Look that is crafted by the colorist. Color corrections used for plate neutralization must be reversible, and as such are typically handled as either simple offsets in camera log space or as simple gains in linear. More complex operations such as contrast and saturation are usually avoided as these type of corrections break the linearity of the plate, are often implemented differently in different software packages and will likely make compositing more difficult. In DI grading, the full suite of color operators can be used: contrast, keys, primaries, and secondaries, as there is no need to invert this process.
-  </p>
-  <p>
-   For additional detail on the process of conforming sequences and neutralizing plates, see 3.6.1 Conforming.XXX
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Premultiplication.html" name="tex2html1777">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Compositing.html" name="tex2html1773">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Working_with_Log_Imagery.html" name="tex2html1767">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1775">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Premultiplication.html" name="tex2html1778">
-    Premultiplication
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Compositing.html" name="tex2html1774">
-    Compositing
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Working_with_Log_Imagery.html" name="tex2html1768">
-    Working with Log Imagery
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1776">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      It is important to draw a distinction between the correction necessary for plate neutralizations, and the potentially more sophisticated Look that is crafted by the colorist. Color corrections used for plate neutralization must be reversible, and as such are typically handled as either simple offsets in camera log space or as simple gains in linear. More complex operations such as contrast and saturation are usually avoided as these type of corrections break the linearity of the plate, are often implemented differently in different software packages and will likely make compositing more difficult. In DI grading, the full suite of color operators can be used: contrast, keys, primaries, and secondaries, as there is no need to invert this process.
+     </p>
+     <p>
+      For additional detail on the process of conforming sequences and neutralizing plates, see 3.6.1 Conforming.XXX
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Premultiplication.html" name="tex2html1778">
+       Premultiplication
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Compositing.html" name="tex2html1774">
+       Compositing
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Working_with_Log_Imagery.html" name="tex2html1768">
+       Working with Log Imagery
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1776">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

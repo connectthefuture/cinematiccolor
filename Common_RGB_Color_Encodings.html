@@ -16,6 +16,7 @@
   <link href="Appendix.html" rel="up"/>
   <link href="Rec_709.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,168 +172,166 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h1>
-   <a name="SECTION00610000000000000000">
-    Common RGB Color Encodings
-   </a>
-  </h1>
-  <p>
-   An RGB color encoding is defined by its primaries, white point and transfer functions. Output-referred encodings have only an Electro-Optical Transfer Function (EOTF) which defines the relationship between code value and display light. This may be defined relative to display peak luminance, or as an absolute encoding in terms of display cd/m2. Scene-referred encodings have only an Opto-Electrical Transfer Function (OETF) which defines the relationship between relative scene light and the encoded value. Some encodings, such as Hybrid Log-Gamma (HLG), define a relationship to both scene and display light, so have both an OETF and and EOTF. Encoded values may be represented either as floating point numbers, or by integers at a specific bit depth. The equations given in the following sections are for the floating point form. Logarithmic encodings of image data can fit a high dynamic range into the 0-1 range, which makes them suitable for storing in integer file formats or transmitting over SDI.
-  </p>
-  <p>
-   The primaries and white points of some common color encodings are plotted on the CIE 1931 chromaticity diagram above. The subsequent sections give more detail on the usage of each color encoding, together with the various encoding and decoding functions. The complete set of all forward and reverse encoding and decoding functions (an EOTF is not normally the inverse of the corresponding OETF, creating an Optical to Optical Transfer Function, or OOTF) is available in Colour Science for Python, together with the matrices to transform to CIE XYZ, referred to as the Normalized Primary Matrix (NPM) of a color space, and their inverses.
-  </p>
-  <p>
-   <br/>
-  </p>
-  <hr/>
-  <!--Table of Child-Links-->
-  <a name="CHILD_LINKS">
-   <strong>
-    Subsections
-   </strong>
-  </a>
-  <ul class="ChildLinks">
-   <li>
-    <a href="Rec_709.html" name="tex2html2112">
-     Rec. 709
-    </a>
-   </li>
-   <li>
-    <a href="BT_1886.html" name="tex2html2113">
-     BT.1886
-    </a>
-   </li>
-   <li>
-    <a href="sRGB.html" name="tex2html2114">
-     sRGB
-    </a>
-   </li>
-   <li>
-    <a href="Rec_2020.html" name="tex2html2115">
-     Rec. 2020
-    </a>
-   </li>
-   <li>
-    <a href="ST_2084_PQ.html" name="tex2html2116">
-     ST.2084 / PQ
-    </a>
-   </li>
-   <li>
-    <a href="Hybrid_Log_Gamma_HLG.html" name="tex2html2117">
-     Hybrid Log Gamma (HLG)
-    </a>
-   </li>
-   <li>
-    <a href="P3_DCI.html" name="tex2html2118">
-     P3 DCI
-    </a>
-   </li>
-   <li>
-    <a href="P3_D65.html" name="tex2html2119">
-     P3 D65
-    </a>
-   </li>
-   <li>
-    <a href="X_Y_Z.html" name="tex2html2120">
-     X'Y'Z'
-    </a>
-   </li>
-   <li>
-    <a href="ALEXA_LogC.html" name="tex2html2121">
-     ALEXA LogC
-    </a>
-   </li>
-   <li>
-    <a href="Blackmagic_Film.html" name="tex2html2122">
-     Blackmagic Film
-    </a>
-   </li>
-   <li>
-    <a href="Canon_CLog.html" name="tex2html2123">
-     Canon CLog
-    </a>
-   </li>
-   <li>
-    <a href="GoPro_ProTune.html" name="tex2html2124">
-     GoPro ProTune
-    </a>
-   </li>
-   <li>
-    <a href="Panasonic_V_Log.html" name="tex2html2125">
-     Panasonic V-Log
-    </a>
-   </li>
-   <li>
-    <a href="RED_Log3G10.html" name="tex2html2126">
-     RED Log3G10
-    </a>
-   </li>
-   <li>
-    <a href="Sony_SLog.html" name="tex2html2127">
-     Sony SLog
-    </a>
-   </li>
-   <li>
-    <a href="ACEScc.html" name="tex2html2128">
-     ACEScc
-    </a>
-   </li>
-   <li>
-    <a href="ACEScct.html" name="tex2html2129">
-     ACEScct
-    </a>
-   </li>
-   <li>
-    <a href="Cineon.html" name="tex2html2130">
-     Cineon
-    </a>
-   </li>
-  </ul>
-  <!--End of Table of Child-Links-->
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Rec_709.html" name="tex2html2110">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Appendix.html" name="tex2html2106">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Appendix.html" name="tex2html2100">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html2108">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Rec_709.html" name="tex2html2111">
-    Rec. 709
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Appendix.html" name="tex2html2107">
-    Appendix
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Appendix.html" name="tex2html2101">
-    Appendix
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html2109">
-     Contents
-    </a>
-   </b>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h1>
+      <a name="SECTION00610000000000000000">
+       Common RGB Color Encodings
+      </a>
+     </h1>
+     <p>
+      An RGB color encoding is defined by its primaries, white point and transfer functions. Output-referred encodings have only an Electro-Optical Transfer Function (EOTF) which defines the relationship between code value and display light. This may be defined relative to display peak luminance, or as an absolute encoding in terms of display cd/m2. Scene-referred encodings have only an Opto-Electrical Transfer Function (OETF) which defines the relationship between relative scene light and the encoded value. Some encodings, such as Hybrid Log-Gamma (HLG), define a relationship to both scene and display light, so have both an OETF and and EOTF. Encoded values may be represented either as floating point numbers, or by integers at a specific bit depth. The equations given in the following sections are for the floating point form. Logarithmic encodings of image data can fit a high dynamic range into the 0-1 range, which makes them suitable for storing in integer file formats or transmitting over SDI.
+     </p>
+     <p>
+      The primaries and white points of some common color encodings are plotted on the CIE 1931 chromaticity diagram above. The subsequent sections give more detail on the usage of each color encoding, together with the various encoding and decoding functions. The complete set of all forward and reverse encoding and decoding functions (an EOTF is not normally the inverse of the corresponding OETF, creating an Optical to Optical Transfer Function, or OOTF) is available in Colour Science for Python, together with the matrices to transform to CIE XYZ, referred to as the Normalized Primary Matrix (NPM) of a color space, and their inverses.
+     </p>
+     <p>
+      <br/>
+     </p>
+     <hr/>
+     <a name="CHILD_LINKS">
+      <strong>
+       Contents
+      </strong>
+     </a>
+     <ul class="ChildLinks">
+      <li>
+       <a href="Rec_709.html" name="tex2html2112">
+        Rec. 709
+       </a>
+      </li>
+      <li>
+       <a href="BT_1886.html" name="tex2html2113">
+        BT.1886
+       </a>
+      </li>
+      <li>
+       <a href="sRGB.html" name="tex2html2114">
+        sRGB
+       </a>
+      </li>
+      <li>
+       <a href="Rec_2020.html" name="tex2html2115">
+        Rec. 2020
+       </a>
+      </li>
+      <li>
+       <a href="ST_2084_PQ.html" name="tex2html2116">
+        ST.2084 / PQ
+       </a>
+      </li>
+      <li>
+       <a href="Hybrid_Log_Gamma_HLG.html" name="tex2html2117">
+        Hybrid Log Gamma (HLG)
+       </a>
+      </li>
+      <li>
+       <a href="P3_DCI.html" name="tex2html2118">
+        P3 DCI
+       </a>
+      </li>
+      <li>
+       <a href="P3_D65.html" name="tex2html2119">
+        P3 D65
+       </a>
+      </li>
+      <li>
+       <a href="X_Y_Z.html" name="tex2html2120">
+        X'Y'Z'
+       </a>
+      </li>
+      <li>
+       <a href="ALEXA_LogC.html" name="tex2html2121">
+        ALEXA LogC
+       </a>
+      </li>
+      <li>
+       <a href="Blackmagic_Film.html" name="tex2html2122">
+        Blackmagic Film
+       </a>
+      </li>
+      <li>
+       <a href="Canon_CLog.html" name="tex2html2123">
+        Canon CLog
+       </a>
+      </li>
+      <li>
+       <a href="GoPro_ProTune.html" name="tex2html2124">
+        GoPro ProTune
+       </a>
+      </li>
+      <li>
+       <a href="Panasonic_V_Log.html" name="tex2html2125">
+        Panasonic V-Log
+       </a>
+      </li>
+      <li>
+       <a href="RED_Log3G10.html" name="tex2html2126">
+        RED Log3G10
+       </a>
+      </li>
+      <li>
+       <a href="Sony_SLog.html" name="tex2html2127">
+        Sony SLog
+       </a>
+      </li>
+      <li>
+       <a href="ACEScc.html" name="tex2html2128">
+        ACEScc
+       </a>
+      </li>
+      <li>
+       <a href="ACEScct.html" name="tex2html2129">
+        ACEScct
+       </a>
+      </li>
+      <li>
+       <a href="Cineon.html" name="tex2html2130">
+        Cineon
+       </a>
+      </li>
+     </ul>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Rec_709.html" name="tex2html2111">
+       Rec. 709
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Appendix.html" name="tex2html2107">
+       Appendix
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Appendix.html" name="tex2html2101">
+       Appendix
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html2109">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

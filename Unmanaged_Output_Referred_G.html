@@ -16,6 +16,7 @@
   <link href="DI_Grading.html" rel="up"/>
   <link href="Color_Managed_Scene_Referre.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,59 +172,59 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00562000000000000000">
-    Unmanaged Output Referred Grading
-   </a>
-  </h2>
-  <p>
-   The advantage of the output-referred &ldquo;video&rdquo; approach is one of process simplicity. However, when grading pre-rendered gamma-encoded imagery, a relatively modest amount of color adjustment can be applied without introducing artifacts. The downside to this approach is that much of the detail in the original imagery is lost when baking-in the view transform, which typically happens before or at the beginning of the grade. Indeed, in some implementations, this baking-in of the view transform may even be internal to the camera, or in animated features, inside the renderer. For example, if a shot was originally overexposed, a sensible color correction is to darken the image. However, it is likely that in an overexposed image large portions of the image will be clipped by the view transform to a constant maximum value, and no possible correction can bring back this lost detail. Additionally, this video style approach is particularly unsuited to producing HDR versions. It is inherently tied to the dynamic range of the display used in the DI, so the HDR and SDR versions must be done as completely separate grades.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Color_Managed_Scene_Referre.html" name="tex2html1842">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="DI_Grading.html" name="tex2html1838">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Conforming.html" name="tex2html1832">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1840">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Color_Managed_Scene_Referre.html" name="tex2html1843">
-    Color Managed Scene Referred
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="DI_Grading.html" name="tex2html1839">
-    DI Grading
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Conforming.html" name="tex2html1833">
-    Conforming
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1841">
-     Contents
-    </a>
-   </b>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00562000000000000000">
+       Unmanaged Output Referred Grading
+      </a>
+     </h2>
+     <p>
+      The advantage of the output-referred &ldquo;video&rdquo; approach is one of process simplicity. However, when grading pre-rendered gamma-encoded imagery, a relatively modest amount of color adjustment can be applied without introducing artifacts. The downside to this approach is that much of the detail in the original imagery is lost when baking-in the view transform, which typically happens before or at the beginning of the grade. Indeed, in some implementations, this baking-in of the view transform may even be internal to the camera, or in animated features, inside the renderer. For example, if a shot was originally overexposed, a sensible color correction is to darken the image. However, it is likely that in an overexposed image large portions of the image will be clipped by the view transform to a constant maximum value, and no possible correction can bring back this lost detail. Additionally, this video style approach is particularly unsuited to producing HDR versions. It is inherently tied to the dynamic range of the display used in the DI, so the HDR and SDR versions must be done as completely separate grades.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Color_Managed_Scene_Referre.html" name="tex2html1843">
+       Color Managed Scene Referred
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="DI_Grading.html" name="tex2html1839">
+       DI Grading
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Conforming.html" name="tex2html1833">
+       Conforming
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1841">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

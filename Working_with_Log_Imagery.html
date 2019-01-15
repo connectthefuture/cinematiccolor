@@ -16,6 +16,7 @@
   <link href="Compositing.html" rel="up"/>
   <link href="Plate_Timing_Neutralization.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,67 +172,67 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h2>
-   <a name="SECTION00554000000000000000">
-    Working with Log Imagery
-   </a>
-  </h2>
-  <p>
-   Log plates captured for &ldquo;Avengers: Infinity War&rdquo; (left, right) and &ldquo;The Amazing Spider-Man&rdquo; (middle).
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a name="SECTION00554000000000000000">
+       Working with Log Imagery
+      </a>
+     </h2>
+     <p>
+      Log plates captured for &ldquo;Avengers: Infinity War&rdquo; (left, right) and &ldquo;The Amazing Spider-Man&rdquo; (middle).
 Images from &ldquo;Avengers: Infinity War&rdquo; are &copy; 2018 MARVEL.  Images from &ldquo;The Amazing Spider-Man&rdquo; Courtesy of Columbia Pictures. &copy; 2012 Columbia Pictures Industries, Inc. All rights reserved.
 Despite scene-referred linear having benefits in many compositing operators, log-like spaces are sometimes still useful in modern compositing workflows. This is in part due to it being very straightforward to express some operations in a log space, like exposure or contrast adjustment, and in part, because some packages were designed around processing log imagery so the controls and feel of the operations are more intuitive, or familiar to artists, with log images. Modern compositing applications can apply almost every operation directly to scene-referred linear data, but it may still be useful to work with log imagery. In log space, both the linear and gamma contrast operators have reasonable performance. This is one of the reasons that colorists often prefer to work in log-like spaces. Other operations which can be useful to perform in the log domain are grain matching, pulling keys, and many spatial distortion operators. But care must be taken when using log color spaces in compositing, as not all log transforms preserve the full range of scene-referred linear code values. Most such conversions clip values above certain highlight color, below a certain shadow color, and some clip all negative values.
-  </p>
-  <p>
-   Scene-referred linear data is not suitable as input to a 3D LUT due to its code value distribution, range and the distribution of sensitivity in the human visual system as seen in Section 2.5.3. To address that problem, image data is often transformed into a log representation before a 3D LUT is applied. Some LUTs include this transform as a 1D shaper within the LUT file itself. See Appendix 4.4.3 for more detail.
-  </p>
-  <p>
-   ACES defines two standardized log working spaces, ACEScc and ACEScct, which are commonly used in grading.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Plate_Timing_Neutralization.html" name="tex2html1765">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Compositing.html" name="tex2html1761">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Negative_Values.html" name="tex2html1755">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html1763">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Plate_Timing_Neutralization.html" name="tex2html1766">
-    Plate Timing, Neutralization, and
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Compositing.html" name="tex2html1762">
-    Compositing
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Negative_Values.html" name="tex2html1756">
-    Negative Values
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html1764">
-     Contents
-    </a>
-   </b>
+     </p>
+     <p>
+      Scene-referred linear data is not suitable as input to a 3D LUT due to its code value distribution, range and the distribution of sensitivity in the human visual system as seen in Section 2.5.3. To address that problem, image data is often transformed into a log representation before a 3D LUT is applied. Some LUTs include this transform as a 1D shaper within the LUT file itself. See Appendix 4.4.3 for more detail.
+     </p>
+     <p>
+      ACES defines two standardized log working spaces, ACEScc and ACEScct, which are commonly used in grading.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Plate_Timing_Neutralization.html" name="tex2html1766">
+       Plate Timing, Neutralization, and
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Compositing.html" name="tex2html1762">
+       Compositing
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Negative_Values.html" name="tex2html1756">
+       Negative Values
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html1764">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">

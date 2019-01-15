@@ -16,6 +16,7 @@
   <link href="Color_Component_Transfer_Fu.html" rel="up"/>
   <link href="Decoding_Color_Component_Tr.html" rel="next"/>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
  </head>
  <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -155,19 +156,15 @@
        </a>
       </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Glossary.html" id="glossary" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Glossary.html">
        Glossary
       </a>
-      <div aria-labelledby="glossary" class="dropdown-menu">
-      </div>
      </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="Bibliography.html" id="bibliography" role="button">
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="Bibliography.html">
        Bibliography
       </a>
-      <div aria-labelledby="bibliography" class="dropdown-menu">
-      </div>
      </li>
     </ul>
     <form class="form-inline my-2 my-md-0">
@@ -175,68 +172,68 @@
     </form>
    </div>
   </nav>
-  <!--End of Navigation Panel-->
-  <h4>
-   <a name="SECTION00438310000000000000">
-    Encoding Color Component Transfer Functions
-   </a>
-  </h4>
-  <p>
-   The Encoding CCTF, commonly an Opto-Electronic Transfer Function (OETF) or inverse Electro-Optical Transfer Function (EOTF), maps estimated linear light components in a scene to a non-linear R'G'B' component signal value.
-  </p>
-  <p>
-   sRGB, Rec. 709 and Cineon Encoding color Component Transfer Functions, note how the Cineon curve imposes a substantial compression to the input domain allowing it to encode a wider dynamic range.
-  </p>
-  <p>
-   Typical OETFs are expressed by a power function with an exponent between 0.4 and 0.5. They can also be defined as piece-wise functions such as the sRGB or Rec. 709 OETFs. OETFs are necessary for the faithful representation of images and perceptual coding in relation to display non-linear response and the non-linearity of the human visual system.
-  </p>
-  <p>
-   Digital cinema cameras usually adopt logarithmic encoding functions such as Sony S-Log, ALEXA LogC or Canon C-Log allowing storage of a much wider dynamic range from the original scene compared to a generic Rec. 709 HDTV camera. To some degree, they are considered as flavors of the Cineon encoding found in the Kodak Cineon System, an early 1990s computer-based digital film system. The main difference between digital cinema cameras encodings and Cineon is that the latter is a logarithmic encoding directly corresponding to the optical density of the film negative. In order to know the relationship between a Cineon encoding and scene light, it is necessary also to know the characteristic curve of the film stock.
-  </p>
-  <p>
-  </p>
-  <div class="navigation">
-   <hr/>
-   <!--Navigation Panel-->
-   <a href="Decoding_Color_Component_Tr.html" name="tex2html972">
-    <img align="BOTTOM" alt="next" border="0" height="24" src="next.png" width="37"/>
-   </a>
-   <a href="Color_Component_Transfer_Fu.html" name="tex2html968">
-    <img align="BOTTOM" alt="up" border="0" height="24" src="up.png" width="26"/>
-   </a>
-   <a href="Color_Component_Transfer_Fu.html" name="tex2html962">
-    <img align="BOTTOM" alt="previous" border="0" height="24" src="prev.png" width="63"/>
-   </a>
-   <a href="Contents.html" name="tex2html970">
-    <img align="BOTTOM" alt="contents" border="0" height="24" src="contents.png" width="65"/>
-   </a>
-   <br/>
-   <b>
-    Next:
-   </b>
-   <a href="Decoding_Color_Component_Tr.html" name="tex2html973">
-    Decoding Color Component Transfer
-   </a>
-   <b>
-    Up:
-   </b>
-   <a href="Color_Component_Transfer_Fu.html" name="tex2html969">
-    Color Component Transfer Functions
-   </a>
-   <b>
-    Previous:
-   </b>
-   <a href="Color_Component_Transfer_Fu.html" name="tex2html963">
-    Color Component Transfer Functions
-   </a>
-   &nbsp;
-   <b>
-    <a href="Contents.html" name="tex2html971">
-     Contents
-    </a>
-   </b>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h4>
+      <a name="SECTION00438310000000000000">
+       Encoding Color Component Transfer Functions
+      </a>
+     </h4>
+     <p>
+      The Encoding CCTF, commonly an Opto-Electronic Transfer Function (OETF) or inverse Electro-Optical Transfer Function (EOTF), maps estimated linear light components in a scene to a non-linear R'G'B' component signal value.
+     </p>
+     <p>
+      sRGB, Rec. 709 and Cineon Encoding color Component Transfer Functions, note how the Cineon curve imposes a substantial compression to the input domain allowing it to encode a wider dynamic range.
+     </p>
+     <p>
+      Typical OETFs are expressed by a power function with an exponent between 0.4 and 0.5. They can also be defined as piece-wise functions such as the sRGB or Rec. 709 OETFs. OETFs are necessary for the faithful representation of images and perceptual coding in relation to display non-linear response and the non-linearity of the human visual system.
+     </p>
+     <p>
+      Digital cinema cameras usually adopt logarithmic encoding functions such as Sony S-Log, ALEXA LogC or Canon C-Log allowing storage of a much wider dynamic range from the original scene compared to a generic Rec. 709 HDTV camera. To some degree, they are considered as flavors of the Cineon encoding found in the Kodak Cineon System, an early 1990s computer-based digital film system. The main difference between digital cinema cameras encodings and Cineon is that the latter is a logarithmic encoding directly corresponding to the optical density of the film negative. In order to know the relationship between a Cineon encoding and scene light, it is necessary also to know the characteristic curve of the film stock.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="Decoding_Color_Component_Tr.html" name="tex2html973">
+       Decoding Color Component Transfer
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="Color_Component_Transfer_Fu.html" name="tex2html969">
+       Color Component Transfer Functions
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="Color_Component_Transfer_Fu.html" name="tex2html963">
+       Color Component Transfer Functions
+      </a>
+      &nbsp;
+      <b>
+       <a href="Contents.html" name="tex2html971">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
   </div>
-  <!--End of Navigation Panel-->
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
   <script src="assets/js/jquery.min.js">
   </script>
   <script src="assets/js/popper.min.js">
