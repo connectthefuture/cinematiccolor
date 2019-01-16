@@ -97,7 +97,7 @@ FOOTER_TEMPLATE = """
 """
 
 
-def extract_navigation(path):
+def extract_navigation(path, ignored_chapters=None):
     """
     Extracts and generate the *HTML* navigation using given reference path.
 
@@ -105,6 +105,8 @@ def extract_navigation(path):
     ----------
     path : unicode
         Path to parse to extract the *HTML* navigation.
+    ignored_chapters : array_like, optional
+        Chapters to ignore in the reference path.
 
     Returns
     -------
@@ -114,12 +116,16 @@ def extract_navigation(path):
 
     with open(path) as html_file:
         html = BeautifulSoup(html_file, 'lxml')
-        toc = html.body.find('ul', **{'class_': 'TofC'})
+        toc = html.body.find('ul', **{'class_': 'ChildLinks'})
 
     navigation = BeautifulSoup(NAVBAR_TEMPLATE, 'html.parser').find('nav')
     navigation_ul = navigation.find('ul')
     for toc_li_child in toc.find_all('li', recursive=False):
         toc_li_child_a = toc_li_child.find('a')
+
+        if toc_li_child_a.text in ignored_chapters:
+            continue
+
         navigation_li = BeautifulSoup(NAVBAR_DROPDOWN_LI_TEMPLATE,
                                       'html.parser').find('li')
         aria = toc_li_child_a['href']
@@ -193,6 +199,9 @@ def process_html(path, navigation):
         for comment in comments:
             comment.extract()
 
+        # Removing "latex2html" stylesheet.
+        html.find('link').extract()
+
         # Appending "Bootstrap" stylesheet.
         html.head.append(
             BeautifulSoup(BOOTSTRAP_STYLESHEET_TEMPLATE, 'html.parser'))
@@ -200,9 +209,6 @@ def process_html(path, navigation):
         # Appending "Custom" stylesheet.
         html.head.append(
             BeautifulSoup(CUSTOM_STYLESHEET_TEMPLATE, 'html.parser'))
-
-        # Removing the first "latex2html" navigation panel.
-        html.body.find('div', **{'class_': 'navigation'}).extract()
 
         # Cleaning up the second "latex2html" navigation panel.
         navigation_panel = html.body.find('div', **{'class_': 'navigation'})
@@ -220,11 +226,11 @@ def process_html(path, navigation):
             child.extract()
 
         # Update "Subsections" "strong" name to "Contents".
-        for strong in html.body.find_all('strong'):
-            if 'name' in strong.parent.attrs:
-                if strong.parent.attrs['name'] == 'CHILD_LINKS':
-                    strong.string = 'Contents'
-                    break
+        # for strong in html.body.find_all('strong'):
+        #     if 'id' in strong.parent.attrs:
+        #         if strong.parent.attrs['id'] == 'CHILD_LINKS':
+        #             strong.string = 'Contents'
+        #             break
 
         # Wrapping "body" contents.
         body_children = list(html.body.children)

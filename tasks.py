@@ -226,7 +226,8 @@ def build_html(ctx, latex2html=True, copy_assets=True, process_html=True):
 
     if latex2html:
         ctx.run('latex2html '
-                '-long_titles 255 '
+                '-no_info '
+                '-long_titles=255 '
                 '-no_top_navigation '
                 '-bottom_navigation '
                 '{0}'.format(ROOT_DOCUMENT_NAME))
@@ -237,8 +238,8 @@ def build_html(ctx, latex2html=True, copy_assets=True, process_html=True):
     if process_html:
         message_box('Processing "HTML"...')
 
-        contents_file = os.path.join(ROOT_HTML_DIRECTORY_NAME, 'Contents.html')
-        navigation = html.extract_navigation(contents_file)
+        index_file = os.path.join(ROOT_HTML_DIRECTORY_NAME, 'index.html')
+        navigation = html.extract_navigation(index_file, ['Contents'])
 
         for html_file in glob.glob(
                 os.path.join(ROOT_HTML_DIRECTORY_NAME, '*.html')):
