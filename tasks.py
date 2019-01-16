@@ -211,7 +211,7 @@ def build_html(ctx, latex2html=True, copy_assets=True, process_html=True):
         Context.
     latex2html : bool
         Whether to perform *HTML* conversion.
-    latex2html : bool
+    copy_assets : bool
         Whether to copy the assets.
     process_html : bool
         Whether to process the *HTML* files.
