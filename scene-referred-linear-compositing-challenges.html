@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html lang="EN">
+ <head>
+  <title>
+   Scene-Referred Linear Compositing Challenges
+  </title>
+  <meta content="Scene-Referred Linear Compositing Challenges" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="text/html; charset=utf8" http-equiv="Content-Type"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="LaTeX2HTML v2019" name="Generator"/>
+  <link href="negative-values.html" rel="next"/>
+  <link href="scene-referred-linear-is-preferred-compositing.html" rel="previous"/>
+  <link href="negative-values.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="foreword.html" id="foreword" role="button">
+       Foreword
+      </a>
+      <div aria-labelledby="foreword" class="dropdown-menu">
+       <a class="dropdown-item" href="description.html">
+        Description
+       </a>
+       <a class="dropdown-item" href="authorship.html">
+        Authorship
+       </a>
+       <a class="dropdown-item" href="on-web.html">
+        On the Web
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="intended-audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="how-read-this-document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="converging-approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="general-model-color-processing.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="color-management-challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="electromagnetic-spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="human-visual-system.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="basic-colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="advanced-colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="representing-color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="color-imaging-systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="academy-color-encoding-system-aces.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="on-set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="visual-effects-animation-games.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="di-grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="critical-monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="common-rgb-color-encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="opencolorio-ocio.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="colour-science-python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="luts-transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="asc-cdl.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="aces-ctl.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="full-legal-ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="chroma-decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="camera-characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="file-formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="glossary.html">
+       Glossary
+      </a>
+     </li>
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="bibliography.html">
+       Bibliography
+      </a>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a id="SECTION00552000000000000000">
+       Scene-Referred Linear Compositing Challenges
+      </a>
+     </h2>
+     <p>
+      There are some challenges with working with high-dynamic ranges in compositing. First, filtering operators that use sharp, negative lobed kernels like as lanczos, keys, and sinc are very susceptible to ringing, i.e. negative values around highlights. While interpolatory filters such as box, gaussian, bilinear and bicubic cannot cause this artifact, they tend to introduce softening. When sharp filtering is required like lens distortions, resizing, and other spatial warping techniques a variety of approaches are useful to mitigate such HDR artifacts. A non-exhaustive set of methods are listed below
+     </p>
+     <p>
+      The simplest approach to mitigating overshoot/undershoot artifacts is to roll off the highlights, process the image, and then unroll the highlights back. While this does not preserve highlight energy as it has the net effect of reducing specular intensity, the results are visually pleasing. The approach is also suitable for processing images with alpha.
+For images without alpha, converting to log, filtering, and converting back will greatly reduce the visual impact of overshoot and undershoot. Though log-space processing results in a gross distortion of energy, for conversions which don&rsquo;t integrate large portions of the image, such as lens distortion effects for plates and not blurs, this works well.
+For images without alpha, a similar method is to apply a simple invertible tonemap, filtering, and then inverting back. A method as simple as 1/(1+color) produces pleasing results by effectively weighting each sample as a function of its brightness.
+Another approach to HDR filtering is to apply a simple camera flare model, where very bright highlights share their energy with neighboring pixels.
+     </p>
+     <p>
+      For all approaches that undertake a form of perceptual encoding, care must be taken to ensure enough precision is maintained during filtering. 16-bit floating point may not be suitable.
+     </p>
+     <p>
+      An image with negative black halos around highlights, produced by a Lanczos 6 resizing filter with negative lobes (left) and the image converted to a log space before resizing, thus avoiding negative black haloes (right).
+Applying negative-lobed filter kernels to high-dynamic range images, may cause visually-significant ringing artifacts introducing black silhouettes around sharp specular highlights. Ringing artifacts may be avoided when using sharp filters on HDR imagery by processing in alternate color spaces, such as log, using energy-roll off approaches, or by pre-flaring highlight regions. This image demonstrates the results of the roll-off technique.
+     </p>
+     <p>
+      Another challenge in working with scene-referred linear data in compositing is that tricks often relied upon in integer compositing may not be effective when applied to floating-point imagery. For example, the screen operator, which remains effective when applied to matte passes, is sometimes used on RGB data to emulate a &ldquo;partial add&rdquo;. As the screen operator is ill-defined above 1.0, unexpected results will occur when applied to HDR data. Some compositing packages swap out screen for max when either input is outside of 0.0-1.0, but this is primarily to prevent artifacts and is not artistically helpful.  Alternative &ldquo;partial add&rdquo; maths such as hypotenuse are useful but do not exactly replicate the original intent of screen. Another related issue to beware of when compositing is that when combining HDR image, alphas must not go outside the range of 0 to 1. While it is entirely reasonable for the RGB channels to have any values, even negative in certain situations, compositing operators such as over, produce totally invalid results on alphas outside of the range 0 to 1.
+     </p>
+     <p>
+      One subtlety of working with floating point imagery is that artists must become familiar with some of the corner cases in floating-point representations: NaNs and Infs. For example, when dividing by very small values, such as during un-premultiplication, it is possible to drive a color value up high enough to generate infinity. NaNs are also frequent and may be introduced during lighting and shading inside the renderer, or during divide by zero operations. Both NaNs and Inf can cause issues in compositing if not detected and cleaned, as most image processing algorithms are not robust to their presence and generally fail in unexpected ways.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="negative-values.html">
+       Negative Values
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="compositing.html">
+       Compositing
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="scene-referred-linear-is-preferred-compositing.html">
+       Scene-Referred Linear is Preferred
+      </a>
+      &nbsp;
+      <b>
+       <a href="contents.html" id="tex2html755">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

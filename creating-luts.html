@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+<html lang="EN">
+ <head>
+  <title>
+   Creating LUTs
+  </title>
+  <meta content="Creating LUTs" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="text/html; charset=utf8" http-equiv="Content-Type"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="LaTeX2HTML v2019" name="Generator"/>
+  <link href="gpu-implementations.html" rel="next"/>
+  <link href="half-float-luts.html" rel="previous"/>
+  <link href="gpu-implementations.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="foreword.html" id="foreword" role="button">
+       Foreword
+      </a>
+      <div aria-labelledby="foreword" class="dropdown-menu">
+       <a class="dropdown-item" href="description.html">
+        Description
+       </a>
+       <a class="dropdown-item" href="authorship.html">
+        Authorship
+       </a>
+       <a class="dropdown-item" href="on-web.html">
+        On the Web
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="intended-audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="how-read-this-document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="converging-approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="general-model-color-processing.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="color-management-challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="electromagnetic-spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="human-visual-system.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="basic-colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="advanced-colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="representing-color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="color-imaging-systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="academy-color-encoding-system-aces.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="on-set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="visual-effects-animation-games.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="di-grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="critical-monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="common-rgb-color-encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="opencolorio-ocio.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="colour-science-python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="luts-transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="asc-cdl.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="aces-ctl.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="full-legal-ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="chroma-decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="camera-characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="file-formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="glossary.html">
+       Glossary
+      </a>
+     </li>
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="bibliography.html">
+       Bibliography
+      </a>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h2>
+      <a id="SECTION00645000000000000000">
+       Creating LUTs
+      </a>
+     </h2>
+     <p>
+      LUTs are fundamentally lists of output values, corresponding to input values, and most LUT formats store these as plain text lists or XML. Some binary formats exist, usually for efficiency in hardware LUT implementations, and for these, it is often simpler to create a human-readable LUT first and then convert with suitable utility software to the binary form.
+     </p>
+     <p>
+      A CMS Image generated by Nuke. This pattern is only 9^3 (dividing R, G &amp; B into 9 levels each)
+for clarity, resulting in 9 &times; 9 &times; 9 = 729 different colored patches
+Grading and compositing systems include the functionality to read such images and generate LUTs, either from transforms applied by their own processes, or externally, in which case the nature of the process may be unknown, or even secret.
+     </p>
+     <p>
+      If the transform to be applied is a known mathematical one, perhaps a specific color space transform, LUTs can be baked using Colour Science for Python, for example. A simple code example to do this for an unspecified transform where output = f(input) is shown below:
+import colour
+LUT = colour.LUT3D(name='LUT Name')
+LUT.domain = ([[-0.07, -0.07, -0.07], [1.09, 1.09, 1.09]])
+LUT.comments = ['First comment', 'Second comment']
+LUT.table = colour.LUT3D.linear_table(size=33, domain=LUT.domain)
+LUT.table = f(LUT.table)
+colour.write_LUT(LUT, '/path/to/lut/file.cube')
+     </p>
+     <p>
+      This procedure is all that is needed when the LUT in question is to be applied to an output referred image, or a log image in the 0-1 range. However when a shaper is required, to create a LUT for HDR image data, the situation is more complex. Decisions need to be made, and there is no one correct solution. Sometimes the possible range of the input data is known &ndash; if it comes from a specific camera perhaps &ndash; but it is often necessary to decide on a sensible input range, and accept that data outside this range may be clipped. It is also useful to consider what data may be clipped in the final output, so as not to waste input range on unnecessary values. For example, if baking a LUT to apply the ACES RRT plus an SDR ODT to ACES linear data, any shaper which includes input values above 16.3 is wasteful, as these will be clipped by the ODT. A balance needs to be struck between covering a sufficient range, and not spreading the available table entries too thinly, which can result in distortions from interpolation if the shaper does not include enough points for the range. It can be helpful to calculate forward and reverse shapers and pass a linear ramp through a concatenation of the two, looking for deviations from a straight line (particularly near black) after the round trip.
+     </p>
+     <p>
+      A linear ramp transformed from ACEScct to ACEScg and back using a 12 bit 1D LUT.
+In the plot above, because of the wide range covered by ACEScct, the first interval of the linear to log LUT covers the ACEScct range 0.0-0.304 (-0.007-0.047 linear). Interpolating linearly for values in this large interval, when they are in fact logarithmically spaced, results in this &ldquo;kink&rdquo;. For the full range covered by ACEScct, a 16 bits are needed before the distortion becomes negligible with uniformly spaced samples. The alternative is to use a non-uniform shaper if the LUT format supports that. The OCIO ACES config, for example, takes the latter approach by including only log to linear shaper LUTs, and using them in the reverse direction for linear to log conversions. The Python code snippet below generates a Cinespace LUT which has a logarithmically spaced input domain and a linearly spaced output table and thus will not show the issue.
+     </p>
+     <p>
+      from colour import LUT1D, write_LUT
+from colour.models import log_decoding_ACEScct
+     </p>
+     <p>
+      table = np.linspace(0, 1, 4096)
+domain = log_decoding_ACEScct(table)
+LUT = LUT1D(table, 'Linear to ACEScct', domain)
+write_LUT(LUT, '/path/to/lut_file.csp')
+     </p>
+     <p>
+      While GUI tools, such as LightSpace and Lattice, are available and can create and convert both 1D and 3D LUTs, they cannot work with LUTs which include both a 1D shaper and a 3D cube in the same file. Neither can Nuke&rsquo;s GenerateLUT node. Therefore it is necessary either to manually split the process under consideration into the 1D and 3D components, and bake separate LUTs, or else use command line tools such as OCIO&rsquo;s ociobakelut which have options to select a shaper space and range for formats which support combined 1D + 3D LUTs. For example, the command below will create a Cinespace LUT which will apply the ACES RRT plus Rec. 709 ODT:
+     </p>
+     <p>
+      ociobakelut -inputspace "ACES - ACES2065-1" -iconfig "/Library/Application Support/OpenColorIO/aces_1.0.3/config.ocio" -shaperspace "Utility - Log2 48 nits Shaper" -outputspace "Output - Rec.709" -format cinespace ACES_RRT_709_ODT.csp
+     </p>
+     <p>
+      Using Colour Science for Python, as previously, it is possible to write the shaper and cube components of a transform to a Resolve .cube or Cinespace .csp LUT. The code listed below creates a shaper ranging from six stops below mid-grey to six stops above it, and a cube which applies the transform which is the difference between the shaper and f(input):
+     </p>
+     <p>
+      import colour
+import numpy as np
+     </p>
+     <p>
+      domain = [0.18 * 2 ** -6, 0.18 * 2 ** 6]
+shaper = colour.LUT1D(size=16384, domain=domain)
+shaper.table = 0.5 + np.log2(shaper.table / 0.18) / 12
+     </p>
+     <p>
+      # Inverse shaper used only for cube calculation
+def inverse_shaper(x):
+    return 0.18 * 2 ** (12*(x - 0.5))
+     </p>
+     <p>
+      cube = colour.LUT3D(name='LUT Name', size=33)
+     </p>
+     <p>
+      # Apply the transform to the identity cube
+# pre-transformed by the inverse of the shaper
+cube.table = f( inverse_shaper(cube.table) )
+     </p>
+     <p>
+      LUT = colour.LUTSequence(shaper, cube)
+colour.write_LUT(LUT, '/path/to/lut/file.cube')
+     </p>
+     <p>
+      Because most LUTs are text files, it is possible to process and convert them with simple text processing scripts. For example, while ociobakelut can create a LUT including a shaper in the Houdini format which can be used in the OCIOFileTransform node of Nuke, this same LUT file cannot be applied in DaVinci Resolve. Resolve supports combined 1D + 3D LUTs, but the format required is not currently available with ociobakelut in OCIO v1. However the Houdini and Resolve combined LUT formats are sufficiently similar, that the necessary conversion can be performed easily with a script, or even manually using a spreadsheet application.
+     </p>
+     <p>
+      Houdini .lut version (not usable size) of the ociobakelut output above:
+DaVinci Resolve .cube version of the same LUT:
+Version		3
+Format		any
+Type		3D+1D
+From		0.001989 16.291740
+To		0.000000 1.000000
+Black		0.000000
+White		1.000000
+Length		3 9
+LUT:
+Pre 
+	0.000000
+	0.769326
+	0.846195
+	0.891173
+	0.923091
+	0.947849
+	0.968078
+	0.985183
+	1.000000
+
+3D 
+	0.000000 0.000000 0.000000
+	0.534865 0.000000 0.000000
+	1.000000 0.254877 0.543403
+	0.000000 0.446770 0.000000
+	0.462596 0.411305 0.000000
+	1.000000 0.253674 0.542072
+	0.290448 1.000000 0.636457
+	0.289485 1.000000 0.636227
+	1.000000 1.000000 0.736428
+	0.000000 0.000000 0.400418
+	0.527788 0.000000 0.398828
+	1.000000 0.252359 0.671285
+	0.000000 0.422871 0.384992
+	0.389530 0.389530 0.389530
+	1.000000 0.252446 0.670820
+	0.279933 1.000000 0.680195
+	0.278750 1.000000 0.680725
+	1.000000 1.000000 0.783296
+	0.000000 0.062706 1.000000
+	0.000000 0.062739 1.000000
+	1.000000 0.340477 1.000000
+	0.000000 0.062698 1.000000
+	0.000000 0.062714 1.000000
+	1.000000 0.339629 1.000000
+	0.000000 1.000000 1.000000
+	0.000000 1.000000 1.000000
+	1.000000 1.000000 1.000000
+ 
+LUT_1D_SIZE 9
+LUT_1D_INPUT_RANGE 0.001989 16.291740
+     </p>
+     <p>
+      LUT_3D_SIZE 3
+LUT_3D_INPUT_RANGE 0.0 1.0
+     </p>
+     <p>
+      0.000000 0.000000 0.000000
+0.769326 0.769326 0.769326
+0.846195 0.846195 0.846195
+0.891173 0.891173 0.891173
+0.923091 0.923091 0.923091
+0.947849 0.947849 0.947849
+0.968078 0.968078 0.968078
+0.985183 0.985183 0.985183
+1.000000 1.000000 1.000000
+     </p>
+     <p>
+      0.000000 0.000000 0.000000
+0.534865 0.000000 0.000000
+1.000000 0.254877 0.543403
+0.000000 0.446770 0.000000
+0.462596 0.411305 0.000000
+1.000000 0.253674 0.542072
+0.290448 1.000000 0.636457
+0.289485 1.000000 0.636227
+1.000000 1.000000 0.736428
+0.000000 0.000000 0.400418
+0.527788 0.000000 0.398828
+1.000000 0.252359 0.671285
+0.000000 0.422871 0.384992
+0.389530 0.389530 0.389530
+1.000000 0.252446 0.670820
+0.279933 1.000000 0.680195
+0.278750 1.000000 0.680725
+1.000000 1.000000 0.783296
+0.000000 0.062706 1.000000
+0.000000 0.062739 1.000000
+1.000000 0.340477 1.000000
+0.000000 0.062698 1.000000
+0.000000 0.062714 1.000000
+1.000000 0.339629 1.000000
+0.000000 1.000000 1.000000
+0.000000 1.000000 1.000000
+1.000000 1.000000 1.000000
+     </p>
+     <p>
+      Note the similarity between the tables. Only the headers and the number of columns in the shaper LUT differ.
+     </p>
+     <p>
+      Particularly when baking a combined LUT, testing is necessary to ensure that the resulting LUT is supported and correctly applied in the intended application. Different implementations support various LUT specifications to varying degrees, and it is not unheard of for LUTs to appear to be correctly read, but for the parsing to get out of step, producing a result which may superficially match the intent for some, but not all images. For example, the Iridas and Resolve .cube LUT formats are broadly similar, but the tokens for input range differ, and may not be read properly (or at all) by some LUT parsers. It is always wise, where possible, to compare the result of the LUT with a reference implementation of the transform on a variety of images.
+     </p>
+     <p>
+     </p>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="gpu-implementations.html">
+       GPU Implementations
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="luts-transforms.html">
+       LUTs and Transforms
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="half-float-luts.html">
+       Half Float LUTs
+      </a>
+      &nbsp;
+      <b>
+       <a href="contents.html" id="tex2html951">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>

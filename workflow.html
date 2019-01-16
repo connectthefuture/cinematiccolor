@@ -1,0 +1,580 @@
+<!DOCTYPE HTML>
+<html lang="EN">
+ <head>
+  <title>
+   Workflow
+  </title>
+  <meta content="Workflow" name="description"/>
+  <meta content="cinematic-color" name="keywords"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="global" name="distribution"/>
+  <meta content="text/html; charset=utf8" http-equiv="Content-Type"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="LaTeX2HTML v2019" name="Generator"/>
+  <link href="appendix.html" rel="next"/>
+  <link href="color-science.html" rel="previous"/>
+  <link href="academy-color-encoding-system-aces.html" rel="next"/>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    Cinematic Color 2
+   </a>
+   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon">
+    </span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="foreword.html" id="foreword" role="button">
+       Foreword
+      </a>
+      <div aria-labelledby="foreword" class="dropdown-menu">
+       <a class="dropdown-item" href="description.html">
+        Description
+       </a>
+       <a class="dropdown-item" href="authorship.html">
+        Authorship
+       </a>
+       <a class="dropdown-item" href="on-web.html">
+        On the Web
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">
+       Introduction
+      </a>
+      <div aria-labelledby="introduction" class="dropdown-menu">
+       <a class="dropdown-item" href="intended-audience.html">
+        Intended Audience
+       </a>
+       <a class="dropdown-item" href="how-read-this-document.html">
+        How to Read this Document
+       </a>
+       <a class="dropdown-item" href="goal.html">
+        The Goal
+       </a>
+       <a class="dropdown-item" href="converging-approaches.html">
+        Converging Approaches
+       </a>
+       <a class="dropdown-item" href="general-model-color-processing.html">
+        A General Model of Color Processing
+       </a>
+       <a class="dropdown-item" href="color-management-challenges.html">
+        Color Management Challenges
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">
+       Color Science
+      </a>
+      <div aria-labelledby="color-science" class="dropdown-menu">
+       <a class="dropdown-item" href="electromagnetic-spectrum.html">
+        Electromagnetic Spectrum
+       </a>
+       <a class="dropdown-item" href="human-visual-system.html">
+        Human Visual System
+       </a>
+       <a class="dropdown-item" href="basic-colorimetry.html">
+        Basic Colorimetry
+       </a>
+       <a class="dropdown-item" href="advanced-colorimetry.html">
+        Advanced Colorimetry
+       </a>
+       <a class="dropdown-item" href="representing-color.html">
+        Representing Color
+       </a>
+       <a class="dropdown-item" href="color-imaging-systems.html">
+        Color Imaging Systems
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">
+       Workflow
+      </a>
+      <div aria-labelledby="workflow" class="dropdown-menu">
+       <a class="dropdown-item" href="academy-color-encoding-system-aces.html">
+        Academy Color Encoding System (ACES)
+       </a>
+       <a class="dropdown-item" href="look.html">
+        The Look
+       </a>
+       <a class="dropdown-item" href="on-set.html">
+        On Set
+       </a>
+       <a class="dropdown-item" href="visual-effects-animation-games.html">
+        Visual Effects, Animation and Games
+       </a>
+       <a class="dropdown-item" href="compositing.html">
+        Compositing
+       </a>
+       <a class="dropdown-item" href="di-grading.html">
+        DI Grading
+       </a>
+       <a class="dropdown-item" href="critical-monitoring.html">
+        Critical Monitoring
+       </a>
+       <a class="dropdown-item" href="finishing.html">
+        Finishing
+       </a>
+       <a class="dropdown-item" href="archives.html">
+        Archives
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown">
+      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">
+       Appendix
+      </a>
+      <div aria-labelledby="appendix" class="dropdown-menu">
+       <a class="dropdown-item" href="common-rgb-color-encodings.html">
+        Common RGB Color Encodings
+       </a>
+       <a class="dropdown-item" href="opencolorio-ocio.html">
+        OpenColorIO (OCIO)
+       </a>
+       <a class="dropdown-item" href="colour-science-python.html">
+        Colour Science for Python
+       </a>
+       <a class="dropdown-item" href="luts-transforms.html">
+        LUTs and Transforms
+       </a>
+       <a class="dropdown-item" href="asc-cdl.html">
+        ASC CDL
+       </a>
+       <a class="dropdown-item" href="aces-ctl.html">
+        ACES CTL
+       </a>
+       <a class="dropdown-item" href="full-legal-ranges.html">
+        Full and Legal ranges
+       </a>
+       <a class="dropdown-item" href="chroma-decoupling.html">
+        Chroma Decoupling
+       </a>
+       <a class="dropdown-item" href="camera-characterization.html">
+        Camera Characterization
+       </a>
+       <a class="dropdown-item" href="file-formats.html">
+        File Formats
+       </a>
+       <a class="dropdown-item" href="software.html">
+        Software
+       </a>
+       <a class="dropdown-item" href="acknowledgements.html">
+        Acknowledgements
+       </a>
+      </div>
+     </li>
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="glossary.html">
+       Glossary
+      </a>
+     </li>
+     <li class="nav-item dropdown" class_="nav-item">
+      <a class="nav-link" href="bibliography.html">
+       Bibliography
+      </a>
+     </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+     <input class="form-control" placeholder="Search" type="text"/>
+    </form>
+   </div>
+  </nav>
+  <!-- Content -->
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12 px-3 py-3">
+     <h1>
+      <a id="SECTION00500000000000000000">
+       Workflow
+      </a>
+     </h1>
+     <p>
+      This fully computer-generated image touches upon many modern techniques in color management, including a scene-referred linear approach to rendering, shading, and illumination, in addition to on-set lighting reconstruction and texture management.
+Visual effects by Sony Pictures Imageworks. Images from &ldquo;The Amazing Spider-Man&rdquo; Courtesy of Columbia Pictures. &copy; 2012 Columbia Pictures Industries, Inc. All rights reserved.
+     </p>
+     <p>
+      This section will describe techniques, choices and considerations that go into modern color workflows for live-action, visual effects, animation and games productions. The section starts with the introduction of two subjects that will be of use throughout the rest of the chapter: the Academy Color Encoding System and the process of crafting and managing the Look of a production. The rest of the chapter will follow an order roughly driven by the chronological order of work on a live-action visual effects movie, starting with On-Set camera, Lighting and Reference Capture, moving on to the phases of the computer graphics pipeline used in visual effects, animation and games including Texture Painting, Matte Painting, Lighting, Rendering and Compositing and finishing with Grading, Monitoring and Mastering.
+     </p>
+     <p>
+      To give the discussion context, a Color Pipeline will be defined as the set of all color transformations and encodings used during a motion-picture production.
+     </p>
+     <p>
+      A well-defined computer-graphics color pipeline rigorously manages the color transformations applied at each stage of the process, in addition to the transforms required for accurate image preview.
+In a properly color-managed pipeline, the color encodings for all image inputs, image outputs, intermediate representations, displays and exports are carefully tracked. The transforms used to convert between color encodings are also rigorously defined and tracked. A well-managed pipeline protects the maximum color data available and uses the fewest transforms possible.
+     </p>
+     <p>
+      <br/>
+     </p>
+     <hr/>
+     <a id="CHILD_LINKS">
+      <strong>
+       Subsections
+      </strong>
+     </a>
+     <ul class="ChildLinks">
+      <li>
+       <a href="academy-color-encoding-system-aces.html" id="tex2html611">
+        Academy Color Encoding System (ACES)
+       </a>
+       <ul>
+        <li>
+         <a href="input-transforms.html" id="tex2html612">
+          Input Transforms
+         </a>
+        </li>
+        <li>
+         <a href="working-space.html" id="tex2html613">
+          Working Space
+         </a>
+        </li>
+        <li>
+         <a href="look-transform.html" id="tex2html614">
+          Look Transform
+         </a>
+        </li>
+        <li>
+         <a href="output-transform-rrt-odt.html" id="tex2html615">
+          Output Transform (RRT and ODT)
+         </a>
+        </li>
+       </ul>
+       <br/>
+      </li>
+      <li>
+       <a href="look.html" id="tex2html616">
+        The Look
+       </a>
+       <ul>
+        <li>
+         <a href="establishing-look.html" id="tex2html617">
+          Establishing the Look
+         </a>
+         <ul>
+          <li>
+           <a href="displaying-scene-referred-imagery.html" id="tex2html618">
+            Displaying Scene-Referred Imagery
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="look-management.html" id="tex2html619">
+          Look Management
+         </a>
+        </li>
+       </ul>
+       <br/>
+      </li>
+      <li>
+       <a href="on-set.html" id="tex2html620">
+        On Set
+       </a>
+       <ul>
+        <li>
+         <a href="camera-profiles.html" id="tex2html621">
+          Camera profiles
+         </a>
+        </li>
+        <li>
+         <a href="monitoring-on-set.html" id="tex2html622">
+          Monitoring on set
+         </a>
+        </li>
+        <li>
+         <a href="editorial.html" id="tex2html623">
+          Editorial
+         </a>
+        </li>
+        <li>
+         <a href="digital-imaging-technician-dit.html" id="tex2html624">
+          Digital Imaging Technician (DIT)
+         </a>
+        </li>
+        <li>
+         <a href="reference-capture.html" id="tex2html625">
+          Reference Capture
+         </a>
+        </li>
+        <li>
+         <a href="hdr-environment-capture.html" id="tex2html626">
+          HDR Environment Capture
+         </a>
+        </li>
+       </ul>
+       <br/>
+      </li>
+      <li>
+       <a href="visual-effects-animation-games.html" id="tex2html627">
+        Visual Effects, Animation and Games
+       </a>
+       <ul>
+        <li>
+         <a href="visual-effects.html" id="tex2html628">
+          Visual Effects
+         </a>
+        </li>
+        <li>
+         <a href="animation.html" id="tex2html629">
+          Animation
+         </a>
+        </li>
+        <li>
+         <a href="games.html" id="tex2html630">
+          Games
+         </a>
+        </li>
+        <li>
+         <a href="texture-painting.html" id="tex2html631">
+          Texture Painting
+         </a>
+         <ul>
+          <li>
+           <a href="textures-in-games.html" id="tex2html632">
+            Textures in Games
+           </a>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <a href="matte-painting.html" id="tex2html633">
+          Matte Painting
+         </a>
+        </li>
+        <li>
+         <a href="lighting-shading-rendering.html" id="tex2html634">
+          Lighting, Shading, and Rendering
+         </a>
+         <ul>
+          <li>
+           <a href="scene-referred-linear-is-preferred-lighting.html" id="tex2html635">
+            Scene-Referred Linear is Preferred for Lighting
+           </a>
+          </li>
+          <li>
+           <a href="rendering-gamut-impact.html" id="tex2html636">
+            The Rendering Gamut Impact
+           </a>
+          </li>
+         </ul>
+        </li>
+       </ul>
+       <br/>
+      </li>
+      <li>
+       <a href="compositing.html" id="tex2html637">
+        Compositing
+       </a>
+       <ul>
+        <li>
+         <a href="scene-referred-linear-is-preferred-compositing.html" id="tex2html638">
+          Scene-Referred Linear is Preferred for Compositing
+         </a>
+        </li>
+        <li>
+         <a href="scene-referred-linear-compositing-challenges.html" id="tex2html639">
+          Scene-Referred Linear Compositing Challenges
+         </a>
+        </li>
+        <li>
+         <a href="negative-values.html" id="tex2html640">
+          Negative Values
+         </a>
+        </li>
+        <li>
+         <a href="working-with-log-imagery.html" id="tex2html641">
+          Working with Log Imagery
+         </a>
+        </li>
+        <li>
+         <a href="plate-timing-neutralization-grading.html" id="tex2html642">
+          Plate Timing, Neutralization, and Grading
+         </a>
+        </li>
+        <li>
+         <a href="premultiplication.html" id="tex2html643">
+          Premultiplication
+         </a>
+        </li>
+        <li>
+         <a href="technical-checks.html" id="tex2html644">
+          Technical Checks
+         </a>
+        </li>
+       </ul>
+       <br/>
+      </li>
+      <li>
+       <a href="di-grading.html" id="tex2html645">
+        DI Grading
+       </a>
+       <ul>
+        <li>
+         <a href="conforming.html" id="tex2html646">
+          Conforming
+         </a>
+        </li>
+        <li>
+         <a href="unmanaged-output-referred-grading.html" id="tex2html647">
+          Unmanaged Output Referred Grading
+         </a>
+        </li>
+        <li>
+         <a href="color-managed-scene-referred-grading.html" id="tex2html648">
+          Color Managed Scene Referred Grading
+         </a>
+        </li>
+        <li>
+         <a href="di-color-grading.html" id="tex2html649">
+          DI Color Grading
+         </a>
+         <ul>
+          <li>
+           <a href="di-grading-tools.html" id="tex2html650">
+            DI Grading Tools
+           </a>
+           <ul>
+            <li>
+             <a href="external-mattes.html" id="tex2html651">
+              External Mattes
+             </a>
+            </li>
+           </ul>
+          </li>
+          <li>
+           <a href="di-grading-workflows.html" id="tex2html652">
+            DI Grading Workflows
+           </a>
+          </li>
+         </ul>
+        </li>
+       </ul>
+       <br/>
+      </li>
+      <li>
+       <a href="critical-monitoring.html" id="tex2html653">
+        Critical Monitoring
+       </a>
+       <ul>
+        <li>
+         <a href="cinema-projection.html" id="tex2html654">
+          Cinema Projection
+         </a>
+        </li>
+        <li>
+         <a href="reference-monitors.html" id="tex2html655">
+          Reference Monitors
+         </a>
+        </li>
+        <li>
+         <a href="hdr-displays.html" id="tex2html656">
+          HDR Displays
+         </a>
+        </li>
+        <li>
+         <a href="color-management-mastering.html" id="tex2html657">
+          Color Management for Mastering
+         </a>
+         <ul>
+          <li>
+           <a href="gamut-mapping.html" id="tex2html658">
+            Gamut Mapping
+           </a>
+          </li>
+         </ul>
+        </li>
+       </ul>
+       <br/>
+      </li>
+      <li>
+       <a href="finishing.html" id="tex2html659">
+        Finishing
+       </a>
+       <ul>
+        <li>
+         <a href="multiple-deliverables.html" id="tex2html660">
+          Multiple deliverables
+         </a>
+         <ul>
+          <li>
+           <a href="resolution.html" id="tex2html661">
+            Resolution
+           </a>
+          </li>
+         </ul>
+        </li>
+       </ul>
+       <br/>
+      </li>
+      <li>
+       <a href="archives.html" id="tex2html662">
+        Archives
+       </a>
+       <ul>
+        <li>
+         <a href="open-archives-information-system-oais.html" id="tex2html663">
+          Open Archives Information System (OAIS)
+         </a>
+        </li>
+        <li>
+         <a href="archive-elements.html" id="tex2html664">
+          Archive Elements
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+     <div class="navigation">
+      <br/>
+      <b>
+       Next:
+      </b>
+      <a href="academy-color-encoding-system-aces.html">
+       Academy Color Encoding System
+      </a>
+      <b>
+       Up:
+      </b>
+      <a href="cinematic-color.html">
+       Color for Motion Pictures
+      </a>
+      <b>
+       Previous:
+      </b>
+      <a href="image-formation.html">
+       Image Formation
+      </a>
+      &nbsp;
+      <b>
+       <a href="contents.html" id="tex2html610">
+        Contents
+       </a>
+      </b>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+   <div class="footer-copyright text-center py-3">
+    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
+    <a href="mailto:ves-tech-color@googlegroups.com">
+     ves-tech-color@googlegroups.com
+    </a>
+   </div>
+  </footer>
+  <script src="assets/js/jquery.min.js">
+  </script>
+  <script src="assets/js/popper.min.js">
+  </script>
+  <script src="assets/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>
