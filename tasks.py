@@ -14,7 +14,7 @@ from invoke.exceptions import Failure
 from itertools import chain
 from textwrap import TextWrapper
 
-import html
+import process
 
 __author__ = 'Cinematic Color Authors'
 __copyright__ = 'Copyright (C) 2019 - Cinematic Color Authors'
@@ -239,7 +239,8 @@ def build_html(ctx, latex2html=True, copy_assets=True, process_html=True):
         message_box('Processing "HTML"...')
 
         index_file = os.path.join(ROOT_HTML_DIRECTORY_NAME, 'index.html')
-        navigation = html.extract_navigation(index_file, ['Contents'])
+        navigation = process.extract_navigation(
+            index_file, ['Contents', 'Snippets'])
 
         for html_file in glob.glob(
                 os.path.join(ROOT_HTML_DIRECTORY_NAME, '*.html')):
@@ -248,7 +249,7 @@ def build_html(ctx, latex2html=True, copy_assets=True, process_html=True):
 
             print('Processing "{0}" file...'.format(html_file))
 
-            html.process_html(html_file, navigation)
+            process.process_html(html_file, navigation)
 
 
 @task(clean, build_html)
