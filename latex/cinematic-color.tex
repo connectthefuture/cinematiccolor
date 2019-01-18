@@ -6,8 +6,8 @@
 \usepackage[utf8x]{hyperref}
 \usepackage[utf8x]{inputenc}
 
-% Need to be tail loaded.
-\usepackage{apacite}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{bibliography.bib}
 
 \title{
     {\LARGE Color for Motion Pictures and Games}
@@ -41,8 +41,7 @@
 
 \input{glossary.tex}
 
-\bibliography{bibliography}
-\bibliographystyle{apacite}
+\printbibliography
 
 \input{snippets.tex}
 

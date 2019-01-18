@@ -204,7 +204,7 @@ def build_pdf(ctx):
             'pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
             warn=True)
         ctx.run(
-            'bibtex {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'aux')),
+            'biber {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'bcf')),
             warn=True)
         ctx.run(
             'pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
@@ -247,7 +247,7 @@ def build_html(ctx, process_html=True):
             'latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
             warn=True)
         ctx.run(
-            'bibtex {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'aux')),
+            'biber {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'bcf')),
             warn=True)
 
     with ctx.cd(HTML_BUILD_DIRECTORY):
@@ -280,7 +280,7 @@ def build_html(ctx, process_html=True):
         process.conform_filenames(toc, HTML_RELEASE_DIRECTORY, [
             ('cinematic-color.html', 'cinematic-color.html'),
             ('contentsname.html', 'contents.html'),
-            ('bibname.html', 'references.html'),
+            # ('bibname.html', 'references.html'),
         ])
 
         navigation = process.build_navigation(toc, ['Contents', 'Snippets'])
