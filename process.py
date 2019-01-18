@@ -4,8 +4,12 @@ HTML - Processing
 =================
 """
 
+import codecs
+import os
+import re
 import subprocess
 from bs4 import BeautifulSoup, Comment, NavigableString
+from collections import OrderedDict
 
 __author__ = 'Cinematic Color Authors'
 __copyright__ = 'Copyright (C) 2019 - Cinematic Color Authors'
@@ -20,9 +24,11 @@ __all__ = [
     'BOOTSTRAP_JAVSCRIPT_TEMPLATE', 'NAVBAR_TEMPLATE',
     'NAVBAR_DROPDOWN_LI_TEMPLATE', 'NAVBAR_DROPDOWN_A_TEMPLATE',
     'NAVBAR_DROPDOWN_DIV_TEMPLATE', 'NAVBAR_DROPDOWN_ITEM_TEMPLATE',
-    'NAVBAR_A_TEMPLATE', 'CONTENT_TEMPLATE', 'FOOTER_TEMPLATE',
-    'extract_navigation', 'process_html'
+    'NAVBAR_A_TEMPLATE', 'CONTENT_TEMPLATE', 'FOOTER_TEMPLATE', 'parse_toc',
+    'build_navigation', 'process_html'
 ]
+
+codecs.register_error('strict', codecs.ignore_errors)
 
 BOOTSTRAP_STYLESHEET_TEMPLATE = ('<link rel="stylesheet" type="text/css" '
                                  'href="assets/css/bootstrap.min.css"/>')
@@ -60,6 +66,7 @@ NAVBAR_TEMPLATE = """
 </nav>
 """
 
+NAVBAR_ITEM_LI_TEMPLATE = '<li class="nav-item"></li>'
 NAVBAR_DROPDOWN_LI_TEMPLATE = '<li class="nav-item dropdown"></li>'
 NAVBAR_DROPDOWN_A_TEMPLATE = ('<a class="nav-link dropdown-toggle" '
                               'href="{href}" '
@@ -97,14 +104,142 @@ FOOTER_TEMPLATE = """
 """
 
 
-def extract_navigation(path, ignored_chapters=None):
+def _sanitize_filename(filename):
     """
-    Extracts and generate the *HTML* navigation using given reference path.
+    Sanitizes given filename.
+
+    Paramters
+    ---------
+    filename : unicode
+        Filename to sanitize.
+
+    Returns
+    -------
+    unicode
+        Sanitized filename.
+    """
+
+    return re.sub('\s+', ' ', re.sub("[\s,\\(\\)-\\.']+", ' ',
+                                     filename)).strip()
+
+
+def parse_toc(path):
+    """
+    Parses the table of content at given path.
 
     Parameters
     ----------
     path : unicode
-        Path to parse to extract the *HTML* navigation.
+        Path to parse the table of content.
+
+    Returns
+    -------
+    OrderedDefaultDict
+        Parsed table of content.
+    """
+
+    pattern = re.compile("{\\\\numberline {[\\d\\.]+}([\\w\\s,\\(\\)-\\.']+)}|"
+                         "{([\\w\\s,\\(\\)-\\.']+)}")
+
+    toc = OrderedDict()
+    with open(path, 'r') as toc_file:
+        chapter = None
+        for line in toc_file.readlines():
+            if line.startswith('\contentsline {chapter}'):
+                search = re.search(pattern,
+                                   line.replace('\contentsline {chapter}', ''))
+                chapter = [
+                    group for group in search.groups() if group is not None
+                ][0]
+
+                toc[chapter] = []
+
+            if chapter is None:
+                continue
+
+            if line.startswith('\contentsline {section}'):
+                search = re.search(pattern,
+                                   line.replace('\contentsline {section}', ''))
+                section = [
+                    group for group in search.groups() if group is not None
+                ][0]
+
+                toc[chapter].append(section)
+
+    return toc
+
+
+def conform_filenames(toc, root_directory, extra_patterns=None):
+    """
+    Conforms the *HTML* filenames in given root directory and according to
+    given table of content.
+
+    Parameters
+    ----------
+    toc : unicode
+        Table of content.
+    root_directory : unicode
+        Directory to conform the *HTML* filenames.
+    extra_patterns : array_like, optional
+        Extra patterns to search and replace for.
+    """
+
+    def _reference_path(filename):
+        """
+        Returns the reference *HTML* path of given filename.
+        """
+
+        return os.path.join(root_directory, '{0}.html'.format(
+            filename.replace(' ', '')))
+
+    patterns = extra_patterns[:]
+    for chapter, sections in toc.items():
+        chapter_base = _sanitize_filename(chapter)
+        chapter_path = _reference_path(chapter_base)
+
+        assert os.path.exists(chapter_path), (
+            'Expected "{0}" chapter file was not found!'.format(chapter_path))
+
+        patterns.append((os.path.basename(chapter_path), '{0}.html'.format(
+            chapter_base.replace(' ', '-').lower())))
+
+        for section in sections:
+            section_base = _sanitize_filename(section)
+            section_path = _reference_path(section_base)
+
+            assert os.path.exists(section_path), (
+                'Expected "{0}" section file was not found!'.format(
+                    section_path))
+
+            patterns.append((os.path.basename(section_path), '{0}.html'.format(
+                section_base.replace(' ', '-').lower())))
+
+    for source_file, target_file in patterns:
+        print('Replacing "{0}" file patterns.'.format(source_file))
+
+        html_path = os.path.join(root_directory, source_file)
+        with codecs.open(html_path, encoding='utf-8') as html_file:
+            content = html_file.read()
+
+        with codecs.open(html_path, 'w', encoding='utf-8') as html_file:
+            for pattern, replacement in patterns:
+                content = content.replace(pattern, replacement)
+
+            html_file.write(content)
+
+        os.rename(
+            os.path.join(root_directory, source_file),
+            os.path.join(root_directory, target_file))
+
+
+def build_navigation(toc, ignored_chapters=None):
+    """
+    Builds the *HTML* navigation using given table of content.
+
+    Parameters
+    ----------
+    toc : OrderedDict
+        Table of content used to build the *HTML* navigation.
     ignored_chapters : array_like, optional
         Chapters to ignore in the reference path.
 
@@ -114,60 +249,56 @@ def extract_navigation(path, ignored_chapters=None):
         *HTML* navigation.
     """
 
-    with open(path) as html_file:
-        html = BeautifulSoup(html_file, 'lxml')
-        toc = html.body.find('ul', **{'class_': 'ChildLinks'})
+    def _reference_path(filename):
+        """
+        Returns the reference *HTML* path of given filename.
+        """
+
+        return '{0}.html'.format(
+            _sanitize_filename(filename).replace(' ', '-').lower())
 
     navigation = BeautifulSoup(NAVBAR_TEMPLATE, 'html.parser').find('nav')
     navigation_ul = navigation.find('ul')
-    for toc_li_child in toc.find_all('li', recursive=False):
-        toc_li_child_a = toc_li_child.find('a')
-
-        if toc_li_child_a.text in ignored_chapters:
+    for chapter, sections in toc.items():
+        if chapter in ignored_chapters:
             continue
 
-        navigation_li = BeautifulSoup(NAVBAR_DROPDOWN_LI_TEMPLATE,
-                                      'html.parser').find('li')
-        aria = toc_li_child_a['href']
-        aria = aria.rsplit('.', 1)[0].lower().replace('_', '-')
-        navigation_a = BeautifulSoup(
-            NAVBAR_DROPDOWN_A_TEMPLATE.format(
-                **{
-                    'href': toc_li_child_a['href'],
+        chapter_href = _reference_path(chapter)
+
+        if len(sections) != 0:
+            navigation_li = BeautifulSoup(NAVBAR_DROPDOWN_LI_TEMPLATE,
+                                          'html.parser').find('li')
+            aria = os.path.splitext(chapter_href)[0]
+            navigation_a = BeautifulSoup(
+                NAVBAR_DROPDOWN_A_TEMPLATE.format(**{
+                    'href': chapter_href,
                     'id': aria,
-                    'text': toc_li_child_a.string
+                    'text': chapter,
                 }), 'html.parser')
-        navigation_li.append(navigation_a)
-        navigation_div = BeautifulSoup(
-            NAVBAR_DROPDOWN_DIV_TEMPLATE.format(**{'aria': aria}),
-            'html.parser').find('div')
+            navigation_li.append(navigation_a)
+            navigation_div = BeautifulSoup(
+                NAVBAR_DROPDOWN_DIV_TEMPLATE.format(**{'aria': aria}),
+                'html.parser').find('div')
 
-        for toc_ul_child in toc_li_child.find_all('ul', recursive=False):
-            for li_grand_child in toc_ul_child.find_all('li', recursive=False):
-                li_grand_child_a = li_grand_child.find('a')
-                navigation_item_a = BeautifulSoup(
-                    NAVBAR_DROPDOWN_ITEM_TEMPLATE.format(
-                        **{
-                            'href': li_grand_child_a['href'],
-                            'text': li_grand_child_a.string
-                        }), 'html.parser')
-                navigation_div.append(navigation_item_a)
+            for section in sections:
+                section_href = _reference_path(section)
 
-        navigation_li.append(navigation_div)
-
-        # Changing non-dropdowns into links.
-        if navigation_div.find('a') is None:
-            navigation_div.extract()
-            navigation_li_a = navigation_li.find('a')
-            navigation_li_a.extract()
+                section_a = BeautifulSoup(
+                    NAVBAR_DROPDOWN_ITEM_TEMPLATE.format(**{
+                        'href': section_href,
+                        'text': section,
+                    }), 'html.parser')
+                navigation_div.append(section_a)
+                navigation_li.append(navigation_div)
+        else:
+            navigation_li = BeautifulSoup(NAVBAR_ITEM_LI_TEMPLATE,
+                                          'html.parser').find('li')
             navigation_li.append(
                 BeautifulSoup(
-                    NAVBAR_A_TEMPLATE.format(
-                        **{
-                            'href': navigation_li_a['href'],
-                            'text': navigation_li_a.string
-                        }), 'html.parser'))
-            navigation_li['class_'] = 'nav-item'
+                    NAVBAR_A_TEMPLATE.format(**{
+                        'href': chapter_href,
+                        'text': chapter
+                    }), 'html.parser'))
 
         navigation_ul.append(navigation_li)
 
@@ -199,8 +330,13 @@ def process_html(path, navigation):
         for comment in comments:
             comment.extract()
 
-        # Removing "latex2html" stylesheet.
-        html.find('link').extract()
+        # Removing initial css file.
+        html.head.find('link').extract()
+
+        # Removing first breadcrumbs.
+        breadcrumbs = html.body.find('div', **{'class_': 'crosslinks'})
+        if breadcrumbs is not None:
+            breadcrumbs.extract()
 
         # Appending "Bootstrap" stylesheet.
         html.head.append(
@@ -209,28 +345,6 @@ def process_html(path, navigation):
         # Appending "Custom" stylesheet.
         html.head.append(
             BeautifulSoup(CUSTOM_STYLESHEET_TEMPLATE, 'html.parser'))
-
-        # Cleaning up the second "latex2html" navigation panel.
-        navigation_panel = html.body.find('div', **{'class_': 'navigation'})
-        children_to_extract = []
-        for child in navigation_panel.descendants:
-            if child is None:
-                continue
-
-            if child.name == 'br':
-                break
-
-            children_to_extract.append(child)
-
-        for child in reversed(children_to_extract):
-            child.extract()
-
-        # Update "Subsections" "strong" name to "Contents".
-        # for strong in html.body.find_all('strong'):
-        #     if 'id' in strong.parent.attrs:
-        #         if strong.parent.attrs['id'] == 'CHILD_LINKS':
-        #             strong.string = 'Contents'
-        #             break
 
         # Wrapping "body" contents.
         body_children = list(html.body.children)

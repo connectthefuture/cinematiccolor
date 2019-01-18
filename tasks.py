@@ -24,13 +24,20 @@ __email__ = 'ves-tech-color@googlegroups.com'
 __status__ = 'Production'
 
 __all__ = [
-    'ROOT_DOCUMENT_NAME', 'ROOT_HTML_DIRECTORY_NAME', 'message_box', 'clean',
-    'formatting', 'build_pdf', 'build_html'
+    'ROOT_DOCUMENT_NAME', 'LATEX_SOURCE_DIRECTORY', 'PDF_BUILD_DIRECTORY',
+    'HTML_BUILD_DIRECTORY', 'message_box', 'clean', 'formatting', 'build_pdf',
+    'build_html'
 ]
 
 ROOT_DOCUMENT_NAME = 'cinematic-color.tex'
 
-ROOT_HTML_DIRECTORY_NAME = 'cinematic-color'
+LATEX_SOURCE_DIRECTORY = 'latex'
+
+PDF_BUILD_DIRECTORY = 'build/pdf'
+
+HTML_BUILD_DIRECTORY = 'build/html'
+
+HTML_RELEASE_DIRECTORY = 'cinematic-color'
 
 
 def message_box(message, width=79, padding=3, print_callable=print):
@@ -133,21 +140,14 @@ def clean(ctx, bytecode=False):
     message_box('Cleaning project...')
 
     patterns = [
-        '*.aux',
-        '*.dvi',
-        '*.idv',
-        '*.fdb_latexmk',
-        '*.fls',
-        '*.lg',
-        '*.log',
-        '*.pdf',
-        '*.synctex.gz',
-        '*.toc',
-        'cinematic-color/',
+        PDF_BUILD_DIRECTORY,
+        HTML_BUILD_DIRECTORY,
+        HTML_RELEASE_DIRECTORY,
     ]
 
     if bytecode:
         patterns.append('**/*.pyc')
+        patterns.append('**/*.pyo')
 
     for pattern in patterns:
         ctx.run("rm -rf {}".format(pattern))
@@ -194,6 +194,8 @@ def build_pdf(ctx):
 
     message_box('Building "PDF"...')
 
+    raise NotImplementedError('"PDF" build must be updated!')
+
     ctx.run(
         'latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
         warn=True)
@@ -201,7 +203,7 @@ def build_pdf(ctx):
 
 
 @task
-def build_html(ctx, latex2html=True, copy_assets=True, process_html=True):
+def build_html(ctx, process_html=True):
     """
     Builds the *HTML* website.
 
@@ -209,10 +211,6 @@ def build_html(ctx, latex2html=True, copy_assets=True, process_html=True):
     ----------
     ctx : invoke.context.Context
         Context.
-    latex2html : bool
-        Whether to perform *HTML* conversion.
-    copy_assets : bool
-        Whether to copy the assets.
     process_html : bool
         Whether to process the *HTML* files.
 
@@ -224,29 +222,54 @@ def build_html(ctx, latex2html=True, copy_assets=True, process_html=True):
 
     message_box('Building "HTML" website...')
 
-    if latex2html:
-        ctx.run('latex2html '
-                '-no_info '
-                '-long_titles=255 '
-                '-no_top_navigation '
-                '-bottom_navigation '
-                '{0}'.format(ROOT_DOCUMENT_NAME))
+    ctx.run('mkdir -p {0}'.format(HTML_BUILD_DIRECTORY))
+    ctx.run('cp -r {0}/* {1}'.format(LATEX_SOURCE_DIRECTORY,
+                                     HTML_BUILD_DIRECTORY))
 
-    if copy_assets:
-        ctx.run('cp -r assets cinematic-color/')
+    # "ToC" file generation requires invoking "latex" two times.
+    with ctx.cd(HTML_BUILD_DIRECTORY):
+        ctx.run(
+            'latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            warn=True)
+        ctx.run(
+            'latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            warn=True)
+
+    with ctx.cd(HTML_BUILD_DIRECTORY):
+        ctx.run('make4ht -c {0} {1} '
+                '"3,sec-filename,sections+,xhtml,html5,charset=utf-8" '
+                '"" '
+                '"" '
+                '"-interaction=nonstopmode"'.format(
+                    ROOT_DOCUMENT_NAME.replace('tex', 'cfg'),
+                    ROOT_DOCUMENT_NAME))
+
+    ctx.run('mkdir -p {0}'.format(HTML_RELEASE_DIRECTORY))
+    ctx.run('cp -r {0}/*.html {1}'.format(HTML_BUILD_DIRECTORY,
+                                          HTML_RELEASE_DIRECTORY))
+    ctx.run('cp -r {0}/*.css {1}'.format(HTML_BUILD_DIRECTORY,
+                                         HTML_RELEASE_DIRECTORY))
+    ctx.run('cp -r {0}/*.png {1}'.format(HTML_BUILD_DIRECTORY,
+                                         HTML_RELEASE_DIRECTORY))
+
+    ctx.run('cp -r assets cinematic-color/')
 
     if process_html:
         message_box('Processing "HTML"...')
 
-        index_file = os.path.join(ROOT_HTML_DIRECTORY_NAME, 'index.html')
-        navigation = process.extract_navigation(
-            index_file, ['Contents', 'Snippets'])
+        toc_file = os.path.join(HTML_BUILD_DIRECTORY,
+                                ROOT_DOCUMENT_NAME.replace('tex', 'toc'))
+        toc = process.parse_toc(toc_file)
+
+        process.conform_filenames(toc, HTML_RELEASE_DIRECTORY, [
+            ('cinematic-color.html', 'cinematic-color.html'),
+            ('contentsname.html', 'contents.html'),
+        ])
+
+        navigation = process.build_navigation(toc, ['Contents', 'Snippets'])
 
         for html_file in glob.glob(
-                os.path.join(ROOT_HTML_DIRECTORY_NAME, '*.html')):
-            if 'index.html' in html_file:
-                continue
-
+                os.path.join(HTML_RELEASE_DIRECTORY, '*.html')):
             print('Processing "{0}" file...'.format(html_file))
 
             process.process_html(html_file, navigation)
