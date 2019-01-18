@@ -1,9 +1,13 @@
 \documentclass[a4paper]{report}
 
-\usepackage[english]{babel}
-\usepackage[utf8x]{inputenc}
 \usepackage{amsmath}
+\usepackage[english]{babel}
 \usepackage{graphicx}
+\usepackage[utf8x]{hyperref}
+\usepackage[utf8x]{inputenc}
+
+% Need to be tail loaded.
+\usepackage{apacite}
 
 \title{
     {\LARGE Color for Motion Pictures and Games}
@@ -37,7 +41,8 @@
 
 \input{glossary.tex}
 
-\bibliography{bibliography.bib}
+\bibliography{bibliography}
+\bibliographystyle{apacite}
 
 \input{snippets.tex}
 

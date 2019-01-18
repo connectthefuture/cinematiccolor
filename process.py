@@ -30,18 +30,6 @@ __all__ = [
 
 codecs.register_error('strict', codecs.ignore_errors)
 
-BOOTSTRAP_STYLESHEET_TEMPLATE = ('<link rel="stylesheet" type="text/css" '
-                                 'href="assets/css/bootstrap.min.css"/>')
-CUSTOM_STYLESHEET_TEMPLATE = ('<link rel="stylesheet" type="text/css" '
-                              'href="assets/css/custom.css"/>')
-
-JQUERY_JAVSCRIPT_TEMPLATE = ('<script src="assets/js/jquery.min.js">'
-                             '</script>')
-POPPER_JAVSCRIPT_TEMPLATE = ('<script src="assets/js/popper.min.js">'
-                             '</script>')
-BOOTSTRAP_JAVSCRIPT_TEMPLATE = ('<script src="assets/js/bootstrap.min.js">'
-                                '</script>')
-
 NAVBAR_TEMPLATE = """
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -80,28 +68,6 @@ NAVBAR_DROPDOWN_DIV_TEMPLATE = ('<div class="dropdown-menu" '
 NAVBAR_DROPDOWN_ITEM_TEMPLATE = ('<a class="dropdown-item" '
                                  'href="{href}">{text}</a>')
 NAVBAR_A_TEMPLATE = '<a class="nav-link" href="{href}">{text}</a>'
-
-CONTENT_TEMPLATE = """
-<!-- Content -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 px-3 py-3">
-        </div>
-    </div>
-</div>
-"""
-
-FOOTER_TEMPLATE = """
-<!-- Footer -->
-<footer class="page-footer font-small">
-    <div class="footer-copyright text-center py-3">
-        Copyright © 2019 – Cinematic Color Authors –
-        <a href="mailto:ves-tech-color@googlegroups.com">
-            ves-tech-color@googlegroups.com</a
-        >
-    </div>
-</footer>
-"""
 
 
 def _sanitize_filename(filename):
@@ -323,7 +289,7 @@ def process_html(path, navigation):
     """
 
     with open(path) as html_file:
-        html = BeautifulSoup(html_file, 'lxml')
+        html = BeautifulSoup(html_file, 'html5lib')
 
         # Removing comments.
         comments = html.findAll(text=lambda text: isinstance(text, Comment))
@@ -338,40 +304,8 @@ def process_html(path, navigation):
         if breadcrumbs is not None:
             breadcrumbs.extract()
 
-        # Appending "Bootstrap" stylesheet.
-        html.head.append(
-            BeautifulSoup(BOOTSTRAP_STYLESHEET_TEMPLATE, 'html.parser'))
-
-        # Appending "Custom" stylesheet.
-        html.head.append(
-            BeautifulSoup(CUSTOM_STYLESHEET_TEMPLATE, 'html.parser'))
-
-        # Wrapping "body" contents.
-        body_children = list(html.body.children)
-        html.body.clear()
-        container = BeautifulSoup(CONTENT_TEMPLATE, 'html.parser')
-        column = container.find('div', **{'class_': 'col-md-12'})
-        for child in body_children:
-            column.append(child)
-        html.body.append(container)
-
         # Inserting the navigation bar.
         html.body.insert(0, navigation)
-
-        # Appending "Footer".
-        html.body.append(BeautifulSoup(FOOTER_TEMPLATE, 'html.parser'))
-
-        # Appending "JQuery" javascript.
-        html.body.append(
-            BeautifulSoup(JQUERY_JAVSCRIPT_TEMPLATE, 'html.parser'))
-
-        # Appending "Popper" javascript.
-        html.body.append(
-            BeautifulSoup(POPPER_JAVSCRIPT_TEMPLATE, 'html.parser'))
-
-        # Appending "Bootstrap" javascript.
-        html.body.append(
-            BeautifulSoup(BOOTSTRAP_JAVSCRIPT_TEMPLATE, 'html.parser'))
 
     with open(path, 'w') as html_file:
         html_file.write(html.prettify(encoding='utf8', formatter='xhtml'))

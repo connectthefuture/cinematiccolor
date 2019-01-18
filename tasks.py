@@ -24,12 +24,14 @@ __email__ = 'ves-tech-color@googlegroups.com'
 __status__ = 'Production'
 
 __all__ = [
-    'ROOT_DOCUMENT_NAME', 'LATEX_SOURCE_DIRECTORY', 'PDF_BUILD_DIRECTORY',
-    'HTML_BUILD_DIRECTORY', 'message_box', 'clean', 'formatting', 'build_pdf',
-    'build_html'
+    'ROOT_DOCUMENT_NAME', 'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY',
+    'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY', 'message_box', 'clean',
+    'formatting', 'build_pdf', 'build_html'
 ]
 
 ROOT_DOCUMENT_NAME = 'cinematic-color.tex'
+
+BIBLIOGRAPHY_NAME = 'bibliography.bib'
 
 LATEX_SOURCE_DIRECTORY = 'latex'
 
@@ -194,12 +196,22 @@ def build_pdf(ctx):
 
     message_box('Building "PDF"...')
 
-    raise NotImplementedError('"PDF" build must be updated!')
-
-    ctx.run(
-        'latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
-        warn=True)
-    ctx.run('pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME))
+    ctx.run('mkdir -p {0}'.format(PDF_BUILD_DIRECTORY))
+    ctx.run('cp -r {0}/* {1}'.format(LATEX_SOURCE_DIRECTORY,
+                                     PDF_BUILD_DIRECTORY))
+    with ctx.cd(PDF_BUILD_DIRECTORY):
+        ctx.run(
+            'pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            warn=True)
+        ctx.run(
+            'bibtex {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'aux')),
+            warn=True)
+        ctx.run(
+            'pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            warn=True)
+        ctx.run(
+            'pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            warn=True)
 
 
 @task
@@ -234,15 +246,19 @@ def build_html(ctx, process_html=True):
         ctx.run(
             'latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
             warn=True)
+        ctx.run(
+            'bibtex {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'aux')),
+            warn=True)
 
     with ctx.cd(HTML_BUILD_DIRECTORY):
-        ctx.run('make4ht -c {0} {1} '
-                '"3,sec-filename,sections+,xhtml,html5,charset=utf-8" '
-                '"" '
-                '"" '
-                '"-interaction=nonstopmode"'.format(
-                    ROOT_DOCUMENT_NAME.replace('tex', 'cfg'),
-                    ROOT_DOCUMENT_NAME))
+        ctx.run(
+            'make4ht -c {0} {1} '
+            '"3,sec-filename,sections+,refcaption,xhtml,html5,charset=utf-8" '
+            '"" '
+            '"" '
+            '"-interaction=nonstopmode"'.format(
+                ROOT_DOCUMENT_NAME.replace('tex', 'cfg'), ROOT_DOCUMENT_NAME),
+            warn=True)
 
     ctx.run('mkdir -p {0}'.format(HTML_RELEASE_DIRECTORY))
     ctx.run('cp -r {0}/*.html {1}'.format(HTML_BUILD_DIRECTORY,
@@ -264,6 +280,7 @@ def build_html(ctx, process_html=True):
         process.conform_filenames(toc, HTML_RELEASE_DIRECTORY, [
             ('cinematic-color.html', 'cinematic-color.html'),
             ('contentsname.html', 'contents.html'),
+            ('bibname.html', 'references.html'),
         ])
 
         navigation = process.build_navigation(toc, ['Contents', 'Snippets'])
@@ -296,4 +313,4 @@ def gh_deploy(ctx):
     result = ctx.run('git rev-parse HEAD', hide='both')
     sha = result.stdout.strip().split('\n')[0]
     ctx.run('ghp-import -m "Deploy {0} with \"ghp-import\"." -p {1}'.format(
-        sha, ROOT_HTML_DIRECTORY_NAME))
+        sha, HTML_RELEASE_DIRECTORY))
