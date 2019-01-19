@@ -35,6 +35,8 @@ BIBLIOGRAPHY_NAME = 'bibliography.bib'
 
 LATEX_SOURCE_DIRECTORY = 'latex'
 
+ASSETS_DIRECTORY = 'assets'
+
 PDF_BUILD_DIRECTORY = 'build/pdf'
 
 HTML_BUILD_DIRECTORY = 'build/html'
@@ -199,18 +201,23 @@ def build_pdf(ctx):
     ctx.run('mkdir -p {0}'.format(PDF_BUILD_DIRECTORY))
     ctx.run('cp -r {0}/* {1}'.format(LATEX_SOURCE_DIRECTORY,
                                      PDF_BUILD_DIRECTORY))
+    ctx.run('cp -r {0} {1}'.format(ASSETS_DIRECTORY, PDF_BUILD_DIRECTORY))
+
     with ctx.cd(PDF_BUILD_DIRECTORY):
         ctx.run(
-            'pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            'pdflatex --shell-escape -interaction=nonstopmode {0}'.format(
+                ROOT_DOCUMENT_NAME),
             warn=True)
         ctx.run(
             'biber {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'bcf')),
             warn=True)
         ctx.run(
-            'pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            'pdflatex --shell-escape -interaction=nonstopmode {0}'.format(
+                ROOT_DOCUMENT_NAME),
             warn=True)
         ctx.run(
-            'pdflatex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            'pdflatex --shell-escape -interaction=nonstopmode {0}'.format(
+                ROOT_DOCUMENT_NAME),
             warn=True)
 
 
@@ -238,22 +245,24 @@ def build_html(ctx, process_html=True):
     ctx.run('cp -r {0}/* {1}'.format(LATEX_SOURCE_DIRECTORY,
                                      HTML_BUILD_DIRECTORY))
 
+    ctx.run('cp -r {0} {1}'.format(ASSETS_DIRECTORY, HTML_BUILD_DIRECTORY))
+
     # "ToC" file generation requires invoking "latex" two times.
     with ctx.cd(HTML_BUILD_DIRECTORY):
         ctx.run(
-            'latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            'pdflatex --shell-escape -interaction=nonstopmode {0}'.format(
+                ROOT_DOCUMENT_NAME),
             warn=True)
         ctx.run(
-            'latex -interaction=nonstopmode {0}'.format(ROOT_DOCUMENT_NAME),
+            'pdflatex --shell-escape -interaction=nonstopmode {0}'.format(
+                ROOT_DOCUMENT_NAME),
             warn=True)
         ctx.run(
             'biber {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'bcf')),
             warn=True)
-
-    with ctx.cd(HTML_BUILD_DIRECTORY):
         ctx.run(
             'make4ht -c {0} {1} '
-            '"3,sec-filename,sections+,refcaption,xhtml,html5,charset=utf-8" '
+            '"" '
             '"" '
             '"" '
             '"-interaction=nonstopmode"'.format(
@@ -265,10 +274,10 @@ def build_html(ctx, process_html=True):
                                           HTML_RELEASE_DIRECTORY))
     ctx.run('cp -r {0}/*.css {1}'.format(HTML_BUILD_DIRECTORY,
                                          HTML_RELEASE_DIRECTORY))
-    ctx.run('cp -r {0}/*.png {1}'.format(HTML_BUILD_DIRECTORY,
+    ctx.run('cp -r {0}/*.svg {1}'.format(HTML_BUILD_DIRECTORY,
                                          HTML_RELEASE_DIRECTORY))
 
-    ctx.run('cp -r assets cinematic-color/')
+    ctx.run('cp -r {0} {1}'.format(ASSETS_DIRECTORY, HTML_RELEASE_DIRECTORY))
 
     if process_html:
         message_box('Processing "HTML"...')
@@ -280,16 +289,23 @@ def build_html(ctx, process_html=True):
         process.conform_filenames(toc, HTML_RELEASE_DIRECTORY, [
             ('cinematic-color.html', 'cinematic-color.html'),
             ('contentsname.html', 'contents.html'),
-            # ('bibname.html', 'references.html'),
+            ('bibname.html', 'bibliography.html'),
         ])
 
-        navigation = process.build_navigation(toc, ['Contents', 'Snippets'])
+        toc.update({'Bibliography': []})
+
+        del toc['Typesetting']
+
+        navigation = process.build_navigation(toc)
 
         for html_file in glob.glob(
                 os.path.join(HTML_RELEASE_DIRECTORY, '*.html')):
             print('Processing "{0}" file...'.format(html_file))
 
             process.process_html(html_file, navigation)
+
+            subprocess.call(
+                ['tidy', '-q', '-utf8', '-asxhtml', '-m', html_file])
 
 
 @task(clean, build_html)

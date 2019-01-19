@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Inkscape - macOs - Absolute Path Wrapper
+========================================
+
+On *macOs*, *Inkscape* requires absolute paths to work::
+
+    https://answers.launchpad.net/inkscape/+question/280575
+
+This *Python* module is a wrapper changing the paths given at the command-line
+to *Inkscape* for their absolute variant. It should be put in the *$PATH* as
+*inkscape* and made executable.
+"""
+
+from __future__ import unicode_literals
+
+import os
+import sys
+import subprocess
+
+__author__ = 'Colour Developers'
+__copyright__ = 'Copyright (C) 2013-2018 - Colour Developers'
+__license__ = 'New BSD License - http://opensource.org/licenses/BSD-3-Clause'
+__maintainer__ = 'Colour Developers'
+__email__ = 'colour-science@googlegroups.com'
+__status__ = 'Production'
+
+__all__ = ['INKSCAPE_EXECUTABLE', 'call_inkscape']
+
+INKSCAPE_EXECUTABLE = (
+    '/Applications/Inkscape.app/Contents/Resources/bin/inkscape')
+"""
+*Inkscape* executable path on *macOs*.
+
+INKSCAPE_EXECUTABLE : unicode
+"""
+
+
+def call_inkscape(arguments):
+    """
+    Calls *Inkscape* with given arguments.
+
+    Parameters
+    ----------
+    arguments : array_like
+        Arguments to call *Inkscape* with.
+
+    Returns
+    -------
+    int
+        Error status.
+    """
+
+    options = ['--file', '--export']
+    for i, argument in enumerate(arguments):
+        for option in options:
+            if argument.startswith(option):
+                try:
+                    option, value = argument.split('=', 1)
+                except ValueError:
+                    continue
+
+                arguments[i] = '{0}={1}'.format(option, os.path.abspath(value))
+
+                break
+
+    return subprocess.call([INKSCAPE_EXECUTABLE] + arguments)
+
+
+if __name__ == '__main__':
+    sys.exit(call_inkscape(sys.argv[1:]))

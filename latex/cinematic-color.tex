@@ -1,13 +1,47 @@
 \documentclass[a4paper]{report}
 
+\usepackage{altgraphicx}
 \usepackage{amsmath}
 \usepackage[english]{babel}
-\usepackage{graphicx}
+\usepackage[backend=biber,style=apa]{biblatex}
+\usepackage{color}
 \usepackage[utf8x]{hyperref}
 \usepackage[utf8x]{inputenc}
+\usepackage{listings}
+\usepackage{svg}
 
-\usepackage[backend=biber,style=apa]{biblatex}
+\graphicspath{{./assets/figures/}{./assets/images/}}
+
 \addbibresource{bibliography.bib}
+
+% Code formatting.
+\definecolor{lstcodebackground}{rgb}{0.95, 0.95, 0.95}
+\definecolor{lstcodecomment}{rgb}{0.5, 0.5, 0.5}
+\definecolor{lstcodekeyword}{rgb}{0.60, 0.15, 0.70}
+\definecolor{lstcodestring}{rgb}{0.55 ,0.75, 0.30}
+\definecolor{lstcodenumber}{rgb}{0.0, 0.65 , 0.95}
+\definecolor{lstcodelinenumber}{rgb}{0.5, 0.5, 0.5}
+
+\lstdefinestyle{cinematiccolor}{
+    backgroundcolor=\color{lstcodebackground},
+    commentstyle=\color{lstcodecomment},
+    keywordstyle=\textbf\color{lstcodekeyword},
+    numberstyle=\color{lstcodelinenumber},
+    stringstyle=\color{lstcodestring},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4
+}
+
+\lstset{style=cinematiccolor}
 
 \title{
     {\LARGE Color for Motion Pictures and Games}
@@ -43,6 +77,6 @@
 
 \printbibliography
 
-\input{snippets.tex}
+\input{typesetting.tex}
 
 \end{document}

@@ -19,16 +19,15 @@ __email__ = 'ves-tech-color@googlegroups.com'
 __status__ = 'Production'
 
 __all__ = [
-    'BOOTSTRAP_STYLESHEET_TEMPLATE', 'CUSTOM_STYLESHEET_TEMPLATE',
-    'JQUERY_JAVSCRIPT_TEMPLATE', 'POPPER_JAVSCRIPT_TEMPLATE',
-    'BOOTSTRAP_JAVSCRIPT_TEMPLATE', 'NAVBAR_TEMPLATE',
-    'NAVBAR_DROPDOWN_LI_TEMPLATE', 'NAVBAR_DROPDOWN_A_TEMPLATE',
-    'NAVBAR_DROPDOWN_DIV_TEMPLATE', 'NAVBAR_DROPDOWN_ITEM_TEMPLATE',
-    'NAVBAR_A_TEMPLATE', 'CONTENT_TEMPLATE', 'FOOTER_TEMPLATE', 'parse_toc',
+    'ENCODING', 'NAVBAR_TEMPLATE', 'NAVBAR_DROPDOWN_LI_TEMPLATE',
+    'NAVBAR_DROPDOWN_A_TEMPLATE', 'NAVBAR_DROPDOWN_DIV_TEMPLATE',
+    'NAVBAR_DROPDOWN_ITEM_TEMPLATE', 'NAVBAR_A_TEMPLATE', 'parse_toc',
     'build_navigation', 'process_html'
 ]
 
 codecs.register_error('strict', codecs.ignore_errors)
+
+ENCODING = 'utf-8'
 
 NAVBAR_TEMPLATE = """
 <!-- Navbar -->
@@ -184,10 +183,10 @@ def conform_filenames(toc, root_directory, extra_patterns=None):
         print('Replacing "{0}" file patterns.'.format(source_file))
 
         html_path = os.path.join(root_directory, source_file)
-        with codecs.open(html_path, encoding='utf-8') as html_file:
+        with codecs.open(html_path, encoding=ENCODING) as html_file:
             content = html_file.read()
 
-        with codecs.open(html_path, 'w', encoding='utf-8') as html_file:
+        with codecs.open(html_path, 'w', encoding=ENCODING) as html_file:
             for pattern, replacement in patterns:
                 content = content.replace(pattern, replacement)
 
@@ -198,7 +197,7 @@ def conform_filenames(toc, root_directory, extra_patterns=None):
             os.path.join(root_directory, target_file))
 
 
-def build_navigation(toc, ignored_chapters=None):
+def build_navigation(toc):
     """
     Builds the *HTML* navigation using given table of content.
 
@@ -206,8 +205,6 @@ def build_navigation(toc, ignored_chapters=None):
     ----------
     toc : OrderedDict
         Table of content used to build the *HTML* navigation.
-    ignored_chapters : array_like, optional
-        Chapters to ignore in the reference path.
 
     Returns
     -------
@@ -226,9 +223,6 @@ def build_navigation(toc, ignored_chapters=None):
     navigation = BeautifulSoup(NAVBAR_TEMPLATE, 'html.parser').find('nav')
     navigation_ul = navigation.find('ul')
     for chapter, sections in toc.items():
-        if chapter in ignored_chapters:
-            continue
-
         chapter_href = _reference_path(chapter)
 
         if len(sections) != 0:
@@ -288,16 +282,12 @@ def process_html(path, navigation):
         Definition success.
     """
 
-    with open(path) as html_file:
+    with codecs.open(path, encoding=ENCODING) as html_file:
         html = BeautifulSoup(html_file, 'html5lib')
-
         # Removing comments.
         comments = html.findAll(text=lambda text: isinstance(text, Comment))
         for comment in comments:
             comment.extract()
-
-        # Removing initial css file.
-        html.head.find('link').extract()
 
         # Removing first breadcrumbs.
         breadcrumbs = html.body.find('div', **{'class_': 'crosslinks'})
@@ -307,7 +297,7 @@ def process_html(path, navigation):
         # Inserting the navigation bar.
         html.body.insert(0, navigation)
 
-    with open(path, 'w') as html_file:
-        html_file.write(html.prettify(encoding='utf8', formatter='xhtml'))
+    with codecs.open(path, 'w', encoding=ENCODING) as html_file:
+        html_file.write(unicode(html))
 
     return True

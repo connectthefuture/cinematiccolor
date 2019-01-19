@@ -1,0 +1,46 @@
+\chapter{Typesetting}
+
+\section{Figures and Images}
+
+To ensure that both \textit{PDF} and \textit{HTML} output are embedding
+``JPG'' images, ``JPG'' paths must be given with their extensions.
+
+\subsubsection{``JPG'' Raster File}
+
+\begin{lstlisting}[caption=Embedding a ``JPG'' raster file.]
+\begin{figure}
+    \includegraphics[alt={RBI - Ralph mapped to Rec.709.},width=\textwidth]{wir2-ralph-mapped-to-709.jpg}
+    \caption{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.}
+\end{figure}
+\end{lstlisting}
+
+\begin{figure}
+    \includegraphics[alt={RBI - Ralph mapped to Rec.709.},width=\textwidth]{wir2-ralph-mapped-to-709.jpg}
+    \caption{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.}
+\end{figure}
+
+\subsubsection{``SVG'' Vector File}
+
+\begin{lstlisting}[caption=Embedding a ``SVG'' vector file.]
+\begin{figure}
+    \includesvg[alt={ACES - Gamuts},width=\textwidth]{aces-gamuts}
+    \caption{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.}
+\end{figure}
+\end{lstlisting}
+
+\begin{figure}
+    \includesvg[alt={ACES - Gamuts},width=\textwidth]{aces-gamuts}
+    \caption{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.}
+\end{figure}
+
+\section{References and Citations}
+
+\href{https://ctan.org/pkg/biblatex-apa}{biblatex-apa Reference}
+
+\textcite{ARRI2012a}
+
+\textcite{ARRI2012a,Barlow1964}
+
+\parencite{ARRI2012a}
+
+\parencite{ARRI2012a,Barlow1964}
