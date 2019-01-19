@@ -1,596 +1,252 @@
-<!DOCTYPE HTML>
-<html lang="EN">
- <head>
-  <title>
-   Color Science
-  </title>
-  <meta content="Color Science" name="description"/>
-  <meta content="cinematic-color" name="keywords"/>
-  <meta content="document" name="resource-type"/>
-  <meta content="global" name="distribution"/>
-  <meta content="text/html; charset=utf8" http-equiv="Content-Type"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="LaTeX2HTML v2019" name="Generator"/>
-  <link href="workflow.html" rel="next"/>
-  <link href="introduction.html" rel="previous"/>
-  <link href="about-color-science.html" rel="next"/>
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
- </head>
- <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-   <a class="navbar-brand" href="#">
-    Cinematic Color 2
-   </a>
-   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
-    <span class="navbar-toggler-icon">
-    </span>
-   </button>
-   <div class="collapse navbar-collapse" id="navbar">
-    <ul class="navbar-nav mr-auto">
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="foreword.html" id="foreword" role="button">
-       Foreword
-      </a>
-      <div aria-labelledby="foreword" class="dropdown-menu">
-       <a class="dropdown-item" href="description.html">
-        Description
-       </a>
-       <a class="dropdown-item" href="authorship.html">
-        Authorship
-       </a>
-       <a class="dropdown-item" href="on-web.html">
-        On the Web
-       </a>
-      </div>
-     </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">
-       Introduction
-      </a>
-      <div aria-labelledby="introduction" class="dropdown-menu">
-       <a class="dropdown-item" href="intended-audience.html">
-        Intended Audience
-       </a>
-       <a class="dropdown-item" href="how-read-this-document.html">
-        How to Read this Document
-       </a>
-       <a class="dropdown-item" href="goal.html">
-        The Goal
-       </a>
-       <a class="dropdown-item" href="converging-approaches.html">
-        Converging Approaches
-       </a>
-       <a class="dropdown-item" href="general-model-color-processing.html">
-        A General Model of Color Processing
-       </a>
-       <a class="dropdown-item" href="color-management-challenges.html">
-        Color Management Challenges
-       </a>
-      </div>
-     </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">
-       Color Science
-      </a>
-      <div aria-labelledby="color-science" class="dropdown-menu">
-       <a class="dropdown-item" href="about-color-science.html">
-        About Color Science
-       </a>
-       <a class="dropdown-item" href="electromagnetic-spectrum.html">
-        Electromagnetic Spectrum
-       </a>
-       <a class="dropdown-item" href="human-visual-system.html">
-        Human Visual System
-       </a>
-       <a class="dropdown-item" href="basic-colorimetry.html">
-        Basic Colorimetry
-       </a>
-       <a class="dropdown-item" href="advanced-colorimetry.html">
-        Advanced Colorimetry
-       </a>
-       <a class="dropdown-item" href="representing-color.html">
-        Representing Color
-       </a>
-       <a class="dropdown-item" href="color-imaging-systems.html">
-        Color Imaging Systems
-       </a>
-      </div>
-     </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">
-       Workflow
-      </a>
-      <div aria-labelledby="workflow" class="dropdown-menu">
-       <a class="dropdown-item" href="about-workflow.html">
-        About Workflow
-       </a>
-       <a class="dropdown-item" href="academy-color-encoding-system-aces.html">
-        Academy Color Encoding System (ACES)
-       </a>
-       <a class="dropdown-item" href="look.html">
-        The Look
-       </a>
-       <a class="dropdown-item" href="on-set.html">
-        On Set
-       </a>
-       <a class="dropdown-item" href="visual-effects-animation-games.html">
-        Visual Effects, Animation and Games
-       </a>
-       <a class="dropdown-item" href="compositing.html">
-        Compositing
-       </a>
-       <a class="dropdown-item" href="di-grading.html">
-        DI Grading
-       </a>
-       <a class="dropdown-item" href="critical-monitoring.html">
-        Critical Monitoring
-       </a>
-       <a class="dropdown-item" href="finishing.html">
-        Finishing
-       </a>
-       <a class="dropdown-item" href="archives.html">
-        Archives
-       </a>
-      </div>
-     </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">
-       Appendix
-      </a>
-      <div aria-labelledby="appendix" class="dropdown-menu">
-       <a class="dropdown-item" href="common-rgb-color-encodings.html">
-        Common RGB Color Encodings
-       </a>
-       <a class="dropdown-item" href="opencolorio-ocio.html">
-        OpenColorIO (OCIO)
-       </a>
-       <a class="dropdown-item" href="colour-science-python.html">
-        Colour Science for Python
-       </a>
-       <a class="dropdown-item" href="luts-transforms.html">
-        LUTs and Transforms
-       </a>
-       <a class="dropdown-item" href="asc-cdl.html">
-        ASC CDL
-       </a>
-       <a class="dropdown-item" href="aces-ctl.html">
-        ACES CTL
-       </a>
-       <a class="dropdown-item" href="full-legal-ranges.html">
-        Full and Legal ranges
-       </a>
-       <a class="dropdown-item" href="chroma-decoupling.html">
-        Chroma Decoupling
-       </a>
-       <a class="dropdown-item" href="camera-characterization.html">
-        Camera Characterization
-       </a>
-       <a class="dropdown-item" href="file-formats.html">
-        File Formats
-       </a>
-       <a class="dropdown-item" href="software.html">
-        Software
-       </a>
-       <a class="dropdown-item" href="acknowledgements.html">
-        Acknowledgements
-       </a>
-      </div>
-     </li>
-     <li class="nav-item dropdown" class_="nav-item">
-      <a class="nav-link" href="glossary.html">
-       Glossary
-      </a>
-     </li>
-     <li class="nav-item dropdown" class_="nav-item">
-      <a class="nav-link" href="bibliography.html">
-       Bibliography
-      </a>
-     </li>
-    </ul>
-    <form class="form-inline my-2 my-md-0">
-     <input class="form-control" placeholder="Search" type="text"/>
-    </form>
-   </div>
-  </nav>
-  <!-- Content -->
-  <div class="container-fluid">
-   <div class="row">
-    <div class="col-md-12 px-3 py-3">
-     <h1>
-      <a id="SECTION00400000000000000000">
-       Color Science
-      </a>
-     </h1>
-     <p>
-      <br/>
-     </p>
-     <hr/>
-     <a id="CHILD_LINKS">
-      <strong>
-       Subsections
-      </strong>
-     </a>
-     <ul class="ChildLinks">
-      <li>
-       <a href="about-color-science.html" id="tex2html352">
-        About Color Science
-       </a>
-      </li>
-      <li>
-       <a href="electromagnetic-spectrum.html" id="tex2html353">
-        Electromagnetic Spectrum
-       </a>
-       <ul>
-        <li>
-         <a href="radiometric-quantities-interest.html" id="tex2html354">
-          Radiometric Quantities of Interest
-         </a>
-        </li>
-        <li>
-         <a href="photometric-quantities-interest.html" id="tex2html355">
-          Photometric Quantities of Interest
-         </a>
-        </li>
-        <li>
-         <a href="spectral-distribution.html" id="tex2html356">
-          Spectral Distribution
-         </a>
-        </li>
-       </ul>
-       <br/>
-      </li>
-      <li>
-       <a href="human-visual-system.html" id="tex2html357">
-        Human Visual System
-       </a>
-       <ul>
-        <li>
-         <a href="eye.html" id="tex2html358">
-          The Eye
-         </a>
-        </li>
-        <li>
-         <a href="retina.html" id="tex2html359">
-          Retina
-         </a>
-        </li>
-        <li>
-         <a href="photoreceptors.html" id="tex2html360">
-          Photoreceptors
-         </a>
-         <ul>
-          <li>
-           <a href="cones-photopic-vision.html" id="tex2html361">
-            Cones and Photopic Vision
-           </a>
-          </li>
-          <li>
-           <a href="rods-scotopic-vision.html" id="tex2html362">
-            Rods and Scotopic Vision
-           </a>
-          </li>
-          <li>
-           <a href="mesopic-vision.html" id="tex2html363">
-            Mesopic Vision
-           </a>
-          </li>
-          <li>
-           <a href="distribution.html" id="tex2html364">
-            Distribution
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="dynamic-range.html" id="tex2html365">
-          Dynamic Range
-         </a>
-        </li>
-        <li>
-         <a href="adaptation.html" id="tex2html366">
-          Adaptation
-         </a>
-         <ul>
-          <li>
-           <a href="dark-adaptation.html" id="tex2html367">
-            Dark Adaptation
-           </a>
-          </li>
-          <li>
-           <a href="light-adaptation.html" id="tex2html368">
-            Light Adaptation
-           </a>
-          </li>
-          <li>
-           <a href="chromatic-adaptation.html" id="tex2html369">
-            Chromatic Adaptation
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="non-linearity-hvs.html" id="tex2html370">
-          Non-Linearity of the HVS
-         </a>
-        </li>
-       </ul>
-       <br/>
-      </li>
-      <li>
-       <a href="basic-colorimetry.html" id="tex2html371">
-        Basic Colorimetry
-       </a>
-       <ul>
-        <li>
-         <a href="origins-colorimetry.html" id="tex2html372">
-          Origins of Colorimetry
-         </a>
-        </li>
-        <li>
-         <a href="blackbody-radiation-light-sources-illuminants.html" id="tex2html373">
-          Blackbody Radiation, Light sources and Illuminants
-         </a>
-        </li>
-        <li>
-         <a href="reflectance-transmittance-absorptance.html" id="tex2html374">
-          Reflectance, Transmittance and Absorptance
-         </a>
-        </li>
-        <li>
-         <a href="standard-observers.html" id="tex2html375">
-          Standard Observers
-         </a>
-        </li>
-        <li>
-         <a href="cie-xyz-tristimulus-values-metamerism.html" id="tex2html376">
-          CIE XYZ Tristimulus Values and Metamerism
-         </a>
-         <ul>
-          <li>
-           <a href="cie-xyz-tristimulus-values.html" id="tex2html377">
-            CIE XYZ Tristimulus Values
-           </a>
-          </li>
-          <li>
-           <a href="metamerism.html" id="tex2html378">
-            Metamerism
-           </a>
-          </li>
-         </ul>
-        </li>
-        <li>
-         <a href="cie-xyy-color-space-chromaticity-diagram.html" id="tex2html379">
-          CIE xyY Color Space and Chromaticity Diagram
-         </a>
-        </li>
-        <li>
-         <a href="perceptually-uniform-color-spaces-color-difference.html" id="tex2html380">
-          Perceptually Uniform Color Spaces and Color Difference
-         </a>
-        </li>
-        <li>
-         <a href="additive-rgb-color-spaces.html" id="tex2html381">
-          Additive RGB Color Spaces
-         </a>
-         <ul>
-          <li>
-           <a href="primaries.html" id="tex2html382">
-            Primaries
-           </a>
-          </li>
-          <li>
-           <a href="white-point.html" id="tex2html383">
-            White Point
-           </a>
-          </li>
-          <li>
-           <a href="color-component-transfer-functions.html" id="tex2html384">
-            Color Component Transfer Functions
-           </a>
-           <ul>
-            <li>
-             <a href="encoding-color-component-transfer-functions.html" id="tex2html385">
-              Encoding Color Component Transfer Functions
-             </a>
-            </li>
-            <li>
-             <a href="decoding-color-component-transfer-functions.html" id="tex2html386">
-              Decoding Color Component Transfer Functions
-             </a>
-            </li>
-           </ul>
-          </li>
-         </ul>
-        </li>
-       </ul>
-       <br/>
-      </li>
-      <li>
-       <a href="advanced-colorimetry.html" id="tex2html387">
-        Advanced Colorimetry
-       </a>
-       <ul>
-        <li>
-         <a href="viewing-conditions.html" id="tex2html388">
-          Viewing Conditions
-         </a>
-        </li>
-        <li>
-         <a href="terminology.html" id="tex2html389">
-          Terminology
-         </a>
-        </li>
-        <li>
-         <a href="color-appearance-phenomena.html" id="tex2html390">
-          Color Appearance Phenomena
-         </a>
-         <ul>
-          <li>
-           <a href="lateral-brightness-adaptation.html" id="tex2html391">
-            Lateral-Brightness Adaptation
-           </a>
-          </li>
-          <li>
-           <a href="simultaneous-contrast.html" id="tex2html392">
-            Simultaneous Contrast
-           </a>
-          </li>
-          <li>
-           <a href="crispening.html" id="tex2html393">
-            Crispening
-           </a>
-          </li>
-          <li>
-           <a href="spreading.html" id="tex2html394">
-            Spreading
-           </a>
-          </li>
-          <li>
-           <a href="bezold-brcke-hue-shift.html" id="tex2html395">
-            Bezold-Br&uuml;cke Hue Shift
-           </a>
-          </li>
-          <li>
-           <a href="abney-effect.html" id="tex2html396">
-            Abney Effect
-           </a>
-          </li>
-          <li>
-           <a href="purkinje-effect.html" id="tex2html397">
-            Purkinje Effect
-           </a>
-          </li>
-          <li>
-           <a href="helmholtzkohlrausch-effect.html" id="tex2html398">
-            Helmholtz&ndash;Kohlrausch Effect
-           </a>
-          </li>
-          <li>
-           <a href="hunt-effect-hunt-1952.html" id="tex2html399">
-            Hunt Effect, Hunt (1952)
-           </a>
-          </li>
-          <li>
-           <a href="stevens-effect-stevens-stevens-1963.html" id="tex2html400">
-            Stevens Effect, Stevens and Stevens (1963)
-           </a>
-          </li>
-          <li>
-           <a href="helson-judd-effect-helson-1938.html" id="tex2html401">
-            Helson-Judd Effect, Helson (1938)
-           </a>
-          </li>
-         </ul>
-        </li>
-       </ul>
-       <br/>
-      </li>
-      <li>
-       <a href="representing-color.html" id="tex2html402">
-        Representing Color
-       </a>
-       <ul>
-        <li>
-         <a href="digital-image-raster-graphics.html" id="tex2html403">
-          Digital Image - Raster Graphics
-         </a>
-        </li>
-        <li>
-         <a href="quantization.html" id="tex2html404">
-          Quantization
-         </a>
-        </li>
-        <li>
-         <a href="perceptual-coding.html" id="tex2html405">
-          Perceptual Coding
-         </a>
-        </li>
-        <li>
-         <a href="floating-point-logarithmic-representations.html" id="tex2html406">
-          Floating-Point &amp; Logarithmic Representations
-         </a>
-        </li>
-        <li>
-         <a href="gamma.html" id="tex2html407">
-          Gamma
-         </a>
-        </li>
-        <li>
-         <a href="color-encodings.html" id="tex2html408">
-          Color Encodings
-         </a>
-        </li>
-       </ul>
-       <br/>
-      </li>
-      <li>
-       <a href="color-imaging-systems.html" id="tex2html409">
-        Color Imaging Systems
-       </a>
-       <ul>
-        <li>
-         <a href="image-capture.html" id="tex2html410">
-          Image Capture
-         </a>
-        </li>
-        <li>
-         <a href="signal-processing.html" id="tex2html411">
-          Signal Processing
-         </a>
-        </li>
-        <li>
-         <a href="image-formation.html" id="tex2html412">
-          Image Formation
-         </a>
-        </li>
-       </ul>
-      </li>
-     </ul>
-     <div class="navigation">
-      <br/>
-      <b>
-       Next:
-      </b>
-      <a href="about-color-science.html">
-       About Color Science
-      </a>
-      <b>
-       Up:
-      </b>
-      <a href="cinematic-color.html">
-       Color for Motion Pictures
-      </a>
-      <b>
-       Previous:
-      </b>
-      <a href="color-management-challenges.html">
-       Color Management Challenges
-      </a>
-      &nbsp;
-      <b>
-       <a href="contents.html" id="tex2html351">
-        Contents
-       </a>
-      </b>
-     </div>
-    </div>
-   </div>
-  </div>
-  <!-- Footer -->
-  <footer class="page-footer font-small">
-   <div class="footer-copyright text-center py-3">
-    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
-    <a href="mailto:ves-tech-color@googlegroups.com">
-     ves-tech-color@googlegroups.com
-    </a>
-   </div>
-  </footer>
-  <script src="assets/js/jquery.min.js">
-  </script>
-  <script src="assets/js/popper.min.js">
-  </script>
-  <script src="assets/js/bootstrap.min.js">
-  </script>
- </body>
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
+<title>2 Color Science</title>
+<meta charset="utf-8" />
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
+"generator" />
+<meta content="width=device-width,initial-scale=1" name=
+"viewport" />
+<link href="cinematic-color.css" rel="stylesheet" type=
+"text/css" />
+<meta content="cinematic-color.tex" name="src" />
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
+"text/css" />
+<link href="assets/css/custom.css" rel="stylesheet" type=
+"text/css" />
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark"><a class=
+"navbar-brand" href="#">Cinematic Color 2</a>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="foreword.html" id="foreword" role=
+"button">Foreword</a>
+<div aria-labelledby="foreword" class="dropdown-menu"><a class=
+"dropdown-item" href="description.html">Description</a><a class=
+"dropdown-item" href="authorship.html">Authorship</a><a class=
+"dropdown-item" href="on-the-web.html">On the Web</a></div>
+</li>
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="introduction.html" id="introduction" role=
+"button">Introduction</a>
+<div aria-labelledby="introduction" class="dropdown-menu"><a class=
+"dropdown-item" href="intended-audience.html">Intended
+Audience</a><a class="dropdown-item" href=
+"how-to-read-this-document.html">How to Read this
+Document</a><a class="dropdown-item" href="the-goal.html">The
+Goal</a><a class="dropdown-item" href=
+"converging-approaches.html">Converging Approaches</a><a class=
+"dropdown-item" href="a-general-model-of-color-processing.html">A
+General Model of Color Processing</a><a class="dropdown-item" href=
+"color-management-challenges.html">Color Management
+Challenges</a></div>
+</li>
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="color-science.html" id="color-science" role=
+"button">Color Science</a>
+<div aria-labelledby="color-science" class="dropdown-menu">
+<a class="dropdown-item" href="about-color-science.html">About
+Color Science</a><a class="dropdown-item" href=
+"electromagnetic-spectrum.html">Electromagnetic
+Spectrum</a><a class="dropdown-item" href=
+"human-visual-system.html">Human Visual System</a><a class=
+"dropdown-item" href="basic-colorimetry.html">Basic
+Colorimetry</a><a class="dropdown-item" href=
+"advanced-colorimetry.html">Advanced Colorimetry</a><a class=
+"dropdown-item" href="representing-color.html">Representing
+Color</a><a class="dropdown-item" href=
+"color-imaging-systems.html">Color Imaging Systems</a></div>
+</li>
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="workflow.html" id="workflow" role=
+"button">Workflow</a>
+<div aria-labelledby="workflow" class="dropdown-menu"><a class=
+"dropdown-item" href="about-workflow.html">About
+Workflow</a><a class="dropdown-item" href=
+"academy-color-encoding-system-aces.html">Academy Color Encoding
+System (ACES)</a><a class="dropdown-item" href="the-look.html">The
+Look</a><a class="dropdown-item" href="on-set.html">On
+Set</a><a class="dropdown-item" href=
+"visual-effects-animation-and-games.html">Visual Effects, Animation
+and Games</a><a class="dropdown-item" href=
+"compositing.html">Compositing</a><a class="dropdown-item" href=
+"di-grading.html">DI Grading</a><a class="dropdown-item" href=
+"critical-monitoring.html">Critical Monitoring</a><a class=
+"dropdown-item" href="finishing.html">Finishing</a><a class=
+"dropdown-item" href="archives.html">Archives</a></div>
+</li>
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="appendix.html" id="appendix" role=
+"button">Appendix</a>
+<div aria-labelledby="appendix" class="dropdown-menu"><a class=
+"dropdown-item" href="common-rgb-color-encodings.html">Common RGB
+Color Encodings</a><a class="dropdown-item" href=
+"opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
+"dropdown-item" href="colour-science-for-python.html">Colour
+Science for Python</a><a class="dropdown-item" href=
+"luts-and-transforms.html">LUTs and Transforms</a><a class=
+"dropdown-item" href="asc-cdl.html">ASC CDL</a><a class=
+"dropdown-item" href="aces-ctl.html">ACES CTL</a><a class=
+"dropdown-item" href="full-and-legal-ranges.html">Full and Legal
+ranges</a><a class="dropdown-item" href=
+"color-difference-encoding.html">Color Difference
+Encoding</a><a class="dropdown-item" href=
+"camera-characterization.html">Camera Characterization</a><a class=
+"dropdown-item" href="file-formats.html">File Formats</a><a class=
+"dropdown-item" href="software.html">Software</a><a class=
+"dropdown-item" href=
+"acknowledgements.html">Acknowledgements</a></div>
+</li>
+<li class="nav-item"><a class="nav-link" href=
+"glossary.html">Glossary</a></li>
+<li class="nav-item"><a class="nav-link" href=
+"bibliography.html">Bibliography</a></li>
+</ul>
+<form class="form-inline my-2 my-md-0"><input class="form-control"
+placeholder="Search" type="text" /></form>
+</div>
+</nav>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<h2 class="chapterHead"><span class=
+"titlemark">Chapter&nbsp;2</span><br />
+<a href="cinematic-color.html#QQ2-14-18" id="x14-140002">Color
+Science</a></h2>
+<div class="sectionTOCS">&nbsp;<span class="sectionToc">2.1
+<a href="Aboutcolor-science.html#x15-150002.1">About Color
+Science</a></span><br />
+&nbsp;<span class="sectionToc">2.2 <a href=
+"electromagnetic-spectrum.html#x16-160002.2">Electromagnetic
+Spectrum</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.2.1 <a href=
+"electromagnetic-spectrum.html#x16-170002.2.1">Radiometric
+Quantities of Interest</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.2.2 <a href=
+"electromagnetic-spectrum.html#x16-180002.2.2">Photometric
+Quantities of Interest</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.2.3 <a href=
+"electromagnetic-spectrum.html#x16-190002.2.3">Spectral
+Distribution</a></span><br />
+&nbsp;<span class="sectionToc">2.3 <a href=
+"human-visual-system.html#x17-200002.3">Human Visual
+System</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.3.1 <a href=
+"human-visual-system.html#x17-210002.3.1">The Eye</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.3.2 <a href=
+"human-visual-system.html#x17-220002.3.2">Retina</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.3.3 <a href=
+"human-visual-system.html#x17-230002.3.3">Photoreceptors</a></span><br />
+
+&nbsp;&nbsp;<span class="subsectionToc">2.3.4 <a href=
+"human-visual-system.html#x17-280002.3.4">Dynamic
+Range</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.3.5 <a href=
+"human-visual-system.html#x17-290002.3.5">Adaptation</a></span><br />
+
+&nbsp;&nbsp;<span class="subsectionToc">2.3.6 <a href=
+"human-visual-system.html#x17-330002.3.6">Non-Linearity of the
+HVS</a></span><br />
+&nbsp;<span class="sectionToc">2.4 <a href=
+"basic-colorimetry.html#x18-340002.4">Basic
+Colorimetry</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.4.1 <a href=
+"basic-colorimetry.html#x18-350002.4.1">Origins of
+Colorimetry</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.4.2 <a href=
+"basic-colorimetry.html#x18-360002.4.2">Blackbody Radiation, Light
+sources and Illuminants</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.4.3 <a href=
+"basic-colorimetry.html#x18-370002.4.3">Reflectance, Transmittance
+and Absorptance</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.4.4 <a href=
+"basic-colorimetry.html#x18-380002.4.4">Standard
+Observers</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.4.5 <a href=
+"basic-colorimetry.html#x18-390002.4.5">CIE XYZ Tristimulus Values
+and Metamerism</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.4.6 <a href=
+"basic-colorimetry.html#x18-420002.4.6">CIE xyY Color Space and
+Chromaticity Diagram</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.4.7 <a href=
+"basic-colorimetry.html#x18-430002.4.7">Perceptually Uniform Color
+Spaces and Color Difference</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.4.8 <a href=
+"basic-colorimetry.html#x18-440002.4.8">Additive RGB Color
+Spaces</a></span><br />
+&nbsp;<span class="sectionToc">2.5 <a href=
+"advanced-colorimetry.html#x19-500002.5">Advanced
+Colorimetry</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.5.1 <a href=
+"advanced-colorimetry.html#x19-510002.5.1">Viewing
+Conditions</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.5.2 <a href=
+"advanced-colorimetry.html#x19-520002.5.2">Terminology</a></span><br />
+
+&nbsp;&nbsp;<span class="subsectionToc">2.5.3 <a href=
+"advanced-colorimetry.html#x19-530002.5.3">Color Appearance
+Phenomena</a></span><br />
+&nbsp;<span class="sectionToc">2.6 <a href=
+"representing-color.html#x20-650002.6">Representing
+Color</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.6.1 <a href=
+"representing-color.html#x20-660002.6.1">Digital Image - Raster
+Graphics</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.6.2 <a href=
+"representing-color.html#x20-670002.6.2">Quantization</a></span><br />
+
+&nbsp;&nbsp;<span class="subsectionToc">2.6.3 <a href=
+"representing-color.html#x20-680002.6.3">Perceptual
+Coding</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.6.4 <a href=
+"representing-color.html#x20-690002.6.4">Floating-Point and
+Logarithmic Representations</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.6.5 <a href=
+"representing-color.html#x20-700002.6.5">Gamma</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.6.6 <a href=
+"representing-color.html#x20-710002.6.6">Color
+Encodings</a></span><br />
+&nbsp;<span class="sectionToc">2.7 <a href=
+"color-imaging-systems.html#x21-720002.7">Color Imaging
+Systems</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.7.1 <a href=
+"color-imaging-systems.html#x21-730002.7.1">Image
+Capture</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.7.2 <a href=
+"color-imaging-systems.html#x21-740002.7.2">Signal
+Processing</a></span><br />
+&nbsp;&nbsp;<span class="subsectionToc">2.7.3 <a href=
+"color-imaging-systems.html#x21-750002.7.3">Image
+Formation</a></span></div>
+<div class="crosslinks">
+<p class="noindent">[<a href="workflow.html">next</a>] [<a href=
+"introduction.html">prev</a>] [<a href=
+"introduction.html#tailintroduction.html">prev-tail</a>] [<a href=
+"color-science.html">front</a>] [<a href=
+"cinematic-color.html#color-science.html">up</a>]</p>
+</div>
+<p class="indent"><a id="tailcolor-science.html"></a></p>
+</div>
+<div class="col-md-2"></div>
+</div>
+</div>
+<footer class="page-footer font-small">
+<div class="footer-copyright text-center py-3">Copyright © 2019 ‐
+Cinematic Color Authors ‐ <a href=
+"mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a></div>
+</footer>
+<script src="assets/js/jquery.min.js"></script> 
+<script src="assets/js/popper.min.js"></script> 
+<script src="assets/js/bootstrap.min.js"></script>
+</body>
 </html>

@@ -1,363 +1,896 @@
-<!DOCTYPE HTML>
-<html lang="EN">
- <head>
-  <title>
-   Common RGB Color Encodings
-  </title>
-  <meta content="Common RGB Color Encodings" name="description"/>
-  <meta content="cinematic-color" name="keywords"/>
-  <meta content="document" name="resource-type"/>
-  <meta content="global" name="distribution"/>
-  <meta content="text/html; charset=utf8" http-equiv="Content-Type"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="LaTeX2HTML v2019" name="Generator"/>
-  <link href="opencolorio-ocio.html" rel="next"/>
-  <link href="appendix.html" rel="previous"/>
-  <link href="rec-709.html" rel="next"/>
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-  <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
- </head>
- <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-   <a class="navbar-brand" href="#">
-    Cinematic Color 2
-   </a>
-   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
-    <span class="navbar-toggler-icon">
-    </span>
-   </button>
-   <div class="collapse navbar-collapse" id="navbar">
-    <ul class="navbar-nav mr-auto">
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="foreword.html" id="foreword" role="button">
-       Foreword
-      </a>
-      <div aria-labelledby="foreword" class="dropdown-menu">
-       <a class="dropdown-item" href="description.html">
-        Description
-       </a>
-       <a class="dropdown-item" href="authorship.html">
-        Authorship
-       </a>
-       <a class="dropdown-item" href="on-web.html">
-        On the Web
-       </a>
-      </div>
-     </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">
-       Introduction
-      </a>
-      <div aria-labelledby="introduction" class="dropdown-menu">
-       <a class="dropdown-item" href="intended-audience.html">
-        Intended Audience
-       </a>
-       <a class="dropdown-item" href="how-read-this-document.html">
-        How to Read this Document
-       </a>
-       <a class="dropdown-item" href="goal.html">
-        The Goal
-       </a>
-       <a class="dropdown-item" href="converging-approaches.html">
-        Converging Approaches
-       </a>
-       <a class="dropdown-item" href="general-model-color-processing.html">
-        A General Model of Color Processing
-       </a>
-       <a class="dropdown-item" href="color-management-challenges.html">
-        Color Management Challenges
-       </a>
-      </div>
-     </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">
-       Color Science
-      </a>
-      <div aria-labelledby="color-science" class="dropdown-menu">
-       <a class="dropdown-item" href="about-color-science.html">
-        About Color Science
-       </a>
-       <a class="dropdown-item" href="electromagnetic-spectrum.html">
-        Electromagnetic Spectrum
-       </a>
-       <a class="dropdown-item" href="human-visual-system.html">
-        Human Visual System
-       </a>
-       <a class="dropdown-item" href="basic-colorimetry.html">
-        Basic Colorimetry
-       </a>
-       <a class="dropdown-item" href="advanced-colorimetry.html">
-        Advanced Colorimetry
-       </a>
-       <a class="dropdown-item" href="representing-color.html">
-        Representing Color
-       </a>
-       <a class="dropdown-item" href="color-imaging-systems.html">
-        Color Imaging Systems
-       </a>
-      </div>
-     </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">
-       Workflow
-      </a>
-      <div aria-labelledby="workflow" class="dropdown-menu">
-       <a class="dropdown-item" href="about-workflow.html">
-        About Workflow
-       </a>
-       <a class="dropdown-item" href="academy-color-encoding-system-aces.html">
-        Academy Color Encoding System (ACES)
-       </a>
-       <a class="dropdown-item" href="look.html">
-        The Look
-       </a>
-       <a class="dropdown-item" href="on-set.html">
-        On Set
-       </a>
-       <a class="dropdown-item" href="visual-effects-animation-games.html">
-        Visual Effects, Animation and Games
-       </a>
-       <a class="dropdown-item" href="compositing.html">
-        Compositing
-       </a>
-       <a class="dropdown-item" href="di-grading.html">
-        DI Grading
-       </a>
-       <a class="dropdown-item" href="critical-monitoring.html">
-        Critical Monitoring
-       </a>
-       <a class="dropdown-item" href="finishing.html">
-        Finishing
-       </a>
-       <a class="dropdown-item" href="archives.html">
-        Archives
-       </a>
-      </div>
-     </li>
-     <li class="nav-item dropdown">
-      <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">
-       Appendix
-      </a>
-      <div aria-labelledby="appendix" class="dropdown-menu">
-       <a class="dropdown-item" href="common-rgb-color-encodings.html">
-        Common RGB Color Encodings
-       </a>
-       <a class="dropdown-item" href="opencolorio-ocio.html">
-        OpenColorIO (OCIO)
-       </a>
-       <a class="dropdown-item" href="colour-science-python.html">
-        Colour Science for Python
-       </a>
-       <a class="dropdown-item" href="luts-transforms.html">
-        LUTs and Transforms
-       </a>
-       <a class="dropdown-item" href="asc-cdl.html">
-        ASC CDL
-       </a>
-       <a class="dropdown-item" href="aces-ctl.html">
-        ACES CTL
-       </a>
-       <a class="dropdown-item" href="full-legal-ranges.html">
-        Full and Legal ranges
-       </a>
-       <a class="dropdown-item" href="chroma-decoupling.html">
-        Chroma Decoupling
-       </a>
-       <a class="dropdown-item" href="camera-characterization.html">
-        Camera Characterization
-       </a>
-       <a class="dropdown-item" href="file-formats.html">
-        File Formats
-       </a>
-       <a class="dropdown-item" href="software.html">
-        Software
-       </a>
-       <a class="dropdown-item" href="acknowledgements.html">
-        Acknowledgements
-       </a>
-      </div>
-     </li>
-     <li class="nav-item dropdown" class_="nav-item">
-      <a class="nav-link" href="glossary.html">
-       Glossary
-      </a>
-     </li>
-     <li class="nav-item dropdown" class_="nav-item">
-      <a class="nav-link" href="bibliography.html">
-       Bibliography
-      </a>
-     </li>
-    </ul>
-    <form class="form-inline my-2 my-md-0">
-     <input class="form-control" placeholder="Search" type="text"/>
-    </form>
-   </div>
-  </nav>
-  <!-- Content -->
-  <div class="container-fluid">
-   <div class="row">
-    <div class="col-md-12 px-3 py-3">
-     <h1>
-      <a id="SECTION00610000000000000000">
-       Common RGB Color Encodings
-      </a>
-     </h1>
-     <p>
-      An RGB color encoding is defined by its primaries, white point and transfer functions. Output-referred encodings have only an Electro-Optical Transfer Function (EOTF) which defines the relationship between code value and display light. This may be defined relative to display peak luminance, or as an absolute encoding in terms of display cd/m2. Scene-referred encodings have only an Opto-Electrical Transfer Function (OETF) which defines the relationship between relative scene light and the encoded value. Some encodings, such as Hybrid Log-Gamma (HLG), define a relationship to both scene and display light, so have both an OETF and and EOTF. Encoded values may be represented either as floating point numbers, or by integers at a specific bit depth. The equations given in the following sections are for the floating point form. Logarithmic encodings of image data can fit a high dynamic range into the 0-1 range, which makes them suitable for storing in integer file formats or transmitting over SDI.
-     </p>
-     <p>
-      The primaries and white points of some common color encodings are plotted on the CIE 1931 chromaticity diagram above. The subsequent sections give more detail on the usage of each color encoding, together with the various encoding and decoding functions. The complete set of all forward and reverse encoding and decoding functions (an EOTF is not normally the inverse of the corresponding OETF, creating an Optical to Optical Transfer Function, or OOTF) is available in Colour Science for Python, together with the matrices to transform to CIE XYZ, referred to as the Normalized Primary Matrix (NPM) of a color space, and their inverses.
-     </p>
-     <p>
-      <br/>
-     </p>
-     <hr/>
-     <a id="CHILD_LINKS">
-      <strong>
-       Subsections
-      </strong>
-     </a>
-     <ul class="ChildLinks">
-      <li>
-       <a href="rec-709.html" id="tex2html885">
-        Rec. 709
-       </a>
-      </li>
-      <li>
-       <a href="bt-1886.html" id="tex2html886">
-        BT.1886
-       </a>
-      </li>
-      <li>
-       <a href="srgb.html" id="tex2html887">
-        sRGB
-       </a>
-      </li>
-      <li>
-       <a href="rec-2020.html" id="tex2html888">
-        Rec. 2020
-       </a>
-      </li>
-      <li>
-       <a href="st-2084-pq.html" id="tex2html889">
-        ST.2084 / PQ
-       </a>
-      </li>
-      <li>
-       <a href="hybrid-log-gamma-hlg.html" id="tex2html890">
-        Hybrid Log Gamma (HLG)
-       </a>
-      </li>
-      <li>
-       <a href="p3-dci.html" id="tex2html891">
-        P3 DCI
-       </a>
-      </li>
-      <li>
-       <a href="p3-d65.html" id="tex2html892">
-        P3 D65
-       </a>
-      </li>
-      <li>
-       <a href="x-y-z.html" id="tex2html893">
-        X'Y'Z'
-       </a>
-      </li>
-      <li>
-       <a href="alexa-logc.html" id="tex2html894">
-        ALEXA LogC
-       </a>
-      </li>
-      <li>
-       <a href="blackmagic-film.html" id="tex2html895">
-        Blackmagic Film
-       </a>
-      </li>
-      <li>
-       <a href="canon-clog.html" id="tex2html896">
-        Canon CLog
-       </a>
-      </li>
-      <li>
-       <a href="gopro-protune.html" id="tex2html897">
-        GoPro ProTune
-       </a>
-      </li>
-      <li>
-       <a href="panasonic-v-log.html" id="tex2html898">
-        Panasonic V-Log
-       </a>
-      </li>
-      <li>
-       <a href="red-log3g10.html" id="tex2html899">
-        RED Log3G10
-       </a>
-      </li>
-      <li>
-       <a href="sony-slog.html" id="tex2html900">
-        Sony SLog
-       </a>
-      </li>
-      <li>
-       <a href="acescc.html" id="tex2html901">
-        ACEScc
-       </a>
-      </li>
-      <li>
-       <a href="acescct.html" id="tex2html902">
-        ACEScct
-       </a>
-      </li>
-      <li>
-       <a href="cineon.html" id="tex2html903">
-        Cineon
-       </a>
-      </li>
-     </ul>
-     <div class="navigation">
-      <br/>
-      <b>
-       Next:
-      </b>
-      <a href="rec-709.html">
-       Rec. 709
-      </a>
-      <b>
-       Up:
-      </b>
-      <a href="appendix.html">
-       Appendix
-      </a>
-      <b>
-       Previous:
-      </b>
-      <a href="appendix.html">
-       Appendix
-      </a>
-      &nbsp;
-      <b>
-       <a href="contents.html" id="tex2html884">
-        Contents
-       </a>
-      </b>
-     </div>
-    </div>
-   </div>
-  </div>
-  <!-- Footer -->
-  <footer class="page-footer font-small">
-   <div class="footer-copyright text-center py-3">
-    Copyright &copy; 2019 &ndash; Cinematic Color Authors &ndash;
-    <a href="mailto:ves-tech-color@googlegroups.com">
-     ves-tech-color@googlegroups.com
-    </a>
-   </div>
-  </footer>
-  <script src="assets/js/jquery.min.js">
-  </script>
-  <script src="assets/js/popper.min.js">
-  </script>
-  <script src="assets/js/bootstrap.min.js">
-  </script>
- </body>
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
+<title>Common RGB Color Encodings</title>
+<meta charset="utf-8" />
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
+"generator" />
+<meta content="width=device-width,initial-scale=1" name=
+"viewport" />
+<link href="cinematic-color.css" rel="stylesheet" type=
+"text/css" />
+<meta content="cinematic-color.tex" name="src" />
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
+"text/css" />
+<link href="assets/css/custom.css" rel="stylesheet" type=
+"text/css" />
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark"><a class=
+"navbar-brand" href="#">Cinematic Color 2</a>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="foreword.html" id="foreword" role=
+"button">Foreword</a>
+<div aria-labelledby="foreword" class="dropdown-menu"><a class=
+"dropdown-item" href="description.html">Description</a><a class=
+"dropdown-item" href="authorship.html">Authorship</a><a class=
+"dropdown-item" href="on-the-web.html">On the Web</a></div>
+</li>
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="introduction.html" id="introduction" role=
+"button">Introduction</a>
+<div aria-labelledby="introduction" class="dropdown-menu"><a class=
+"dropdown-item" href="intended-audience.html">Intended
+Audience</a><a class="dropdown-item" href=
+"how-to-read-this-document.html">How to Read this
+Document</a><a class="dropdown-item" href="the-goal.html">The
+Goal</a><a class="dropdown-item" href=
+"converging-approaches.html">Converging Approaches</a><a class=
+"dropdown-item" href="a-general-model-of-color-processing.html">A
+General Model of Color Processing</a><a class="dropdown-item" href=
+"color-management-challenges.html">Color Management
+Challenges</a></div>
+</li>
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="color-science.html" id="color-science" role=
+"button">Color Science</a>
+<div aria-labelledby="color-science" class="dropdown-menu">
+<a class="dropdown-item" href="about-color-science.html">About
+Color Science</a><a class="dropdown-item" href=
+"electromagnetic-spectrum.html">Electromagnetic
+Spectrum</a><a class="dropdown-item" href=
+"human-visual-system.html">Human Visual System</a><a class=
+"dropdown-item" href="basic-colorimetry.html">Basic
+Colorimetry</a><a class="dropdown-item" href=
+"advanced-colorimetry.html">Advanced Colorimetry</a><a class=
+"dropdown-item" href="representing-color.html">Representing
+Color</a><a class="dropdown-item" href=
+"color-imaging-systems.html">Color Imaging Systems</a></div>
+</li>
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="workflow.html" id="workflow" role=
+"button">Workflow</a>
+<div aria-labelledby="workflow" class="dropdown-menu"><a class=
+"dropdown-item" href="about-workflow.html">About
+Workflow</a><a class="dropdown-item" href=
+"academy-color-encoding-system-aces.html">Academy Color Encoding
+System (ACES)</a><a class="dropdown-item" href="the-look.html">The
+Look</a><a class="dropdown-item" href="on-set.html">On
+Set</a><a class="dropdown-item" href=
+"visual-effects-animation-and-games.html">Visual Effects, Animation
+and Games</a><a class="dropdown-item" href=
+"compositing.html">Compositing</a><a class="dropdown-item" href=
+"di-grading.html">DI Grading</a><a class="dropdown-item" href=
+"critical-monitoring.html">Critical Monitoring</a><a class=
+"dropdown-item" href="finishing.html">Finishing</a><a class=
+"dropdown-item" href="archives.html">Archives</a></div>
+</li>
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="appendix.html" id="appendix" role=
+"button">Appendix</a>
+<div aria-labelledby="appendix" class="dropdown-menu"><a class=
+"dropdown-item" href="common-rgb-color-encodings.html">Common RGB
+Color Encodings</a><a class="dropdown-item" href=
+"opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
+"dropdown-item" href="colour-science-for-python.html">Colour
+Science for Python</a><a class="dropdown-item" href=
+"luts-and-transforms.html">LUTs and Transforms</a><a class=
+"dropdown-item" href="asc-cdl.html">ASC CDL</a><a class=
+"dropdown-item" href="aces-ctl.html">ACES CTL</a><a class=
+"dropdown-item" href="full-and-legal-ranges.html">Full and Legal
+ranges</a><a class="dropdown-item" href=
+"color-difference-encoding.html">Color Difference
+Encoding</a><a class="dropdown-item" href=
+"camera-characterization.html">Camera Characterization</a><a class=
+"dropdown-item" href="file-formats.html">File Formats</a><a class=
+"dropdown-item" href="software.html">Software</a><a class=
+"dropdown-item" href=
+"acknowledgements.html">Acknowledgements</a></div>
+</li>
+<li class="nav-item"><a class="nav-link" href=
+"glossary.html">Glossary</a></li>
+<li class="nav-item"><a class="nav-link" href=
+"bibliography.html">Bibliography</a></li>
+</ul>
+<form class="form-inline my-2 my-md-0"><input class="form-control"
+placeholder="Search" type="text" /></form>
+</div>
+</nav>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<h3 class="sectionHead"><span class="titlemark">4.1</span> <a href=
+"cinematic-color.html#QQ2-34-137" id="x34-1330004.1">Common RGB
+Color Encodings</a></h3>
+<p class="noindent">An RGB color encoding is defined by its
+primaries, white point and transfer functions. Output-referred
+encodings have only an Electro-Optical Transfer Function (EOTF)
+which defines the relationship between code value and display
+light. This may be defined relative to display peak luminance, or
+as an absolute encoding in terms of display cd/m2. Scene-referred
+encodings have only an Opto-Electrical Transfer Function (OETF)
+which defines the relationship between relative scene light and the
+encoded value. Some encodings, such as Hybrid Log-Gamma (HLG),
+define a relationship to both scene and display light, so have both
+an OETF and and EOTF. Encoded values may be represented either as
+floating point numbers, or by integers at a specific bit depth. The
+equations given in the following sections are for the floating
+point form. Logarithmic encodings of image data can fit a high
+dynamic range into the 0-1 range, which makes them suitable for
+storing in integer file formats or transmitting over SDI.</p>
+<p class="indent">The primaries and white points of some common
+color encodings are plotted on the CIE 1931 chromaticity diagram
+above. The subsequent sections give more detail on the usage of
+each color encoding, together with the various encoding and
+decoding functions. The complete set of all forward and reverse
+encoding and decoding functions (an EOTF is not normally the
+inverse of the corresponding OETF, creating an Optical to Optical
+Transfer Function, or OOTF) is available in Colour Science for
+Python, together with the matrices to transform to CIE XYZ,
+referred to as the Normalized Primary Matrix (NPM) of a color
+space, and their inverses.</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.1</span>
+<a href="contents.html#QQ2-34-138" id="x34-1340004.1.1">Rec.
+709</a></h4>
+<p class="noindent">ITU-R BT.709, commonly referred to as Rec. 709,
+specifies a D65 white point and a piecewise transfer function. It
+is important to be aware that the transfer function given for Rec.
+709 is an encoding function (OETF) for a video camera, not an EOTF
+for a display, making it a scene-referred encoding. It is, in fact,
+rare to find the Rec. 709 curve implemented exactly in any camera,
+as video cameras often include a ‘knee’ for highlight compression
+and other user controls which cause the image to diverge from the
+standard. This means that it is not normally possible to accurately
+invert Rec. 709 material to scene-referred linear. Where necessary,
+ITU-R BT.2087-0 recommends the use of a simple square function to
+revert material from a Rec. 709 camera to scene-referred
+linear.</p>
+<p class="indent">The encoding function specified in Rec. 709
+is:</p>
+<p class="indent">if L <span class="cmsy-10">≥</span> 0.018: V =
+1.099 <span class="cmsy-10">×</span> L0.45 - 0.099 else: V = L
+<span class="cmsy-10">×</span> 4.5</p>
+<p class="indent">Where L is scene light, normalized to 0-1, and V
+is the encoded value. This output value is also normalized to 0-1
+but is usually stored as an integer, in either full or legal range
+(see Section 4.7).</p>
+<p class="indent">Red Green Blue White Point 0.640, 0.330 0.300,
+0.600 0.150, 0.060 0.3127, 0.3290 (D65)</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.2</span>
+<a href="contents.html#QQ2-34-139" id=
+"x34-1350004.1.2">BT.1886</a></h4>
+<p class="noindent">The ACES Still Life reference image encoded
+with the Rec. 709 (BT.1886) Output Transform. Copyright A.M.P.A.S.
+The EOTF used for display of Rec. 709 material is specified by
+ITU-R BT.1886, which was introduced later, as no EOTF was specified
+originally in Rec. 709. It is a variation on a gamma curve,
+intended to more accurately replicate the response of legacy CRT
+displays. The BT.1886 equation takes account of the black level of
+the display in use, but for display technologies, such as OLED,
+which are capable of producing a true black, BT.1886 becomes a pure
+2.4 gamma power law curve. In fact, standard practice is to
+calibrate OLED displays to a non-zero black level. However, when
+encoding material for an unspecified BT.1886 display, where the
+black level is unknown, the norm is to use a pure 2.4 gamma, as is
+done in the ACES Rec. 709 Output Transform, for example.</p>
+<p class="indent">A BT.1886 display uses the primaries as defined
+by Rec. 709, and the following EOTF:</p>
+<p class="indent">L = a <span class="cmsy-10">×</span> (V +
+b)2.4</p>
+<p class="indent">Where L is the screen luminance and V the encoded
+signal (ranged 0-1). The constants a and b are calculated from the
+target black level LB and white level LW (normally 100 cd/m2 for a
+grading reference monitor, but often considerably higher for a
+consumer TV) using the following equations: a = (LW1/2.4
+<span class="cmsy-10">-</span> LB1/2.4)2.4 b = LB1/2.4 / (LW1/2.4
+<span class="cmsy-10">-</span> LB1/2.4)</p>
+<p class="indent">When encoding desired display colorimetry for
+BT.1886 display, where the black level of the display is unknown
+(as is always the situation when delivering video for a wide
+audience) the recommended approach is to use a value of zero for
+LB. For this reason, the ACES Rec. 709 Output Transform uses pure
+2.4 gamma.</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.3</span>
+<a href="contents.html#QQ2-34-140" id=
+"x34-1360004.1.3">sRGB</a></h4>
+<p class="noindent">The ACES Still Life reference image encoded
+with the sRGB Output Transform. Copyright A.M.P.A.S. Due to
+differences in inherent display technologies, there is substantial
+variation in the appearance of RGB when the same code values are
+sent to multiple displays, making the unambiguous distribution of
+RGB imagery difficult. As a solution, a standard idealized computer
+display has been defined, sRGB, which real displays often attempt
+to reproduce. The intent of sRGB (Standard RGB) is to define the
+color characteristics of a standardized RGB display, such that
+imagery on one monitor matches the appearance of a different
+monitor. Older display technologies (such as CRTs) naturally
+approach the sRGB specification. However, modern technologies, such
+as LCD and OLED which have very different inherent image responses,
+typically provide an option to emulate the sRGB specification to
+maintain compatibility with existing imagery.</p>
+<p class="indent">sRGB uses the primaries and D65 white point
+specified in ITU-R BT.709, and thus can represent the same gamut of
+colors as Rec. 709.</p>
+<p class="indent">The sRGB encoding function is defined as:</p>
+<p class="indent">if L 0.003131: V = 1.055 <span class=
+"cmsy-10">×</span> L1/2.4 - 0.055 else: V = L <span class=
+"cmsy-10">×</span> 12.92</p>
+<p class="indent">Where L is the luminance of the image normalized
+to the range 0-1 and V is the resulting encoded signal. The sRGB
+encoded signal is commonly stored as an 8 bit integer, which would
+be round(V <span class="cmsy-10">×</span> 255).</p>
+<p class="indent">The sRGB decoding function is defined as:</p>
+<p class="indent">if V 0.04045: L = ((V + 0.055) / 1.055)2.4 else:
+L = V / 12.92</p>
+<p class="indent">There is some debate about the EOTF to be used
+for displaying sRGB image data. Since the sRGB transfer function
+approximates 2.2 gamma, some take from the specification that it
+defines an OETF to be used when encoding image data for a display
+with 2.2 gamma, and that the linear portion near black exists only
+to minimize quantization error in integer implementations. Others
+contend that the sRGB decoding function should be used as the EOTF
+so that the sRGB curve can be used to exactly encode desired
+display colorimetry.</p>
+<p class="indent">Since there is no agreement on this matter,
+outside a situation where both the encoding of the image data and
+the calibration of the display are within your control, it is not
+possible to be certain of the exact luminance which will result on
+an end user’s sRGB display from a given encoding.</p>
+<p class="indent">The situation is complicated still further by
+viewing environment. One of the aims of the sRGB specification was
+to define a standard for display of video material on a computer
+monitor such that there is a perceptual match between a video
+monitor in its expected viewing environment and a computer monitor
+in a brighter environment. This would suggest that video images
+should not be modified for viewing on a sRGB monitor, as the
+necessary compensation is already built into the display. ACES
+provides separate Output Transforms for Rec.709 and sRGB, intended
+to produce the same display colorimetry on the two display
+standards. This is however only an appropriate approach if the two
+displays are to be viewed in the same environment.</p>
+<p class="indent">Red Green Blue White Point 0.640, 0.330 0.300,
+0.600 0.150, 0.060 0.3127, 0.3290 (D65)</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.4</span>
+<a href="contents.html#QQ2-34-141" id="x34-1370004.1.4">Rec.
+2020</a></h4>
+<p class="noindent">The ACES Still Life reference image encoded
+with the Rec. 2020 100 nits Output Transform Copyright A.M.P.A.S.
+ITU-R BT.2020, commonly called Rec. 2020 defines a color space
+wider than Rec. 709, using D65 white, which was initially defined
+for wide gamut standard dynamic range encodings, but whose
+primaries have been adopted for HDR. These primaries are in fact
+normally used simply as encoding primaries, with the colors limited
+to a smaller gamut such as P3, since no current display covers the
+Rec. 2020 gamut. Like Rec. 709, the Rec. 2020 specification defines
+an encoding curve for a hypothetical SDR camera which is in fact
+almost never used. The OETF defined by Rec. 2020 is:</p>
+<p class="indent">if L <span class="cmsy-10">≥</span> : V =
+<span class="cmsy-10">×</span> L0.45 - ( - 1) else: V = L
+<span class="cmsy-10">×</span> 4.5</p>
+<p class="indent">The values of and are defined as 1.09929682680944
+and 0.018053968510807 respectively at full precision, but the
+document clarifies that for practical purposes in 10 bit systems
+the values 1.099 and 0.018 can be used (making this the same
+equation as that for Rec. 709) and for 12 bit systems, 1.0993 and
+0.0181 can be used.</p>
+<p class="indent">In SDR, Rec. 2020 specifies a display with a
+BT.1886 EOTF. But in fact, Rec. 2020 is more commonly used only as
+a set of primaries for an output referred encoding, together with
+either ST.2084 or HLG curves.</p>
+<p class="indent">Red Green Blue White Point 0.708, 0.292 0.170,
+0.797 0.131, 0.046 0.3127, 0.3290 (D65)</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.5</span>
+<a href="contents.html#QQ2-34-142" id="x34-1380004.1.5">ST.2084 /
+PQ</a></h4>
+<p class="noindent">The ACES Still Life reference image encoded
+with the ST.2084 1000 nits Output Transform. Copyright A.M.P.A.S.
+SMPTE ST.2084 is an output referred encoding curve used for high
+dynamic range displays, normally in conjunction with Rec. 2020
+primaries. It can encode values up to 10,000 cd/m2, and was
+originally specified by Dolby under the name PQ, for Perceptual
+Quantizer. To encode such a wide range without visible banding,
+ST.2084 requires at least 12 bit processing to be used in
+production. For delivery at least 10 bits are required, and
+although visible banding is possible at this bit depth, experiments
+by Dolby have indicated that noise present in real-world images
+makes this banding imperceptible. Integer codings may use either
+“narrow range” or “full range” (see section 4.7).</p>
+<p class="indent">Because PQ is perceptually uniform, it can be a
+useful working space for applying grades, or as a shaper for LUTs
+(see section 4.4.3) and some game engines do exactly this,
+transforming from linear to PQ in order to apply a look as a 3D
+LUT, and then transforming back to linear for further
+processing.</p>
+<p class="indent">ITU-R BT.2100 specifies both an OETF and EOTF for
+PQ, which are not the inverse of one another, creating a non-unity
+OOTF. While in theory, this allows PQ to be used as a scene
+referred encoding, in practice, no digital cinema camera currently
+implements this, and the encoding function exists in the spec only
+for completeness. It is important to be aware that the BT.2100 OETF
+is not the same as the OETF specified in SMPTE ST.2084, which is
+simply the inverse of the EOTF.</p>
+<p class="indent">The ST.2084 EOTF is an absolute encoding, defined
+by the following equation:</p>
+<p class="indent">L = 10000 <span class="cmsy-10">×</span> ((V1/m2
+- c1) / (c2 - c3 <span class="cmsy-10">×</span> V1/m2))1/m1</p>
+<p class="indent">Where L is the display luminance in cd/m2 and the
+constants are: m1 = 2610 / 16384 m2 = 2523 / 4096 <span class=
+"cmsy-10">×</span> 128 c1 = 3424 / 4096 c2 = 2413 / 4096
+<span class="cmsy-10">×</span> 32 c3 = 2392 / 4096 <span class=
+"cmsy-10">×</span> 32</p>
+<p class="indent">While the output of the ST.2084 EOTF is defined
+in absolute units of cd/m2, the input to the function is less
+rigorously defined. As such, there is some debate as to what
+transform to apply to scene-referred linear data before converting
+to ST.2084. The most basic approach would be to simply scale the
+scene-referred linear values to set diffuse white to a particular
+display brightness and then encode with the inverse of the ST.2084
+EOTF. However, this would make display light directly proportional
+to scene light and, as has been discussed in Section 2, due to the
+difference in absolute luminance and viewing environment, this will
+not normally give a perceptual match. Some form of view transform
+is usually required. This can be left to the colorist to add as
+part of the look, but a base transform which adds some contrast and
+roll-off in the highlights and shadows can be beneficial. It is
+also worth bearing in mind that the traditional lift, gamma, and
+gain operators are particularly unsuitable for acting on ST.2084
+image data, where 0-1 represent zero to 10,000 cd/m2. Highlights,
+in particular, can swing uncontrollably into extreme values as a
+result of small changes. Modern grading systems offer alternate
+grading operators tailored to the needs of HDR grading.</p>
+<p class="indent">The most universally available view transforms
+for HDR are the ACES Output Transforms. Versions are included for
+1000, 2000, and 4000 cd/m2. These aim to provide an HDR image which
+is perceptually similar to the result of the ACES SDR Output
+Transforms, placing diffuse white at about 86 cd/m2, and reserving
+the higher luminances for specular highlights and in-frame light
+sources. This is in line with the original intent of the ST.2084
+specification, which says that it “is intended to enable the
+creation of video images with an increased luminance range; not for
+the creation of video images with overall higher luminance levels.”
+However, as more experience has been gained with delivering in HDR,
+many people have come to feel that a higher level for diffuse white
+is preferable and that, particularly given the higher brightnesses
+of current consumer SDR televisions and computer displays, this
+gives a better perceptual match between SDR and HDR versions of the
+same image. ITU-R BT.2408-0 recommends setting diffuse white at 203
+cd/m2, but acknowledges that it is a creative choice. This kind of
+exposure offset can be achieved in ACES as part of an HDR specific
+Look Transform which simply applies gain in linear. The parametric
+Output Transforms which form part of ACES 1.1 include a parameter
+for “mid-point luminance” (18</p>
+<p class="indent">Some manufacturers implement view transforms for
+HDR in their cameras for on-set HDR monitoring, and provide LUTs
+which match those transforms for use in post. ARRI’s ALF-2 and
+RED’s IPP2 LUTs can be used as output transforms for LogC/ALEXA
+Wide Gamut and Log3G10/RED Wide Gamut working spaces respectively,
+and other color encodings can be transformed to those to make them
+suitable as input for the LUTs. Some grading systems implement
+these as options in their color management pipelines, and also
+offer their own proprietary view transforms. When using a
+proprietary tone mapping algorithm it is important to ensure that a
+method is available, usually by baking a LUT, for implementing the
+transforms in other software.</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.6</span>
+<a href="contents.html#QQ2-34-143" id="x34-1390004.1.6">Hybrid Log
+Gamma (HLG)</a></h4>
+<p class="noindent">The ACES Still Life reference image encoded
+with the HLG Output Transform. Notice that the image looks
+“normal”, if somewhat muted on an SDR display. Copyright A.M.P.A.S.
+Hybrid Log Gamma is an encoding designed by the BBC in
+collaboration with NHK. It is defined as a scene referred encoding
+so is based on an OETF but also defines an EOTF to work in
+conjunction with it. When concatenated, these produce the
+encoding’s OOTF, a system gamma, which defines the relationship
+between scene light and display light. The HLG OOTF is a power
+function whose exponent is dependent on the peak white of the
+particular display. It is also, unlike most transfer functions, not
+simply applied to each RGB component independently, but rather it
+incorporates the luminance value, a weighted sum of the three
+linear components, in the calculation.</p>
+<p class="indent">Part of the design intent of HLG is that the OETF
+encodes a high dynamic range scene using a curve which is broadly
+similar to that which might be used by a traditional SDR video
+camera with a highlight compressing ‘knee’. This means that an HLG
+signal displayed on an SDR monitor, which has no way of
+interpreting the signal as HDR and simply applies a BT.1886 EOTF,
+will produce a reasonable looking image. Because HLG encodings
+normally use Rec. 2020 primaries, rather than Rec. 709, the image
+is likely to look somewhat desaturated, but it will be watchable.
+This backward compatibility is intended to enable HLG signals to be
+processed through legacy SDR infrastructure in studios and outside
+broadcast trucks, without all monitors needing to be replaced with
+HDR displays. In order to provide this kind of compatibility, it is
+recommended to set exposure so diffuse white falls at 75</p>
+<p class="indent">Whilst HLG provides additional headroom for
+highlights by ‘emulating’ a traditional SDR camera knee, a large
+increase in dynamic range is also achieved by no longer using a
+linear part of the OETF near black. This is a significant
+difference from the SDR Rec. 709 curve. Not having a linear portion
+to the OETF means that noise reduction in the blacks must be
+achieved by alternative processing in the camera.</p>
+<p class="indent">The HLG encoding function is defined by ITU-R
+BT.2100 as:</p>
+<p class="indent">If L <span class="cmsy-10">≤</span> 1/12: V =
+sqrt(3 <span class="cmsy-10">×</span> L) else: V = a <span class=
+"cmsy-10">×</span> ln(12 <span class="cmsy-10">×</span> L - b) +
+c</p>
+<p class="indent">Where the constants are:</p>
+<p class="indent">a = 0.17883277 b = 1 - 4 <span class=
+"cmsy-10">×</span> a c = 0.5 - a <span class="cmsy-10">×</span>
+ln(4 <span class="cmsy-10">×</span> a)</p>
+<p class="indent">And L is normalized such that the entire scene
+dynamic range to be encoded is scaled to the 0-1 range.</p>
+<p class="indent">The HLG EOTF is defined in terms of its OOTF,
+which is:</p>
+<p class="indent">RD = <span class="cmsy-10">×</span> YS-1
+<span class="cmsy-10">×</span> RS GD = <span class=
+"cmsy-10">×</span> YS-1 <span class="cmsy-10">×</span> GS BD =
+<span class="cmsy-10">×</span> YS-1 <span class="cmsy-10">×</span>
+BS</p>
+<p class="indent">Where [RS, GS, BS] is the scene light for the
+three components, and [RD, GD, BD] is the display light for the
+components. YS is the scene luminance, calculated as:</p>
+<p class="indent">YS = 0.2627 <span class="cmsy-10">×</span> RS +
+0.6780 <span class="cmsy-10">×</span> GS + 0.0593 <span class=
+"cmsy-10">×</span> BS</p>
+<p class="indent">And: = LW = 1.2 + 0.42 <span class=
+"cmsy-10">×</span> Log10(LW <span class="cmtt-10">[U+FFFC]</span>/
+1000)</p>
+<p class="indent">The values of RS, GS and BS are derived by
+inverting the encoding function for each component using the
+following formula:</p>
+<p class="indent">E = max(0, V <span class="cmsy-10">×</span> (1 -
+) + ) If E <span class="cmsy-10">≤</span> 0.5: L = E2 / 3 else: L =
+(exp((E - c) / a) + b) / 12 Where: = sqrt(3 <span class=
+"cmsy-10">×</span> (LB / LW)1/)</p>
+<p class="indent">In practice, while HLG may be used as a scene
+referred encoding in situations such as live sports broadcasting,
+an HLG deliverable is often created from an ST.2084
+display-referred master by applying the ST.2084 EOTF followed by
+the inverse HLG EOTF for a notional 1000 cd/m2 display to compute
+the HLG signal needed to produce the same displayed image as the
+ST.2084 signal.</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.7</span>
+<a href="contents.html#QQ2-34-144" id="x34-1400004.1.7">P3
+DCI</a></h4>
+<p class="noindent">The ACES Still Life reference image encoded
+with the P3 DCI Output Transform. Note that this output transform
+includes a “D60 sim”, giving the image a slight magenta tint when
+viewed on an sRGB (D65) display. On the intended P3 DCI display
+neutrals would appear with ACES (&nbsp;D60) white. Copyright
+A.M.P.A.S. DCI-P3 is a color space commonly used in digital cinema
+production, as it is well suited to theatrical presentation since
+it describes the native primaries of a DLP projector. Whereas the
+sRGB specification uses a color encoding suited for the desktop
+environment, the DCI-P3 specification uses a color encoding suited
+for theatrical luminance levels.</p>
+<p class="indent">A projector calibrated to DCI-P3 uses a pure 2.6
+gamma EOTF with a white point of 0.314, 0.351. The P3 primaries are
+wide-gamut relative to desktop standards; pure sRGB red is
+relatively desaturated with a distinctly orange-red hue, while pure
+P3 red is “blood” red, almost on the spectral locus. The DCI white
+point is not necessarily the creative white point used in
+mastering. Productions are free to master to any white point they
+prefer, provided all mastered colors fall within the allowed DCI
+gamut. Indeed, for artistic considerations, the DCI white point is
+often avoided due to its greenish cast relative to the daylight
+curve.</p>
+<p class="indent">Red Green Blue White Point 0.680, 0.320 0.265,
+0.690 0.150, 0.060 0.314, 0.351</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.8</span>
+<a href="contents.html#QQ2-34-145" id="x34-1410004.1.8">P3
+D65</a></h4>
+<p class="noindent">The ACES Still Life reference image encoded
+with the P3 D65 48 nits Output Transform. Copyright A.M.P.A.S. The
+Primaries of P3 are also used in combination with a D65 white
+point. Where projectors are calibrated to P3 D65 the same 2.6 gamma
+as P3 DCI is used, but for wide gamut desktop displays the EOTF
+used is 2.2 gamma. In addition, P3 D65 is often used as a “limiting
+gamut” when a wider gamut such as BT. 2020 is used as the encoding
+gamut, but where the target display is not capable of covering that
+gamut.</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.9</span>
+<a href="contents.html#QQ2-34-146" id=
+"x34-1420004.1.9">X’Y’Z’</a></h4>
+<p class="noindent">The ACES Still Life reference image encoded
+with the DCDM Output Transform. On an sRGB display it is low
+contrast (due to the 2.6 gamma) and the colors appear incorrect,
+since XYZ values are being interpreted as if they were RGB.
+Copyright A.M.P.A.S. The Digital Cinema Initiative (DCI)
+specification defines the standard for digital cinema mastering and
+theatrical exhibition, including colorimetry. The encoding
+specified for DCP mastering is X’Y’Z‘ (called “x-prime, y-prime,
+z-prime”). It is an output-referred, gamma 2.6 encoding of CIE-XYZ,
+with a reference white at 48cd/m2. As the X’Y’Z’ coding space spans
+an area larger than the visual gamut, the minimum display gamut
+specified by DCI is that of P3.</p>
+<p class="indent">The intent of the X’Y’Z’ coding space is
+display-referred, such that the full-color appearance of the
+theatrical imagery, such as any film emulation 3D LUTs, are fully
+baked into the X’Y’Z’ image. Therefore, an image in X’Y’Z’ is
+completely unambiguous; there should be essentially no color
+variation between properly calibrated theatrical digital
+projectors. The DCI specification chose a gamma 2.6 encoding after
+a series of perceptual experiments using “golden-eye observers” to
+maximize the bit-depth fidelity under theatrical viewing
+conditions. DCI specifies 12 bits per channel, which is intended to
+prevent banding artifacts under even the most trying conditions.
+DCI also specifies a series of color patches which are useful in
+calibration. (Please refer to the DCI specification for additional
+details.) X’Y’Z’ files are encoded using JPEG-2000 compression,
+which is a lossy, wavelet compression codec. No inter-frame
+compression is used, which allows for both forward and backward
+scrubbing. The DCI specification also defines two resolutions known
+as “2K” and “4K”. The 2K raster is 2048x1080 and the 4K raster is
+4096x2160. DCI compliant films must fill at least one of these
+axes. Material with an aspect ratio of 1.85:1 - “flat” - is
+typically delivered for a 2K release at 1998x1080, and 2.39:1 -
+“scope” - is delivered for a 2K release at 2048x858. For 4K
+release, double these sizes. DCP encoders accept 16 bit tiffs, so
+the convention is to utilize the full 16 bit coding range of
+0-65535, and then to let the compressor just use the high order 12
+bits.</p>
+<p class="indent">The method for conversion from a DCI P3 encoding
+to X’Y’Z’ is: XYZ = 0.44516982 0.27713441 0.17228267 R2.6
+0.20949168 0.72159525 0.06891307 <span class="cmsy-10">×</span>
+G2.6 0.00000000 0.04706056 0.90735539 B2.6 X’Y’Z’ = round(4095
+<span class="cmsy-10">×</span> (clamp(XYZ) <span class=
+"cmsy-10">×</span> 48 / 52.37)1/2.6) Where R, G and B are 2.6 gamma
+coded DCI P3 values in the range 0-1.</p>
+<p class="indent">The matrix shown converts [1, 1, 1] to [3794,
+3960, 3890], the reference code values for DCI white. A different
+matrix is needed for material mastered to a different white point,
+i.e. encoded for a projector with a different white point and a
+viewer adapted to that white. A change of creative white baked into
+a P3-DCI encoding (such as the ACES “D60 sim”) does not require a
+change of matrix.</p>
+<p class="indent">The value of 48/52.37 is called the normalizing
+constant and is included to permit mastering with creative white
+points other than the DCI calibration white. Equal DCDM code values
+produce Equal Energy white (Illuminant E – the result of a flat
+spectral power distribution). Unequal code values are needed to
+produce other whites, such as DCI white, or D65. If code values of
+[4095, 4095, 4095] produced Equal Energy white at 48 cd/m2, the
+values needed to produce D65 white at 48 cd/m2 would be [4016,
+4095, 4232] and 4232 is outside the range possible with 12 bit
+integer coding.</p>
+<p class="indent">See Kennel (2007) for additional details on
+mastering for digital cinema. The full DCI specification by Digital
+Cinema Initiatives (2018) is freely available online; highly
+recommended reading for those involved in theatrical mastering.</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.10</span>
+<a href="contents.html#QQ2-34-147" id="x34-1430004.1.10">ALEXA
+LogC</a></h4>
+<p class="noindent">LogC is the encoding used in the ARRI ALEXA
+series of cameras, including the AMIRA. It is used together with
+the ALEXA Wide Gamut primaries and a white point of D65. The exact
+encoding curve varies slightly with the Exposure Index (EI) set on
+the camera, keeping 18</p>
+<p class="indent">if L cut: V = c <span class="cmsy-10">×</span>
+log10(a <span class="cmsy-10">×</span> L + b) + d else: V = e
+<span class="cmsy-10">×</span> L + f</p>
+<p class="indent">At EI800 the values of the constants are:</p>
+<p class="indent">cut = 0.010591 a = 5.555556 b = 0.052272 c =
+0.247190 d = 0.385537 e = 5.367655 <span class=
+"cmtt-10">[U+FFFC]</span> f = 0.092809</p>
+<p class="indent">The decoding function is:</p>
+<p class="indent">if V e <span class="cmsy-10">×</span> cut + f: L
+= (10(V <span class="cmsy-10">-</span> d) / c <span class=
+"cmsy-10">-</span> b) / a else: (V <span class="cmsy-10">-</span>
+f) / e</p>
+<p class="indent">Red Green Blue White Point 0.6840, 0.3130 0.2210,
+0.8480 0.0861, -0.1020 0.3127, 0.3290 (D65)</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.11</span>
+<a href="contents.html#QQ2-34-148" id="x34-1440004.1.11">Blackmagic
+Film</a></h4>
+<p class="noindent">Cameras from Blackmagic Design (BMD) use
+different log encoding curves, depending on the model. The
+mathematical encoding curves are not currently published, and
+neither are the primaries. However 1D LUTs for linearization are
+provided with DaVinci Resolve, and these can be used in other
+applications. The encoding primaries of log material from
+Blackmagic cameras can be converted using the Colour Space effect
+in Resolve.</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.12</span>
+<a href="contents.html#QQ2-34-149" id="x34-1450004.1.12">Canon
+CLog</a></h4>
+<p class="noindent">Canon cameras offer a range of options for
+encoding curves and primaries, making for a very large number of
+permutations. Primaries can be selected from Cinema Gamut, Rec.
+2020 and Rec. 709 (see sections above for the latter three). For
+the encoding curve, there is a choice of Canon Log 1, 2 and 3. It
+is important to ascertain which primaries and Canon Log variant
+were used when shooting, in order to linearize correctly and
+transform to the working color space. Many applications are unable
+to read the Canon metadata which specifies the recording primaries
+and encoding curve, so it can be useful to open the media in the
+Canon XF Utility, available from Canon’s website, and make a note
+of the settings.</p>
+<p class="indent">The latest iteration of Canon Log is Canon Log 3,
+for which the encoding function is:</p>
+<p class="indent">if L -0.014: V = <span class=
+"cmsy-10">-</span>0.42889912 <span class="cmsy-10">×</span> log10(1
+- 14.98325 <span class="cmsy-10">×</span> L) + 0.07623209 else if L
+<span class="cmsy-10">≤</span> 0.014: V = 2.3069815 <span class=
+"cmsy-10">×</span> L + 0.073059361 else: V = 0.42889912
+<span class="cmsy-10">×</span> log10(1 + 14.98325 <span class=
+"cmsy-10">×</span> L) + 0.069886632</p>
+<p class="indent">However, this is complicated by the fact that
+this formula takes as its input what Canon refers to as “linear
+IRE”. This is given by dividing the more commonly used reflectance
+value by 0.9. Thus 18</p>
+<p class="indent">Bearing the above in mind, the decoding function
+for Canon Log 3 “IRE” to “linear IRE” is:</p>
+<p class="indent">if V 0.04076162: L = - (10(0.07623209
+<span class="cmsy-10">-</span> V ) / 0.42889912 <span class=
+"cmsy-10">-</span> 1) / 14.98325 else if V <span class=
+"cmsy-10">≤</span> 0.105357102: L = (V - 0.073059361) / 2.3069815
+else: L = (10( V <span class="cmsy-10">-</span> 0.069886632 ) /
+0.42889912 <span class="cmsy-10">-</span> 1) / 14.98325</p>
+<p class="indent">Red Green Blue White Point 0.740, 0.270 0.170,
+1.140 0.080, -0.100 0.3127, 0.3290 (D65)</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.13</span>
+<a href="contents.html#QQ2-34-150" id="x34-1460004.1.13">GoPro
+ProTune</a></h4>
+<p class="noindent">ProTune “Flat” is a log mode available in the
+GoPro range of action cameras. It allows disabling of much of the
+image processing normally applied in camera. The curve encodes the
+range 0-1 to log values in the range 0-1, so linearization will not
+yield values 1 unless gain is subsequently applied. Equally, the
+curve is not able to encode negative values, but because the sensor
+A/D has a black offset, this should be subtracted after
+linearization, which may result in some negative values.</p>
+<p class="indent">The encoding function is:</p>
+<p class="indent">V = ln(L <span class="cmsy-10">×</span> 112 + 1)
+/ ln(113)</p>
+<p class="indent">The decoding function is:</p>
+<p class="indent">L = (113V <span class="cmsy-10">-</span> 1) /
+112</p>
+<p class="indent">Red Green Blue White Point 0.698448, 0.193026
+0.329555, 1.024597 0.108443, -0.034679 0.3127, 0.3290 (D65)</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.14</span>
+<a href="contents.html#QQ2-34-151" id="x34-1470004.1.14">Panasonic
+V-Log</a></h4>
+<p class="noindent">V-Log, paired with V-Gamut is the log recording
+format used by the Panasonic Varicam range of cameras, as well as
+the AU-EVA1. Some of the lower end Panasonic cameras such as the
+Lumix range offer V-Log L recording. This uses exactly the same
+curve as V-Log, simply with the upper part of the dynamic range
+unused, so the same linearization function can be used.</p>
+<p class="indent">The V-Log encoding function is:</p>
+<p class="indent">if L 0.01: V = 5.6 <span class="cmsy-10">×</span>
+L + 0.125 else: V = c <span class="cmsy-10">×</span> log10(L + b) +
+d</p>
+<p class="indent">Where the constants are:</p>
+<p class="indent">b = 0.00873 c = 0.241514 d = 0.598206</p>
+<p class="indent">The V-Log decoding function is:</p>
+<p class="indent">if V 0.181: L = (V <span class="cmsy-10">-</span>
+0.125) / 5.6 else: L = 10.0(V <span class="cmsy-10">-</span> d) / c
+– b</p>
+<p class="indent">Red Green Blue White Point 0.730, 0.280 0.165,
+0.840 0.100, -0.030 0.3127, 0.3290 (D65)</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.15</span>
+<a href="contents.html#QQ2-34-152" id="x34-1480004.1.15">RED
+Log3G10</a></h4>
+<p class="noindent">Over the years, RED have used various log
+encodings and primaries with their cameras, and the details of
+these have not been published. The current RED IPP2 image
+processing uses primaries called RED Wide Gamut RGB, paired with a
+log encoding called Log3G10, the details of which have been
+published in a white paper. The numbers 3 and 10 in the name
+indicate that 18</p>
+<p class="indent">The encoding function is:</p>
+<p class="indent">if L -0.01: V = (L + 0.01) <span class=
+"cmsy-10">×</span> 15.1927 else: V = a <span class=
+"cmsy-10">×</span> log10(b <span class="cmsy-10">×</span> (L +
+0.01) + 1)</p>
+<p class="indent">Where the constants are:</p>
+<p class="indent">a = 0.224282 b = 155.975327</p>
+<p class="indent">The decoding function is:</p>
+<p class="indent">if V 0: L = (V / 15.1927) <span class=
+"cmsy-10">-</span> 0.01 else: L = ((10V / a <span class=
+"cmsy-10">-</span> 1) / b) <span class="cmsy-10">-</span> 0.01</p>
+<p class="indent">Red Green Blue White Point 0.780308, 0.304253
+0.121595, 1.493994 0.095612, -0.084589 0.3127, 0.3290 (D65)</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.16</span>
+<a href="contents.html#QQ2-34-153" id="x34-1490004.1.16">Sony
+SLog</a></h4>
+<p class="noindent">Sony has offered a range of encoding curves in
+their cameras, with the latest being S-Log3. The original S-Log is
+now deprecated, and not something likely to be seen on current
+productions. S-Log2 and S-Log3 are still both current. S-Log2 is
+normally paired with S-Gamut primaries, whereas S-Log3 may be
+paired either with S-Gamut3 or S-Gamut3.Cine primaries. S-Gamut and
+S-Gamut3 use the same wide gamut primaries; it is simply that the
+matrices used in the camera to transform to them from the sensor
+native color space are different. As has been mentioned previously
+in Section 3.3.1, a 3x3 camera matrix can only ever be an
+approximation of the ideal transform to set of encoding primaries.
+S-Gamut and S-Gamut3 use different optimizations. S-Gamut3 has the
+additional advantage that the transform to ACES is the same at all
+color temperatures, whereas for S-Gamut, two Input Transforms are
+provided by Sony for use under tungsten and daylight. S-Gamut3.Cine
+is slightly less wide gamut than S-Gamut3, and was designed to be
+more closely aligned with P3 primaries, making manual grading to P3
+simpler. In a scene-referred workflow there is no benefit to this,
+and indeed recording in S-Gamut3.Cine will clip some colors which
+may be present in the scene, compared to S-Gamut3. Nonetheless,
+many people use S-Gamut3.Cine as the default camera setting, so it
+is important to ascertain which was used. As with Canon footage,
+using Sony’s own software can be a useful way of reading metadata
+from the files which might not otherwise be available. Some Sony
+cameras also include XML files with the media, which can provide
+useful information.</p>
+<p class="indent">The S-Log2 encoding function is:</p>
+<p class="indent">if L <span class="cmsy-10">≥</span> 0: V = (64 +
+876<span class="cmsy-10">×</span>(0.432699 <span class=
+"cmsy-10">×</span> log10(155 <span class="cmsy-10">×</span> L /
+197.1 + 0.037584) + 0.646596)) / 1023 else: V = (64 + 876
+<span class="cmsy-10">×</span> (L <span class="cmsy-10">×</span>
+3.53881278538813 / 0.9 + 0.030001222851889303)) / 1023</p>
+<p class="indent">The S-Log3 encoding function is:</p>
+<p class="indent">if L <span class="cmsy-10">≥</span> 0.01125: V =
+(420 + log10((L + 0.01) / 0.19) <span class="cmsy-10">×</span>
+261.5) / 1023 else: V = (L <span class="cmsy-10">×</span>
+76.2102946929 / 0.01125 + 95) / 1023</p>
+<p class="indent">The S-Log2 decoding function is:</p>
+<p class="indent">if V <span class="cmsy-10">≥</span> (64 +
+0.030001222851889303 <span class="cmsy-10">×</span> 876) / 1023: L
+= 197.1<span class="cmsy-10">×</span>(10((V<span class=
+"cmsy-10">×</span>1023 – 64) / 876 – 0.646596) / 0.432699 –
+0.037584) / 155 else: L = 0.9<span class="cmsy-10">×</span>(
+(V<span class="cmsy-10">×</span>1023 <span class="cmsy-10">-</span>
+64) / 876 – 0.030001222851889303 ) / 3.53881278538813</p>
+<p class="indent">The S-Log3 decoding function is:</p>
+<p class="indent">if V <span class="cmsy-10">≥</span>
+171.2102946929 / 1023: L = 10(V <span class="cmsy-10">×</span> 1023
+<span class="cmsy-10">-</span> 420) / 261.5 <span class=
+"cmsy-10">×</span> 0.19 <span class="cmsy-10">-</span> 0.01 else: L
+= (V <span class="cmsy-10">×</span> 1023 – 95) <span class=
+"cmsy-10">×</span> 0.01125000 / 76.2102946929</p>
+<p class="indent">Red Green Blue White Point 0.730, 0.280 0.140,
+0.855 0.100, -0.050 0.3127, 0.3290 (D65)</p>
+<p class="indent">Red Green Blue White Point 0.766, 0.275 0.225,
+0.800 0.089, -0.087 0.3127, 0.3290 (D65)</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.17</span>
+<a href="contents.html#QQ2-34-154" id=
+"x34-1500004.1.17">ACEScc</a></h4>
+<p class="noindent">ACEScc is a logarithmic variant of the ACES
+color space for use in grading. It is a pure log curve, so each
+stop change of exposure is represented by an equal offset of the
+ACEScc value throughout the range. It uses AP1 primaries, which are
+the same as those used by ACEScg. Being a pure log curve, ACEScc
+cannot encode negative values (although the ACES spec asks that
+implementers provide some means of handling negative values in
+order to preserve them through a transform to ACEScc and back). It
+encodes a very wide dynamic range, with 1.0 representing a linear
+value of 222.86, or 10.27 stops above mid-grey.</p>
+<p class="indent">An integer form of ACEScc is ACESproxy, designed
+for on set live grading, such that CDL corrections applied to the
+0-100</p>
+<p class="indent">ACESproxy = 16 <span class="cmsy-10">×</span>
+2n-8 + clamp(ACEScc) <span class="cmsy-10">×</span> 219<span class=
+"cmsy-10">×</span> 2n-8</p>
+<p class="indent">Where n is the bit depth.</p>
+<p class="indent">The encoding function of ACEScc is:</p>
+<p class="indent">if L <span class="cmsy-10">≥</span> 0: V = (9.72
+<span class="cmsy-10">-</span> 16) / 17.52 else if L 2-15: V =
+(log2(2-16 + L <span class="cmsy-10">×</span> 0.5) + 9.72) / 17.52
+else: V = (log2(L) + 9.72) / 17.52</p>
+<p class="indent">The decoding function is:</p>
+<p class="indent">If V <span class="cmsy-10">≤</span> (9.72 - 15) /
+17.52: L = (2V <span class="cmsy-10">×</span> 17.52 <span class=
+"cmsy-10">-</span> 9.72 <span class="cmsy-10">-</span> 2-16)
+<span class="cmsy-10">×</span> 2 else if V (log2(65504) + 9.72) /
+17.52: L = 2V <span class="cmsy-10">×</span> 17.52 <span class=
+"cmsy-10">-</span> 9.72 else: L = 65504</p>
+<p class="indent">Red Green Blue White Point 0.713, 0.293 0.165,
+0.830 0.128, 0.044 0.32168, 0.33767</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.18</span>
+<a href="contents.html#QQ2-34-155" id=
+"x34-1510004.1.18">ACEScct</a></h4>
+<p class="noindent">ACEScct is a variation on ACEScc, which is
+identical through most of the curve but adds a linear portion near
+black to create a toe, and to allow for the encoding of negative
+values. Because the toe of the resulting curve makes it more
+similar to camera log encodings than the pure log of ACEScc, it
+responds in a more comparable way to grading operations.</p>
+<p class="indent">The ACEScct encoding function is:</p>
+<p class="indent">if L <span class="cmsy-10">≤</span> 0.0078125: V
+= 10.5402377416545 <span class="cmsy-10">×</span> L +
+0.0729055341958355 else: V = (log2(L) + 9.72) / 17.52</p>
+<p class="indent">The decoding function is:</p>
+<p class="indent">if V <span class="cmsy-10">≤</span>
+0.155251141552511: L = (V <span class="cmsy-10">-</span>
+0.0729055341958355) / 10.5402377416545 else if V (log2(65504) +
+9.72) / 17.52: L = 2V <span class="cmsy-10">×</span> 17.52
+<span class="cmsy-10">-</span> 9.72 else: L = 65504</p>
+<p class="noindent"></p>
+<h4 class="subsectionHead"><span class="titlemark">4.1.19</span>
+<a href="contents.html#QQ2-34-156" id=
+"x34-1520004.1.19">Cineon</a></h4>
+<p class="noindent">The Cineon log encoding differs from digital
+motion-picture camera log encodings in that Cineon is a logarithmic
+encoding of the actual optical density of the film negative. The
+non-linearities and cross-channel effects of film mean that there
+are no CIE xy values which can be said to be the primaries of a
+Cineon encoding. This means that there is not one formula which
+precisely reverts Cineon film scans to scene-referred linear.
+Various functions are proposed for linearising film scans.</p>
+<p class="indent">The Cineon linearization function used by Nuke
+(which RED also use as REDlogFIlm) is: L = (10(1023 <span class=
+"cmsy-10">×</span> V - 685) / 300 <span class="cmsy-10">-</span>
+0.0108) / (1 <span class="cmsy-10">-</span> 0.0108)</p>
+<p class="indent">And its inverse is: V = (log10(V <span class=
+"cmsy-10">×</span> (1 <span class="cmsy-10">-</span> 0.0108) +
+0.0108) <span class="cmsy-10">×</span> 300 + 685) / 1023</p>
+<p class="indent">Another option is the ‘Pivoted log lin’ formula
+(PLogLin): L = 10.0(V <span class="cmsy-10">×</span> 1023
+<span class="cmsy-10">-</span> 445) <span class="cmsy-10">×</span>
+0.002 / 0.6 <span class="cmsy-10">×</span> 0.18</p>
+<p class="indent">And its inverse: V = (log10(L / 0.18)
+<span class="cmsy-10">×</span> 0.6 / 0.002 + 445) / 1023</p>
+<p class="indent">The constants in the PLogLin equation are derived
+from a linear grey value of 0.18 mapping to a 10 bit value of 445,
+and a negative gamma of 0.6 with a density of 0.002 per 10 bit code
+value.</p>
+<div class="crosslinks">
+<p class="noindent">[<a href="opencolorio-ocio.html">next</a>]
+[<a href="common-rgb-color-encodings.html">front</a>] [<a href=
+"appendix.html#common-rgb-color-encodings.html">up</a>]</p>
+</div>
+<p class="indent"><a id=
+"tailcommon-rgb-color-encodings.html"></a></p>
+</div>
+<div class="col-md-2"></div>
+</div>
+</div>
+<footer class="page-footer font-small">
+<div class="footer-copyright text-center py-3">Copyright © 2019 ‐
+Cinematic Color Authors ‐ <a href=
+"mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a></div>
+</footer>
+<script src="assets/js/jquery.min.js"></script> 
+<script src="assets/js/popper.min.js"></script> 
+<script src="assets/js/bootstrap.min.js"></script>
+</body>
 </html>
