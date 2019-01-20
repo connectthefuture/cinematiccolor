@@ -32,7 +32,7 @@ ENCODING = 'utf-8'
 
 NAVBAR_TEMPLATE = """
 <!-- Navbar -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
     <a class="navbar-brand" href="#">Cinematic Color 2</a>
     <button
         class="navbar-toggler"
@@ -47,7 +47,7 @@ NAVBAR_TEMPLATE = """
     </button>
     <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto"></ul>
-        <form class="form-inline my-2 my-md-0">
+        <form class="form-inline my-3 my-md-0">
             <input class="form-control" type="text" placeholder="Search" />
         </form>
     </div>
@@ -71,7 +71,7 @@ NAVBAR_A_TEMPLATE = '<a class="nav-link" href="{href}">{text}</a>'
 
 SUBTITLE_TEMPLATE = '<h2 class="sub-title">{text}</h2>'
 
-AUTHORS_TEMPLATE = '<span>{text}</span>'
+AUTHORS_TEMPLATE = '<p class="pt-3">{text}</p>'
 
 
 def _sanitize_filename(filename):
@@ -307,7 +307,6 @@ def process_title(path):
 
         # Formatting "author" div.
         div = section.find('div', **{'class_': 'author'}).extract()
-        div['class_'] = 'author py-3'
         for br in div.find_all('br'):
             br.extract()
 
@@ -320,11 +319,10 @@ def process_title(path):
 
             child.extract()
 
-        div.append(
+        container.append(
             BeautifulSoup(
                 AUTHORS_TEMPLATE.format(**{'text': '; '.join(authors)}),
-                'html.parser').find('span'))
-        container.append(div)
+                'html.parser').find('p'))
 
         # Removing unused "<br>" tag.
         list(section.find_all('br'))[-1].extract()
