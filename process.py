@@ -305,9 +305,6 @@ def process_title(path):
             'html.parser').find('h2')
         container.append(h2)
 
-        # Removing unused "date" "div".
-        section.find('div', **{'class_': 'date'}).extract()
-
         # Formatting "author" div.
         div = section.find('div', **{'class_': 'author'}).extract()
         div['class_'] = 'author py-3'
@@ -317,8 +314,10 @@ def process_title(path):
         authors = []
         for child in div.children:
             author = child.string.strip()
+
             if author:
                 authors.append(author)
+
             child.extract()
 
         div.append(
@@ -327,7 +326,7 @@ def process_title(path):
                 'html.parser').find('span'))
         container.append(div)
 
-        # Removing unused "br" tag.
+        # Removing unused "<br>" tag.
         list(section.find_all('br'))[-1].extract()
 
     with codecs.open(path, 'w', encoding=ENCODING) as html_file:
@@ -355,10 +354,38 @@ def process_html(path, navigation):
 
     with codecs.open(path, encoding=ENCODING) as html_file:
         html = BeautifulSoup(html_file, 'html5lib')
+
         # Removing comments.
         comments = html.find_all(text=lambda text: isinstance(text, Comment))
         for comment in comments:
             comment.extract()
+
+        # Removing empty "<p>" tags of class "indent" of "noindent".
+        p_i = html.body.find_all('p', **{'class_': ['indent', 'noindent']})
+        for p in p_i:
+            extract = True
+            for child in p.children:
+                if not isinstance(child, NavigableString) and child is not None:
+                    extract = False
+                    break
+                else:
+                    if len(child.string.strip()) != 0:
+                        extract = False
+                        break
+
+            if extract:
+                p.extract()
+
+        # Cleanup "<pre>" tags of class "listings".
+        pre_l = html.body.find_all('pre', **{'class_': 'listings'})
+        for pre in pre_l:
+            # Removing the surounding "<br>" tags.
+            pre.find('br').extract()
+            pre.find_all('br')[-1].extract()
+            for child in pre.children:
+                if isinstance(child, NavigableString):
+                    if len(child.string.strip()) == 0:
+                        child.extract()
 
         # Removing first breadcrumbs.
         breadcrumbs = html.body.find('div', **{'class_': 'crosslinks'})

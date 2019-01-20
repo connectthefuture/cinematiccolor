@@ -319,7 +319,7 @@ def build_html(ctx, process_html=True):
             process.process_html(html_file, navigation)
 
             subprocess.call(
-                ['tidy', '-q', '-utf8', '-asxhtml', '-m', html_file])
+                ['tidy', '-q', '-i', '-utf8', '-asxhtml', '-m', html_file])
 
         html_file = os.path.join(HTML_RELEASE_DIRECTORY,
                                  INDEX_DOCUMENT_NAME).replace('tex', 'html')
