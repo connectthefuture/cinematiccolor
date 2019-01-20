@@ -78,8 +78,8 @@ def _sanitize_filename(filename):
     """
     Sanitizes given filename.
 
-    Paramters
-    ---------
+    Parameters
+    ----------
     filename : unicode
         Filename to sanitize.
 
