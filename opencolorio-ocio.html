@@ -1,202 +1,246 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content=
-"HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-<title>OpenColorIO (OCIO)</title>
-<meta charset="utf-8" />
-<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-"generator" />
-<meta content="width=device-width,initial-scale=1" name=
-"viewport" />
-<link href="cinematic-color.css" rel="stylesheet" type=
-"text/css" />
-<meta content="cinematic-color.tex" name="src" />
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
-"text/css" />
-<link href="assets/css/custom.css" rel="stylesheet" type=
-"text/css" />
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
+  <title>OpenColorIO (OCIO)</title>
+  <meta charset="utf-8" />
+  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
+  "generator" />
+  <meta content="width=device-width,initial-scale=1" name=
+  "viewport" />
+  <link href="cinematic-color.css" rel="stylesheet" type=
+  "text/css" />
+  <meta content="cinematic-color.tex" name="src" />
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
+  "text/css" />
+  <link href="assets/css/custom.css" rel="stylesheet" type=
+  "text/css" />
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark"><a class=
-"navbar-brand" href="#">Cinematic Color 2</a>
-<div class="collapse navbar-collapse" id="navbar">
-<ul class="navbar-nav mr-auto">
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="preface.html" id="preface" role=
-"button">Preface</a>
-<div aria-labelledby="preface" class="dropdown-menu"><a class=
-"dropdown-item" href="description.html">Description</a><a class=
-"dropdown-item" href="authorship.html">Authorship</a><a class=
-"dropdown-item" href="on-the-web.html">On the Web</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="introduction.html" id="introduction" role=
-"button">Introduction</a>
-<div aria-labelledby="introduction" class="dropdown-menu"><a class=
-"dropdown-item" href="intended-audience.html">Intended
-Audience</a><a class="dropdown-item" href=
-"how-to-read-this-document.html">How to Read this
-Document</a><a class="dropdown-item" href="the-goal.html">The
-Goal</a><a class="dropdown-item" href=
-"converging-approaches.html">Converging Approaches</a><a class=
-"dropdown-item" href="a-general-model-of-color-processing.html">A
-General Model of Color Processing</a><a class="dropdown-item" href=
-"color-management-challenges.html">Color Management
-Challenges</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="color-science.html" id="color-science" role=
-"button">Color Science</a>
-<div aria-labelledby="color-science" class="dropdown-menu">
-<a class="dropdown-item" href="about-color-science.html">About
-Color Science</a><a class="dropdown-item" href=
-"electromagnetic-spectrum.html">Electromagnetic
-Spectrum</a><a class="dropdown-item" href=
-"human-visual-system.html">Human Visual System</a><a class=
-"dropdown-item" href="basic-colorimetry.html">Basic
-Colorimetry</a><a class="dropdown-item" href=
-"advanced-colorimetry.html">Advanced Colorimetry</a><a class=
-"dropdown-item" href="representing-color.html">Representing
-Color</a><a class="dropdown-item" href=
-"color-imaging-systems.html">Color Imaging Systems</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="workflow.html" id="workflow" role=
-"button">Workflow</a>
-<div aria-labelledby="workflow" class="dropdown-menu"><a class=
-"dropdown-item" href="about-workflow.html">About
-Workflow</a><a class="dropdown-item" href=
-"academy-color-encoding-system-aces.html">Academy Color Encoding
-System (ACES)</a><a class="dropdown-item" href="the-look.html">The
-Look</a><a class="dropdown-item" href="on-set.html">On
-Set</a><a class="dropdown-item" href=
-"visual-effects-animation-and-games.html">Visual Effects, Animation
-and Games</a><a class="dropdown-item" href=
-"compositing.html">Compositing</a><a class="dropdown-item" href=
-"di-grading.html">DI Grading</a><a class="dropdown-item" href=
-"critical-monitoring.html">Critical Monitoring</a><a class=
-"dropdown-item" href="finishing.html">Finishing</a><a class=
-"dropdown-item" href="archives.html">Archives</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="appendix.html" id="appendix" role=
-"button">Appendix</a>
-<div aria-labelledby="appendix" class="dropdown-menu"><a class=
-"dropdown-item" href="common-rgb-color-encodings.html">Common RGB
-Color Encodings</a><a class="dropdown-item" href=
-"opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-"dropdown-item" href="colour-science-for-python.html">Colour
-Science for Python</a><a class="dropdown-item" href=
-"luts-and-transforms.html">LUTs and Transforms</a><a class=
-"dropdown-item" href="asc-cdl.html">ASC CDL</a><a class=
-"dropdown-item" href="aces-ctl.html">ACES CTL</a><a class=
-"dropdown-item" href="full-and-legal-ranges.html">Full and Legal
-ranges</a><a class="dropdown-item" href=
-"color-difference-encoding.html">Color Difference
-Encoding</a><a class="dropdown-item" href=
-"camera-characterization.html">Camera Characterization</a><a class=
-"dropdown-item" href="file-formats.html">File Formats</a><a class=
-"dropdown-item" href="software.html">Software</a><a class=
-"dropdown-item" href=
-"acknowledgements.html">Acknowledgements</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="glossary.html" id="glossary" role=
-"button">Glossary</a>
-<div aria-labelledby="glossary" class="dropdown-menu"><a class=
-"dropdown-item" href="figures-and-images.html">Figures and
-Images</a><a class="dropdown-item" href=
-"references-and-citations.html">References and Citations</a></div>
-</li>
-<li class="nav-item"><a class="nav-link" href=
-"bibliography.html">Bibliography</a></li>
-</ul>
-<form class="form-inline my-2 my-md-0"><input class="form-control"
-placeholder="Search" type="text" /></form>
-</div>
-</nav>
-<article class="page-content">
-<div class="container-fluid py-3">
-<div class="row">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-<h3 class="sectionHead"><span class="titlemark">4.2</span> <a href=
-"cinematic-color.html#QQ2-35-153" id="x35-1530004.2">OpenColorIO
-(OCIO)</a></h3>
-<p class="noindent">OpenColorIO (OCIO) is an open-source color
-pipeline originally created by Jeremy Selan, and sponsored by Sony
-Picture Imageworks. It is currently maintained by a group of
-developers including X Y Z from companies A B C. OpenColorIO has
-two major goals: consistent color transforms, and consistent image
-display, across multi-application cinematic color pipelines.</p>
-<p class="indent">On the left is a log DPX image loaded in a
-compositing application. On the right, a scene-referred linear EXR
-representation of the same image is loaded in a different
-application. Both applications utilize OpenColorIO to provide
-matched image display and color space conversions, referencing an
-externally defined color configuration. Image courtesy of the Kodak
-Corporation. The design goal behind OCIO is to decouple the color
-pipeline API from the specific color transforms selected, allowing
-supervisors to tightly manage and experiment with color pipelines
-from a single location. Unlike other color management solutions
-such as ICC, OpenColorIO is natively designed to handle both
-scene-referred and display-referred imagery. All color transforms
-are loaded at runtime, from a color configuration external to any
-individual application. OCIO does not make any assumptions about
-the imagery; all color transformations are “opt-in.” This is
-different from the color management often built-in to applications,
-where it is often difficult to track down the specific LUTs / gamma
-transforms automatically applied without the user’s awareness.</p>
-<p class="indent">OCIO color configuration files define all of the
-conversions that may be used. For example, if you are using a
-particular camera’s color space, one would define the conversion
-from the camera’s color encoding to scene-referred linear. You can
-also specify the display transforms for multiple displays in a
-similar manner. OCIO transforms can rely on a variety of built-in
-building-blocks, including all common math operations and the
-majority of common lookup table formats. OCIO also has full support
-for both CPU and GPU pathways, in addition to full support for CDLs
-and per-shot looks.</p>
-<p class="indent">The OCIO project also includes some of the real
-color configurations for film productions, such as those used in
-Cloudy with a Chance of Meatballs and Spider-Man, enabling users to
-experiment with validated color pipelines. OCIO also ships with a
-configuration compatible with Academy ACES 1.0 and greater,
-allowing the use of an ACES pipeline in applications without native
-support.</p>
-<p class="indent">OpenColorIO is in use at many of the major visual
-effects and animation studios, and is also supported out of the box
-in a variety of commercial software. See opencolorio.org for
-up-to-date information on supported software, and to download the
-source code for use at home.</p>
-<div class="crosslinks">
-<p class="noindent">[<a href=
-"colour-science-for-python.html">next</a>] [<a href=
-"common-rgb-color-encodings.html">prev</a>] [<a href=
-"common-rgb-color-encodings.html#tailcommon-rgb-color-encodings.html">prev-tail</a>]
-[<a href="opencolorio-ocio.html">front</a>] [<a href=
-"appendix.html#opencolorio-ocio.html">up</a>]</p>
-</div>
-<p class="indent"><a id="tailopencolorio-ocio.html"></a></p>
-</div>
-<div class="col-md-2"></div>
-</div>
-</div>
-</article>
-<footer class="page-footer">
-<div class="container-fluid text-center py-3">Copyright © 2019 ‐
-Cinematic Color Authors ‐ <a href=
-"mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a></div>
-</footer>
-<script src="assets/js/jquery.min.js"></script> 
-<script src="assets/js/popper.min.js"></script> 
-<script src="assets/js/bootstrap.min.js"></script>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Cinematic Color 2</a>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "preface.html" id="preface" role="button">Preface</a>
+          <div aria-labelledby="preface" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "description.html">Description</a><a class=
+            "dropdown-item" href=
+            "authorship.html">Authorship</a><a class=
+            "dropdown-item" href="on-the-web.html">On the Web</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "introduction.html" id="introduction" role=
+          "button">Introduction</a>
+          <div aria-labelledby="introduction" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "intended-audience.html">Intended Audience</a><a class=
+            "dropdown-item" href=
+            "how-to-read-this-document.html">How to Read this
+            Document</a><a class="dropdown-item" href=
+            "the-goal.html">The Goal</a><a class="dropdown-item"
+            href="converging-approaches.html">Converging
+            Approaches</a><a class="dropdown-item" href=
+            "a-general-model-of-color-processing.html">A General
+            Model of Color Processing</a><a class="dropdown-item"
+            href="color-management-challenges.html">Color
+            Management Challenges</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "color-science.html" id="color-science" role=
+          "button">Color Science</a>
+          <div aria-labelledby="color-science" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-color-science.html">About Color
+            Science</a><a class="dropdown-item" href=
+            "electromagnetic-spectrum.html">Electromagnetic
+            Spectrum</a><a class="dropdown-item" href=
+            "human-visual-system.html">Human Visual
+            System</a><a class="dropdown-item" href=
+            "basic-colorimetry.html">Basic Colorimetry</a><a class=
+            "dropdown-item" href=
+            "advanced-colorimetry.html">Advanced
+            Colorimetry</a><a class="dropdown-item" href=
+            "representing-color.html">Representing
+            Color</a><a class="dropdown-item" href=
+            "color-imaging-systems.html">Color Imaging Systems</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "workflow.html" id="workflow" role="button">Workflow</a>
+          <div aria-labelledby="workflow" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-workflow.html">About Workflow</a><a class=
+            "dropdown-item" href=
+            "academy-color-encoding-system-aces.html">Academy Color
+            Encoding System (ACES)</a><a class="dropdown-item"
+            href="the-look.html">The Look</a><a class=
+            "dropdown-item" href="on-set.html">On Set</a><a class=
+            "dropdown-item" href=
+            "visual-effects-animation-and-games.html">Visual
+            Effects, Animation and Games</a><a class=
+            "dropdown-item" href=
+            "compositing.html">Compositing</a><a class=
+            "dropdown-item" href="di-grading.html">DI
+            Grading</a><a class="dropdown-item" href=
+            "critical-monitoring.html">Critical
+            Monitoring</a><a class="dropdown-item" href=
+            "finishing.html">Finishing</a><a class="dropdown-item"
+            href="archives.html">Archives</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "appendix.html" id="appendix" role="button">Appendix</a>
+          <div aria-labelledby="appendix" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "common-rgb-color-encodings.html">Common RGB Color
+            Encodings</a><a class="dropdown-item" href=
+            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
+            "dropdown-item" href=
+            "colour-science-for-python.html">Colour Science for
+            Python</a><a class="dropdown-item" href=
+            "luts-and-transforms.html">LUTs and
+            Transforms</a><a class="dropdown-item" href=
+            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
+            href="aces-ctl.html">ACES CTL</a><a class=
+            "dropdown-item" href="full-and-legal-ranges.html">Full
+            and Legal ranges</a><a class="dropdown-item" href=
+            "color-difference-encoding.html">Color Difference
+            Encoding</a><a class="dropdown-item" href=
+            "camera-characterization.html">Camera
+            Characterization</a><a class="dropdown-item" href=
+            "file-formats.html">File Formats</a><a class=
+            "dropdown-item" href=
+            "software.html">Software</a><a class="dropdown-item"
+            href="acknowledgements.html">Acknowledgements</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "glossary.html" id="glossary" role="button">Glossary</a>
+          <div aria-labelledby="glossary" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "figures-and-images.html">Figures and
+            Images</a><a class="dropdown-item" href=
+            "references-and-citations.html">References and
+            Citations</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=
+          "bibliography.html">Bibliography</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-md-0">
+        <input class="form-control" placeholder="Search" type=
+        "text" />
+      </form>
+    </div>
+  </nav>
+  <article class="page-content">
+    <div class="container-fluid py-3">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h3 class="sectionHead"><span class=
+          "titlemark">4.2</span> <a href=
+          "cinematic-color.html#QQ2-35-153" id=
+          "x35-1530004.2">OpenColorIO (OCIO)</a></h3>
+          <p class="noindent">OpenColorIO (OCIO) is an open-source
+          color pipeline originally created by Jeremy Selan, and
+          sponsored by Sony Picture Imageworks. It is currently
+          maintained by a group of developers including X Y Z from
+          companies A B C. OpenColorIO has two major goals:
+          consistent color transforms, and consistent image
+          display, across multi-application cinematic color
+          pipelines.</p>
+          <p class="indent">On the left is a log DPX image loaded
+          in a compositing application. On the right, a
+          scene-referred linear EXR representation of the same
+          image is loaded in a different application. Both
+          applications utilize OpenColorIO to provide matched image
+          display and color space conversions, referencing an
+          externally defined color configuration. Image courtesy of
+          the Kodak Corporation. The design goal behind OCIO is to
+          decouple the color pipeline API from the specific color
+          transforms selected, allowing supervisors to tightly
+          manage and experiment with color pipelines from a single
+          location. Unlike other color management solutions such as
+          ICC, OpenColorIO is natively designed to handle both
+          scene-referred and display-referred imagery. All color
+          transforms are loaded at runtime, from a color
+          configuration external to any individual application.
+          OCIO does not make any assumptions about the imagery; all
+          color transformations are “opt-in.” This is different
+          from the color management often built-in to applications,
+          where it is often difficult to track down the specific
+          LUTs / gamma transforms automatically applied without the
+          user’s awareness.</p>
+          <p class="indent">OCIO color configuration files define
+          all of the conversions that may be used. For example, if
+          you are using a particular camera’s color space, one
+          would define the conversion from the camera’s color
+          encoding to scene-referred linear. You can also specify
+          the display transforms for multiple displays in a similar
+          manner. OCIO transforms can rely on a variety of built-in
+          building-blocks, including all common math operations and
+          the majority of common lookup table formats. OCIO also
+          has full support for both CPU and GPU pathways, in
+          addition to full support for CDLs and per-shot looks.</p>
+          <p class="indent">The OCIO project also includes some of
+          the real color configurations for film productions, such
+          as those used in Cloudy with a Chance of Meatballs and
+          Spider-Man, enabling users to experiment with validated
+          color pipelines. OCIO also ships with a configuration
+          compatible with Academy ACES 1.0 and greater, allowing
+          the use of an ACES pipeline in applications without
+          native support.</p>
+          <p class="indent">OpenColorIO is in use at many of the
+          major visual effects and animation studios, and is also
+          supported out of the box in a variety of commercial
+          software. See opencolorio.org for up-to-date information
+          on supported software, and to download the source code
+          for use at home.</p>
+          <div class="crosslinks">
+            <p class="noindent">[<a href=
+            "colour-science-for-python.html">next</a>] [<a href=
+            "common-rgb-color-encodings.html">prev</a>] [<a href=
+            "common-rgb-color-encodings.html#tailcommon-rgb-color-encodings.html">prev-tail</a>]
+            [<a href="opencolorio-ocio.html">front</a>] [<a href=
+            "appendix.html#opencolorio-ocio.html">up</a>]</p>
+          </div>
+          <p class="indent"><a id=
+          "tailopencolorio-ocio.html"></a></p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </article>
+  <footer class="page-footer">
+    <div class="container-fluid text-center py-3">
+      Copyright © 2019 ‐ Cinematic Color Authors ‐ <a href=
+      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
+    </div>
+  </footer>
+  <script src="assets/js/jquery.min.js"></script> 
+  <script src="assets/js/popper.min.js"></script> 
+  <script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>

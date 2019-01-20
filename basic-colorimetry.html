@@ -1,813 +1,957 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content=
-"HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-<title>Basic Colorimetry</title>
-<meta charset="utf-8" />
-<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-"generator" />
-<meta content="width=device-width,initial-scale=1" name=
-"viewport" />
-<link href="cinematic-color.css" rel="stylesheet" type=
-"text/css" />
-<meta content="cinematic-color.tex" name="src" />
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
-"text/css" />
-<link href="assets/css/custom.css" rel="stylesheet" type=
-"text/css" />
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
+  <title>Basic Colorimetry</title>
+  <meta charset="utf-8" />
+  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
+  "generator" />
+  <meta content="width=device-width,initial-scale=1" name=
+  "viewport" />
+  <link href="cinematic-color.css" rel="stylesheet" type=
+  "text/css" />
+  <meta content="cinematic-color.tex" name="src" />
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
+  "text/css" />
+  <link href="assets/css/custom.css" rel="stylesheet" type=
+  "text/css" />
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark"><a class=
-"navbar-brand" href="#">Cinematic Color 2</a>
-<div class="collapse navbar-collapse" id="navbar">
-<ul class="navbar-nav mr-auto">
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="preface.html" id="preface" role=
-"button">Preface</a>
-<div aria-labelledby="preface" class="dropdown-menu"><a class=
-"dropdown-item" href="description.html">Description</a><a class=
-"dropdown-item" href="authorship.html">Authorship</a><a class=
-"dropdown-item" href="on-the-web.html">On the Web</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="introduction.html" id="introduction" role=
-"button">Introduction</a>
-<div aria-labelledby="introduction" class="dropdown-menu"><a class=
-"dropdown-item" href="intended-audience.html">Intended
-Audience</a><a class="dropdown-item" href=
-"how-to-read-this-document.html">How to Read this
-Document</a><a class="dropdown-item" href="the-goal.html">The
-Goal</a><a class="dropdown-item" href=
-"converging-approaches.html">Converging Approaches</a><a class=
-"dropdown-item" href="a-general-model-of-color-processing.html">A
-General Model of Color Processing</a><a class="dropdown-item" href=
-"color-management-challenges.html">Color Management
-Challenges</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="color-science.html" id="color-science" role=
-"button">Color Science</a>
-<div aria-labelledby="color-science" class="dropdown-menu">
-<a class="dropdown-item" href="about-color-science.html">About
-Color Science</a><a class="dropdown-item" href=
-"electromagnetic-spectrum.html">Electromagnetic
-Spectrum</a><a class="dropdown-item" href=
-"human-visual-system.html">Human Visual System</a><a class=
-"dropdown-item" href="basic-colorimetry.html">Basic
-Colorimetry</a><a class="dropdown-item" href=
-"advanced-colorimetry.html">Advanced Colorimetry</a><a class=
-"dropdown-item" href="representing-color.html">Representing
-Color</a><a class="dropdown-item" href=
-"color-imaging-systems.html">Color Imaging Systems</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="workflow.html" id="workflow" role=
-"button">Workflow</a>
-<div aria-labelledby="workflow" class="dropdown-menu"><a class=
-"dropdown-item" href="about-workflow.html">About
-Workflow</a><a class="dropdown-item" href=
-"academy-color-encoding-system-aces.html">Academy Color Encoding
-System (ACES)</a><a class="dropdown-item" href="the-look.html">The
-Look</a><a class="dropdown-item" href="on-set.html">On
-Set</a><a class="dropdown-item" href=
-"visual-effects-animation-and-games.html">Visual Effects, Animation
-and Games</a><a class="dropdown-item" href=
-"compositing.html">Compositing</a><a class="dropdown-item" href=
-"di-grading.html">DI Grading</a><a class="dropdown-item" href=
-"critical-monitoring.html">Critical Monitoring</a><a class=
-"dropdown-item" href="finishing.html">Finishing</a><a class=
-"dropdown-item" href="archives.html">Archives</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="appendix.html" id="appendix" role=
-"button">Appendix</a>
-<div aria-labelledby="appendix" class="dropdown-menu"><a class=
-"dropdown-item" href="common-rgb-color-encodings.html">Common RGB
-Color Encodings</a><a class="dropdown-item" href=
-"opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-"dropdown-item" href="colour-science-for-python.html">Colour
-Science for Python</a><a class="dropdown-item" href=
-"luts-and-transforms.html">LUTs and Transforms</a><a class=
-"dropdown-item" href="asc-cdl.html">ASC CDL</a><a class=
-"dropdown-item" href="aces-ctl.html">ACES CTL</a><a class=
-"dropdown-item" href="full-and-legal-ranges.html">Full and Legal
-ranges</a><a class="dropdown-item" href=
-"color-difference-encoding.html">Color Difference
-Encoding</a><a class="dropdown-item" href=
-"camera-characterization.html">Camera Characterization</a><a class=
-"dropdown-item" href="file-formats.html">File Formats</a><a class=
-"dropdown-item" href="software.html">Software</a><a class=
-"dropdown-item" href=
-"acknowledgements.html">Acknowledgements</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="glossary.html" id="glossary" role=
-"button">Glossary</a>
-<div aria-labelledby="glossary" class="dropdown-menu"><a class=
-"dropdown-item" href="figures-and-images.html">Figures and
-Images</a><a class="dropdown-item" href=
-"references-and-citations.html">References and Citations</a></div>
-</li>
-<li class="nav-item"><a class="nav-link" href=
-"bibliography.html">Bibliography</a></li>
-</ul>
-<form class="form-inline my-2 my-md-0"><input class="form-control"
-placeholder="Search" type="text" /></form>
-</div>
-</nav>
-<article class="page-content">
-<div class="container-fluid py-3">
-<div class="row">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-<h3 class="sectionHead"><span class="titlemark">2.4</span> <a href=
-"cinematic-color.html#QQ2-18-34" id="x18-340002.4">Basic
-Colorimetry</a></h3>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">2.4.1</span>
-<a href="contents.html#QQ2-18-35" id="x18-350002.4.1">Origins of
-Colorimetry</a></h4>
-<p class="noindent">In the late 19th century, Young and Helmholtz
-proposed that color vision is conveyed through a limited number of
-receptors sensitive to different portions of the visible spectrum.
-Maxwell (1860) used linear algebra to prove Young–Helmholtz
-trichromatic theory and invented color matching experiments and
-modern colorimetry. The trichromatic theory explains the metamerism
-phenomenon: two samples matching under some lighting conditions
-might look different under others.</p>
-<p class="indent">Hering proposed the opponent color theory around
-1920 to explain phenomena not accounted for by the trichromatic
-theory. He noted that specific pairs of colors did not occur at the
-same time and place: a reddish-green or yellowish-blue. We,
-however, do see reddish-yellows and greenish-blues. He thought
-there were three receptor types with bipolar response to red-green,
-yellow-blue, and light-dark.</p>
-<p class="indent">The Modern Opponent Colors Theory with a
-trichromatic first stage mediated by the cones and opponent colors
-encoding in the second stage. Stockman, A., Brainard, D. H. (2010).
-Color vision mechanisms. The Optical Society of America Handbook of
-Optics, 11.1–11.104. ISBN:0071498915 - colour-science.org</p>
-<p class="indent">The modern color vision theory, foundational
-basis of colorimetry, combines both Young–Helmholtz’s Trichromatic
-Theory and Hering’s Opponent Colors Theory: Color vision in the
-first stage is trichromatic and executed by the cone cells. In the
-second stage, upper retinal layers encode the cone cells signals
-into an achromatic signal V() = L + M and two cone opponent
-chromatic signals such as RG = L - M, YB = L + M - S. 2.3.2
-Measuring Light The CIE defines colorimetry as the measurement of
-color stimuli based on a set of conventions. Electromagnetic
-radiation measurements are performed with instruments such as
-spectroradiometers, spectrophotometers, or tristimulus colorimeters
-for the case of visible radiation.</p>
-<p class="indent">Spectroradiometry and spectrophotometry need to
-be described as their naming with regard to radiometry and
-photometry can be confusing. Spectroradiometry measures the amount
-of light radiated as a function of wavelength, i.e. radiance, or
-irradiated, i.e. irradiance. Spectrophotometry measures the amount
-of light reflected, transmitted, or absorbed as a function of
-wavelength, i.e. reflectance, or transmitted, i.e. transmittance.
-Both disciplines measure a radiometric quantity (radiant flux) and
-not a photometric one contrary to what the spectrophotometry name
-might imply. Spectroradiometers, measuring radiance or irradiance,
-and spectrophotometers, measuring reflectance or transmittance,
-produce spectral distributions with a narrowband interval, e.g.
-1nm, 5nm or 10nm.</p>
-<p class="indent">On the other hand, tristimulus colorimeters use
-red, green and blue filters that emulate the HVS spectral response
-to light. They produce a single triplet of values by measuring
-wideband radiant energy and are used in digital imaging to
-calibrate displays. Because they mimic the HVS, tristimulus
-colorimeters are also subject to the metamerism phenomenon.</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">2.4.2</span>
-<a href="contents.html#QQ2-18-36" id="x18-360002.4.2">Blackbody
-Radiation, Light sources and Illuminants</a></h4>
-<p class="noindent">All ordinary matter emits electromagnetic
-radiation when its temperature is above absolute zero. Even black
-holes are predicted to emit Hawking radiation, a form of blackbody
-radiation caused by the creation of sub-atomic particles near the
-event horizon.</p>
-<p class="indent">A blackbody or Planckian radiator is an ideal
-thermal radiator that absorbs all incident radiation, disregarding
-the wavelength, the direction of incidence or the polarization
-completely. In thermal equilibrium, it emits electromagnetic
-radiation (blackbody radiation) with a characteristic spectral
-distribution that depends only on its temperature and is given by
-Planck’s Law.</p>
-<p class="indent">When their temperature increases past 750 Kelvin,
-blackbodies start to emit visible electromagnetic radiation, i.e.
-light.</p>
-<p class="indent">Various blackbody spectral power distributions in
-temperature domain 1250-10000K, note how their radiation peak
-slides into the visible spectrum range as their temperature
-increase.</p>
-<p class="indent">Blackbodies are fundamental to both astronomy and
-color science allowing one to determine the color of a thermal
-radiator knowing only its temperature. Conversely, its temperature
-can be computed from its color. In 1931, using Planck’s Law, the
-CIE was able to unambiguously and mathematically describe a
-standard tungsten light source: the CIE Standard Illuminant A with
-a color temperature of 2856K.</p>
-<p class="indent">ASTM G-173 ETR Extraterrestrial Radiation (solar
-spectrum at top of atmosphere) at mean Earth-Sun distance compared
-to a Blackbody at 5778K. The differences between the curves are
-mostly explained by the fact that the Sun is not a perfect
-blackbody. The Sun, principal light source on Earth with an
-effective surface temperature of 5,778K, is close to an ideal
-thermal radiator. Its spectrum exhibits numerous absorption and
-emission spectral lines, i.e. the Fraunhofer lines, resulting from
-the interactions of atoms, atom nuclei, and molecules with photons
-in its atmosphere. The Sun is not a solid body and has multiple
-layers with different temperatures: corona, chromosphere,
-photosphere, convective zone, radiative zone, and core. The
-photosphere, the layer of gas constituting the visible surface of
-the Sun, is the principal source of the radiation we receive and
-the region where most of the aforementioned spectral lines are
-forming. When solar radiation traverses the Earth atmosphere, it
-interacts with it, producing absorption, emission and scattering
-events that further modify its spectrum.</p>
-<p class="indent">Profile image of the daylight spectrum captured
-with a DIY spectroscope and a CANON 5D Mark II DSLR camera. Major
-Fraunhofer Lines are annotated for reference. The black curve
-represents the luminance of the spectrum at each wavelength. The
-white curve is a reference spectrum concurrently captured with an
-Ocean Optics STS-VIS spectrometer. While the spectroscope has a
-very high resolution, the overall curve shape is dramatically
-different to that of the spectrometer one: the DSLR spectral
-sensitivities, its infrared filter, and reflections in the
-spectroscope tube are all contributing to alter the curve, making
-it unsuitable for precise measurements. CIE Illuminants B and C
-were intended to respectively model noon sunlight (correlated color
-temperature (CCT) of 4874K) and average daylight (CCT of 6774K).
-They are realised by combining a light source modeling CIE Standard
-Illuminant A with Davis-Gibson liquid filters from David and Gibson
-(1931). Because of the low illuminance levels achieved with such
-light sources and their poor performance in the near-ultraviolet
-region (which is essential for fluorescent materials), they were
-deprecated in favor of the CIE Illuminant D Series created by Judd,
-MacAdam, and Wyszecki (1964).</p>
-<p class="indent">The CIE Illuminant D Series models a broad range
-of daylight phases inclusive of direct sunlight, sunlight with
-cloud coverage, full overcast coverage, and blue skylight. For
-standardization purposes, ”CIE Standard Illuminant D Series D65
-should be used in all colorimetric calculations requiring
-representative daylight unless there are specific reasons for using
-a different illuminant” (ISO 11664-2:2007(E)/CIES014-2/E:2006).</p>
-<p class="indent">CIE Illuminants B, C, and CIE Standard Illuminant
-D Series D65. Note how the CIE Illuminants B and C curves are
-different to the CIE Standard Illuminant D Series D65 curve in the
-300nm-380nm near-ultraviolet region. From a terminology standpoint,
-it is meaningful to understand that illuminants and light sources
-are different: An illuminant is a standardized table of values or
-mathematical function representing an ideal light source. A light
-source is a physical emitter of visible radiant energy.</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">2.4.3</span>
-<a href="contents.html#QQ2-18-37" id="x18-370002.4.3">Reflectance,
-Transmittance and Absorptance</a></h4>
-<p class="noindent">Emitted light interacts with surfaces of the
-world and is either reflected, transmitted or absorbed. The
-measured radiant flux is the summation of the light reflection,
-transmission, and absorption at each wavelength such as: () = R() +
-T() + A() where () is the measured radiant flux, R(), T() and A()
-are respectively the surface reflectance, transmittance, and
-absorptance. They are ordinarily expressed as fractions of () in
-range 0-1.</p>
-<p class="indent">Clover leaf reflectance, transmittance, and
-absorptance spectra from LOPEX93, note that the wavelengths
-represented are purposely reaching near-infrared: even though
-invisible, the spectra have values in that portion and exhibit a
-lot of variation. Because they are also a function of the
-illumination and viewing geometry, i.e. the angle between the light
-incident at the surface and the angle of the instrument, a complete
-description requires capturing the Bidirectional Reflectance
-Distribution Function (BRDF) or Bidirectional Transmittance
-Distribution Function (BTDF). High-quality BxDF data capture is not
-only difficult, but its usage is also non-trivial thus for
-practical purposes the CIE defines 4 standard illuminations and
-viewing geometries. They are described in CIE 015:2004 Colorimetry,
-3rd Edition.</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">2.4.4</span>
-<a href="contents.html#QQ2-18-38" id="x18-380002.4.4">Standard
-Observers</a></h4>
-<p class="noindent">The perception of incident light to the HVS
-varies from one observer to another. Thus to avoid ambiguity when
-characterizing color, the CIE standardized various functions for
-use with colorimetric calculations.</p>
-<p class="indent">The first one, the CIE 1924 Photopic Standard
-Observer luminous efficiency function V(), a fundamental function
-modeling the wavelength dependent sensitivity of the HVS, was
-established in 1924.</p>
-<p class="indent">V() - CIE 1924 Photopic Standard Observer
-modeling the wavelength dependent sensitivity of the HVS.</p>
-<p class="indent">It was derived for a 2<span class=
-"cmsy-7">∘</span> angular subtense viewing field from several
-independent experiments whose results were weight assembled by
-Gibson and Tyndall (1923).</p>
-<p class="indent">The first row shows the computed swatches and
-spectral distributions of two synthetic green and red LED lights
-with equal radiant power. In the second row, the red LED light
-luminous flux has been scaled to match that of the green LED
-light.</p>
-<p class="indent">To an observer viewing a red light and a green
-light with equal radiant power, the green light appears brighter
-than the red: in the above figure their luminous fluxes are
-40500lm, and 3500lm respectively. If the red light luminous flux is
-scaled to match that of the green light, then both lights are
-perceived to have similar brightness. The consequence of this
-scaling is that the red light radiant power increased by one order
-of magnitude.</p>
-<p class="indent">In the late 1920’s, Wright (1928) and Guild
-(1931) independently conducted a series of color matching
-experiments to quantify the color ability of an average human
-observer which laid the foundations for the specification of the
-CIE XYZ color space. The results obtained were summarized by the
-Wright Guild 1931 2<span class="cmsy-7">∘</span> RGB<span class=
-"cmtt-10">[U+2015]</span> color Matching Functions (CMFs): they
-represent the amounts of three monochromatic primary colors R, G, B
-needed to match the test color at a single wavelength of light.</p>
-<p class="indent">Wright Guild 1931 2<span class="cmsy-7">∘</span>
-RGB<span class="cmtt-10">[U+2015]</span> CMFs present a negative
-lobe.</p>
-<p class="indent">Wright Guild 1931 2<span class="cmsy-7">∘</span>
-RGB<span class="cmtt-10">[U+2015]</span> CMFs present negative
-values that are inconvenient for various reasons: they make RGB
-tristimulus values computation more difficult, requiring separately
-summing products with positive and negative signs and then a final
-differencing of the sums. Computation of photometric quantities
-like luminance is more laborious for similar reasons, and finally,
-the development of direct-reading tristimulus colorimeters is
-challenging because of the sign change.</p>
-<p class="indent">These reasons lead the CIE to transform the
-Wright Guild 1931 2<span class="cmsy-7">∘</span> RGB CMFs into a
-new set of functions based on new primary stimuli X, Y, Z: The CIE
-1931 2<span class="cmsy-7">∘</span> Standard Observer
-XYZ<span class="cmtt-10">[U+2015]</span> color matching functions.
-When conceiving the linear transformation that converts Wright
-Guild 1931 2<span class="cmsy-7">∘</span> RGB<span class=
-"cmtt-10">[U+2015]</span> CMFs into the CIE 1931 2<span class=
-"cmsy-7">∘</span> Standard Observer XYZ CMFs, the CIE ensured that
-the Y<span class="cmtt-10">[U+2015]</span> function was equal to
-the CIE 1924 Photopic Standard Observer luminous efficiency
-function V() and that all the functions were positive.</p>
-<p class="indent">The CIE 1931 2<span class="cmsy-7">∘</span>
-Standard Observer, a linear transformation of Wright Guild 1931
-2<span class="cmsy-7">∘</span> RGB CMFs designed to remove the
-negative lobe of the later.</p>
-<p class="indent">Among other factors such as age, color vision
-sensitivity is affected by the angle subtended by the objects being
-observed. In the 1960s it was found that cones were present in a
-broader region of the eye than that initially covered by the
-experiments that lead to the CIE 1931 2<span class=
-"cmsy-7">∘</span> Standard Observer specification. As a result,
-color computations done with the CIE 1931 2<span class=
-"cmsy-7">∘</span> Standard Observer do not always correlate to
-visual observation.</p>
-<p class="indent">In 1964, the CIE defined an additional standard
-observer: the CIE 1964 10<span class="cmsy-7">∘</span> Standard
-Observer derived from the results of Stiles and Burch (1959) and
-Speranskaya (1959) investigations with large-field color matching
-experiments.</p>
-<p class="indent">The CIE 1964 10<span class="cmsy-7">∘</span>
-Standard Observer corrects some deficiencies of the CIE 1931
-2<span class="cmsy-7">∘</span> Standard Observer, especially in the
-blue wavelengths. It should be used when dealing with a field of
-view of more than 4<span class="cmsy-7">∘</span>.</p>
-<p class="indent">The CIE 1964 10<span class="cmsy-7">∘</span>
-Standard Observer is believed to be a better representation of the
-spectral response of human vision and recommended by the CIE when
-dealing with a field of view of more than 4<span class=
-"cmsy-7">∘</span>. For example, the CIE 1964 10<span class=
-"cmsy-7">∘</span> Standard Observer is commonly used in color
-formulation and color quality control whereas the CIE 1931
-2<span class="cmsy-7">∘</span> Standard Observer tend to be used
-with applications that deals with small samples or samples viewed
-at great distance.</p>
-<p class="indent">Virtually all computer graphics applications use
-the CIE 1931 2<span class="cmsy-7">∘</span> Standard Observer.
-Motion picture color management also adopts it as it is suited for
-computer graphics and imagery: Interface elements, e.g. icons,
-color pickers and swatches, and image inner features tend to be
-small and subtend a small angle. Hunt (2004) says that ”in colour
-reproductions, the interest generally lies much more in patches of
-colour of about 2<span class="cmsy-7">∘</span> angular size than
-10<span class="cmsy-7">∘</span>, and the 1931 CIE data may
-therefore be used with confidence.” The CIE 1931 2<span class=
-"cmsy-7">∘</span> Standard Observer only involves the fovea where
-the cones are present, i.e. color vision, and great care was taken
-to avoid rod intrusion when the CIE 1964 10<span class=
-"cmsy-7">∘</span> Standard Observer data was assembled with the
-consequence that similar care must be taken when evaluating
-10<span class="cmsy-7">∘</span> subtending fields. Recently, the
-CIE TC 1-36 technical committee report (CIE 170-1:2006, 2006)
-established the CIE 2012 10<span class="cmsy-7">∘</span> Standard
-Observer as the new physiologically relevant fundamental CIE color
-matching functions. They are a linear transformations of Stockman
-Sharpe 10<span class="cmsy-7">∘</span> Cone Fundamentals LMS10
-spectral sensitivity functions which can be used to derive any CMFs
-given physiological parameters such as the age of the observer and
-the field size.</p>
-<p class="indent">The transition to those new CMFs might happen in
-the future but there are open questions on how to migrate dataset
-that are not spectrally defined, e.g. what are the chromaticity
-coordinates of the sRGB color space in the CIE 2012 10<span class=
-"cmsy-7">∘</span> Standard Observer?</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">2.4.5</span>
-<a href="contents.html#QQ2-18-39" id="x18-390002.4.5">CIE XYZ
-Tristimulus Values and Metamerism</a></h4>
-<p class="noindent"></p>
-<h5 class="subsubsectionHead"><a href="#x18-400002.4.5" id=
-"x18-400002.4.5">CIE XYZ Tristimulus Values</a></h5>
-<p class="noindent">Spectral radiant energy is converted into CIE
-XYZ tristimulus values by integrating the product of the spectral
-distribution of a sample with the spectral power distribution of a
-light source (or illuminant) and with the CMFS. Their values for
-the color of a surface with spectral reflectance () under an
-illuminant of relative spectral power S() are calculated using the
-following integral equations:</p>
-<p class="indent">Equation x.x of the computation of X tristimulus
-value is illustrated in figure x.x where the reflectance of a
-sample of sand is multiplied by CIE Standard Illuminant D Series
-D65, the color matching function X<span class=
-"cmtt-10">[U+2015]</span> and the normalization factor k.</p>
-<p class="indent">Integration of the spectral reflectance
-distribution of a sample of sand for X tristimulus value. Note that
-this process must be repeated for Y<span class=
-"cmtt-10">[U+2015]</span> and Z<span class=
-"cmtt-10">[U+2015]</span> shown in dashed green and blue lines to
-obtain the corresponding Y and Z tristimulus values.</p>
-<p class="noindent"></p>
-<h5 class="subsubsectionHead"><a href="#x18-410002.4.5" id=
-"x18-410002.4.5">Metamerism</a></h5>
-<p class="noindent">The conversion of spectral radiant energy into
-CIE XYZ tristimulus values reduces complex light color information
-spanning many wavelengths into three sensory quantities. From a
-mathematical standpoint, the tristimulus conversion equations X.X.X
-are demonstrating the phenomenon: the integrals represent the area
-under the multiplied spectral distribution curves of the sample,
-light, and CMFS. However, an infinite number of light and sample
-curve combinations yield the same area: tristimulus values are
-multi-valued, and metamerism occurs because of the lack of
-injectivity. A consequence of this reduction is that two samples
-viewed under the same illumination conditions can produce an
-identical cone cells response and thus yield matching CIE XYZ
-tristimulus values. The two samples are said to be metamers, and
-changing the illumination conditions might result into a metameric
-failure: this is the metamerism phenomenon.</p>
-<p class="indent">Metameric failure example, the two spheres use
-generated metameric spectral reflectance distributions that yield
-matching color under CIE Illuminant E but not under CIE Standard
-Illuminant A.</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">2.4.6</span>
-<a href="contents.html#QQ2-18-42" id="x18-420002.4.6">CIE xyY Color
-Space and Chromaticity Diagram</a></h4>
-<p class="noindent">It is convenient to use a 2D representation of
-colors where luminance is separated from chroma. The CIE xyY color
-space is constructed through a projective transformation that
-isolates the Y luminance axis of the CIE XYZ color space and yields
-a tuple of chromaticity coordinates (x, y):</p>
-<p class="indent">The CIE 1931 Chromaticity Diagram is a 2D
-projection of the volume of all the colors seen by the CIE 1931
-2<span class="cmsy-7">∘</span> Standard Observer along the Y
-luminance axis of the CIE xyY color space.</p>
-<p class="indent">The CIE 1931 Chromaticity Diagram and Pointer
-(1980)’s Gamut, a gamut of real surface colors. Note that similarly
-to the figures showcasing the visible spectrum, the colors are
-accurate within the limits of what the display can represent.</p>
-<p class="indent">The curved edge encompassing the colors is known
-as the Spectral Locus and is composed of physically realizable
-monochromatic colors, each label on the diagram is such a color.
-The encompassed colors are mixtures of the edge monochromatic
-colors. The region outside does not correspond to
-physically-possible colors, those chromaticity coordinates outside
-the spectral locus are referred to as ”imaginary”. They are often
-useful for mathematical encoding purposes but are not realizable in
-any display system. The line closing the horseshoe shape is known
-as the line of purples.</p>
-<p class="indent">The volume (or area) of colors either ”present in
-a specific scene, artwork, photograph, photomechanical, or other
-reproduction; capable of being created using a particular output
-device and/or medium” is defined by the CIE as the color gamut.
-Color gamuts are generally represented on the chromaticity diagram
-as flat, two-dimensional surfaces with uniform luminance. They are
-specified with a set of tuple of chromaticity coordinates (x, y).
-The chosen luminance value, often 1, is arbitrary and depends on
-the use case. For analysis and visualization purposes, it is
-valuable to draw multiple variants of a color gamut at different
-luminance values as its surface boundary changes accordingly. By
-extension, color gamuts such as Pointer (1980)’s gamut of real
-surface colors, specified with a set of triplets of CIE xyY color
-space coordinates are representing three-dimensional volumes.</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">2.4.7</span>
-<a href="contents.html#QQ2-18-43" id="x18-430002.4.7">Perceptually
-Uniform Color Spaces and Color Difference</a></h4>
-<p class="noindent">Although it is not immediately apparent, the
-chromaticity diagram is a very poor representation of our color
-perception. Distances between colors in the CIE xyY color space do
-not directly relate to their apparent perceptual differences. Two
-adjacent colors may be perceived as different, while colors far
-apart may be indistinguishable. The degree to which a given color
-space accurately maps geometric distance to perceptual distance is
-referred to as its level of perceptual uniformity.</p>
-<p class="indent">MacAdam (1942) ellipses, i.e. indistinguishable
-color regions, plotted in the CIE 1931 chromaticity diagram and the
-CIE 1976 UCS chromaticity diagram with improved perceptual
-uniformity: the ellipses are rounder. Note how the green region of
-the CIE 1931 chromaticity diagram is highly stretched compared to
-the same region in the CIE 1976 UCS chromaticity diagram or
-compared to the blue region in both diagrams. An ideal color space
-would transform the ellipses into circles. Note that the ellipses
-axes are 10 times their actual length and that it is possible to
-generate in-between ellipses by interpolation. Data from Table
-2(5.4.1) in Wyszecki, G., Stiles, W. S. (2000). Color Science:
-Concepts and Methods, Quantitative Data and Formulae. Wiley.
-ISBN:978-0471399186</p>
-<p class="indent">Perceptual uniformity can be a desirable quality
-for a color space: it supports accurate color differences and
-lightness prediction. A perceptually uniform color space improves
-performance of various image processing algorithms such as lossy
-image compression, denoising, segmentation or device
-characterisation, image quality modeling and color appearance
-modeling.</p>
-<p class="indent">Gamut mapping, the process by which colors lying
-outside a gamut are mapped inside it, is preferably performed in a
-perceptually uniform color space because the correlation between
-the perceptual attributes is reduced and thus hue is minimally
-affected when the lightness and chroma attributes are individually
-adjusted to reduce the gamut size.</p>
-<p class="indent">The non-uniformity of the CIE 1931 Chromaticity
-Diagram led to the adoption by the CIE in 1960 of the uniform color
-space devised by MacAdam (1937). The CIE 1960 Uniform Color Space
-(UCS) is nowadays primarily used to represent the correlated color
-temperature (CCT) of light sources or illuminants as the isolines
-are perpendicular to the Planckian locus. The isolines represent
-delta uv: for a given CCT and its corresponding color, increasing
-or decreasing delta uv will bias the color toward green or magenta.
-The tint control in white balancing algorithms is effectively delta
-uv scaled by a constant.</p>
-<p class="indent">CIE 1960 UCS Chromaticity Diagram with Planckian
-Locus and perpendicular Iso-Temperature lines.</p>
-<p class="indent">Conversion from tristimulus values to CIE 1960
-UCS color space UVW values is performed as follows: UVW =
-<span class="cmtt-10">[U+2154]</span> <span class=
-"cmsy-10">×</span> X, Y, <img align="middle" alt="1 2 class="
-class="figure-img img-fluid" src="cinematic-color0x.svg" />
-<span class="cmsy-10">×</span> (-X + 3 <span class=
-"cmsy-10">×</span> Y + Z) The chromaticity coordinates uv are then
-obtained by a perspective projection similarly to the one of CIE
-xyY color space: uv =U / (U + V + W), V / (U + V + W)</p>
-<p class="indent">The CIE 1976 UCS Chromaticity Diagram, based on
-CIE L*u*v* color space, superseded the CIE 1960 UCS Chromaticity
-Diagram.</p>
-<p class="indent">CIE 1976 UCS Chromaticity Diagram based on CIE
-L*u*v* color space.</p>
-<p class="indent">The conversion from tristimulus values to CIE
-L*u*v* color space is longer than CIE 1960 UCS and is found in the
-Appendix. Other uniform color spaces beyond CIE L*u*v* have been
-defined: the IPT color space by Ebner and Fairchild (1998) is
-excellent at predicting perceived hue. CAM16-UCS by Li, Li, Wang,
-Zu, Luo, Cui, Melgosa, Brill and Pointer (2017) is a uniform color
-space based on CAM16 that offers good general performance. The
-ICtCp color space by Lu, Pu, Yin et al. (2016) and the JzAzBz color
-space by Safdar, Cui, Kim, and Luo (2017) extend perceptual
-uniformity to high dynamic range and adopt the PQ curve as the
-basis for Lightness prediction.</p>
-<p class="indent">The need for quantifying how much two color
-samples are different was one of the incentives for the CIE to
-design a perceptually uniform color space and ultimately adopt both
-the CIE L*a*b* and CIE L*u*v* color spaces in 1976. Color
-differences are measured as the Euclidean distance between a
-reference color sample and a test color sample in the CIE L*a*b*
-color space as follows: ΔE*76 = <span class="cmsy-10">√</span>
-((L*r - L*t)2 + (a*r - a*t)2 + (b*r - b*t)2) where ΔE*76 is the
-color difference, L*r, a*r, b*r , and L*t, a*t, b*t are the
-reference and test color sample.</p>
-<p class="indent">While the CIE L*a*b* color space features decent
-perceptual uniformity, it was deemed unsatisfactory when comparing
-some pair of colors, compelling the CIE into improving the metric
-with the CIE 1994 (ΔE*94) and subsequent CIE 2000 (ΔE*00)
-quasimetrics. It is appropriate to measure color differences in the
-CAM16-UCS, ICtCp and JzAzBz color spaces using Euclidean
-distance.</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">2.4.8</span>
-<a href="contents.html#QQ2-18-44" id="x18-440002.4.8">Additive RGB
-Color Spaces</a></h4>
-<p class="noindent">Additive RGB color spaces are the color
-representation that most people interact with on a daily basis; our
-display technology is based on the additive mixing of 3 red, green
-and blue primaries.</p>
-<p class="indent">The first RGB color space, CIE RGB, was created
-by Wright Guild (1931) when they performed their color matching
-experiments. The three monochromatic primary colors R, G, B used to
-match a test color at a single wavelength of light once plotted on
-the CIE 1931 Chromaticity Diagram, are located on the spectral
-locus and respectively have the following wavelengths: 700.0 nm,
-546.1 nm, and 435.8 nm. sRGB is the ubiquitous RGB color space
-created by Hewlett Packard and Microsoft in 1996, standardized as
-IEC 61966-2-1:1999, in an attempt to define a standard color space
-for use with monitors, printers, and on the Internet. Many other
-RGB color spaces exist and are reviewed in the Appendix. This
-section of the document focuses instead on the components of an RGB
-color space and provides some disambiguation of terminology.</p>
-<p class="indent">It is common to see operators in digital content
-creation (DCC) applications or functions in various game engines,
-libraries, color processing tools labeled as ”linear to sRGB”. The
-consequence of poor wording is that people often don’t understand
-that sRGB is probably more than a ”linear to sRGB” operator or
-function. Some resources purport to explain how sRGB and linear
-color spaces differ. First and foremost, while the CIE RGB and sRGB
-color space gamuts are intrinsically representing radiometrically
-linear light values, their color component transfer functions are
-radically different: CIE RGB has no defined encoding and decoding
-color component transfer functions; they are considered to be
-linear; however sRGB adopts non-linear color encoding and decoding
-component transfer functions following a power law.</p>
-<p class="indent">The confusion comes from the fact that generally,
-people don’t mention which component of the additive RGB color
-space they are referring to. The following three components are
-required to fully specify an additive RGB color space:</p>
-<p class="indent">Primaries White point Color Component Transfer
-Functions</p>
-<p class="indent">Noticeably, the ISO 22028-1:2016 Standard defines
-an additive RGB color space as follows:</p>
-<p class="indent">Additive RGB color space</p>
-<p class="indent">Colorimetric color space having three color
-primaries (generally red, green and blue) such that CIE XYZ
-tristimulus values can be determined from the RGB color space
-values by forming a weighted combination of the CIE XYZ tristimulus
-values for the individual color primaries, where the weights are
-proportional to the radiometrically linear color space values for
-the corresponding color primaries.</p>
-<p class="indent">Note 1 to entry: A simple linear 3 <span class=
-"cmsy-10">×</span> 3 matrix transformation can be used to transform
-between CIE XYZ tristimulus values and the radiometrically linear
-color space values for an additive RGB color space.</p>
-<p class="indent">Note 2 to entry: Additive RGB color spaces are
-defined by specifying the CIE chromaticity values for a set of
-additive RGB primaries and a color space white point, together with
-a color component transfer function.</p>
-<p class="noindent"></p>
-<h5 class="subsubsectionHead"><a href="#x18-450002.4.8" id=
-"x18-450002.4.8">Primaries</a></h5>
-<p class="noindent">The primaries’ chromaticity coordinates define
-the gamut that can be encoded by a given RGB color space. It is
-essential to understand that while commonly represented as
-triangles on a Chromaticity Diagram, RGB color space gamuts define
-the boundaries of an actual 3D volume within the CIE xyY color
-space. The shape of the volume is not simply an extruded triangle
-because each primary reaches unity at a different luminance value.
-From that point the luminance can only rise by increasing one or
-both of the other channels, and consequently decreasing saturation.
-Maximum luminance is only achieved when the three channels reach
-unity, which corresponds to the achromatic point at the top of the
-volume. A gamut, per definition, only contains physically
-realizable colors but RGB color space primaries can be located
-outside of the spectral locus, in such cases, the gamut is the
-intersection between the given RGB color space volume and the
-volume of physically realizable colors.</p>
-<p class="indent">sRGB color space gamut visualized in CIE xyY
-color space. The shape of the volume is the result of the
-transformation of an RGB unit cube to CIE XYZ color space followed
-by a transformation to CIE xyY color space.</p>
-<p class="indent">sRGB, DCI-P3 and BT.2020 RGB color space gamuts
-in the CIE 1931 chromaticity diagram.</p>
-<p class="noindent"></p>
-<h5 class="subsubsectionHead"><a href="#x18-460002.4.8" id=
-"x18-460002.4.8">White Point</a></h5>
-<p class="noindent">The white point is defined by the CIE as the
-”achromatic reference stimulus in a chromaticity diagram that
-corresponds to the stimulus that produces an image area that has
-the perception of white”. Any colors lying on the neutral axis line
-defined by the white point and its vertical projection toward the
-bottom of the RGB color space gamut, no matter their Luminance, are
-neutral to that RGB color space and thus achromatic.</p>
-<p class="indent">Various RGB color spaces white points in the CIE
-1960 UCS chromaticity diagram, note that the ACES white point is
-not precisely equal to CIE Illuminant D Series D60.</p>
-<p class="indent">Typical white points are chosen as CIE Standard
-Illuminants. In 1953, the National Television System Committee
-(NTSC) published a standard for color television that used CIE
-Illuminant C. As noted in section 2.3.3, CIE Illuminant C was
-superseded by the CIE Standard Illuminant D Series D65 and became
-the illuminant for the PAL and SECAM analog encoding systems for
-color television in the 1960s. In the 1990s, desktop publishing CRT
-color monitors often adopted a white point close to CCT 9300 K
-which was deemed too high by the professional printing industry and
-graphic arts to suitably soft proof images. Printing workflows use
-CIE Illuminant D Series D50 (ISO 3664:1975) as it is somewhere
-between average daylight and incandescent light. CIE Illuminant D
-Series D50 is the illuminant adopted by the International Color
-Consortium (ICC) established in 1993 by eight imaging companies
-”for the purpose of creating, promoting and encouraging the
-standardization and evolution of an open, vendor-neutral,
-cross-platform color management architecture and components.”</p>
-<p class="indent">Two white points were suggested as an alternative
-to the high CRT CCT: CIE Illuminant D Series D50 and CIE Standard
-Illuminant D Series D65. Images displayed on monitors calibrated to
-CIE Illuminant D Series D50 were deemed dull and yellow in dim to
-average viewing conditions.</p>
-<p class="indent">Following on from PAL and SECAM color television,
-and also as a consequence of the broad adoption of the sRGB IEC
-61966-2-1:1999 standard, most modern computer display systems use
-CIE Standard Illuminant D Series D65.</p>
-<p class="indent">Digital cinema as per the recommendation of the
-Digital Cinema Initiative (DCI) adopts the DCI-P3 white point based
-on a Xenon arc lamp spectral power distribution. ACES uses a white
-point close to CIE Standard Illuminant D Series D60: its lower CCT
-makes it more pleasing for dark viewing conditions typical of
-theatrical exhibition.</p>
-<p class="noindent"></p>
-<h5 class="subsubsectionHead"><a href="#x18-470002.4.8" id=
-"x18-470002.4.8">Color Component Transfer Functions</a></h5>
-<p class="noindent">The color component transfer functions (CCTFs),
-defined as ”single variable, monotonic mathematical function
-applied individually to one or more colour channels of a colour
-space” by ISO 22028-1:2016 Standard generally perform the mapping
-between linear light components and a non-linear R’G’B’ component
-signal value, most of the time for coding optimization and
-bandwidth performance and/or to improve the visual uniformity of a
-color space.</p>
-<p class="noindent"><span class="paragraphHead"><a href=
-"#x18-480002.4.8" id="x18-480002.4.8"><span class=
-"cmbx-10">Encoding Color Component Transfer
-Functions</span></a></span> The Encoding CCTF, commonly an
-Opto-Electronic Transfer Function (OETF) or inverse Electro-Optical
-Transfer Function (EOTF), maps estimated linear light components in
-a scene to a non-linear R’G’B’ component signal value.</p>
-<p class="indent">sRGB, Rec. 709 and Cineon Encoding color
-Component Transfer Functions, note how the Cineon curve imposes a
-substantial compression to the input domain allowing it to encode a
-wider dynamic range.</p>
-<p class="indent">Typical OETFs are expressed by a power function
-with an exponent between 0.4 and 0.5. They can also be defined as
-piece-wise functions such as the sRGB or Rec. 709 OETFs. OETFs are
-necessary for the faithful representation of images and perceptual
-coding in relation to display non-linear response and the
-non-linearity of the human visual system.</p>
-<p class="indent">Digital cinema cameras usually adopt logarithmic
-encoding functions such as Sony S-Log, ALEXA LogC or Canon C-Log
-allowing storage of a much wider dynamic range from the original
-scene compared to a generic Rec. 709 HDTV camera. To some degree,
-they are considered as flavors of the Cineon encoding found in the
-Kodak Cineon System, an early 1990s computer-based digital film
-system. The main difference between digital cinema cameras
-encodings and Cineon is that the latter is a logarithmic encoding
-directly corresponding to the optical density of the film negative.
-In order to know the relationship between a Cineon encoding and
-scene light, it is necessary also to know the characteristic curve
-of the film stock.</p>
-<p class="noindent"><span class="paragraphHead"><a href=
-"#x18-490002.4.8" id="x18-490002.4.8"><span class=
-"cmbx-10">Decoding Color Component Transfer
-Functions</span></a></span> The Decoding CCTF, commonly an EOTF or
-inverse OETF, maps a non-linear R’G’B’ video component signal to a
-linear light components at the display. It describes how a display,
-such as a TV or a projector, responds to an incoming electrical
-signal and how it converts code values into visible light.</p>
-<p class="indent">sRGB, Rec. 1886 and Gamma 2.2 Decoding color
-Component Transfer Functions. Note that the sRGB transfer function
-used as an EOTF is subject to debate as seen in section 4.1.3.</p>
-<p class="indent">Typical EOTFs are expressed by a power function
-with an exponent between 2.2 and 2.6 such as BT.1886 for Standard
-Dynamic Range (SDR) television or a piece-wise function for display
-using the exact sRGB transfer function as EOTF. High Dynamic Range
-(HDR) television as standardized by BT.2100 adopts Hybrid Log-Gamma
-(HLG) or PQ EOTFs.</p>
-<p class="indent">A listing of commonly used OETFs and EOTFs is
-included in the Appendix with the specific formulae and constants
-used for each.</p>
-<div class="crosslinks">
-<p class="noindent">[<a href="advanced-colorimetry.html">next</a>]
-[<a href="human-visual-system.html">prev</a>] [<a href=
-"human-visual-system.html#tailhuman-visual-system.html">prev-tail</a>]
-[<a href="basic-colorimetry.html">front</a>] [<a href=
-"color-science.html#basic-colorimetry.html">up</a>]</p>
-</div>
-<p class="indent"><a id="tailbasic-colorimetry.html"></a></p>
-</div>
-<div class="col-md-2"></div>
-</div>
-</div>
-</article>
-<footer class="page-footer">
-<div class="container-fluid text-center py-3">Copyright © 2019 ‐
-Cinematic Color Authors ‐ <a href=
-"mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a></div>
-</footer>
-<script src="assets/js/jquery.min.js"></script> 
-<script src="assets/js/popper.min.js"></script> 
-<script src="assets/js/bootstrap.min.js"></script>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Cinematic Color 2</a>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "preface.html" id="preface" role="button">Preface</a>
+          <div aria-labelledby="preface" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "description.html">Description</a><a class=
+            "dropdown-item" href=
+            "authorship.html">Authorship</a><a class=
+            "dropdown-item" href="on-the-web.html">On the Web</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "introduction.html" id="introduction" role=
+          "button">Introduction</a>
+          <div aria-labelledby="introduction" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "intended-audience.html">Intended Audience</a><a class=
+            "dropdown-item" href=
+            "how-to-read-this-document.html">How to Read this
+            Document</a><a class="dropdown-item" href=
+            "the-goal.html">The Goal</a><a class="dropdown-item"
+            href="converging-approaches.html">Converging
+            Approaches</a><a class="dropdown-item" href=
+            "a-general-model-of-color-processing.html">A General
+            Model of Color Processing</a><a class="dropdown-item"
+            href="color-management-challenges.html">Color
+            Management Challenges</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "color-science.html" id="color-science" role=
+          "button">Color Science</a>
+          <div aria-labelledby="color-science" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-color-science.html">About Color
+            Science</a><a class="dropdown-item" href=
+            "electromagnetic-spectrum.html">Electromagnetic
+            Spectrum</a><a class="dropdown-item" href=
+            "human-visual-system.html">Human Visual
+            System</a><a class="dropdown-item" href=
+            "basic-colorimetry.html">Basic Colorimetry</a><a class=
+            "dropdown-item" href=
+            "advanced-colorimetry.html">Advanced
+            Colorimetry</a><a class="dropdown-item" href=
+            "representing-color.html">Representing
+            Color</a><a class="dropdown-item" href=
+            "color-imaging-systems.html">Color Imaging Systems</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "workflow.html" id="workflow" role="button">Workflow</a>
+          <div aria-labelledby="workflow" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-workflow.html">About Workflow</a><a class=
+            "dropdown-item" href=
+            "academy-color-encoding-system-aces.html">Academy Color
+            Encoding System (ACES)</a><a class="dropdown-item"
+            href="the-look.html">The Look</a><a class=
+            "dropdown-item" href="on-set.html">On Set</a><a class=
+            "dropdown-item" href=
+            "visual-effects-animation-and-games.html">Visual
+            Effects, Animation and Games</a><a class=
+            "dropdown-item" href=
+            "compositing.html">Compositing</a><a class=
+            "dropdown-item" href="di-grading.html">DI
+            Grading</a><a class="dropdown-item" href=
+            "critical-monitoring.html">Critical
+            Monitoring</a><a class="dropdown-item" href=
+            "finishing.html">Finishing</a><a class="dropdown-item"
+            href="archives.html">Archives</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "appendix.html" id="appendix" role="button">Appendix</a>
+          <div aria-labelledby="appendix" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "common-rgb-color-encodings.html">Common RGB Color
+            Encodings</a><a class="dropdown-item" href=
+            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
+            "dropdown-item" href=
+            "colour-science-for-python.html">Colour Science for
+            Python</a><a class="dropdown-item" href=
+            "luts-and-transforms.html">LUTs and
+            Transforms</a><a class="dropdown-item" href=
+            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
+            href="aces-ctl.html">ACES CTL</a><a class=
+            "dropdown-item" href="full-and-legal-ranges.html">Full
+            and Legal ranges</a><a class="dropdown-item" href=
+            "color-difference-encoding.html">Color Difference
+            Encoding</a><a class="dropdown-item" href=
+            "camera-characterization.html">Camera
+            Characterization</a><a class="dropdown-item" href=
+            "file-formats.html">File Formats</a><a class=
+            "dropdown-item" href=
+            "software.html">Software</a><a class="dropdown-item"
+            href="acknowledgements.html">Acknowledgements</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "glossary.html" id="glossary" role="button">Glossary</a>
+          <div aria-labelledby="glossary" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "figures-and-images.html">Figures and
+            Images</a><a class="dropdown-item" href=
+            "references-and-citations.html">References and
+            Citations</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=
+          "bibliography.html">Bibliography</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-md-0">
+        <input class="form-control" placeholder="Search" type=
+        "text" />
+      </form>
+    </div>
+  </nav>
+  <article class="page-content">
+    <div class="container-fluid py-3">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h3 class="sectionHead"><span class=
+          "titlemark">2.4</span> <a href=
+          "cinematic-color.html#QQ2-18-34" id="x18-340002.4">Basic
+          Colorimetry</a></h3>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.4.1</span> <a href=
+          "contents.html#QQ2-18-35" id="x18-350002.4.1">Origins of
+          Colorimetry</a></h4>
+          <p class="noindent">In the late 19th century, Young and
+          Helmholtz proposed that color vision is conveyed through
+          a limited number of receptors sensitive to different
+          portions of the visible spectrum. Maxwell (1860) used
+          linear algebra to prove Young–Helmholtz trichromatic
+          theory and invented color matching experiments and modern
+          colorimetry. The trichromatic theory explains the
+          metamerism phenomenon: two samples matching under some
+          lighting conditions might look different under
+          others.</p>
+          <p class="indent">Hering proposed the opponent color
+          theory around 1920 to explain phenomena not accounted for
+          by the trichromatic theory. He noted that specific pairs
+          of colors did not occur at the same time and place: a
+          reddish-green or yellowish-blue. We, however, do see
+          reddish-yellows and greenish-blues. He thought there were
+          three receptor types with bipolar response to red-green,
+          yellow-blue, and light-dark.</p>
+          <p class="indent">The Modern Opponent Colors Theory with
+          a trichromatic first stage mediated by the cones and
+          opponent colors encoding in the second stage. Stockman,
+          A., Brainard, D. H. (2010). Color vision mechanisms. The
+          Optical Society of America Handbook of Optics,
+          11.1–11.104. ISBN:0071498915 - colour-science.org</p>
+          <p class="indent">The modern color vision theory,
+          foundational basis of colorimetry, combines both
+          Young–Helmholtz’s Trichromatic Theory and Hering’s
+          Opponent Colors Theory: Color vision in the first stage
+          is trichromatic and executed by the cone cells. In the
+          second stage, upper retinal layers encode the cone cells
+          signals into an achromatic signal V() = L + M and two
+          cone opponent chromatic signals such as RG = L - M, YB =
+          L + M - S. 2.3.2 Measuring Light The CIE defines
+          colorimetry as the measurement of color stimuli based on
+          a set of conventions. Electromagnetic radiation
+          measurements are performed with instruments such as
+          spectroradiometers, spectrophotometers, or tristimulus
+          colorimeters for the case of visible radiation.</p>
+          <p class="indent">Spectroradiometry and spectrophotometry
+          need to be described as their naming with regard to
+          radiometry and photometry can be confusing.
+          Spectroradiometry measures the amount of light radiated
+          as a function of wavelength, i.e. radiance, or
+          irradiated, i.e. irradiance. Spectrophotometry measures
+          the amount of light reflected, transmitted, or absorbed
+          as a function of wavelength, i.e. reflectance, or
+          transmitted, i.e. transmittance. Both disciplines measure
+          a radiometric quantity (radiant flux) and not a
+          photometric one contrary to what the spectrophotometry
+          name might imply. Spectroradiometers, measuring radiance
+          or irradiance, and spectrophotometers, measuring
+          reflectance or transmittance, produce spectral
+          distributions with a narrowband interval, e.g. 1nm, 5nm
+          or 10nm.</p>
+          <p class="indent">On the other hand, tristimulus
+          colorimeters use red, green and blue filters that emulate
+          the HVS spectral response to light. They produce a single
+          triplet of values by measuring wideband radiant energy
+          and are used in digital imaging to calibrate displays.
+          Because they mimic the HVS, tristimulus colorimeters are
+          also subject to the metamerism phenomenon.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.4.2</span> <a href=
+          "contents.html#QQ2-18-36" id="x18-360002.4.2">Blackbody
+          Radiation, Light sources and Illuminants</a></h4>
+          <p class="noindent">All ordinary matter emits
+          electromagnetic radiation when its temperature is above
+          absolute zero. Even black holes are predicted to emit
+          Hawking radiation, a form of blackbody radiation caused
+          by the creation of sub-atomic particles near the event
+          horizon.</p>
+          <p class="indent">A blackbody or Planckian radiator is an
+          ideal thermal radiator that absorbs all incident
+          radiation, disregarding the wavelength, the direction of
+          incidence or the polarization completely. In thermal
+          equilibrium, it emits electromagnetic radiation
+          (blackbody radiation) with a characteristic spectral
+          distribution that depends only on its temperature and is
+          given by Planck’s Law.</p>
+          <p class="indent">When their temperature increases past
+          750 Kelvin, blackbodies start to emit visible
+          electromagnetic radiation, i.e. light.</p>
+          <p class="indent">Various blackbody spectral power
+          distributions in temperature domain 1250-10000K, note how
+          their radiation peak slides into the visible spectrum
+          range as their temperature increase.</p>
+          <p class="indent">Blackbodies are fundamental to both
+          astronomy and color science allowing one to determine the
+          color of a thermal radiator knowing only its temperature.
+          Conversely, its temperature can be computed from its
+          color. In 1931, using Planck’s Law, the CIE was able to
+          unambiguously and mathematically describe a standard
+          tungsten light source: the CIE Standard Illuminant A with
+          a color temperature of 2856K.</p>
+          <p class="indent">ASTM G-173 ETR Extraterrestrial
+          Radiation (solar spectrum at top of atmosphere) at mean
+          Earth-Sun distance compared to a Blackbody at 5778K. The
+          differences between the curves are mostly explained by
+          the fact that the Sun is not a perfect blackbody. The
+          Sun, principal light source on Earth with an effective
+          surface temperature of 5,778K, is close to an ideal
+          thermal radiator. Its spectrum exhibits numerous
+          absorption and emission spectral lines, i.e. the
+          Fraunhofer lines, resulting from the interactions of
+          atoms, atom nuclei, and molecules with photons in its
+          atmosphere. The Sun is not a solid body and has multiple
+          layers with different temperatures: corona, chromosphere,
+          photosphere, convective zone, radiative zone, and core.
+          The photosphere, the layer of gas constituting the
+          visible surface of the Sun, is the principal source of
+          the radiation we receive and the region where most of the
+          aforementioned spectral lines are forming. When solar
+          radiation traverses the Earth atmosphere, it interacts
+          with it, producing absorption, emission and scattering
+          events that further modify its spectrum.</p>
+          <p class="indent">Profile image of the daylight spectrum
+          captured with a DIY spectroscope and a CANON 5D Mark II
+          DSLR camera. Major Fraunhofer Lines are annotated for
+          reference. The black curve represents the luminance of
+          the spectrum at each wavelength. The white curve is a
+          reference spectrum concurrently captured with an Ocean
+          Optics STS-VIS spectrometer. While the spectroscope has a
+          very high resolution, the overall curve shape is
+          dramatically different to that of the spectrometer one:
+          the DSLR spectral sensitivities, its infrared filter, and
+          reflections in the spectroscope tube are all contributing
+          to alter the curve, making it unsuitable for precise
+          measurements. CIE Illuminants B and C were intended to
+          respectively model noon sunlight (correlated color
+          temperature (CCT) of 4874K) and average daylight (CCT of
+          6774K). They are realised by combining a light source
+          modeling CIE Standard Illuminant A with Davis-Gibson
+          liquid filters from David and Gibson (1931). Because of
+          the low illuminance levels achieved with such light
+          sources and their poor performance in the
+          near-ultraviolet region (which is essential for
+          fluorescent materials), they were deprecated in favor of
+          the CIE Illuminant D Series created by Judd, MacAdam, and
+          Wyszecki (1964).</p>
+          <p class="indent">The CIE Illuminant D Series models a
+          broad range of daylight phases inclusive of direct
+          sunlight, sunlight with cloud coverage, full overcast
+          coverage, and blue skylight. For standardization
+          purposes, ”CIE Standard Illuminant D Series D65 should be
+          used in all colorimetric calculations requiring
+          representative daylight unless there are specific reasons
+          for using a different illuminant” (ISO
+          11664-2:2007(E)/CIES014-2/E:2006).</p>
+          <p class="indent">CIE Illuminants B, C, and CIE Standard
+          Illuminant D Series D65. Note how the CIE Illuminants B
+          and C curves are different to the CIE Standard Illuminant
+          D Series D65 curve in the 300nm-380nm near-ultraviolet
+          region. From a terminology standpoint, it is meaningful
+          to understand that illuminants and light sources are
+          different: An illuminant is a standardized table of
+          values or mathematical function representing an ideal
+          light source. A light source is a physical emitter of
+          visible radiant energy.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.4.3</span> <a href=
+          "contents.html#QQ2-18-37" id=
+          "x18-370002.4.3">Reflectance, Transmittance and
+          Absorptance</a></h4>
+          <p class="noindent">Emitted light interacts with surfaces
+          of the world and is either reflected, transmitted or
+          absorbed. The measured radiant flux is the summation of
+          the light reflection, transmission, and absorption at
+          each wavelength such as: () = R() + T() + A() where () is
+          the measured radiant flux, R(), T() and A() are
+          respectively the surface reflectance, transmittance, and
+          absorptance. They are ordinarily expressed as fractions
+          of () in range 0-1.</p>
+          <p class="indent">Clover leaf reflectance, transmittance,
+          and absorptance spectra from LOPEX93, note that the
+          wavelengths represented are purposely reaching
+          near-infrared: even though invisible, the spectra have
+          values in that portion and exhibit a lot of variation.
+          Because they are also a function of the illumination and
+          viewing geometry, i.e. the angle between the light
+          incident at the surface and the angle of the instrument,
+          a complete description requires capturing the
+          Bidirectional Reflectance Distribution Function (BRDF) or
+          Bidirectional Transmittance Distribution Function (BTDF).
+          High-quality BxDF data capture is not only difficult, but
+          its usage is also non-trivial thus for practical purposes
+          the CIE defines 4 standard illuminations and viewing
+          geometries. They are described in CIE 015:2004
+          Colorimetry, 3rd Edition.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.4.4</span> <a href=
+          "contents.html#QQ2-18-38" id="x18-380002.4.4">Standard
+          Observers</a></h4>
+          <p class="noindent">The perception of incident light to
+          the HVS varies from one observer to another. Thus to
+          avoid ambiguity when characterizing color, the CIE
+          standardized various functions for use with colorimetric
+          calculations.</p>
+          <p class="indent">The first one, the CIE 1924 Photopic
+          Standard Observer luminous efficiency function V(), a
+          fundamental function modeling the wavelength dependent
+          sensitivity of the HVS, was established in 1924.</p>
+          <p class="indent">V() - CIE 1924 Photopic Standard
+          Observer modeling the wavelength dependent sensitivity of
+          the HVS.</p>
+          <p class="indent">It was derived for a 2<span class=
+          "cmsy-7">∘</span> angular subtense viewing field from
+          several independent experiments whose results were weight
+          assembled by Gibson and Tyndall (1923).</p>
+          <p class="indent">The first row shows the computed
+          swatches and spectral distributions of two synthetic
+          green and red LED lights with equal radiant power. In the
+          second row, the red LED light luminous flux has been
+          scaled to match that of the green LED light.</p>
+          <p class="indent">To an observer viewing a red light and
+          a green light with equal radiant power, the green light
+          appears brighter than the red: in the above figure their
+          luminous fluxes are 40500lm, and 3500lm respectively. If
+          the red light luminous flux is scaled to match that of
+          the green light, then both lights are perceived to have
+          similar brightness. The consequence of this scaling is
+          that the red light radiant power increased by one order
+          of magnitude.</p>
+          <p class="indent">In the late 1920’s, Wright (1928) and
+          Guild (1931) independently conducted a series of color
+          matching experiments to quantify the color ability of an
+          average human observer which laid the foundations for the
+          specification of the CIE XYZ color space. The results
+          obtained were summarized by the Wright Guild 1931
+          2<span class="cmsy-7">∘</span> RGB<span class=
+          "cmtt-10">[U+2015]</span> color Matching Functions
+          (CMFs): they represent the amounts of three monochromatic
+          primary colors R, G, B needed to match the test color at
+          a single wavelength of light.</p>
+          <p class="indent">Wright Guild 1931 2<span class=
+          "cmsy-7">∘</span> RGB<span class=
+          "cmtt-10">[U+2015]</span> CMFs present a negative
+          lobe.</p>
+          <p class="indent">Wright Guild 1931 2<span class=
+          "cmsy-7">∘</span> RGB<span class=
+          "cmtt-10">[U+2015]</span> CMFs present negative values
+          that are inconvenient for various reasons: they make RGB
+          tristimulus values computation more difficult, requiring
+          separately summing products with positive and negative
+          signs and then a final differencing of the sums.
+          Computation of photometric quantities like luminance is
+          more laborious for similar reasons, and finally, the
+          development of direct-reading tristimulus colorimeters is
+          challenging because of the sign change.</p>
+          <p class="indent">These reasons lead the CIE to transform
+          the Wright Guild 1931 2<span class="cmsy-7">∘</span> RGB
+          CMFs into a new set of functions based on new primary
+          stimuli X, Y, Z: The CIE 1931 2<span class=
+          "cmsy-7">∘</span> Standard Observer XYZ<span class=
+          "cmtt-10">[U+2015]</span> color matching functions. When
+          conceiving the linear transformation that converts Wright
+          Guild 1931 2<span class="cmsy-7">∘</span> RGB<span class=
+          "cmtt-10">[U+2015]</span> CMFs into the CIE 1931
+          2<span class="cmsy-7">∘</span> Standard Observer XYZ
+          CMFs, the CIE ensured that the Y<span class=
+          "cmtt-10">[U+2015]</span> function was equal to the CIE
+          1924 Photopic Standard Observer luminous efficiency
+          function V() and that all the functions were
+          positive.</p>
+          <p class="indent">The CIE 1931 2<span class=
+          "cmsy-7">∘</span> Standard Observer, a linear
+          transformation of Wright Guild 1931 2<span class=
+          "cmsy-7">∘</span> RGB CMFs designed to remove the
+          negative lobe of the later.</p>
+          <p class="indent">Among other factors such as age, color
+          vision sensitivity is affected by the angle subtended by
+          the objects being observed. In the 1960s it was found
+          that cones were present in a broader region of the eye
+          than that initially covered by the experiments that lead
+          to the CIE 1931 2<span class="cmsy-7">∘</span> Standard
+          Observer specification. As a result, color computations
+          done with the CIE 1931 2<span class="cmsy-7">∘</span>
+          Standard Observer do not always correlate to visual
+          observation.</p>
+          <p class="indent">In 1964, the CIE defined an additional
+          standard observer: the CIE 1964 10<span class=
+          "cmsy-7">∘</span> Standard Observer derived from the
+          results of Stiles and Burch (1959) and Speranskaya (1959)
+          investigations with large-field color matching
+          experiments.</p>
+          <p class="indent">The CIE 1964 10<span class=
+          "cmsy-7">∘</span> Standard Observer corrects some
+          deficiencies of the CIE 1931 2<span class=
+          "cmsy-7">∘</span> Standard Observer, especially in the
+          blue wavelengths. It should be used when dealing with a
+          field of view of more than 4<span class=
+          "cmsy-7">∘</span>.</p>
+          <p class="indent">The CIE 1964 10<span class=
+          "cmsy-7">∘</span> Standard Observer is believed to be a
+          better representation of the spectral response of human
+          vision and recommended by the CIE when dealing with a
+          field of view of more than 4<span class=
+          "cmsy-7">∘</span>. For example, the CIE 1964
+          10<span class="cmsy-7">∘</span> Standard Observer is
+          commonly used in color formulation and color quality
+          control whereas the CIE 1931 2<span class=
+          "cmsy-7">∘</span> Standard Observer tend to be used with
+          applications that deals with small samples or samples
+          viewed at great distance.</p>
+          <p class="indent">Virtually all computer graphics
+          applications use the CIE 1931 2<span class=
+          "cmsy-7">∘</span> Standard Observer. Motion picture color
+          management also adopts it as it is suited for computer
+          graphics and imagery: Interface elements, e.g. icons,
+          color pickers and swatches, and image inner features tend
+          to be small and subtend a small angle. Hunt (2004) says
+          that ”in colour reproductions, the interest generally
+          lies much more in patches of colour of about
+          2<span class="cmsy-7">∘</span> angular size than
+          10<span class="cmsy-7">∘</span>, and the 1931 CIE data
+          may therefore be used with confidence.” The CIE 1931
+          2<span class="cmsy-7">∘</span> Standard Observer only
+          involves the fovea where the cones are present, i.e.
+          color vision, and great care was taken to avoid rod
+          intrusion when the CIE 1964 10<span class=
+          "cmsy-7">∘</span> Standard Observer data was assembled
+          with the consequence that similar care must be taken when
+          evaluating 10<span class="cmsy-7">∘</span> subtending
+          fields. Recently, the CIE TC 1-36 technical committee
+          report (CIE 170-1:2006, 2006) established the CIE 2012
+          10<span class="cmsy-7">∘</span> Standard Observer as the
+          new physiologically relevant fundamental CIE color
+          matching functions. They are a linear transformations of
+          Stockman Sharpe 10<span class="cmsy-7">∘</span> Cone
+          Fundamentals LMS10 spectral sensitivity functions which
+          can be used to derive any CMFs given physiological
+          parameters such as the age of the observer and the field
+          size.</p>
+          <p class="indent">The transition to those new CMFs might
+          happen in the future but there are open questions on how
+          to migrate dataset that are not spectrally defined, e.g.
+          what are the chromaticity coordinates of the sRGB color
+          space in the CIE 2012 10<span class="cmsy-7">∘</span>
+          Standard Observer?</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.4.5</span> <a href=
+          "contents.html#QQ2-18-39" id="x18-390002.4.5">CIE XYZ
+          Tristimulus Values and Metamerism</a></h4>
+          <h5 class="subsubsectionHead"><a href="#x18-400002.4.5"
+          id="x18-400002.4.5">CIE XYZ Tristimulus Values</a></h5>
+          <p class="noindent">Spectral radiant energy is converted
+          into CIE XYZ tristimulus values by integrating the
+          product of the spectral distribution of a sample with the
+          spectral power distribution of a light source (or
+          illuminant) and with the CMFS. Their values for the color
+          of a surface with spectral reflectance () under an
+          illuminant of relative spectral power S() are calculated
+          using the following integral equations:</p>
+          <p class="indent">Equation x.x of the computation of X
+          tristimulus value is illustrated in figure x.x where the
+          reflectance of a sample of sand is multiplied by CIE
+          Standard Illuminant D Series D65, the color matching
+          function X<span class="cmtt-10">[U+2015]</span> and the
+          normalization factor k.</p>
+          <p class="indent">Integration of the spectral reflectance
+          distribution of a sample of sand for X tristimulus value.
+          Note that this process must be repeated for Y<span class=
+          "cmtt-10">[U+2015]</span> and Z<span class=
+          "cmtt-10">[U+2015]</span> shown in dashed green and blue
+          lines to obtain the corresponding Y and Z tristimulus
+          values.</p>
+          <h5 class="subsubsectionHead"><a href="#x18-410002.4.5"
+          id="x18-410002.4.5">Metamerism</a></h5>
+          <p class="noindent">The conversion of spectral radiant
+          energy into CIE XYZ tristimulus values reduces complex
+          light color information spanning many wavelengths into
+          three sensory quantities. From a mathematical standpoint,
+          the tristimulus conversion equations X.X.X are
+          demonstrating the phenomenon: the integrals represent the
+          area under the multiplied spectral distribution curves of
+          the sample, light, and CMFS. However, an infinite number
+          of light and sample curve combinations yield the same
+          area: tristimulus values are multi-valued, and metamerism
+          occurs because of the lack of injectivity. A consequence
+          of this reduction is that two samples viewed under the
+          same illumination conditions can produce an identical
+          cone cells response and thus yield matching CIE XYZ
+          tristimulus values. The two samples are said to be
+          metamers, and changing the illumination conditions might
+          result into a metameric failure: this is the metamerism
+          phenomenon.</p>
+          <p class="indent">Metameric failure example, the two
+          spheres use generated metameric spectral reflectance
+          distributions that yield matching color under CIE
+          Illuminant E but not under CIE Standard Illuminant A.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.4.6</span> <a href=
+          "contents.html#QQ2-18-42" id="x18-420002.4.6">CIE xyY
+          Color Space and Chromaticity Diagram</a></h4>
+          <p class="noindent">It is convenient to use a 2D
+          representation of colors where luminance is separated
+          from chroma. The CIE xyY color space is constructed
+          through a projective transformation that isolates the Y
+          luminance axis of the CIE XYZ color space and yields a
+          tuple of chromaticity coordinates (x, y):</p>
+          <p class="indent">The CIE 1931 Chromaticity Diagram is a
+          2D projection of the volume of all the colors seen by the
+          CIE 1931 2<span class="cmsy-7">∘</span> Standard Observer
+          along the Y luminance axis of the CIE xyY color
+          space.</p>
+          <p class="indent">The CIE 1931 Chromaticity Diagram and
+          Pointer (1980)’s Gamut, a gamut of real surface colors.
+          Note that similarly to the figures showcasing the visible
+          spectrum, the colors are accurate within the limits of
+          what the display can represent.</p>
+          <p class="indent">The curved edge encompassing the colors
+          is known as the Spectral Locus and is composed of
+          physically realizable monochromatic colors, each label on
+          the diagram is such a color. The encompassed colors are
+          mixtures of the edge monochromatic colors. The region
+          outside does not correspond to physically-possible
+          colors, those chromaticity coordinates outside the
+          spectral locus are referred to as ”imaginary”. They are
+          often useful for mathematical encoding purposes but are
+          not realizable in any display system. The line closing
+          the horseshoe shape is known as the line of purples.</p>
+          <p class="indent">The volume (or area) of colors either
+          ”present in a specific scene, artwork, photograph,
+          photomechanical, or other reproduction; capable of being
+          created using a particular output device and/or medium”
+          is defined by the CIE as the color gamut. Color gamuts
+          are generally represented on the chromaticity diagram as
+          flat, two-dimensional surfaces with uniform luminance.
+          They are specified with a set of tuple of chromaticity
+          coordinates (x, y). The chosen luminance value, often 1,
+          is arbitrary and depends on the use case. For analysis
+          and visualization purposes, it is valuable to draw
+          multiple variants of a color gamut at different luminance
+          values as its surface boundary changes accordingly. By
+          extension, color gamuts such as Pointer (1980)’s gamut of
+          real surface colors, specified with a set of triplets of
+          CIE xyY color space coordinates are representing
+          three-dimensional volumes.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.4.7</span> <a href=
+          "contents.html#QQ2-18-43" id=
+          "x18-430002.4.7">Perceptually Uniform Color Spaces and
+          Color Difference</a></h4>
+          <p class="noindent">Although it is not immediately
+          apparent, the chromaticity diagram is a very poor
+          representation of our color perception. Distances between
+          colors in the CIE xyY color space do not directly relate
+          to their apparent perceptual differences. Two adjacent
+          colors may be perceived as different, while colors far
+          apart may be indistinguishable. The degree to which a
+          given color space accurately maps geometric distance to
+          perceptual distance is referred to as its level of
+          perceptual uniformity.</p>
+          <p class="indent">MacAdam (1942) ellipses, i.e.
+          indistinguishable color regions, plotted in the CIE 1931
+          chromaticity diagram and the CIE 1976 UCS chromaticity
+          diagram with improved perceptual uniformity: the ellipses
+          are rounder. Note how the green region of the CIE 1931
+          chromaticity diagram is highly stretched compared to the
+          same region in the CIE 1976 UCS chromaticity diagram or
+          compared to the blue region in both diagrams. An ideal
+          color space would transform the ellipses into circles.
+          Note that the ellipses axes are 10 times their actual
+          length and that it is possible to generate in-between
+          ellipses by interpolation. Data from Table 2(5.4.1) in
+          Wyszecki, G., Stiles, W. S. (2000). Color Science:
+          Concepts and Methods, Quantitative Data and Formulae.
+          Wiley. ISBN:978-0471399186</p>
+          <p class="indent">Perceptual uniformity can be a
+          desirable quality for a color space: it supports accurate
+          color differences and lightness prediction. A
+          perceptually uniform color space improves performance of
+          various image processing algorithms such as lossy image
+          compression, denoising, segmentation or device
+          characterisation, image quality modeling and color
+          appearance modeling.</p>
+          <p class="indent">Gamut mapping, the process by which
+          colors lying outside a gamut are mapped inside it, is
+          preferably performed in a perceptually uniform color
+          space because the correlation between the perceptual
+          attributes is reduced and thus hue is minimally affected
+          when the lightness and chroma attributes are individually
+          adjusted to reduce the gamut size.</p>
+          <p class="indent">The non-uniformity of the CIE 1931
+          Chromaticity Diagram led to the adoption by the CIE in
+          1960 of the uniform color space devised by MacAdam
+          (1937). The CIE 1960 Uniform Color Space (UCS) is
+          nowadays primarily used to represent the correlated color
+          temperature (CCT) of light sources or illuminants as the
+          isolines are perpendicular to the Planckian locus. The
+          isolines represent delta uv: for a given CCT and its
+          corresponding color, increasing or decreasing delta uv
+          will bias the color toward green or magenta. The tint
+          control in white balancing algorithms is effectively
+          delta uv scaled by a constant.</p>
+          <p class="indent">CIE 1960 UCS Chromaticity Diagram with
+          Planckian Locus and perpendicular Iso-Temperature
+          lines.</p>
+          <p class="indent">Conversion from tristimulus values to
+          CIE 1960 UCS color space UVW values is performed as
+          follows: UVW = <span class="cmtt-10">[U+2154]</span>
+          <span class="cmsy-10">×</span> X, Y, <img align="middle"
+          alt="1 2 class=" class="figure-img img-fluid" src=
+          "cinematic-color0x.svg" /> <span class="cmsy-10">×</span>
+          (-X + 3 <span class="cmsy-10">×</span> Y + Z) The
+          chromaticity coordinates uv are then obtained by a
+          perspective projection similarly to the one of CIE xyY
+          color space: uv =U / (U + V + W), V / (U + V + W)</p>
+          <p class="indent">The CIE 1976 UCS Chromaticity Diagram,
+          based on CIE L*u*v* color space, superseded the CIE 1960
+          UCS Chromaticity Diagram.</p>
+          <p class="indent">CIE 1976 UCS Chromaticity Diagram based
+          on CIE L*u*v* color space.</p>
+          <p class="indent">The conversion from tristimulus values
+          to CIE L*u*v* color space is longer than CIE 1960 UCS and
+          is found in the Appendix. Other uniform color spaces
+          beyond CIE L*u*v* have been defined: the IPT color space
+          by Ebner and Fairchild (1998) is excellent at predicting
+          perceived hue. CAM16-UCS by Li, Li, Wang, Zu, Luo, Cui,
+          Melgosa, Brill and Pointer (2017) is a uniform color
+          space based on CAM16 that offers good general
+          performance. The ICtCp color space by Lu, Pu, Yin et al.
+          (2016) and the JzAzBz color space by Safdar, Cui, Kim,
+          and Luo (2017) extend perceptual uniformity to high
+          dynamic range and adopt the PQ curve as the basis for
+          Lightness prediction.</p>
+          <p class="indent">The need for quantifying how much two
+          color samples are different was one of the incentives for
+          the CIE to design a perceptually uniform color space and
+          ultimately adopt both the CIE L*a*b* and CIE L*u*v* color
+          spaces in 1976. Color differences are measured as the
+          Euclidean distance between a reference color sample and a
+          test color sample in the CIE L*a*b* color space as
+          follows: ΔE*76 = <span class="cmsy-10">√</span> ((L*r -
+          L*t)2 + (a*r - a*t)2 + (b*r - b*t)2) where ΔE*76 is the
+          color difference, L*r, a*r, b*r , and L*t, a*t, b*t are
+          the reference and test color sample.</p>
+          <p class="indent">While the CIE L*a*b* color space
+          features decent perceptual uniformity, it was deemed
+          unsatisfactory when comparing some pair of colors,
+          compelling the CIE into improving the metric with the CIE
+          1994 (ΔE*94) and subsequent CIE 2000 (ΔE*00)
+          quasimetrics. It is appropriate to measure color
+          differences in the CAM16-UCS, ICtCp and JzAzBz color
+          spaces using Euclidean distance.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.4.8</span> <a href=
+          "contents.html#QQ2-18-44" id="x18-440002.4.8">Additive
+          RGB Color Spaces</a></h4>
+          <p class="noindent">Additive RGB color spaces are the
+          color representation that most people interact with on a
+          daily basis; our display technology is based on the
+          additive mixing of 3 red, green and blue primaries.</p>
+          <p class="indent">The first RGB color space, CIE RGB, was
+          created by Wright Guild (1931) when they performed their
+          color matching experiments. The three monochromatic
+          primary colors R, G, B used to match a test color at a
+          single wavelength of light once plotted on the CIE 1931
+          Chromaticity Diagram, are located on the spectral locus
+          and respectively have the following wavelengths: 700.0
+          nm, 546.1 nm, and 435.8 nm. sRGB is the ubiquitous RGB
+          color space created by Hewlett Packard and Microsoft in
+          1996, standardized as IEC 61966-2-1:1999, in an attempt
+          to define a standard color space for use with monitors,
+          printers, and on the Internet. Many other RGB color
+          spaces exist and are reviewed in the Appendix. This
+          section of the document focuses instead on the components
+          of an RGB color space and provides some disambiguation of
+          terminology.</p>
+          <p class="indent">It is common to see operators in
+          digital content creation (DCC) applications or functions
+          in various game engines, libraries, color processing
+          tools labeled as ”linear to sRGB”. The consequence of
+          poor wording is that people often don’t understand that
+          sRGB is probably more than a ”linear to sRGB” operator or
+          function. Some resources purport to explain how sRGB and
+          linear color spaces differ. First and foremost, while the
+          CIE RGB and sRGB color space gamuts are intrinsically
+          representing radiometrically linear light values, their
+          color component transfer functions are radically
+          different: CIE RGB has no defined encoding and decoding
+          color component transfer functions; they are considered
+          to be linear; however sRGB adopts non-linear color
+          encoding and decoding component transfer functions
+          following a power law.</p>
+          <p class="indent">The confusion comes from the fact that
+          generally, people don’t mention which component of the
+          additive RGB color space they are referring to. The
+          following three components are required to fully specify
+          an additive RGB color space:</p>
+          <p class="indent">Primaries White point Color Component
+          Transfer Functions</p>
+          <p class="indent">Noticeably, the ISO 22028-1:2016
+          Standard defines an additive RGB color space as
+          follows:</p>
+          <p class="indent">Additive RGB color space</p>
+          <p class="indent">Colorimetric color space having three
+          color primaries (generally red, green and blue) such that
+          CIE XYZ tristimulus values can be determined from the RGB
+          color space values by forming a weighted combination of
+          the CIE XYZ tristimulus values for the individual color
+          primaries, where the weights are proportional to the
+          radiometrically linear color space values for the
+          corresponding color primaries.</p>
+          <p class="indent">Note 1 to entry: A simple linear 3
+          <span class="cmsy-10">×</span> 3 matrix transformation
+          can be used to transform between CIE XYZ tristimulus
+          values and the radiometrically linear color space values
+          for an additive RGB color space.</p>
+          <p class="indent">Note 2 to entry: Additive RGB color
+          spaces are defined by specifying the CIE chromaticity
+          values for a set of additive RGB primaries and a color
+          space white point, together with a color component
+          transfer function.</p>
+          <h5 class="subsubsectionHead"><a href="#x18-450002.4.8"
+          id="x18-450002.4.8">Primaries</a></h5>
+          <p class="noindent">The primaries’ chromaticity
+          coordinates define the gamut that can be encoded by a
+          given RGB color space. It is essential to understand that
+          while commonly represented as triangles on a Chromaticity
+          Diagram, RGB color space gamuts define the boundaries of
+          an actual 3D volume within the CIE xyY color space. The
+          shape of the volume is not simply an extruded triangle
+          because each primary reaches unity at a different
+          luminance value. From that point the luminance can only
+          rise by increasing one or both of the other channels, and
+          consequently decreasing saturation. Maximum luminance is
+          only achieved when the three channels reach unity, which
+          corresponds to the achromatic point at the top of the
+          volume. A gamut, per definition, only contains physically
+          realizable colors but RGB color space primaries can be
+          located outside of the spectral locus, in such cases, the
+          gamut is the intersection between the given RGB color
+          space volume and the volume of physically realizable
+          colors.</p>
+          <p class="indent">sRGB color space gamut visualized in
+          CIE xyY color space. The shape of the volume is the
+          result of the transformation of an RGB unit cube to CIE
+          XYZ color space followed by a transformation to CIE xyY
+          color space.</p>
+          <p class="indent">sRGB, DCI-P3 and BT.2020 RGB color
+          space gamuts in the CIE 1931 chromaticity diagram.</p>
+          <h5 class="subsubsectionHead"><a href="#x18-460002.4.8"
+          id="x18-460002.4.8">White Point</a></h5>
+          <p class="noindent">The white point is defined by the CIE
+          as the ”achromatic reference stimulus in a chromaticity
+          diagram that corresponds to the stimulus that produces an
+          image area that has the perception of white”. Any colors
+          lying on the neutral axis line defined by the white point
+          and its vertical projection toward the bottom of the RGB
+          color space gamut, no matter their Luminance, are neutral
+          to that RGB color space and thus achromatic.</p>
+          <p class="indent">Various RGB color spaces white points
+          in the CIE 1960 UCS chromaticity diagram, note that the
+          ACES white point is not precisely equal to CIE Illuminant
+          D Series D60.</p>
+          <p class="indent">Typical white points are chosen as CIE
+          Standard Illuminants. In 1953, the National Television
+          System Committee (NTSC) published a standard for color
+          television that used CIE Illuminant C. As noted in
+          section 2.3.3, CIE Illuminant C was superseded by the CIE
+          Standard Illuminant D Series D65 and became the
+          illuminant for the PAL and SECAM analog encoding systems
+          for color television in the 1960s. In the 1990s, desktop
+          publishing CRT color monitors often adopted a white point
+          close to CCT 9300 K which was deemed too high by the
+          professional printing industry and graphic arts to
+          suitably soft proof images. Printing workflows use CIE
+          Illuminant D Series D50 (ISO 3664:1975) as it is
+          somewhere between average daylight and incandescent
+          light. CIE Illuminant D Series D50 is the illuminant
+          adopted by the International Color Consortium (ICC)
+          established in 1993 by eight imaging companies ”for the
+          purpose of creating, promoting and encouraging the
+          standardization and evolution of an open, vendor-neutral,
+          cross-platform color management architecture and
+          components.”</p>
+          <p class="indent">Two white points were suggested as an
+          alternative to the high CRT CCT: CIE Illuminant D Series
+          D50 and CIE Standard Illuminant D Series D65. Images
+          displayed on monitors calibrated to CIE Illuminant D
+          Series D50 were deemed dull and yellow in dim to average
+          viewing conditions.</p>
+          <p class="indent">Following on from PAL and SECAM color
+          television, and also as a consequence of the broad
+          adoption of the sRGB IEC 61966-2-1:1999 standard, most
+          modern computer display systems use CIE Standard
+          Illuminant D Series D65.</p>
+          <p class="indent">Digital cinema as per the
+          recommendation of the Digital Cinema Initiative (DCI)
+          adopts the DCI-P3 white point based on a Xenon arc lamp
+          spectral power distribution. ACES uses a white point
+          close to CIE Standard Illuminant D Series D60: its lower
+          CCT makes it more pleasing for dark viewing conditions
+          typical of theatrical exhibition.</p>
+          <h5 class="subsubsectionHead"><a href="#x18-470002.4.8"
+          id="x18-470002.4.8">Color Component Transfer
+          Functions</a></h5>
+          <p class="noindent">The color component transfer
+          functions (CCTFs), defined as ”single variable, monotonic
+          mathematical function applied individually to one or more
+          colour channels of a colour space” by ISO 22028-1:2016
+          Standard generally perform the mapping between linear
+          light components and a non-linear R’G’B’ component signal
+          value, most of the time for coding optimization and
+          bandwidth performance and/or to improve the visual
+          uniformity of a color space.</p>
+          <p class="noindent"><span class="paragraphHead"><a href=
+          "#x18-480002.4.8" id="x18-480002.4.8"><span class=
+          "cmbx-10">Encoding Color Component Transfer
+          Functions</span></a></span> The Encoding CCTF, commonly
+          an Opto-Electronic Transfer Function (OETF) or inverse
+          Electro-Optical Transfer Function (EOTF), maps estimated
+          linear light components in a scene to a non-linear R’G’B’
+          component signal value.</p>
+          <p class="indent">sRGB, Rec. 709 and Cineon Encoding
+          color Component Transfer Functions, note how the Cineon
+          curve imposes a substantial compression to the input
+          domain allowing it to encode a wider dynamic range.</p>
+          <p class="indent">Typical OETFs are expressed by a power
+          function with an exponent between 0.4 and 0.5. They can
+          also be defined as piece-wise functions such as the sRGB
+          or Rec. 709 OETFs. OETFs are necessary for the faithful
+          representation of images and perceptual coding in
+          relation to display non-linear response and the
+          non-linearity of the human visual system.</p>
+          <p class="indent">Digital cinema cameras usually adopt
+          logarithmic encoding functions such as Sony S-Log, ALEXA
+          LogC or Canon C-Log allowing storage of a much wider
+          dynamic range from the original scene compared to a
+          generic Rec. 709 HDTV camera. To some degree, they are
+          considered as flavors of the Cineon encoding found in the
+          Kodak Cineon System, an early 1990s computer-based
+          digital film system. The main difference between digital
+          cinema cameras encodings and Cineon is that the latter is
+          a logarithmic encoding directly corresponding to the
+          optical density of the film negative. In order to know
+          the relationship between a Cineon encoding and scene
+          light, it is necessary also to know the characteristic
+          curve of the film stock.</p>
+          <p class="noindent"><span class="paragraphHead"><a href=
+          "#x18-490002.4.8" id="x18-490002.4.8"><span class=
+          "cmbx-10">Decoding Color Component Transfer
+          Functions</span></a></span> The Decoding CCTF, commonly
+          an EOTF or inverse OETF, maps a non-linear R’G’B’ video
+          component signal to a linear light components at the
+          display. It describes how a display, such as a TV or a
+          projector, responds to an incoming electrical signal and
+          how it converts code values into visible light.</p>
+          <p class="indent">sRGB, Rec. 1886 and Gamma 2.2 Decoding
+          color Component Transfer Functions. Note that the sRGB
+          transfer function used as an EOTF is subject to debate as
+          seen in section 4.1.3.</p>
+          <p class="indent">Typical EOTFs are expressed by a power
+          function with an exponent between 2.2 and 2.6 such as
+          BT.1886 for Standard Dynamic Range (SDR) television or a
+          piece-wise function for display using the exact sRGB
+          transfer function as EOTF. High Dynamic Range (HDR)
+          television as standardized by BT.2100 adopts Hybrid
+          Log-Gamma (HLG) or PQ EOTFs.</p>
+          <p class="indent">A listing of commonly used OETFs and
+          EOTFs is included in the Appendix with the specific
+          formulae and constants used for each.</p>
+          <div class="crosslinks">
+            <p class="noindent">[<a href=
+            "advanced-colorimetry.html">next</a>] [<a href=
+            "human-visual-system.html">prev</a>] [<a href=
+            "human-visual-system.html#tailhuman-visual-system.html">prev-tail</a>]
+            [<a href="basic-colorimetry.html">front</a>] [<a href=
+            "color-science.html#basic-colorimetry.html">up</a>]</p>
+          </div>
+          <p class="indent"><a id=
+          "tailbasic-colorimetry.html"></a></p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </article>
+  <footer class="page-footer">
+    <div class="container-fluid text-center py-3">
+      Copyright © 2019 ‐ Cinematic Color Authors ‐ <a href=
+      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
+    </div>
+  </footer>
+  <script src="assets/js/jquery.min.js"></script> 
+  <script src="assets/js/popper.min.js"></script> 
+  <script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>

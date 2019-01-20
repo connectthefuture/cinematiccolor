@@ -1,545 +1,643 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="generator" content=
-"HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-<title>On Set</title>
-<meta charset="utf-8" />
-<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-"generator" />
-<meta content="width=device-width,initial-scale=1" name=
-"viewport" />
-<link href="cinematic-color.css" rel="stylesheet" type=
-"text/css" />
-<meta content="cinematic-color.tex" name="src" />
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
-"text/css" />
-<link href="assets/css/custom.css" rel="stylesheet" type=
-"text/css" />
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
+  <title>On Set</title>
+  <meta charset="utf-8" />
+  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
+  "generator" />
+  <meta content="width=device-width,initial-scale=1" name=
+  "viewport" />
+  <link href="cinematic-color.css" rel="stylesheet" type=
+  "text/css" />
+  <meta content="cinematic-color.tex" name="src" />
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
+  "text/css" />
+  <link href="assets/css/custom.css" rel="stylesheet" type=
+  "text/css" />
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark"><a class=
-"navbar-brand" href="#">Cinematic Color 2</a>
-<div class="collapse navbar-collapse" id="navbar">
-<ul class="navbar-nav mr-auto">
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="preface.html" id="preface" role=
-"button">Preface</a>
-<div aria-labelledby="preface" class="dropdown-menu"><a class=
-"dropdown-item" href="description.html">Description</a><a class=
-"dropdown-item" href="authorship.html">Authorship</a><a class=
-"dropdown-item" href="on-the-web.html">On the Web</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="introduction.html" id="introduction" role=
-"button">Introduction</a>
-<div aria-labelledby="introduction" class="dropdown-menu"><a class=
-"dropdown-item" href="intended-audience.html">Intended
-Audience</a><a class="dropdown-item" href=
-"how-to-read-this-document.html">How to Read this
-Document</a><a class="dropdown-item" href="the-goal.html">The
-Goal</a><a class="dropdown-item" href=
-"converging-approaches.html">Converging Approaches</a><a class=
-"dropdown-item" href="a-general-model-of-color-processing.html">A
-General Model of Color Processing</a><a class="dropdown-item" href=
-"color-management-challenges.html">Color Management
-Challenges</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="color-science.html" id="color-science" role=
-"button">Color Science</a>
-<div aria-labelledby="color-science" class="dropdown-menu">
-<a class="dropdown-item" href="about-color-science.html">About
-Color Science</a><a class="dropdown-item" href=
-"electromagnetic-spectrum.html">Electromagnetic
-Spectrum</a><a class="dropdown-item" href=
-"human-visual-system.html">Human Visual System</a><a class=
-"dropdown-item" href="basic-colorimetry.html">Basic
-Colorimetry</a><a class="dropdown-item" href=
-"advanced-colorimetry.html">Advanced Colorimetry</a><a class=
-"dropdown-item" href="representing-color.html">Representing
-Color</a><a class="dropdown-item" href=
-"color-imaging-systems.html">Color Imaging Systems</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="workflow.html" id="workflow" role=
-"button">Workflow</a>
-<div aria-labelledby="workflow" class="dropdown-menu"><a class=
-"dropdown-item" href="about-workflow.html">About
-Workflow</a><a class="dropdown-item" href=
-"academy-color-encoding-system-aces.html">Academy Color Encoding
-System (ACES)</a><a class="dropdown-item" href="the-look.html">The
-Look</a><a class="dropdown-item" href="on-set.html">On
-Set</a><a class="dropdown-item" href=
-"visual-effects-animation-and-games.html">Visual Effects, Animation
-and Games</a><a class="dropdown-item" href=
-"compositing.html">Compositing</a><a class="dropdown-item" href=
-"di-grading.html">DI Grading</a><a class="dropdown-item" href=
-"critical-monitoring.html">Critical Monitoring</a><a class=
-"dropdown-item" href="finishing.html">Finishing</a><a class=
-"dropdown-item" href="archives.html">Archives</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="appendix.html" id="appendix" role=
-"button">Appendix</a>
-<div aria-labelledby="appendix" class="dropdown-menu"><a class=
-"dropdown-item" href="common-rgb-color-encodings.html">Common RGB
-Color Encodings</a><a class="dropdown-item" href=
-"opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-"dropdown-item" href="colour-science-for-python.html">Colour
-Science for Python</a><a class="dropdown-item" href=
-"luts-and-transforms.html">LUTs and Transforms</a><a class=
-"dropdown-item" href="asc-cdl.html">ASC CDL</a><a class=
-"dropdown-item" href="aces-ctl.html">ACES CTL</a><a class=
-"dropdown-item" href="full-and-legal-ranges.html">Full and Legal
-ranges</a><a class="dropdown-item" href=
-"color-difference-encoding.html">Color Difference
-Encoding</a><a class="dropdown-item" href=
-"camera-characterization.html">Camera Characterization</a><a class=
-"dropdown-item" href="file-formats.html">File Formats</a><a class=
-"dropdown-item" href="software.html">Software</a><a class=
-"dropdown-item" href=
-"acknowledgements.html">Acknowledgements</a></div>
-</li>
-<li class="nav-item dropdown"><a aria-expanded="false"
-aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="glossary.html" id="glossary" role=
-"button">Glossary</a>
-<div aria-labelledby="glossary" class="dropdown-menu"><a class=
-"dropdown-item" href="figures-and-images.html">Figures and
-Images</a><a class="dropdown-item" href=
-"references-and-citations.html">References and Citations</a></div>
-</li>
-<li class="nav-item"><a class="nav-link" href=
-"bibliography.html">Bibliography</a></li>
-</ul>
-<form class="form-inline my-2 my-md-0"><input class="form-control"
-placeholder="Search" type="text" /></form>
-</div>
-</nav>
-<article class="page-content">
-<div class="container-fluid py-3">
-<div class="row">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-<h3 class="sectionHead"><span class="titlemark">3.4</span> <a href=
-"cinematic-color.html#QQ2-26-87" id="x26-870003.4">On Set</a></h3>
-<p class="noindent">An illustration of the recommended color
-managed approach for cinema or TV *This LUT is generated from a CDL
-or proprietary saved grade format, which is then updated with any
-changes made in the dailies grade, and passed to DI as a start
-point</p>
-<p class="indent">During filming, the aim is to capture the
-greatest amount of information possible, at the highest quality
-possible in order to give maximum flexibility in post-production,
-and to facilitate the integration of VFX elements. From a camera
-perspective, this means shooting in a raw format or log encoding
-and exposing to ensure that as much as possible of the dynamic
-range of the scene is captured. The way modern digital cameras
-apply the Exposure Index (EI) set while shooting is to alter the
-sensor level which maps to mid-grey, and in doing so a trade-off is
-created between the amount of latitude available above and below
-grey. The total dynamic range of a sensor is fixed. Rating a camera
-at a lower EI will mean lighting the scene more brightly for the
-same exposure, resulting in lower noise, which is beneficial for
-VFX. However, because doing this also reduces highlight latitude,
-care should be taken that important highlight detail is not
-clipped. In a studio, where the lighting can be controlled, this is
-not normally an issue, but on location, it is important to be aware
-of this limitation.</p>
-<p class="indent">The monitoring output from the camera is the
-first opportunity for the production to get a preview of the
-intended look of the motion picture. When a look has been designed
-during pre-production, this can be applied to the signal sent to
-on-set monitors, complementing that part of the aesthetic of the
-film which comes from production design and costume. The look of a
-film can easily become ingrained in people’s minds based on how
-they first see it, so taking the opportunity to present the image
-in at least an approximation of its intended form at the earliest
-possible stage can be very beneficial. However, care should be
-taken if using extreme looks that the appearance of the image
-transformed through them does not negatively impact exposure
-decisions. It is advisable to also check the image through a
-standard neutral display transform, to ensure that a well exposed
-image is being recorded, clear of both the sensor noise floor and
-highlight clipping, and to allow for the possibility of different
-decisions about the look being made in DI grading.</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">3.4.1</span>
-<a href="contents.html#QQ2-26-88" id="x26-880003.4.1">Camera
-profiles</a></h4>
-<p class="noindent">Color management should be used at every stage
-of the pipeline, and for material acquired with a digital camera,
-this can begin on set. All current digital cinema cameras capture a
-wide dynamic range and color gamut, and their encoding primaries
-and transfer functions are published by the manufacturers. Whether
-the recording is being made in a raw or camera log format, a log
-signal is usually available from a monitoring output of the camera.
-These are high-dynamic range, scene-referred representations of the
-image and can be used to apply a viewing transform, with or without
-a look included, which can be replicated and refined as the image
-passes through the various stages of post-production.</p>
-<p class="indent">As can be seen from the above plots of some
-common camera log curves, the basic shape of all the curves is
-quite similar, with each having a straight line for a large part of
-the curve with a toe where it is compressed towards black. The
-value for lens cap black is often based on the 10 bit Cineon code
-value of 95 for Dmin. The straight line segment, in a plot with a
-logarithmic x-axis such as this, shows that the encoding is truly
-logarithmic in that part of the range, with an equal number of code
-values per stop. Its slope varies between encodings, as does the
-exposure represented by a log value of 1.0. It is therefore
-important to know what the encoding curve used for a given log
-image is, in order to be able to linearize it correctly. A LUT or
-ACES Input Transform designed for one camera may give a
-superficially pleasing result with an image from a different camera
-but could cause unwanted clipping or distortion which is not
-obvious on all images. Using an incorrect LUT or Input Transform
-for aesthetic purposes is a risky strategy, which can cause
-problems further down the line. It is strongly recommended to use a
-correct linearization, and a separate operation for the look. It is
-important to understand that although a camera may use an encoding
-curve which has a particular dynamic range, this should not be
-taken to suggest that the camera itself can capture that range. The
-Sony FS7 for example, at default EI, clips six stops above mid-grey
-which maps to an S-Log3 value of 0.866. Values above this will not
-occur, even though S-Log3 can encode 7.74 stops above grey. Details
-of the encoding and decoding equations for various log curves is
-given in Appendix 4.1.</p>
-<p class="indent">The cameral log encoding of the ‘A’ Camera on a
-production is often chosen as the working format for the final DI,
-since log encodings lend themselves well to the kinds of
-adjustments made during grading. They are constrained to the 0-1
-range, or integer encoding of that range, and map the dynamic range
-of the scene evenly across the code values. Images from other types
-of camera can be transformed into the ‘A’ Camera’s log encoding.
-Alternatively, all cameras can be transformed into a
-non-camera-specific log working space such as ACEScct for grading.
-Ideally, this choice should be made in advance in consultation with
-the DI colorist, so any grading adjustments use the same working
-space.</p>
-<p class="indent">Plots of the primaries of some common camera
-encodings</p>
-<p class="indent">The above diagrams show the encoding primaries
-used by various digital cinema cameras, as well as those of
-ACES2065-1 and ACEScg. As can be seen, the CIE xy coordinates of
-the primaries vary considerably, so it is clear that a transform or
-LUT designed for one, will not work as intended on another. It is
-important also to be aware that these are simply encoding
-primaries, to which the raw sensor output of a camera is
-transformed. While they define the gamut of the encoding color
-space, this does not mean that the camera system in question can
-‘see’ every color within that gamut. Indeed, since some primaries
-have negative coordinates, the encoding can represent colors which
-have no meaning in CIExy encoding. Despite this, a camera may
-produce pixels which appear to have these colors, particularly when
-lights with discontinuous spectra are visible in the frame. This is
-due to the residual error in the matrices chosen by the
-manufacturer to transform from the sensor’s raw RGB to the encoding
-color space. Cameras are not truly colorimetric, and so no
-3<span class="cmsy-10">×</span>3 matrix can produce a perfect
-result. Manufacturers choose a matrix which minimizes errors in
-important colors such as skin tones. Care must be taken with images
-which contain these unreal colors, as the negative pixel values
-they contain may cause unwanted artifacts.</p>
-<p class="indent">A more accurate matrix could be derived specific
-to the precise shooting setup, lighting, lenses, and filtration,
-but unless it is vital to have as photometrically accurate a result
-as possible, it is normally preferable to use the manufacturer
-provided matrix, such as those in the published ACES Input
-Transforms, to ensure matching processing by all vendors handling
-the media.</p>
-<p class="indent">ARRI ALEXA, LogC, ALEXA Wide Gamut ACES Rec. 709
-Output Transform (pushed 0.5 stops)</p>
-<p class="indent">Canon C500, C-Log3, Cinema Gamut ACES Rec. 709
-Output Transform (pushed 0.5 stops)</p>
-<p class="indent">RED Dragon, Log3G10, RED Wide Gamut ACES Rec. 709
-Output Transform (pushed 0.5 stops)</p>
-<p class="indent">Panasonic Varicam PL, V-Log, V-Gamut ACES Rec.
-709 Output Transform (pushed 0.5 stops)</p>
-<p class="indent">Sony F-65, S-Log3, S-Gamut3.Cine ACES Rec. 709
-Output Transform (pushed 0.5 stops) Images courtesy of Geoff Boyle,
-cinematography.net</p>
-<p class="indent">The images above show how footage from different
-cameras can be matched by bringing them into a common working space
-and then applying the same display transform. The camera log images
-have been normalized by applying gain in scene-referred linear to
-bring the white chip of the chart to RGB = [0.9, 0.9, 0.9]. The
-difference between the log encoding curves is apparent as the
-differences in percieved contrast between the various log images,
-even though they encode the same scene luminance. The difference in
-the location of the encoding primaries manifests as variation in
-the apparent saturation of the log images, noticeable particularly
-in the green part of the chart from the RED camera. These
-differences in the way the same scene colorimetry is encoded are
-removed by using the appropriate Input Transform to convert to the
-ACES2065-1 colour space. The display transform is then applied by
-adding a half stop push for aesthetic reasons, and then using the
-ACES Rec. 709 Output Transform. It can be seen that even with the
-manufacturers’ published Input Transforms, there is still
-variation, particularly in the rendering of skin tones. The
-difference in the spectral responses of the different sensors (in
-fact primarily the differences between the spectral characteristics
-of the Bayer color filters on the sensors as well as the IR
-filtration) and the fact that some artistic choice is involved in
-characterizing a sensor, mean that each camera has slightly
-different feel to its image; this is unrelated to the differences
-between the appearance of the log encodings. ACES Input Transforms
-will not make all cameras look identical, but should provide a
-reasonable match up within the limits of each camera. XXX Key
-Points Cameras from different manufacturers use different log
-encoding curves and primaries to represent the same scene
-colorimetry These are just encoding methods, and if properly
-interpreted have no impact on the final look of the image Cameras
-still have varying characteristics which do affect the look of the
-image ACES Input Transforms bring different sources into a common
-working space so that the same Output Transform can be used for all
-sources, giving a close match of appearance</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">3.4.2</span>
-<a href="contents.html#QQ2-26-89" id="x26-890003.4.2">Monitoring on
-set</a></h4>
-<p class="noindent">Most of the monitors used on set are likely to
-be provided by the video department and, since they are intended
-for checking of performance, framing and focus, may well not be
-accurately color calibrated. In order to maintain consistent color,
-at least one monitor should be properly calibrated, and in a more
-suitable environment (as specified by ITU-R BT.2035) for critical
-viewing of images, such as a blacked out tent. This is usually the
-responsibility of the Digital Imaging Technician (DIT).</p>
-<p class="indent">The image displayed on this monitor is derived
-from the log feed from the camera, allowing the DIT to examine the
-unmodified scene-referred image using a waveform, false color, and
-other tools, in order to check exposure and shadow and highlight
-latitude. The image can then be viewed through the desired display
-transform, applied either by a LUT box or internal processing in
-the monitor.</p>
-<p class="indent">The log output from the camera is likely to be a
-10 bit SDI signal (often mirroring the floating point log encoding
-used in the DI) and is therefore well suited to the application of
-look transforms to preview the intended appearance of the film.
-However, it may well not represent the image at the full precision
-being recorded. Therefore, rather than being baked into the image,
-looks are normally represented in metadata form, which can travel
-with the rushes to be applied as appropriate later. The transform
-applied may be one universal Show LUT, per scene LUTs, the default
-LUT for that camera, or the image may be graded live by the DIT
-using dedicated software.</p>
-<p class="indent">The ACES system defines an XML sidecar file,
-called ACESclip, which carries various metadata, including Look
-Transforms. At the moment this is not widely supported by
-post-production software, so while it may well become the de-facto
-approach in future, other workflows are normally used at this time.
-This can consist of proprietary saved grade formats or project
-files from DI software, or CDL may be used for greater
-compatibility at the expense of sophistication. See Appendix 4.5
-for a description of the CDL format. LUTs are usually also created
-for baking into dailies and other look preview purposes.</p>
-<p class="indent">A dailies colorist may then adjust the transform
-on a per shot basis to balance the image. Whatever transform is
-baked into the dailies and editorial, transcodes must then be
-tracked through post-production, so that VFX artists can see the
-same look when working on a shot, and bake it into renders for
-editorial, thus matching the original plate. If the colorist
-updates the grade, in advance of the final color, the transforms
-used in VFX should be updated to match this.</p>
-<p class="indent">Something to be aware of when dealing with log
-encodings is that although, for example, both LogC and S-Log3 code
-black as &nbsp;0.093, the output of an ALEXA and an F55 with the
-lens cap on will be different. The ALEXA output will be at 9.3</p>
-<p class="indent">While wide gamut and HDR monitors are available
-for use on set, it is still most common for the DIT’s monitor to be
-calibrated to the BT.1886 / Rec. 709 standard. Since there is a
-great deal of creative choice available in an HDR grade, and indeed
-variation in HDR view transforms, viewing the image with a generic
-HDR output transform will not necessarily be representative of the
-final HDR deliverable. Although the camera may be capturing a wide
-color gamut, the vast majority of colors found in photographic
-images are contained within the Rec. 709 gamut, so using this as a
-baseline output transform is normally considered adequate. Where
-HDR monitoring is used on set, an SDR version should always be
-referred to as well.</p>
-<p class="indent">Key Points The log output from a camera can be
-used to apply a look using the same approaches as will be used in
-the DI Looks exist in the monitoring path only, and are
-communicated as metadata ASC CDL is the lowest common denominator
-for communicating a look, as it operates identically in all
-systems</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">3.4.3</span>
-<a href="contents.html#QQ2-26-90" id=
-"x26-900003.4.3">Editorial</a></h4>
-<p class="noindent">Although modern Non-Linear Editors (NLEs) are
-capable of applying LUTs and other display transforms in real-time
-during playback, there is always a system overhead for doing this.
-In editorial, the ability to scrub quickly through the rushes is
-crucial, and anything which slows this process down can be
-problematic. Therefore the usual practice is to create transcodes
-in the native format of the NLE (either Avid DNxHD or Apple ProRes)
-with the look and output transform baked in. This is done either on
-or near set by the DIT or by a dedicated dailies colorist in a
-lab.</p>
-<p class="indent">Metadata for the rushes is passed to editorial in
-the form of Avid ALEs or database files, and contains information
-about the display transform applied, as well as CDL grades and
-other information from set. This can include notes from the script
-supervisor, and information on lenses and filters used. Accurate
-tracking of this metadata through editorial is vital to ensure
-correct handling of the material further down the line. For VFX
-shots, a representative from the vendor is often present on set,
-and their notes can be cross-checked later with the metadata, to
-ensure the choice of correct lens grids and so forth.</p>
-<p class="indent">Key Points Baking the look into dailies for
-editorial is current best practice for practical reasons Tracking
-look and other metadata through editorial is vital</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">3.4.4</span>
-<a href="contents.html#QQ2-26-91" id="x26-910003.4.4">Digital
-Imaging Technician (DIT)</a></h4>
-<p class="noindent">It is the Digital Imaging Technician’s (DIT)
-responsibility to liaise between set and post-production. They need
-to communicate with those who will be responsible for dealing with
-the image further down the line, as well as with the
-cinematographer, to ensure they have an understanding of the
-intended color pipeline and required deliverables. The role
-originated as the person responsible for understanding the controls
-in video cameras, as productions moved to HD video from film
-acquisition so that the cinematographer could focus on lighting and
-exposing as they had done in the past.</p>
-<p class="indent">Historically live grades were often applied to an
-output-referred signal from the camera, with a base viewing
-transform already baked in. The same grade applied before or after
-a display transform will give a very different result. This limits
-the look modifications that the DIT can apply to crude
-approximations of the intended look, useful only for visual
-reference rather than as reusable metadata. This is comparable to
-the way cinematographers have in the past experimented with looks
-in Photoshop. Now tools are becoming available which allow the
-cinematographer to craft a look with scene-referred images, using
-the same tools as will be used by the DIT on set, and later in the
-DI. The DIT should work with the cinematographer to ensure that
-this process is understood, and works smoothly.</p>
-<p class="indent">If a live grading system is used, the DIT is
-responsible for creating primary grades to improve consistency from
-shot to shot. They will often maintain a library of stills from
-previous setups or locations, to aid the cinematographer in
-matching the lighting, and to even out the differences still
-further using simple color corrections. It is important if grades
-created on set are to be successfully passed on and used later,
-that the working space in which the color operations are applied,
-and the view transform used, is agreed beforehand and communicated
-clearly so that the look can be replicated accurately. Even within
-the standardized ACES pipeline, there is the option to grade in
-ACEScc or ACEScct. The result of using either of these is identical
-in the mid-tones and highlights of the image, but the look of the
-shadows will be different.</p>
-<p class="indent">Key Points A DIT must communicate with the camera
-department and post, and liaise between the two For live grading to
-be truly useful it must use the same color management approach as
-will be used further down the line</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">3.4.5</span>
-<a href="contents.html#QQ2-26-92" id="x26-920003.4.5">Reference
-Capture</a></h4>
-<p class="noindent">Typical standalone color checker rig for use in
-the VFX industry. The image has been white-balanced using gain
-adjustment on the Neutral 5 (.70 D) swatch, i.e. third swatch from
-the right of the bottom row, so that its value matches the
-reference sRGB luminance of 0.192. Note that while this is slightly
-higher than the 18</p>
-<p class="indent">Along with the main camera image, it is important
-for VFX shots to capture additional reference, data, and metadata
-about the scene being photographed. Reference images of the set or
-props should be paired with images of other references such as a
-Macbeth Chart and an 18</p>
-<p class="indent">Depending on the complexity of the VFX work
-envisaged, it may be necessary to take LIDAR scans of the set or
-HDRI environment captures. Chrome and grey spheres are often shot
-as quick lighting reference but should not be relied upon beyond
-that. The color handling of the LIDAR scanner or HDR capture device
-should be characterized before being used on set so as to
-understand the limitations of the devices. Most LIDAR scanners
-don’t capture color at either sufficient resolution or bit depth,
-so the result shouldn’t be used for anything beyond alignment. Many
-turnkey HDR capture devices, for example, offer only limited
-specification or control over color gamut. They mainly focus on the
-intensity range that can be captured. In this case, it is essential
-to shoot a Macbeth Chart with the main shooting camera, a DSLR used
-for reference and the HDR capture camera.</p>
-<p class="indent">Lens distortion grids should be shot with all
-lenses used on the production, and notes should be taken as to
-which lens is used on each shot. These will be used later to remove
-lens distortions and vignetting.</p>
-<p class="indent">For VFX shots it is inadvisable to simply rely on
-the camera sheets or script notes, as these can often conflict.
-Embedded metadata in the captured images can be invaluable in
-helping verify notes and report data.</p>
-<p class="noindent"></p>
-<h4 class="subsectionHead"><span class="titlemark">3.4.6</span>
-<a href="contents.html#QQ2-26-93" id="x26-930003.4.6">HDR
-Environment Capture</a></h4>
-<p class="noindent">An HDR environment map captured for ‘The
-Avengers: Infinity War”. Luminance ranges go from 0 to 17100 Images
-are 2018 MARVEL</p>
-<p class="indent">Panoramic HDR captures are the standard approach
-to capture onset lighting. A new HDR panorama should be captured
-each time the lighting changes. The classic technique to capture
-HDR panoramas for use as environment maps, first pioneered by Gene
-Miller, was to photograph a chrome ball, as Recent advances in
-hardware now allow for directly capturing the scene-illumination,
-either with a camera using multiple, bracketed exposures or with
-dedicated hardware. One extension to this methodology is to capture
-the scene from multiple locations or heights. Triangulating the
-location of the lights in the series of captures allows for
-placement of area lights in the 3D scene with plausible energy
-estimations. Placed area lights allow for physically plausible
-rendering of local illumination effects, which contrasts with
-traditional skydome rendering approaches which assume infinitely
-distant lights. See Duiker (2003) and Selan (2011) for additional
-discussion.</p>
-<p class="indent">Care must be taken when calibrating HDR lighting
-captures to account for colorimetry, linearity, and white balance,
-or the resulting lighting data may not integrate well with the
-computer-generated environments. It is common to use ND filters to
-darken the exposures, capturing even more information for the
-brightest parts of the environment for a given shutter speed and
-aperture. Fisheye lens usually won’t work well with ND filters.
-Adding a diffuse sphere and other reference materials during scene
-capture is useful in validating the reconstruction of the lighting
-later on. For outdoor day-lit environments, reference photos of a
-diffuse sphere may be used to recover or validate the sun’s light
-intensity, as it is not captured properly by even the best
-cameras.</p>
-<p class="indent">There are some best practices when choosing the
-exposure and white balance for a HDR lighting capture, but there is
-an element of subjectivity in the choice of approach. Establishing
-the exposure of an 18</p>
-<div class="crosslinks">
-<p class="noindent">[<a href=
-"visual-effects-animation-and-games.html">next</a>] [<a href=
-"the-look.html">prev</a>] [<a href=
-"the-look.html#tailthe-look.html">prev-tail</a>] [<a href=
-"on-set.html">front</a>] [<a href=
-"workflow.html#on-set.html">up</a>]</p>
-</div>
-<p class="indent"><a id="tailon-set.html"></a></p>
-</div>
-<div class="col-md-2"></div>
-</div>
-</div>
-</article>
-<footer class="page-footer">
-<div class="container-fluid text-center py-3">Copyright © 2019 ‐
-Cinematic Color Authors ‐ <a href=
-"mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a></div>
-</footer>
-<script src="assets/js/jquery.min.js"></script> 
-<script src="assets/js/popper.min.js"></script> 
-<script src="assets/js/bootstrap.min.js"></script>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Cinematic Color 2</a>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "preface.html" id="preface" role="button">Preface</a>
+          <div aria-labelledby="preface" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "description.html">Description</a><a class=
+            "dropdown-item" href=
+            "authorship.html">Authorship</a><a class=
+            "dropdown-item" href="on-the-web.html">On the Web</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "introduction.html" id="introduction" role=
+          "button">Introduction</a>
+          <div aria-labelledby="introduction" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "intended-audience.html">Intended Audience</a><a class=
+            "dropdown-item" href=
+            "how-to-read-this-document.html">How to Read this
+            Document</a><a class="dropdown-item" href=
+            "the-goal.html">The Goal</a><a class="dropdown-item"
+            href="converging-approaches.html">Converging
+            Approaches</a><a class="dropdown-item" href=
+            "a-general-model-of-color-processing.html">A General
+            Model of Color Processing</a><a class="dropdown-item"
+            href="color-management-challenges.html">Color
+            Management Challenges</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "color-science.html" id="color-science" role=
+          "button">Color Science</a>
+          <div aria-labelledby="color-science" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-color-science.html">About Color
+            Science</a><a class="dropdown-item" href=
+            "electromagnetic-spectrum.html">Electromagnetic
+            Spectrum</a><a class="dropdown-item" href=
+            "human-visual-system.html">Human Visual
+            System</a><a class="dropdown-item" href=
+            "basic-colorimetry.html">Basic Colorimetry</a><a class=
+            "dropdown-item" href=
+            "advanced-colorimetry.html">Advanced
+            Colorimetry</a><a class="dropdown-item" href=
+            "representing-color.html">Representing
+            Color</a><a class="dropdown-item" href=
+            "color-imaging-systems.html">Color Imaging Systems</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "workflow.html" id="workflow" role="button">Workflow</a>
+          <div aria-labelledby="workflow" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-workflow.html">About Workflow</a><a class=
+            "dropdown-item" href=
+            "academy-color-encoding-system-aces.html">Academy Color
+            Encoding System (ACES)</a><a class="dropdown-item"
+            href="the-look.html">The Look</a><a class=
+            "dropdown-item" href="on-set.html">On Set</a><a class=
+            "dropdown-item" href=
+            "visual-effects-animation-and-games.html">Visual
+            Effects, Animation and Games</a><a class=
+            "dropdown-item" href=
+            "compositing.html">Compositing</a><a class=
+            "dropdown-item" href="di-grading.html">DI
+            Grading</a><a class="dropdown-item" href=
+            "critical-monitoring.html">Critical
+            Monitoring</a><a class="dropdown-item" href=
+            "finishing.html">Finishing</a><a class="dropdown-item"
+            href="archives.html">Archives</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "appendix.html" id="appendix" role="button">Appendix</a>
+          <div aria-labelledby="appendix" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "common-rgb-color-encodings.html">Common RGB Color
+            Encodings</a><a class="dropdown-item" href=
+            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
+            "dropdown-item" href=
+            "colour-science-for-python.html">Colour Science for
+            Python</a><a class="dropdown-item" href=
+            "luts-and-transforms.html">LUTs and
+            Transforms</a><a class="dropdown-item" href=
+            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
+            href="aces-ctl.html">ACES CTL</a><a class=
+            "dropdown-item" href="full-and-legal-ranges.html">Full
+            and Legal ranges</a><a class="dropdown-item" href=
+            "color-difference-encoding.html">Color Difference
+            Encoding</a><a class="dropdown-item" href=
+            "camera-characterization.html">Camera
+            Characterization</a><a class="dropdown-item" href=
+            "file-formats.html">File Formats</a><a class=
+            "dropdown-item" href=
+            "software.html">Software</a><a class="dropdown-item"
+            href="acknowledgements.html">Acknowledgements</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "glossary.html" id="glossary" role="button">Glossary</a>
+          <div aria-labelledby="glossary" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "figures-and-images.html">Figures and
+            Images</a><a class="dropdown-item" href=
+            "references-and-citations.html">References and
+            Citations</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=
+          "bibliography.html">Bibliography</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-md-0">
+        <input class="form-control" placeholder="Search" type=
+        "text" />
+      </form>
+    </div>
+  </nav>
+  <article class="page-content">
+    <div class="container-fluid py-3">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h3 class="sectionHead"><span class=
+          "titlemark">3.4</span> <a href=
+          "cinematic-color.html#QQ2-26-87" id="x26-870003.4">On
+          Set</a></h3>
+          <p class="noindent">An illustration of the recommended
+          color managed approach for cinema or TV *This LUT is
+          generated from a CDL or proprietary saved grade format,
+          which is then updated with any changes made in the
+          dailies grade, and passed to DI as a start point</p>
+          <p class="indent">During filming, the aim is to capture
+          the greatest amount of information possible, at the
+          highest quality possible in order to give maximum
+          flexibility in post-production, and to facilitate the
+          integration of VFX elements. From a camera perspective,
+          this means shooting in a raw format or log encoding and
+          exposing to ensure that as much as possible of the
+          dynamic range of the scene is captured. The way modern
+          digital cameras apply the Exposure Index (EI) set while
+          shooting is to alter the sensor level which maps to
+          mid-grey, and in doing so a trade-off is created between
+          the amount of latitude available above and below grey.
+          The total dynamic range of a sensor is fixed. Rating a
+          camera at a lower EI will mean lighting the scene more
+          brightly for the same exposure, resulting in lower noise,
+          which is beneficial for VFX. However, because doing this
+          also reduces highlight latitude, care should be taken
+          that important highlight detail is not clipped. In a
+          studio, where the lighting can be controlled, this is not
+          normally an issue, but on location, it is important to be
+          aware of this limitation.</p>
+          <p class="indent">The monitoring output from the camera
+          is the first opportunity for the production to get a
+          preview of the intended look of the motion picture. When
+          a look has been designed during pre-production, this can
+          be applied to the signal sent to on-set monitors,
+          complementing that part of the aesthetic of the film
+          which comes from production design and costume. The look
+          of a film can easily become ingrained in people’s minds
+          based on how they first see it, so taking the opportunity
+          to present the image in at least an approximation of its
+          intended form at the earliest possible stage can be very
+          beneficial. However, care should be taken if using
+          extreme looks that the appearance of the image
+          transformed through them does not negatively impact
+          exposure decisions. It is advisable to also check the
+          image through a standard neutral display transform, to
+          ensure that a well exposed image is being recorded, clear
+          of both the sensor noise floor and highlight clipping,
+          and to allow for the possibility of different decisions
+          about the look being made in DI grading.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">3.4.1</span> <a href=
+          "contents.html#QQ2-26-88" id="x26-880003.4.1">Camera
+          profiles</a></h4>
+          <p class="noindent">Color management should be used at
+          every stage of the pipeline, and for material acquired
+          with a digital camera, this can begin on set. All current
+          digital cinema cameras capture a wide dynamic range and
+          color gamut, and their encoding primaries and transfer
+          functions are published by the manufacturers. Whether the
+          recording is being made in a raw or camera log format, a
+          log signal is usually available from a monitoring output
+          of the camera. These are high-dynamic range,
+          scene-referred representations of the image and can be
+          used to apply a viewing transform, with or without a look
+          included, which can be replicated and refined as the
+          image passes through the various stages of
+          post-production.</p>
+          <p class="indent">As can be seen from the above plots of
+          some common camera log curves, the basic shape of all the
+          curves is quite similar, with each having a straight line
+          for a large part of the curve with a toe where it is
+          compressed towards black. The value for lens cap black is
+          often based on the 10 bit Cineon code value of 95 for
+          Dmin. The straight line segment, in a plot with a
+          logarithmic x-axis such as this, shows that the encoding
+          is truly logarithmic in that part of the range, with an
+          equal number of code values per stop. Its slope varies
+          between encodings, as does the exposure represented by a
+          log value of 1.0. It is therefore important to know what
+          the encoding curve used for a given log image is, in
+          order to be able to linearize it correctly. A LUT or ACES
+          Input Transform designed for one camera may give a
+          superficially pleasing result with an image from a
+          different camera but could cause unwanted clipping or
+          distortion which is not obvious on all images. Using an
+          incorrect LUT or Input Transform for aesthetic purposes
+          is a risky strategy, which can cause problems further
+          down the line. It is strongly recommended to use a
+          correct linearization, and a separate operation for the
+          look. It is important to understand that although a
+          camera may use an encoding curve which has a particular
+          dynamic range, this should not be taken to suggest that
+          the camera itself can capture that range. The Sony FS7
+          for example, at default EI, clips six stops above
+          mid-grey which maps to an S-Log3 value of 0.866. Values
+          above this will not occur, even though S-Log3 can encode
+          7.74 stops above grey. Details of the encoding and
+          decoding equations for various log curves is given in
+          Appendix 4.1.</p>
+          <p class="indent">The cameral log encoding of the ‘A’
+          Camera on a production is often chosen as the working
+          format for the final DI, since log encodings lend
+          themselves well to the kinds of adjustments made during
+          grading. They are constrained to the 0-1 range, or
+          integer encoding of that range, and map the dynamic range
+          of the scene evenly across the code values. Images from
+          other types of camera can be transformed into the ‘A’
+          Camera’s log encoding. Alternatively, all cameras can be
+          transformed into a non-camera-specific log working space
+          such as ACEScct for grading. Ideally, this choice should
+          be made in advance in consultation with the DI colorist,
+          so any grading adjustments use the same working
+          space.</p>
+          <p class="indent">Plots of the primaries of some common
+          camera encodings</p>
+          <p class="indent">The above diagrams show the encoding
+          primaries used by various digital cinema cameras, as well
+          as those of ACES2065-1 and ACEScg. As can be seen, the
+          CIE xy coordinates of the primaries vary considerably, so
+          it is clear that a transform or LUT designed for one,
+          will not work as intended on another. It is important
+          also to be aware that these are simply encoding
+          primaries, to which the raw sensor output of a camera is
+          transformed. While they define the gamut of the encoding
+          color space, this does not mean that the camera system in
+          question can ‘see’ every color within that gamut. Indeed,
+          since some primaries have negative coordinates, the
+          encoding can represent colors which have no meaning in
+          CIExy encoding. Despite this, a camera may produce pixels
+          which appear to have these colors, particularly when
+          lights with discontinuous spectra are visible in the
+          frame. This is due to the residual error in the matrices
+          chosen by the manufacturer to transform from the sensor’s
+          raw RGB to the encoding color space. Cameras are not
+          truly colorimetric, and so no 3<span class=
+          "cmsy-10">×</span>3 matrix can produce a perfect result.
+          Manufacturers choose a matrix which minimizes errors in
+          important colors such as skin tones. Care must be taken
+          with images which contain these unreal colors, as the
+          negative pixel values they contain may cause unwanted
+          artifacts.</p>
+          <p class="indent">A more accurate matrix could be derived
+          specific to the precise shooting setup, lighting, lenses,
+          and filtration, but unless it is vital to have as
+          photometrically accurate a result as possible, it is
+          normally preferable to use the manufacturer provided
+          matrix, such as those in the published ACES Input
+          Transforms, to ensure matching processing by all vendors
+          handling the media.</p>
+          <p class="indent">ARRI ALEXA, LogC, ALEXA Wide Gamut ACES
+          Rec. 709 Output Transform (pushed 0.5 stops)</p>
+          <p class="indent">Canon C500, C-Log3, Cinema Gamut ACES
+          Rec. 709 Output Transform (pushed 0.5 stops)</p>
+          <p class="indent">RED Dragon, Log3G10, RED Wide Gamut
+          ACES Rec. 709 Output Transform (pushed 0.5 stops)</p>
+          <p class="indent">Panasonic Varicam PL, V-Log, V-Gamut
+          ACES Rec. 709 Output Transform (pushed 0.5 stops)</p>
+          <p class="indent">Sony F-65, S-Log3, S-Gamut3.Cine ACES
+          Rec. 709 Output Transform (pushed 0.5 stops) Images
+          courtesy of Geoff Boyle, cinematography.net</p>
+          <p class="indent">The images above show how footage from
+          different cameras can be matched by bringing them into a
+          common working space and then applying the same display
+          transform. The camera log images have been normalized by
+          applying gain in scene-referred linear to bring the white
+          chip of the chart to RGB = [0.9, 0.9, 0.9]. The
+          difference between the log encoding curves is apparent as
+          the differences in percieved contrast between the various
+          log images, even though they encode the same scene
+          luminance. The difference in the location of the encoding
+          primaries manifests as variation in the apparent
+          saturation of the log images, noticeable particularly in
+          the green part of the chart from the RED camera. These
+          differences in the way the same scene colorimetry is
+          encoded are removed by using the appropriate Input
+          Transform to convert to the ACES2065-1 colour space. The
+          display transform is then applied by adding a half stop
+          push for aesthetic reasons, and then using the ACES Rec.
+          709 Output Transform. It can be seen that even with the
+          manufacturers’ published Input Transforms, there is still
+          variation, particularly in the rendering of skin tones.
+          The difference in the spectral responses of the different
+          sensors (in fact primarily the differences between the
+          spectral characteristics of the Bayer color filters on
+          the sensors as well as the IR filtration) and the fact
+          that some artistic choice is involved in characterizing a
+          sensor, mean that each camera has slightly different feel
+          to its image; this is unrelated to the differences
+          between the appearance of the log encodings. ACES Input
+          Transforms will not make all cameras look identical, but
+          should provide a reasonable match up within the limits of
+          each camera. XXX Key Points Cameras from different
+          manufacturers use different log encoding curves and
+          primaries to represent the same scene colorimetry These
+          are just encoding methods, and if properly interpreted
+          have no impact on the final look of the image Cameras
+          still have varying characteristics which do affect the
+          look of the image ACES Input Transforms bring different
+          sources into a common working space so that the same
+          Output Transform can be used for all sources, giving a
+          close match of appearance</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">3.4.2</span> <a href=
+          "contents.html#QQ2-26-89" id="x26-890003.4.2">Monitoring
+          on set</a></h4>
+          <p class="noindent">Most of the monitors used on set are
+          likely to be provided by the video department and, since
+          they are intended for checking of performance, framing
+          and focus, may well not be accurately color calibrated.
+          In order to maintain consistent color, at least one
+          monitor should be properly calibrated, and in a more
+          suitable environment (as specified by ITU-R BT.2035) for
+          critical viewing of images, such as a blacked out tent.
+          This is usually the responsibility of the Digital Imaging
+          Technician (DIT).</p>
+          <p class="indent">The image displayed on this monitor is
+          derived from the log feed from the camera, allowing the
+          DIT to examine the unmodified scene-referred image using
+          a waveform, false color, and other tools, in order to
+          check exposure and shadow and highlight latitude. The
+          image can then be viewed through the desired display
+          transform, applied either by a LUT box or internal
+          processing in the monitor.</p>
+          <p class="indent">The log output from the camera is
+          likely to be a 10 bit SDI signal (often mirroring the
+          floating point log encoding used in the DI) and is
+          therefore well suited to the application of look
+          transforms to preview the intended appearance of the
+          film. However, it may well not represent the image at the
+          full precision being recorded. Therefore, rather than
+          being baked into the image, looks are normally
+          represented in metadata form, which can travel with the
+          rushes to be applied as appropriate later. The transform
+          applied may be one universal Show LUT, per scene LUTs,
+          the default LUT for that camera, or the image may be
+          graded live by the DIT using dedicated software.</p>
+          <p class="indent">The ACES system defines an XML sidecar
+          file, called ACESclip, which carries various metadata,
+          including Look Transforms. At the moment this is not
+          widely supported by post-production software, so while it
+          may well become the de-facto approach in future, other
+          workflows are normally used at this time. This can
+          consist of proprietary saved grade formats or project
+          files from DI software, or CDL may be used for greater
+          compatibility at the expense of sophistication. See
+          Appendix 4.5 for a description of the CDL format. LUTs
+          are usually also created for baking into dailies and
+          other look preview purposes.</p>
+          <p class="indent">A dailies colorist may then adjust the
+          transform on a per shot basis to balance the image.
+          Whatever transform is baked into the dailies and
+          editorial, transcodes must then be tracked through
+          post-production, so that VFX artists can see the same
+          look when working on a shot, and bake it into renders for
+          editorial, thus matching the original plate. If the
+          colorist updates the grade, in advance of the final
+          color, the transforms used in VFX should be updated to
+          match this.</p>
+          <p class="indent">Something to be aware of when dealing
+          with log encodings is that although, for example, both
+          LogC and S-Log3 code black as &nbsp;0.093, the output of
+          an ALEXA and an F55 with the lens cap on will be
+          different. The ALEXA output will be at 9.3</p>
+          <p class="indent">While wide gamut and HDR monitors are
+          available for use on set, it is still most common for the
+          DIT’s monitor to be calibrated to the BT.1886 / Rec. 709
+          standard. Since there is a great deal of creative choice
+          available in an HDR grade, and indeed variation in HDR
+          view transforms, viewing the image with a generic HDR
+          output transform will not necessarily be representative
+          of the final HDR deliverable. Although the camera may be
+          capturing a wide color gamut, the vast majority of colors
+          found in photographic images are contained within the
+          Rec. 709 gamut, so using this as a baseline output
+          transform is normally considered adequate. Where HDR
+          monitoring is used on set, an SDR version should always
+          be referred to as well.</p>
+          <p class="indent">Key Points The log output from a camera
+          can be used to apply a look using the same approaches as
+          will be used in the DI Looks exist in the monitoring path
+          only, and are communicated as metadata ASC CDL is the
+          lowest common denominator for communicating a look, as it
+          operates identically in all systems</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">3.4.3</span> <a href=
+          "contents.html#QQ2-26-90" id=
+          "x26-900003.4.3">Editorial</a></h4>
+          <p class="noindent">Although modern Non-Linear Editors
+          (NLEs) are capable of applying LUTs and other display
+          transforms in real-time during playback, there is always
+          a system overhead for doing this. In editorial, the
+          ability to scrub quickly through the rushes is crucial,
+          and anything which slows this process down can be
+          problematic. Therefore the usual practice is to create
+          transcodes in the native format of the NLE (either Avid
+          DNxHD or Apple ProRes) with the look and output transform
+          baked in. This is done either on or near set by the DIT
+          or by a dedicated dailies colorist in a lab.</p>
+          <p class="indent">Metadata for the rushes is passed to
+          editorial in the form of Avid ALEs or database files, and
+          contains information about the display transform applied,
+          as well as CDL grades and other information from set.
+          This can include notes from the script supervisor, and
+          information on lenses and filters used. Accurate tracking
+          of this metadata through editorial is vital to ensure
+          correct handling of the material further down the line.
+          For VFX shots, a representative from the vendor is often
+          present on set, and their notes can be cross-checked
+          later with the metadata, to ensure the choice of correct
+          lens grids and so forth.</p>
+          <p class="indent">Key Points Baking the look into dailies
+          for editorial is current best practice for practical
+          reasons Tracking look and other metadata through
+          editorial is vital</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">3.4.4</span> <a href=
+          "contents.html#QQ2-26-91" id="x26-910003.4.4">Digital
+          Imaging Technician (DIT)</a></h4>
+          <p class="noindent">It is the Digital Imaging
+          Technician’s (DIT) responsibility to liaise between set
+          and post-production. They need to communicate with those
+          who will be responsible for dealing with the image
+          further down the line, as well as with the
+          cinematographer, to ensure they have an understanding of
+          the intended color pipeline and required deliverables.
+          The role originated as the person responsible for
+          understanding the controls in video cameras, as
+          productions moved to HD video from film acquisition so
+          that the cinematographer could focus on lighting and
+          exposing as they had done in the past.</p>
+          <p class="indent">Historically live grades were often
+          applied to an output-referred signal from the camera,
+          with a base viewing transform already baked in. The same
+          grade applied before or after a display transform will
+          give a very different result. This limits the look
+          modifications that the DIT can apply to crude
+          approximations of the intended look, useful only for
+          visual reference rather than as reusable metadata. This
+          is comparable to the way cinematographers have in the
+          past experimented with looks in Photoshop. Now tools are
+          becoming available which allow the cinematographer to
+          craft a look with scene-referred images, using the same
+          tools as will be used by the DIT on set, and later in the
+          DI. The DIT should work with the cinematographer to
+          ensure that this process is understood, and works
+          smoothly.</p>
+          <p class="indent">If a live grading system is used, the
+          DIT is responsible for creating primary grades to improve
+          consistency from shot to shot. They will often maintain a
+          library of stills from previous setups or locations, to
+          aid the cinematographer in matching the lighting, and to
+          even out the differences still further using simple color
+          corrections. It is important if grades created on set are
+          to be successfully passed on and used later, that the
+          working space in which the color operations are applied,
+          and the view transform used, is agreed beforehand and
+          communicated clearly so that the look can be replicated
+          accurately. Even within the standardized ACES pipeline,
+          there is the option to grade in ACEScc or ACEScct. The
+          result of using either of these is identical in the
+          mid-tones and highlights of the image, but the look of
+          the shadows will be different.</p>
+          <p class="indent">Key Points A DIT must communicate with
+          the camera department and post, and liaise between the
+          two For live grading to be truly useful it must use the
+          same color management approach as will be used further
+          down the line</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">3.4.5</span> <a href=
+          "contents.html#QQ2-26-92" id="x26-920003.4.5">Reference
+          Capture</a></h4>
+          <p class="noindent">Typical standalone color checker rig
+          for use in the VFX industry. The image has been
+          white-balanced using gain adjustment on the Neutral 5
+          (.70 D) swatch, i.e. third swatch from the right of the
+          bottom row, so that its value matches the reference sRGB
+          luminance of 0.192. Note that while this is slightly
+          higher than the 18</p>
+          <p class="indent">Along with the main camera image, it is
+          important for VFX shots to capture additional reference,
+          data, and metadata about the scene being photographed.
+          Reference images of the set or props should be paired
+          with images of other references such as a Macbeth Chart
+          and an 18</p>
+          <p class="indent">Depending on the complexity of the VFX
+          work envisaged, it may be necessary to take LIDAR scans
+          of the set or HDRI environment captures. Chrome and grey
+          spheres are often shot as quick lighting reference but
+          should not be relied upon beyond that. The color handling
+          of the LIDAR scanner or HDR capture device should be
+          characterized before being used on set so as to
+          understand the limitations of the devices. Most LIDAR
+          scanners don’t capture color at either sufficient
+          resolution or bit depth, so the result shouldn’t be used
+          for anything beyond alignment. Many turnkey HDR capture
+          devices, for example, offer only limited specification or
+          control over color gamut. They mainly focus on the
+          intensity range that can be captured. In this case, it is
+          essential to shoot a Macbeth Chart with the main shooting
+          camera, a DSLR used for reference and the HDR capture
+          camera.</p>
+          <p class="indent">Lens distortion grids should be shot
+          with all lenses used on the production, and notes should
+          be taken as to which lens is used on each shot. These
+          will be used later to remove lens distortions and
+          vignetting.</p>
+          <p class="indent">For VFX shots it is inadvisable to
+          simply rely on the camera sheets or script notes, as
+          these can often conflict. Embedded metadata in the
+          captured images can be invaluable in helping verify notes
+          and report data.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">3.4.6</span> <a href=
+          "contents.html#QQ2-26-93" id="x26-930003.4.6">HDR
+          Environment Capture</a></h4>
+          <p class="noindent">An HDR environment map captured for
+          ‘The Avengers: Infinity War”. Luminance ranges go from 0
+          to 17100 Images are 2018 MARVEL</p>
+          <p class="indent">Panoramic HDR captures are the standard
+          approach to capture onset lighting. A new HDR panorama
+          should be captured each time the lighting changes. The
+          classic technique to capture HDR panoramas for use as
+          environment maps, first pioneered by Gene Miller, was to
+          photograph a chrome ball, as Recent advances in hardware
+          now allow for directly capturing the scene-illumination,
+          either with a camera using multiple, bracketed exposures
+          or with dedicated hardware. One extension to this
+          methodology is to capture the scene from multiple
+          locations or heights. Triangulating the location of the
+          lights in the series of captures allows for placement of
+          area lights in the 3D scene with plausible energy
+          estimations. Placed area lights allow for physically
+          plausible rendering of local illumination effects, which
+          contrasts with traditional skydome rendering approaches
+          which assume infinitely distant lights. See Duiker (2003)
+          and Selan (2011) for additional discussion.</p>
+          <p class="indent">Care must be taken when calibrating HDR
+          lighting captures to account for colorimetry, linearity,
+          and white balance, or the resulting lighting data may not
+          integrate well with the computer-generated environments.
+          It is common to use ND filters to darken the exposures,
+          capturing even more information for the brightest parts
+          of the environment for a given shutter speed and
+          aperture. Fisheye lens usually won’t work well with ND
+          filters. Adding a diffuse sphere and other reference
+          materials during scene capture is useful in validating
+          the reconstruction of the lighting later on. For outdoor
+          day-lit environments, reference photos of a diffuse
+          sphere may be used to recover or validate the sun’s light
+          intensity, as it is not captured properly by even the
+          best cameras.</p>
+          <p class="indent">There are some best practices when
+          choosing the exposure and white balance for a HDR
+          lighting capture, but there is an element of subjectivity
+          in the choice of approach. Establishing the exposure of
+          an 18</p>
+          <div class="crosslinks">
+            <p class="noindent">[<a href=
+            "visual-effects-animation-and-games.html">next</a>]
+            [<a href="the-look.html">prev</a>] [<a href=
+            "the-look.html#tailthe-look.html">prev-tail</a>]
+            [<a href="on-set.html">front</a>] [<a href=
+            "workflow.html#on-set.html">up</a>]</p>
+          </div>
+          <p class="indent"><a id="tailon-set.html"></a></p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </article>
+  <footer class="page-footer">
+    <div class="container-fluid text-center py-3">
+      Copyright © 2019 ‐ Cinematic Color Authors ‐ <a href=
+      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
+    </div>
+  </footer>
+  <script src="assets/js/jquery.min.js"></script> 
+  <script src="assets/js/popper.min.js"></script> 
+  <script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
