@@ -21,8 +21,9 @@ __status__ = 'Production'
 __all__ = [
     'ENCODING', 'NAVBAR_TEMPLATE', 'NAVBAR_DROPDOWN_LI_TEMPLATE',
     'NAVBAR_DROPDOWN_A_TEMPLATE', 'NAVBAR_DROPDOWN_DIV_TEMPLATE',
-    'NAVBAR_DROPDOWN_ITEM_TEMPLATE', 'NAVBAR_A_TEMPLATE', 'parse_toc',
-    'build_navigation', 'process_html'
+    'NAVBAR_DROPDOWN_ITEM_TEMPLATE', 'NAVBAR_A_TEMPLATE', 'SUBTITLE_TEMPLATE',
+    'AUTHORS_TEMPLATE', 'parse_toc', 'build_navigation', 'process_title',
+    'process_html', 'process_index'
 ]
 
 codecs.register_error('strict', codecs.ignore_errors)
@@ -67,6 +68,10 @@ NAVBAR_DROPDOWN_DIV_TEMPLATE = ('<div class="dropdown-menu" '
 NAVBAR_DROPDOWN_ITEM_TEMPLATE = ('<a class="dropdown-item" '
                                  'href="{href}">{text}</a>')
 NAVBAR_A_TEMPLATE = '<a class="nav-link" href="{href}">{text}</a>'
+
+SUBTITLE_TEMPLATE = '<h2 class="sub-title">{text}</h2>'
+
+AUTHORS_TEMPLATE = '<span>{text}</span>'
 
 
 def _sanitize_filename(filename):
@@ -265,6 +270,72 @@ def build_navigation(toc):
     return navigation
 
 
+def process_title(path):
+    """
+    Processes the title *div* of the *HTML* file at given path.
+
+    Parameters
+    ----------
+    path : unicode
+        Path of the *HTML* file to process.
+
+    Returns
+    -------
+    bool
+        Definition success.
+    """
+
+    with codecs.open(path, encoding=ENCODING) as html_file:
+        html = BeautifulSoup(html_file, 'html5lib')
+
+        # Extracting "page-tile" section to make it a "body" top-level element.
+        section = html.body.find('section', **{'class_': 'page-title'})
+        section.extract()
+        html.body.insert(0, section)
+
+        container = section.find(
+            'div', **{'class_': 'container-fluid text-center py-3'})
+
+        # Creating the sub-title.
+        h1 = section.find('h1')
+        h1.find('br').extract()
+        h2 = BeautifulSoup(
+            SUBTITLE_TEMPLATE.format(
+                **{'text': list(h1.children)[-1].extract().string}),
+            'html.parser').find('h2')
+        container.append(h2)
+
+        # Removing unused "date" "div".
+        section.find('div', **{'class_': 'date'}).extract()
+
+        # Formatting "author" div.
+        div = section.find('div', **{'class_': 'author'}).extract()
+        div['class_'] = 'author py-3'
+        for br in div.find_all('br'):
+            br.extract()
+
+        authors = []
+        for child in div.children:
+            author = child.string.strip()
+            if author:
+                authors.append(author)
+            child.extract()
+
+        div.append(
+            BeautifulSoup(
+                AUTHORS_TEMPLATE.format(**{'text': '; '.join(authors)}),
+                'html.parser').find('span'))
+        container.append(div)
+
+        # Removing unused "br" tag.
+        list(section.find_all('br'))[-1].extract()
+
+    with codecs.open(path, 'w', encoding=ENCODING) as html_file:
+        html_file.write(unicode(html))
+
+    return True
+
+
 def process_html(path, navigation):
     """
     Process the *HTML* file at given path.
@@ -285,7 +356,7 @@ def process_html(path, navigation):
     with codecs.open(path, encoding=ENCODING) as html_file:
         html = BeautifulSoup(html_file, 'html5lib')
         # Removing comments.
-        comments = html.findAll(text=lambda text: isinstance(text, Comment))
+        comments = html.find_all(text=lambda text: isinstance(text, Comment))
         for comment in comments:
             comment.extract()
 
@@ -296,6 +367,40 @@ def process_html(path, navigation):
 
         # Inserting the navigation bar.
         html.body.insert(0, navigation)
+
+    with codecs.open(path, 'w', encoding=ENCODING) as html_file:
+        html_file.write(unicode(html))
+
+    return True
+
+
+def process_index(path):
+    """
+    Process the index *HTML* file at given path.
+
+    Parameters
+    ----------
+    path : unicode
+        Path of the *HTML* file to process.
+
+    Returns
+    -------
+    bool
+        Definition success.
+    """
+
+    with codecs.open(path, encoding=ENCODING) as html_file:
+        html = BeautifulSoup(html_file, 'html5lib')
+
+        # Removing the navigation bar.
+        html.body.find('nav').extract()
+
+        # Removing side columns.
+        for div in html.body.find_all('div', **{'class_': 'col-md-2'}):
+            div.extract()
+
+        # Updating central column class.
+        html.body.find('div', **{'class_': 'col-md-8'})['class'] = 'col-xl-12'
 
     with codecs.open(path, 'w', encoding=ENCODING) as html_file:
         html_file.write(unicode(html))

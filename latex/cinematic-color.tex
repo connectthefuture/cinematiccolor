@@ -5,10 +5,12 @@
 \usepackage[english]{babel}
 \usepackage[backend=biber,style=apa]{biblatex}
 \usepackage{color}
-\usepackage[utf8x]{hyperref}
 \usepackage[utf8x]{inputenc}
 \usepackage{listings}
 \usepackage{svg}
+
+% "hyperref" must be imported last.
+\usepackage{hyperref}
 
 \graphicspath{{./assets/figures/}{./assets/images/}}
 
@@ -43,25 +45,15 @@
 
 \lstset{style=cinematiccolor}
 
-\title{
-    {\LARGE Color for Motion Pictures and Games}
-    \\
-    \vspace{5mm}
-    {\large From Design to Display}
-}
+\input{common/cinematic-color-title.tex}
 
 \begin{document}
 
 \maketitle
 
-\begin{center}
-    {\LARGE A VES Technology Committee White Paper}
-    \\
-    \vspace{5mm}
-    {\large 2018-2019}
-\end{center}
+\input{common/ves-title.tex}
 
-\input{chapters/foreword/foreword.tex}
+\input{chapters/preface/preface.tex}
 
 \tableofcontents
 

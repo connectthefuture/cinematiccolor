@@ -24,10 +24,12 @@ __email__ = 'ves-tech-color@googlegroups.com'
 __status__ = 'Production'
 
 __all__ = [
-    'ROOT_DOCUMENT_NAME', 'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY',
-    'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY', 'message_box', 'clean',
-    'formatting', 'build_pdf', 'build_html'
+    'INDEX_DOCUMENT_NAME', 'ROOT_DOCUMENT_NAME', 'BIBLIOGRAPHY_NAME',
+    'LATEX_SOURCE_DIRECTORY', 'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY',
+    'message_box', 'clean', 'formatting', 'build_pdf', 'build_html'
 ]
+
+INDEX_DOCUMENT_NAME = 'index.tex'
 
 ROOT_DOCUMENT_NAME = 'cinematic-color.tex'
 
@@ -268,6 +270,14 @@ def build_html(ctx, process_html=True):
             '"-interaction=nonstopmode"'.format(
                 ROOT_DOCUMENT_NAME.replace('tex', 'cfg'), ROOT_DOCUMENT_NAME),
             warn=True)
+        ctx.run(
+            'make4ht -c {0} {1} '
+            '"" '
+            '"" '
+            '"" '
+            '"-interaction=nonstopmode"'.format(
+                ROOT_DOCUMENT_NAME.replace('tex', 'cfg'), INDEX_DOCUMENT_NAME),
+            warn=True)
 
     ctx.run('mkdir -p {0}'.format(HTML_RELEASE_DIRECTORY))
     ctx.run('cp -r {0}/*.html {1}'.format(HTML_BUILD_DIRECTORY,
@@ -290,13 +300,17 @@ def build_html(ctx, process_html=True):
             ('cinematic-color.html', 'cinematic-color.html'),
             ('contentsname.html', 'contents.html'),
             ('bibname.html', 'bibliography.html'),
+            ('Typesetting.html', 'typesetting.html'),
         ])
 
         toc.update({'Bibliography': []})
 
-        del toc['Typesetting']
-
         navigation = process.build_navigation(toc)
+
+        html_file = os.path.join(HTML_RELEASE_DIRECTORY,
+                                 ROOT_DOCUMENT_NAME).replace('tex', 'html')
+        print('Processing "{0}" file...'.format(html_file))
+        process.process_title(html_file)
 
         for html_file in glob.glob(
                 os.path.join(HTML_RELEASE_DIRECTORY, '*.html')):
@@ -306,6 +320,17 @@ def build_html(ctx, process_html=True):
 
             subprocess.call(
                 ['tidy', '-q', '-utf8', '-asxhtml', '-m', html_file])
+
+        html_file = os.path.join(HTML_RELEASE_DIRECTORY,
+                                 INDEX_DOCUMENT_NAME).replace('tex', 'html')
+        print('Processing "{0}" file...'.format(html_file))
+        process.process_title(html_file)
+        process.process_index(html_file)
+
+    with ctx.cd(HTML_RELEASE_DIRECTORY):
+        ctx.run('mv {0} {1}'.format(
+            INDEX_DOCUMENT_NAME.replace('tex', 'html'),
+            'no-{0}'.format(INDEX_DOCUMENT_NAME)).replace('tex', 'html'))
 
 
 @task(clean, build_html)
