@@ -24,9 +24,9 @@
 <ul class="navbar-nav mr-auto">
 <li class="nav-item dropdown"><a aria-expanded="false"
 aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="foreword.html" id="foreword" role=
-"button">Foreword</a>
-<div aria-labelledby="foreword" class="dropdown-menu"><a class=
+"dropdown" href="preface.html" id="preface" role=
+"button">Preface</a>
+<div aria-labelledby="preface" class="dropdown-menu"><a class=
 "dropdown-item" href="description.html">Description</a><a class=
 "dropdown-item" href="authorship.html">Authorship</a><a class=
 "dropdown-item" href="on-the-web.html">On the Web</a></div>
@@ -106,8 +106,15 @@ Encoding</a><a class="dropdown-item" href=
 "dropdown-item" href=
 "acknowledgements.html">Acknowledgements</a></div>
 </li>
-<li class="nav-item"><a class="nav-link" href=
-"glossary.html">Glossary</a></li>
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="glossary.html" id="glossary" role=
+"button">Glossary</a>
+<div aria-labelledby="glossary" class="dropdown-menu"><a class=
+"dropdown-item" href="figures-and-images.html">Figures and
+Images</a><a class="dropdown-item" href=
+"references-and-citations.html">References and Citations</a></div>
+</li>
 <li class="nav-item"><a class="nav-link" href=
 "bibliography.html">Bibliography</a></li>
 </ul>
@@ -115,22 +122,67 @@ Encoding</a><a class="dropdown-item" href=
 placeholder="Search" type="text" /></form>
 </div>
 </nav>
-<div class="container-fluid">
+<article class="page-content">
+<div class="container-fluid py-3">
 <div class="row">
 <div class="col-md-2"></div>
 <div class="col-md-8">
-<h3 class="sectionHead"><span class="titlemark">6.2</span> <a href=
-"cinematic-color.html#QQ2-50-190" id="x50-1820006.2">References and
+<h3 class="sectionHead"><span class="titlemark">5.2</span> <a href=
+"cinematic-color.html#QQ2-50-186" id="x50-1820005.2">References and
 Citations</a></h3>
-<p class="noindent"><a href=
-"https://ctan.org/pkg/biblatex-apa">biblatex-apa Reference</a></p>
+<p class="noindent">The <a href=
+"https://ctan.org/pkg/biblatex-apa">biblatex-apa Reference</a>
+package is used for references and citations.</p>
+<p class="noindent"></p>
+<h5 class="subsubsectionHead"><a href="#x50-1830005.2" id=
+"x50-1830005.2">Citations</a></h5>
+<a id="x50-183001r3"></a> <a id="x50-183002"></a>
+<div class="lstlisting" id="listing-3"><span class="label"><a id=
+"x50-183003r1"></a></span><span class="cmtt-8">\</span><span class=
+"cmtt-8">textcite</span><span class="cmtt-8">{</span><span class=
+"cmtt-8">ARRI2012a</span><span class="cmtt-8">}</span>
+<figcaption class="figure-caption"><span class=
+"caption-name">Listing&nbsp;5.3:</span> Citation for Single
+Author.</figcaption>
+</div>
 <p class="indent">ARRI (<a id="page.191"></a><a href=
 "bibliography.html#X0-ARRI2012a">2012</a>)</p>
+<a id="x50-183004r4"></a> <a id="x50-183005"></a>
+<div class="lstlisting" id="listing-4"><span class="label"><a id=
+"x50-183006r1"></a></span><span class="cmtt-8">\</span><span class=
+"cmtt-8">textcite</span><span class="cmtt-8">{</span><span class=
+"cmtt-8">ARRI2012a</span><span class="cmtt-8">,</span><span class=
+"cmtt-8">Barlow1964</span><span class="cmtt-8">}</span>
+<figcaption class="figure-caption"><span class=
+"caption-name">Listing&nbsp;5.4:</span> Citation for Multiple
+Authors.</figcaption>
+</div>
 <p class="indent">ARRI (<a href=
 "bibliography.html#X0-ARRI2012a">2012</a>), Barlow, Hill, and
 Levick (<a href="bibliography.html#X0-Barlow1964">1964</a>)</p>
-<p class="indent">(ARRI, <a href=
+<p class="noindent"></p>
+<h5 class="subsubsectionHead"><a href="#x50-1840005.2" id=
+"x50-1840005.2">Citations with Parentheses</a></h5>
+<a id="x50-184001r5"></a> <a id="x50-184002"></a>
+<div class="lstlisting" id="listing-5"><span class="label"><a id=
+"x50-184003r1"></a></span><span class="cmtt-8">\</span><span class=
+"cmtt-8">parencite</span><span class="cmtt-8">{</span><span class=
+"cmtt-8">ARRI2012a</span><span class="cmtt-8">}</span>
+<figcaption class="figure-caption"><span class=
+"caption-name">Listing&nbsp;5.5:</span> Citation with Parentheses
+for Single Author.</figcaption>
+</div>
+<p class="indent">(ARRI, <a id="page.192"></a><a href=
 "bibliography.html#X0-ARRI2012a">2012</a>)</p>
+<a id="x50-184004r6"></a> <a id="x50-184005"></a>
+<div class="lstlisting" id="listing-6"><span class="label"><a id=
+"x50-184006r1"></a></span><span class=
+"cmtt-8">&nbsp;</span><span class=
+"cmtt-8">&nbsp;</span><span class="cmtt-8">&nbsp;</span><span class="cmtt-8">&nbsp;</span><span class="cmtt-8">\</span><span class="cmtt-8">parencite</span><span class="cmtt-8">{</span><span class="cmtt-8">ARRI2012a</span><span class="cmtt-8">,</span><span class="cmtt-8">Barlow1964</span><span class="cmtt-8">}</span>
+<figcaption class="figure-caption"><span class=
+"caption-name">Listing&nbsp;5.6:</span> Citation with Parentheses
+for Multiple Authors.</figcaption>
+</div>
 <p class="indent">(ARRI, <a href=
 "bibliography.html#X0-ARRI2012a">2012</a>; Barlow et al., <a href=
 "bibliography.html#X0-Barlow1964">1964</a>)</p>
@@ -147,8 +199,9 @@ Levick (<a href="bibliography.html#X0-Barlow1964">1964</a>)</p>
 <div class="col-md-2"></div>
 </div>
 </div>
-<footer class="page-footer font-small">
-<div class="footer-copyright text-center py-3">Copyright © 2019 ‐
+</article>
+<footer class="page-footer">
+<div class="container-fluid text-center py-3">Copyright © 2019 ‐
 Cinematic Color Authors ‐ <a href=
 "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a></div>
 </footer>

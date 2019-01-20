@@ -24,9 +24,9 @@
 <ul class="navbar-nav mr-auto">
 <li class="nav-item dropdown"><a aria-expanded="false"
 aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
-"dropdown" href="foreword.html" id="foreword" role=
-"button">Foreword</a>
-<div aria-labelledby="foreword" class="dropdown-menu"><a class=
+"dropdown" href="preface.html" id="preface" role=
+"button">Preface</a>
+<div aria-labelledby="preface" class="dropdown-menu"><a class=
 "dropdown-item" href="description.html">Description</a><a class=
 "dropdown-item" href="authorship.html">Authorship</a><a class=
 "dropdown-item" href="on-the-web.html">On the Web</a></div>
@@ -106,8 +106,15 @@ Encoding</a><a class="dropdown-item" href=
 "dropdown-item" href=
 "acknowledgements.html">Acknowledgements</a></div>
 </li>
-<li class="nav-item"><a class="nav-link" href=
-"glossary.html">Glossary</a></li>
+<li class="nav-item dropdown"><a aria-expanded="false"
+aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle=
+"dropdown" href="glossary.html" id="glossary" role=
+"button">Glossary</a>
+<div aria-labelledby="glossary" class="dropdown-menu"><a class=
+"dropdown-item" href="figures-and-images.html">Figures and
+Images</a><a class="dropdown-item" href=
+"references-and-citations.html">References and Citations</a></div>
+</li>
 <li class="nav-item"><a class="nav-link" href=
 "bibliography.html">Bibliography</a></li>
 </ul>
@@ -115,12 +122,13 @@ Encoding</a><a class="dropdown-item" href=
 placeholder="Search" type="text" /></form>
 </div>
 </nav>
-<div class="container-fluid">
+<article class="page-content">
+<div class="container-fluid py-3">
 <div class="row">
 <div class="col-md-2"></div>
 <div class="col-md-8">
 <h3 class="sectionHead"><span class="titlemark">4.4</span> <a href=
-"cinematic-color.html#QQ2-37-159" id="x37-1550004.4">LUTs and
+"cinematic-color.html#QQ2-37-155" id="x37-1550004.4">LUTs and
 Transforms</a></h3>
 <p class="noindent">Lookup tables (LUTs) are a technique for
 optimizing the evaluation of functions that are expensive to
@@ -161,7 +169,7 @@ generate a 1D LUT, or a grid of all possible permutations of RGB,
 at the chosen LUT intervals, for a 3D LUT.</p>
 <p class="noindent"></p>
 <h4 class="subsectionHead"><span class="titlemark">4.4.1</span>
-<a href="contents.html#QQ2-37-160" id="x37-1560004.4.1">1D
+<a href="contents.html#QQ2-37-156" id="x37-1560004.4.1">1D
 LUTs</a></h4>
 <p class="noindent">A lookup table is characterized by its
 dimensionality, that is, the number of indices necessary to index
@@ -199,7 +207,7 @@ for transforms derived from sampling complex non-linear processes
 such as film print emulation.</p>
 <p class="noindent"></p>
 <h4 class="subsectionHead"><span class="titlemark">4.4.2</span>
-<a href="contents.html#QQ2-37-161" id="x37-1570004.4.2">3D
+<a href="contents.html#QQ2-37-157" id="x37-1570004.4.2">3D
 LUTs</a></h4>
 <p class="noindent">Three-dimensional lookup tables offer the
 obvious solution to the inherent limitation of single-dimensional
@@ -255,7 +263,7 @@ over only a limited domain (for example, perhaps only in the range
 0-1).</p>
 <p class="noindent"></p>
 <h4 class="subsectionHead"><span class="titlemark">4.4.3</span>
-<a href="contents.html#QQ2-37-162" id="x37-1580004.4.3">Using
+<a href="contents.html#QQ2-37-158" id="x37-1580004.4.3">Using
 Shaper LUTs</a></h4>
 <p class="noindent">All lookup tables are a sampling of some
 underlying function, whether that function is explicitly known or
@@ -329,7 +337,7 @@ sequentially with the 3D LUT, or may be included in a single 1D+3D
 combined LUT.</p>
 <p class="noindent"></p>
 <h4 class="subsectionHead"><span class="titlemark">4.4.4</span>
-<a href="contents.html#QQ2-37-163" id="x37-1590004.4.4">Half Float
+<a href="contents.html#QQ2-37-159" id="x37-1590004.4.4">Half Float
 LUTs</a></h4>
 <p class="noindent">An additional LUT technique that is becoming
 more widely available is the Half Float LUT. There are only 65536
@@ -348,7 +356,7 @@ for Half Float LUTs can be found in the Common LUT Format that is
 part of the ACES specification.</p>
 <p class="noindent"></p>
 <h4 class="subsectionHead"><span class="titlemark">4.4.5</span>
-<a href="contents.html#QQ2-37-164" id="x37-1600004.4.5">Creating
+<a href="contents.html#QQ2-37-160" id="x37-1600004.4.5">Creating
 LUTs</a></h4>
 <p class="noindent">LUTs are fundamentally lists of output values,
 corresponding to input values, and most LUT formats store these as
@@ -511,7 +519,7 @@ reference implementation of the transform on a variety of
 images.</p>
 <p class="noindent"></p>
 <h4 class="subsectionHead"><span class="titlemark">4.4.6</span>
-<a href="contents.html#QQ2-37-165" id="x37-1610004.4.6">GPU
+<a href="contents.html#QQ2-37-161" id="x37-1610004.4.6">GPU
 Implementations</a></h4>
 <p class="noindent">While LUTs remain widely used for real-time
 image processing, there is a move in many systems towards the use
@@ -541,8 +549,9 @@ DCTL for DaVinci Resolve.</p>
 <div class="col-md-2"></div>
 </div>
 </div>
-<footer class="page-footer font-small">
-<div class="footer-copyright text-center py-3">Copyright © 2019 ‐
+</article>
+<footer class="page-footer">
+<div class="container-fluid text-center py-3">Copyright © 2019 ‐
 Cinematic Color Authors ‐ <a href=
 "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a></div>
 </footer>
