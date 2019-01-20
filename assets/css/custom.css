@@ -2,6 +2,10 @@
     font-weight: bold;
 }
 
+.dropdown-toggle::after {
+    vertical-align: 0.125rem;
+}
+
 pre.listings {
     background-color: #f8f9fa;
     padding: 15px;
