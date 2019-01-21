@@ -22,8 +22,8 @@ __all__ = [
     'ENCODING', 'NAVBAR_TEMPLATE', 'NAVBAR_DROPDOWN_LI_TEMPLATE',
     'NAVBAR_DROPDOWN_A_TEMPLATE', 'NAVBAR_DROPDOWN_DIV_TEMPLATE',
     'NAVBAR_DROPDOWN_ITEM_TEMPLATE', 'NAVBAR_A_TEMPLATE', 'SUBTITLE_TEMPLATE',
-    'AUTHORS_TEMPLATE', 'parse_toc', 'build_navigation', 'process_title',
-    'process_html', 'process_index'
+    'AUTHORS_UL_TEMPLATE', 'AUTHORS_LI_TEMPLATE', 'parse_toc',
+    'build_navigation', 'process_title', 'process_html', 'process_index'
 ]
 
 codecs.register_error('strict', codecs.ignore_errors)
@@ -71,7 +71,9 @@ NAVBAR_A_TEMPLATE = '<a class="nav-link" href="{href}">{text}</a>'
 
 SUBTITLE_TEMPLATE = '<h2 class="sub-title">{text}</h2>'
 
-AUTHORS_TEMPLATE = '<p class="pt-3">{text}</p>'
+AUTHORS_UL_TEMPLATE = '<ul class="list-inline pt-0">{text}</ul>'
+
+AUTHORS_LI_TEMPLATE = '<li class="list-inline-item">{text}</li>'
 
 
 def _sanitize_filename(filename):
@@ -294,7 +296,7 @@ def process_title(path):
         html.body.insert(0, section)
 
         container = section.find(
-            'div', **{'class_': 'container-fluid text-center py-3'})
+            'div', **{'class_': 'container-fluid text-center pt-3'})
 
         # Creating the sub-title.
         h1 = section.find('h1')
@@ -315,14 +317,17 @@ def process_title(path):
             author = child.string.strip()
 
             if author:
-                authors.append(author)
+                author = ' '.join(author.split(',')[::-1])
+                authors.append(
+                    BeautifulSoup(
+                        AUTHORS_LI_TEMPLATE.format(**{'text': author})).prettify())
 
             child.extract()
 
         container.append(
             BeautifulSoup(
-                AUTHORS_TEMPLATE.format(**{'text': '; '.join(authors)}),
-                'html.parser').find('p'))
+                AUTHORS_UL_TEMPLATE.format(**{'text': '\n'.join(authors)}),
+                'html.parser').find('ul'))
 
         # Removing unused "<br>" tag.
         list(section.find_all('br'))[-1].extract()
@@ -363,7 +368,8 @@ def process_html(path, navigation):
         for p in p_i:
             extract = True
             for child in p.children:
-                if not isinstance(child, NavigableString) and child is not None:
+                if not isinstance(child,
+                                  NavigableString) and child is not None:
                     extract = False
                     break
                 else:
