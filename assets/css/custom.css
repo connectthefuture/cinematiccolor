@@ -2,6 +2,10 @@
     font-weight: bold;
 }
 
+.cmtt-8 {
+    font-size: 100%;
+}
+
 .dropdown-toggle::after {
     vertical-align: 0.125rem;
 }

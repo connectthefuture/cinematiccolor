@@ -383,7 +383,8 @@ def process_html(path, navigation):
         # Cleanup "<pre>" tags of class "listings".
         pre_l = html.body.find_all('pre', **{'class_': 'listings'})
         for pre in pre_l:
-            # Removing the surounding "<br>" tags.
+            # Removing the first "<span>" and surounding "<br>" tags.
+            pre.find('span').extract()
             pre.find('br').extract()
             pre.find_all('br')[-1].extract()
             for child in pre.children:
