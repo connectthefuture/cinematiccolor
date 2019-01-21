@@ -358,7 +358,7 @@ def process_html(path, navigation):
         for comment in comments:
             comment.extract()
 
-        # Removing empty "<p>" tags of class "indent" of "noindent".
+        # Removing remaining empty "<p>" tags of class "indent" of "noindent".
         p_i = html.body.find_all('p', **{'class_': ['indent', 'noindent']})
         for p in p_i:
             extract = True
