@@ -1,5 +1,147 @@
 \chapter*{Typesetting}
 
+\section{Text Formatting}
+
+\subsubsection{Bold, Italic, Underlining and Emphasis}
+
+\begin{lstlisting}[caption={Bold, italic, underlining and emphasis.}]
+\textbf{Lorem ipsum} \underline{dolor} sit amet, \textit{consectetur}
+\textbf{\textit{adipiscing elit}, sed do eiusmod \textbf{tempor incididunt
+ut labore et \emph{dolore} magna aliqua}.
+\end{lstlisting}
+
+\textbf{Lorem ipsum} \underline{dolor} sit amet, \textit{consectetur}
+\textbf{\textit{adipiscing elit}}, sed do eiusmod \textbf{tempor incididunt
+ut labore et \emph{dolore} magna aliqua}.
+
+\subsubsection{Paragraphs, New Lines and Text Justification}
+
+\begin{lstlisting}[caption={Paragraphs, new lines and text justification.}]
+``Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.''
+
+\begin{flushleft}
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+\end{flushleft}
+
+\begin{center}
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+deserunt mollit anim id est laborum.
+\end{center}
+
+\begin{flushright}
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+\end{flushright}
+
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+\end{lstlisting}
+
+``Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.''
+
+\begin{flushleft}
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+\end{flushleft}
+
+\begin{center}
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+deserunt mollit anim id est laborum.
+\end{center}
+
+\begin{flushright}
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+\end{flushright}
+
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+\section{Lists}
+
+\subsubsection{Unordered List}
+
+\begin{lstlisting}[caption={An unordered list.}]
+\begin{itemize}
+    \item First item of first level.
+    \item Second item of first level.
+    \item Third item of first level.
+\end{itemize}
+\end{lstlisting}
+
+\begin{itemize}
+    \item First item of first level.
+    \item Second item of first level.
+    \item Third item of first level.
+\end{itemize}
+
+\subsubsection{Ordered List}
+
+\begin{lstlisting}[caption={An ordered list.}]
+\begin{enumerate}
+    \item First item of first level.
+    \item Second item of first level.
+    \item Third item of first level.
+\end{enumerate}
+\end{lstlisting}
+
+\begin{enumerate}
+    \item First item of first level.
+    \item Second item of first level.
+    \item Third item of first level.
+\end{enumerate}
+
+\subsubsection{Nested List}
+
+\begin{lstlisting}[caption={A nested list.}]
+\item First item of first level.
+\begin{itemize}
+    \item First item of second level.
+    \item Second item of second level.
+    \item Third item of second level.
+\end{itemize}
+\item Second item of first level.
+\item Third item of first level.
+\end{lstlisting}
+
+\begin{enumerate}
+    \item First item of first level.
+    \begin{itemize}
+        \item First item of second level.
+        \item Second item of second level.
+        \item Third item of second level.
+    \end{itemize}
+    \item Second item of first level.
+    \item Third item of first level.
+\end{enumerate}
+
+\section{Tables}
+
+\begin{lstlisting}[caption={A simple table.}]
+\begin{tabular}{|l|c c c c c c c c c c c|}
+    \hline
+    \[\boldsymbol{EV}\] & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
+    \hline
+    \[\boldsymbol{2^{EV}}\] & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \\
+    \hline
+\end{tabular}
+\end{lstlisting}
+
+\begin{tabular}{|l|c c c c c c c c c c c|}
+    \hline
+    \[\boldsymbol{EV}\] & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
+    \hline
+    \[\boldsymbol{2^{EV}}\] & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \\
+    \hline
+\end{tabular}
+
 \section{Figures and Images}
 
 To ensure that both \textit{PDF} and \textit{HTML} output are embedding
@@ -7,8 +149,8 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
 
 \subsubsection{``JPG'' Raster File}
 
-\begin{lstlisting}[caption=Embedding a ``JPG'' raster file.]
-\begin{figure}
+\begin{lstlisting}[caption={Embedding a ``JPG'' raster file.}]
+\begin{figure}[H]
     \includegraphics[alt={RBI - Ralph mapped to Rec.709.},width=\textwidth]{wir2-ralph-mapped-to-709.jpg}
     \caption{
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -17,7 +159,7 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
 \end{figure}
 \end{lstlisting}
 
-\begin{figure}
+\begin{figure}[H]
     \includegraphics[alt={RBI - Ralph mapped to Rec.709.},width=\textwidth]{wir2-ralph-mapped-to-709.jpg}
     \caption{
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -27,8 +169,8 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
 
 \subsubsection{``SVG'' Vector File}
 
-\begin{lstlisting}[caption=Embedding a ``SVG'' vector file.]
-\begin{figure}
+\begin{lstlisting}[caption={Embedding a ``SVG'' vector file.}]
+\begin{figure}[H]
     \includesvg[alt={ACES - Gamuts},width=\textwidth]{aces-gamuts}
     \caption{
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -37,7 +179,7 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
 \end{figure}
 \end{lstlisting}
 
-\begin{figure}
+\begin{figure}[H]
     \includesvg[alt={ACES - Gamuts},width=\textwidth]{aces-gamuts}
     \caption{
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -52,13 +194,13 @@ package is used for references and citations.
 
 \subsubsection{Citations}
 
-\begin{lstlisting}[caption=Citation for Single Author.]
+\begin{lstlisting}[caption={Citation for Single Author.}]
 \textcite{ARRI2012a}
 \end{lstlisting}
 
 \textcite{ARRI2012a}
 
-\begin{lstlisting}[caption=Citation for Multiple Authors.]
+\begin{lstlisting}[caption={Citation for Multiple Authors.}]
 \textcite{ARRI2012a,Barlow1964}
 \end{lstlisting}
 
@@ -66,13 +208,13 @@ package is used for references and citations.
 
 \subsubsection{Citations with Parentheses}
 
-\begin{lstlisting}[caption=Citation with Parentheses for Single Author.]
+\begin{lstlisting}[caption={Citation with Parentheses for Single Author.}]
 \parencite{ARRI2012a}
 \end{lstlisting}
 
 \parencite{ARRI2012a}
 
-\begin{lstlisting}[caption=Citation with Parentheses for Multiple Authors.]
+\begin{lstlisting}[caption={Citation with Parentheses for Multiple Authors.}s]
 \parencite{ARRI2012a,Barlow1964}
 \end{lstlisting}
 
