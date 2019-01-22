@@ -363,9 +363,9 @@ def process_html(path, navigation):
         for comment in comments:
             comment.extract()
 
-        # Removing remaining empty "<p>" tags of class "indent" of "noindent".
-        p_i = html.body.find_all('p', **{'class_': ['indent', 'noindent']})
-        for p in p_i:
+        # Removing empty "<p>" tags of class "indent" of "noindent".
+        p_a = html.body.find_all('p', **{'class_': ['indent', 'noindent']})
+        for p in p_a:
             extract = True
             for child in p.children:
                 if not isinstance(child,
@@ -380,9 +380,14 @@ def process_html(path, navigation):
             if extract:
                 p.extract()
 
+        # Removing first breadcrumbs.
+        # div_a = html.body.find('div', **{'class_': 'btn-group text-center'})
+        # if div_a is not None:
+        #     div_a.extract()
+
         # Cleanup "<pre>" tags of class "listings".
-        pre_l = html.body.find_all('pre', **{'class_': 'listings'})
-        for pre in pre_l:
+        pre_a = html.body.find_all('pre', **{'class_': 'listings'})
+        for pre in pre_a:
             # Removing the first "<span>" and surounding "<br>" tags.
             pre.find('span').extract()
             pre.find('br').extract()
@@ -392,10 +397,11 @@ def process_html(path, navigation):
                     if len(child.string.strip()) == 0:
                         child.extract()
 
-        # Removing first breadcrumbs.
-        breadcrumbs = html.body.find('div', **{'class_': 'crosslinks'})
-        if breadcrumbs is not None:
-            breadcrumbs.extract()
+        # Cleanup "<div>" tags of class "environment-table".
+        div_a = html.body.find_all('div', **{'class_': 'environment-table'})
+        for div in div_a:
+            for hr in div.find_all('hr', **{'class_': ['float', 'endfloat']}):
+                hr.extract()
 
         # Inserting the navigation bar.
         html.body.insert(0, navigation)

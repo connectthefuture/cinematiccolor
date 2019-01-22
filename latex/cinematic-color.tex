@@ -13,6 +13,9 @@
 % "hyperref" must be imported last.
 \usepackage{hyperref}
 
+\def\CLCodeNewLine{\unless\ifdefined\HCode\\\fi}
+\def\CLCodeHline{\unless\ifdefined\HCode\hline\fi}
+
 \graphicspath{{./assets/figures/}{./assets/images/}}
 
 \addbibresource{bibliography.bib}

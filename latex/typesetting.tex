@@ -2,7 +2,7 @@
 
 \section{Text Formatting}
 
-\subsubsection{Bold, Italic, Underlining and Emphasis}
+\subsection{Bold, Italic, Underlining and Emphasis}
 
 \begin{lstlisting}[caption={Bold, italic, underlining and emphasis.}]
 \textbf{Lorem ipsum} \underline{dolor} sit amet, \textit{consectetur}
@@ -14,7 +14,7 @@ ut labore et \emph{dolore} magna aliqua}.
 \textbf{\textit{adipiscing elit}}, sed do eiusmod \textbf{tempor incididunt
 ut labore et \emph{dolore} magna aliqua}.
 
-\subsubsection{Paragraphs, New Lines and Text Justification}
+\subsection{Paragraphs, New Lines and Text Justification}
 
 \begin{lstlisting}[caption={Paragraphs, new lines and text justification.}]
 ``Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -66,7 +66,7 @@ sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 
 \section{Lists}
 
-\subsubsection{Unordered List}
+\subsection{Unordered List}
 
 \begin{lstlisting}[caption={An unordered list.}]
 \begin{itemize}
@@ -82,7 +82,7 @@ sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
     \item Third item of first level.
 \end{itemize}
 
-\subsubsection{Ordered List}
+\subsection{Ordered List}
 
 \begin{lstlisting}[caption={An ordered list.}]
 \begin{enumerate}
@@ -98,7 +98,7 @@ sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
     \item Third item of first level.
 \end{enumerate}
 
-\subsubsection{Nested List}
+\subsection{Nested List}
 
 \begin{lstlisting}[caption={A nested list.}]
 \item First item of first level.
@@ -124,30 +124,38 @@ sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 
 \section{Tables}
 
-\begin{lstlisting}[caption={A simple table.}]
-\begin{tabular}{|l|c c c c c c c c c c c|}
-    \hline
-    \[\boldsymbol{EV}\] & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
-    \hline
-    \[\boldsymbol{2^{EV}}\] & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \\
-    \hline
-\end{tabular}
+\subsection{Table with Math}
+
+\begin{lstlisting}[caption={A table with math.}]
+\begin{table}[H]
+    \begin{tabular}{|l|c c c c c c c c c c c|}
+        \CLCodeHline
+        $\mathbf{EV}$ & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
+        \CLCodeHline
+        $\mathbf{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \CLCodeNewLine
+        \CLCodeHline
+    \end{tabular}
+    \caption{A table with math.}
+\end{table}
 \end{lstlisting}
 
-\begin{tabular}{|l|c c c c c c c c c c c|}
-    \hline
-    \[\boldsymbol{EV}\] & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
-    \hline
-    \[\boldsymbol{2^{EV}}\] & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \\
-    \hline
-\end{tabular}
+\begin{table}[H]
+    \begin{tabular}{|l|c c c c c c c c c c c|}
+        \CLCodeHline
+        $\mathbf{EV}$ & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
+        \CLCodeHline
+        $\mathbf{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \CLCodeNewLine
+        \CLCodeHline
+    \end{tabular}
+    \caption{A table with math.}
+\end{table}
 
 \section{Figures and Images}
 
 To ensure that both \textit{PDF} and \textit{HTML} output are embedding
 ``JPG'' images, ``JPG'' paths must be given with their extensions.
 
-\subsubsection{``JPG'' Raster File}
+\subsection{``JPG'' Raster File}
 
 \begin{lstlisting}[caption={Embedding a ``JPG'' raster file.}]
 \begin{figure}[H]
@@ -167,7 +175,7 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
     }
 \end{figure}
 
-\subsubsection{``SVG'' Vector File}
+\subsection{``SVG'' Vector File}
 
 \begin{lstlisting}[caption={Embedding a ``SVG'' vector file.}]
 \begin{figure}[H]
@@ -192,7 +200,7 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
 The \href{https://ctan.org/pkg/biblatex-apa}{biblatex-apa Reference}
 package is used for references and citations.
 
-\subsubsection{Citations}
+\subsection{Citations}
 
 \begin{lstlisting}[caption={Citation for Single Author.}]
 \textcite{ARRI2012a}
@@ -206,7 +214,7 @@ package is used for references and citations.
 
 \textcite{ARRI2012a,Barlow1964}
 
-\subsubsection{Citations with Parentheses}
+\subsection{Citations with Parentheses}
 
 \begin{lstlisting}[caption={Citation with Parentheses for Single Author.}]
 \parencite{ARRI2012a}
