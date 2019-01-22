@@ -12,6 +12,9 @@
   <link href="cinematic-color.css" rel="stylesheet" type=
   "text/css" />
   <meta content="cinematic-color.tex" name="src" />
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"></script>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
   "text/css" />
   <link href="assets/css/custom.css" rel="stylesheet" type=
@@ -140,6 +143,8 @@
             "text-formatting.html">Text Formatting</a><a class=
             "dropdown-item" href="lists.html">Lists</a><a class=
             "dropdown-item" href="tables.html">Tables</a><a class=
+            "dropdown-item" href=
+            "mathematics.html">Mathematics</a><a class=
             "dropdown-item" href="figures-and-images.html">Figures
             and Images</a><a class="dropdown-item" href=
             "references-and-citations.html">References and
@@ -186,9 +191,15 @@
           referred float representation (v) where display black is
           represented by 0.0 and display white by 1.0 can be
           generalized as follows:</p>
-          <p class="indent">legal = round(2(n - 8) <span class=
-          "cmsy-10">×</span> (16 + 219 <span class=
-          "cmsy-10">×</span> v))</p>
+          <p class="indent">legal = round(2(n - 8) <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> (16 + 219 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> v))</p>
           <p class="indent">where n is the encoding bit depth.</p>
           <h4 class="subsectionHead"><span class=
           "titlemark">4.7.2</span> <a href=
@@ -206,8 +217,11 @@
           signal, so RGB is deemed to use the alternate coding,
           even though this is not always the case. Full range
           coding can be generalized as:</p>
-          <p class="indent">full = round(v <span class=
-          "cmsy-10">×</span> (2n - 1))</p>
+          <p class="indent">full = round(v <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> (2n - 1))</p>
           <p class="indent">where again n is the encoding bit
           depth.</p>
           <p class="indent">A third encoding exists which uses the
@@ -221,9 +235,19 @@
           Extended Range, as that relates primarily to broadcast
           video. For completeness, the equation for SMPTE+ is given
           here:</p>
-          <p class="indent">SMPTE+ = 2(n - 4) + v <span class=
-          "cmsy-10">×</span> (2n <span class="cmsy-10">-</span> 2(n
-          - 4) <span class="cmsy-10">-</span> 1)</p>
+          <p class="indent">SMPTE+ = 2(n - 4) + v <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> (2n <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 2(n - 4) <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 1)</p>
           <p class="indent">where n is the bit depth, and v is the
           0.0-1.0 normalized HLG signal being encoded, for
           example.</p>

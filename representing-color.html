@@ -12,6 +12,9 @@
   <link href="cinematic-color.css" rel="stylesheet" type=
   "text/css" />
   <meta content="cinematic-color.tex" name="src" />
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"></script>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
   "text/css" />
   <link href="assets/css/custom.css" rel="stylesheet" type=
@@ -140,6 +143,8 @@
             "text-formatting.html">Text Formatting</a><a class=
             "dropdown-item" href="lists.html">Lists</a><a class=
             "dropdown-item" href="tables.html">Tables</a><a class=
+            "dropdown-item" href=
+            "mathematics.html">Mathematics</a><a class=
             "dropdown-item" href="figures-and-images.html">Figures
             and Images</a><a class="dropdown-item" href=
             "references-and-citations.html">References and
@@ -206,15 +211,29 @@
           signal-to-noise ratio (SNR) which in the context of
           digital imaging typically creates banding and contouring
           artifacts. They can be reduced by introducing a small
-          amount of noise (<span class=
-          "cmsy-10">≈</span><img align="middle" alt="1 2 class="
-          class="figure-img img-fluid" src=
-          "cinematic-color1x.svg" /> quantizer step) before the
-          quantization, this is called dithering, and even though
-          it also reduces the SNR, the noise introduced by
-          dithering is usually more compelling than banding
-          artifacts, although it may increase the required
-          bandwidth for compressed deliverables.</p>
+          amount of noise (<math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≈
+          </mo></math> <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mfrac>
+            <mrow>
+              <mn>
+                1
+              </mn>
+            </mrow>
+            <mrow>
+              <mn>
+                2
+              </mn>
+            </mrow>
+          </mfrac></math> quantizer step) before the quantization,
+          this is called dithering, and even though it also reduces
+          the SNR, the noise introduced by dithering is usually
+          more compelling than banding artifacts, although it may
+          increase the required bandwidth for compressed
+          deliverables.</p>
           <h4 class="subsectionHead"><span class=
           "titlemark">2.6.3</span> <a href=
           "contents.html#QQ2-20-68" id="x20-680002.6.3">Perceptual
@@ -251,8 +270,11 @@
           Their response to the input signal is often reasonably
           modeled using a gain-offset-gamma (GOG)
           approximation.</p>
-          <p class="indent">L = (gain <span class=
-          "cmsy-10">×</span> V + offset) where L is the normalized
+          <p class="indent">L = (gain <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> V + offset) where L is the normalized
           luminance emitted from the display, V is the normalized
           input device code value, and is the Gamma exponent and is
           discussed in details in section 2.5.5.</p>
@@ -297,8 +319,11 @@
           code values can be dramatically reduced, for example
           maintaining a 1.01 Weber contrast over scene relative
           luminance range of [0.01, 100] (contrast ratio of 100:1),
-          requires approximately 462 codes (<span class=
-          "cmsy-10">≈</span> 9 bits).</p>
+          requires approximately 462 codes (<math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≈
+          </mo></math> 9 bits).</p>
           <p class="indent">Perceptual coding is not required when
           using 16 bit integer (artifacts free contrast ratio of
           655.35:1) or half float-representations (Weber contrast
@@ -321,34 +346,102 @@
           <p class="indent">The same unit can represent different
           orders of magnitude, for example, the temperature of the
           cosmic microwave background radiation is -270.45
-          <span class="cmsy-7">∘</span>C while the quasar 3C273
-          temperature has been estimated to 10 trillion
-          <span class="cmsy-7">∘</span>C. Whereas with integer
-          representations, the interval between two consecutive
-          values is the same throughout the domain, with floating
-          point representations the intervals increase as the
-          exponent does. Fractional values can be represented using
-          a negative exponent, and one bit is reserved to indicate
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ∘
+          </mo></math>C while the quasar 3C273 temperature has been
+          estimated to 10 trillion <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ∘
+          </mo></math>C. Whereas with integer representations, the
+          interval between two consecutive values is the same
+          throughout the domain, with floating point
+          representations the intervals increase as the exponent
+          does. Fractional values can be represented using a
+          negative exponent, and one bit is reserved to indicate
           the sign, allowing the coding of negative values as well.
-          4 <span class="cmsy-10">×</span> 2-3 = 4 <span class=
-          "cmsy-10">×</span> <span class="cmtt-10">[U+215B]</span>
-          = <img align="middle" alt="1 2 class=" class=
-          "figure-img img-fluid" src="cinematic-color2x.svg" /> 5
-          <span class="cmsy-10">×</span> 2-3 = 5 <span class=
-          "cmsy-10">×</span> <span class="cmtt-10">[U+215B]</span>
-          = <span class="cmtt-10">[U+215D]</span> 6 <span class=
-          "cmsy-10">×</span> 2-3 = 6 <span class="cmsy-10">×</span>
-          <span class="cmtt-10">[U+215B]</span> = <img align=
-          "middle" alt="3 4 class=" class="figure-img img-fluid"
-          src="cinematic-color3x.svg" /> … 4 <span class=
-          "cmsy-10">×</span> 22 = 16 5 <span class=
-          "cmsy-10">×</span> 22 = 20 6 <span class=
-          "cmsy-10">×</span> 22 = 24 … 4 <span class=
-          "cmsy-10">×</span> 28 = 1024 5 <span class=
-          "cmsy-10">×</span> 28 = 1280 6 <span class=
-          "cmsy-10">×</span> 28 = 1536 This approach allows for an
-          almost ideal representation of scene-referred imagery,
-          providing adequate precision in both the shadows and the
+          4 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 2-3 = 4 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> <span class="cmtt-10">[U+215B]</span> =
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mfrac>
+            <mrow>
+              <mn>
+                1
+              </mn>
+            </mrow>
+            <mrow>
+              <mn>
+                2
+              </mn>
+            </mrow>
+          </mfrac></math> 5 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 2-3 = 5 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> <span class="cmtt-10">[U+215B]</span> =
+          <span class="cmtt-10">[U+215D]</span> 6 <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 2-3 = 6 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> <span class="cmtt-10">[U+215B]</span> =
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mfrac>
+            <mrow>
+              <mn>
+                3
+              </mn>
+            </mrow>
+            <mrow>
+              <mn>
+                4
+              </mn>
+            </mrow>
+          </mfrac></math> … 4 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 22 = 16 5 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 22 = 20 6 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 22 = 24 … 4 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 28 = 1024 5 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 28 = 1280 6 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 28 = 1536 This approach allows for an almost
+          ideal representation of scene-referred imagery, providing
+          adequate precision in both the shadows and the
           highlights. In modern visual effects and color pipelines,
           OpenEXR by Industrial Light Magic (2003) is most commonly
           used to store floating-point imagery and helped to

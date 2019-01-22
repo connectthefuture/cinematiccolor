@@ -12,6 +12,9 @@
   <link href="cinematic-color.css" rel="stylesheet" type=
   "text/css" />
   <meta content="cinematic-color.tex" name="src" />
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"></script>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
   "text/css" />
   <link href="assets/css/custom.css" rel="stylesheet" type=
@@ -140,6 +143,8 @@
             "text-formatting.html">Text Formatting</a><a class=
             "dropdown-item" href="lists.html">Lists</a><a class=
             "dropdown-item" href="tables.html">Tables</a><a class=
+            "dropdown-item" href=
+            "mathematics.html">Mathematics</a><a class=
             "dropdown-item" href="figures-and-images.html">Figures
             and Images</a><a class="dropdown-item" href=
             "references-and-citations.html">References and
@@ -219,9 +224,19 @@
           to scene-referred linear.</p>
           <p class="indent">The encoding function specified in Rec.
           709 is:</p>
-          <p class="indent">if L <span class="cmsy-10">≥</span>
-          0.018: V = 1.099 <span class="cmsy-10">×</span> L0.45 -
-          0.099 else: V = L <span class="cmsy-10">×</span> 4.5</p>
+          <p class="indent">if L <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≥
+          </mo></math> 0.018: V = 1.099 <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L0.45 - 0.099 else: V = L <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 4.5</p>
           <p class="indent">Where L is scene light, normalized to
           0-1, and V is the encoded value. This output value is
           also normalized to 0-1 but is usually stored as an
@@ -252,16 +267,27 @@
           Rec. 709 Output Transform, for example.</p>
           <p class="indent">A BT.1886 display uses the primaries as
           defined by Rec. 709, and the following EOTF:</p>
-          <p class="indent">L = a <span class="cmsy-10">×</span> (V
-          + b)2.4</p>
+          <p class="indent">L = a <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> (V + b)2.4</p>
           <p class="indent">Where L is the screen luminance and V
           the encoded signal (ranged 0-1). The constants a and b
           are calculated from the target black level LB and white
           level LW (normally 100 cd/m2 for a grading reference
           monitor, but often considerably higher for a consumer TV)
-          using the following equations: a = (LW1/2.4 <span class=
-          "cmsy-10">-</span> LB1/2.4)2.4 b = LB1/2.4 / (LW1/2.4
-          <span class="cmsy-10">-</span> LB1/2.4)</p>
+          using the following equations: a = (LW1/2.4
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> LB1/2.4)2.4 b = LB1/2.4 / (LW1/2.4
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> LB1/2.4)</p>
           <p class="indent">When encoding desired display
           colorimetry for BT.1886 display, where the black level of
           the display is unknown (as is always the situation when
@@ -296,14 +322,24 @@
           the same gamut of colors as Rec. 709.</p>
           <p class="indent">The sRGB encoding function is defined
           as:</p>
-          <p class="indent">if L 0.003131: V = 1.055 <span class=
-          "cmsy-10">×</span> L1/2.4 - 0.055 else: V = L
-          <span class="cmsy-10">×</span> 12.92</p>
+          <p class="indent">if L 0.003131: V = 1.055 <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L1/2.4 - 0.055 else: V = L <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 12.92</p>
           <p class="indent">Where L is the luminance of the image
           normalized to the range 0-1 and V is the resulting
           encoded signal. The sRGB encoded signal is commonly
           stored as an 8 bit integer, which would be round(V
-          <span class="cmsy-10">×</span> 255).</p>
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 255).</p>
           <p class="indent">The sRGB decoding function is defined
           as:</p>
           <p class="indent">if V 0.04045: L = ((V + 0.055) /
@@ -357,9 +393,19 @@
           709, the Rec. 2020 specification defines an encoding
           curve for a hypothetical SDR camera which is in fact
           almost never used. The OETF defined by Rec. 2020 is:</p>
-          <p class="indent">if L <span class="cmsy-10">≥</span> : V
-          = <span class="cmsy-10">×</span> L0.45 - ( - 1) else: V =
-          L <span class="cmsy-10">×</span> 4.5</p>
+          <p class="indent">if L <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≥
+          </mo></math> : V = <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L0.45 - ( - 1) else: V = L <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 4.5</p>
           <p class="indent">The values of and are defined as
           1.09929682680944 and 0.018053968510807 respectively at
           full precision, but the document clarifies that for
@@ -411,14 +457,31 @@
           EOTF.</p>
           <p class="indent">The ST.2084 EOTF is an absolute
           encoding, defined by the following equation:</p>
-          <p class="indent">L = 10000 <span class=
-          "cmsy-10">×</span> ((V1/m2 - c1) / (c2 - c3 <span class=
-          "cmsy-10">×</span> V1/m2))1/m1</p>
+          <p class="indent">L = 10000 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> ((V1/m2 - c1) / (c2 - c3 <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> V1/m2))1/m1</p>
           <p class="indent">Where L is the display luminance in
           cd/m2 and the constants are: m1 = 2610 / 16384 m2 = 2523
-          / 4096 <span class="cmsy-10">×</span> 128 c1 = 3424 /
-          4096 c2 = 2413 / 4096 <span class="cmsy-10">×</span> 32
-          c3 = 2392 / 4096 <span class="cmsy-10">×</span> 32</p>
+          / 4096 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 128 c1 = 3424 / 4096 c2 = 2413 / 4096
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 32 c3 = 2392 / 4096 <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 32</p>
           <p class="indent">While the output of the ST.2084 EOTF is
           defined in absolute units of cd/m2, the input to the
           function is less rigorously defined. As such, there is
@@ -530,44 +593,107 @@
           alternative processing in the camera.</p>
           <p class="indent">The HLG encoding function is defined by
           ITU-R BT.2100 as:</p>
-          <p class="indent">If L <span class="cmsy-10">≤</span>
-          1/12: V = sqrt(3 <span class="cmsy-10">×</span> L) else:
-          V = a <span class="cmsy-10">×</span> ln(12 <span class=
-          "cmsy-10">×</span> L - b) + c</p>
+          <p class="indent">If L <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≤
+          </mo></math> 1/12: V = sqrt(3 <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L) else: V = a <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> ln(12 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L - b) + c</p>
           <p class="indent">Where the constants are:</p>
-          <p class="indent">a = 0.17883277 b = 1 - 4 <span class=
-          "cmsy-10">×</span> a c = 0.5 - a <span class=
-          "cmsy-10">×</span> ln(4 <span class="cmsy-10">×</span>
-          a)</p>
+          <p class="indent">a = 0.17883277 b = 1 - 4 <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> a c = 0.5 - a <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> ln(4 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> a)</p>
           <p class="indent">And L is normalized such that the
           entire scene dynamic range to be encoded is scaled to the
           0-1 range.</p>
           <p class="indent">The HLG EOTF is defined in terms of its
           OOTF, which is:</p>
-          <p class="indent">RD = <span class="cmsy-10">×</span>
-          YS-1 <span class="cmsy-10">×</span> RS GD = <span class=
-          "cmsy-10">×</span> YS-1 <span class="cmsy-10">×</span> GS
-          BD = <span class="cmsy-10">×</span> YS-1 <span class=
-          "cmsy-10">×</span> BS</p>
+          <p class="indent">RD = <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> YS-1 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> RS GD = <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> YS-1 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> GS BD = <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> YS-1 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> BS</p>
           <p class="indent">Where [RS, GS, BS] is the scene light
           for the three components, and [RD, GD, BD] is the display
           light for the components. YS is the scene luminance,
           calculated as:</p>
-          <p class="indent">YS = 0.2627 <span class=
-          "cmsy-10">×</span> RS + 0.6780 <span class=
-          "cmsy-10">×</span> GS + 0.0593 <span class=
-          "cmsy-10">×</span> BS</p>
-          <p class="indent">And: = LW = 1.2 + 0.42 <span class=
-          "cmsy-10">×</span> Log10(LW <span class=
+          <p class="indent">YS = 0.2627 <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> RS + 0.6780 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> GS + 0.0593 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> BS</p>
+          <p class="indent">And: = LW = 1.2 + 0.42 <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> Log10(LW <span class=
           "cmtt-10">[U+FFFC]</span>/ 1000)</p>
           <p class="indent">The values of RS, GS and BS are derived
           by inverting the encoding function for each component
           using the following formula:</p>
-          <p class="indent">E = max(0, V <span class=
-          "cmsy-10">×</span> (1 - ) + ) If E <span class=
-          "cmsy-10">≤</span> 0.5: L = E2 / 3 else: L = (exp((E - c)
-          / a) + b) / 12 Where: = sqrt(3 <span class=
-          "cmsy-10">×</span> (LB / LW)1/)</p>
+          <p class="indent">E = max(0, V <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> (1 - ) + ) If E <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≤
+          </mo></math> 0.5: L = E2 / 3 else: L = (exp((E - c) / a)
+          + b) / 12 Where: = sqrt(3 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> (LB / LW)1/)</p>
           <p class="indent">In practice, while HLG may be used as a
           scene referred encoding in situations such as live sports
           broadcasting, an HLG deliverable is often created from an
@@ -670,11 +796,21 @@
           <p class="indent">The method for conversion from a DCI P3
           encoding to X’Y’Z’ is: XYZ = 0.44516982 0.27713441
           0.17228267 R2.6 0.20949168 0.72159525 0.06891307
-          <span class="cmsy-10">×</span> G2.6 0.00000000 0.04706056
-          0.90735539 B2.6 X’Y’Z’ = round(4095 <span class=
-          "cmsy-10">×</span> (clamp(XYZ) <span class=
-          "cmsy-10">×</span> 48 / 52.37)1/2.6) Where R, G and B are
-          2.6 gamma coded DCI P3 values in the range 0-1.</p>
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> G2.6 0.00000000 0.04706056 0.90735539 B2.6
+          X’Y’Z’ = round(4095 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> (clamp(XYZ) <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 48 / 52.37)1/2.6) Where R, G and B are 2.6
+          gamma coded DCI P3 values in the range 0-1.</p>
           <p class="indent">The matrix shown converts [1, 1, 1] to
           [3794, 3960, 3890], the reference code values for DCI
           white. A different matrix is needed for material mastered
@@ -709,20 +845,42 @@
           point of D65. The exact encoding curve varies slightly
           with the Exposure Index (EI) set on the camera, keeping
           18</p>
-          <p class="indent">if L cut: V = c <span class=
-          "cmsy-10">×</span> log10(a <span class="cmsy-10">×</span>
-          L + b) + d else: V = e <span class="cmsy-10">×</span> L +
-          f</p>
+          <p class="indent">if L cut: V = c <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> log10(a <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L + b) + d else: V = e <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L + f</p>
           <p class="indent">At EI800 the values of the constants
           are:</p>
           <p class="indent">cut = 0.010591 a = 5.555556 b =
           0.052272 c = 0.247190 d = 0.385537 e = 5.367655
           <span class="cmtt-10">[U+FFFC]</span> f = 0.092809</p>
           <p class="indent">The decoding function is:</p>
-          <p class="indent">if V e <span class="cmsy-10">×</span>
-          cut + f: L = (10(V <span class="cmsy-10">-</span> d) / c
-          <span class="cmsy-10">-</span> b) / a else: (V
-          <span class="cmsy-10">-</span> f) / e</p>
+          <p class="indent">if V e <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> cut + f: L = (10(V <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> d) / c <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> b) / a else: (V <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> f) / e</p>
           <p class="indent">Red Green Blue White Point 0.6840,
           0.3130 0.2210, 0.8480 0.0861, -0.1020 0.3127, 0.3290
           (D65)</p>
@@ -758,14 +916,36 @@
           of the settings.</p>
           <p class="indent">The latest iteration of Canon Log is
           Canon Log 3, for which the encoding function is:</p>
-          <p class="indent">if L -0.014: V = <span class=
-          "cmsy-10">-</span>0.42889912 <span class=
-          "cmsy-10">×</span> log10(1 - 14.98325 <span class=
-          "cmsy-10">×</span> L) + 0.07623209 else if L <span class=
-          "cmsy-10">≤</span> 0.014: V = 2.3069815 <span class=
-          "cmsy-10">×</span> L + 0.073059361 else: V = 0.42889912
-          <span class="cmsy-10">×</span> log10(1 + 14.98325
-          <span class="cmsy-10">×</span> L) + 0.069886632</p>
+          <p class="indent">if L -0.014: V = <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math>0.42889912 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> log10(1 - 14.98325 <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L) + 0.07623209 else if L <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≤
+          </mo></math> 0.014: V = 2.3069815 <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L + 0.073059361 else: V = 0.42889912
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> log10(1 + 14.98325 <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L) + 0.069886632</p>
           <p class="indent">However, this is complicated by the
           fact that this formula takes as its input what Canon
           refers to as “linear IRE”. This is given by dividing the
@@ -773,12 +953,28 @@
           <p class="indent">Bearing the above in mind, the decoding
           function for Canon Log 3 “IRE” to “linear IRE” is:</p>
           <p class="indent">if V 0.04076162: L = - (10(0.07623209
-          <span class="cmsy-10">-</span> V ) / 0.42889912
-          <span class="cmsy-10">-</span> 1) / 14.98325 else if V
-          <span class="cmsy-10">≤</span> 0.105357102: L = (V -
-          0.073059361) / 2.3069815 else: L = (10( V <span class=
-          "cmsy-10">-</span> 0.069886632 ) / 0.42889912
-          <span class="cmsy-10">-</span> 1) / 14.98325</p>
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> V ) / 0.42889912 <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 1) / 14.98325 else if V <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≤
+          </mo></math> 0.105357102: L = (V - 0.073059361) /
+          2.3069815 else: L = (10( V <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 0.069886632 ) / 0.42889912 <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 1) / 14.98325</p>
           <p class="indent">Red Green Blue White Point 0.740, 0.270
           0.170, 1.140 0.080, -0.100 0.3127, 0.3290 (D65)</p>
           <h4 class="subsectionHead"><span class=
@@ -796,11 +992,17 @@
           subtracted after linearization, which may result in some
           negative values.</p>
           <p class="indent">The encoding function is:</p>
-          <p class="indent">V = ln(L <span class="cmsy-10">×</span>
-          112 + 1) / ln(113)</p>
+          <p class="indent">V = ln(L <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 112 + 1) / ln(113)</p>
           <p class="indent">The decoding function is:</p>
-          <p class="indent">L = (113V <span class=
-          "cmsy-10">-</span> 1) / 112</p>
+          <p class="indent">L = (113V <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 1) / 112</p>
           <p class="indent">Red Green Blue White Point 0.698448,
           0.193026 0.329555, 1.024597 0.108443, -0.034679 0.3127,
           0.3290 (D65)</p>
@@ -816,16 +1018,28 @@
           simply with the upper part of the dynamic range unused,
           so the same linearization function can be used.</p>
           <p class="indent">The V-Log encoding function is:</p>
-          <p class="indent">if L 0.01: V = 5.6 <span class=
-          "cmsy-10">×</span> L + 0.125 else: V = c <span class=
-          "cmsy-10">×</span> log10(L + b) + d</p>
+          <p class="indent">if L 0.01: V = 5.6 <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L + 0.125 else: V = c <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> log10(L + b) + d</p>
           <p class="indent">Where the constants are:</p>
           <p class="indent">b = 0.00873 c = 0.241514 d =
           0.598206</p>
           <p class="indent">The V-Log decoding function is:</p>
-          <p class="indent">if V 0.181: L = (V <span class=
-          "cmsy-10">-</span> 0.125) / 5.6 else: L = 10.0(V
-          <span class="cmsy-10">-</span> d) / c – b</p>
+          <p class="indent">if V 0.181: L = (V <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 0.125) / 5.6 else: L = 10.0(V <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> d) / c – b</p>
           <p class="indent">Red Green Blue White Point 0.730, 0.280
           0.165, 0.840 0.100, -0.030 0.3127, 0.3290 (D65)</p>
           <h4 class="subsectionHead"><span class=
@@ -840,17 +1054,37 @@
           details of which have been published in a white paper.
           The numbers 3 and 10 in the name indicate that 18</p>
           <p class="indent">The encoding function is:</p>
-          <p class="indent">if L -0.01: V = (L + 0.01) <span class=
-          "cmsy-10">×</span> 15.1927 else: V = a <span class=
-          "cmsy-10">×</span> log10(b <span class="cmsy-10">×</span>
-          (L + 0.01) + 1)</p>
+          <p class="indent">if L -0.01: V = (L + 0.01)
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 15.1927 else: V = a <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> log10(b <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> (L + 0.01) + 1)</p>
           <p class="indent">Where the constants are:</p>
           <p class="indent">a = 0.224282 b = 155.975327</p>
           <p class="indent">The decoding function is:</p>
-          <p class="indent">if V 0: L = (V / 15.1927) <span class=
-          "cmsy-10">-</span> 0.01 else: L = ((10V / a <span class=
-          "cmsy-10">-</span> 1) / b) <span class="cmsy-10">-</span>
-          0.01</p>
+          <p class="indent">if V 0: L = (V / 15.1927)
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 0.01 else: L = ((10V / a <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 1) / b) <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 0.01</p>
           <p class="indent">Red Green Blue White Point 0.780308,
           0.304253 0.121595, 1.493994 0.095612, -0.084589 0.3127,
           0.3290 (D65)</p>
@@ -889,37 +1123,111 @@
           be available. Some Sony cameras also include XML files
           with the media, which can provide useful information.</p>
           <p class="indent">The S-Log2 encoding function is:</p>
-          <p class="indent">if L <span class="cmsy-10">≥</span> 0:
-          V = (64 + 876<span class="cmsy-10">×</span>(0.432699
-          <span class="cmsy-10">×</span> log10(155 <span class=
-          "cmsy-10">×</span> L / 197.1 + 0.037584) + 0.646596)) /
-          1023 else: V = (64 + 876 <span class="cmsy-10">×</span>
-          (L <span class="cmsy-10">×</span> 3.53881278538813 / 0.9
-          + 0.030001222851889303)) / 1023</p>
+          <p class="indent">if L <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≥
+          </mo></math> 0: V = (64 + 876<math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math>(0.432699 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> log10(155 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L / 197.1 + 0.037584) + 0.646596)) / 1023
+          else: V = (64 + 876 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> (L <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 3.53881278538813 / 0.9 +
+          0.030001222851889303)) / 1023</p>
           <p class="indent">The S-Log3 encoding function is:</p>
-          <p class="indent">if L <span class="cmsy-10">≥</span>
-          0.01125: V = (420 + log10((L + 0.01) / 0.19) <span class=
-          "cmsy-10">×</span> 261.5) / 1023 else: V = (L
-          <span class="cmsy-10">×</span> 76.2102946929 / 0.01125 +
-          95) / 1023</p>
+          <p class="indent">if L <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≥
+          </mo></math> 0.01125: V = (420 + log10((L + 0.01) / 0.19)
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 261.5) / 1023 else: V = (L <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 76.2102946929 / 0.01125 + 95) / 1023</p>
           <p class="indent">The S-Log2 decoding function is:</p>
-          <p class="indent">if V <span class="cmsy-10">≥</span> (64
-          + 0.030001222851889303 <span class="cmsy-10">×</span>
-          876) / 1023: L = 197.1<span class=
-          "cmsy-10">×</span>(10((V<span class=
-          "cmsy-10">×</span>1023 – 64) / 876 – 0.646596) / 0.432699
-          – 0.037584) / 155 else: L = 0.9<span class=
-          "cmsy-10">×</span>( (V<span class="cmsy-10">×</span>1023
-          <span class="cmsy-10">-</span> 64) / 876 –
-          0.030001222851889303 ) / 3.53881278538813</p>
+          <p class="indent">if V <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≥
+          </mo></math> (64 + 0.030001222851889303 <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 876) / 1023: L = 197.1<math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math>(10((V<math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math>1023 – 64) / 876 – 0.646596) / 0.432699 –
+          0.037584) / 155 else: L = 0.9<math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math>( (V<math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math>1023 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 64) / 876 – 0.030001222851889303 ) /
+          3.53881278538813</p>
           <p class="indent">The S-Log3 decoding function is:</p>
-          <p class="indent">if V <span class="cmsy-10">≥</span>
-          171.2102946929 / 1023: L = 10(V <span class=
-          "cmsy-10">×</span> 1023 <span class="cmsy-10">-</span>
-          420) / 261.5 <span class="cmsy-10">×</span> 0.19
-          <span class="cmsy-10">-</span> 0.01 else: L = (V
-          <span class="cmsy-10">×</span> 1023 – 95) <span class=
-          "cmsy-10">×</span> 0.01125000 / 76.2102946929</p>
+          <p class="indent">if V <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≥
+          </mo></math> 171.2102946929 / 1023: L = 10(V
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 1023 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 420) / 261.5 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 0.19 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 0.01 else: L = (V <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 1023 – 95) <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 0.01125000 / 76.2102946929</p>
           <p class="indent">Red Green Blue White Point 0.730, 0.280
           0.140, 0.855 0.100, -0.050 0.3127, 0.3290 (D65)</p>
           <p class="indent">Red Green Blue White Point 0.766, 0.275
@@ -943,25 +1251,67 @@
           <p class="indent">An integer form of ACEScc is ACESproxy,
           designed for on set live grading, such that CDL
           corrections applied to the 0-100</p>
-          <p class="indent">ACESproxy = 16 <span class=
-          "cmsy-10">×</span> 2n-8 + clamp(ACEScc) <span class=
-          "cmsy-10">×</span> 219<span class="cmsy-10">×</span>
-          2n-8</p>
+          <p class="indent">ACESproxy = 16 <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 2n-8 + clamp(ACEScc) <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 219<math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 2n-8</p>
           <p class="indent">Where n is the bit depth.</p>
           <p class="indent">The encoding function of ACEScc is:</p>
-          <p class="indent">if L <span class="cmsy-10">≥</span> 0:
-          V = (9.72 <span class="cmsy-10">-</span> 16) / 17.52 else
-          if L 2-15: V = (log2(2-16 + L <span class=
-          "cmsy-10">×</span> 0.5) + 9.72) / 17.52 else: V =
-          (log2(L) + 9.72) / 17.52</p>
+          <p class="indent">if L <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≥
+          </mo></math> 0: V = (9.72 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 16) / 17.52 else if L 2-15: V = (log2(2-16 +
+          L <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 0.5) + 9.72) / 17.52 else: V = (log2(L) +
+          9.72) / 17.52</p>
           <p class="indent">The decoding function is:</p>
-          <p class="indent">If V <span class="cmsy-10">≤</span>
-          (9.72 - 15) / 17.52: L = (2V <span class=
-          "cmsy-10">×</span> 17.52 <span class="cmsy-10">-</span>
-          9.72 <span class="cmsy-10">-</span> 2-16) <span class=
-          "cmsy-10">×</span> 2 else if V (log2(65504) + 9.72) /
-          17.52: L = 2V <span class="cmsy-10">×</span> 17.52
-          <span class="cmsy-10">-</span> 9.72 else: L = 65504</p>
+          <p class="indent">If V <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≤
+          </mo></math> (9.72 - 15) / 17.52: L = (2V <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 17.52 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 9.72 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 2-16) <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 2 else if V (log2(65504) + 9.72) / 17.52: L
+          = 2V <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 17.52 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 9.72 else: L = 65504</p>
           <p class="indent">Red Green Blue White Point 0.713, 0.293
           0.165, 0.830 0.128, 0.044 0.32168, 0.33767</p>
           <h4 class="subsectionHead"><span class=
@@ -976,17 +1326,36 @@
           encodings than the pure log of ACEScc, it responds in a
           more comparable way to grading operations.</p>
           <p class="indent">The ACEScct encoding function is:</p>
-          <p class="indent">if L <span class="cmsy-10">≤</span>
-          0.0078125: V = 10.5402377416545 <span class=
-          "cmsy-10">×</span> L + 0.0729055341958355 else: V =
-          (log2(L) + 9.72) / 17.52</p>
+          <p class="indent">if L <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≤
+          </mo></math> 0.0078125: V = 10.5402377416545
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> L + 0.0729055341958355 else: V = (log2(L) +
+          9.72) / 17.52</p>
           <p class="indent">The decoding function is:</p>
-          <p class="indent">if V <span class="cmsy-10">≤</span>
-          0.155251141552511: L = (V <span class="cmsy-10">-</span>
-          0.0729055341958355) / 10.5402377416545 else if V
-          (log2(65504) + 9.72) / 17.52: L = 2V <span class=
-          "cmsy-10">×</span> 17.52 <span class="cmsy-10">-</span>
-          9.72 else: L = 65504</p>
+          <p class="indent">if V <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-rel">
+            ≤
+          </mo></math> 0.155251141552511: L = (V <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 0.0729055341958355) / 10.5402377416545 else
+          if V (log2(65504) + 9.72) / 17.52: L = 2V <math display=
+          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 17.52 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 9.72 else: L = 65504</p>
           <h4 class="subsectionHead"><span class=
           "titlemark">4.1.19</span> <a href=
           "contents.html#QQ2-34-152" id=
@@ -1003,21 +1372,57 @@
           linearising film scans.</p>
           <p class="indent">The Cineon linearization function used
           by Nuke (which RED also use as REDlogFIlm) is: L =
-          (10(1023 <span class="cmsy-10">×</span> V - 685) / 300
-          <span class="cmsy-10">-</span> 0.0108) / (1 <span class=
-          "cmsy-10">-</span> 0.0108)</p>
+          (10(1023 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> V - 685) / 300 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 0.0108) / (1 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 0.0108)</p>
           <p class="indent">And its inverse is: V = (log10(V
-          <span class="cmsy-10">×</span> (1 <span class=
-          "cmsy-10">-</span> 0.0108) + 0.0108) <span class=
-          "cmsy-10">×</span> 300 + 685) / 1023</p>
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> (1 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 0.0108) + 0.0108) <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 300 + 685) / 1023</p>
           <p class="indent">Another option is the ‘Pivoted log lin’
-          formula (PLogLin): L = 10.0(V <span class=
-          "cmsy-10">×</span> 1023 <span class="cmsy-10">-</span>
-          445) <span class="cmsy-10">×</span> 0.002 / 0.6
-          <span class="cmsy-10">×</span> 0.18</p>
+          formula (PLogLin): L = 10.0(V <math display="inline"
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 1023 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            -
+          </mo></math> 445) <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 0.002 / 0.6 <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 0.18</p>
           <p class="indent">And its inverse: V = (log10(L / 0.18)
-          <span class="cmsy-10">×</span> 0.6 / 0.002 + 445) /
-          1023</p>
+          <math display="inline" xmlns=
+          "http://www.w3.org/1998/Math/MathML">
+          <mo class="MathClass-bin">
+            ×
+          </mo></math> 0.6 / 0.002 + 445) / 1023</p>
           <p class="indent">The constants in the PLogLin equation
           are derived from a linear grey value of 0.18 mapping to a
           10 bit value of 445, and a negative gamma of 0.6 with a
