@@ -124,31 +124,85 @@ sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 
 \section{Tables}
 
-\subsection{Table with Math}
+\subsection{Table with Mathematics}
 
-\begin{lstlisting}[caption={A table with math.}]
+\begin{lstlisting}[caption={A table with mathematics.}]
 \begin{table}[H]
     \begin{tabular}{|l|c c c c c c c c c c c|}
         \CLCodeHline
-        $\mathbf{EV}$ & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
+        $\boldsymbol{EV}$ & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
         \CLCodeHline
-        $\mathbf{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \CLCodeNewLine
+        $\boldsymbol{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \CLCodeNewLine
         \CLCodeHline
     \end{tabular}
-    \caption{A table with math.}
+    \caption{A table with mathematics.}
 \end{table}
 \end{lstlisting}
 
 \begin{table}[H]
     \begin{tabular}{|l|c c c c c c c c c c c|}
         \CLCodeHline
-        $\mathbf{EV}$ & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
+        $\boldsymbol{EV}$ & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
         \CLCodeHline
-        $\mathbf{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \CLCodeNewLine
+        $\boldsymbol{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \CLCodeNewLine
         \CLCodeHline
     \end{tabular}
-    \caption{A table with math.}
+    \caption{A table with mathematics.}
 \end{table}
+
+\section{Mathematics}
+
+\subsection{Inline Mathematics}
+
+\begin{lstlisting}[caption={Inline mathematics.}]
+The well known Pythagorean theorem \(x^2 + y^2 = z^2\) was
+proved to be invalid for other exponents.
+Meaning the next equation has no integer solutions:
+
+\[ x^n + y^n = z^n \]
+\end{lstlisting}
+
+The well known Pythagorean theorem \(x^2 + y^2 = z^2\) was
+proved to be invalid for other exponents.
+Meaning the next equation has no integer solutions:
+
+\[x^n + y^n = z^n\]
+
+\subsection{Equations}
+
+\begin{lstlisting}[caption={Equations.}]
+\begin{equation}
+    E=m\cdot c^2
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        A & = \frac{\pi r^2}{2} \\
+          & = \frac{1}{2} \pi r^2
+    \end{split}
+\end{equation}
+
+\begin{align*}
+    2x - 5y & =  8 \\
+    3x + 9y & =  -12
+\end{align*}
+\end{lstlisting}
+
+\begin{equation}
+    E=mc^2
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        A & = \frac{\pi r^2}{2} \\
+          & = \frac{1}{2} \pi r^2
+    \end{split}
+\end{equation}
+
+\begin{align*}
+    2x - 5y & =  8 \\
+    3x + 9y & =  -12
+\end{align*}
 
 \section{Figures and Images}
 

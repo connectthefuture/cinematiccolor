@@ -284,8 +284,6 @@ def build_html(ctx, process_html=True):
                                           HTML_RELEASE_DIRECTORY))
     ctx.run('cp -r {0}/*.css {1}'.format(HTML_BUILD_DIRECTORY,
                                          HTML_RELEASE_DIRECTORY))
-    ctx.run('cp -r {0}/*.svg {1}'.format(HTML_BUILD_DIRECTORY,
-                                         HTML_RELEASE_DIRECTORY))
 
     ctx.run('cp -r {0} {1}'.format(ASSETS_DIRECTORY, HTML_RELEASE_DIRECTORY))
 
