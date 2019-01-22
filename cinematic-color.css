@@ -9,13 +9,14 @@
 .cmtt-10{font-family: monospace;}
 .cmtt-10{font-family: monospace;}
 .cmbx-10{ font-weight: bold;}
+.cmbx-10{ font-weight: bold;}
 .cmr-9{font-size:90%;}
 .cmti-10{ font-style: italic;}
 .cmtt-8{font-size:80%;font-family: monospace;}
 .cmtt-8{font-family: monospace;}
 .cmbxti-10{ font-weight: bold; font-style: italic;}
-.cmmib-10{font-style: italic; font-weight: bold;}
-.cmmib-7{font-size:70%;font-style: italic; font-weight: bold;}
+.cmbx-7{font-size:70%; font-weight: bold;}
+.cmbx-7{ font-weight: bold;}
 p.noindent { text-indent: 0em }
 td p.noindent { text-indent: 0em; margin-top:0em; }
 p.nopar { text-indent: 0em; }

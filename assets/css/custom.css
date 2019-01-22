@@ -10,6 +10,10 @@
     vertical-align: 0.125rem;
 }
 
+.table td, .table th {
+    border-bottom: 1px solid #dee2e6
+}
+
 pre.listings {
     background-color: #f8f9fa;
     padding: 15px;
