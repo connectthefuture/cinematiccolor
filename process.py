@@ -380,11 +380,6 @@ def process_html(path, navigation):
             if extract:
                 p.extract()
 
-        # Removing first breadcrumbs.
-        # div_a = html.body.find('div', **{'class_': 'btn-group text-center'})
-        # if div_a is not None:
-        #     div_a.extract()
-
         # Cleanup "<pre>" tags of class "listings".
         pre_a = html.body.find_all('pre', **{'class_': 'listings'})
         for pre in pre_a:
@@ -405,6 +400,17 @@ def process_html(path, navigation):
 
         # Inserting the navigation bar.
         html.body.insert(0, navigation)
+
+        # Extracting the footnotes.
+        div_f = html.body.find('div', **{'class_': 'footnotes'})
+        if div_f is not None:
+            article = html.body.find('article', **{'class_': 'page-content'})
+            div_c = article.find('div', **{'class_': 'col-md-8'})
+            div_c.append(div_f.extract())
+            div_f['class'] = 'footnotes mx-auto my-3'
+            breadcrumbs = div_c.find('div', **{'class_': 'breadcrumb-navigation'})
+            if breadcrumbs:
+                div_c.append(breadcrumbs.extract())
 
     with codecs.open(path, 'w', encoding=ENCODING) as html_file:
         html_file.write(unicode(html))
