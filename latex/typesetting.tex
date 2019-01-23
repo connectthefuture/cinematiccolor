@@ -96,6 +96,21 @@ aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
 beatae vitae dicta sunt explicabo.}
 \end{center}
 
+\section*{Hyperlinks}
+
+\begin{lstlisting}[caption={Hyperlinks.}]
+Some links to equations \ref{eq:e-mc2}, \ref{eq:a-fracpir22}, and \ref{eq:2x5y-8}.
+
+A link to table \ref{tab:a-table-with-mathematics}.
+
+Some links to figures \ref{fig:wir2-ralph-mapped-to-709} and \ref{fig:aces-gamuts}
+\end{lstlisting}
+
+Some links to equations \ref{eq:e-mc2}, \ref{eq:a-fracpir22}, and \ref{eq:2x5y-8}.
+
+A link to table \ref{tab:a-table-with-mathematics}.
+
+Some links to figures \ref{fig:wir2-ralph-mapped-to-709} and \ref{fig:aces-gamuts}
 
 \section*{Lists}
 
@@ -169,6 +184,7 @@ beatae vitae dicta sunt explicabo.}
         \CLCodeHline
     \end{tabular}
     \caption{A table with mathematics.}
+    \label{tab:a-table-with-mathematics}
 \end{table}
 \end{lstlisting}
 
@@ -181,6 +197,7 @@ beatae vitae dicta sunt explicabo.}
         \CLCodeHline
     \end{tabular}
     \caption{A table with mathematics.}
+    \label{tab:a-table-with-mathematics}
 \end{table}
 
 \section*{Mathematics}
@@ -206,6 +223,7 @@ Meaning the next equation has no integer solutions:
 \begin{lstlisting}[caption={Equations.}]
 \begin{equation}
     E=mc^2
+    \label{eq:e-mc2}
 \end{equation}
 
 \begin{equation}
@@ -213,16 +231,21 @@ Meaning the next equation has no integer solutions:
         A & = \frac{\pi r^2}{2} \\
           & = \frac{1}{2} \pi r^2
     \end{split}
+    \label{eq:a-fracpir22}
 \end{equation}
 
-\begin{align*}
-    2x - 5y & =  8 \\
-    3x + 9y & =  -12
-\end{align*}
+\begin{equation}
+    \begin{align*}
+        2x - 5y & =  8 \\
+        3x + 9y & =  -12
+    \end{align*}
+    \label{eq:2x5y-8}
+\end{equation}
 \end{lstlisting}
 
 \begin{equation}
     E=mc^2
+    \label{eq:e-mc2}
 \end{equation}
 
 \begin{equation}
@@ -230,12 +253,16 @@ Meaning the next equation has no integer solutions:
         A & = \frac{\pi r^2}{2} \\
           & = \frac{1}{2} \pi r^2
     \end{split}
+    \label{eq:a-fracpir22}
 \end{equation}
 
-\begin{align*}
-    2x - 5y & =  8 \\
-    3x + 9y & =  -12
-\end{align*}
+\begin{equation}
+    \begin{align*}
+        2x - 5y & =  8 \\
+        3x + 9y & =  -12
+    \end{align*}
+    \label{eq:2x5y-8}
+\end{equation}
 
 \section*{Figures and Images}
 
@@ -251,6 +278,7 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     }
+    \label{fig:wir2-ralph-mapped-to-709}
 \end{figure}
 \end{lstlisting}
 
@@ -260,6 +288,7 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     }
+    \label{fig:wir2-ralph-mapped-to-709}
 \end{figure}
 
 \subsection*{``SVG'' Vector File}
@@ -271,6 +300,7 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     }
+    \label{fig:aces-gamuts}
 \end{figure}
 \end{lstlisting}
 
@@ -280,6 +310,7 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     }
+    \label{fig:aces-gamuts}
 \end{figure}
 
 \section*{References and Citations}
