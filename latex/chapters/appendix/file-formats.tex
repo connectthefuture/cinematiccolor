@@ -1,4 +1,5 @@
 \section{File Formats}
+\label{sec:file-formats}
 
 There are an ever increasing number of file formats, many of which support a variety of encodings, so some common sense is needed when choosing between them. Usually, it is best to minimize transforms and conversions, so sticking to as few file formats as possible is generally best.
 
@@ -8,10 +9,12 @@ Delivery formats are mostly dictated by the end client and should match their ar
 XXX
 
 \subsection{DPX}
+\label{subsec:dpx}
 
 DPX is a SMPTE standardized image format that is commonly used in the motion-picture industry. While the DPX format supports a variety of pixel types including float32, it is most commonly associated with uncompressed 10 bit and 16 bit unsigned integer RGB imagery. Unlike EXR - which is synonymous with scene-referred linear colorimetry, DPX does not have a canonical color space. It is common for DPX to store any number of integer camera log encodings, in addition to broadcast-ready Rec. 709. Generally, if you’ve got a DPX file the only way to know for sure what you have is through communication with the person who created it, or detailed forensic analysis failing that. DPX has limited metadata support, including a few settings related to colorimetry, but beware these flags. Even under the best of intentions DPX metadata is rarely preserved for long.
 
 \subsection{EXR}
+\label{subsec:exr}
 
 OpenEXR is an open-source image format created by ILM in 1999, which has near universal adoption in the VFX and animation industries. OpenEXR is intended for storing floating point, scene-referred linear imagery. Although OpenEXR was not the first image format suitable for storing HDR float data, it is the most popular in film production due to its efficient lossless compression codecs, support for 16 bit half float pixel type and support for other features such as data window/display window tracking, multiple layers, deep frame buffers, rich metadata encoding, and the lack of legacy format baggage.
 

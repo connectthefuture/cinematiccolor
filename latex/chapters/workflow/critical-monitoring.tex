@@ -1,4 +1,5 @@
 \section{Critical Monitoring}
+\label{sec:critical-monitoring}
 
 DI grading is done in a viewing environment that exactly mirrors the final primary exhibition. Digital intermediate (and mastering) typically have very tight tolerances on calibration, as the decisions made in this process are the last time image color appearance is tweaked.
 
@@ -11,12 +12,14 @@ There are other image artifacts, such as aliasing, that are best inspected on mo
 For stereo deliveries, it’s critical to quality check both eyes individually, as well as together in a proper stereo viewing environment. There are many stereo artifacts which are only visible on true 3D displays, and catching these early on is most cost-effective.
 
 \subsection{Cinema Projection}
+\label{subsec:cinema-projection}
 
 Mastering for digital cinema should be done in an equivalent theatrical setting with matched digital projection. Film print is rarely the primary release today, but if the project does call for it, the DI grade is usually in a theatrical environment with a digital projector, with a film emulation 3D-LUT made in conjunction with the film lab to confirm a visual match with the stock, chemistry, and processing. Producing a calibrated film LUT is expensive and time-consuming, so it is more common to create a DCI P3 master and match the film release to that. 
 
 If possible, attending the grade or an early test screening is informative and educational.
 
 \subsection{Reference Monitors}
+\label{subsec:reference-monitors}
 
 Home theater mastering should be done in an “idealized” home environment. Usually, the idealized home environment is slightly darker than the real home environment and display gamma of 2.4 is used to compensate. When seen in a room with more ambient light the master will look correct with 2.2 display gamma, which is the target for consumer televisions. The purpose of the darker environment for mastering is to make shadow detail and colors more discernible, thereby creating a more accurate master. Rec. 709 does not specify the display gamma but this was later clarified in BT. 1886.
 
@@ -27,10 +30,12 @@ Similarly, many motion pictures designed for theatrical release are finished on 
 A final obvious consideration is the display calibration: cheaper displays drift quicker than more expensive ones, but all displays used for finishing and critical decision making need regular checks and calibration. Often calibration is done using display menus, but calibration LUTs, loaded into the display or an external LUT box can be quicker and more accurate. For a calibration LUT to be effective the display's native gamut must exceed that of the target.
 
 \subsection{HDR Displays}
+\label{subsec:hdr-displays}
 
 Consumer HDR displays are commercially available today and content can come from video streaming, Blu-ray players, games machines and even live transmissions. The professional HDR displays are extremely expensive, often 10 times more than conventional SDR displays, and therefore rarer. The brightest consumer displays reach about 1000 nit. The brightest professional reference monitor is currently 4000 nits but only available through Dolby. The brightest commercially available professional reference display is currently the FSI XM310K, which reaches 3000 nits. There are several reference displays that are 1000 nits or better and that meet the other criteria for HDR. HDR display mastering must be done on a display of at least 1000 nits, with full P3 gamut and a white point of D65. Scene-referred sources, VFX and CG content should preserve as much highlight range as possible in order that the mapping to the display range can be chosen for creative reasons, rather than imposed by technical limitations. Clipping generally looks bad on HDR displays. 
 
 \subsection{Color Management for Mastering}
+\label{subsec:color-management-for-mastering}
 
 Ideally, a single Master is created and all versions taken from it using metadata, transforms or trims. To achieve the best results the Master should be created and approved in the highest dynamic range and widest color gamut, but even then care is needed to map the Master data to each version. A poor mapping may produce artifacts that range from minor to catastrophic but is always avoidable.
 
@@ -68,6 +73,7 @@ Image ©Disney. All Rights Reserved.
 A butterfly wipe between the tone mapped version (top) and the clipped transform (bottom) shows the benefit of mapping over blind transforms. Sometimes tone mapping is achieved with mathematical algorithms and sometimes this level of control is the domain of the colorist.
 
 \subsubsection{Gamut Mapping}
+\label{subsubsec:gamut-mapping}
 
 Tone mapping is concerned with dynamic range, which can affect color, as the previous example showed. Gamut mapping adjusts colors between different color gamuts. Understanding how to read files without a display of the correct gamut is a useful skill.
 

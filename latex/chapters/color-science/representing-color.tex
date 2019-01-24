@@ -1,6 +1,8 @@
 \section{Representing Color}
+\label{sec:representing-color}
 
 \subsection{Digital Image - Raster Graphics}
+\label{subsec:digital-image-raster-graphics}
 
 A digital image is a rectangular data structure (a 2 or 3-dimensional array) of picture elements (pixels).
 
@@ -11,6 +13,7 @@ Raster graphics represent color image data as a rectangular grid of code triplet
 The word code implies that a function encoded each pixel color, selecting the appropriate function depends on many factors and requires the introduction of concepts such as color encodings, image states, quantization or perceptual coding.
 
 \subsection{Quantization}
+\label{subsec:quantization}
 
 Quantization is the process of mapping a continuous input signal (or sizeable discrete set of input values) to a smaller discrete set of output values (or codes). Quantization is ubiquitous in digital image processing and used to reduce images storage requirements through file size reduction or to lower bandwidth requirements when streaming images.
 
@@ -22,6 +25,7 @@ During quantization, the information between each quantizer step is discarded an
 Quantization error decreases the signal-to-noise ratio (SNR) which in the context of digital imaging typically creates banding and contouring artifacts. They can be reduced by introducing a small amount of noise (≈ ½ quantizer step) before the quantization, this is called dithering, and even though it also reduces the SNR, the noise introduced by dithering is usually more compelling than banding artifacts, although it may increase the required bandwidth for compressed deliverables.
 
 \subsection{Perceptual Coding}
+\label{subsec:perceptual-coding}
 
 As Poynton (1998) explains, a color imaging system is perceptually uniform if a small perturbation of a component value is approximately equally perceptible across the range of that value.
 
@@ -54,6 +58,7 @@ On the other hand, using a logarithmic or power based perceptual coding, the req
 Perceptual coding is not required when using 16 bit integer (artifacts free contrast ratio of 655.35:1) or half float-representations (Weber contrast of 0.1%, 2^10 = 1024 code values per stop) but file formats adopting those representations are more costly in term of storage and computation.
 
 \subsection{Floating-Point and Logarithmic Representations}
+\label{subsec:floating-point-and-logarithmic-representations}
 
 Integer representations are not appropriate for storing linear high-dynamic range scene-referred imagery due to the typical luminance distribution in real-world scenes, even when they are middle-grey normalized. Floating-point systems gracefully address the precision issues associated with encoding scene-referred linear imagery. They represent numbers approximately to a fixed number of significant digits, i.e. the significand, scaled by an exponent in some fixed base, e.g. 2, 10 or 16.
 
@@ -78,6 +83,7 @@ As logarithmic images encode an extensive dynamic range, most mid-tone pixels re
 Marcie, a famous reference image in theatrical exhibition and DI workflows, is shown as logarithmically encoded and exhibit low contrast. Image copyright © Eastman Kodak Company.
 
 \subsection{Gamma}
+\label{subsec:gamma}
 
 Gamma (γ) is a numerical parameter giving the exponent of a power function assumed to approximate the relationship between a signal quantity (such as a video signal code) and light power.
 
@@ -135,6 +141,7 @@ A simple but efficient way to compensate for the different surrounds, viewing co
 Gamma and its correction on a system, the combination of the different encoding and decoding gammas yields an end-to-end (OOTF) system gamma which increases perceived image contrast.
 
 \subsection{Color Encodings}
+\label{subsec:color-encodings}
 
 A color encoding is a digital representation of colors for image processing, storage, and interchange between systems. Madden and Giorgianni (2007) define it as the numerical specification of color information.
 

@@ -1,4 +1,5 @@
 \section{DI Grading}
+\label{sec:di-grading}
 
 Locking down the eventual DI viewing transform(s) early on is the critical first step in crafting cinematic color pipelines, as it pins down every other part of the process. The remainder of the pipeline essentially relies on visualizations that are created by working backwards from this step. 
 Renders by Sony Pictures Imageworks, available for download at opencolorio.org. Images from “Cloudy With a Chance Of Meatballs” Courtesy of Sony Pictures Animation. © 2009 Sony Pictures Animation Inc. All rights reserved.
@@ -21,6 +22,7 @@ The second Color Managed approach is usually, but not always scene-referred. For
 Sometimes the output color space is used as the working color space and transforms are only applied to the sources. With this approach grading is output-referred, and there is no real benefit to it, so it is not discussed further in this paper.
 
 \subsection{Conforming}
+\label{subsec:conforming}
 
 The dated video-centric approach to grading comes from the time when colorists worked on a reel of film or a tape. Film and tape sources playback as a fixed linear timeline and were usually graded out of context. Media was passed from color grading back to editorial for mastering. That workflow is still used especially for commercial work, although the tape source has now been replaced by a random access digital file. The file is broken down into shots or events either by loading an edit decision list (EDL) or by scene detecting the program. The workflow is not ideal for VFX inserts but in this scenario completed VFX files are added by the editor, prior to the color grade. Titles are added after the color grade. VFX are usually submitted as output-referred files that match the delivery format reference display. This allows very little manipulation in grading and can suffer a quality loss since the pipeline is not scientifically color managed. A more flexible alternative is to discuss the process with the editor and deliver VFX log encoded, preserving more dynamic range and having more latitude in the grade. Since the final look is unknown until after the DI grade, the VFX log image, just like camera media benefits from this extended dynamic range.
  
@@ -33,10 +35,12 @@ In the modern DI workflow, the first conform happens before picture lock, which 
 
 
 \subsection{Unmanaged Output Referred Grading}
+\label{subsec:unmanaged-output-referred-grading}
 
 The advantage of the output-referred “video” approach is one of process simplicity. However, when grading pre-rendered gamma-encoded imagery, a relatively modest amount of color adjustment can be applied without introducing artifacts. The downside to this approach is that much of the detail in the original imagery is lost when baking-in the view transform, which typically happens before or at the beginning of the grade. Indeed, in some implementations, this baking-in of the view transform may even be internal to the camera, or in animated features, inside the renderer. For example, if a shot was originally overexposed, a sensible color correction is to darken the image. However, it is likely that in an overexposed image large portions of the image will be clipped by the view transform to a constant maximum value, and no possible correction can bring back this lost detail. Additionally, this video style approach is particularly unsuited to producing HDR versions. It is inherently tied to the dynamic range of the display used in the DI, so the HDR and SDR versions must be done as completely separate grades.
 
 \subsection{Color Managed Scene Referred Grading}
+\label{subsec:color-managed-scene-referred-grading}
 
 
 
@@ -74,6 +78,7 @@ All sequences exchanged in post-production should retain existing metadata
 
 
 \subsection{DI Color Grading}
+\label{subsec:di-color-grading}
 
 The final DI grade takes place after the conform, but often before picture lock. If possible the colorist starts the grade before VFX are ready and expects to add them to the conformed timeline along with further editorial changes. The grade has three main objectives. First, it must match consecutive scenes seamlessly, even though they may come from different sources or different color gamuts. Second, it is the final stage before delivery and the whole project, not just the images must look the best it can. Whilst the phase is known as DI grading, the DI colorist acts as a crucial QC of the finished master. The DI grade may be the only environment to have large, calibrated displays and might also be the first time that final audio, VFX, titles and composites are seen under critical monitoring conditions. In the ideal world, problems would be sent back to the appropriate team, but as red carpet day looms it is often the colorist who has to fix any remaining problems, even if those problems are sound sync, reflections of the crew in shot or errors in the credits. Thirdly, most important of all, the grade must enhance the concept by communicating emotion, environment and clarity. Like VFX, the best grades are often the least noticeable yet still manage to add depth to the narrative or content. Early on in the DI process, the colorist, editor and VFX departments collaborate and interact. A post-production supervisor might manage the interaction, but as deadlines loom, remaining changes are increasingly left for the colorist. It saves time and helps to keep things running smoothly if files are exchanged in an orderly way.
 
@@ -88,6 +93,7 @@ Whenever possible, it is best to preview shots in a grading suite or theatrical 
 Key Points
 
 \subsubsection{DI Grading Tools}
+\label{subsubsec:di-grading-tools}
 
 Color grading tools have evolved with technology. In the early days of film, adjustments were limited to exposure and color tinting. With color film came color timing with RGB printer lights, which are quite literally filtered lights to alter the color of the print copy. In the video era, analog and then digital tools were developed to optimize film transfers to video via a telecine. The DI grading software of today typically copies or emulates the historical processes, and adds new features from computer graphics, VFX, digital cameras and improved color science. New software grading tools appear slowly, often a long time after the technology that requires them. At the time of writing, there are few special tools for HDR display grades for example. Colorists consequently have become adept at repurposing tools to fit new needs. Grading software has become sophisticated enough that it is rarely possible to recognize the exact tool or software from the result. However, there are significant differences in alternative approaches to the grade. These differences must be considered part of the creative process but a review of the most common techniques can help to understand how a look is crafted and how look management is integral to the process. In short the tools used and the order in which they are used, affect the outcome.
 
@@ -139,6 +145,7 @@ In output-referred grading these primary adjustments are made to bring the image
 The colorist crafts the Look after the initial technical grade using more refined and sophisticated tools. Secondary controls are used in conjunction with external mattes, keys, and shapes to achieve selective changes. The DI grade is built up in layers or nodes, depending on the interface, which can be interconnected and blended together. The secondary controls can be used as part of the Look, or to modify it. For example, if the Look is dark and moody it is common practice to use secondaries to brighten skin tones.
 
 \paragraph{External Mattes}
+\label{par:external-mattes}
 
 Sometimes, grading will require external mattes for CG shots, so it is advisable to discuss the need for alpha channel or separate mattes ahead of delivery. The mattes used for grading may not exactly match those used in compositing and can, therefore, incur additional costs.
 
@@ -149,6 +156,7 @@ Image ©Disney. All Rights Reserved.
 Animation especially can generate and utilize large numbers of mattes allowing the colorist to isolate individual characters and even specific features such as hair and eyes for fine corrections. It is not unusual to have more than 30 mattes per scene in animated features. Mattes also allow the colorist to separate foreground and background elements, and to rebalance lighting, further improving the continuity of shots even after rendering has been completed. This can save time that would otherwise be spent on multiple render iterations. When the Look has already been established early in animation pre-production and there is a process in place for notes to be recorded during production lighting reviews, the colorist generally starts from a position that is very close to the expectations of the art directors and can focus time on addressing the specific notes that were recorded during reviews.
 
 \subsubsection{DI Grading Workflows}
+\label{subsubsec:di-grading-workflows}
 
 There are as many workflows for DI grading as there are for VFX. Some start as early as pre-production, some involve live grades during production and some do not assign the finishing colorist until quite late in the project. Collaboration between VFX and the Color department always pays dividends. If the grade begins after VFX, which is not unusual, then plates are likely to be delivered as camera files and need neutralizing. Without a clear direction of the final look, flexibility and latitude are even more critical. If a colorist is on board in time, look creation will have at least begun, and it is reasonable to expect neutralized plates from the Color department. The file format and viewing arrangements can vary according to time, budget and complexity, but scene-referred plates without the look applied are recommended. An ACES EXR file is the most reliable option.  While CDLs are good for providing a general direction for the Look, they are quite limited in scope. A 3D LUT can achieve more selective changes but is less useful in communicating alterations. It is possible to use a CDL and a LUT providing all parties can handle both. There are bespoke and proprietary tools which work well, are more precise and better for communicating change, but again only useful if all parts of the process are compatible. Even with good planning, seeing shots on a big calibrated screen in a controlled environment often reveals things for the first time and adjustments have to be made.  Highlights that distract from the action might need dulling, or an important part of the image might need enhancing to bring more attention to it. These changes might cause a ripple effect and other elements might then need matching back to the new tweaks. Color finishing is fluid and ultimately where all the pieces of a project come together.
 

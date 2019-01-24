@@ -1,4 +1,5 @@
 \section{Compositing}
+\label{sec:compositing}
 
 
 
@@ -11,6 +12,7 @@ Compositing is the process where live-action and CG elements are manipulated and
 In feature film visual effects, live-action photographic plates are typically represented on disk either as raw captures of the camera data, as a log encoding of the linear camera data, often as DPX files, or as linear EXR files. Log files are typically encoded using the encoding primaries of the source camera, such as ALEXA Wide Gamut, whereas EXR files may use camera primaries or generalized primaries such as the AP0 primaries of ACES2065-1.  When working with log frames, the compositing package typically converts the images to scene-referred linear on input using a manufacturer specified transfer function, and a matrix transform to the working-space gamut if required, and converts back to the original color space on output. In its simplest form, the end to end compositing process represents a no-op, aiming to leave pixels not modified by the effect exactly as they were in the original plate. Such behavior is absolutely critical, as typically not all the shots will go through the VFX workflow, and VFX processed shots must seamlessly intercut with the remainder of the motion picture.
 
 \subsection{Scene-Referred Linear is Preferred for Compositing}
+\label{subsec:scene-referred-linear-is-preferred-for-compositing}
 
 The benefits of scene-referred linear compositing are numerous; similar to the benefits found in rendering, shading, and lighting. All operations which blend energy with spatially neighboring pixels: motion blur, defocus, image distortion, and resizing, for example, have more physically plausible, aka realistic, results by default. Anti-aliasing works better. Light mixing preserves the appearance of the original renders. Most importantly, even simple compositing operations such as over produce more realistic results, particularly on semi-transparent elements like hair, volumetrics and fx elements.
 
@@ -23,6 +25,7 @@ San Francisco City Hall at Night - The original scene defocused in camera (left)
 Applying the same defocus to image data which has been converted to an approximation of scene-referred linear using a simple gamma or sRGB curve is an improvement, but still tends to de-emphasize the specular highlights. This is because even though the operation is being applied in ‘linear’, it is downstream of the output transform, and the highlights have already been tone mapped for a lower dynamic range display, restricting them to the 0-1 range, and thus do not have physically-plausible amounts of energy. Applications like Adobe After Effects work in this way by default when the “use linear” option is chosen for filters, simply removing an assumed 2.2 gamma before the filter and reapplying it afterward. Applying a defocus in scene-referred linear reveals a bokeh effect on each of the bell tower lights, mimicking the visual look of having performed this defocus during camera acquisition. This is because the pixel values are proportional to light in the original scene, and thus very bright pixels have sufficient energy to remain visible when blended with their neighbors. Other energy effects such as motion-blur achieve similar improvements in realism from working in a scene-referred linear space.
 
 \subsection{Scene-Referred Linear Compositing Challenges}
+\label{subsec:scene-referred-linear-compositing-challenges}
 
 There are some challenges with working with high-dynamic ranges in compositing. First, filtering operators that use sharp, negative lobed kernels like as lanczos, keys, and sinc are very susceptible to ringing, i.e. negative values around highlights. While interpolatory filters such as box, gaussian, bilinear and bicubic cannot cause this artifact, they tend to introduce softening. When sharp filtering is required like lens distortions, resizing, and other spatial warping techniques a variety of approaches are useful to mitigate such HDR artifacts. A non-exhaustive set of methods are listed below
 
@@ -42,6 +45,7 @@ Another challenge in working with scene-referred linear data in compositing is t
 One subtlety of working with floating point imagery is that artists must become familiar with some of the corner cases in floating-point representations: NaNs and Infs. For example, when dividing by very small values, such as during un-premultiplication, it is possible to drive a color value up high enough to generate infinity. NaNs are also frequent and may be introduced during lighting and shading inside the renderer, or during divide by zero operations. Both NaNs and Inf can cause issues in compositing if not detected and cleaned, as most image processing algorithms are not robust to their presence and generally fail in unexpected ways.
 
 \subsection{Negative Values}
+\label{subsec:negative-values}
 
 
 
@@ -59,6 +63,7 @@ Negative values may occur in a scene-referred linear color if the working gamut 
 This is also something to watch out for in games. As mentioned in Section 3.4.3 Games, games may render in less precise “small” floating-point formats when an alpha channel is not needed and performance and memory bandwidth are more important than precision. It is important to remember that these floating point formats do not have a sign bit so do not support negative numbers, and thus cannot store out-of-gamut colors. If asked to do so, clipping will silently occur. Care must be taken to either choose the appropriate floating-point format, handle negative values explicitly or bring out-of-gamut values into the working gamut to avoid the silent artefacts that would otherwise occur.
 
 \subsection{Working with Log Imagery}
+\label{subsec:working-with-log-imagery}
 
 
 
@@ -72,6 +77,7 @@ Scene-referred linear data is not suitable as input to a 3D LUT due to its code 
 ACES defines two standardized log working spaces, ACEScc and ACEScct, which are commonly used in grading.
 
 \subsection{Plate Timing, Neutralization, and Grading}
+\label{subsec:plate-timing-neutralization-and-grading}
 
 When working with plate photography it is often useful to apply primary color corrections for each plate to neutralize the lighting across a sequence. During the shoot, there will inevitably be color drift across the shots, produced by events like the sun moving behind a cloud or the lighting moved to different locations from one day to the next. Using neutralized plates in lighting and compositing leads to nice gains in efficiency as light rigs and sequence standards track better. In most workflows the plate neutralization is done at the top of the compositing graph, the CG neutral elements are composited in, and then before the file is written out the neutralization is undone. This approach is often called “reverse out,” and its advantage is that the output delivery is consistent with the input plate, independent of the color neutralization process. An analogous set of operations are often applied with lens distortion being removed at the head of a comp and then reapplied as one of the last steps.
 In some facilities, neutralized plates are written out to disk so everyone dealing with the images works with the neutralized result. This may be helpful to have if the background plate needs to be reflected or otherwise used in a CG render. The same is true with undistorted plates. It may be useful to write them to disk if a tracking or photogrammetry application, for example, can’t apply the same lens un-distortion as the compositing application.
@@ -81,6 +87,7 @@ It is important to draw a distinction between the correction necessary for plate
 For additional detail on the process of conforming sequences and neutralizing plates, see 3.6.1 Conforming.XXX
 
 \subsection{Premultiplication}
+\label{subsec:premultiplication}
 
 Premultiplication implies that one starts with an RGB color, adds the concept of transparency, and then premultiplies by it. This isn’t actually true. Premultiplied RGB is the natural representation for color and transparency and is the native output of renderers. A nice mental model for premultiplied RGBA is that the RGB channels represent how much light is emitted from within the region of the pixel, and alpha represents how much a pixel blocks light behind it. As alpha represents the fraction of occlusion, to maintain physical correctness alpha values must be between 0 and 1. RGB channels have no such constraints and can range from -infinity to infinity.
 
@@ -91,6 +98,7 @@ So how should unpremultiplied RGBA be interpreted? Unpremultiplied RGBA is most 
 For additional information on premultiplied versus unpremultiplied RGBA representations, see Porter and Duff (1984) and Blinn (1998).
 
 \subsection{Technical Checks}
+\label{subsec:technical-checks}
 
 It is not normally practical for the workstations used for animation, lighting, VFX and compositing to show an entirely accurate preview of the final deliverable, especially if the principal master is HDR. Furthermore, while artists typically craft imagery assuming a particular viewing exposure, it is possible that the imagery will be stylistically color graded in unexpected ways in the DI grade. Therefore, care must be taken to preserve a wide dynamic range in the scene-referred linear working space, avoiding output-referred cheats and checking the result on an SDR display by pushing and pulling the exposure prior to the SDR viewing transform. Indeed, many facilities run a barrage of tests, often referred to as Quality Check (QC), Technical Checks or The Gauntlet to ensure that all completed CG and composites are robust enough to stand up to the manipulations of DI grading and that there are no artifacts which are masked by an SDR output transform that might be revealed by an HDR output transform.
 

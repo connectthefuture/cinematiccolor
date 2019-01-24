@@ -1,6 +1,8 @@
 \section{Visual Effects, Animation and Games}
+\label{sec:visual-effects-animation-and-games}
 
 \subsection{Visual Effects}
+\label{subsec:visual-effects}
 
 
 Captured camera log plate (top), ACEScg workign space image (middle) and Rec. 709 final image (bottom). Shot form “Avengers: Infinity War”
@@ -8,6 +10,7 @@ Captured camera log plate (top), ACEScg workign space image (middle) and Rec. 70
 The traditional visual effects color pipeline is based around the core principle of doing no harm to the plate, to allow for the seamless intercutting of VFX and non-VFX shots. Plate photography is brought into the pipeline in whatever color space is delivered, typically the camera log, and then converted to scene-referred linear values using an invertible transform. Sometimes the camera’s encoding gamut is kept and only a pure 1D camera to linear transform is used. With a more modern approach, the linearization is accompanied by a matrix transform to convert to a wide-gamut working space like ACEScg. A working space gamut separate from the camera encoding gamut is especially useful if multiple different cameras, each with its own encoding gamut, are used during shooting. For visualization, a 3D LUT is used which emulates the eventual output transform. This was traditionally based on a print film emulation or a similar “S-shaped” curve, but is now more commonly created entirely in the grading suite. During the visual effects process, the output transform is never baked into the imagery except for intermediate deliveries such as editorial output or rough preview screenings. These deliveries are used to enable other parts of production, but are not the “final” deliverable. The delivery to the colorist should be the highest-fidelity representation of the original photography. Getting to this highest-fidelity representation typically involves going back to the camera encoding gamut and camera log space used when delivering plates, or rendering scene-referred linear to EXR files in a specified gamut.
 
 \subsection{Animation}
+\label{subsec:animation}
 
 
 
@@ -21,6 +24,7 @@ Animated-feature color workflows have historically relied upon a single-step vie
 With the advent of multiple deliverables, often including HDR, working in a scene-referred space is particularly beneficial. The same scene-referred rendering can be passed through different display transforms, with only a trim pass in the final grade required to produce HDR and SDR deliverables.
 
 \subsection{Games}
+\label{subsec:games}
 
 
 
@@ -53,6 +57,7 @@ As the range of displays widens to include larger variations in dynamic range an
 
 
 \subsection{Texture Painting}
+\label{subsec:texture-painting}
 
 
 
@@ -83,6 +88,7 @@ Another axis of variation in texturing is when to perform the conversion to scen
 It is common for facilities to have an Onset Capture department whose responsibility is to acquire the texture references for a show. They are often processed with a flavor of DCRaw, Libraw or a dedicated in-house tool that output the texture reference data as scene-referred linear light values encoded with the facility working color space inside an EXR file. In a controlled environment, the use of cross-polarizing filters and polarised lighting during acquisition further allows for increased reference texture fidelity as the specular response of the sample is attenuated producing a more useful representation of its reflectance. See 3.3.5 On-Set Reference Capture for more detail.
 
 \subsubsection{Textures in Games}
+\label{subsubsec:textures-in-games}
 As mentioned in section 3.4.3, games are often biased heavily towards the performance end of the performance, quality tradeoff. Games make much use of heavily compressed hardware-accelerated texture formats which trade quality for a dramatic reduction in memory footprint and increase in performance.
 Compressed textures are not required, but are often used. In addition, there is not always a one to one correlation between the storage format and the runtime format; some games transcode from one format to another to ensure minimal storage or loading overhead while still being able to leverage hardware texture compression in the renderer.
 By far the most common formats are 8 bit and unsigned (storing positive-only values) although some are 16 bit. 16 bit formats are larger and often slower, so tend to be used sparingly but are still useful especially those that are floating point with support for a sign bit. It is usual for textures to be authored at high quality, but resized and compressed in a conditioning pipeline before they are stored on disk or streamed.
@@ -92,12 +98,14 @@ See “Block Compression” in Appendix 4.10 for more information on compressed 
 Another GPU hardware feature used extensively by games is support for free OETF/EOTF application. Since scene-referred linear rendering is preferred, but textures are usually stored perceptually encoded, GPUs feature hardware to apply a free EOTF to each texel fetched, linearizing these values before filtering and before they are used as inputs to the renderer. In addition GPUs can apply a free OETF to a value before writing it to memory if this is required. Unfortunately, the only transfer function supported is the sRGB. See 4.1.3 sRGB for the definition of the sRGB transfer function. At time of writing there is no hardware support for any other transfer function, including PQ. Even with that support, it is important to note that only the transfer function part of the sRGB specification is provided; there is no gamut handling in hardware.
 
 \subsection{Matte Painting}
+\label{subsec:matte-painting}
 
 Matte painters and paint packages work in as many different ways as there are facilities and software packages. In this example, the painter works in an output-referred color space. As renders are natively in scene-referred linear, a mapping from the matte painting space to the rendering working space is required, regardless of which approach is chosen.
 It is often useful to consider matte painting and texture painting as two different color workflows. In matte painting, it is very common for the artist to want to paint values which will eventually utilize the full scene-referred linear dynamic range, even when working in an output-referred space. Thus, an inversion which allows for the creation of bright specular values is preferable. In such cases, it is often convenient to provide a visual preview both at a normal exposure, as well as a few stops darker, to let the artist have a good feel for the dynamic range in their plate. Applying an inversion in this context has many of the potential downsides described for texture painting, namely that an exact inverse isn’t guaranteed to exist for all color and that the inverse of a tone curve with strong highlight compression may lead to excessively bright values when an output-referred image is brought back into the working space.
 To avoid those issues, some workflows elect to perform matte painting on scene-referred values. The scene-referred values are typically encoded in a non-linear fashion for compatibility with integer based tools and to utilize the largest dynamic range possible. One option is to use a logarithmic encoding and to provide a viewing transform that incorporates the look for the show. This will be familiar to artists who have experience with films scans, but it also changes the feel of paint tools that are normally used in a display-referred context. Another option is to use a hybrid log-gamma encoding. This hybrid encoding uses a curve which is gamma-shaped for the standard range of image values and transitions into a logarithmic shape for bright values like highlights. The gamma portion of the curve allows tools that are built for a display-referred working space to continue to work as expected, including blending operations which are designed for gamma-encoded material. The logarithmic shape for highlights allows details to be preserved throughout the process. Artists can paint directly on the matte image without any additional viewing transform. A viewing transform that incorporates the look for the show is still useful, to see how the painted values will appear in their final presentation. These viewing transform can be applied using an ICC profile or a 3D LUT as supported by the paint application.
 
 \subsection{Lighting, Shading, and Rendering}
+\label{subsec:lighting-shading-and-rendering}
 
 The stages of rendering, lighting, and shading most closely approximate physical realism when performed in a color space that is scene-referred linear, high-dynamic range and wide-gamut. Ideally, no color space conversions should be required during the rendering process, as all input assets such as textures, plate re-projections, and skydomes, can be linearized and gamut mapped beforehand.
 
@@ -111,6 +119,7 @@ Images from “Moana” Courtesy of Walt Disney Animation Studios. Images © Dis
 In this raw visualization of a high-dynamic range, scene-referred linear render, values from the source image greater than 1.0 are clipped when sent to the display. Using a naive gamma 2.2 visualization to map scene-referred linear to output-referred values results in an image with low apparent contrast and clipped highlights. Observe clipping in the wave and eye. Using an S-shaped tone curve applied in a log space to visualize the scene-referred linear render yields a pleasing appearance of contrast, with well-balanced highlight and shadow details.
 
 \subsubsection{Scene-Referred Linear is Preferred for Lighting}
+\label{subsubsec:scene-referred-linear-is-preferred-for-lighting}
 
 A render is a simulation of a real scene. In the real world, there is a linear relationship between the incoming and outgoing energy from a surface, i.e. the incoming light that is scattered or absorbed. To simulate that interaction properly, working with units that refer to the physical units of energy in the world and applying operations that maintain the linearity of these relationships makes the simulation more straightforward.
 
@@ -126,6 +135,7 @@ Light shaders also benefit from working with scene-referred linear, specifically
 Anti-aliasing operations also benefit from using scene-referred linear values, though one must be more careful with renderer reconstruction filters. Negatively lobed filters such as Catmull-Rom have an increased tendency to exhibit ringing artifacts due to the extra dynamic range. This is a particular problem on elements lit with very bright “rim lights,” as this creates bright specular highlights directly in contact with edges. The core challenge here is the same as when handling very bright, very small sections of imagery in compositing. There are a number of common approaches to working around such filtering issues. First, for operations that shows ringing artifacts, switching the filter to a box or gaussian filter will remove the artifact, at the expense of softening the image slightly. If the issue only happens in a few places, this may be a reasonable approach. Second, very bright specular samples can be rolled-off such that these samples do not contribute such large amounts of energy. However, this throws out much of the visually significant appearance which adds so much to the realism. Another approach is that the extra energy can be spread amongst neighboring pixels such that the specular hits show an effect analogous to camera flare. Both of these effects can be implemented in compositing.
 
 \subsubsection{The Rendering Gamut Impact}
+\label{subsubsec:the-rendering-gamut-impact}
 
 A shot from “Rogue One: A Star Wars Story” with a green beam of light that is far outside of the Rec. 709 gamut.
 
