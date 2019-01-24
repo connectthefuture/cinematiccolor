@@ -4,18 +4,28 @@
 \usepackage{amsmath}
 \usepackage[english]{babel}
 \usepackage[backend=biber,style=apa]{biblatex}
-\usepackage{color}
 \usepackage{float}
 \usepackage[bottom]{footmisc}
 \usepackage[utf8x]{inputenc}
 \usepackage{listings}
 \usepackage{svg}
+\usepackage{xcolor}
 
 % "hyperref" must be imported last.
 \usepackage{hyperref}
 
-\def\CLCodeNewLine{\unless\ifdefined\HCode\\\fi}
-\def\CLCodeHline{\unless\ifdefined\HCode\hline\fi}
+% Hyperlinks
+\hypersetup{
+    colorlinks,
+    linkcolor=[rgb]{0.15 0.15 0.70},
+    citecolor=[rgb]{0.15 0.15 0.70},
+    urlcolor=[rgb]{0.15 0.15 0.70}
+}
+
+\newcommand{\CNameRef}[1]{{\hypersetup{hidelinks}\nameref{#1}}}
+
+\newcommand\CLCodeNewLine{\unless\ifdefined\HCode\\\fi}
+\newcommand\CLCodeHline{\unless\ifdefined\HCode\hline\fi}
 
 \graphicspath{{./assets/figures/}{./assets/images/}}
 
@@ -26,7 +36,7 @@
 \definecolor{lstcodecomment}{rgb}{0.5, 0.5, 0.5}
 \definecolor{lstcodekeyword}{rgb}{0.60, 0.15, 0.70}
 \definecolor{lstcodestring}{rgb}{0.55 ,0.75, 0.30}
-\definecolor{lstcodenumber}{rgb}{0.0, 0.65 , 0.95}
+\definecolor{lstcodenumber}{rgb}{0.0, 0.65, 0.95}
 \definecolor{lstcodelinenumber}{rgb}{0.5, 0.5, 0.5}
 
 \lstdefinestyle{cinematiccolor}{
