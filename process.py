@@ -357,7 +357,7 @@ def process_title(path):
                 authors.append(
                     BeautifulSoup(
                         AUTHORS_LI_TEMPLATE.format(
-                            **{'text': author})).prettify())
+                            **{'text': author}), 'html.parser').prettify())
 
             child.extract()
 
