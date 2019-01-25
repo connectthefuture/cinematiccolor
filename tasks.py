@@ -259,11 +259,15 @@ def build_html(ctx, process_html=True):
                 ROOT_DOCUMENT_NAME),
             warn=True)
         ctx.run(
+            'biber {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'bcf')),
+            warn=True)
+        ctx.run(
             'pdflatex --shell-escape -interaction=nonstopmode {0}'.format(
                 ROOT_DOCUMENT_NAME),
             warn=True)
         ctx.run(
-            'biber {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'bcf')),
+            'pdflatex --shell-escape -interaction=nonstopmode {0}'.format(
+                ROOT_DOCUMENT_NAME),
             warn=True)
         ctx.run(
             'make4ht -c {0} {1} '

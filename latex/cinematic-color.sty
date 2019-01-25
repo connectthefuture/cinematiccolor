@@ -9,14 +9,13 @@
 \RequirePackage{hyperref}
 
 % Hyperlinks
-\unless\ifdefined\HCode{
-    \PassOptionsToPackage{
+\unless\ifdefined\HCode
+    \hypersetup{
         colorlinks,
         linkcolor=[rgb]{0.15 0.15 0.70},
         citecolor=[rgb]{0.15 0.15 0.70},
         urlcolor=[rgb]{0.15 0.15 0.70}
-    }{hyperref}
-}
+    }
 \fi
 
 % Custom commands.
