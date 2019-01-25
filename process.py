@@ -22,8 +22,9 @@ __all__ = [
     'ENCODING', 'NAVBAR_TEMPLATE', 'NAVBAR_DROPDOWN_LI_TEMPLATE',
     'NAVBAR_DROPDOWN_A_TEMPLATE', 'NAVBAR_DROPDOWN_DIV_TEMPLATE',
     'NAVBAR_DROPDOWN_ITEM_TEMPLATE', 'NAVBAR_A_TEMPLATE', 'SUBTITLE_TEMPLATE',
-    'AUTHORS_UL_TEMPLATE', 'AUTHORS_LI_TEMPLATE', 'parse_toc',
-    'build_navigation', 'process_title', 'process_html', 'process_index'
+    'AUTHORS_UL_TEMPLATE', 'AUTHORS_LI_TEMPLATE', 'parse_sections',
+    'parse_toc', 'build_navigation', 'process_title', 'process_html',
+    'process_index'
 ]
 
 codecs.register_error('strict', codecs.ignore_errors)
@@ -93,6 +94,41 @@ def _sanitize_filename(filename):
 
     return re.sub('\s+', ' ', re.sub("[\s,\\(\\)-\\.']+", ' ',
                                      filename)).strip()
+
+
+def parse_sections(path):
+    """
+    Parses the sections in given file.
+
+    Parameters
+    ----------
+    path : unicode
+        File path to parse the sections of.
+
+    Returns
+    -------
+    list
+        List of tuples of parsed sections and sanitized names.
+    """
+
+    with codecs.open(path, encoding='utf8') as tex_file:
+        lines = tex_file.readlines()
+
+    patterns = [
+        '\\\\chapter',
+        '\\\\section',
+    ]
+
+    sections = []
+    for line in lines:
+        for pattern in patterns:
+            match = re.match('%s(\*)?\{(.*)\}' % pattern, line.strip())
+            if match:
+                section = match.groups(1)[-1]
+                sections.append((section, _sanitize_filename(section).replace(
+                    ' ', '-').lower()))
+
+    return sections
 
 
 def parse_toc(path):
@@ -320,7 +356,8 @@ def process_title(path):
                 author = ' '.join(author.split(',')[::-1])
                 authors.append(
                     BeautifulSoup(
-                        AUTHORS_LI_TEMPLATE.format(**{'text': author})).prettify())
+                        AUTHORS_LI_TEMPLATE.format(
+                            **{'text': author})).prettify())
 
             child.extract()
 
@@ -408,7 +445,8 @@ def process_html(path, navigation):
             div_c = article.find('div', **{'class_': 'col-md-8'})
             div_c.append(div_f.extract())
             div_f['class'] = 'footnotes mx-auto my-3'
-            breadcrumbs = div_c.find('div', **{'class_': 'breadcrumb-navigation'})
+            breadcrumbs = div_c.find('div',
+                                     **{'class_': 'breadcrumb-navigation'})
             if breadcrumbs:
                 div_c.append(breadcrumbs.extract())
 

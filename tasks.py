@@ -24,14 +24,17 @@ __email__ = 'ves-tech-color@googlegroups.com'
 __status__ = 'Production'
 
 __all__ = [
-    'INDEX_DOCUMENT_NAME', 'ROOT_DOCUMENT_NAME', 'BIBLIOGRAPHY_NAME',
-    'LATEX_SOURCE_DIRECTORY', 'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY',
-    'message_box', 'clean', 'formatting', 'build_pdf', 'build_html'
+    'INDEX_DOCUMENT_NAME', 'ROOT_DOCUMENT_NAME', 'TYPESETTING_DOCUMENT_NAME',
+    'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY', 'PDF_BUILD_DIRECTORY',
+    'HTML_BUILD_DIRECTORY', 'message_box', 'clean', 'formatting', 'build_pdf',
+    'build_html'
 ]
 
 INDEX_DOCUMENT_NAME = 'index.tex'
 
 ROOT_DOCUMENT_NAME = 'cinematic-color.tex'
+
+TYPESETTING_DOCUMENT_NAME = 'typesetting.tex'
 
 BIBLIOGRAPHY_NAME = 'bibliography.bib'
 
@@ -294,12 +297,18 @@ def build_html(ctx, process_html=True):
                                 ROOT_DOCUMENT_NAME.replace('tex', 'toc'))
         toc = process.parse_toc(toc_file)
 
-        process.conform_filenames(toc, HTML_RELEASE_DIRECTORY, [
-            ('cinematic-color.html', 'cinematic-color.html'),
-            ('contentsname.html', 'contents.html'),
-            ('bibname.html', 'bibliography.html'),
-            ('Typesetting.html', 'typesetting.html'),
-        ])
+        typesetting_sections = process.parse_sections(
+            os.path.join(HTML_BUILD_DIRECTORY, TYPESETTING_DOCUMENT_NAME))
+        typesetting_filenames = [('{0}.html'.format(section.replace(' ', '')),
+                                  '{0}.html'.format(sanitized))
+                                 for section, sanitized in typesetting_sections
+                                 ]
+
+        process.conform_filenames(
+            toc, HTML_RELEASE_DIRECTORY,
+            [('cinematic-color.html', 'cinematic-color.html'),
+             ('contentsname.html', 'contents.html'),
+             ('bibname.html', 'bibliography.html')] + typesetting_filenames)
 
         toc.update({'Bibliography': []})
 
