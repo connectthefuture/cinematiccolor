@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
+  <title>Text Formatting</title>
+  <meta charset="utf-8" />
+  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
+  "generator" />
+  <meta content="width=device-width,initial-scale=1" name=
+  "viewport" />
+  <link href="cinematic-color.css" rel="stylesheet" type=
+  "text/css" />
+  <meta content="cinematic-color.tex" name="src" />
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"></script>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type=
+  "text/css" />
+  <link href="assets/css/custom.css" rel="stylesheet" type=
+  "text/css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">Cinematic Color 2</a>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "preface.html" id="preface" role="button">Preface</a>
+          <div aria-labelledby="preface" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "description.html">Description</a><a class=
+            "dropdown-item" href=
+            "authorship.html">Authorship</a><a class=
+            "dropdown-item" href="on-the-web.html">On the Web</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "introduction.html" id="introduction" role=
+          "button">Introduction</a>
+          <div aria-labelledby="introduction" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "intended-audience.html">Intended Audience</a><a class=
+            "dropdown-item" href=
+            "how-to-read-this-document.html">How to Read this
+            Document</a><a class="dropdown-item" href=
+            "the-goal.html">The Goal</a><a class="dropdown-item"
+            href="converging-approaches.html">Converging
+            Approaches</a><a class="dropdown-item" href=
+            "a-general-model-of-color-processing.html">A General
+            Model of Color Processing</a><a class="dropdown-item"
+            href="color-management-challenges.html">Color
+            Management Challenges</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "color-science.html" id="color-science" role=
+          "button">Color Science</a>
+          <div aria-labelledby="color-science" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-color-science.html">About Color
+            Science</a><a class="dropdown-item" href=
+            "electromagnetic-spectrum.html">Electromagnetic
+            Spectrum</a><a class="dropdown-item" href=
+            "human-visual-system.html">Human Visual
+            System</a><a class="dropdown-item" href=
+            "basic-colorimetry.html">Basic Colorimetry</a><a class=
+            "dropdown-item" href=
+            "advanced-colorimetry.html">Advanced
+            Colorimetry</a><a class="dropdown-item" href=
+            "representing-color.html">Representing
+            Color</a><a class="dropdown-item" href=
+            "color-imaging-systems.html">Color Imaging Systems</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "workflow.html" id="workflow" role="button">Workflow</a>
+          <div aria-labelledby="workflow" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-workflow.html">About Workflow</a><a class=
+            "dropdown-item" href=
+            "academy-color-encoding-system-aces.html">Academy Color
+            Encoding System (ACES)</a><a class="dropdown-item"
+            href="the-look.html">The Look</a><a class=
+            "dropdown-item" href="on-set.html">On Set</a><a class=
+            "dropdown-item" href=
+            "visual-effects-animation-and-games.html">Visual
+            Effects, Animation and Games</a><a class=
+            "dropdown-item" href=
+            "compositing.html">Compositing</a><a class=
+            "dropdown-item" href="di-grading.html">DI
+            Grading</a><a class="dropdown-item" href=
+            "critical-monitoring.html">Critical
+            Monitoring</a><a class="dropdown-item" href=
+            "finishing.html">Finishing</a><a class="dropdown-item"
+            href="archives.html">Archives</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "appendix.html" id="appendix" role="button">Appendix</a>
+          <div aria-labelledby="appendix" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "common-rgb-color-encodings.html">Common RGB Color
+            Encodings</a><a class="dropdown-item" href=
+            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
+            "dropdown-item" href=
+            "colour-science-for-python.html">Colour Science for
+            Python</a><a class="dropdown-item" href=
+            "luts-and-transforms.html">LUTs and
+            Transforms</a><a class="dropdown-item" href=
+            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
+            href="aces-ctl.html">ACES CTL</a><a class=
+            "dropdown-item" href="full-and-legal-ranges.html">Full
+            and Legal ranges</a><a class="dropdown-item" href=
+            "color-difference-encoding.html">Color Difference
+            Encoding</a><a class="dropdown-item" href=
+            "camera-characterization.html">Camera
+            Characterization</a><a class="dropdown-item" href=
+            "file-formats.html">File Formats</a><a class=
+            "dropdown-item" href=
+            "software.html">Software</a><a class="dropdown-item"
+            href="acknowledgements.html">Acknowledgements</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="glossary.html">Glossary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=
+          "bibliography.html">Bibliography</a>
+        </li>
+      </ul>
+      <form class="form-inline my-3 my-md-0">
+        <input class="form-control" placeholder="Search" type=
+        "text" />
+      </form>
+    </div>
+  </nav>
+  <article class="page-content">
+    <div class="container-fluid py-3">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h3 class="sectionHead"><a href=
+          "cinematic-color.html#QQ2-49-179" id="x49-1790005">Text
+          Formatting</a></h3>
+          <h4 class="likesubsectionHead"><a href=
+          "typesetting.html#QQ2-49-180" id="x49-1800005">Bold,
+          Italic, Underlining and Emphasis</a></h4>
+          <div class="environment-listing border d-block my-3 p-3">
+            <a id="x49-180001r1"></a> <a id="x49-180002"></a>
+            <pre class="listings"><span class="label"><a id=
+            "x49-180003r1"></a></span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">textbf</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">Lorem</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ipsum</span><span class=
+            "cmtt-8">}</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">underline</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">dolor</span><span class=
+            "cmtt-8">}</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">sit</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">amet</span><span class=
+            "cmtt-8">,</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">textit</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">consectetur</span><span class=
+            "cmtt-8">}</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-180004r2"></a></span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">textbf</span><span class=
+            "cmtt-8">{\</span><span class=
+            "cmtt-8">textit</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">adipiscing</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">elit</span><span class=
+            "cmtt-8">},</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">sed</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">do</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">eiusmod</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">textbf</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">tempor</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">incididunt</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-180005r3"></a></span><span class=
+            "cmtt-8">ut</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">labore</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">et</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">emph</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">dolore</span><span class=
+            "cmtt-8">}</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">magna</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">aliqua</span><span class=
+            "cmtt-8">}.</span><span class=
+            "cmr-8"> </span><span class="label"><a id=
+            "x49-180006r4"></a></span></pre>
+            <figcaption class="figure-caption">
+              <span class="caption-name">Listing&nbsp;5.1:</span>
+              Bold, italic, underlining and emphasis.
+            </figcaption>
+          </div>
+          <p class="noindent"><span class="cmbx-10">Lorem
+          ipsum</span> <span class="underline">dolor</span> sit
+          amet, <span class="cmti-10">consectetur</span>
+          <span class="cmbxti-10">adipiscing elit</span>, sed do
+          eiusmod <span class="cmbx-10">tempor incididunt ut labore
+          et</span> <span class="cmbxti-10">dolore</span>
+          <span class="cmbx-10">magna aliqua</span>.</p>
+          <h4 class="likesubsectionHead"><a href=
+          "typesetting.html#QQ2-49-182" id=
+          "x49-1810005">Paragraphs, New Lines and Text
+          Justification</a></h4>
+          <div class="environment-listing border d-block my-3 p-3">
+            <a id="x49-181001r2"></a> <a id="x49-181002"></a>
+            <pre class="listings"><span class="label"><a id=
+            "x49-181003r1"></a></span><span class=
+            "cmtt-8">‘‘</span><span class=
+            "cmtt-8">Lorem</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ipsum</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">dolor</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">sit</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">amet</span><span class=
+            "cmtt-8">,</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">consectetur</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">adipiscing</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">elit</span><span class=
+            "cmtt-8">,</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181004r2"></a></span><span class=
+            "cmtt-8">sed</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">do</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">eiusmod</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">tempor</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">incididunt</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ut</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">labore</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">et</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">dolore</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">magna</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">aliqua</span><span class=
+            "cmtt-8">.’’</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181005r3"></a></span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181006r4"></a></span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">begin</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">flushleft</span><span class=
+            "cmtt-8">}</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181007r5"></a></span><span class=
+            "cmtt-8">Ut</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">enim</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ad</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">minim</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">veniam</span><span class=
+            "cmtt-8">,</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">quis</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">nostrud</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">exercitation</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ullamco</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">laboris</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">nisi</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ut</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181008r6"></a></span><span class=
+            "cmtt-8">aliquip</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ex</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ea</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">commodo</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">consequat</span><span class=
+            "cmtt-8">.</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">Duis</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">aute</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">irure</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">dolor</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">in</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">reprehenderit</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">in</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181009r7"></a></span><span class=
+            "cmtt-8">voluptate</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">velit</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">esse</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">cillum</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">dolore</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">eu</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">fugiat</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">nulla</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">pariatur</span><span class=
+            "cmtt-8">.</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181010r8"></a></span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">end</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">flushleft</span><span class=
+            "cmtt-8">}</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181011r9"></a></span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181012r10"></a></span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">begin</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">center</span><span class=
+            "cmtt-8">}</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181013r11"></a></span><span class=
+            "cmtt-8">Excepteur</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">sint</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">occaecat</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">cupidatat</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">non</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">proident</span><span class=
+            "cmtt-8">,</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">sunt</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">in</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">culpa</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">qui</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">officia</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181014r12"></a></span><span class=
+            "cmtt-8">deserunt</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">mollit</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">anim</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">id</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">est</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">laborum</span><span class=
+            "cmtt-8">.</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181015r13"></a></span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">end</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">center</span><span class=
+            "cmtt-8">}</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181016r14"></a></span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181017r15"></a></span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">begin</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">flushright</span><span class=
+            "cmtt-8">}</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181018r16"></a></span><span class=
+            "cmtt-8">Sed</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ut</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">perspiciatis</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">unde</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">omnis</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">iste</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">natus</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">error</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">sit</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">voluptatem</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">accusantium</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181019r17"></a></span><span class=
+            "cmtt-8">doloremque</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">laudantium</span><span class=
+            "cmtt-8">,</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">totam</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">rem</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">aperiam</span><span class=
+            "cmtt-8">,</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">eaque</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ipsa</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">quae</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ab</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">illo</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">inventore</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181020r18"></a></span><span class=
+            "cmtt-8">veritatis</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">et</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">quasi</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">architecto</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">beatae</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">vitae</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">dicta</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">sunt</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">explicabo</span><span class=
+            "cmtt-8">.</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181021r19"></a></span><span class=
+            "cmtt-8">\</span><span class=
+            "cmtt-8">end</span><span class=
+            "cmtt-8">{</span><span class=
+            "cmtt-8">flushright</span><span class=
+            "cmtt-8">}</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181022r20"></a></span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181023r21"></a></span><span class=
+            "cmtt-8">Nemo</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">enim</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ipsam</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">voluptatem</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">quia</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">voluptas</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">sit</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">aspernatur</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">aut</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">odit</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">aut</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">fugit</span><span class=
+            "cmtt-8">,</span><span class=
+            "cmtt-8"> </span><br /><span class="label"><a id=
+            "x49-181024r22"></a></span><span class=
+            "cmtt-8">sed</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">quia</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">consequuntur</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">magni</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">dolores</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">eos</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">qui</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">ratione</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">voluptatem</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">sequi</span><span class=
+            "cmtt-8"> </span><span class=
+            "cmtt-8">nesciunt</span><span class=
+            "cmtt-8">.</span><span class=
+            "cmr-8"> </span><span class="label"><a id=
+            "x49-181025r23"></a></span></pre>
+            <figcaption class="figure-caption">
+              <span class="caption-name">Listing&nbsp;5.2:</span>
+              Paragraphs, new lines and text justification.
+            </figcaption>
+          </div>
+          <p class="noindent">“Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua.”</p>
+          <div class="flushleft">
+            <p class="noindent">Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu
+            fugiat nulla pariatur.</p>
+          </div>
+          <div class="center">
+            <p class="noindent">Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+          </div>
+          <div class="flushright">
+            <p class="noindent">Sed ut perspiciatis unde omnis iste
+            natus error sit voluptatem accusantium doloremque
+            laudantium, totam rem aperiam, eaque ipsa quae ab illo
+            inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo.</p>
+          </div>
+          <p class="noindent">Nemo enim ipsam voluptatem quia
+          voluptas sit aspernatur aut odit aut fugit, sed quia
+          consequuntur magni dolores eos qui ratione voluptatem
+          sequi nesciunt.</p>
+          <div class="breadcrumb-navigation text-center">
+            <a href=
+            "typesetting.html#text-formatting.html"><button class=
+            "btn btn-light mx-3" type=
+            "button">Up</button></a><a href=
+            "footnotes.html"><button class="btn btn-light mx-3"
+            type="button">Next</button></a>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </article>
+  <footer class="page-footer">
+    <div class="container-fluid text-center py-3">
+      Copyright © 2019 ‐ Cinematic Color Authors ‐ <a href=
+      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
+    </div>
+  </footer>
+  <script src="assets/js/jquery.min.js"></script> 
+  <script src="assets/js/popper.min.js"></script> 
+  <script src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>
