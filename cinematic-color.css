@@ -142,6 +142,8 @@ div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
 h1.partHead{text-align: center}
 .abstract p {margin-left:5%; margin-right:5%;}
 div.abstract {width:100%;}
+.rotatebox{display: inline-block;}
+.figure img.graphics {margin-left:10%;}
 .equation-star td{text-align:center; vertical-align:middle; }
 table.equation-star { width:100%; } 
 mtd.align-odd{margin-left:2em; text-align:right;}
@@ -150,8 +152,6 @@ mtd.align-even{margin-right:2em; text-align:left;}
 mo.qopname + mi{margin-left:0.3em}
 mi + mo.qopname{margin-left:0.3em}
 dt.printshorthands{float:left; clear:left; margin-right:1em;}
-.rotatebox{display: inline-block;}
-.figure img.graphics {margin-left:10%;}
 .lstlisting .label{margin-right:0.5em; }
 div.lstlisting{font-family: monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
 div.lstinputlisting{ font-family: monospace; white-space: nowrap; }
