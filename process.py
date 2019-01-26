@@ -324,7 +324,7 @@ def process_title(path):
     """
 
     with codecs.open(path, encoding=ENCODING) as html_file:
-        html = BeautifulSoup(html_file, 'html5lib')
+        html = BeautifulSoup(html_file, 'html5lib', from_encoding=ENCODING)
 
         # Extracting "page-tile" section to make it a "body" top-level element.
         section = html.body.find('section', **{'class_': 'page-title'})
@@ -356,8 +356,8 @@ def process_title(path):
                 author = ' '.join(author.split(',')[::-1])
                 authors.append(
                     BeautifulSoup(
-                        AUTHORS_LI_TEMPLATE.format(
-                            **{'text': author}), 'html.parser').prettify())
+                        AUTHORS_LI_TEMPLATE.format(**{'text': author}),
+                        'html.parser').prettify())
 
             child.extract()
 
@@ -370,7 +370,7 @@ def process_title(path):
         list(section.find_all('br'))[-1].extract()
 
     with codecs.open(path, 'w', encoding=ENCODING) as html_file:
-        html_file.write(unicode(html))
+        html_file.write(str(html))
 
     return True
 
@@ -393,7 +393,7 @@ def process_html(path, navigation):
     """
 
     with codecs.open(path, encoding=ENCODING) as html_file:
-        html = BeautifulSoup(html_file, 'html5lib')
+        html = BeautifulSoup(html_file, 'html5lib', from_encoding=ENCODING)
 
         # Removing comments.
         comments = html.find_all(text=lambda text: isinstance(text, Comment))
@@ -451,7 +451,7 @@ def process_html(path, navigation):
                 div_c.append(breadcrumbs.extract())
 
     with codecs.open(path, 'w', encoding=ENCODING) as html_file:
-        html_file.write(unicode(html))
+        html_file.write(str(html))
 
     return True
 
@@ -472,7 +472,7 @@ def process_index(path):
     """
 
     with codecs.open(path, encoding=ENCODING) as html_file:
-        html = BeautifulSoup(html_file, 'html5lib')
+        html = BeautifulSoup(html_file, 'html5lib', from_encoding=ENCODING)
 
         # Removing the navigation bar.
         html.body.find('nav').extract()
@@ -485,6 +485,6 @@ def process_index(path):
         html.body.find('div', **{'class_': 'col-md-8'})['class'] = 'col-xl-12'
 
     with codecs.open(path, 'w', encoding=ENCODING) as html_file:
-        html_file.write(unicode(html))
+        html_file.write(str(html))
 
     return True

@@ -26,8 +26,8 @@ __status__ = 'Production'
 __all__ = [
     'INDEX_DOCUMENT_NAME', 'ROOT_DOCUMENT_NAME', 'TYPESETTING_DOCUMENT_NAME',
     'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY', 'PDF_BUILD_DIRECTORY',
-    'HTML_BUILD_DIRECTORY', 'message_box', 'clean', 'formatting', 'build_pdf',
-    'build_html'
+    'HTML_BUILD_DIRECTORY', 'TIDY_HTML', 'message_box', 'clean', 'formatting',
+    'build_pdf', 'build_html'
 ]
 
 INDEX_DOCUMENT_NAME = 'index.tex'
@@ -47,6 +47,8 @@ PDF_BUILD_DIRECTORY = 'build/pdf'
 HTML_BUILD_DIRECTORY = 'build/html'
 
 HTML_RELEASE_DIRECTORY = 'cinematic-color'
+
+TIDY_HTML = ['tidy', '-q', '-i', '-utf8', '-asxhtml', '-m']
 
 
 def message_box(message, width=79, padding=3, print_callable=print):
@@ -262,15 +264,7 @@ def build_html(ctx, process_html=True):
             'biber {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'bcf')),
             warn=True)
         ctx.run(
-            'pdflatex --shell-escape -interaction=nonstopmode {0}'.format(
-                ROOT_DOCUMENT_NAME),
-            warn=True)
-        ctx.run(
-            'pdflatex --shell-escape -interaction=nonstopmode {0}'.format(
-                ROOT_DOCUMENT_NAME),
-            warn=True)
-        ctx.run(
-            'make4ht -c {0} {1} '
+            'make4ht -ul -c {0} {1} '
             '"" '
             '"" '
             '"" '
@@ -278,7 +272,7 @@ def build_html(ctx, process_html=True):
                 ROOT_DOCUMENT_NAME.replace('tex', 'cfg'), ROOT_DOCUMENT_NAME),
             warn=True)
         ctx.run(
-            'make4ht -c {0} {1} '
+            'make4ht -ul -c {0} {1} '
             '"" '
             '"" '
             '"" '
@@ -328,15 +322,14 @@ def build_html(ctx, process_html=True):
             print('Processing "{0}" file...'.format(html_file))
 
             process.process_html(html_file, navigation)
-
-            subprocess.call(
-                ['tidy', '-q', '-i', '-utf8', '-asxhtml', '-m', html_file])
+            subprocess.call(TIDY_HTML + [html_file])
 
         html_file = os.path.join(HTML_RELEASE_DIRECTORY,
                                  INDEX_DOCUMENT_NAME).replace('tex', 'html')
         print('Processing "{0}" file...'.format(html_file))
         process.process_title(html_file)
         process.process_index(html_file)
+        subprocess.call(TIDY_HTML + [html_file])
 
     with ctx.cd(HTML_RELEASE_DIRECTORY):
         ctx.run('mv {0} {1}'.format(
