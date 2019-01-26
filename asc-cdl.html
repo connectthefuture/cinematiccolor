@@ -159,9 +159,9 @@
           CDL</a></h3>
           <p class="noindent">The world of color grading,
           particularly as it is handled onset, has a huge amount of
-          variation. Even though it is common to apply a “primary
-          grade” (consisting of a scale operation, some offsets,
-          and maybe a gamma and saturation adjustment), every
+          variation. Even though it is common to apply a primary
+          grade (consisting of a scale operation, some offsets, and
+          maybe a gamma and saturation adjustment), every
           manufacturer has historically applied these adjustments
           in a different order, which sadly eliminates the
           portability of grading information. The American Society
@@ -170,7 +170,7 @@
           Similar to the EDL, Edit Decision List, in use by
           editorial systems, the ASC came up with the Color
           Decision List (CDL) format. This specification defines
-          the math for what is expected on a “primary”
+          the math for what is expected on a primary
           correction.</p>
           <p class="indent">The CDL defines a color correction,
           with a fixed series of steps/ordering: Scaling (3
@@ -187,12 +187,15 @@
           for the grade data. The Scaling, Offset and Power are
           sent as 9 numbers (the SOP) and saturation is sent as a
           single number (SAT).</p>
-          <p class="indent">ColorCorrectionCollection
-          ColorCorrection id=”example˙correction˙01” SOPNode Slope
-          1.1 1.1 1.1 /Slope Offset -0.05 -0.01 0.05 /Offset Power
-          1.0 1.0 1.0 /Power /SOPNode SatNode Saturation 1.1
-          /Saturation /SatNode /ColorCorrection
-          /ColorCorrectionCollection</p>
+          <p class="indent">&lt;ColorCorrectionCollection&gt;
+          &lt;ColorCorrection id="example_correction_01"&gt;
+          &lt;SOPNode&gt; &lt;Slope&gt; 1.1 1.1 1.1 &lt;/Slope&gt;
+          &lt;Offset&gt; -0.05 -0.01 0.05 &lt;/Offset&gt;
+          &lt;Power&gt; 1.0 1.0 1.0 &lt;/Power&gt; &lt;/SOPNode&gt;
+          &lt;SatNode&gt; &lt;Saturation&gt; 1.1
+          &lt;/Saturation&gt; &lt;/SatNode&gt;
+          &lt;/ColorCorrection&gt;
+          &lt;/ColorCorrectionCollection&gt;</p>
           <p class="indent">Example .ccc (Color Correction
           Collection) xml file demonstrating the SOP and Sat
           elements.</p>
@@ -202,7 +205,7 @@
           is very different than if the same offset is applied to
           scene-referred linear imagery. The CDL also does not
           require one to specify if any viewing LUTs were used.
-          This ambiguity is both CDL’s biggest strength and its
+          This ambiguity is both CDLs biggest strength and its
           biggest weakness. It is a weakness because if one
           receives a CDL file in isolation the color correction is
           still not particularly well defined. However, this is

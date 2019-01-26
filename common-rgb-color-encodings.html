@@ -200,29 +200,18 @@
           function (OETF) for a video camera, not an EOTF for a
           display, making it a scene-referred encoding. It is, in
           fact, rare to find the Rec. 709 curve implemented exactly
-          in any camera, as video cameras often include a ‘knee’
-          for highlight compression and other user controls which
-          cause the image to diverge from the standard. This means
-          that it is not normally possible to accurately invert
-          Rec. 709 material to scene-referred linear. Where
-          necessary, ITU-R BT.2087-0 recommends the use of a simple
-          square function to revert material from a Rec. 709 camera
-          to scene-referred linear.</p>
+          in any camera, as video cameras often include a knee for
+          highlight compression and other user controls which cause
+          the image to diverge from the standard. This means that
+          it is not normally possible to accurately invert Rec. 709
+          material to scene-referred linear. Where necessary, ITU-R
+          BT.2087-0 recommends the use of a simple square function
+          to revert material from a Rec. 709 camera to
+          scene-referred linear.</p>
           <p class="indent">The encoding function specified in Rec.
           709 is:</p>
-          <p class="indent">if L <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≥
-          </mo></math> 0.018: V = 1.099 <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L0.45 - 0.099 else: V = L <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 4.5</p>
+          <p class="indent">if L 0.018: V = 1.099 Œ L0.45 - 0.099
+          else: V = L Œ 4.5</p>
           <p class="indent">Where L is scene light, normalized to
           0-1, and V is the encoded value. This output value is
           also normalized to 0-1 but is usually stored as an
@@ -236,7 +225,7 @@
           "x34-1350004.1.2">BT.1886</a></h4>
           <p class="noindent">The ACES Still Life reference image
           encoded with the Rec. 709 (BT.1886) Output Transform.
-          Copyright A.M.P.A.S. The EOTF used for display of Rec.
+          Copyright ľ A.M.P.A.S. The EOTF used for display of Rec.
           709 material is specified by ITU-R BT.1886, which was
           introduced later, as no EOTF was specified originally in
           Rec. 709. It is a variation on a gamma curve, intended to
@@ -253,27 +242,14 @@
           Rec. 709 Output Transform, for example.</p>
           <p class="indent">A BT.1886 display uses the primaries as
           defined by Rec. 709, and the following EOTF:</p>
-          <p class="indent">L = a <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> (V + b)2.4</p>
+          <p class="indent">L = a Œ (V + b)2.4</p>
           <p class="indent">Where L is the screen luminance and V
           the encoded signal (ranged 0-1). The constants a and b
           are calculated from the target black level LB and white
           level LW (normally 100 cd/m2 for a grading reference
           monitor, but often considerably higher for a consumer TV)
-          using the following equations: a = (LW1/2.4
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> LB1/2.4)2.4 b = LB1/2.4 / (LW1/2.4
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> LB1/2.4)</p>
+          using the following equations: a = (LW1/2.4 LB1/2.4)2.4 b
+          = LB1/2.4 / (LW1/2.4 LB1/2.4)</p>
           <p class="indent">When encoding desired display
           colorimetry for BT.1886 display, where the black level of
           the display is unknown (as is always the situation when
@@ -286,7 +262,7 @@
           "contents.html#QQ2-34-136" id=
           "x34-1360004.1.3">sRGB</a></h4>
           <p class="noindent">The ACES Still Life reference image
-          encoded with the sRGB Output Transform. Copyright
+          encoded with the sRGB Output Transform. Copyright ľ
           A.M.P.A.S. Due to differences in inherent display
           technologies, there is substantial variation in the
           appearance of RGB when the same code values are sent to
@@ -308,27 +284,16 @@
           the same gamut of colors as Rec. 709.</p>
           <p class="indent">The sRGB encoding function is defined
           as:</p>
-          <p class="indent">if L 0.003131: V = 1.055 <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L1/2.4 - 0.055 else: V = L <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 12.92</p>
+          <p class="indent">if L &gt; 0.003131: V = 1.055 Œ L1/2.4
+          - 0.055 else: V = L Œ 12.92</p>
           <p class="indent">Where L is the luminance of the image
           normalized to the range 0-1 and V is the resulting
           encoded signal. The sRGB encoded signal is commonly
-          stored as an 8 bit integer, which would be round(V
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 255).</p>
+          stored as an 8 bit integer, which would be round(V Œ
+          255).</p>
           <p class="indent">The sRGB decoding function is defined
           as:</p>
-          <p class="indent">if V 0.04045: L = ((V + 0.055) /
+          <p class="indent">if V &gt; 0.04045: L = ((V + 0.055) /
           1.055)2.4 else: L = V / 12.92</p>
           <p class="indent">There is some debate about the EOTF to
           be used for displaying sRGB image data. Since the sRGB
@@ -368,30 +333,19 @@
           2020</a></h4>
           <p class="noindent">The ACES Still Life reference image
           encoded with the Rec. 2020 100 nits Output Transform
-          Copyright A.M.P.A.S. ITU-R BT.2020, commonly called Rec.
-          2020 defines a color space wider than Rec. 709, using D65
-          white, which was initially defined for wide gamut
-          standard dynamic range encodings, but whose primaries
-          have been adopted for HDR. These primaries are in fact
-          normally used simply as encoding primaries, with the
-          colors limited to a smaller gamut such as P3, since no
-          current display covers the Rec. 2020 gamut. Like Rec.
+          Copyright ľ A.M.P.A.S. ITU-R BT.2020, commonly called
+          Rec. 2020 defines a color space wider than Rec. 709,
+          using D65 white, which was initially defined for wide
+          gamut standard dynamic range encodings, but whose
+          primaries have been adopted for HDR. These primaries are
+          in fact normally used simply as encoding primaries, with
+          the colors limited to a smaller gamut such as P3, since
+          no current display covers the Rec. 2020 gamut. Like Rec.
           709, the Rec. 2020 specification defines an encoding
           curve for a hypothetical SDR camera which is in fact
           almost never used. The OETF defined by Rec. 2020 is:</p>
-          <p class="indent">if L <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≥
-          </mo></math> : V = <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L0.45 - ( - 1) else: V = L <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 4.5</p>
+          <p class="indent">if L : V = Œ L0.45 - ( - 1) else: V = L
+          Œ 4.5</p>
           <p class="indent">The values of and are defined as
           1.09929682680944 and 0.018053968510807 respectively at
           full precision, but the document clarifies that for
@@ -412,19 +366,19 @@
           PQ</a></h4>
           <p class="noindent">The ACES Still Life reference image
           encoded with the ST.2084 1000 nits Output Transform.
-          Copyright A.M.P.A.S. SMPTE ST.2084 is an output referred
-          encoding curve used for high dynamic range displays,
-          normally in conjunction with Rec. 2020 primaries. It can
-          encode values up to 10,000 cd/m2, and was originally
-          specified by Dolby under the name PQ, for Perceptual
-          Quantizer. To encode such a wide range without visible
-          banding, ST.2084 requires at least 12 bit processing to
-          be used in production. For delivery at least 10 bits are
-          required, and although visible banding is possible at
-          this bit depth, experiments by Dolby have indicated that
-          noise present in real-world images makes this banding
-          imperceptible. Integer codings may use either “narrow
-          range” or “full range” (see section 4.7).</p>
+          Copyright ľ A.M.P.A.S. SMPTE ST.2084 is an output
+          referred encoding curve used for high dynamic range
+          displays, normally in conjunction with Rec. 2020
+          primaries. It can encode values up to 10,000 cd/m2, and
+          was originally specified by Dolby under the name PQ, for
+          Perceptual Quantizer. To encode such a wide range without
+          visible banding, ST.2084 requires at least 12 bit
+          processing to be used in production. For delivery at
+          least 10 bits are required, and although visible banding
+          is possible at this bit depth, experiments by Dolby have
+          indicated that noise present in real-world images makes
+          this banding imperceptible. Integer codings may use
+          either narrow range or full range (see section 4.7).</p>
           <p class="indent">Because PQ is perceptually uniform, it
           can be a useful working space for applying grades, or as
           a shaper for LUTs (see section 4.4.3) and some game
@@ -443,31 +397,12 @@
           EOTF.</p>
           <p class="indent">The ST.2084 EOTF is an absolute
           encoding, defined by the following equation:</p>
-          <p class="indent">L = 10000 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> ((V1/m2 - c1) / (c2 - c3 <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> V1/m2))1/m1</p>
+          <p class="indent">L = 10000 Œ ((V1/m2 - c1) / (c2 - c3 Œ
+          V1/m2))1/m1</p>
           <p class="indent">Where L is the display luminance in
           cd/m2 and the constants are: m1 = 2610 / 16384 m2 = 2523
-          / 4096 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 128 c1 = 3424 / 4096 c2 = 2413 / 4096
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 32 c3 = 2392 / 4096 <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 32</p>
+          / 4096 Œ 128 c1 = 3424 / 4096 c2 = 2413 / 4096 Œ 32 c3 =
+          2392 / 4096 Œ 32</p>
           <p class="indent">While the output of the ST.2084 EOTF is
           defined in absolute units of cd/m2, the input to the
           function is less rigorously defined. As such, there is
@@ -501,9 +436,9 @@
           the higher luminances for specular highlights and
           in-frame light sources. This is in line with the original
           intent of the ST.2084 specification, which says that it
-          “is intended to enable the creation of video images with
+          is intended to enable the creation of video images with
           an increased luminance range; not for the creation of
-          video images with overall higher luminance levels.”
+          video images with overall higher luminance levels.
           However, as more experience has been gained with
           delivering in HDR, many people have come to feel that a
           higher level for diffuse white is preferable and that,
@@ -516,11 +451,11 @@
           be achieved in ACES as part of an HDR specific Look
           Transform which simply applies gain in linear. The
           parametric Output Transforms which form part of ACES 1.1
-          include a parameter for “mid-point luminance” (18</p>
+          include a parameter for mid-point luminance (18</p>
           <p class="indent">Some manufacturers implement view
           transforms for HDR in their cameras for on-set HDR
           monitoring, and provide LUTs which match those transforms
-          for use in post. ARRI’s ALF-2 and RED’s IPP2 LUTs can be
+          for use in post. ARRIs ALF-2 and REDs IPP2 LUTs can be
           used as output transforms for LogC/ALEXA Wide Gamut and
           Log3G10/RED Wide Gamut working spaces respectively, and
           other color encodings can be transformed to those to make
@@ -537,40 +472,39 @@
           Log Gamma (HLG)</a></h4>
           <p class="noindent">The ACES Still Life reference image
           encoded with the HLG Output Transform. Notice that the
-          image looks “normal”, if somewhat muted on an SDR
-          display. Copyright A.M.P.A.S. Hybrid Log Gamma is an
-          encoding designed by the BBC in collaboration with NHK.
-          It is defined as a scene referred encoding so is based on
-          an OETF but also defines an EOTF to work in conjunction
-          with it. When concatenated, these produce the encoding’s
-          OOTF, a system gamma, which defines the relationship
-          between scene light and display light. The HLG OOTF is a
-          power function whose exponent is dependent on the peak
-          white of the particular display. It is also, unlike most
-          transfer functions, not simply applied to each RGB
-          component independently, but rather it incorporates the
-          luminance value, a weighted sum of the three linear
-          components, in the calculation.</p>
+          image looks normal, if somewhat muted on an SDR display.
+          Copyright ľ A.M.P.A.S. Hybrid Log Gamma is an encoding
+          designed by the BBC in collaboration with NHK. It is
+          defined as a scene referred encoding so is based on an
+          OETF but also defines an EOTF to work in conjunction with
+          it. When concatenated, these produce the encodings OOTF,
+          a system gamma, which defines the relationship between
+          scene light and display light. The HLG OOTF is a power
+          function whose exponent is dependent on the peak white of
+          the particular display. It is also, unlike most transfer
+          functions, not simply applied to each RGB component
+          independently, but rather it incorporates the luminance
+          value, a weighted sum of the three linear components, in
+          the calculation.</p>
           <p class="indent">Part of the design intent of HLG is
           that the OETF encodes a high dynamic range scene using a
           curve which is broadly similar to that which might be
           used by a traditional SDR video camera with a highlight
-          compressing ‘knee’. This means that an HLG signal
-          displayed on an SDR monitor, which has no way of
-          interpreting the signal as HDR and simply applies a
-          BT.1886 EOTF, will produce a reasonable looking image.
-          Because HLG encodings normally use Rec. 2020 primaries,
-          rather than Rec. 709, the image is likely to look
-          somewhat desaturated, but it will be watchable. This
-          backward compatibility is intended to enable HLG signals
-          to be processed through legacy SDR infrastructure in
-          studios and outside broadcast trucks, without all
-          monitors needing to be replaced with HDR displays. In
-          order to provide this kind of compatibility, it is
-          recommended to set exposure so diffuse white falls at
-          75</p>
+          compressing knee. This means that an HLG signal displayed
+          on an SDR monitor, which has no way of interpreting the
+          signal as HDR and simply applies a BT.1886 EOTF, will
+          produce a reasonable looking image. Because HLG encodings
+          normally use Rec. 2020 primaries, rather than Rec. 709,
+          the image is likely to look somewhat desaturated, but it
+          will be watchable. This backward compatibility is
+          intended to enable HLG signals to be processed through
+          legacy SDR infrastructure in studios and outside
+          broadcast trucks, without all monitors needing to be
+          replaced with HDR displays. In order to provide this kind
+          of compatibility, it is recommended to set exposure so
+          diffuse white falls at 75</p>
           <p class="indent">Whilst HLG provides additional headroom
-          for highlights by ‘emulating’ a traditional SDR camera
+          for highlights by emulating a traditional SDR camera
           knee, a large increase in dynamic range is also achieved
           by no longer using a linear part of the OETF near black.
           This is a significant difference from the SDR Rec. 709
@@ -579,107 +513,32 @@
           alternative processing in the camera.</p>
           <p class="indent">The HLG encoding function is defined by
           ITU-R BT.2100 as:</p>
-          <p class="indent">If L <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> 1/12: V = sqrt(3 <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L) else: V = a <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> ln(12 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L - b) + c</p>
+          <p class="indent">If L 1/12: V = sqrt(3 Œ L) else: V = a
+          Œ ln(12 Œ L - b) + c</p>
           <p class="indent">Where the constants are:</p>
-          <p class="indent">a = 0.17883277 b = 1 - 4 <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> a c = 0.5 - a <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> ln(4 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> a)</p>
+          <p class="indent">a = 0.17883277 b = 1 - 4 Œ a c = 0.5 -
+          a Œ ln(4 Œ a)</p>
           <p class="indent">And L is normalized such that the
           entire scene dynamic range to be encoded is scaled to the
           0-1 range.</p>
           <p class="indent">The HLG EOTF is defined in terms of its
           OOTF, which is:</p>
-          <p class="indent">RD = <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> YS-1 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> RS GD = <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> YS-1 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> GS BD = <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> YS-1 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> BS</p>
+          <p class="indent">RD = Œ YS-1 Œ RS GD = Œ YS-1 Œ GS BD =
+          Œ YS-1 Œ BS</p>
           <p class="indent">Where [RS, GS, BS] is the scene light
           for the three components, and [RD, GD, BD] is the display
           light for the components. YS is the scene luminance,
           calculated as:</p>
-          <p class="indent">YS = 0.2627 <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> RS + 0.6780 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> GS + 0.0593 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> BS</p>
-          <p class="indent">And: = LW = 1.2 + 0.42 <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> Log10(LW <span class=
-          "cmtt-10">[U+FFFC]</span>/ 1000)</p>
+          <p class="indent">YS = 0.2627 Œ RS + 0.6780 Œ GS + 0.0593
+          Œ BS</p>
+          <p class="indent">And: = LW = 1.2 + 0.42 Œ Log10(LW /
+          1000)</p>
           <p class="indent">The values of RS, GS and BS are derived
           by inverting the encoding function for each component
           using the following formula:</p>
-          <p class="indent">E = max(0, V <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> (1 - ) + ) If E <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> 0.5: L = E2 / 3 else: L = (exp((E - c) / a)
-          + b) / 12 Where: = sqrt(3 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> (LB / LW)1/)</p>
+          <p class="indent">E = max(0, V Œ (1 - ) + ) If E 0.5: L =
+          E2 / 3 else: L = (exp((E - c) / a) + b) / 12 Where: =
+          sqrt(3 Œ (LB / LW)1/)</p>
           <p class="indent">In practice, while HLG may be used as a
           scene referred encoding in situations such as live sports
           broadcasting, an HLG deliverable is often created from an
@@ -693,11 +552,11 @@
           DCI</a></h4>
           <p class="noindent">The ACES Still Life reference image
           encoded with the P3 DCI Output Transform. Note that this
-          output transform includes a “D60 sim”, giving the image a
+          output transform includes a D60 sim, giving the image a
           slight magenta tint when viewed on an sRGB (D65) display.
           On the intended P3 DCI display neutrals would appear with
-          ACES (&nbsp;D60) white. Copyright A.M.P.A.S. DCI-P3 is a
-          color space commonly used in digital cinema production,
+          ACES (&nbsp;D60) white. Copyright ľ A.M.P.A.S. DCI-P3 is
+          a color space commonly used in digital cinema production,
           as it is well suited to theatrical presentation since it
           describes the native primaries of a DLP projector.
           Whereas the sRGB specification uses a color encoding
@@ -708,7 +567,7 @@
           pure 2.6 gamma EOTF with a white point of 0.314, 0.351.
           The P3 primaries are wide-gamut relative to desktop
           standards; pure sRGB red is relatively desaturated with a
-          distinctly orange-red hue, while pure P3 red is “blood”
+          distinctly orange-red hue, while pure P3 red is blood
           red, almost on the spectral locus. The DCI white point is
           not necessarily the creative white point used in
           mastering. Productions are free to master to any white
@@ -724,12 +583,12 @@
           D65</a></h4>
           <p class="noindent">The ACES Still Life reference image
           encoded with the P3 D65 48 nits Output Transform.
-          Copyright A.M.P.A.S. The Primaries of P3 are also used in
-          combination with a D65 white point. Where projectors are
-          calibrated to P3 D65 the same 2.6 gamma as P3 DCI is
+          Copyright ľ A.M.P.A.S. The Primaries of P3 are also used
+          in combination with a D65 white point. Where projectors
+          are calibrated to P3 D65 the same 2.6 gamma as P3 DCI is
           used, but for wide gamut desktop displays the EOTF used
           is 2.2 gamma. In addition, P3 D65 is often used as a
-          “limiting gamut” when a wider gamut such as BT. 2020 is
+          limiting gamut when a wider gamut such as BT. 2020 is
           used as the encoding gamut, but where the target display
           is not capable of covering that gamut.</p>
           <h4 class="subsectionHead"><span class=
@@ -740,62 +599,50 @@
           encoded with the DCDM Output Transform. On an sRGB
           display it is low contrast (due to the 2.6 gamma) and the
           colors appear incorrect, since XYZ values are being
-          interpreted as if they were RGB. Copyright A.M.P.A.S. The
-          Digital Cinema Initiative (DCI) specification defines the
-          standard for digital cinema mastering and theatrical
+          interpreted as if they were RGB. Copyright ľ A.M.P.A.S.
+          The Digital Cinema Initiative (DCI) specification defines
+          the standard for digital cinema mastering and theatrical
           exhibition, including colorimetry. The encoding specified
-          for DCP mastering is X’Y’Z‘ (called “x-prime, y-prime,
-          z-prime”). It is an output-referred, gamma 2.6 encoding
-          of CIE-XYZ, with a reference white at 48cd/m2. As the
-          X’Y’Z’ coding space spans an area larger than the visual
-          gamut, the minimum display gamut specified by DCI is that
-          of P3.</p>
-          <p class="indent">The intent of the X’Y’Z’ coding space
-          is display-referred, such that the full-color appearance
-          of the theatrical imagery, such as any film emulation 3D
-          LUTs, are fully baked into the X’Y’Z’ image. Therefore,
-          an image in X’Y’Z’ is completely unambiguous; there
-          should be essentially no color variation between properly
+          for DCP mastering is XYZ (called x-prime, y-prime,
+          z-prime). It is an output-referred, gamma 2.6 encoding of
+          CIE-XYZ, with a reference white at 48cd/m2. As the XYZ
+          coding space spans an area larger than the visual gamut,
+          the minimum display gamut specified by DCI is that of
+          P3.</p>
+          <p class="indent">The intent of the XYZ coding space is
+          display-referred, such that the full-color appearance of
+          the theatrical imagery, such as any film emulation 3D
+          LUTs, are fully baked into the XYZ image. Therefore, an
+          image in XYZ is completely unambiguous; there should be
+          essentially no color variation between properly
           calibrated theatrical digital projectors. The DCI
           specification chose a gamma 2.6 encoding after a series
-          of perceptual experiments using “golden-eye observers” to
+          of perceptual experiments using golden-eye observers to
           maximize the bit-depth fidelity under theatrical viewing
           conditions. DCI specifies 12 bits per channel, which is
           intended to prevent banding artifacts under even the most
           trying conditions. DCI also specifies a series of color
           patches which are useful in calibration. (Please refer to
-          the DCI specification for additional details.) X’Y’Z’
-          files are encoded using JPEG-2000 compression, which is a
+          the DCI specification for additional details.) XYZ files
+          are encoded using JPEG-2000 compression, which is a
           lossy, wavelet compression codec. No inter-frame
           compression is used, which allows for both forward and
           backward scrubbing. The DCI specification also defines
-          two resolutions known as “2K” and “4K”. The 2K raster is
+          two resolutions known as 2K and 4K. The 2K raster is
           2048x1080 and the 4K raster is 4096x2160. DCI compliant
           films must fill at least one of these axes. Material with
-          an aspect ratio of 1.85:1 - “flat” - is typically
-          delivered for a 2K release at 1998x1080, and 2.39:1 -
-          “scope” - is delivered for a 2K release at 2048x858. For
-          4K release, double these sizes. DCP encoders accept 16
-          bit tiffs, so the convention is to utilize the full 16
-          bit coding range of 0-65535, and then to let the
-          compressor just use the high order 12 bits.</p>
+          an aspect ratio of 1.85:1 - flat - is typically delivered
+          for a 2K release at 1998x1080, and 2.39:1 - scope - is
+          delivered for a 2K release at 2048x858. For 4K release,
+          double these sizes. DCP encoders accept 16 bit tiffs, so
+          the convention is to utilize the full 16 bit coding range
+          of 0-65535, and then to let the compressor just use the
+          high order 12 bits.</p>
           <p class="indent">The method for conversion from a DCI P3
-          encoding to X’Y’Z’ is: XYZ = 0.44516982 0.27713441
-          0.17228267 R2.6 0.20949168 0.72159525 0.06891307
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> G2.6 0.00000000 0.04706056 0.90735539 B2.6
-          X’Y’Z’ = round(4095 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> (clamp(XYZ) <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 48 / 52.37)1/2.6) Where R, G and B are 2.6
+          encoding to XYZ is: XYZ = 0.44516982 0.27713441
+          0.17228267 R2.6 0.20949168 0.72159525 0.06891307 Œ G2.6
+          0.00000000 0.04706056 0.90735539 B2.6 XYZ = round(4095 Œ
+          (clamp(XYZ) Œ 48 / 52.37)1/2.6) Where R, G and B are 2.6
           gamma coded DCI P3 values in the range 0-1.</p>
           <p class="indent">The matrix shown converts [1, 1, 1] to
           [3794, 3960, 3890], the reference code values for DCI
@@ -803,13 +650,13 @@
           to a different white point, i.e. encoded for a projector
           with a different white point and a viewer adapted to that
           white. A change of creative white baked into a P3-DCI
-          encoding (such as the ACES “D60 sim”) does not require a
+          encoding (such as the ACES D60 sim) does not require a
           change of matrix.</p>
           <p class="indent">The value of 48/52.37 is called the
           normalizing constant and is included to permit mastering
           with creative white points other than the DCI calibration
           white. Equal DCDM code values produce Equal Energy white
-          (Illuminant E – the result of a flat spectral power
+          (Illuminant E the result of a flat spectral power
           distribution). Unequal code values are needed to produce
           other whites, such as DCI white, or D65. If code values
           of [4095, 4095, 4095] produced Equal Energy white at 48
@@ -831,42 +678,16 @@
           point of D65. The exact encoding curve varies slightly
           with the Exposure Index (EI) set on the camera, keeping
           18</p>
-          <p class="indent">if L cut: V = c <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> log10(a <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L + b) + d else: V = e <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L + f</p>
+          <p class="indent">if L &gt; cut: V = c Œ log10(a Œ L + b)
+          + d else: V = e Œ L + f</p>
           <p class="indent">At EI800 the values of the constants
           are:</p>
           <p class="indent">cut = 0.010591 a = 5.555556 b =
-          0.052272 c = 0.247190 d = 0.385537 e = 5.367655
-          <span class="cmtt-10">[U+FFFC]</span> f = 0.092809</p>
+          0.052272 c = 0.247190 d = 0.385537 e = 5.367655 f =
+          0.092809</p>
           <p class="indent">The decoding function is:</p>
-          <p class="indent">if V e <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> cut + f: L = (10(V <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> d) / c <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> b) / a else: (V <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> f) / e</p>
+          <p class="indent">if V &gt; e Œ cut + f: L = (10(V d) / c
+          b) / a else: (V f) / e</p>
           <p class="indent">Red Green Blue White Point 0.6840,
           0.3130 0.2210, 0.8480 0.0861, -0.1020 0.3127, 0.3290
           (D65)</p>
@@ -898,97 +719,44 @@
           applications are unable to read the Canon metadata which
           specifies the recording primaries and encoding curve, so
           it can be useful to open the media in the Canon XF
-          Utility, available from Canon’s website, and make a note
+          Utility, available from Canons website, and make a note
           of the settings.</p>
           <p class="indent">The latest iteration of Canon Log is
           Canon Log 3, for which the encoding function is:</p>
-          <p class="indent">if L -0.014: V = <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math>0.42889912 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> log10(1 - 14.98325 <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L) + 0.07623209 else if L <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> 0.014: V = 2.3069815 <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L + 0.073059361 else: V = 0.42889912
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> log10(1 + 14.98325 <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L) + 0.069886632</p>
+          <p class="indent">if L &lt; -0.014: V = 0.42889912 Œ
+          log10(1 - 14.98325 Œ L) + 0.07623209 else if L 0.014: V =
+          2.3069815 Œ L + 0.073059361 else: V = 0.42889912 Œ
+          log10(1 + 14.98325 Œ L) + 0.069886632</p>
           <p class="indent">However, this is complicated by the
           fact that this formula takes as its input what Canon
-          refers to as “linear IRE”. This is given by dividing the
+          refers to as linear IRE. This is given by dividing the
           more commonly used reflectance value by 0.9. Thus 18</p>
           <p class="indent">Bearing the above in mind, the decoding
-          function for Canon Log 3 “IRE” to “linear IRE” is:</p>
-          <p class="indent">if V 0.04076162: L = - (10(0.07623209
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> V ) / 0.42889912 <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 1) / 14.98325 else if V <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> 0.105357102: L = (V - 0.073059361) /
-          2.3069815 else: L = (10( V <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 0.069886632 ) / 0.42889912 <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 1) / 14.98325</p>
+          function for Canon Log 3 IRE to linear IRE is:</p>
+          <p class="indent">if V &lt; 0.04076162: L = -
+          (10(0.07623209 V ) / 0.42889912 1) / 14.98325 else if V
+          0.105357102: L = (V - 0.073059361) / 2.3069815 else: L =
+          (10( V 0.069886632 ) / 0.42889912 1) / 14.98325</p>
           <p class="indent">Red Green Blue White Point 0.740, 0.270
           0.170, 1.140 0.080, -0.100 0.3127, 0.3290 (D65)</p>
           <h4 class="subsectionHead"><span class=
           "titlemark">4.1.13</span> <a href=
           "contents.html#QQ2-34-146" id="x34-1460004.1.13">GoPro
           ProTune</a></h4>
-          <p class="noindent">ProTune “Flat” is a log mode
-          available in the GoPro range of action cameras. It allows
-          disabling of much of the image processing normally
-          applied in camera. The curve encodes the range 0-1 to log
-          values in the range 0-1, so linearization will not yield
-          values 1 unless gain is subsequently applied. Equally,
-          the curve is not able to encode negative values, but
-          because the sensor A/D has a black offset, this should be
+          <p class="noindent">ProTune Flat is a log mode available
+          in the GoPro range of action cameras. It allows disabling
+          of much of the image processing normally applied in
+          camera. The curve encodes the range 0-1 to log values in
+          the range 0-1, so linearization will not yield values
+          &gt;1 unless gain is subsequently applied. Equally, the
+          curve is not able to encode negative values, but because
+          the sensor A/D has a black offset, this should be
           subtracted after linearization, which may result in some
           negative values.</p>
           <p class="indent">The encoding function is:</p>
-          <p class="indent">V = ln(L <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 112 + 1) / ln(113)</p>
+          <p class="indent">V = ln(L Œ 112 + 1) / ln(113)</p>
           <p class="indent">The decoding function is:</p>
-          <p class="indent">L = (113V <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 1) / 112</p>
+          <p class="indent">L = (113V 1) / 112</p>
           <p class="indent">Red Green Blue White Point 0.698448,
           0.193026 0.329555, 1.024597 0.108443, -0.034679 0.3127,
           0.3290 (D65)</p>
@@ -1004,28 +772,14 @@
           simply with the upper part of the dynamic range unused,
           so the same linearization function can be used.</p>
           <p class="indent">The V-Log encoding function is:</p>
-          <p class="indent">if L 0.01: V = 5.6 <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L + 0.125 else: V = c <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> log10(L + b) + d</p>
+          <p class="indent">if L &lt; 0.01: V = 5.6 Œ L + 0.125
+          else: V = c Œ log10(L + b) + d</p>
           <p class="indent">Where the constants are:</p>
           <p class="indent">b = 0.00873 c = 0.241514 d =
           0.598206</p>
           <p class="indent">The V-Log decoding function is:</p>
-          <p class="indent">if V 0.181: L = (V <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 0.125) / 5.6 else: L = 10.0(V <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> d) / c – b</p>
+          <p class="indent">if V &lt; 0.181: L = (V 0.125) / 5.6
+          else: L = 10.0(V d) / c b</p>
           <p class="indent">Red Green Blue White Point 0.730, 0.280
           0.165, 0.840 0.100, -0.030 0.3127, 0.3290 (D65)</p>
           <h4 class="subsectionHead"><span class=
@@ -1040,37 +794,13 @@
           details of which have been published in a white paper.
           The numbers 3 and 10 in the name indicate that 18</p>
           <p class="indent">The encoding function is:</p>
-          <p class="indent">if L -0.01: V = (L + 0.01)
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 15.1927 else: V = a <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> log10(b <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> (L + 0.01) + 1)</p>
+          <p class="indent">if L &lt; -0.01: V = (L + 0.01) Œ
+          15.1927 else: V = a Œ log10(b Œ (L + 0.01) + 1)</p>
           <p class="indent">Where the constants are:</p>
           <p class="indent">a = 0.224282 b = 155.975327</p>
           <p class="indent">The decoding function is:</p>
-          <p class="indent">if V 0: L = (V / 15.1927)
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 0.01 else: L = ((10V / a <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 1) / b) <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 0.01</p>
+          <p class="indent">if V &lt; 0: L = (V / 15.1927) 0.01
+          else: L = ((10V / a 1) / b) 0.01</p>
           <p class="indent">Red Green Blue White Point 0.780308,
           0.304253 0.121595, 1.493994 0.095612, -0.084589 0.3127,
           0.3290 (D65)</p>
@@ -1104,116 +834,28 @@
           compared to S-Gamut3. Nonetheless, many people use
           S-Gamut3.Cine as the default camera setting, so it is
           important to ascertain which was used. As with Canon
-          footage, using Sony’s own software can be a useful way of
+          footage, using Sonys own software can be a useful way of
           reading metadata from the files which might not otherwise
           be available. Some Sony cameras also include XML files
           with the media, which can provide useful information.</p>
           <p class="indent">The S-Log2 encoding function is:</p>
-          <p class="indent">if L <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≥
-          </mo></math> 0: V = (64 + 876<math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>(0.432699 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> log10(155 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L / 197.1 + 0.037584) + 0.646596)) / 1023
-          else: V = (64 + 876 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> (L <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 3.53881278538813 / 0.9 +
+          <p class="indent">if L 0: V = (64 + 876Œ(0.432699 Œ
+          log10(155 Œ L / 197.1 + 0.037584) + 0.646596)) / 1023
+          else: V = (64 + 876 Œ (L Œ 3.53881278538813 / 0.9 +
           0.030001222851889303)) / 1023</p>
           <p class="indent">The S-Log3 encoding function is:</p>
-          <p class="indent">if L <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≥
-          </mo></math> 0.01125: V = (420 + log10((L + 0.01) / 0.19)
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 261.5) / 1023 else: V = (L <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 76.2102946929 / 0.01125 + 95) / 1023</p>
+          <p class="indent">if L 0.01125: V = (420 + log10((L +
+          0.01) / 0.19) Œ 261.5) / 1023 else: V = (L Œ
+          76.2102946929 / 0.01125 + 95) / 1023</p>
           <p class="indent">The S-Log2 decoding function is:</p>
-          <p class="indent">if V <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≥
-          </mo></math> (64 + 0.030001222851889303 <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 876) / 1023: L = 197.1<math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>(10((V<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>1023 – 64) / 876 – 0.646596) / 0.432699 –
-          0.037584) / 155 else: L = 0.9<math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>( (V<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>1023 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 64) / 876 – 0.030001222851889303 ) /
-          3.53881278538813</p>
+          <p class="indent">if V (64 + 0.030001222851889303 Œ 876)
+          / 1023: L = 197.1Œ(10((VŒ1023 64) / 876 0.646596) /
+          0.432699 0.037584) / 155 else: L = 0.9Œ( (VŒ1023 64) /
+          876 0.030001222851889303 ) / 3.53881278538813</p>
           <p class="indent">The S-Log3 decoding function is:</p>
-          <p class="indent">if V <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≥
-          </mo></math> 171.2102946929 / 1023: L = 10(V
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 1023 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 420) / 261.5 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 0.19 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 0.01 else: L = (V <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 1023 – 95) <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 0.01125000 / 76.2102946929</p>
+          <p class="indent">if V 171.2102946929 / 1023: L = 10(V Œ
+          1023 420) / 261.5 Œ 0.19 0.01 else: L = (V Œ 1023 95) Œ
+          0.01125000 / 76.2102946929</p>
           <p class="indent">Red Green Blue White Point 0.730, 0.280
           0.140, 0.855 0.100, -0.050 0.3127, 0.3290 (D65)</p>
           <p class="indent">Red Green Blue White Point 0.766, 0.275
@@ -1237,67 +879,17 @@
           <p class="indent">An integer form of ACEScc is ACESproxy,
           designed for on set live grading, such that CDL
           corrections applied to the 0-100</p>
-          <p class="indent">ACESproxy = 16 <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 2n-8 + clamp(ACEScc) <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 219<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 2n-8</p>
+          <p class="indent">ACESproxy = 16 Œ 2n-8 + clamp(ACEScc) Œ
+          219Œ 2n-8</p>
           <p class="indent">Where n is the bit depth.</p>
           <p class="indent">The encoding function of ACEScc is:</p>
-          <p class="indent">if L <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≥
-          </mo></math> 0: V = (9.72 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 16) / 17.52 else if L 2-15: V = (log2(2-16 +
-          L <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 0.5) + 9.72) / 17.52 else: V = (log2(L) +
-          9.72) / 17.52</p>
+          <p class="indent">if L 0: V = (9.72 16) / 17.52 else if L
+          &lt; 2-15: V = (log2(2-16 + L Œ 0.5) + 9.72) / 17.52
+          else: V = (log2(L) + 9.72) / 17.52</p>
           <p class="indent">The decoding function is:</p>
-          <p class="indent">If V <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> (9.72 - 15) / 17.52: L = (2V <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 17.52 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 9.72 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 2-16) <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 2 else if V (log2(65504) + 9.72) / 17.52: L
-          = 2V <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 17.52 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 9.72 else: L = 65504</p>
+          <p class="indent">If V (9.72 - 15) / 17.52: L = (2V Œ
+          17.52 9.72 2-16) Œ 2 else if V &lt; (log2(65504) + 9.72)
+          / 17.52: L = 2V Œ 17.52 9.72 else: L = 65504</p>
           <p class="indent">Red Green Blue White Point 0.713, 0.293
           0.165, 0.830 0.128, 0.044 0.32168, 0.33767</p>
           <h4 class="subsectionHead"><span class=
@@ -1312,36 +904,14 @@
           encodings than the pure log of ACEScc, it responds in a
           more comparable way to grading operations.</p>
           <p class="indent">The ACEScct encoding function is:</p>
-          <p class="indent">if L <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> 0.0078125: V = 10.5402377416545
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> L + 0.0729055341958355 else: V = (log2(L) +
-          9.72) / 17.52</p>
+          <p class="indent">if L 0.0078125: V = 10.5402377416545 Œ
+          L + 0.0729055341958355 else: V = (log2(L) + 9.72) /
+          17.52</p>
           <p class="indent">The decoding function is:</p>
-          <p class="indent">if V <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> 0.155251141552511: L = (V <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 0.0729055341958355) / 10.5402377416545 else
-          if V (log2(65504) + 9.72) / 17.52: L = 2V <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 17.52 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 9.72 else: L = 65504</p>
+          <p class="indent">if V 0.155251141552511: L = (V
+          0.0729055341958355) / 10.5402377416545 else if V &lt;
+          (log2(65504) + 9.72) / 17.52: L = 2V Œ 17.52 9.72 else: L
+          = 65504</p>
           <h4 class="subsectionHead"><span class=
           "titlemark">4.1.19</span> <a href=
           "contents.html#QQ2-34-152" id=
@@ -1358,57 +928,14 @@
           linearising film scans.</p>
           <p class="indent">The Cineon linearization function used
           by Nuke (which RED also use as REDlogFIlm) is: L =
-          (10(1023 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> V - 685) / 300 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 0.0108) / (1 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 0.0108)</p>
-          <p class="indent">And its inverse is: V = (log10(V
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> (1 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 0.0108) + 0.0108) <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 300 + 685) / 1023</p>
-          <p class="indent">Another option is the ‘Pivoted log lin’
-          formula (PLogLin): L = 10.0(V <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 1023 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 445) <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 0.002 / 0.6 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 0.18</p>
-          <p class="indent">And its inverse: V = (log10(L / 0.18)
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> 0.6 / 0.002 + 445) / 1023</p>
+          (10(1023 Œ V - 685) / 300 0.0108) / (1 0.0108)</p>
+          <p class="indent">And its inverse is: V = (log10(V Œ (1
+          0.0108) + 0.0108) Œ 300 + 685) / 1023</p>
+          <p class="indent">Another option is the Pivoted log lin
+          formula (PLogLin): L = 10.0(V Œ 1023 445) Œ 0.002 / 0.6 Œ
+          0.18</p>
+          <p class="indent">And its inverse: V = (log10(L / 0.18) Œ
+          0.6 / 0.002 + 445) / 1023</p>
           <p class="indent">The constants in the PLogLin equation
           are derived from a linear grey value of 0.18 mapping to a
           10 bit value of 445, and a negative gamma of 0.6 with a

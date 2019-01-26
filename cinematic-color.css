@@ -1,12 +1,5 @@
  
 /* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
 .cmbx-10{ font-weight: bold;}
 .cmmib-10{font-style: italic; font-weight: bold;}
 .cmmib-7{font-size:70%;font-style: italic; font-weight: bold;}
@@ -21,17 +14,58 @@
 .cmbsy-5{font-weight: bold;}
 .cmex-7{font-size:70%;}
 .cmex-7x-x-71{font-size:49%;}
-.cmr-17{font-size:170%;}
-.cmr-12{font-size:120%;}
-.cmr-8{font-size:80%;}
-.cmr-12x-x-120{font-size:144%;}
-.cmtt-10{font-family: monospace;}
-.cmtt-10{font-family: monospace;}
-.cmr-9{font-size:90%;}
-.cmti-10{ font-style: italic;}
-.cmtt-8{font-size:80%;font-family: monospace;}
-.cmtt-8{font-family: monospace;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
+.cmr-7{font-size:70%;}
+.cmr-5{font-size:50%;}
+.cmmi-10{font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmsy-7{font-size:70%;}
+.cmsy-5{font-size:50%;}
+.ec-lmr-17{font-size:170%;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-12x-x-120{font-size:144%;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmtt-8{font-size:80%; font-family: monospace;}
+.ec-lmtt-8{ font-family: monospace;}
+.ec-lmtt-8{ font-family: monospace;}
+.ec-lmtt-8{ font-family: monospace;}
+.ec-lmtt-8{ font-family: monospace;}
+.ec-lmtt-8{ font-family: monospace;}
+.ec-lmtt-8{ font-family: monospace;}
+.ec-lmtt-8{ font-family: monospace;}
+.ec-lmtt-8{ font-family: monospace;}
+.ec-lmtt-8{ font-family: monospace;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmr-9{font-size:90%;}
 p.noindent { text-indent: 0em }
 td p.noindent { text-indent: 0em; margin-top:0em; }
 p.nopar { text-indent: 0em; }
@@ -142,8 +176,6 @@ div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
 h1.partHead{text-align: center}
 .abstract p {margin-left:5%; margin-right:5%;}
 div.abstract {width:100%;}
-.rotatebox{display: inline-block;}
-.figure img.graphics {margin-left:10%;}
 .equation-star td{text-align:center; vertical-align:middle; }
 table.equation-star { width:100%; } 
 mtd.align-odd{margin-left:2em; text-align:right;}
@@ -152,6 +184,8 @@ mtd.align-even{margin-right:2em; text-align:left;}
 mo.qopname + mi{margin-left:0.3em}
 mi + mo.qopname{margin-left:0.3em}
 dt.printshorthands{float:left; clear:left; margin-right:1em;}
+.rotatebox{display: inline-block;}
+.figure img.graphics {margin-left:10%;}
 .lstlisting .label{margin-right:0.5em; }
 div.lstlisting{font-family: monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
 div.lstinputlisting{ font-family: monospace; white-space: nowrap; }

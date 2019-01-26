@@ -157,627 +157,93 @@
           "titlemark">4.8</span> <a href=
           "cinematic-color.html#QQ2-41-167" id=
           "x41-1670004.8">Color Difference Encoding</a></h3>
-          <p class="noindent">Due to the human visual system’s
+          <p class="noindent">Due to the human visual systems
           greater sensitivity to detail in luminance than color, it
           is common to convert image data to a color opponent
-          encoding such as Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>CBCR and to subsample the chroma channels in
-          order to reduce bandwidth and storage requirements with
-          minimal impact on the appearance of the image. While this
-          is useful for monitoring and delivery, within a VFX
-          pipeline it is preferable to maintain full resolution in
-          all channels. A reduction in chroma resolution which is
-          imperceptible to the eye, may have a negative impact on
-          keying and other image processing. ITU-R BT.709 specifies
-          the transform from R<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>G<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>B<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> (note the primes, indicating that the image
-          data is non-linearly encoded, not scene-referred linear)
-          to Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>CBCR for HDTV, and these are the equations
-          used by default in most software encoders and decoders,
-          and almost all hardware implementations. The equations
-          are as follows: E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>Y = 0.2126<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>R + 0.7152<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>G + 0.0722<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>B E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>CB = (E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>B <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>Y) / 1.8556 E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>CR = (E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>R <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>Y) / 1.5748 Where E<math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>R, E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>G and E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>B are the non-linearly coded R<math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>G<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>B<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> values ranged 0-1, and E<math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>Y, E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>CB and E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>CR are the resulting luma (it is important to
+          encoding such as YCBCR and to subsample the chroma
+          channels in order to reduce bandwidth and storage
+          requirements with minimal impact on the appearance of the
+          image. While this is useful for monitoring and delivery,
+          within a VFX pipeline it is preferable to maintain full
+          resolution in all channels. A reduction in chroma
+          resolution which is imperceptible to the eye, may have a
+          negative impact on keying and other image processing.
+          ITU-R BT.709 specifies the transform from RGB (note the
+          primes, indicating that the image data is non-linearly
+          encoded, not scene-referred linear) to YCBCR for HDTV,
+          and these are the equations used by default in most
+          software encoders and decoders, and almost all hardware
+          implementations. The equations are as follows: EY =
+          0.2126ŒER + 0.7152ŒEG + 0.0722ŒEB ECB = (EB EY) / 1.8556
+          ECR = (ER EY) / 1.5748 Where ER, EG and EB are the
+          non-linearly coded RGB values ranged 0-1, and EY, ECB and
+          ECR are the resulting luma (it is important to
           differentiate this from luminance) and color difference
           signals. The luma is ranged 0-1 and the two color
-          difference signals are ranged <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math>0.5 to 0.5. The coefficients in the luma
-          equation are derived from the second line of the
-          Normalised Primary Matrix (RGB to CIE XYZ matrix) for the
-          Rec. 709 primaries with D65 white, rounded to four
-          decimal places. These are the coefficients which would
-          convert scene-referred linear RGB to CIE luminance. Thus
-          E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>Y is an approximation of a non-linear coding
-          of the relative luminance of a Rec. 709 color. For
-          achromatic colors (R = G = B) it matches exactly. When
-          integer coded for transmission over SDI or HDMI, or
-          storage in a file, these values are mapped to integer
-          using the following equations: D<math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>Y = round((219<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>Y + 16)<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>2(n <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 8)) D<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>CB = round((224<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>CB + 128)<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>2(n <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 8)) D<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>CR = round((224<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>CR + 128)<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>2(n <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 8)) Where n is the bit depth. JPEG coding
-          uses a variation on this, where the 0-1 of the luma
-          signal is mapped to the entire 0-255 range, and the
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math>0.5 to 0.5 of the chroma components is mapped
-          to 0-256, and the values then clamped to the 0-255 range
-          for storage as 8 bit integer. But JPEG uses the older
-          ITU-R BT.601 luma weightings (0.299, 0.587 and 0.114).
-          ITU-R BT.2020 specifies a different set of equations,
-          with luma weighting coefficients derived from the Rec.
-          2020 primaries. It also defines two different color
-          difference codings. The first is referred to as
-          “non-constant luminance” because it follows the form of
-          the Rec. 709 coding, where Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> is not a non-linear encoding of relative
+          difference signals are ranged 0.5 to 0.5. The
+          coefficients in the luma equation are derived from the
+          second line of the Normalised Primary Matrix (RGB to CIE
+          XYZ matrix) for the Rec. 709 primaries with D65 white,
+          rounded to four decimal places. These are the
+          coefficients which would convert scene-referred linear
+          RGB to CIE luminance. Thus EY is an approximation of a
+          non-linear coding of the relative luminance of a Rec. 709
+          color. For achromatic colors (R = G = B) it matches
+          exactly. When integer coded for transmission over SDI or
+          HDMI, or storage in a file, these values are mapped to
+          integer using the following equations: DY = round((219ŒEY
+          + 16)Œ2(n 8)) DCB = round((224ŒECB + 128)Œ2(n 8)) DCR =
+          round((224ŒECR + 128)Œ2(n 8)) Where n is the bit depth.
+          JPEG coding uses a variation on this, where the 0-1 of
+          the luma signal is mapped to the entire 0-255 range, and
+          the 0.5 to 0.5 of the chroma components is mapped to
+          0-256, and the values then clamped to the 0-255 range for
+          storage as 8 bit integer. But JPEG uses the older ITU-R
+          BT.601 luma weightings (0.299, 0.587 and 0.114). ITU-R
+          BT.2020 specifies a different set of equations, with luma
+          weighting coefficients derived from the Rec. 2020
+          primaries. It also defines two different color difference
+          codings. The first is referred to as non-constant
+          luminance because it follows the form of the Rec. 709
+          coding, where Y is not a non-linear encoding of relative
           luminance (a weighted sum of linear R, G and B) but
           rather is a weighted sum of the already non-linearly
-          encoded R<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>, G<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> and B<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>. The equations are as follows: Y’ =
-          0.2627<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>R’ 0.6780<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>G’ 0.0593<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>B’ C<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>B = (B<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>) / 1.8814 C<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>R = (R<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>) / 1.4746 The second is referred to as
-          “constant luminance” encoding, and takes linear R, G and
-          B as input. The equations are as follows: Y<math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>C = f(0.2627<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>R 0.6780<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>G 0.0593<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>B) Where f(x) is the non-linear encoding
-          function (the Rec. 2020 OETF, as given in Section 4.1.4).
-          R, G and B are then non-linearly encoded with the same
-          function to produce R<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>, G<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> and B<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>, and the colour difference signals
-          calculated as follows: if NB <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> B<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>C <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> 0: C<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>BC = (B<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>C ) / <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math>2<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>NB else if 0 B<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>C <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> PB : C<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>BC = (B<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>C ) / 2<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>PB if NR <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> R<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>C <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> 0: C<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>RC = (R<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>C ) / <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math>2<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>NR else if 0 R<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>C <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-rel">
-            ≤
-          </mo></math> PR : C<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>RC = (R<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> Y<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>C ) / 2<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>PR Where the constants are given precisely in
+          encoded R, G and B. The equations are as follows: Y’ =
+          0.2627ŒR’ 0.6780ŒG’ 0.0593ŒB’ CB = (B Y) / 1.8814 CR = (R
+          Y) / 1.4746 The second is referred to as constant
+          luminance encoding, and takes linear R, G and B as input.
+          The equations are as follows: YC = f(0.2627ŒR 0.6780ŒG
+          0.0593ŒB) Where f(x) is the non-linear encoding function
+          (the Rec. 2020 OETF, as given in Section 4.1.4). R, G and
+          B are then non-linearly encoded with the same function to
+          produce R, G and B, and the colour difference signals
+          calculated as follows: if NB B YC 0: CBC = (B YC ) / 2ŒNB
+          else if 0 &lt; B YC PB : CBC = (B YC ) / 2ŒPB if NR R YC
+          0: CRC = (R YC ) / 2ŒNR else if 0 &lt; R YC PR : CRC = (R
+          YC ) / 2ŒPR Where the constants are given precisely in
           the spec, but it is also noted that for practical
           purposes the following values can be used: PB = 0.7910 NB
           = 0.9702 PR = 0.4969 NR = 0.8591 ITU-R BT.2020 specifies
           a new color difference encoding for HDR, ICTCP.This is
-          referred to as “constant intensity” encoding, and was
+          referred to as constant intensity encoding, and was
           originally developed by Dolby. This encoding first
           transforms linear RGB, range 0-1, to LMS using the
-          following equations: L = (1688<math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>R + 2146<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>G + 262<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>B) / 4096 M = (683<math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>R + 2951<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>G + 462<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>B) / 4096 S = (99<math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>R + 309<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>G + 3688<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>B) / 4096 These are then non-linearly encoded
-          using either the PQ inverse EOTF or the HLG OETF, as
-          appropriate, to produce L<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>M<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>S<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>, which is encoded as ICTCP using the
-          following equations: I = 0.5L’ + 0.5M’ CT =
-          (6610<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>L’ <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math>13613<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>M’ + 7003<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>S’) / 4096 CP = (17933<math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>L’ <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 17390<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>M’ <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 543<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>S’) / 4096 Integer coding of all these uses
+          following equations: L = (1688ŒR + 2146ŒG + 262ŒB) / 4096
+          M = (683ŒR + 2951ŒG + 462ŒB) / 4096 S = (99ŒR + 309ŒG +
+          3688ŒB) / 4096 These are then non-linearly encoded using
+          either the PQ inverse EOTF or the HLG OETF, as
+          appropriate, to produce LMS, which is encoded as ICTCP
+          using the following equations: I = 0.5L’ + 0.5M’ CT =
+          (6610ŒL’ 13613ŒM’ + 7003ŒS’) / 4096 CP = (17933ŒL’
+          17390ŒM’ 543ŒS’) / 4096 Integer coding of all these uses
           the same method as given above for ITU-R BT.709. ITU-R
-          BT.2020 additionally specifies a “full range” integer
+          BT.2020 additionally specifies a full range integer
           coding, as opposed to the standard coding (referred to as
-          “narrow range”, see Section 4.7.1) where the luma /
-          intensity component is encoded using: D = round((2n
-          <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 1)<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math>) and the chroma components using: D =
-          round((2n <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 1)<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math>E<math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mi>
-            ′
-          </mi></math> + 2(n <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 1))</p>
-          <p class="indent">Writing in progress…</p>
+          narrow range, see Section 4.7.1) where the luma /
+          intensity component is encoded using: D = round((2n 1)ŒE)
+          and the chroma components using: D = round((2n 1)ŒE + 2(n
+          1))</p>
+          <p class="indent">Writing in progress</p>
           <div class="breadcrumb-navigation text-center">
             <a href="full-and-legal-ranges.html"><button class=
             "btn btn-light mx-3" type=

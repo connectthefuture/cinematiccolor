@@ -189,10 +189,10 @@
           undershoot and overshoot, can also be observed in the
           histograms. It is possible to detect if image
           quantization has occurred, appearing as tell-tale
-          “comb-like” peaks and valleys in the histogram.
-          Leveraging histograms computed on HSV-transformed imagery
-          as a final quality-check has been proven to be an
-          invaluable tool.</p>
+          comb-like peaks and valleys in the histogram. Leveraging
+          histograms computed on HSV-transformed imagery as a final
+          quality-check has been proven to be an invaluable
+          tool.</p>
           <p class="indent">There are other image artifacts, such
           as aliasing, that are best inspected on moving imagery.
           For example, the use of interpolation kernels, such as
@@ -208,7 +208,7 @@
           be overly-sharp and motion transformations accentuate
           such artifacts. Over sharpening is less common with
           high-end digital cinema cameras.</p>
-          <p class="indent">For stereo deliveries, it’s critical to
+          <p class="indent">For stereo deliveries, its critical to
           quality check both eyes individually, as well as together
           in a proper stereo viewing environment. There are many
           stereo artifacts which are only visible on true 3D
@@ -236,9 +236,9 @@
           "contents.html#QQ2-30-122" id="x30-1220003.8.2">Reference
           Monitors</a></h4>
           <p class="noindent">Home theater mastering should be done
-          in an “idealized” home environment. Usually, the
-          idealized home environment is slightly darker than the
-          real home environment and display gamma of 2.4 is used to
+          in an idealized home environment. Usually, the idealized
+          home environment is slightly darker than the real home
+          environment and display gamma of 2.4 is used to
           compensate. When seen in a room with more ambient light
           the master will look correct with 2.2 display gamma,
           which is the target for consumer televisions. The purpose
@@ -328,40 +328,43 @@
           <p class="indent">When media is used in a scene-referred
           workflow it is important to manage detail and artistic
           intent through the pipeline. The following details from
-          the Disney movie “Moana” illustrate how color management
-          is used at each stage so that tonal information is
-          preserved throughout.</p>
-          <p class="indent">Image Disney. All Rights Reserved. This
-          is a representation of an extract from the scene-referred
-          linear EXR source. Since there is no tone mapping much of
-          the tonal information in the shadows and the highlights
-          appears clipped. It is a useful scene-referred image, but
-          hard to monitor in a meaningful way without tone mapping
-          and the display transform approved for the project.</p>
-          <p class="indent">Image Disney. All Rights Reserved. This
-          is a representation of the same scene-referred linear EXR
-          with 4 stops less exposure. Most of the image is now
-          close to the display black point, but of course still,
-          present in the EXR file. Dropping the exposure shows that
-          there is good highlight information in the image and that
-          the dynamic range is greater than the display can handle
-          without some tone mapping or clipping.</p>
-          <p class="indent">Image Disney. All Rights Reserved. This
-          representation has 2.2 gamma applied. Gamma brings the
-          shadow detail into range on a Rec. 709 display, but
+          the Disney movie Moana illustrate how color management is
+          used at each stage so that tonal information is preserved
+          throughout.</p>
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          This is a representation of an extract from the
+          scene-referred linear EXR source. Since there is no tone
+          mapping much of the tonal information in the shadows and
+          the highlights appears clipped. It is a useful
+          scene-referred image, but hard to monitor in a meaningful
+          way without tone mapping and the display transform
+          approved for the project.</p>
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          This is a representation of the same scene-referred
+          linear EXR with 4 stops less exposure. Most of the image
+          is now close to the display black point, but of course
+          still, present in the EXR file. Dropping the exposure
+          shows that there is good highlight information in the
+          image and that the dynamic range is greater than the
+          display can handle without some tone mapping or
+          clipping.</p>
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          This representation has 2.2 gamma applied. Gamma brings
+          the shadow detail into range on a Rec. 709 display, but
           information above 1.0 is still clipped. This is evident
           in the eye of the fire goddess, Te Fiti, the brighter
           parts of the sea and the sky.</p>
-          <p class="indent">Image Disney. All Rights Reserved. This
-          is the EXR file with 2.2 gamma and 4 stops less exposure.
-          Again it reveals that there is highlight information but
-          it is a poor representation of the artistic intent.</p>
-          <p class="indent">Image Disney. All Rights Reserved. Here
-          the image has had a PQ EOTF added and the color gamut
-          converted to Rec. 2020. Some tone-mapping has also been
-          applied. On an HDR display the full impact of the color
-          and dynamic range are visible, but the image looks flat
-          and desaturated on a 709 display. Color encoding to
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          This is the EXR file with 2.2 gamma and 4 stops less
+          exposure. Again it reveals that there is highlight
+          information but it is a poor representation of the
+          artistic intent.</p>
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          Here the image has had a PQ EOTF added and the color
+          gamut converted to Rec. 2020. Some tone-mapping has also
+          been applied. On an HDR display the full impact of the
+          color and dynamic range are visible, but the image looks
+          flat and desaturated on a 709 display. Color encoding to
           high-dynamic range and a wider color gamut uses lower
           code values, with less color separation, than would be
           used by Rec. 709 for the same display colorimetry. In
@@ -379,22 +382,22 @@
           in the original EXR then the more limited version is the
           only option and that could impact the look of other
           scenes or even the whole project.</p>
-          <p class="indent">Image Disney. All Rights Reserved. This
-          is a colorimetric Rec. 709 transform with 2.2 gamma of
-          the PQ Rec. 2020 version. Again, this results in
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          This is a colorimetric Rec. 709 transform with 2.2 gamma
+          of the PQ Rec. 2020 version. Again, this results in
           clipping, not just in the eye, but also the sea and sky,
           as it uses picture information from only the lowest part
           of the HDR range. The clipping goes beyond the white
           highlights but also manifests as over-saturated loss of
           detail in the blue of the wave.</p>
-          <p class="indent">Image Disney. All Rights Reserved. This
-          image is also from a Rec. 709 2.2 gamma export, but this
-          time using creative tone mapping. The artistic intent of
-          the bright eye is retained, even to the point of a slight
-          yellow tint. This version retains all the detail of the
-          sea tonal range and color separation without
-          clipping.</p>
-          <p class="indent">Image Disney. All Rights Reserved. A
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          This image is also from a Rec. 709 2.2 gamma export, but
+          this time using creative tone mapping. The artistic
+          intent of the bright eye is retained, even to the point
+          of a slight yellow tint. This version retains all the
+          detail of the sea tonal range and color separation
+          without clipping.</p>
+          <p class="indent">Image ľDisney. All Rights Reserved. A
           butterfly wipe between the tone mapped version (top) and
           the clipped transform (bottom) shows the benefit of
           mapping over blind transforms. Sometimes tone mapping is
@@ -408,27 +411,28 @@
           different color gamuts. Understanding how to read files
           without a display of the correct gamut is a useful
           skill.</p>
-          <p class="indent">Image Disney. All Rights Reserved. This
-          is a crop from the original P3 gamut source. It will only
-          look as intended on a P3 calibrated display. On a Rec.
-          709 or sRGB display the image will appear less saturated
-          than it should, but the color detail is visible.</p>
-          <p class="indent">Image Disney. All Rights Reserved. Here
-          is the same crop, converted to Rec. 709 with clipping in
-          the red channel evident on the cheek, shirt and
-          background. The saturation level is now correct and the
-          transfer function and white point remain the same but the
-          clipping artifacts are objectionable and an unnecessary
-          compromise since there is no clipping in the P3 source.
-          The clipped colors are valid in the P3 gamut, but out of
-          the Rec. 709 gamut.</p>
-          <p class="indent">Image Disney. All Rights Reserved. This
-          version shows a gamut warning. The zebra pattern
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          This is a crop from the original P3 gamut source. It will
+          only look as intended on a P3 calibrated display. On a
+          Rec. 709 or sRGB display the image will appear less
+          saturated than it should, but the color detail is
+          visible.</p>
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          Here is the same crop, converted to Rec. 709 with
+          clipping in the red channel evident on the cheek, shirt
+          and background. The saturation level is now correct and
+          the transfer function and white point remain the same but
+          the clipping artifacts are objectionable and an
+          unnecessary compromise since there is no clipping in the
+          P3 source. The clipped colors are valid in the P3 gamut,
+          but out of the Rec. 709 gamut.</p>
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          This version shows a gamut warning. The zebra pattern
           identifies all areas of the P3 source that are outside of
           the 709 gamut and helps to direct the artist to where
           artifacts will occur if no further action is taken.</p>
-          <p class="indent">Image Disney. All Rights Reserved. This
-          version shows the Rec. 709 gamut master after gamut
+          <p class="indent">Image ľDisney. All Rights Reserved.
+          This version shows the Rec. 709 gamut master after gamut
           mapping the colors that were outside of the Rec. 709
           gamut to appropriate colors inside the Rec. 709 gamut to
           avoid clipping in the red channel. The difference is
@@ -439,7 +443,7 @@
           are different. The result has minimal impact on artistic
           intent, retains the highly saturated look and yet avoids
           a loss of detail in the 709 version.</p>
-          <p class="indent">Image copyright Disney 2018 This
+          <p class="indent">Image copyright ľ Disney 2018 This
           butterfly split of the clipped image on the left and the
           mapped image on the right shows the improvement in the
           cheek and the hem of the shirt. Had the original master

@@ -177,15 +177,8 @@
           referred float representation (v) where display black is
           represented by 0.0 and display white by 1.0 can be
           generalized as follows:</p>
-          <p class="indent">legal = round(2(n - 8) <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> (16 + 219 <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> v))</p>
+          <p class="indent">legal = round(2(n - 8) Œ (16 + 219 Œ
+          v))</p>
           <p class="indent">where n is the encoding bit depth.</p>
           <h4 class="subsectionHead"><span class=
           "titlemark">4.7.2</span> <a href=
@@ -194,20 +187,16 @@
           <p class="noindent">The alternative is simply to use all
           the available integer code values to encode the range
           from black to white. This approach is unable to represent
-          so-called “super-white” and “sub-black” (or “super-black”
-          – a contradiction in terms, because the Latin prefix
-          “super” means “above”) values. This coding is referred to
-          as Full Range, Data Range or CG Range. It is also
-          sometimes confusingly called RGB Range, due to to the
-          fact that Y’CbCr coding uses legal range to code the Y’
-          signal, so RGB is deemed to use the alternate coding,
-          even though this is not always the case. Full range
-          coding can be generalized as:</p>
-          <p class="indent">full = round(v <math display="inline"
-          xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> (2n - 1))</p>
+          so-called super-white and sub-black (or super-black a
+          contradiction in terms, because the Latin prefix super
+          means above) values. This coding is referred to as Full
+          Range, Data Range or CG Range. It is also sometimes
+          confusingly called RGB Range, due to to the fact that
+          Y’CbCr coding uses legal range to code the Y’ signal, so
+          RGB is deemed to use the alternate coding, even though
+          this is not always the case. Full range coding can be
+          generalized as:</p>
+          <p class="indent">full = round(v Œ (2n - 1))</p>
           <p class="indent">where again n is the encoding bit
           depth.</p>
           <p class="indent">A third encoding exists which uses the
@@ -221,19 +210,8 @@
           Extended Range, as that relates primarily to broadcast
           video. For completeness, the equation for SMPTE+ is given
           here:</p>
-          <p class="indent">SMPTE+ = 2(n - 4) + v <math display=
-          "inline" xmlns="http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            ×
-          </mo></math> (2n <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 2(n - 4) <math display="inline" xmlns=
-          "http://www.w3.org/1998/Math/MathML">
-          <mo class="MathClass-bin">
-            -
-          </mo></math> 1)</p>
+          <p class="indent">SMPTE+ = 2(n - 4) + v Œ (2n 2(n - 4)
+          1)</p>
           <p class="indent">where n is the bit depth, and v is the
           0.0-1.0 normalized HLG signal being encoded, for
           example.</p>
@@ -247,7 +225,7 @@
           legal range. Some additional confusion is caused by the
           fact that because of the overshoot and undershoot
           capabilities of legal range coding, it is able to code
-          ’illegal’ pixel values – that is values outside the
+          ’illegal’ pixel values that is values outside the
           0-100</p>
           <p class="indent">These codings date back to the early
           days of digital video, where the analog signals being
@@ -257,21 +235,21 @@
           longer have particular significance, and their meaning
           varies between the different log codings. The reference
           10 bit code values of a log signal are those which are
-          created in a DPX exported from the manufacturer’s raw
+          created in a DPX exported from the manufacturers raw
           decoding software, but the way those values are mapped to
           the SDI code values output by the camera (and hence also
-          the values stored in Y’CbCr based recording formats such
+          the values stored in YCbCr based recording formats such
           as ProRes) varies between manufacturers.</p>
           <p class="indent">ARRI, for example, have chosen to map
           their LogC coding to the legal range of the SDI output of
           their cameras (previously there was a menu option to map
-          it to full range – which was referred to as ’Extended’ –
-          but this is no longer available) and to do the same with
-          the code values sent to the ProRes encoders in their
-          cameras. Because during decoding most software ProRes
-          decoders apply a legal to full scale to the legal range
-          values used internally in ProRes, lens cap black will
-          appear as 9.3</p>
+          it to full range which was referred to as ’Extended’ but
+          this is no longer available) and to do the same with the
+          code values sent to the ProRes encoders in their cameras.
+          Because during decoding most software ProRes decoders
+          apply a legal to full scale to the legal range values
+          used internally in ProRes, lens cap black will appear as
+          9.3</p>
           <p class="indent">Sony, on the other hand, maps their
           cameras’ S-Log3 encoding to the entire range of code
           values available on the SDI output of the camera, and
@@ -295,7 +273,7 @@
           simply resulting in slightly crushed shadows when viewed
           through the display transform.</p>
           <p class="indent">There is further complexity caused by
-          the fact that in ‘baked video’ modes Sony cameras map the
+          the fact that in baked video modes Sony cameras map the
           video black to the white range to the legal range of the
           SDI output and internal recordings. This means that
           different scaling is required in post for log and video
@@ -338,23 +316,23 @@
           check your pipeline to ensure that any scaling between
           legal and full range is only being applied where
           necessary, and is happening in the correct direction.
-          Look out also for “double scaling” where a scale is
-          applied unnecessarily because one has already been
-          applied invisibly by the application. Part of the round
-          trip testing that you should always perform is to make
-          sure that any scaling applied at the start of the VFX
-          pipeline is inverted at the end of it so that what is
-          passed to DI matches the original media, if it is sent in
-          the original format. If sent as scene-referred linear EXR
-          files they must match the result of a linearization
-          performed in the DI system on the original media, using
-          an ACES Input Transform for example. Equally, it is
-          important to confirm that color baked renders for
-          editorial match the graded dailies of the original
-          plates. Due to the different handling of range scaling by
-          different NLEs, and the options for the editor to change
-          the interpretation of the files, the only way to be
-          certain of this is by thorough testing.</p>
+          Look out also for double scaling where a scale is applied
+          unnecessarily because one has already been applied
+          invisibly by the application. Part of the round trip
+          testing that you should always perform is to make sure
+          that any scaling applied at the start of the VFX pipeline
+          is inverted at the end of it so that what is passed to DI
+          matches the original media, if it is sent in the original
+          format. If sent as scene-referred linear EXR files they
+          must match the result of a linearization performed in the
+          DI system on the original media, using an ACES Input
+          Transform for example. Equally, it is important to
+          confirm that color baked renders for editorial match the
+          graded dailies of the original plates. Due to the
+          different handling of range scaling by different NLEs,
+          and the options for the editor to change the
+          interpretation of the files, the only way to be certain
+          of this is by thorough testing.</p>
           <p class="indent">Output-referred image shown as
           intended</p>
           <p class="indent">(b) The same image with a full-to-legal
