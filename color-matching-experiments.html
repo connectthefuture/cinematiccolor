@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en"><head><title>Color Matching Experiments</title> 
+<meta charset="utf-8"/> 
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name="generator"/> 
+<meta content="width=device-width,initial-scale=1" name="viewport"/> 
+<link href="cinematic-color.css" rel="stylesheet" type="text/css"/> 
+<meta content="cinematic-color.tex" name="src"/> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/> 
+</head><body><nav class="navbar navbar-expand-md navbar-light bg-light">
+<a class="navbar-brand" href="#">Cinematic Color 2</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="preface.html" id="preface" role="button">Preface</a><div aria-labelledby="preface" class="dropdown-menu"><a class="dropdown-item" href="description.html">Description</a><a class="dropdown-item" href="authorship.html">Authorship</a><a class="dropdown-item" href="on-the-web.html">On the Web</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">Introduction</a><div aria-labelledby="introduction" class="dropdown-menu"><a class="dropdown-item" href="intended-audience.html">Intended Audience</a><a class="dropdown-item" href="how-to-read-this-document.html">How to Read this Document</a><a class="dropdown-item" href="the-goal.html">The Goal</a><a class="dropdown-item" href="converging-approaches.html">Converging Approaches</a><a class="dropdown-item" href="a-general-model-of-color-processing.html">A General Model of Color Processing</a><a class="dropdown-item" href="color-management-challenges.html">Color Management Challenges</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">Color Science</a><div aria-labelledby="color-science" class="dropdown-menu"><a class="dropdown-item" href="about-color-science.html">About Color Science</a><a class="dropdown-item" href="electromagnetic-spectrum.html">Electromagnetic Spectrum</a><a class="dropdown-item" href="human-visual-system.html">Human Visual System</a><a class="dropdown-item" href="basic-colorimetry.html">Basic Colorimetry</a><a class="dropdown-item" href="advanced-colorimetry.html">Advanced Colorimetry</a><a class="dropdown-item" href="representing-color.html">Representing Color</a><a class="dropdown-item" href="color-imaging-systems.html">Color Imaging Systems</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">Workflow</a><div aria-labelledby="workflow" class="dropdown-menu"><a class="dropdown-item" href="about-workflow.html">About Workflow</a><a class="dropdown-item" href="academy-color-encoding-system-aces.html">Academy Color Encoding System (ACES)</a><a class="dropdown-item" href="the-look.html">The Look</a><a class="dropdown-item" href="on-set.html">On Set</a><a class="dropdown-item" href="visual-effects-animation-and-games.html">Visual Effects, Animation and Games</a><a class="dropdown-item" href="compositing.html">Compositing</a><a class="dropdown-item" href="di-grading.html">DI Grading</a><a class="dropdown-item" href="critical-monitoring.html">Critical Monitoring</a><a class="dropdown-item" href="finishing.html">Finishing</a><a class="dropdown-item" href="archives.html">Archives</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">Appendix</a><div aria-labelledby="appendix" class="dropdown-menu"><a class="dropdown-item" href="common-rgb-color-encodings.html">Common RGB Color Encodings</a><a class="dropdown-item" href="opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class="dropdown-item" href="colour-science-for-python.html">Colour Science for Python</a><a class="dropdown-item" href="luts-and-transforms.html">LUTs and Transforms</a><a class="dropdown-item" href="asc-cdl.html">ASC CDL</a><a class="dropdown-item" href="aces-ctl.html">ACES CTL</a><a class="dropdown-item" href="full-and-legal-ranges.html">Full and Legal ranges</a><a class="dropdown-item" href="color-difference-encoding.html">Color Difference Encoding</a><a class="dropdown-item" href="camera-characterization.html">Camera Characterization</a><a class="dropdown-item" href="file-formats.html">File Formats</a><a class="dropdown-item" href="color-matching-experiments.html">Color Matching Experiments</a><a class="dropdown-item" href="grassmann-s-law-of-additive-color-mixture.html">Grassmann's Law of Additive Color Mixture</a><a class="dropdown-item" href="software.html">Software</a><a class="dropdown-item" href="acknowledgements.html">Acknowledgements</a></div></li><li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li><li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li></ul>
+<form class="form-inline my-3 my-md-0">
+<input class="form-control" placeholder="Search" type="text"/>
+</form>
+</div>
+</nav>
+ <article class="page-content"> <div class="container-fluid py-3"> 
+<div class="row"> 
+<div class="col-md-2"></div> 
+<div class="col-md-8"> 
+ <h3 class="sectionHead"><span class="titlemark">4.11   </span> <a href="cinematic-color.html#QQ2-44-172" id="x44-1720004.11">Color Matching Experiments</a></h3>
+<p class="noindent">Wright   Guild  1931  2ř  RGB  CMFs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>r</mi></mrow><mo class="MathClass-op">̄</mo></mover><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow></math>,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ḡ</mi><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow></math>,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>b</mi></mrow><mo class="MathClass-op">̄</mo></mover><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow></math>
+colour matching functions are derived from the two independent experiments of
+Wright (1928) and Guild (1931). [3]
+</p><p class="indent">   Both determined the chromaticity coordinates of a set of monochromatic stimuli
+in the wavelength range 400-700 nm using a circular 2ř angular subtense bipartite
+field whose image is centered at the fovea of retina to avoid any participation of rod
+vision in the measurements.
+</p><p class="indent">   The bottom half of the field was illuminated by the test colour stimulus to be
+matched and the top half was illuminated by the fixed primary stimuli at
+respective fixed wavelengths of 700 nm, 546.1 nm and 435.8 nm but adjustable
+intensity.
+</p><p class="indent">   The observer would adjust the intensity of each of the three fixed primary stimuli
+until both halves of the field were colour matched.
+</p><p class="indent">   Not all the test colour stimuli could be matched using this technique. For
+example, matching a yellow test colour stimulus required large amounts of red and
+green fixed primary stimuli. If the resulting fixed primary stimuli mixture was less
+yellow than the test colour stimulus, a variable amount of blue fixed primary stimulus
+could be added to the the test colour stimulus. For these cases, the amount of fixed
+primary stimulus added to the test colour stimulus was considered as a negative
+value.
+</p><p class="indent">   For example, the test colour stimulus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mtext class="textbf" mathvariant="bold"><mstyle  class="text"><mtext class="textbf" mathvariant="bold" >E</mtext class="textbf" mathvariant="bold" ></mstyle ></mtext></mrow><mrow><mi>λ</mi></mrow></msub></math> at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi> <mo class="MathClass-rel">=</mo> <mn>4</mn><mn>7</mn><mn>5</mn></math> and fixed primary
+stimuli values read off at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>r</mi></mrow><mo class="MathClass-op">̄</mo></mover><mrow><mo class="MathClass-open">(</mo><mrow><mn>4</mn><mn>7</mn><mn>5</mn></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-rel">=</mo> <mo class="MathClass-bin">−</mo><mn>0</mn><mo class="MathClass-punc">.</mo><mn>0</mn><mn>4</mn><mn>5</mn></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ḡ</mi><mrow><mo class="MathClass-open">(</mo><mrow><mn>4</mn><mn>7</mn><mn>5</mn></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-rel">=</mo> <mn>0</mn><mo class="MathClass-punc">.</mo><mn>0</mn><mn>3</mn><mn>2</mn></math> and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>b</mi></mrow><mo class="MathClass-op">̄</mo></mover><mrow><mo class="MathClass-open">(</mo><mrow><mn>4</mn><mn>7</mn><mn>5</mn></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-rel">=</mo> <mn>0</mn><mo class="MathClass-punc">.</mo><mn>1</mn><mn>8</mn><mn>6</mn></math> can
+be expressed with the following equation: [4]
+</p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+                  </math><table class="equation"><tbody><tr><td><mstyle class="label" id="x44-172001r1"></mstyle><msub><mrow><mtext class="textbf" mathvariant="bold"><mstyle  class="text"><mtext class="textbf" mathvariant="bold" >E</mtext class="textbf" mathvariant="bold" ></mstyle ></mtext></mrow><mrow><mn>4</mn><mn>7</mn><mn>5</mn></mrow></msub> <mo class="MathClass-rel">=</mo> <mo class="MathClass-bin">−</mo><mn>0</mn><mo class="MathClass-punc">.</mo><mn>0</mn><mn>4</mn><mn>5</mn><mtext class="textbf" mathvariant="bold"><mstyle  class="text"><mtext class="textbf" mathvariant="bold" >R</mtext class="textbf" mathvariant="bold" ></mstyle ></mtext> <mo class="MathClass-bin">+</mo> <mn>0</mn><mo class="MathClass-punc">.</mo><mn>0</mn><mn>3</mn><mn>2</mn><mtext class="textbf" mathvariant="bold"><mstyle  class="text"><mtext class="textbf" mathvariant="bold" >G</mtext class="textbf" mathvariant="bold" ></mstyle ></mtext> <mo class="MathClass-bin">+</mo> <mn>0</mn><mo class="MathClass-punc">.</mo><mn>1</mn><mn>8</mn><mn>6</mn><mtext class="textbf" mathvariant="bold"><mstyle  class="text"><mtext class="textbf" mathvariant="bold" >B</mtext class="textbf" mathvariant="bold" ></mstyle ></mtext>
+
+<p class="nopar"></p></td><td class="eq-no">(4.1)</td></tr></tbody></table>
+                                                                  
+
+                                                                  
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+                     <mi>T</mi><mi>h</mi><mi>e</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>o</mi><mi>m</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>c</mi><mi>i</mi><mi>t</mi><mi>y</mi><mi>c</mi><mi>o</mi><mi>o</mi><mi>r</mi><mi>d</mi><mi>i</mi><mi>n</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>s</mi>
+</math>
+<p class="nopar">r(<span class="cmmi-10">λ</span>)<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-punc">,</mo></math>g(<span class="cmmi-10">λ</span>)<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-punc">,</mo></math>b(<span class="cmmi-10">λ</span>)<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>o</mi><mi>f</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>m</mi><mi>o</mi><mi>n</mi><mi>o</mi><mi>c</mi><mi>h</mi><mi>r</mi><mi>o</mi><mi>m</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>c</mi><mi>s</mi><mi>t</mi><mi>i</mi><mi>m</mi><mi>u</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>n</mi><mi>b</mi><mi>e</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>c</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>d</mi> <mo class="MathClass-punc">:</mo></math>
+</p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+</math><table class="equation"><tbody><tr><td><mstyle class="label" id="x44-172002r2"></mstyle><mi>r</mi><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-rel">=</mo>            <mfrac>
+            <mrow>
+            <mover accent="true"><mrow><mi>r</mi></mrow><mo class="MathClass-op">̄</mo></mover>
+              <mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow></mrow>
+ <mrow><mover accent="true"><mrow><mi>r</mi></mrow><mo class="MathClass-op"> ̄</mo> </mover><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-bin">+</mo> <mi>ḡ</mi> <mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-bin">+</mo> <mover accent="true"><mrow><mi>b</mi></mrow><mo class="MathClass-op"> ̄</mo> </mover> <mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow></mrow></mfrac><mi>g</mi><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-rel">=</mo>             <mfrac>
+             <mrow>
+             <mi>ḡ</mi>
+              <mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow></mrow>
+ <mrow><mover accent="true"><mrow><mi>r</mi></mrow><mo class="MathClass-op"> ̄</mo> </mover><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-bin">+</mo> <mi>ḡ</mi> <mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-bin">+</mo> <mover accent="true"><mrow><mi>b</mi></mrow><mo class="MathClass-op"> ̄</mo> </mover> <mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow></mrow></mfrac><mi>b</mi><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-rel">=</mo>            <mfrac>
+            <mrow>
+            <mover accent="true"><mrow><mi>b</mi></mrow><mo class="MathClass-op">̄</mo></mover>
+              <mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow></mrow>
+ <mrow><mover accent="true"><mrow><mi>r</mi></mrow><mo class="MathClass-op"> ̄</mo> </mover><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-bin">+</mo> <mi>ḡ</mi> <mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-bin">+</mo> <mover accent="true"><mrow><mi>b</mi></mrow><mo class="MathClass-op"> ̄</mo> </mover> <mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow></mrow></mfrac>
+
+<p class="nopar"></p></td><td class="eq-no">(4.2)</td></tr></tbody></table>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+                               <mi>w</mi><mi>i</mi><mi>t</mi><mi>h</mi>
+</math>
+<p class="nopar"> </p><table class="equation"><tbody><tr><td> <a id="x44-172003r3"></a>
+                                                                  
+
+                                                                  
+<math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>r</mi><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-bin">+</mo> <mi>g</mi><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-bin">+</mo> <mi>b</mi><mrow><mo class="MathClass-open">(</mo><mrow><mi>λ</mi></mrow><mo class="MathClass-close">)</mo></mrow> <mo class="MathClass-rel">=</mo> <mn>1</mn>
+</math></td><td class="eq-no">(4.3)</td></tr></tbody></table>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+</math>
+<p class="nopar">
+                                                                  
+
+                                                                  
+</p>   
+<div class="breadcrumb-navigation text-center"><a href="file-formats.html"><button class="btn btn-light mx-3" type="button">Previous</button></a><a href="appendix.html#color-matching-experiments.html"><button class="btn btn-light mx-3" type="button">Up</button></a><a href="grassmann-s-law-of-additive-color-mixture.html"><button class="btn btn-light mx-3" type="button">Next</button></a></div>  </div> 
+<div class="col-md-2"></div> 
+</div> 
+</div> 
+</article>  <footer class="page-footer"> <div class="container-fluid text-center py-3"> Copyright © 2019 ‐ Cinematic Color Authors ‐ <a href="mailto:ves-tech-color@googlegroups.com"> ves-tech-color@googlegroups.com</a> </div> </footer>  <script src="assets/js/jquery.min.js"></script> 
+<script src="assets/js/popper.min.js"></script> 
+<script src="assets/js/bootstrap.min.js"></script> 
+ 
+ 
+</body></html>
