@@ -28,7 +28,7 @@ __all__ = [
     'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY', 'ASSETS_DIRECTORY',
     'JERI_DIRECTORY', 'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY',
     'HTML_RELEASE_DIRECTORY', 'TIDY_HTML', 'message_box', 'clean',
-    'formatting', 'build_pdf', 'build_html'
+    'formatting', 'serve', 'build_pdf', 'build_html'
 ]
 
 INDEX_DOCUMENT_NAME = 'index.tex'
@@ -189,6 +189,29 @@ def formatting(ctx, yapf=False):
     if yapf:
         message_box('Formatting codebase with "Yapf"...')
         ctx.run('yapf -p -i -r .')
+
+
+@task
+def serve(ctx, port=8900):
+    """
+    Servers the *HTML* website on given port.
+
+    Parameters
+    ----------
+    ctx : invoke.context.Context
+        Context.
+    port : int, optional
+        Port to start the *Python* server at.
+
+    Returns
+    -------
+    bool
+        Task success.
+    """
+
+    message_box('Serving "HTML" website...')
+    with ctx.cd(HTML_RELEASE_DIRECTORY):
+        ctx.run('python3 -m http.server {0};'.format(port))
 
 
 @task
