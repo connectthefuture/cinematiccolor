@@ -351,6 +351,71 @@ To ensure that both \textit{PDF} and \textit{HTML} output are embedding
     \label{fig:aces-gamuts}
 \end{figure}
 
+\subsection*{Simple Jeri Embedding}
+
+A simple \textit{Jeri} embedding example that shows in both the \textit{HTML}
+and  \textit{PDF} outputs.
+
+\begin{lstlisting}[caption={Simple Jeri Embedding.}]
+\begin{figure}[H]
+    \unless\ifdefined\HCode
+        \includegraphics[alt={Illuminant E.},width=\textwidth]{mitsuba-cornellbox-metamerism-E.jpg}
+        \includegraphics[alt={CIE Standard Illuminant A.},width=\textwidth]{mitsuba-cornellbox-metamerism-A.jpg}
+    \fi
+    \ifdefined\HCode
+        \ccjericontainer{simple-jeri-embedding}
+        \JavaScript
+            const simpleJeriEmbeddingData = {
+                title: 'Simple Jeri Embedding',
+                children: [{
+                        title: 'Illuminant E',
+                        image: 'assets/images/mitsuba-cornellbox-metamerism-E.exr',
+                    },
+                    {
+                        title: 'CIE Standard Illuminant A',
+                        image: 'assets/images/mitsuba-cornellbox-metamerism-A.exr',
+                    }
+                ]
+            };
+            Jeri.renderViewer(document.getElementById('simple-jeri-embedding'), simpleJeriEmbeddingData);
+        \EndJavaScript
+    \fi
+    \caption{
+        Simple Jeri Embedding.
+    }
+    \label{fig:simple-jeri-embedding}
+\end{figure}
+\end{lstlisting}
+
+\begin{figure}[H]
+    \unless\ifdefined\HCode
+        \includegraphics[alt={Illuminant E.},width=\textwidth]{mitsuba-cornellbox-metamerism-E.jpg}
+        \includegraphics[alt={CIE Standard Illuminant A.},width=\textwidth]{mitsuba-cornellbox-metamerism-A.jpg}
+    \fi
+    \ifdefined\HCode
+        \ccjericontainer{simple-jeri-embedding}
+        \JavaScript
+            const simpleJeriEmbeddingData = {
+                title: 'Simple Jeri Embedding',
+                children: [{
+                        title: 'Illuminant E',
+                        image: 'assets/images/mitsuba-cornellbox-metamerism-E.exr',
+                    },
+                    {
+                        title: 'CIE Standard Illuminant A',
+                        image: 'assets/images/mitsuba-cornellbox-metamerism-A.exr',
+                    }
+                ]
+            };
+            Jeri.renderViewer(document.getElementById('simple-jeri-embedding'), simpleJeriEmbeddingData);
+        \EndJavaScript
+    \fi
+    \caption{
+        Simple Jeri Embedding.
+    }
+    \label{fig:simple-jeri-embedding}
+\end{figure}
+
 \subsection*{Complex Jeri Embedding}
 
 A complex \textit{Jeri} embedding example that only shows in the \textit{HTML}
@@ -361,7 +426,7 @@ output thus it not recommended to use nested tabs.
 \ifdefined\HCode
     \ccjericontainer{complex-jeri-embedding}
     \JavaScript
-        const data = {
+        const complexJeriEmbeddingData = {
             title: 'Complex Jeri Embedding',
             children: [{
                     title: 'Illuminant E',
@@ -385,7 +450,7 @@ output thus it not recommended to use nested tabs.
                 }
             ]
         };
-        Jeri.renderViewer(document.getElementById('complex-jeri-embedding'), data);
+        Jeri.renderViewer(document.getElementById('complex-jeri-embedding'), complexJeriEmbeddingData);
     \EndJavaScript
 \fi
 \end{lstlisting}
@@ -393,7 +458,7 @@ output thus it not recommended to use nested tabs.
 \ifdefined\HCode
     \ccjericontainer{complex-jeri-embedding}
     \JavaScript
-        const data = {
+        const complexJeriEmbeddingData = {
             title: 'Complex Jeri Embedding',
             children: [{
                     title: 'Illuminant E',
@@ -417,7 +482,7 @@ output thus it not recommended to use nested tabs.
                 }
             ]
         };
-        Jeri.renderViewer(document.getElementById('complex-jeri-embedding'), data);
+        Jeri.renderViewer(document.getElementById('complex-jeri-embedding'), complexJeriEmbeddingData);
     \EndJavaScript
 \fi
 
