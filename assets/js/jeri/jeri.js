@@ -7533,7 +7533,7 @@ exports.default = function () {
                         "xposure")),
                 React.createElement("tr", null,
                     React.createElement("th", null, "r"),
-                    React.createElement("td", null, "Reset exposure, view transform, positioning and zooming")),
+                    React.createElement("td", null, "Reset exposure, positioning and zooming")),
                 React.createElement("tr", null,
                     React.createElement("th", null, "t"),
                     React.createElement("td", null, "Toggle between the Gamma 2.2 and the Pseudo ARRI K1S1 view transforms")),

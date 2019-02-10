@@ -87,25 +87,25 @@
  */
 
 
-const exrwrapPath = __webpack_require__(1);
-const exrwrapWasmPath = __webpack_require__(2);
+const openexr = __webpack_require__(1);
+__webpack_require__(2);
 
 let openEXRLoaded = false;
 let queuedJobs = [];
-let OpenEXR;
 
-importScripts(exrwrapPath);
-
-EXR().then(function(Module) {
-	OpenEXR = Module;
-	openEXRLoaded = true;
-	while (queuedJobs.length > 0) {
-		const job = queuedJobs.shift();
-		if (job) {
-			handleJob(job);
-		}
-	}
-});
+Module = {
+    onRuntimeInitialized: function() {
+        openEXRLoaded = true;
+        while (queuedJobs.length > 0) {
+            const job = queuedJobs.shift();
+            if (job) {
+                handleJob(job);
+            }
+        }
+    }
+};
+importScripts(openexr);
+const OpenEXR = Module;
 
 self.addEventListener('message', (event) => {
     if (!openEXRLoaded) {
@@ -147,7 +147,7 @@ function parseExr(data) {
             width,
             height
         } = exrImage;
-        let nChannels = channels.length;
+        const nChannels = channels.length;
         let exrData;
         if (nChannels === 1) {
             const z = exrImage.plane(exrImage.channels()[0]);
@@ -167,7 +167,6 @@ function parseExr(data) {
                 exrData[i * 3 + 1] = g[i];
                 exrData[i * 3 + 2] = b[i];
             }
-            nChannels = 3;
         } else {
             throw new Error('EXR image not supported');
         }
@@ -197,7 +196,7 @@ module.exports = __webpack_require__.p + "exr-wrap.js";
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "exr-wrap.wasm";
+module.exports = __webpack_require__.p + "exr-wrap.js.mem";
 
 /***/ })
 /******/ ]);
