@@ -25,9 +25,10 @@ __status__ = 'Production'
 
 __all__ = [
     'INDEX_DOCUMENT_NAME', 'ROOT_DOCUMENT_NAME', 'TYPESETTING_DOCUMENT_NAME',
-    'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY', 'PDF_BUILD_DIRECTORY',
-    'HTML_BUILD_DIRECTORY', 'TIDY_HTML', 'message_box', 'clean', 'formatting',
-    'build_pdf', 'build_html'
+    'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY', 'ASSETS_DIRECTORY',
+    'JERI_DIRECTORY', 'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY',
+    'HTML_RELEASE_DIRECTORY', 'TIDY_HTML', 'message_box', 'clean',
+    'formatting', 'build_pdf', 'build_html'
 ]
 
 INDEX_DOCUMENT_NAME = 'index.tex'
@@ -42,9 +43,11 @@ LATEX_SOURCE_DIRECTORY = 'latex'
 
 ASSETS_DIRECTORY = 'assets'
 
-PDF_BUILD_DIRECTORY = 'build/pdf'
+JERI_DIRECTORY = os.sep.join([ASSETS_DIRECTORY, 'js', 'jeri'])
 
-HTML_BUILD_DIRECTORY = 'build/html'
+PDF_BUILD_DIRECTORY = os.sep.join(['build', 'pdf'])
+
+HTML_BUILD_DIRECTORY = os.sep.join(['build', 'html'])
 
 HTML_RELEASE_DIRECTORY = 'cinematic-color'
 
@@ -153,7 +156,7 @@ def clean(ctx, bytecode=False):
     patterns = [
         PDF_BUILD_DIRECTORY,
         HTML_BUILD_DIRECTORY,
-        HTML_RELEASE_DIRECTORY,
+        '{0}/*'.format(HTML_RELEASE_DIRECTORY),
     ]
 
     if bytecode:
@@ -281,12 +284,13 @@ def build_html(ctx, process_html=True):
             warn=True)
 
     ctx.run('mkdir -p {0}'.format(HTML_RELEASE_DIRECTORY))
+
     ctx.run('cp -r {0}/*.html {1}'.format(HTML_BUILD_DIRECTORY,
                                           HTML_RELEASE_DIRECTORY))
     ctx.run('cp -r {0}/*.css {1}'.format(HTML_BUILD_DIRECTORY,
                                          HTML_RELEASE_DIRECTORY))
-
     ctx.run('cp -r {0} {1}'.format(ASSETS_DIRECTORY, HTML_RELEASE_DIRECTORY))
+    ctx.run('cp -r {0}/* {1}'.format(JERI_DIRECTORY, HTML_RELEASE_DIRECTORY))
 
     if process_html:
         message_box('Processing "HTML"...')
