@@ -3430,7 +3430,8 @@ var ImageLayer = /** @class */ (function (_super) {
         if (!this.gl.getExtension('OES_texture_float')) {
             throw new Error('Your browser does not supports WebGL FLoating Point Textures.');
         }
-        this.gl.clearColor(0.25, 0.25, 0.25, 1.0);
+        // 18% sRGB.
+        this.gl.clearColor(0.461, 0.461, 0.461, 1.0);
         this.gl.enable(this.gl.DEPTH_TEST);
         var program = this.initShaders();
         this.quadVertexBuffer = this.initQuadVertexBuffer();
@@ -7045,7 +7046,7 @@ var HelpScreen_1 = __webpack_require__(36);
 var Layer_1 = __webpack_require__(4);
 var ImageFrameWithLoading_1 = __webpack_require__(37);
 var navigation_1 = __webpack_require__(38);
-var MainDiv = (_a = ["\n  background-color: #333;\n  font-size: .9em;\n  position: absolute;\n  top: 0; bottom: 0; left: 0; right: 0;\n  display: flex;\n  flex-direction: column;\n  color: #AAA;\n"], _a.raw = ["\n  background-color: #333;\n  font-size: .9em;\n  position: absolute;\n  top: 0; bottom: 0; left: 0; right: 0;\n  display: flex;\n  flex-direction: column;\n  color: #AAA;\n"], styled_components_1.default.div(_a));
+var MainDiv = (_a = ["\n  background-color: rgb(118, 118, 118);\n  font-size: .9em;\n  position: absolute;\n  top: 0; bottom: 0; left: 0; right: 0;\n  display: flex;\n  flex-direction: column;\n  color: #AAA;\n"], _a.raw = ["\n  background-color: rgb(118, 118, 118);\n  font-size: .9em;\n  position: absolute;\n  top: 0; bottom: 0; left: 0; right: 0;\n  display: flex;\n  flex-direction: column;\n  color: #AAA;\n"], styled_components_1.default.div(_a));
 var ImageArea = (_b = ["\n  flex-grow: 1;\n  position: relative;\n"], _b.raw = ["\n  flex-grow: 1;\n  position: relative;\n"], styled_components_1.default.div(_b));
 // A little hack to allow detecting shift click
 var SHIFT_IS_DOWN = false;
@@ -7533,7 +7534,7 @@ exports.default = function () {
                         "xposure")),
                 React.createElement("tr", null,
                     React.createElement("th", null, "r"),
-                    React.createElement("td", null, "Reset exposure, positioning and zooming")),
+                    React.createElement("td", null, "Reset exposure, view transform, positioning and zooming")),
                 React.createElement("tr", null,
                     React.createElement("th", null, "t"),
                     React.createElement("td", null, "Toggle between the Gamma 2.2 and the Pseudo ARRI K1S1 view transforms")),
@@ -7572,7 +7573,7 @@ var styled_components_1 = __webpack_require__(3);
 var ImageFrame_1 = __webpack_require__(9);
 var image_loading_1 = __webpack_require__(5);
 var StretchingDiv = (_a = ["\n  position: absolute;\n  top: 0; bottom: 0;\n  left: 0; right: 0;\n  width: 100%; height: 100%;\n"], _a.raw = ["\n  position: absolute;\n  top: 0; bottom: 0;\n  left: 0; right: 0;\n  width: 100%; height: 100%;\n"], styled_components_1.default.div(_a));
-var LoadingOverlay = (_b = ["\n  display: block;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-align: left;\n  padding: .6em;\n  background-color: rgb(64, 64, 64);\n"], _b.raw = ["\n  display: block;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-align: left;\n  padding: .6em;\n  background-color: rgb(64, 64, 64);\n"], styled_components_1.default.div(_b));
+var LoadingOverlay = (_b = ["\n  display: block;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-align: left;\n  padding: .6em;\n  background-color: rgb(118, 118, 118);\n"], _b.raw = ["\n  display: block;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-align: left;\n  padding: .6em;\n  background-color: rgb(118, 118, 118);\n"], styled_components_1.default.div(_b));
 /**
  * A wrapper around ImageFrame that deals with the loading of images
  * It takes an `ImageSpec` instead of an `InputImage`.
@@ -7710,9 +7711,9 @@ var commonPrefix = __webpack_require__(39);
 /** Helper to reverse string */
 var reverse = function (x) { return x.split('').reverse().join(''); };
 // tslint:disable
-var NavLink = (_a = ["\n  cursor: pointer;\n  display: inline-block;\n  margin: 0;\n  flex-grow: 0;\n  flex-shrink: ", ";\n  padding: .4em .7em;\n  overflow: hidden;\n  text-decoration: none;\n  white-space: nowrap;\n  position: relative;\n  background-color: ", ";\n  color: ", ";\n  &:active {\n    background-color: ", ";\n  }\n  &:hover {\n    flex-shrink: 0;\n  }\n  user-select: none;\n  -moz-user-select: none;\n"], _a.raw = ["\n  cursor: pointer;\n  display: inline-block;\n  margin: 0;\n  flex-grow: 0;\n  flex-shrink: ", ";\n  padding: .4em .7em;\n  overflow: hidden;\n  text-decoration: none;\n  white-space: nowrap;\n  position: relative;\n  background-color: ", ";\n  color: ", ";\n  &:active {\n    background-color: ", ";\n  }\n  &:hover {\n    flex-shrink: 0;\n  }\n  user-select: none;\n  -moz-user-select: none;\n"], styled_components_1.default.a(_a, function (props) { return props.active ? '0' : '1'; }, function (props) { return props.active ? '#7DC6C6' : 'inherit'; }, function (props) { return props.active ? '#FFFFFF !important' : '#AAA !important'; }, function (props) { return props.active ? '#6DB6B6' : '#222'; }));
+var NavLink = (_a = ["\n  cursor: pointer;\n  display: inline-block;\n  margin: 0;\n  flex-grow: 0;\n  flex-shrink: ", ";\n  padding: .4em .7em;\n  overflow: hidden;\n  text-decoration: none;\n  white-space: nowrap;\n  position: relative;\n  background-color: ", ";\n  color: ", ";\n  &:active {\n    background-color: ", ";\n  }\n  &:hover {\n    flex-shrink: 0;\n  }\n  user-select: none;\n  -moz-user-select: none;\n"], _a.raw = ["\n  cursor: pointer;\n  display: inline-block;\n  margin: 0;\n  flex-grow: 0;\n  flex-shrink: ", ";\n  padding: .4em .7em;\n  overflow: hidden;\n  text-decoration: none;\n  white-space: nowrap;\n  position: relative;\n  background-color: ", ";\n  color: ", ";\n  &:active {\n    background-color: ", ";\n  }\n  &:hover {\n    flex-shrink: 0;\n  }\n  user-select: none;\n  -moz-user-select: none;\n"], styled_components_1.default.a(_a, function (props) { return props.active ? '0' : '1'; }, function (props) { return props.active ? '#2780e388' : 'inherit'; }, function (props) { return props.active ? '#000000e6 !important' : '#000000e6 !important'; }, function (props) { return props.active ? '#2780e388' : '#2780e388'; }));
 // tslint:enable
-var NavRowDiv = (_b = ["\n  display: block;\n  padding: 0;\n  border-bottom: 1px solid #333;\n  background: #333;\n  color: #ccc;\n  display: flex;\n  &:first-child {\n    border-top: 1px solid #333;\n  }\n  &:hover ", " {\n    flex-shrink: 1;\n  }\n  &:hover ", ":hover {\n    flex-shrink: 0;\n  }\n"], _b.raw = ["\n  display: block;\n  padding: 0;\n  border-bottom: 1px solid #333;\n  background: #333;\n  color: #ccc;\n  display: flex;\n  &:first-child {\n    border-top: 1px solid #333;\n  }\n  &:hover ", " {\n    flex-shrink: 1;\n  }\n  &:hover ", ":hover {\n    flex-shrink: 0;\n  }\n"], styled_components_1.default.div(_b, NavLink, NavLink));
+var NavRowDiv = (_b = ["\n  display: block;\n  padding: 0;\n  border-bottom: 1px solid #dee2e6;\n  background: #f8f9fa;\n  color: #000000e6;\n  display: flex;\n  &:first-child {\n    border-top: 1px solid #f8f9fa;\n  }\n  &:hover ", " {\n    flex-shrink: 1;\n  }\n  &:hover ", ":hover {\n    flex-shrink: 0;\n  }\n"], _b.raw = ["\n  display: block;\n  padding: 0;\n  border-bottom: 1px solid #dee2e6;\n  background: #f8f9fa;\n  color: #000000e6;\n  display: flex;\n  &:first-child {\n    border-top: 1px solid #f8f9fa;\n  }\n  &:hover ", " {\n    flex-shrink: 1;\n  }\n  &:hover ", ":hover {\n    flex-shrink: 0;\n  }\n"], styled_components_1.default.div(_b, NavLink, NavLink));
 var NavLinkNumber = (_c = ["\n  color: white;\n  font-size: .6em;\n  position: absolute;\n  top: .3em;\n  right: .4em;\n"], _c.raw = ["\n  color: white;\n  font-size: .6em;\n  position: absolute;\n  top: .3em;\n  right: .4em;\n"], styled_components_1.default.span(_c));
 exports.NavRow = function (_a) {
     var row = _a.row, active = _a.active, selection = _a.selection, handleClick = _a.handleClick, removeCommonPrefix = _a.removeCommonPrefix;
