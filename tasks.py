@@ -157,6 +157,7 @@ def clean(ctx, bytecode=False):
         PDF_BUILD_DIRECTORY,
         HTML_BUILD_DIRECTORY,
         '{0}/*'.format(HTML_RELEASE_DIRECTORY),
+        '**/.DS_Store'
     ]
 
     if bytecode:
