@@ -359,74 +359,66 @@ output thus it not recommended to use nested tabs.
 
 \begin{lstlisting}[caption={Complex Jeri Embedding.}]
 \ifdefined\HCode
-    \HCode{
-        <div class="border d-block my-3 p-3">
-            <div id="complex-jeri-embedding" class="jeri-container"></div>
-        </div>
-        <script type="text/javascript">
-            const data = {
-                title: 'Complex Jeri Embedding',
-                children: [{
-                        title: 'Illuminant E',
-                        image: 'assets/images/mitsuba-cornellbox-metamerism-E.exr',
-                    },
-                    {
-                        title: 'CIE Standard Illuminant A',
-                        image: 'assets/images/mitsuba-cornellbox-metamerism-A.exr',
-                    },
-                    {
-                        title: 'Cornell Balls',
-                        children: [{
-                                title: 'Spectral',
-                                image: 'assets/images/mitsuba-cornellbox-spectral.exr',
-                            },
-                            {
-                                title: 'Sharp Primaries',
-                                image: 'assets/images/mitsuba-cornellbox-sharp.exr',
-                            }
-                        ]
-                    }
-                ]
-            };
-            Jeri.renderViewer(document.getElementById('complex-jeri-embedding'), data);
-        </script>
-    }
+    \ccjericontainer{complex-jeri-embedding}
+    \JavaScript
+        const data = {
+            title: 'Complex Jeri Embedding',
+            children: [{
+                    title: 'Illuminant E',
+                    image: 'assets/images/mitsuba-cornellbox-metamerism-E.exr',
+                },
+                {
+                    title: 'CIE Standard Illuminant A',
+                    image: 'assets/images/mitsuba-cornellbox-metamerism-A.exr',
+                },
+                {
+                    title: 'Cornell Balls',
+                    children: [{
+                            title: 'Spectral',
+                            image: 'assets/images/mitsuba-cornellbox-spectral.exr',
+                        },
+                        {
+                            title: 'Sharp Primaries',
+                            image: 'assets/images/mitsuba-cornellbox-sharp.exr',
+                        }
+                    ]
+                }
+            ]
+        };
+        Jeri.renderViewer(document.getElementById('complex-jeri-embedding'), data);
+    \EndJavaScript
 \fi
 \end{lstlisting}
 
 \ifdefined\HCode
-    \HCode{
-        <div class="border d-block my-3 p-3">
-            <div id="complex-jeri-embedding" class="jeri-container"></div>
-        </div>
-        <script type="text/javascript">
-            const data = {
-                title: 'Complex Jeri Embedding',
-                children: [{
-                        title: 'Illuminant E',
-                        image: 'assets/images/mitsuba-cornellbox-metamerism-E.exr',
-                    },
-                    {
-                        title: 'CIE Standard Illuminant A',
-                        image: 'assets/images/mitsuba-cornellbox-metamerism-A.exr',
-                    },
-                    {
-                        title: 'Cornell Balls',
-                        children: [{
-                                title: 'Spectral',
-                                image: 'assets/images/mitsuba-cornellbox-spectral.exr',
-                            },
-                            {
-                                title: 'Sharp Primaries',
-                                image: 'assets/images/mitsuba-cornellbox-sharp.exr',
-                            }
-                        ]
-                    }
-                ]
-            };
-            Jeri.renderViewer(document.getElementById('complex-jeri-embedding'), data);
-        </script>
-    }
+    \ccjericontainer{complex-jeri-embedding}
+    \JavaScript
+        const data = {
+            title: 'Complex Jeri Embedding',
+            children: [{
+                    title: 'Illuminant E',
+                    image: 'assets/images/mitsuba-cornellbox-metamerism-E.exr',
+                },
+                {
+                    title: 'CIE Standard Illuminant A',
+                    image: 'assets/images/mitsuba-cornellbox-metamerism-A.exr',
+                },
+                {
+                    title: 'Cornell Balls',
+                    children: [{
+                            title: 'Spectral',
+                            image: 'assets/images/mitsuba-cornellbox-spectral.exr',
+                        },
+                        {
+                            title: 'Sharp Primaries',
+                            image: 'assets/images/mitsuba-cornellbox-sharp.exr',
+                        }
+                    ]
+                }
+            ]
+        };
+        Jeri.renderViewer(document.getElementById('complex-jeri-embedding'), data);
+    \EndJavaScript
 \fi
 
 \section*{References and Citations}
