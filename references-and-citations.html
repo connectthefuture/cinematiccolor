@@ -21,8 +21,26 @@
   <script src=
   "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
   type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
+  type="text/javascript"></script>
   <script src="assets/js/jeri/jeri.min.js" type=
   "text/javascript"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+  //]]>
+  </script>
   <link href="assets/css/bootstrap/bootstrap.min.css" rel=
   "stylesheet" type="text/css" />
   <link href="assets/css/custom.css" rel="stylesheet" type=
@@ -167,37 +185,37 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
           <h3 class="likesectionHead"><a href=
-          "cinematic-color.html#QQ2-58-219" id=
-          "x58-2000005">References and Citations</a></h3>
+          "cinematic-color.html#QQ2-59-223" id=
+          "x59-2020005">References and Citations</a></h3>
           <p class="noindent">The <a href=
           "https://ctan.org/pkg/biblatex-apa">biblatex-apa
           Reference</a> package is used for references and
           citations.</p>
           <h4 class="likesubsectionHead"><a href=
-          "typesetting.html#QQ2-58-220" id=
-          "x58-2010005">Citations</a></h4>
+          "typesetting.html#QQ2-59-224" id=
+          "x59-2030005">Citations</a></h4>
           <div class="environment-listing border d-block my-3 p-3">
-            <a id="x58-201001r15"></a> <a id="x58-201002"></a>
+            <a id="x59-203001r16"></a> <a id="x59-203002"></a>
             <pre class="listings"><span class="label"><a id=
-            "x58-201003r1"></a></span><span class=
+            "x59-203003r1"></a></span><span class=
             "ec-lmtt-8">\</span><span class=
             "ec-lmtt-8">textcite</span><span class=
             "ec-lmtt-8">{</span><span class=
             "ec-lmtt-8">ARRI2012a</span><span class=
             "ec-lmtt-8">}</span><span class=
             "ec-lmr-8"> </span><span class="label"><a id=
-            "x58-201004r2"></a></span></pre>
+            "x59-203004r2"></a></span></pre>
             <figcaption class="figure-caption">
-              <span class="caption-name">Listing&nbsp;5.15:</span>
+              <span class="caption-name">Listing&nbsp;5.16:</span>
               Citation for Single Author.
             </figcaption>
           </div>
-          <p class="indent">ARRI (<a id="page.214"></a><a href=
+          <p class="indent">ARRI (<a id="page.218"></a><a href=
           "bibliography.html#X0-ARRI2012a">2012</a>)</p>
           <div class="environment-listing border d-block my-3 p-3">
-            <a id="x58-201005r16"></a> <a id="x58-201006"></a>
+            <a id="x59-203005r17"></a> <a id="x59-203006"></a>
             <pre class="listings"><span class="label"><a id=
-            "x58-201007r1"></a></span><span class=
+            "x59-203007r1"></a></span><span class=
             "ec-lmtt-8">\</span><span class=
             "ec-lmtt-8">textcite</span><span class=
             "ec-lmtt-8">{</span><span class=
@@ -206,9 +224,9 @@
             "ec-lmtt-8">Barlow1964</span><span class=
             "ec-lmtt-8">}</span><span class=
             "ec-lmr-8"> </span><span class="label"><a id=
-            "x58-201008r2"></a></span></pre>
+            "x59-203008r2"></a></span></pre>
             <figcaption class="figure-caption">
-              <span class="caption-name">Listing&nbsp;5.16:</span>
+              <span class="caption-name">Listing&nbsp;5.17:</span>
               Citation for Multiple Authors.
             </figcaption>
           </div>
@@ -217,30 +235,30 @@
           and Levick (<a href=
           "bibliography.html#X0-Barlow1964">1964</a>)</p>
           <h4 class="likesubsectionHead"><a href=
-          "typesetting.html#QQ2-58-223" id="x58-2020005">Citations
+          "typesetting.html#QQ2-59-227" id="x59-2040005">Citations
           with Parentheses</a></h4>
           <div class="environment-listing border d-block my-3 p-3">
-            <a id="x58-202001r17"></a> <a id="x58-202002"></a>
+            <a id="x59-204001r18"></a> <a id="x59-204002"></a>
             <pre class="listings"><span class="label"><a id=
-            "x58-202003r1"></a></span><span class=
+            "x59-204003r1"></a></span><span class=
             "ec-lmtt-8">\</span><span class=
             "ec-lmtt-8">parencite</span><span class=
             "ec-lmtt-8">{</span><span class=
             "ec-lmtt-8">ARRI2012a</span><span class=
             "ec-lmtt-8">}</span><span class=
             "ec-lmr-8"> </span><span class="label"><a id=
-            "x58-202004r2"></a></span></pre>
+            "x59-204004r2"></a></span></pre>
             <figcaption class="figure-caption">
-              <span class="caption-name">Listing&nbsp;5.17:</span>
+              <span class="caption-name">Listing&nbsp;5.18:</span>
               Citation with Parentheses for Single Author.
             </figcaption>
           </div>
-          <p class="indent">(ARRI, <a id="page.215"></a><a href=
+          <p class="indent">(ARRI, <a id="page.219"></a><a href=
           "bibliography.html#X0-ARRI2012a">2012</a>)</p>
           <div class="environment-listing border d-block my-3 p-3">
-            <a id="x58-202005r18"></a> <a id="x58-202006"></a>
+            <a id="x59-204005r19"></a> <a id="x59-204006"></a>
             <pre class="listings"><span class="label"><a id=
-            "x58-202007r1"></a></span><span class=
+            "x59-204007r1"></a></span><span class=
             "ec-lmtt-8">\</span><span class=
             "ec-lmtt-8">parencite</span><span class=
             "ec-lmtt-8">{</span><span class=
@@ -249,9 +267,9 @@
             "ec-lmtt-8">Barlow1964</span><span class=
             "ec-lmtt-8">}</span><span class=
             "ec-lmr-8"> </span><span class="label"><a id=
-            "x58-202008r2"></a></span></pre>
+            "x59-204008r2"></a></span></pre>
             <figcaption class="figure-caption">
-              <span class="caption-name">Listing&nbsp;5.18:</span>
+              <span class="caption-name">Listing&nbsp;5.19:</span>
               Citation with Parentheses for Multiple Authors.s
             </figcaption>
           </div>
@@ -259,7 +277,7 @@
           "bibliography.html#X0-ARRI2012a">2012</a>; Barlow et al.,
           <a href="bibliography.html#X0-Barlow1964">1964</a>)</p>
           <div class="breadcrumb-navigation text-center">
-            <a href="figures-and-images.html"><button class=
+            <a href="interactive-figures.html"><button class=
             "btn btn-light mx-3" type=
             "button">Previous</button></a><a href=
             "typesetting.html#references-and-citations.html"><button class="btn btn-light mx-3"
