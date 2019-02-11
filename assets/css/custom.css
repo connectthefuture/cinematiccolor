@@ -11,6 +11,11 @@
     font-size: 100%;
 }
 
+.colour-analysis-container {
+    height: 75vh;
+    position: relative;
+}
+
 .dropdown-toggle::after {
     vertical-align: 0.125rem;
 }
