@@ -82,6 +82,25 @@ dedicated environment::
     exists in the `utilities` directory, this wrapped must be added to
     **$PATH** and take precedence on *Inkscape* binary.
 
+Build
+-----
+
+With the dependencies installed, the *PDF* document is built as follows::
+
+    invoke build-pdf
+
+The *HTML* website is built as follows::
+
+    invoke build-html
+
+The repository can be cleaned as follows:
+
+    invoke clean
+
+It is possible to chain multiple commands as follows::
+
+    invoke clean build-pdf build-html
+
 About
 -----
 
