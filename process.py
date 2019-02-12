@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup, Comment, NavigableString
 from collections import OrderedDict
 
 __author__ = 'Cinematic Color Authors'
-__copyright__ = 'Copyright (C) 2019 - Cinematic Color Authors'
+__copyright__ = 'Copyright (C) 2012-2019 - Cinematic Color Authors'
 __license__ = 'New BSD License - http://opensource.org/licenses/BSD-3-Clause'
 __maintainer__ = 'Cinematic Color Authors'
 __email__ = 'ves-tech-color@googlegroups.com'
