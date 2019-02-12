@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
+  <title>Figures and Images</title>
+  <meta charset="utf-8" />
+  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
+  "generator" />
+  <meta content="width=device-width,initial-scale=1" name=
+  "viewport" />
+  <link href="cinematic-color.css" rel="stylesheet" type=
+  "text/css" />
+  <meta content="cinematic-color.tex" name="src" />
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
+  type="text/javascript"></script>
+  <script src="assets/js/jeri/jeri.min.js" type=
+  "text/javascript"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+  //]]>
+  </script>
+  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
+  "stylesheet" type="text/css" />
+  <link href="assets/css/custom.css" rel="stylesheet" type=
+  "text/css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">Cinematic Color 2</a>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "preface.html" id="preface" role="button">Preface</a>
+          <div aria-labelledby="preface" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "description.html">Description</a><a class=
+            "dropdown-item" href=
+            "authorship.html">Authorship</a><a class=
+            "dropdown-item" href="on-the-web.html">On the Web</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "introduction.html" id="introduction" role=
+          "button">Introduction</a>
+          <div aria-labelledby="introduction" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "intended-audience.html">Intended Audience</a><a class=
+            "dropdown-item" href=
+            "how-to-read-this-document.html">How to Read this
+            Document</a><a class="dropdown-item" href=
+            "the-goal.html">The Goal</a><a class="dropdown-item"
+            href="converging-approaches.html">Converging
+            Approaches</a><a class="dropdown-item" href=
+            "a-general-model-of-color-processing.html">A General
+            Model of Color Processing</a><a class="dropdown-item"
+            href="color-management-challenges.html">Color
+            Management Challenges</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "color-science.html" id="color-science" role=
+          "button">Color Science</a>
+          <div aria-labelledby="color-science" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-color-science.html">About Color
+            Science</a><a class="dropdown-item" href=
+            "electromagnetic-spectrum.html">Electromagnetic
+            Spectrum</a><a class="dropdown-item" href=
+            "human-visual-system.html">Human Visual
+            System</a><a class="dropdown-item" href=
+            "basic-colorimetry.html">Basic Colorimetry</a><a class=
+            "dropdown-item" href=
+            "advanced-colorimetry.html">Advanced
+            Colorimetry</a><a class="dropdown-item" href=
+            "representing-color.html">Representing
+            Color</a><a class="dropdown-item" href=
+            "color-imaging-systems.html">Color Imaging Systems</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "workflow.html" id="workflow" role="button">Workflow</a>
+          <div aria-labelledby="workflow" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-workflow.html">About Workflow</a><a class=
+            "dropdown-item" href=
+            "academy-color-encoding-system-aces.html">Academy Color
+            Encoding System (ACES)</a><a class="dropdown-item"
+            href="the-look.html">The Look</a><a class=
+            "dropdown-item" href="on-set.html">On Set</a><a class=
+            "dropdown-item" href=
+            "visual-effects-animation-and-games.html">Visual
+            Effects, Animation and Games</a><a class=
+            "dropdown-item" href=
+            "compositing.html">Compositing</a><a class=
+            "dropdown-item" href="di-grading.html">DI
+            Grading</a><a class="dropdown-item" href=
+            "critical-monitoring.html">Critical
+            Monitoring</a><a class="dropdown-item" href=
+            "finishing.html">Finishing</a><a class="dropdown-item"
+            href="archives.html">Archives</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "appendix.html" id="appendix" role="button">Appendix</a>
+          <div aria-labelledby="appendix" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "common-rgb-color-encodings.html">Common RGB Color
+            Encodings</a><a class="dropdown-item" href=
+            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
+            "dropdown-item" href=
+            "colour-science-for-python.html">Colour Science for
+            Python</a><a class="dropdown-item" href=
+            "luts-and-transforms.html">LUTs and
+            Transforms</a><a class="dropdown-item" href=
+            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
+            href="aces-ctl.html">ACES CTL</a><a class=
+            "dropdown-item" href="full-and-legal-ranges.html">Full
+            and Legal ranges</a><a class="dropdown-item" href=
+            "color-difference-encoding.html">Color Difference
+            Encoding</a><a class="dropdown-item" href=
+            "camera-characterization.html">Camera
+            Characterization</a><a class="dropdown-item" href=
+            "file-formats.html">File Formats</a><a class=
+            "dropdown-item" href=
+            "color-matching-experiments.html">Color Matching
+            Experiments</a><a class="dropdown-item" href=
+            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
+            Law of Additive Color Mixture</a><a class=
+            "dropdown-item" href=
+            "software.html">Software</a><a class="dropdown-item"
+            href="acknowledgements.html">Acknowledgements</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="glossary.html">Glossary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=
+          "bibliography.html">Bibliography</a>
+        </li>
+      </ul>
+      <form class="form-inline my-3 my-md-0">
+        <input class="form-control" placeholder="Search" type=
+        "text" />
+      </form>
+    </div>
+  </nav>
+  <article class="page-content">
+    <div class="container-fluid py-3">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h3 class="likesectionHead"><a href=
+          "cinematic-color.html#QQ2-57-206" id=
+          "x57-1950005">Figures and Images</a></h3>
+          <p class="noindent">To ensure that both <span class=
+          "ec-lmri-10">PDF</span> and <span class=
+          "ec-lmri-10">HTML</span> output are embedding “JPG”
+          images, “JPG” paths must be given with their
+          extensions.</p>
+          <h4 class="likesubsectionHead"><a href=
+          "typesetting.html#QQ2-57-207" id="x57-1960005">“JPG”
+          Raster File</a></h4>
+          <div class="environment-listing border d-block my-3 p-3">
+            <a id="x57-196001r11"></a> <a id="x57-196002"></a>
+            <pre class="listings"><span class="label"><a id=
+            "x57-196003r1"></a></span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">begin</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">figure</span><span class=
+            "ec-lmtt-8">}[</span><span class=
+            "ec-lmtt-8">H</span><span class=
+            "ec-lmtt-8">]</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-196004r2"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">includegraphics</span><span class=
+            "ec-lmtt-8">[</span><span class=
+            "ec-lmtt-8">alt</span><span class=
+            "ec-lmtt-8">={</span><span class=
+            "ec-lmtt-8">RBI</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Ralph</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">mapped</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">to</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Rec</span><span class=
+            "ec-lmtt-8">.709.},</span><span class=
+            "ec-lmtt-8">width</span><span class=
+            "ec-lmtt-8">=\</span><span class=
+            "ec-lmtt-8">textwidth</span><span class=
+            "ec-lmtt-8">]{</span><span class=
+            "ec-lmtt-8">wir2</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">ralph</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">mapped</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">to</span><span class=
+            "ec-lmtt-8">-709.</span><span class=
+            "ec-lmtt-8">jpg</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-196005r3"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">caption</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-196006r4"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Lorem</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">ipsum</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">dolor</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">sit</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">amet</span><span class=
+            "ec-lmtt-8">,</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">consectetur</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">adipiscing</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">elit</span><span class=
+            "ec-lmtt-8">,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-196007r5"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">sed</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">do</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">eiusmod</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">tempor</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">incididunt</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">ut</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">labore</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">et</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">dolore</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">magna</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">aliqua</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-196008r6"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-196009r7"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">label</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">fig</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8">wir2</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">ralph</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">mapped</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">to</span><span class=
+            "ec-lmtt-8">-709}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-196010r8"></a></span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">end</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">figure</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmr-8"> </span><span class="label"><a id=
+            "x57-196011r9"></a></span></pre>
+            <figcaption class="figure-caption">
+              <span class="caption-name">Listing&nbsp;5.11:</span>
+              Embedding a “JPG” raster file.
+            </figcaption>
+          </div>
+          <figure class=
+          "environment-figure border d-block my-3 p-3">
+            <p class="noindent"><img alt=
+            "RBI - Ralph mapped to Rec.709." class=
+            "figure-img img-fluid" src=
+            "./assets/images/wir2-ralph-mapped-to-709.jpg" /></p>
+            <figcaption class="figure-caption">
+              <span class="caption-name"><a id=
+              "x57-1960121">Figure&nbsp;5.1</a>:</span> Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna
+              aliqua.
+            </figcaption>
+          </figure>
+          <h4 class="likesubsectionHead"><a href=
+          "typesetting.html#QQ2-57-210" id="x57-1970005">“SVG”
+          Vector File</a></h4>
+          <div class="environment-listing border d-block my-3 p-3">
+            <a id="x57-197001r12"></a> <a id="x57-197002"></a>
+            <pre class="listings"><span class="label"><a id=
+            "x57-197003r1"></a></span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">begin</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">figure</span><span class=
+            "ec-lmtt-8">}[</span><span class=
+            "ec-lmtt-8">H</span><span class=
+            "ec-lmtt-8">]</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-197004r2"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">includesvg</span><span class=
+            "ec-lmtt-8">[</span><span class=
+            "ec-lmtt-8">alt</span><span class=
+            "ec-lmtt-8">={</span><span class=
+            "ec-lmtt-8">ACES</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Gamuts</span><span class=
+            "ec-lmtt-8">},</span><span class=
+            "ec-lmtt-8">width</span><span class=
+            "ec-lmtt-8">=\</span><span class=
+            "ec-lmtt-8">textwidth</span><span class=
+            "ec-lmtt-8">]{</span><span class=
+            "ec-lmtt-8">aces</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">gamuts</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-197005r3"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">caption</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-197006r4"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Lorem</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">ipsum</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">dolor</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">sit</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">amet</span><span class=
+            "ec-lmtt-8">,</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">consectetur</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">adipiscing</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">elit</span><span class=
+            "ec-lmtt-8">,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-197007r5"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">sed</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">do</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">eiusmod</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">tempor</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">incididunt</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">ut</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">labore</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">et</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">dolore</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">magna</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">aliqua</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-197008r6"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-197009r7"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">label</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">fig</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8">aces</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">gamuts</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-197010r8"></a></span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">end</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">figure</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmr-8"> </span><span class="label"><a id=
+            "x57-197011r9"></a></span></pre>
+            <figcaption class="figure-caption">
+              <span class="caption-name">Listing&nbsp;5.12:</span>
+              Embedding a “SVG” vector file.
+            </figcaption>
+          </div>
+          <figure class=
+          "environment-figure border d-block my-3 p-3">
+            <p class="noindent"><img alt="PIC" class=
+            "figure-img img-fluid" src=
+            "./assets/figures/aces-gamuts.svg" width=
+            "\Gin@req@width" /></p>
+            <figcaption class="figure-caption">
+              <span class="caption-name"><a id=
+              "x57-1970122">Figure&nbsp;5.2</a>:</span> Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna
+              aliqua.
+            </figcaption>
+          </figure>
+          <h4 class="likesubsectionHead"><a href=
+          "typesetting.html#QQ2-57-213" id="x57-1980005">Simple
+          Jeri Embedding</a></h4>
+          <p class="noindent">A simple <span class=
+          "ec-lmri-10">Jeri</span> embedding example that shows in
+          both the <span class="ec-lmri-10">HTML</span> and
+          <span class="ec-lmri-10">PDF</span> outputs.</p>
+          <div class="environment-listing border d-block my-3 p-3">
+            <a id="x57-198001r13"></a> <a id="x57-198002"></a>
+            <pre class="listings"><span class="label"><a id=
+            "x57-198003r1"></a></span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">begin</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">figure</span><span class=
+            "ec-lmtt-8">}[</span><span class=
+            "ec-lmtt-8">H</span><span class=
+            "ec-lmtt-8">]</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198004r2"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">unless</span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">ifdefined</span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">HCode</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198005r3"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">includegraphics</span><span class=
+            "ec-lmtt-8">[</span><span class=
+            "ec-lmtt-8">alt</span><span class=
+            "ec-lmtt-8">={</span><span class=
+            "ec-lmtt-8">Illuminant</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">E</span><span class=
+            "ec-lmtt-8">.},</span><span class=
+            "ec-lmtt-8">width</span><span class=
+            "ec-lmtt-8">=0.475\</span><span class=
+            "ec-lmtt-8">textwidth</span><span class=
+            "ec-lmtt-8">]{</span><span class=
+            "ec-lmtt-8">mitsuba</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">cornellbox</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">metamerism</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">E</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">jpg</span><span class=
+            "ec-lmtt-8">}\</span><span class=
+            "ec-lmtt-8">hfill</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198006r4"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">includegraphics</span><span class=
+            "ec-lmtt-8">[</span><span class=
+            "ec-lmtt-8">alt</span><span class=
+            "ec-lmtt-8">={</span><span class=
+            "ec-lmtt-8">CIE</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Standard</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Illuminant</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">A</span><span class=
+            "ec-lmtt-8">.},</span><span class=
+            "ec-lmtt-8">width</span><span class=
+            "ec-lmtt-8">=0.475\</span><span class=
+            "ec-lmtt-8">textwidth</span><span class=
+            "ec-lmtt-8">]{</span><span class=
+            "ec-lmtt-8">mitsuba</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">cornellbox</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">metamerism</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">A</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">jpg</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198007r5"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">fi</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198008r6"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">ifdefined</span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">HCode</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198009r7"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">ccjericontainer</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">simple</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">jeri</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">embedding</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198010r8"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">JavaScript</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198011r9"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">const</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">simpleJeriEmbeddingData</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">=</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198012r10"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">title</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">Simple</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Jeri</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Embedding</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198013r11"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">children</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">[{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198014r12"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">title</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">Illuminant</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">E</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198015r13"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">image</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">assets</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">images</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">mitsuba</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">cornellbox</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">metamerism</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">E</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">exr</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198016r14"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">},</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198017r15"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198018r16"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">title</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">CIE</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Standard</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Illuminant</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">A</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198019r17"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">image</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">assets</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">images</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">mitsuba</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">cornellbox</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">metamerism</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">A</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">exr</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198020r18"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198021r19"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">]</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198022r20"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">};</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198023r21"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Jeri</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">renderViewer</span><span class=
+            "ec-lmtt-8">(</span><span class=
+            "ec-lmtt-8">document</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">getElementById</span><span class=
+            "ec-lmtt-8">(’</span><span class=
+            "ec-lmtt-8">simple</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">jeri</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">embedding</span><span class=
+            "ec-lmtt-8">’)</span><span class=
+            "ec-lmtt-8">,</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">simpleJeriEmbeddingData</span><span class=
+            "ec-lmtt-8">)</span><span class=
+            "ec-lmtt-8">;</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198024r22"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">EndJavaScript</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198025r23"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">fi</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198026r24"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">caption</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198027r25"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Simple</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">textit</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">Jeri</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Embedding</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198028r26"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198029r27"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">label</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">fig</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8">simple</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">jeri</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">embedding</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-198030r28"></a></span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">end</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">figure</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmr-8"> </span><span class="label"><a id=
+            "x57-198031r29"></a></span></pre>
+            <figcaption class="figure-caption">
+              <span class="caption-name">Listing&nbsp;5.13:</span>
+              Simple <span class="ec-lmri-10">Jeri</span>
+              Embedding.
+            </figcaption>
+          </div>
+          <figure class=
+          "environment-figure border d-block my-3 p-3">
+            <div class="pb-3">
+              <div class="jeri-container" id=
+              "simple-jeri-embedding"></div>
+            </div>
+            <script type="text/JavaScript">
+            //<![CDATA[
+
+            const simpleJeriEmbeddingData = {
+                title: 'Simple Jeri Embedding',
+                children: [{
+                        title: 'Illuminant E',
+                        image: 'assets/images/mitsuba-cornellbox-metamerism-E.exr',
+                    },
+                    {
+                        title: 'CIE Standard Illuminant A',
+                        image: 'assets/images/mitsuba-cornellbox-metamerism-A.exr',
+                    }
+                ]
+            };
+            Jeri.renderViewer(document.getElementById('simple-jeri-embedding'), simpleJeriEmbeddingData);
+
+            //]]>
+            </script>
+            <figcaption class="figure-caption">
+              <span class="caption-name"><a id=
+              "x57-1980323">Figure&nbsp;5.3</a>:</span> Simple
+              <span class="ec-lmri-10">Jeri</span> Embedding.
+            </figcaption>
+          </figure>
+          <h4 class="likesubsectionHead"><a href=
+          "typesetting.html#QQ2-57-216" id="x57-1990005">Complex
+          Jeri Embedding</a></h4>
+          <p class="noindent">A complex <span class=
+          "ec-lmri-10">Jeri</span> embedding example that only
+          shows in the <span class="ec-lmri-10">HTML</span> output.
+          The nested tab hierarchy has no elegant equivalent in the
+          <span class="ec-lmri-10">PDF</span> output thus it not
+          recommended to use nested tabs.</p>
+          <div class="environment-listing border d-block my-3 p-3">
+            <a id="x57-199001r14"></a> <a id="x57-199002"></a>
+            <pre class="listings"><span class="label"><a id=
+            "x57-199003r1"></a></span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">begin</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">figure</span><span class=
+            "ec-lmtt-8">}[</span><span class=
+            "ec-lmtt-8">H</span><span class=
+            "ec-lmtt-8">]</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199004r2"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">ifdefined</span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">HCode</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199005r3"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">ccjericontainer</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">complex</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">jeri</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">embedding</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199006r4"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">JavaScript</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199007r5"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">const</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">complexJeriEmbeddingData</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">=</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199008r6"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">title</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">Complex</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Jeri</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Embedding</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199009r7"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">children</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">[{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199010r8"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">title</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">Illuminant</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">E</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199011r9"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">image</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">assets</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">images</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">mitsuba</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">cornellbox</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">metamerism</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">E</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">exr</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199012r10"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">},</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199013r11"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199014r12"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">title</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">CIE</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Standard</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Illuminant</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">A</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199015r13"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">image</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">assets</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">images</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">mitsuba</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">cornellbox</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">metamerism</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">A</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">exr</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199016r14"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">},</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199017r15"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199018r16"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">title</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">Cornell</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Balls</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199019r17"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">children</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">[{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199020r18"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">title</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">Spectral</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199021r19"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">image</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">assets</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">images</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">mitsuba</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">cornellbox</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">spectral</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">exr</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199022r20"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">},</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199023r21"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199024r22"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">title</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">Sharp</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Primaries</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199025r23"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">image</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">’</span><span class=
+            "ec-lmtt-8">assets</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">images</span><span class=
+            "ec-lmtt-8">/</span><span class=
+            "ec-lmtt-8">mitsuba</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">cornellbox</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">sharp</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">exr</span><span class=
+            "ec-lmtt-8">’,</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199026r24"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199027r25"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">]</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199028r26"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199029r27"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">]</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199030r28"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">};</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199031r29"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Jeri</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">renderViewer</span><span class=
+            "ec-lmtt-8">(</span><span class=
+            "ec-lmtt-8">document</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8">getElementById</span><span class=
+            "ec-lmtt-8">(’</span><span class=
+            "ec-lmtt-8">complex</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">jeri</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">embedding</span><span class=
+            "ec-lmtt-8">’)</span><span class=
+            "ec-lmtt-8">,</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">complexJeriEmbeddingData</span><span class=
+            "ec-lmtt-8">)</span><span class=
+            "ec-lmtt-8">;</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199032r30"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">EndJavaScript</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199033r31"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">fi</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199034r32"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">caption</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199035r33"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Complex</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">textit</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">Jeri</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">Embedding</span><span class=
+            "ec-lmtt-8">.</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199036r34"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199037r35"></a></span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8"> </span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">label</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">fig</span><span class=
+            "ec-lmtt-8">:</span><span class=
+            "ec-lmtt-8">complex</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">jeri</span><span class=
+            "ec-lmtt-8">-</span><span class=
+            "ec-lmtt-8">embedding</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmtt-8"> </span><br /><span class="label"><a id=
+            "x57-199038r36"></a></span><span class=
+            "ec-lmtt-8">\</span><span class=
+            "ec-lmtt-8">end</span><span class=
+            "ec-lmtt-8">{</span><span class=
+            "ec-lmtt-8">figure</span><span class=
+            "ec-lmtt-8">}</span><span class=
+            "ec-lmr-8"> </span><span class="label"><a id=
+            "x57-199039r37"></a></span></pre>
+            <figcaption class="figure-caption">
+              <span class="caption-name">Listing&nbsp;5.14:</span>
+              Complex <span class="ec-lmri-10">Jeri</span>
+              Embedding.
+            </figcaption>
+          </div>
+          <figure class=
+          "environment-figure border d-block my-3 p-3">
+            <div class="pb-3">
+              <div class="jeri-container" id=
+              "complex-jeri-embedding"></div>
+            </div>
+            <script type="text/JavaScript">
+            //<![CDATA[
+
+            const complexJeriEmbeddingData = {
+                title: 'Complex Jeri Embedding',
+                children: [{
+                        title: 'Illuminant E',
+                        image: 'assets/images/mitsuba-cornellbox-metamerism-E.exr',
+                    },
+                    {
+                        title: 'CIE Standard Illuminant A',
+                        image: 'assets/images/mitsuba-cornellbox-metamerism-A.exr',
+                    },
+                    {
+                        title: 'Cornell Balls',
+                        children: [{
+                                title: 'Spectral',
+                                image: 'assets/images/mitsuba-cornellbox-spectral.exr',
+                            },
+                            {
+                                title: 'Sharp Primaries',
+                                image: 'assets/images/mitsuba-cornellbox-sharp.exr',
+                            }
+                        ]
+                    }
+                ]
+            };
+            Jeri.renderViewer(document.getElementById('complex-jeri-embedding'), complexJeriEmbeddingData);
+
+            //]]>
+            </script>
+            <figcaption class="figure-caption">
+              <span class="caption-name"><a id=
+              "x57-1990404">Figure&nbsp;5.4</a>:</span> Complex
+              <span class="ec-lmri-10">Jeri</span> Embedding.
+            </figcaption>
+          </figure>
+          <div class="breadcrumb-navigation text-center">
+            <a href="mathematics.html"><button class=
+            "btn btn-light mx-3" type=
+            "button">Previous</button></a><a href=
+            "typesetting.html#figures-and-images.html"><button class="btn btn-light mx-3"
+            type="button">Up</button></a><a href=
+            "interactive-figures.html"><button class=
+            "btn btn-light mx-3" type="button">Next</button></a>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </article>
+  <footer class="page-footer">
+    <div class="container-fluid text-center py-3">
+      Copyright © 2019 ‐ Cinematic Color Authors ‐ <a href=
+      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
+    </div>
+  </footer>
+  <script src="assets/js/jquery/jquery.min.js" type=
+  "text/javascript"></script> 
+  <script src="assets/js/popper/popper.min.js" type=
+  "text/javascript"></script> 
+  <script src="assets/js/bootstrap/bootstrap.min.js" type=
+  "text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+.achromatic-link a {
+    color: #373a3c !important;
+    font-style: italic !important;
+}
+
+.caption-name {
+    font-weight: bold;
+}
+
+.cmtt-8 {
+    font-size: 100%;
+}
+
+.colour-analysis-container {
+    height: 75vh;
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    vertical-align: 0.125rem;
+}
+
+.footnotes {
+    border-bottom: 1px solid #dee2e6 !important;
+    border-top: 1px solid #dee2e6 !important;
+}
+
+.jeri-container {
+    height: 75vh;
+    position: relative;
+}
+
+pre.listings {
+    background-color: #f8f9fa;
+    padding: 15px;
+}
+
+.table td,
+.table th {
+    border-bottom: 1px solid #dee2e6;
+}

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
+  <title>Color Difference Encoding</title>
+  <meta charset="utf-8" />
+  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
+  "generator" />
+  <meta content="width=device-width,initial-scale=1" name=
+  "viewport" />
+  <link href="cinematic-color.css" rel="stylesheet" type=
+  "text/css" />
+  <meta content="cinematic-color.tex" name="src" />
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
+  type="text/javascript"></script>
+  <script src="assets/js/jeri/jeri.min.js" type=
+  "text/javascript"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+  //]]>
+  </script>
+  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
+  "stylesheet" type="text/css" />
+  <link href="assets/css/custom.css" rel="stylesheet" type=
+  "text/css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">Cinematic Color 2</a>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "preface.html" id="preface" role="button">Preface</a>
+          <div aria-labelledby="preface" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "description.html">Description</a><a class=
+            "dropdown-item" href=
+            "authorship.html">Authorship</a><a class=
+            "dropdown-item" href="on-the-web.html">On the Web</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "introduction.html" id="introduction" role=
+          "button">Introduction</a>
+          <div aria-labelledby="introduction" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "intended-audience.html">Intended Audience</a><a class=
+            "dropdown-item" href=
+            "how-to-read-this-document.html">How to Read this
+            Document</a><a class="dropdown-item" href=
+            "the-goal.html">The Goal</a><a class="dropdown-item"
+            href="converging-approaches.html">Converging
+            Approaches</a><a class="dropdown-item" href=
+            "a-general-model-of-color-processing.html">A General
+            Model of Color Processing</a><a class="dropdown-item"
+            href="color-management-challenges.html">Color
+            Management Challenges</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "color-science.html" id="color-science" role=
+          "button">Color Science</a>
+          <div aria-labelledby="color-science" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-color-science.html">About Color
+            Science</a><a class="dropdown-item" href=
+            "electromagnetic-spectrum.html">Electromagnetic
+            Spectrum</a><a class="dropdown-item" href=
+            "human-visual-system.html">Human Visual
+            System</a><a class="dropdown-item" href=
+            "basic-colorimetry.html">Basic Colorimetry</a><a class=
+            "dropdown-item" href=
+            "advanced-colorimetry.html">Advanced
+            Colorimetry</a><a class="dropdown-item" href=
+            "representing-color.html">Representing
+            Color</a><a class="dropdown-item" href=
+            "color-imaging-systems.html">Color Imaging Systems</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "workflow.html" id="workflow" role="button">Workflow</a>
+          <div aria-labelledby="workflow" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-workflow.html">About Workflow</a><a class=
+            "dropdown-item" href=
+            "academy-color-encoding-system-aces.html">Academy Color
+            Encoding System (ACES)</a><a class="dropdown-item"
+            href="the-look.html">The Look</a><a class=
+            "dropdown-item" href="on-set.html">On Set</a><a class=
+            "dropdown-item" href=
+            "visual-effects-animation-and-games.html">Visual
+            Effects, Animation and Games</a><a class=
+            "dropdown-item" href=
+            "compositing.html">Compositing</a><a class=
+            "dropdown-item" href="di-grading.html">DI
+            Grading</a><a class="dropdown-item" href=
+            "critical-monitoring.html">Critical
+            Monitoring</a><a class="dropdown-item" href=
+            "finishing.html">Finishing</a><a class="dropdown-item"
+            href="archives.html">Archives</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "appendix.html" id="appendix" role="button">Appendix</a>
+          <div aria-labelledby="appendix" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "common-rgb-color-encodings.html">Common RGB Color
+            Encodings</a><a class="dropdown-item" href=
+            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
+            "dropdown-item" href=
+            "colour-science-for-python.html">Colour Science for
+            Python</a><a class="dropdown-item" href=
+            "luts-and-transforms.html">LUTs and
+            Transforms</a><a class="dropdown-item" href=
+            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
+            href="aces-ctl.html">ACES CTL</a><a class=
+            "dropdown-item" href="full-and-legal-ranges.html">Full
+            and Legal ranges</a><a class="dropdown-item" href=
+            "color-difference-encoding.html">Color Difference
+            Encoding</a><a class="dropdown-item" href=
+            "camera-characterization.html">Camera
+            Characterization</a><a class="dropdown-item" href=
+            "file-formats.html">File Formats</a><a class=
+            "dropdown-item" href=
+            "color-matching-experiments.html">Color Matching
+            Experiments</a><a class="dropdown-item" href=
+            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
+            Law of Additive Color Mixture</a><a class=
+            "dropdown-item" href=
+            "software.html">Software</a><a class="dropdown-item"
+            href="acknowledgements.html">Acknowledgements</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="glossary.html">Glossary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=
+          "bibliography.html">Bibliography</a>
+        </li>
+      </ul>
+      <form class="form-inline my-3 my-md-0">
+        <input class="form-control" placeholder="Search" type=
+        "text" />
+      </form>
+    </div>
+  </nav>
+  <article class="page-content">
+    <div class="container-fluid py-3">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h3 class="sectionHead"><span class=
+          "titlemark">4.8</span> <a href=
+          "cinematic-color.html#QQ2-41-167" id=
+          "x41-1670004.8">Color Difference Encoding</a></h3>
+          <p class="noindent">Due to the human visual systems
+          greater sensitivity to detail in luminance than color, it
+          is common to convert image data to a color opponent
+          encoding such as YCBCR and to subsample the chroma
+          channels in order to reduce bandwidth and storage
+          requirements with minimal impact on the appearance of the
+          image. While this is useful for monitoring and delivery,
+          within a VFX pipeline it is preferable to maintain full
+          resolution in all channels. A reduction in chroma
+          resolution which is imperceptible to the eye, may have a
+          negative impact on keying and other image processing.
+          ITU-R BT.709 specifies the transform from RGB (note the
+          primes, indicating that the image data is non-linearly
+          encoded, not scene-referred linear) to YCBCR for HDTV,
+          and these are the equations used by default in most
+          software encoders and decoders, and almost all hardware
+          implementations. The equations are as follows: EY =
+          0.2126ŒER + 0.7152ŒEG + 0.0722ŒEB ECB = (EB EY) / 1.8556
+          ECR = (ER EY) / 1.5748 Where ER, EG and EB are the
+          non-linearly coded RGB values ranged 0-1, and EY, ECB and
+          ECR are the resulting luma (it is important to
+          differentiate this from luminance) and color difference
+          signals. The luma is ranged 0-1 and the two color
+          difference signals are ranged 0.5 to 0.5. The
+          coefficients in the luma equation are derived from the
+          second line of the Normalised Primary Matrix (RGB to CIE
+          XYZ matrix) for the Rec. 709 primaries with D65 white,
+          rounded to four decimal places. These are the
+          coefficients which would convert scene-referred linear
+          RGB to CIE luminance. Thus EY is an approximation of a
+          non-linear coding of the relative luminance of a Rec. 709
+          color. For achromatic colors (R = G = B) it matches
+          exactly. When integer coded for transmission over SDI or
+          HDMI, or storage in a file, these values are mapped to
+          integer using the following equations: DY = round((219ŒEY
+          + 16)Œ2(n 8)) DCB = round((224ŒECB + 128)Œ2(n 8)) DCR =
+          round((224ŒECR + 128)Œ2(n 8)) Where n is the bit depth.
+          JPEG coding uses a variation on this, where the 0-1 of
+          the luma signal is mapped to the entire 0-255 range, and
+          the 0.5 to 0.5 of the chroma components is mapped to
+          0-256, and the values then clamped to the 0-255 range for
+          storage as 8 bit integer. But JPEG uses the older ITU-R
+          BT.601 luma weightings (0.299, 0.587 and 0.114). ITU-R
+          BT.2020 specifies a different set of equations, with luma
+          weighting coefficients derived from the Rec. 2020
+          primaries. It also defines two different color difference
+          codings. The first is referred to as non-constant
+          luminance because it follows the form of the Rec. 709
+          coding, where Y is not a non-linear encoding of relative
+          luminance (a weighted sum of linear R, G and B) but
+          rather is a weighted sum of the already non-linearly
+          encoded R, G and B. The equations are as follows: Y’ =
+          0.2627ŒR’ 0.6780ŒG’ 0.0593ŒB’ CB = (B Y) / 1.8814 CR = (R
+          Y) / 1.4746 The second is referred to as constant
+          luminance encoding, and takes linear R, G and B as input.
+          The equations are as follows: YC = f(0.2627ŒR 0.6780ŒG
+          0.0593ŒB) Where f(x) is the non-linear encoding function
+          (the Rec. 2020 OETF, as given in Section 4.1.4). R, G and
+          B are then non-linearly encoded with the same function to
+          produce R, G and B, and the colour difference signals
+          calculated as follows: if NB B YC 0: CBC = (B YC ) / 2ŒNB
+          else if 0 &lt; B YC PB : CBC = (B YC ) / 2ŒPB if NR R YC
+          0: CRC = (R YC ) / 2ŒNR else if 0 &lt; R YC PR : CRC = (R
+          YC ) / 2ŒPR Where the constants are given precisely in
+          the spec, but it is also noted that for practical
+          purposes the following values can be used: PB = 0.7910 NB
+          = 0.9702 PR = 0.4969 NR = 0.8591 ITU-R BT.2020 specifies
+          a new color difference encoding for HDR, ICTCP.This is
+          referred to as constant intensity encoding, and was
+          originally developed by Dolby. This encoding first
+          transforms linear RGB, range 0-1, to LMS using the
+          following equations: L = (1688ŒR + 2146ŒG + 262ŒB) / 4096
+          M = (683ŒR + 2951ŒG + 462ŒB) / 4096 S = (99ŒR + 309ŒG +
+          3688ŒB) / 4096 These are then non-linearly encoded using
+          either the PQ inverse EOTF or the HLG OETF, as
+          appropriate, to produce LMS, which is encoded as ICTCP
+          using the following equations: I = 0.5L’ + 0.5M’ CT =
+          (6610ŒL’ 13613ŒM’ + 7003ŒS’) / 4096 CP = (17933ŒL’
+          17390ŒM’ 543ŒS’) / 4096 Integer coding of all these uses
+          the same method as given above for ITU-R BT.709. ITU-R
+          BT.2020 additionally specifies a full range integer
+          coding, as opposed to the standard coding (referred to as
+          narrow range, see Section 4.7.1) where the luma /
+          intensity component is encoded using: D = round((2n 1)ŒE)
+          and the chroma components using: D = round((2n 1)ŒE + 2(n
+          1))</p>
+          <p class="indent">Writing in progress</p>
+          <div class="breadcrumb-navigation text-center">
+            <a href="full-and-legal-ranges.html"><button class=
+            "btn btn-light mx-3" type=
+            "button">Previous</button></a><a href=
+            "appendix.html#color-difference-encoding.html"><button class="btn btn-light mx-3"
+            type="button">Up</button></a><a href=
+            "camera-characterization.html"><button class=
+            "btn btn-light mx-3" type="button">Next</button></a>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </article>
+  <footer class="page-footer">
+    <div class="container-fluid text-center py-3">
+      Copyright © 2019 ‐ Cinematic Color Authors ‐ <a href=
+      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
+    </div>
+  </footer>
+  <script src="assets/js/jquery/jquery.min.js" type=
+  "text/javascript"></script> 
+  <script src="assets/js/popper/popper.min.js" type=
+  "text/javascript"></script> 
+  <script src="assets/js/bootstrap/bootstrap.min.js" type=
+  "text/javascript"></script>
+</body>
+</html>

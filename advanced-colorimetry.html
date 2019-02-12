@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
+  <title>Advanced Colorimetry</title>
+  <meta charset="utf-8" />
+  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
+  "generator" />
+  <meta content="width=device-width,initial-scale=1" name=
+  "viewport" />
+  <link href="cinematic-color.css" rel="stylesheet" type=
+  "text/css" />
+  <meta content="cinematic-color.tex" name="src" />
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
+  type="text/javascript"></script>
+  <script src="assets/js/jeri/jeri.min.js" type=
+  "text/javascript"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+  //]]>
+  </script>
+  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
+  "stylesheet" type="text/css" />
+  <link href="assets/css/custom.css" rel="stylesheet" type=
+  "text/css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">Cinematic Color 2</a>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "preface.html" id="preface" role="button">Preface</a>
+          <div aria-labelledby="preface" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "description.html">Description</a><a class=
+            "dropdown-item" href=
+            "authorship.html">Authorship</a><a class=
+            "dropdown-item" href="on-the-web.html">On the Web</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "introduction.html" id="introduction" role=
+          "button">Introduction</a>
+          <div aria-labelledby="introduction" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "intended-audience.html">Intended Audience</a><a class=
+            "dropdown-item" href=
+            "how-to-read-this-document.html">How to Read this
+            Document</a><a class="dropdown-item" href=
+            "the-goal.html">The Goal</a><a class="dropdown-item"
+            href="converging-approaches.html">Converging
+            Approaches</a><a class="dropdown-item" href=
+            "a-general-model-of-color-processing.html">A General
+            Model of Color Processing</a><a class="dropdown-item"
+            href="color-management-challenges.html">Color
+            Management Challenges</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "color-science.html" id="color-science" role=
+          "button">Color Science</a>
+          <div aria-labelledby="color-science" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-color-science.html">About Color
+            Science</a><a class="dropdown-item" href=
+            "electromagnetic-spectrum.html">Electromagnetic
+            Spectrum</a><a class="dropdown-item" href=
+            "human-visual-system.html">Human Visual
+            System</a><a class="dropdown-item" href=
+            "basic-colorimetry.html">Basic Colorimetry</a><a class=
+            "dropdown-item" href=
+            "advanced-colorimetry.html">Advanced
+            Colorimetry</a><a class="dropdown-item" href=
+            "representing-color.html">Representing
+            Color</a><a class="dropdown-item" href=
+            "color-imaging-systems.html">Color Imaging Systems</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "workflow.html" id="workflow" role="button">Workflow</a>
+          <div aria-labelledby="workflow" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-workflow.html">About Workflow</a><a class=
+            "dropdown-item" href=
+            "academy-color-encoding-system-aces.html">Academy Color
+            Encoding System (ACES)</a><a class="dropdown-item"
+            href="the-look.html">The Look</a><a class=
+            "dropdown-item" href="on-set.html">On Set</a><a class=
+            "dropdown-item" href=
+            "visual-effects-animation-and-games.html">Visual
+            Effects, Animation and Games</a><a class=
+            "dropdown-item" href=
+            "compositing.html">Compositing</a><a class=
+            "dropdown-item" href="di-grading.html">DI
+            Grading</a><a class="dropdown-item" href=
+            "critical-monitoring.html">Critical
+            Monitoring</a><a class="dropdown-item" href=
+            "finishing.html">Finishing</a><a class="dropdown-item"
+            href="archives.html">Archives</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "appendix.html" id="appendix" role="button">Appendix</a>
+          <div aria-labelledby="appendix" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "common-rgb-color-encodings.html">Common RGB Color
+            Encodings</a><a class="dropdown-item" href=
+            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
+            "dropdown-item" href=
+            "colour-science-for-python.html">Colour Science for
+            Python</a><a class="dropdown-item" href=
+            "luts-and-transforms.html">LUTs and
+            Transforms</a><a class="dropdown-item" href=
+            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
+            href="aces-ctl.html">ACES CTL</a><a class=
+            "dropdown-item" href="full-and-legal-ranges.html">Full
+            and Legal ranges</a><a class="dropdown-item" href=
+            "color-difference-encoding.html">Color Difference
+            Encoding</a><a class="dropdown-item" href=
+            "camera-characterization.html">Camera
+            Characterization</a><a class="dropdown-item" href=
+            "file-formats.html">File Formats</a><a class=
+            "dropdown-item" href=
+            "color-matching-experiments.html">Color Matching
+            Experiments</a><a class="dropdown-item" href=
+            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
+            Law of Additive Color Mixture</a><a class=
+            "dropdown-item" href=
+            "software.html">Software</a><a class="dropdown-item"
+            href="acknowledgements.html">Acknowledgements</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="glossary.html">Glossary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=
+          "bibliography.html">Bibliography</a>
+        </li>
+      </ul>
+      <form class="form-inline my-3 my-md-0">
+        <input class="form-control" placeholder="Search" type=
+        "text" />
+      </form>
+    </div>
+  </nav>
+  <article class="page-content">
+    <div class="container-fluid py-3">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h3 class="sectionHead"><span class=
+          "titlemark">2.5</span> <a href=
+          "cinematic-color.html#QQ2-19-50" id=
+          "x19-500002.5">Advanced Colorimetry</a></h3>
+          <p class="noindent">Thus far, mainly unrelated color,
+          i.e. color in isolation such as street lights against the
+          night darkness has been considered. However, real objects
+          and their colors are rarely perceived in isolation, on
+          the contrary, objects are almost systematically seen in
+          the context of many others. Therefore, their colors are
+          said to be related.</p>
+          <p class="indent">Fairchild (2013) presents the
+          perception of gray and brown colors as an example
+          illustrating related colors:</p>
+          <p class="indent">It is not possible to see unrelated
+          colors that appear either gray or brown. Gray is an
+          achromatic color with lightness significantly lower than
+          white. Brown is an orange color with low lightness. Both
+          of these color name definitions require specific
+          lightness levels. [...] To convince yourself, search for
+          a light that can be viewed in isolation (i.e., completely
+          dark environment) and that appears either gray or
+          brown.</p>
+          <p class="indent">One might infer that color appearance
+          is affected by its surroundings and this is indeed the
+          case. The study of color appearance is the objective of
+          advanced colorimetry.</p>
+          <p class="indent">Fairchild (2013) references a citation
+          from Wyszecki (1973) describing basic colorimetry
+          first:</p>
+          <p class="indent">Colorimetry, in its strict sense, is a
+          tool used to making a prediction on whether two lights
+          (visual stimuli) of different spectral power
+          distributions will match in color for certain given
+          conditions of observation. The prediction is made by
+          determining the tristimulus values of the two visual
+          stimuli. If the tristimulus values of a stimulus are
+          identical to those of the other stimulus, a color match
+          will be observed by an average observer with normal color
+          vision.</p>
+          <p class="indent">And then advanced colorimetry:</p>
+          <p class="indent">Colorimetry in its broader sense
+          includes methods of assessing the appearance of color
+          stimuli presented to the observer in complicated
+          surroundings as they may occur in everyday life. This is
+          considered the ultimate goal of colorimetry, but because
+          of its enormous complexity, this goal is far from being
+          reached. On the other hand, certain more restricted
+          aspects of the overall problem of predicting color
+          appearance of stimuli seem somewhat less elusive. The
+          outstanding examples are the measurement of color
+          differences, whiteness, and chromatic adaptation. Though
+          these problems are still essentially unresolved, the
+          developments in these areas are of considerable interest
+          and practical importance.</p>
+          <p class="indent">Advanced colorimetry and color
+          appearance models extend basic colorimetry by making
+          predictions about the perception of color under various
+          viewing conditions. While its exploration is out of the
+          scope of this document, viewing conditions, elementary
+          terminology and various color appearance phenomena will
+          be defined as some are necessary to understand various
+          concepts touched on. Fairchild (2013) is a recommended
+          reading for in-depth information, and Luo et Li (2013)
+          for a quick primer centered around CIECAM02.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.5.1</span> <a href=
+          "contents.html#QQ2-19-51" id="x19-510002.5.1">Viewing
+          Conditions</a></h4>
+          <p class="noindent">The elements of the viewing field
+          modify the color appearance of a test stimulus (typically
+          a uniform patch subtending 2 degrees or an image). Color
+          stimuli presented with their viewing field. Ralph Breaks
+          the Internet Image copyright ľDisney. All Rights
+          Reserved.</p>
+          <p class="indent">The viewing field elements are defined
+          as follows Reference White: Used to scale the Lightness
+          of the test stimulus and is assigned the value of 100.
+          Reference white does not exist when viewing unrelated
+          color. In the context of image viewing, it is the white
+          border surrounding an image. Proximal Field: The
+          immediate environment of the test stimulus subtending 2
+          degrees in all directions from the edge of the stimulus.
+          Background: The environment of the test stimulus
+          subtending 10 degrees in all directions from the edge of
+          the proximal field. Surround: The field outside the
+          background, generally qualified as being dark, dim,
+          average or bright and taken as being respectively
+          0Adapting Field: The total environment of the test
+          stimulus, including the proximal field, the background
+          and the surround and extending to the limit of vision in
+          all directions.</p>
+          <p class="indent">The following table enumerates
+          different but common real-life viewing scenarios with
+          surrounds ranging from dark to bright. Viewing Scenario
+          Ambient Illumination in Lx (or cd/m2) Scene or Device
+          White Luminance in cd/m2 Adapting Field Luminance in
+          cd/m2 Adopted White Point Surround Viewing Slides in Dark
+          Room 0 (0) 150 30 Projector Dark Viewing Self-Luminous
+          Display at Home 38 (12) 80 20 Display and Ambient Dim
+          Viewing Self-Luminous Display under Office Illumination
+          500 (159.2) 80 15 Display Average Surface color
+          Evaluation in a Light Booth 1,000 (318.3) 318.3 60 Light
+          Booth Average Viewing a Smartphone in Outdoor Sunny
+          Daylight 100,000 (31,830) 634 7,500 Outdoor Daylight
+          Bright</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.5.2</span> <a href=
+          "contents.html#QQ2-19-52" id=
+          "x19-520002.5.2">Terminology</a></h4>
+          <p class="noindent">The following definitions are given
+          as written by the CIE. The definition of colo(u)r is
+          repeated for completeness. Colo(u)r: Characteristic of
+          visual perception that can be described by attributes of
+          hue, brightness (or lightness) and colorfulness (or
+          saturation or chroma). Hue: Attribute of a visual
+          perception according to which an area appears to be
+          similar to one of the colors: red, yellow, green, and
+          blue, or to a combination of adjacent pairs of these
+          colors considered in a closed ring. Brightness: Attribute
+          of a visual perception according to which an area appears
+          to emit, or reflect, more or less light. Lightness:
+          Brightness of an area judged relative to the brightness
+          of a similarly illuminated area that appears to be white
+          or highly transmitting. colorfulness: Attribute of a
+          visual perception according to which the perceived color
+          of an area appears to be more or less chromatic. Chroma:
+          colorfulness of an area judged as a proportion of the
+          brightness of a similarly illuminated area that appears
+          white or highly transmitting. Saturation: colorfulness of
+          an area judged in proportion to its brightness. Unrelated
+          Colo(u)r: Colo(u)r perceived to belong to an area seen in
+          isolation from other colo(u)rs. Related Colo(u)r:
+          Colo(u)r perceived to belong to an area seen in relation
+          to other colo(u)rs.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">2.5.3</span> <a href=
+          "contents.html#QQ2-19-53" id="x19-530002.5.3">Color
+          Appearance Phenomena</a></h4>
+          <h5 class="subsubsectionHead"><a href="#x19-540002.5.3"
+          id="x19-540002.5.3">Lateral-Brightness
+          Adaptation</a></h5>
+          <p class="noindent">Bartleson and Breneman (1967) have
+          shown that perceived contrast of images changes depending
+          on their surround: Images seen with a dark surround
+          appear to have less contrast than if viewed with a dim,
+          average or bright surround.</p>
+          <p class="indent">Lateral-Brightness Adaptation: the left
+          image exhibits more contrast because of the white
+          background compared to the right version. Note that the
+          image must be looked at fullscreen for full effect.
+          Fairchild, M. D. (n.d.). The HDR Photographic Survey.
+          Retrieved April 15, 2015, from
+          http://rit-mcsl.org/fairchild/HDRPS/HDRthumbs.html</p>
+          <h5 class="subsubsectionHead"><a href="#x19-550002.5.3"
+          id="x19-550002.5.3">Simultaneous Contrast</a></h5>
+          <p class="noindent">Simultaneous contrast induces a shift
+          in the color appearance of stimuli when their background
+          color changes.</p>
+          <p class="indent">The shifts induced follow opponent
+          color theory: A light background induces a darker
+          stimulus. A dark background induces a lighter stimulus.
+          Red induces green, green induces red, blue induces yellow
+          and yellow induces blue.</p>
+          <p class="indent">Simultaneous Contrast: the red squares
+          have the same code values (Fairchild, 2013).</p>
+          <h5 class="subsubsectionHead"><a href="#x19-560002.5.3"
+          id="x19-560002.5.3">Crispening</a></h5>
+          <p class="noindent">Crispening is characterized by the
+          induced increase in the perceived color difference
+          between two stimuli by a background with a color similar
+          to that of the stimuli themselves.</p>
+          <p class="indent">Crispening: the code values on each row
+          are the same. Wikipedia. (n.d.). Crispening effect.
+          Retrieved October 13, 2018, from
+          https://de.wikipedia.org/wiki/Crispening-Effekt</p>
+          <h5 class="subsubsectionHead"><a href="#x19-570002.5.3"
+          id="x19-570002.5.3">Assimilation</a></h5>
+          <p class="noindent">Spreading occurs when the spatial
+          frequency of the color stimuli increases resulting in a
+          simultaneous contrast decrease and an apparent mixture of
+          the stimuli with the surround.</p>
+          <p class="indent">Spreading: reds, yellows, and blues all
+          have respectively the same code values. Fairchild, M. D.
+          (2013). Color Appearance Models (3rd ed.). Wiley.
+          ISBN:B00DAYO8E2</p>
+          <h5 class="subsubsectionHead"><a href="#x19-580002.5.3"
+          id="x19-580002.5.3">Bezold-Brücke Hue Shift</a></h5>
+          <p class="noindent">The BezoldBrücke Hue Shift is a
+          change in hue perception of a monochromatic color
+          stimulus as its luminance changes. An expansion of
+          wavelengths appearing yellow or blue, and a decrease in
+          wavelengths appearing green or red occurs as stimulus
+          luminance increases.</p>
+          <h5 class="subsubsectionHead"><a href="#x19-590002.5.3"
+          id="x19-590002.5.3">Abney Effect</a></h5>
+          <p class="noindent">The Abney Effect describes the
+          perceived variation in hue of a color stimulus induced by
+          variation of the stimulus colorimetric purity.</p>
+          <p class="indent">Abney Effect: the central stimulus has
+          more colorimetric purity than the surrounding ones and
+          thus has a different perceived hue.</p>
+          <h5 class="subsubsectionHead"><a href="#x19-600002.5.3"
+          id="x19-600002.5.3">Purkinje Effect</a></h5>
+          <p class="noindent">The Purkinje Effect or Purkinje Shift
+          describes the shift toward the blue end of the color
+          spectrum of peak luminance sensitivity of the HVS at low
+          illumination levels. Two objects, one red and one blue
+          which appear to have the same lightness in daylight will
+          appear differently under scotopic illumination levels:
+          the red will appear nearly black and the blue relatively
+          light.</p>
+          <h5 class="subsubsectionHead"><a href="#x19-610002.5.3"
+          id="x19-610002.5.3">Helmholtz-Kohlrausch Effect</a></h5>
+          <p class="noindent">The HelmholtzKohlrausch Effect
+          describes the perceived variation in brightness of a
+          color stimulus induced by increased saturation and hue
+          variation of the stimulus while keeping its luminance
+          constant. HelmholtzKohlrausch Effect: the luminance of
+          each sample is the same as that of the background and
+          constant. The bottom part of the image represents an
+          achromatic version of each above sample.</p>
+          <h5 class="subsubsectionHead"><a href="#x19-620002.5.3"
+          id="x19-620002.5.3">Hunt Effect, Hunt (1952)</a></h5>
+          <p class="noindent">The Hunt Effect describes the
+          perceived colorfulness increase of color stimuli induced
+          by luminance increase. Conversely the colorfulness of
+          colors decreases as the adapting light intensity is
+          reduced. Hunt (1952) also found that at high illumination
+          levels, increasing the test color intensity caused most
+          colors to become bluer.</p>
+          <h5 class="subsubsectionHead"><a href="#x19-630002.5.3"
+          id="x19-630002.5.3">Stevens Effect, Stevens and Stevens
+          (1963)</a></h5>
+          <p class="noindent">The Stevens Effect describes the
+          perceived brightness (or lightness) contrast increase of
+          color stimuli induced by luminance increase.</p>
+          <h5 class="subsubsectionHead"><a href="#x19-640002.5.3"
+          id="x19-640002.5.3">Helson-Judd Effect, Helson
+          (1938)</a></h5>
+          <p class="noindent">The Helson-Judd effect happens when a
+          light source illuminates a greyscale, light regions of
+          the greyscale exhibit chroma of the same hue of the light
+          source while dark regions exhibit chroma of the
+          complementary hue of the light source. The Helson-Judd
+          effect is subtle and is usually not accounted for in
+          practical situations.</p>
+          <div class="breadcrumb-navigation text-center">
+            <a href="basic-colorimetry.html"><button class=
+            "btn btn-light mx-3" type=
+            "button">Previous</button></a><a href=
+            "color-science.html#advanced-colorimetry.html"><button class="btn btn-light mx-3"
+            type="button">Up</button></a><a href=
+            "representing-color.html"><button class=
+            "btn btn-light mx-3" type="button">Next</button></a>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </article>
+  <footer class="page-footer">
+    <div class="container-fluid text-center py-3">
+      Copyright © 2019 ‐ Cinematic Color Authors ‐ <a href=
+      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
+    </div>
+  </footer>
+  <script src="assets/js/jquery/jquery.min.js" type=
+  "text/javascript"></script> 
+  <script src="assets/js/popper/popper.min.js" type=
+  "text/javascript"></script> 
+  <script src="assets/js/bootstrap/bootstrap.min.js" type=
+  "text/javascript"></script>
+</body>
+</html>
