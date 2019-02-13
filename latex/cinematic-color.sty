@@ -1,5 +1,6 @@
 \ProvidesPackage{cinematic-color}
 
+\RequirePackage{csquotes}
 \RequirePackage{graphicx}
 \RequirePackage{listings}
 \RequirePackage{xcolor}
@@ -17,6 +18,9 @@
         urlcolor=[rgb]{0.15 0.15 0.70}
     }
 \fi
+
+% "csquotes" citation command.
+\SetCiteCommand{\parencite}
 
 % Custom commands.
 \newcommand{\ccachromaticnameref}[1]{{\hypersetup{hidelinks}\nameref{#1}}}
