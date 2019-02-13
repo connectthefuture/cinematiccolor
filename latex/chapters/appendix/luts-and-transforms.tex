@@ -1,4 +1,4 @@
-\section{LUTs and Transforms}
+\section{LUTs and Transforms}%
 \label{sec:luts-and-transforms}
 
 Lookup tables (LUTs) are a technique for optimizing the evaluation of functions that are expensive to compute and inexpensive to cache, or for sampling process such as printing to film which are not definable mathematically. By precomputing the evaluation of a function over a domain of common inputs, expensive runtime operations can be replaced with inexpensive table lookups. If the table lookups can be performed faster than computing the results from scratch, then the use of a lookup table will yield significant performance gains. For input values that fall between the table's samples, an interpolation algorithm can generate reasonable approximations by averaging nearby samples. LUTs are also useful when wanting to separate the calculation of a transform from its application. For example, in color pipelines it is often useful to “bake” a series of color transforms into a single lookup table, which is then suitable for distribution and re-use, even in situations where the original data sets are not appropriate for distribution.
@@ -7,7 +7,7 @@ It is important to bear in mind that a LUT is a “black box” transforming one
 
 The values listed in the tables can be calculated by iterating over the possible input values, and applying the required transform mathematically, or by creating what is called a CMS (Color Management System) pattern image that incorporates all possible input values, passing it through the transform as if it was any other image, and then reading back the resulting color values to create the table. The image is simply a linear ramp to generate a 1D LUT, or a grid of all possible permutations of RGB, at the chosen LUT intervals, for a 3D LUT.
 
-\subsection{1D LUTs}
+\subsection{1D LUTs}%
 \label{subsec:1d-luts}
 
 A lookup table is characterized by its dimensionality, that is, the number of indices necessary to index an output value. The simplest LUTs are indexed by a single variable and thus referred to as one-dimensional (or 1D) LUTs.
@@ -23,7 +23,7 @@ All color operators that operate on channels independently can be accelerated us
 
 Unfortunately, many useful color operators do not operate on channels independently and are thus impossible to implement using a single-dimensional LUT. For example, consider the luminance operator that converts colored pixels into their greyscale equivalent. Because each output value is derived as a weighted average of the input channels, it is not possible to express such an operator using a 1D LUT. All other operators that rely on such channel crosstalk are equally inexpressible. Likewise for transforms derived from sampling complex non-linear processes such as film print emulation.
 
-\subsection{3D LUTs}
+\subsection{3D LUTs}%
 \label{subsec:3d-luts}
 
 Three-dimensional lookup tables offer the obvious solution to the inherent limitation of single-dimensional LUTs, allowing tabular data indexed on three independent parameters. Whereas a 1D LUT requires only 4 elements to sample 4 locations in an input range, the corresponding 3D LUT requires 43 = 64 elements. Beware of this added dimensionality; 3D LUTs grow very quickly as a function of their linear sampling rate, as does the processing power required, particularly in real-time systems. As a direct implication of smaller LUT sizes, high-quality interpolation takes on a greater significance for 3D LUTs. The two most commonly used interpolation methods are tri-linear and tetrahedral.
@@ -43,7 +43,7 @@ Careful attention must be paid when crafting 3D LUTs due to a large number of de
 
 The input color space must lie within a well-defined domain. An analytically defined brightness operator can generate valid results over the entire domain of real numbers. However, that same operator baked into a lookup table will be valid over only a limited domain (for example, perhaps only in the range 0-1).
 
-\subsection{Using Shaper LUTs}
+\subsection{Using Shaper LUTs}%
 \label{subsec:using-shaper-luts}
 
 All lookup tables are a sampling of some underlying function, whether that function is explicitly known or not. For example, the function f(x) = 1 / (1 + e-1.5x)  is a mathematical function that can be evaluated for any input values of x. The function can also be represented using a small lookup table over a particular domain by evaluating the function at various intervals. Table x shows a small lookup table with 5 samples representing the function over the input range of -5 to 5.
@@ -73,7 +73,7 @@ The concept of optimal placement of sample points can be extended to 3D LUTs whe
 
 This second shaper is only necessary for transforms such as those from linear to linear. If the transform is linear to log, or linear to `video’, only an input shaper is normally needed. Shaper LUTs may be separate files, applied sequentially with the 3D LUT, or may be included in a single 1D+3D combined LUT.
 
-\subsection{Half Float LUTs}
+\subsection{Half Float LUTs}%
 \label{subsec:half-float-luts}
 
 An additional LUT technique that is becoming more widely available is the Half Float LUT. There are only 65536 possible 16 bit half floating-point values. As such, it is possible to apply a function to each of these values in sequence and record the results in a LUT. The value used for indexing into the table is not the floating-point value, as that is practically unbounded and would pose interpolation and quantization issues. Instead, the 16 bit half value is converted to its bitwise integer equivalent. This value is then used as the index into the table.
@@ -87,7 +87,7 @@ The 16 bit float value ranges and their integer equivalents are as follows:
         # 64513 to 65535 = NaN
 Support for Half Float LUTs can be found in the Common LUT Format that is part of the ACES specification.
 
-\subsection{Creating LUTs}
+\subsection{Creating LUTs}%
 \label{subsec:creating-luts}
 
 LUTs are fundamentally lists of output values, corresponding to input values, and most LUT formats store these as plain text lists or XML. Some binary formats exist, usually for efficiency in hardware LUT implementations, and for these, it is often simpler to create a human-readable LUT first and then convert with suitable utility software to the binary form.
@@ -245,7 +245,7 @@ Note the similarity between the tables. Only the headers and the number of colum
 
 Particularly when baking a combined LUT, testing is necessary to ensure that the resulting LUT is supported and correctly applied in the intended application. Different implementations support various LUT specifications to varying degrees, and it is not unheard of for LUTs to appear to be correctly read, but for the parsing to get out of step, producing a result which may superficially match the intent for some, but not all images. For example, the Iridas and Resolve .cube LUT formats are broadly similar, but the tokens for input range differ, and may not be read properly (or at all) by some LUT parsers. It is always wise, where possible, to compare the result of the LUT with a reference implementation of the transform on a variety of images.
 
-\subsection{GPU Implementations}
+\subsection{GPU Implementations}%
 \label{subsec:gpu-implementations}
 
 While LUTs remain widely used for real-time image processing, there is a move in many systems towards the use of shaders to apply color transforms on the GPU. This allows for mathematically precise transforms, without the range limitations or interpolation errors which can occur with LUTs. The distortion shown in Figure XX would not happen is a shader was used for the transforms.

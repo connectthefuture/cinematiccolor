@@ -1,7 +1,7 @@
-\section{Basic Colorimetry}
+\section{Basic Colorimetry}%
 \label{sec:basic-colorimetry}
 
-\subsection{Origins of Colorimetry}
+\subsection{Origins of Colorimetry}%
 \label{subsec:origins-of-colorimetry}
 
 In the late 19th century, Young and Helmholtz proposed that color vision is conveyed through a limited number of receptors sensitive to different portions of the visible spectrum. Maxwell (1860) used linear algebra to prove Young–Helmholtz trichromatic theory and invented color matching experiments and modern colorimetry. The trichromatic theory explains the metamerism phenomenon: two samples matching under some lighting conditions might look different under others.
@@ -22,7 +22,7 @@ Both disciplines measure a radiometric quantity (radiant flux) and not a photome
 
 On the other hand, tristimulus colorimeters use red, green and blue filters that emulate the HVS spectral response to light. They produce a single triplet of values by measuring wideband radiant energy and are used in digital imaging to calibrate displays. Because they mimic the HVS, tristimulus colorimeters are also subject to the metamerism phenomenon.
 
-\subsection{Blackbody Radiation, Light sources and Illuminants}
+\subsection{Blackbody Radiation, Light sources and Illuminants}%
 \label{subsec:blackbody-radiation-light-sources-and-illuminants}
 
 All ordinary matter emits electromagnetic radiation when its temperature is above absolute zero. Even black holes are predicted to emit Hawking radiation, a form of blackbody radiation caused by the creation of sub-atomic particles near the event horizon.
@@ -52,7 +52,7 @@ From a terminology standpoint, it is meaningful to understand that illuminants a
 An illuminant is a standardized table of values or mathematical function representing an ideal light source.
 A light source is a physical emitter of visible radiant energy.
 
-\subsection{Reflectance, Transmittance and Absorptance}
+\subsection{Reflectance, Transmittance and Absorptance}%
 \label{subsec:reflectance-transmittance-and-absorptance}
 
 Emitted light interacts with surfaces of the world and is either reflected, transmitted or absorbed. The measured radiant flux is the summation of the light reflection, transmission, and absorption at each wavelength such as:
@@ -62,7 +62,7 @@ where Φ(λ) is the measured radiant flux, R(λ), T(λ) and A(λ) are respective
 Clover leaf reflectance, transmittance, and absorptance spectra from LOPEX93, note that the wavelengths represented are purposely reaching near-infrared: even though invisible, the spectra have values in that portion and exhibit a lot of variation.
 Because they are also a function of the illumination and viewing geometry, i.e. the angle between the light incident at the surface and the angle of the instrument, a complete description requires capturing the Bidirectional Reflectance Distribution Function (BRDF) or Bidirectional Transmittance Distribution Function (BTDF). High-quality BxDF data capture is not only difficult, but its usage is also non-trivial thus for practical purposes the CIE defines 4 standard illuminations and viewing geometries. They are described in CIE 015:2004 Colorimetry, 3rd Edition.
 
-\subsection{Standard Observers}
+\subsection{Standard Observers}%
 \label{subsec:standard-observers}
 
 The perception of incident light to the HVS varies from one observer to another. Thus to avoid ambiguity when characterizing color, the CIE standardized various functions for use with colorimetric calculations.
@@ -105,10 +105,10 @@ Recently, the CIE TC 1-36 technical committee report (CIE 170-1:2006, 2006) esta
 
 The transition to those new CMFs might happen in the future but there are open questions on how to migrate dataset that are not spectrally defined, e.g. what are the chromaticity coordinates of the sRGB color space in the CIE 2012 10° Standard Observer?
 
-\subsection{CIE XYZ Tristimulus Values and Metamerism}
+\subsection{CIE XYZ Tristimulus Values and Metamerism}%
 \label{subsec:cie-xyz-tristimulus-values-and-metamerism}
 
-\subsubsection{CIE XYZ Tristimulus Values}
+\subsubsection{CIE XYZ Tristimulus Values}%
 \label{subsubsec:cie-xyz-tristimulus-values}
 
 Spectral radiant energy is converted into CIE XYZ tristimulus values by integrating the product of the spectral distribution of a sample with the spectral power distribution of a light source (or illuminant) and with the CMFS. Their values for the color of a surface with spectral reflectance β(λ) under an illuminant of relative spectral power S(λ) are calculated using the following integral equations:
@@ -118,7 +118,7 @@ Equation x.x of the computation of X tristimulus value is illustrated in figure 
 
 Integration of the spectral reflectance distribution of a sample of sand for X tristimulus value. Note that this process must be repeated for Y― and Z― shown in dashed green and blue lines to obtain the corresponding Y and Z tristimulus values.
 
-\subsubsection{Metamerism}
+\subsubsection{Metamerism}%
 \label{subsubsec:metamerism}
 
 The conversion of spectral radiant energy into CIE XYZ tristimulus values reduces complex light color information spanning many wavelengths into three sensory quantities. From a mathematical standpoint, the tristimulus conversion equations X.X.X are demonstrating the phenomenon: the integrals represent the area under the multiplied spectral distribution curves of the sample, light, and CMFS. However, an infinite number of light and sample curve combinations yield the same area: tristimulus values are multi-valued, and metamerism occurs because of the lack of injectivity. A consequence of this reduction is that two samples viewed under the same illumination conditions can produce an identical cone cells response and thus yield matching CIE XYZ tristimulus values. The two samples are said to be metamers, and changing the illumination conditions might result into a metameric failure: this is the metamerism phenomenon.
@@ -126,7 +126,7 @@ The conversion of spectral radiant energy into CIE XYZ tristimulus values reduce
 
 Metameric failure example, the two spheres use generated metameric spectral reflectance distributions that yield matching color under CIE Illuminant E but not under CIE Standard Illuminant A.
 
-\subsection{CIE xyY Color Space and Chromaticity Diagram}
+\subsection{CIE xyY Color Space and Chromaticity Diagram}%
 \label{subsec:cie-xyy-color-space-and-chromaticity-diagram}
 
 It is convenient to use a 2D representation of colors where luminance is separated from chroma. The CIE xyY color space is constructed through a projective transformation that isolates the Y luminance axis of the CIE XYZ color space and yields a tuple of chromaticity coordinates (x, y):
@@ -139,7 +139,7 @@ The curved edge encompassing the colors is known as the Spectral Locus and is co
 
 The volume (or area) of colors either "present in a specific scene, artwork, photograph, photomechanical, or other reproduction; capable of being created using a particular output device and/or medium" is defined by the CIE as the color gamut. Color gamuts are generally represented on the chromaticity diagram as flat, two-dimensional surfaces with uniform luminance. They are specified with a set of tuple of chromaticity coordinates (x, y). The chosen luminance value, often 1, is arbitrary and depends on the use case. For analysis and visualization purposes, it is valuable to draw multiple variants of a color gamut at different luminance values as its surface boundary changes accordingly. By extension, color gamuts such as Pointer (1980)'s gamut of real surface colors, specified with a set of triplets of CIE xyY color space coordinates are representing three-dimensional volumes.
 
-\subsection{Perceptually Uniform Color Spaces and Color Difference}
+\subsection{Perceptually Uniform Color Spaces and Color Difference}%
 \label{subsec:perceptually-uniform-color-spaces-and-color-difference}
 
 Although it is not immediately apparent, the chromaticity diagram is a very poor representation of our color perception. Distances between colors in the CIE xyY color space do not directly relate to their apparent perceptual differences. Two adjacent colors may be perceived as different, while colors far apart may be indistinguishable. The degree to which a given color space accurately maps geometric distance to perceptual distance is referred to as its level of perceptual uniformity.
@@ -173,7 +173,7 @@ where ∆E*76 is the color difference, L*r, a*r, b*r , and L*t, a*t, b*t are the
 
 While the CIE L*a*b* color space features decent perceptual uniformity, it was deemed unsatisfactory when comparing some pair of colors, compelling the CIE into improving the metric with the CIE 1994 (∆E*94) and subsequent CIE 2000  (∆E*00)  quasimetrics. It is appropriate to measure color differences in the CAM16-UCS, ICtCp and JzAzBz color spaces using Euclidean distance.
 
-\subsection{Additive RGB Color Spaces}
+\subsection{Additive RGB Color Spaces}%
 \label{subsec:additive-rgb-color-spaces}
 
 Additive RGB color spaces are the color representation that most people interact with on a daily basis; our display technology is based on the additive mixing of 3 red, green and blue primaries.
@@ -199,7 +199,7 @@ Note 1 to entry: A simple linear 3 × 3 matrix transformation can be used to tra
 
 Note 2 to entry: Additive RGB color spaces are defined by specifying the CIE chromaticity values for a set of additive RGB primaries and a color space white point, together with a color component transfer function.
 
-\subsubsection{Primaries}
+\subsubsection{Primaries}%
 \label{subsubsec:primaries}
 
 The primaries’ chromaticity coordinates define the gamut that can be encoded by a given RGB color space. It is essential to understand that while commonly represented as triangles on a Chromaticity Diagram, RGB color space gamuts define the boundaries of an actual 3D volume within the CIE xyY color space. The shape of the volume is not simply an extruded triangle because each primary reaches unity at a different luminance value. From that point the luminance can only rise by increasing one or both of the other channels, and consequently decreasing saturation. Maximum luminance is only achieved when the three channels reach unity, which corresponds to the achromatic point at the top of the volume.
@@ -210,7 +210,7 @@ sRGB color space gamut visualized in CIE xyY color space. The shape of the volum
 
 sRGB, DCI-P3 and BT.2020 RGB color space gamuts in the CIE 1931 chromaticity diagram.
 
-\subsubsection{White Point}
+\subsubsection{White Point}%
 \label{subsubsec:white-point}
 
 The white point is defined by the CIE as the "achromatic reference stimulus in a chromaticity diagram that corresponds to the stimulus that produces an image area that has the perception of white". Any colors lying on the neutral axis line defined by the white point and its vertical projection toward the bottom of the RGB color space gamut, no matter their Luminance, are neutral to that RGB color space and thus achromatic.
@@ -226,11 +226,11 @@ Following on from PAL and SECAM color television, and also as a consequence of t
 
 Digital cinema as per the recommendation of the Digital Cinema Initiative (DCI) adopts the DCI-P3 white point based on a Xenon arc lamp spectral power distribution. ACES uses a white point close to CIE Standard Illuminant D Series D60: its lower CCT makes it more pleasing for dark viewing conditions typical of theatrical exhibition.
 
-\subsubsection{Color Component Transfer Functions}
+\subsubsection{Color Component Transfer Functions}%
 \label{subsubsec:color-component-transfer-functions}
 The color component transfer functions (CCTFs), defined as "single variable, monotonic mathematical function applied individually to one or more colour channels of a colour space" by  ISO 22028-1:2016 Standard generally perform the mapping between linear light components and a non-linear R'G'B' component signal value, most of the time for coding optimization and bandwidth performance and/or to improve the visual uniformity of a color space.
 
-\paragraph{Encoding Color Component Transfer Functions}
+\paragraph{Encoding Color Component Transfer Functions}%
 \label{par:encoding-color-component-transfer-functions}
 
 The Encoding CCTF, commonly an Opto-Electronic Transfer Function (OETF) or inverse Electro-Optical Transfer Function (EOTF), maps estimated linear light components in a scene to a non-linear R'G'B' component signal value.
@@ -242,7 +242,7 @@ Typical OETFs are expressed by a power function with an exponent between 0.4 and
 Digital cinema cameras usually adopt logarithmic encoding functions such as Sony S-Log, ALEXA LogC or Canon C-Log allowing storage of a much wider dynamic range from the original scene compared to a generic Rec. 709 HDTV camera. To some degree, they are considered as flavors of the Cineon encoding found in the Kodak Cineon System, an early 1990s computer-based digital film system. The main difference between digital cinema cameras encodings and Cineon is that the latter is a logarithmic encoding directly corresponding to the optical density of the film negative. In order to know the relationship between a Cineon encoding and scene light, it is necessary also to know the characteristic curve of the film stock.
 
 
-\paragraph{Decoding Color Component Transfer Functions}
+\paragraph{Decoding Color Component Transfer Functions}%
 \label{par:decoding-color-component-transfer-functions}
 
 The Decoding CCTF, commonly an EOTF or inverse OETF, maps a non-linear R'G'B' video component signal to a linear light components at the display. It describes how a display, such as a TV or a projector, responds to an incoming electrical signal and how it converts code values into visible light.

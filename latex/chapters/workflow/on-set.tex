@@ -1,4 +1,4 @@
-\section{On Set}
+\section{On Set}%
 \label{sec:on-set}
 
 An illustration of the recommended color managed approach for cinema or TV
@@ -11,7 +11,7 @@ The monitoring output from the camera is the first opportunity for the productio
 
 
 
-\subsection{Camera profiles}
+\subsection{Camera profiles}%
 \label{subsec:camera-profiles}
 
 Color management should be used at every stage of the pipeline, and for material acquired with a digital camera, this can begin on set. All current digital cinema cameras capture a wide dynamic range and color gamut, and their encoding primaries and transfer functions are published by the manufacturers. Whether the recording is being made in a raw or camera log format, a log signal is usually available from a monitoring output of the camera. These are high-dynamic range, scene-referred representations of the image and can be used to apply a viewing transform, with or without a look included, which can be replicated and refined as the image passes through the various stages of post-production.
@@ -48,7 +48,7 @@ These are just encoding methods, and if properly interpreted have no impact on t
 Cameras still have varying characteristics which do affect the look of the image
 ACES Input Transforms bring different sources into a common working space so that the same Output Transform can be used for all sources, giving a close match of appearance
 
-\subsection{Monitoring on set}
+\subsection{Monitoring on set}%
 \label{subsec:monitoring-on-set}
 
 Most of the monitors used on set are likely to be provided by the video department and, since they are intended for checking of performance, framing and focus, may well not be accurately color calibrated. In order to maintain consistent color, at least one monitor should be properly calibrated, and in a more suitable environment (as specified by ITU-R BT.2035) for critical viewing of images, such as a blacked out tent. This is usually the responsibility of the Digital Imaging Technician (DIT).
@@ -71,7 +71,7 @@ Looks exist in the monitoring path only, and are communicated as metadata
 ASC CDL is the lowest common denominator for communicating a look, as it operates identically in all systems
 
 
-\subsection{Editorial}
+\subsection{Editorial}%
 \label{subsec:editorial}
 
 Although modern Non-Linear Editors (NLEs) are capable of applying LUTs and other display transforms in real-time during playback, there is always a system overhead for doing this. In editorial, the ability to scrub quickly through the rushes is crucial, and anything which slows this process down can be problematic. Therefore the usual practice is to create transcodes in the native format of the NLE (either Avid DNxHD or Apple ProRes) with the look and output transform baked in. This is done either on or near set by the DIT or by a dedicated dailies colorist in a lab.
@@ -82,7 +82,7 @@ Key Points
 Baking the look into dailies for editorial is current best practice for practical reasons
 Tracking look and other metadata through editorial is vital
 
-\subsection{Digital Imaging Technician (DIT)}
+\subsection{Digital Imaging Technician (DIT)}%
 \label{subsec:digital-imaging-technician-dit}
 
 It is the Digital Imaging Technician’s (DIT) responsibility to liaise between set and post-production. They need to communicate with those who will be responsible for dealing with the image further down the line, as well as with the cinematographer, to ensure they have an understanding of the intended color pipeline and required deliverables. The role originated as the person responsible for understanding the controls in video cameras, as productions moved to HD video from film acquisition so that the cinematographer could focus on lighting and exposing as they had done in the past.
@@ -95,7 +95,7 @@ Key Points
 A DIT must communicate with the camera department and post, and liaise between the two
 For live grading to be truly useful it must use the same color management approach as will be used further down the line
 
-\subsection{Reference Capture}
+\subsection{Reference Capture}%
 \label{subsec:reference-capture}
 
 
@@ -109,7 +109,7 @@ Lens distortion grids should be shot with all lenses used on the production, and
 
 For VFX shots it is inadvisable to simply rely on the camera sheets or script notes, as these can often conflict. Embedded metadata in the captured images can be invaluable in helping verify notes and report data.
 
-\subsection{HDR Environment Capture}
+\subsection{HDR Environment Capture}%
 \label{subsec:hdr-environment-capture}
 
 An HDR environment map captured for ‘The Avengers: Infinity War”. Luminance ranges go from 0 to 17100

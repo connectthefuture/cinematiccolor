@@ -1,4 +1,4 @@
-\section{Common RGB Color Encodings}
+\section{Common RGB Color Encodings}%
 \label{sec:common-rgb-color-encodings}
 
 
@@ -9,7 +9,7 @@ An RGB color encoding is defined by its primaries, white point and transfer func
 
 The primaries and white points of some common color encodings are plotted on the CIE 1931 chromaticity diagram above. The subsequent sections give more detail on the usage of each color encoding, together with the various encoding and decoding functions. The complete set of all forward and reverse encoding and decoding functions (an EOTF is not normally the inverse of the corresponding OETF, creating an Optical to Optical Transfer Function, or OOTF) is available in Colour Science for Python, together with the matrices to transform to CIE XYZ, referred to as the Normalized Primary Matrix (NPM) of a color space, and their inverses.
 
-\subsection{Rec. 709}
+\subsection{Rec. 709}%
 \label{subsec:rec-709}
 
 ITU-R BT.709, commonly referred to as Rec. 709, specifies a D65 white point and a piecewise transfer function. It is important to be aware that the transfer function given for Rec. 709 is an encoding function (OETF) for a video camera, not an EOTF for a display, making it a scene-referred encoding. It is, in fact, rare to find the Rec. 709 curve implemented exactly in any camera, as video cameras often include a ‘knee’ for highlight compression and other user controls which cause the image to diverge from the standard. This means that it is not normally possible to accurately invert Rec. 709 material to scene-referred linear. Where necessary, ITU-R BT.2087-0 recommends the use of a simple square function to revert material from a Rec. 709 camera to scene-referred linear.
@@ -35,7 +35,7 @@ White Point
 0.150, 0.060
 0.3127, 0.3290 (D65)
 
-\subsection{BT.1886}
+\subsection{BT.1886}%
 \label{subsec:bt-1886}
 
 The ACES Still Life reference image encoded with the Rec. 709 (BT.1886) Output Transform.
@@ -52,7 +52,7 @@ Where L is the screen luminance and V the encoded signal (ranged 0-1). The const
 
 When encoding desired display colorimetry for BT.1886 display, where the black level of the display is unknown (as is always the situation when delivering video for a wide audience) the recommended approach is to use a value of zero for LB. For this reason, the ACES Rec. 709 Output Transform uses pure 2.4 gamma.
 
-\subsection{sRGB}
+\subsection{sRGB}%
 \label{subsec:srgb}
 
 The ACES Still Life reference image encoded with the sRGB Output Transform.
@@ -94,7 +94,7 @@ White Point
 0.150, 0.060
 0.3127, 0.3290 (D65)
 
-\subsection{Rec. 2020}
+\subsection{Rec. 2020}%
 \label{subsec:rec-2020}
 
 The ACES Still Life reference image encoded with the Rec. 2020 100 nits Output Transform
@@ -119,7 +119,7 @@ White Point
 0.131, 0.046
 0.3127, 0.3290 (D65)
 
-\subsection{ST.2084 / PQ}
+\subsection{ST.2084 / PQ}%
 \label{subsec:st-2084-pq}
 
 The ACES Still Life reference image encoded with the ST.2084 1000 nits Output Transform.
@@ -149,7 +149,7 @@ The most universally available view transforms for HDR are the ACES Output Trans
 
 Some manufacturers implement view transforms for HDR in their cameras for on-set HDR monitoring, and provide LUTs which match those transforms for use in post. ARRI’s ALF-2 and RED’s IPP2 LUTs can be used as output transforms for LogC/ALEXA Wide Gamut and Log3G10/RED Wide Gamut working spaces respectively, and other color encodings can be transformed to those to make them suitable as input for the LUTs. Some grading systems implement these as options in their color management pipelines, and also offer their own proprietary view transforms. When using a proprietary tone mapping algorithm it is important to ensure that a method is available, usually by baking a LUT, for implementing the transforms in other software.
 
-\subsection{Hybrid Log Gamma (HLG)}
+\subsection{Hybrid Log Gamma (HLG)}%
 \label{subsec:hybrid-log-gamma-hlg}
 
 The ACES Still Life reference image encoded with the HLG Output Transform.
@@ -206,7 +206,7 @@ Where:
 
 In practice, while HLG may be used as a scene referred encoding in situations such as live sports broadcasting, an HLG deliverable is often created from an ST.2084 display-referred master by applying the ST.2084 EOTF followed by the inverse HLG EOTF for a notional 1000 cd/m2 display to compute the HLG signal needed to produce the same displayed image as the ST.2084 signal.
 
-\subsection{P3 DCI}
+\subsection{P3 DCI}%
 \label{subsec:p3-dci}
 
 The ACES Still Life reference image encoded with the P3 DCI Output Transform.
@@ -226,14 +226,14 @@ White Point
 0.150, 0.060
 0.314, 0.351
 
-\subsection{P3 D65}
+\subsection{P3 D65}%
 \label{subsec:p3-d65}
 
 The ACES Still Life reference image encoded with the P3 D65 48 nits Output Transform.
 Copyright © A.M.P.A.S.
 The Primaries of P3 are also used in combination with a D65 white point. Where projectors are calibrated to P3 D65 the same 2.6 gamma as P3 DCI is used, but for wide gamut desktop displays the EOTF used is 2.2 gamma. In addition, P3 D65 is often used as a “limiting gamut” when a wider gamut such as BT. 2020 is used as the encoding gamut, but where the target display is not capable of covering that gamut.
 
-\subsection{X'Y'Z'}
+\subsection{X'Y'Z'}%
 \label{subsec:x-y-z}
 
 The ACES Still Life reference image encoded with the DCDM Output Transform.
@@ -257,7 +257,7 @@ The value of 48/52.37 is called the normalizing constant and is included to perm
 
 See Kennel (2007) for additional details on mastering for digital cinema. The full DCI specification by Digital Cinema Initiatives (2018) is freely available online; highly recommended reading for those involved in theatrical mastering.
 
-\subsection{ALEXA LogC}
+\subsection{ALEXA LogC}%
 \label{subsec:alexa-logc}
 
 LogC is the encoding used in the ARRI ALEXA series of cameras, including the AMIRA. It is used together with the ALEXA Wide Gamut primaries and a white point of D65. The exact encoding curve varies slightly with the Exposure Index (EI) set on the camera, keeping 18% grey to an encoded value of 400/1023, and applying highlight compression at EI values above 1600 to prevent sensor clipping falling above the LogC 0-1 range. The exact linearization curves for LogC at all EI values are included as 1D LUTs in the Input Transforms in the ACES GitHub repository, together with the Python code which generates those 1D LUTs. However, in many cases, the simplified form of the curve for EI800 is sufficient, for which the encoding function is:
@@ -295,11 +295,11 @@ White Point
 0.0861, -0.1020
 0.3127, 0.3290 (D65)
 
-\subsection{Blackmagic Film}
+\subsection{Blackmagic Film}%
 \label{subsec:blackmagic-film}
 Cameras from Blackmagic Design (BMD) use different log encoding curves, depending on the model. The mathematical encoding curves are not currently published, and neither are the primaries. However 1D LUTs for linearization are provided with DaVinci Resolve, and these can be used in other applications. The encoding primaries of log material from Blackmagic cameras can be converted using the Colour Space effect in Resolve.
 
-\subsection{Canon CLog}
+\subsection{Canon CLog}%
 \label{subsec:canon-clog}
 
 Canon cameras offer a range of options for encoding curves and primaries, making for a very large number of permutations. Primaries can be selected from Cinema Gamut, Rec. 2020 and Rec. 709 (see sections above for the latter three). For the encoding curve, there is a choice of Canon Log 1, 2 and 3. It is important to ascertain which primaries and Canon Log variant were used when shooting, in order to linearize correctly and transform to the working color space. Many applications are unable to read the Canon metadata which specifies the recording primaries and encoding curve, so it can be useful to open the media in the Canon XF Utility, available from Canon’s website, and make a note of the settings.
@@ -335,7 +335,7 @@ White Point
 0.080, -0.100
 0.3127, 0.3290 (D65)
 
-\subsection{GoPro ProTune}
+\subsection{GoPro ProTune}%
 \label{subsec:gopro-protune}
 ProTune “Flat” is a log mode available in the GoPro range of action cameras. It allows disabling of much of the image processing normally applied in camera. The curve encodes the range 0-1 to log values in the range 0-1, so linearization will not yield values >1 unless gain is subsequently applied. Equally, the curve is not able to encode negative values, but because the sensor A/D has a black offset, this should be subtracted after linearization, which may result in some negative values.
 
@@ -359,7 +359,7 @@ White Point
 0.108443, -0.034679
 0.3127, 0.3290 (D65)
 
-\subsection{Panasonic V-Log}
+\subsection{Panasonic V-Log}%
 \label{subsec:panasonic-v-log}
 
 V-Log, paired with V-Gamut is the log recording format used by the Panasonic Varicam range of cameras, as well as the AU-EVA1. Some of the lower end Panasonic cameras such as the Lumix range offer V-Log L recording. This uses exactly the same curve as V-Log, simply with the upper part of the dynamic range unused, so the same linearization function can be used.
@@ -396,7 +396,7 @@ White Point
 0.100, -0.030
 0.3127, 0.3290 (D65)
 
-\subsection{RED Log3G10}
+\subsection{RED Log3G10}%
 \label{subsec:red-log3g10}
 Over the years, RED have used various log encodings and primaries with their cameras, and the details of these have not been published. The current RED IPP2 image processing uses primaries called RED Wide Gamut RGB, paired with a log encoding called Log3G10, the details of which have been published in a white paper. The numbers 3 and 10 in the name indicate that 18% grey is encoded as ⅓, and the curve encodes 10 stops above mid-grey; that is to say, 0.18 × 210 is encoded as 1.0 in Log3G10.
 
@@ -431,7 +431,7 @@ White Point
 0.095612, -0.084589
 0.3127, 0.3290 (D65)
 
-\subsection{Sony SLog}
+\subsection{Sony SLog}%
 \label{subsec:sony-slog}
 
 Sony has offered a range of encoding curves in their cameras, with the latest being S-Log3. The original S-Log is now deprecated, and not something likely to be seen on current productions. S-Log2 and S-Log3 are still both current. S-Log2 is normally paired with S-Gamut primaries, whereas S-Log3 may be paired either with S-Gamut3 or S-Gamut3.Cine primaries. S-Gamut and S-Gamut3 use the same wide gamut primaries; it is simply that the matrices used in the camera to transform to them from the sensor native color space are different. As has been mentioned previously in Section 3.3.1, a 3x3 camera matrix can only ever be an approximation of the ideal transform to set of encoding primaries. S-Gamut and S-Gamut3 use different optimizations. S-Gamut3 has the additional advantage that the transform to ACES is the same at all color temperatures, whereas for S-Gamut, two Input Transforms are provided by Sony for use under tungsten and daylight. S-Gamut3.Cine is slightly less wide gamut than S-Gamut3, and was designed to be more closely aligned with P3 primaries, making manual grading to P3 simpler. In a scene-referred workflow there is no benefit to this, and indeed recording in S-Gamut3.Cine will clip some colors which may be present in the scene, compared to S-Gamut3. Nonetheless, many people use S-Gamut3.Cine as the default camera setting, so it is important to ascertain which was used. As with Canon footage, using Sony’s own software can be a useful way of reading metadata from the files which might not otherwise be available. Some Sony cameras also include XML files with the media, which can provide useful information.
@@ -486,7 +486,7 @@ White Point
 0.089, -0.087
 0.3127, 0.3290 (D65)
 
-\subsection{ACEScc}
+\subsection{ACEScc}%
 \label{subsec:acescc}
 
 ACEScc is a logarithmic variant of the ACES color space for use in grading. It is a pure log curve, so each stop change of exposure is represented by an equal offset of the ACEScc value throughout the range. It uses AP1 primaries, which are the same as those used by ACEScg. Being a pure log curve, ACEScc cannot encode negative values (although the ACES spec asks that implementers provide some means of handling negative values in order to preserve them through a transform to ACEScc and back). It encodes a very wide dynamic range, with 1.0 representing a linear value of 222.86, or 10.27 stops above mid-grey.
@@ -527,7 +527,7 @@ White Point
 0.128, 0.044
 0.32168, 0.33767
 
-\subsection{ACEScct}
+\subsection{ACEScct}%
 \label{subsec:acescct}
 ACEScct is a variation on ACEScc, which is identical through most of the curve but adds a linear portion near black to create a toe, and to allow for the encoding of negative values. Because the toe of the resulting curve makes it more similar to camera log encodings than the pure log of ACEScc, it responds in a more comparable way to grading operations.
 
@@ -549,7 +549,7 @@ The decoding function is:
 	else:
 		L = 65504
 
-\subsection{Cineon}
+\subsection{Cineon}%
 \label{subsec:cineon}
 
 The Cineon log encoding differs from digital motion-picture camera log encodings in that Cineon is a logarithmic encoding of the actual optical density of the film negative. The non-linearities and cross-channel effects of film mean that there are no CIE xy values which can be said to be the primaries of a Cineon encoding. This means that there is not one formula which precisely reverts Cineon film scans to scene-referred linear. Various functions are proposed for linearising film scans.

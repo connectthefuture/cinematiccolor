@@ -1,7 +1,7 @@
-\section{Full and Legal ranges}
+\section{Full and Legal ranges}%
 \label{sec:full-and-legal-ranges}
 
-\subsection{Legal Range}
+\subsection{Legal Range}%
 \label{subsec:legal-range}
 
 When image data is stored or transmitted in an integer form, such as DPX files or over SDI signals, it is necessary to map the levels in the image to the available code values. When digital representation of video signals was devised, it was decided to allow for overshoot and undershoot outside the range from black to white, in order not to clip analog signals which might not sit accurately within that range. Thus it was decided that black should be coded as 8 bit 16 or 10 bit 64, and white should be coded as 8 bit 235 or 10 bit 940. This coding is referred to by a number of names, including Legal Range, SMPTE Range, Narrow Range, Video Range, and Head Range. The mapping from an output referred float representation (v) where display black is represented by 0.0 and display white by 1.0 can be generalized as follows:
@@ -10,7 +10,7 @@ When image data is stored or transmitted in an integer form, such as DPX files o
 
 where n is the encoding bit depth.
 
-\subsection{Full Range}
+\subsection{Full Range}%
 \label{subsec:full-range}
 
 The alternative is simply to use all the available integer code values to encode the range from black to white. This approach is unable to represent so-called “super-white” and “sub-black” (or “super-black” – a contradiction in terms, because the Latin prefix “super” means “above”) values. This coding is referred to as Full Range, Data Range or CG Range. It is also sometimes confusingly called RGB Range, due to to the fact that Y'CbCr coding uses legal range to code the Y' signal, so RGB is deemed to use the alternate coding, even though this is not always the case. Full range coding can be generalized as:
