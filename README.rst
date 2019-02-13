@@ -79,8 +79,8 @@ dedicated environment::
 .. note:: *Inkscape 0.92* command line usage on *macOs* requires passing images
     with an absolute path which breaks portability of the project.
     A `Inkscape wrapper <https://github.com/ves-tech/cinematiccolor/blob/master/utilities/inkscape>`_
-    exists in the `utilities` directory, this wrapped must be added to
-    **$PATH** and take precedence on *Inkscape* binary.
+    exists in the `utilities` directory, this wrapper must be added to
+    **$PATH** and takes precedence on *Inkscape* binary.
 
 Build
 -----
@@ -93,7 +93,7 @@ The *HTML* website is built as follows::
 
     invoke build-html
 
-The repository can be cleaned as follows:
+The repository can be cleaned as follows::
 
     invoke clean
 
