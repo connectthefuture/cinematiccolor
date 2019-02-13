@@ -23,8 +23,10 @@ texts listed below can provide a deeper understanding.
 \begin{itemize}
     \item \textit{Digital Color Management: Encoding Solutions, 2nd Edition}
 by~\textcite{Madden2007} provides an in-depth analysis of the nature of color
-images, digital color encoding, color management systems and digital color
-interchange.
+images, digital color encoding, color management systems
+~\footnote{\textit{Digital Color Management: Encoding Solutions, 2nd Edition}
+is influential in modern color management and roots some design decision of
+ACES.} and digital color interchange.
     \item \textit{Color Appearance Models}
 by~\textcite{Fairchild2013u} is the reference for the fundamental concepts and
 phenomena of color appearance.
@@ -39,11 +41,30 @@ systems.
 by~\textcite{Wyszecki2000bi} is the authoritative reference for colorimetry.
 \end{itemize}
 
-The authors of this paper are greatly indebted to the writers of these books.
+The authors of this document are greatly indebted to the writers of these
+books.
+\ccpar{}
+Dr.~Robert W.G. Hunt passed away during the writing of this section. His work
+is foundational to the color science community. Dr.~Hunt’s contributions to the
+understanding of human color perception and its application to the engineering
+of photographic systems laid the foundation for much of the color science that
+is used in the motion picture and gaming industries today. Besides being a
+brilliant scientist, Dr.~Hunt was a kind man always willing to share his
+knowledge, whether formally in one of the many classes he taught, or informally
+over coffee or a meal. Dr.~Hunt’s true passion was teaching others. A few of
+the authors of this document had the good fortune to have known and learned
+from Dr.~Hunt and were saddened to hear of his passing. His contributions to
+the field, friendship and mentorship will be missed.
 
-Dr. Robert W.G. Hunt passed away during the writing of this section. His work is foundational to the color science community. Dr. Hunt’s contributions to the understanding of human color perception and its application to the engineering of photographic systems laid the foundation for much of the color science that is used in the motion picture and gaming industries today. Besides being a brilliant scientist, Dr. Hunt was a kind man always willing to share his knowledge, whether formally in one of the many classes he taught, or informally over coffee or a meal. Dr. Hunt’s true passion was teaching others. A few of the authors of this document had the good fortune to have known and learned from Dr. Hunt and were saddened to hear of his passing. His contributions to the field, friendship and mentorship will be missed.
-
-A tribute to Dr. Robert W.G. Hunt: Light dispersion through a prism (bottom right) with the rainbow of color components lighting up The Reproduction of Colour (6th ed.) by Hunt (2004).
+\begin{figure}[H]
+    \includegraphics[alt={Hunt - Tribute.},width=\textwidth]{hunt-tribute.jpg}
+    \caption{
+        A tribute to Dr.~Robert W.G. Hunt: Light dispersion through a prism
+        (bottom right) with the rainbow of color components lighting up
+        \textit{The Reproduction of Colour (6th ed.)} by~\textcite{Hunt2004b}.
+    }%
+    \label{fig:hunt-tribute}
+\end{figure}
 
 Color management depends fundamentally on colorimetry, the measurement of color. Without colorimetry, it is not possible to characterize cameras and displays or understand the imaging principles that permeate the rest of computer graphics. While it is possible to immediately dive into color pipelines, having a rudimentary understanding of concepts such as spectral measurement, tristimulus values, or color appearance provides a richer understanding of why some approaches to color management are successful, and some are not.
 
