@@ -1,0 +1,7 @@
+% https://tex.stackexchange.com/questions/474587/tex4ht-generates-double-footnotes-when-footnote-is-defined-inside-of-a-csquotes
+% From michal.h21 the TeX4ht hero.
+\long\def\csq@bquote@i#1#2#3#4#5#6{%
+\csq@bquote@ii{#1}{#2}{#3}{#4}{#5}{#6}}
+
+\Hinput{csquotes}
+\endinput
