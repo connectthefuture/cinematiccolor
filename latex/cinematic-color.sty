@@ -30,6 +30,16 @@
 
 \newcommand\ccpar{\par\null\par}
 
+% Custom environments.
+\newenvironment{cckeypoints}
+    {%
+        \unless\ifdefined\HCode%
+            \ccpar%
+        \fi
+        \large{\textbf{Concepts Review}}
+    }
+    {}
+
 % Listings code formatting.
 \definecolor{cclstcodebackground}{rgb}{0.95, 0.95, 0.95}
 \definecolor{cclstcodecomment}{rgb}{0.5, 0.5, 0.5}
