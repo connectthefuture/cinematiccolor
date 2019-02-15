@@ -10,8 +10,8 @@ This repository contains the source of the current
 
 The initial **Cinematic Color** repository as it was authored and published by
 `Jeremy Selan <https://github.com/jeremyselan>`_ is available at the
-`v2012 <https://github.com/ves-tech/cinematiccolor/releases/tag/v2012>`_ tag. The
-associated website content is available at the related
+`v2012 <https://github.com/ves-tech/cinematiccolor/releases/tag/v2012>`_ tag.
+The associated website content is available at the related
 `v2012-website <https://github.com/ves-tech/cinematiccolor/releases/tag/v2012-website>`_
 tag.
 
@@ -56,10 +56,10 @@ macOs
 
 Assuming you have `Homebrew <https://brew.sh/>`_ installed::
 
-    brew install mactex
     brew install tidy-html5
     brew tap caskroom/cask
-    brew install inkscape
+    brew cask install mactex
+    brew cask install inkscape
 
 The *LaTeX* distribution needs to be updated, preparing a coffee might be a
 good idea because it is long::
