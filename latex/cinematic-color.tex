@@ -3,13 +3,14 @@
 \usepackage{amsmath}
 \usepackage[english]{babel}
 \usepackage[backend=biber,style=apa]{biblatex}
-\usepackage{cmbright}
 \usepackage{float}
 \usepackage[T1]{fontenc}
 \usepackage[bottom]{footmisc}
 \usepackage[utf8]{inputenc}
 \usepackage{svg}
 \usepackage{textcomp}
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage[default,osf]{sourcesanspro}
 
 \usepackage{cinematic-color}
 
@@ -29,7 +30,10 @@
 
 \input{chapters/preface/preface.tex}
 
-\tableofcontents
+% TODO : Modify TOC page numbers to use lining or old-style tabular numerals
+\microtypesetup{protrusion=false}
+	\tableofcontents
+\microtypesetup{protrusion=true}
 
 \input{chapters/introduction/introduction.tex}
 
