@@ -28,7 +28,7 @@ __all__ = [
     'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY', 'ASSETS_DIRECTORY',
     'JERI_DIRECTORY', 'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY',
     'HTML_RELEASE_DIRECTORY', 'TIDY_HTML', 'message_box', 'clean',
-    'formatting', 'serve', 'build_pdf', 'build_html'
+    'formatting', 'serve', 'build_pdf', 'build_html', 'build_all', 'gh_deploy'
 ]
 
 INDEX_DOCUMENT_NAME = 'index.tex'
@@ -363,6 +363,25 @@ def build_html(ctx, process_html=True):
         ctx.run('mv {0} {1}'.format(
             INDEX_DOCUMENT_NAME.replace('tex', 'html'),
             'no-{0}'.format(INDEX_DOCUMENT_NAME)).replace('tex', 'html'))
+
+
+@task(clean, build_pdf, build_html)
+def build_all(ctx):
+    """
+    Cleans and builds all the targets, i.e. *PDF* and *HTML* website.
+
+    Parameters
+    ----------
+    ctx : invoke.context.Context
+        Context.
+
+    Returns
+    -------
+    bool
+        Task success.
+    """
+
+    message_box('Building all targets...')
 
 
 @task(clean, build_html)

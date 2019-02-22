@@ -100,6 +100,11 @@ It is possible to chain multiple commands as follows::
 
     invoke clean build-pdf build-html
 
+Cleaning and building all the targets, i.e. *PDF* and *HTML* website, is done
+as follows::
+
+    invoke build-all
+
 About
 -----
 
