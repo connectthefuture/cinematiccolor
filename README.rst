@@ -27,16 +27,15 @@ requires a few commands to build both the *HTML* website and the *PDF* document.
 
 .. note:: The build process only works on *Linux* and *macOs* currently.
 
-It is possible to edit the *LaTeX* source with the editor of your choice, and
-generate the *PDF* document with it.
+It is possible to edit the *LaTeX* source with any editor, and generate the
+*PDF* document with it.
 
 Primary Dependencies
 ^^^^^^^^^^^^^^^^^^^^
 
 **Cinematic Color** requires various dependencies in order to build:
 
--   `LaTeX <https://www.latex-project.org/>`_
-    on *macOs*.
+-   `LaTeX <https://www.latex-project.org/>`_ (`MacTeX <http://www.tug.org/mactex/>`_ on *macOs*).
 -   `Inkscape <https://inkscape.org/>`_
 -   `Tidy <http://www.html-tidy.org/>`_
 -   `Python 3.6 <https://www.python.org/download/releases/>`_
@@ -54,7 +53,7 @@ Secondary Dependencies
 macOs
 ^^^^^
 
-Assuming you have `Homebrew <https://brew.sh/>`_ installed::
+Assuming `Homebrew <https://brew.sh/>`_ is installed::
 
     brew install tidy-html5
     brew tap caskroom/cask
