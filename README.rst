@@ -105,6 +105,22 @@ as follows::
 
     invoke build-all
 
+Overleaf
+^^^^^^^^
+
+`Overleaf <https://www.overleaf.com/>`_ can be used to edit the *LaTeX* source:
+
+-   *Fork* the `Cinematic Color <https://github.com/ves-tech/cinematiccolor/>`_
+    repository.
+-   Create a new project in *Overleaf*, use the *Import from Github* option and
+    choose the newly created *Fork*.
+-   Perform your edits and push them to the *Fork* using the *Overleaf* menu
+    *Sync --> Github* option.
+-   Once the edits are pushed to the *Fork*,
+    `create a Pull Request <https://help.github.com/en/articles/creating-a-pull-request>`_.
+-   The *Fork* can be kept in sync with the *Cinematic Color* repository by
+    following this `Github guide <https://help.github.com/en/articles/syncing-a-fork>`_.
+
 About
 -----
 
