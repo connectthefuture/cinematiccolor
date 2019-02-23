@@ -23,21 +23,21 @@
 \SetCiteCommand{\parencite}
 
 % Custom commands.
-\newcommand{\ccachromaticnameref}[1]{{\hypersetup{hidelinks}\nameref{#1}}}
+\newcommand{\ccAchromaticNameref}[1]{{\hypersetup{hidelinks}\nameref{#1}}}
 
-\newcommand\cclatexnewline{\unless\ifdefined\HCode\\\fi}
-\newcommand\cclatexhline{\unless\ifdefined\HCode\hline\fi}
+\newcommand\ccLatexNewline{\unless\ifdefined\HCode\\\fi}
+\newcommand\ccLatexHLine{\unless\ifdefined\HCode\hline\fi}
 
-\newcommand\ccpar{\par\null\par}
+\newcommand\ccPar{\par\null\par}
 
-% URL typeface
-\def\UrlFont{\sf}
+% URL typeface.
+\def\ccUrlFont{\sf}
 
 % Custom environments.
-\newenvironment{cckeypoints}
+\newenvironment{ccKeyPoints}
     {%
         \unless\ifdefined\HCode%
-            \ccpar%
+            \ccPar%
         \fi
         \large{\textbf{Concepts Review}}
     }

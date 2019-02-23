@@ -1,9 +1,9 @@
 \define@key{Gin}{alt}{\Configure{GraphicsAlt}{#1}}
 
-\NewConfigure{ccachromaticnameref}{2}
-\def\:temp#1{\a:ccachromaticnameref\o:ccachromaticnameref:{#1}\b:ccachromaticnameref}
-\HLet\ccachromaticnameref\:temp
+\NewConfigure{ccAchromaticNameref}{2}
+\def\:temp#1{\a:ccAchromaticNameref\o:ccAchromaticNameref:{#1}\b:ccAchromaticNameref}
+\HLet\ccAchromaticNameref\:temp
 
-\Configure{ccachromaticnameref}{\HCode{<span class="achromatic-link">}}{\HCode{</span>}}
+\Configure{ccAchromaticNameref}{\HCode{<span class="achromatic-link">}}{\HCode{</span>}}
 
 \Hinput{cinematic-color}

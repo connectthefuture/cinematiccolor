@@ -43,11 +43,11 @@ veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
 sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-\ccpar{}
+\ccPar{}
 Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
 adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
 dolore magnam aliquam quaerat voluptatem.
-\ccpar{}
+\ccPar{}
 Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
 laboriosam, nisi ut aliquid ex ea commodi consequatur?
 \end{lstlisting}
@@ -74,11 +74,11 @@ veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
 sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-\ccpar{}
+\ccPar{}
 Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
 adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
 dolore magnam aliquam quaerat voluptatem.
-\ccpar{}
+\ccPar{}
 Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
 laboriosam, nisi ut aliquid ex ea commodi consequatur?
 
@@ -150,7 +150,7 @@ experiences or even precisely define color.}
 \label{sec:key-points-and-concepts-review}
 
 \begin{lstlisting}[caption={Key points and concepts review.}]
-\begin{cckeypoints}
+\begin{ccKeyPoints}
     \begin{itemize}
         \item Color science studies the human perception of color,
 its measurement, and characterization.
@@ -159,10 +159,10 @@ scientific field.
         \item Color is the characteristic of a visual perception.
         \item Color management depends on colorimetry, the measurement of color.
     \end{itemize}
-\end{cckeypoints}
+\end{ccKeyPoints}
 \end{lstlisting}
 
-\begin{cckeypoints}
+\begin{ccKeyPoints}
     \begin{itemize}
         \item Color science studies the human perception of color,
 its measurement, and characterization.
@@ -171,7 +171,7 @@ scientific field.
         \item Color is the characteristic of a visual perception.
         \item Color management depends on colorimetry, the measurement of color.
     \end{itemize}
-\end{cckeypoints}
+\end{ccKeyPoints}
 
 \section*{Hyperlinks}%
 \label{sec:hyperlinks}
@@ -193,7 +193,7 @@ A link to Section~\ref{subsubsec:abney-effect}.
 
 A named link to Section~\nameref{subsubsec:abney-effect}.
 
-An achromatic named link to~\ccachromaticnameref{subsubsec:abney-effect} section.
+An achromatic named link to~\ccAchromaticNameref{subsubsec:abney-effect} section.
 \end{lstlisting}
 
 Some links to Equations~\ref{eq:e-mc2},~\ref{eq:a-fracpir22}, and~\ref{eq:2x5y-8}.
@@ -212,7 +212,7 @@ A link to Section~\ref{subsubsec:abney-effect}.
 
 A named link to Section~\nameref{subsubsec:abney-effect}.
 
-An achromatic named link to~\ccachromaticnameref{subsubsec:abney-effect} section.
+An achromatic named link to~\ccAchromaticNameref{subsubsec:abney-effect} section.
 
 \section*{Lists}%
 \label{sec:lists}
@@ -285,11 +285,11 @@ An achromatic named link to~\ccachromaticnameref{subsubsec:abney-effect} section
 \begin{lstlisting}[caption={A table with mathematics.}]
 \begin{table}[H]
     \begin{tabular}{l c c c c c c c c c c c}
-        \cclatexhline
+        \ccLatexHLine
         $\boldsymbol{EV}$ & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
-        \cclatexhline
-        $\boldsymbol{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \cclatexnewline
-        \cclatexhline
+        \ccLatexHLine
+        $\boldsymbol{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \ccLatexNewline
+        \ccLatexHLine
     \end{tabular}
     \caption{A table with mathematics.}
     \label{tab:a-table-with-mathematics}
@@ -298,11 +298,11 @@ An achromatic named link to~\ccachromaticnameref{subsubsec:abney-effect} section
 
 \begin{table}[H]
     \begin{tabular}{l c c c c c c c c c c c}
-        \cclatexhline
+        \ccLatexHLine
         $\boldsymbol{EV}$ & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
-        \cclatexhline
-        $\boldsymbol{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \cclatexnewline
-        \cclatexhline
+        \ccLatexHLine
+        $\boldsymbol{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \ccLatexNewline
+        \ccLatexHLine
     \end{tabular}
     \caption{A table with mathematics.}
     \label{tab:a-table-with-mathematics}
@@ -435,7 +435,7 @@ and \textit{PDF} outputs.
         \includegraphics[alt={CIE Standard Illuminant A.},width=0.475\textwidth]{mitsuba-cornellbox-metamerism-A.jpg}
     \fi
     \ifdefined\HCode
-        \ccjericontainer{simple-jeri-embedding}
+        \ccJeriContainer{simple-jeri-embedding}
         \JavaScript
             const simpleJeriEmbeddingData = {
                 title: 'Simple Jeri Embedding',
@@ -465,7 +465,7 @@ and \textit{PDF} outputs.
         \includegraphics[alt={CIE Standard Illuminant A.},width=0.475\textwidth]{mitsuba-cornellbox-metamerism-A.jpg}
     \fi
     \ifdefined\HCode
-        \ccjericontainer{simple-jeri-embedding}
+        \ccJeriContainer{simple-jeri-embedding}
         \JavaScript
             const simpleJeriEmbeddingData = {
                 title: 'Simple Jeri Embedding',
@@ -497,7 +497,7 @@ output thus it not recommended to use nested tabs.
 \begin{lstlisting}[caption={Complex \textit{Jeri} Embedding.}]
 \begin{figure}[H]
     \ifdefined\HCode
-        \ccjericontainer{complex-jeri-embedding}
+        \ccJeriContainer{complex-jeri-embedding}
         \JavaScript
             const complexJeriEmbeddingData = {
                 title: 'Complex Jeri Embedding',
@@ -535,7 +535,7 @@ output thus it not recommended to use nested tabs.
 
 \begin{figure}[H]
     \ifdefined\HCode
-        \ccjericontainer{complex-jeri-embedding}
+        \ccJeriContainer{complex-jeri-embedding}
         \JavaScript
             const complexJeriEmbeddingData = {
                 title: 'Complex Jeri Embedding',
