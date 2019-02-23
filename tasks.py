@@ -154,10 +154,8 @@ def clean(ctx, bytecode=False):
     message_box('Cleaning project...')
 
     patterns = [
-        PDF_BUILD_DIRECTORY,
-        HTML_BUILD_DIRECTORY,
-        '{0}/*'.format(HTML_RELEASE_DIRECTORY),
-        '**/.DS_Store'
+        PDF_BUILD_DIRECTORY, HTML_BUILD_DIRECTORY,
+        '{0}/*'.format(HTML_RELEASE_DIRECTORY), '**/.DS_Store'
     ]
 
     if bytecode:
@@ -358,6 +356,12 @@ def build_html(ctx, process_html=True):
         process.process_title(html_file)
         process.process_index(html_file)
         subprocess.call(TIDY_HTML + [html_file])
+
+    for document_name in (ROOT_DOCUMENT_NAME, INDEX_DOCUMENT_NAME):
+        css_file = os.path.join(HTML_RELEASE_DIRECTORY, document_name).replace(
+            'tex', 'css')
+        print('Processing "{0}" file...'.format(css_file))
+        process.process_css(css_file)
 
     with ctx.cd(HTML_RELEASE_DIRECTORY):
         ctx.run('mv {0} {1}'.format(

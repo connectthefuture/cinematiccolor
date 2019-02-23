@@ -22,9 +22,9 @@ __all__ = [
     'ENCODING', 'NAVBAR_TEMPLATE', 'NAVBAR_DROPDOWN_LI_TEMPLATE',
     'NAVBAR_DROPDOWN_A_TEMPLATE', 'NAVBAR_DROPDOWN_DIV_TEMPLATE',
     'NAVBAR_DROPDOWN_ITEM_TEMPLATE', 'NAVBAR_A_TEMPLATE', 'SUBTITLE_TEMPLATE',
-    'AUTHORS_UL_TEMPLATE', 'AUTHORS_LI_TEMPLATE', 'parse_sections',
-    'parse_toc', 'build_navigation', 'process_title', 'process_html',
-    'process_index'
+    'AUTHORS_UL_TEMPLATE', 'AUTHORS_LI_TEMPLATE', 'CSS_PATTERNS',
+    'parse_sections', 'parse_toc', 'build_navigation', 'process_title',
+    'process_html', 'process_css', 'process_index'
 ]
 
 codecs.register_error('strict', codecs.ignore_errors)
@@ -75,6 +75,12 @@ SUBTITLE_TEMPLATE = '<h2 class="sub-title">{text}</h2>'
 AUTHORS_UL_TEMPLATE = '<ul class="list-inline pt-3">{text}</ul>'
 
 AUTHORS_LI_TEMPLATE = '<li class="list-inline-item">{text}</li>'
+
+CSS_PATTERNS = ((
+    'font-family: sans-serif;',
+    'font-family: '
+    '"Source Sans Pro", "Segoe UI", Calibri, Candara, Arial, sans-serif;',
+), )
 
 
 def _sanitize_filename(filename):
@@ -177,7 +183,7 @@ def parse_toc(path):
     return toc
 
 
-def conform_filenames(toc, root_directory, extra_patterns=None):
+def conform_filenames(toc, root_directory, patterns=None):
     """
     Conforms the *HTML* filenames in given root directory and according to
     given table of content.
@@ -188,9 +194,12 @@ def conform_filenames(toc, root_directory, extra_patterns=None):
         Table of content.
     root_directory : unicode
         Directory to conform the *HTML* filenames.
-    extra_patterns : array_like, optional
-        Extra patterns to search and replace for.
+    patterns : array_like, optional
+        Patterns to search and replace for.
     """
+
+    if patterns is None:
+        patterns = []
 
     def _reference_path(filename):
         """
@@ -200,7 +209,7 @@ def conform_filenames(toc, root_directory, extra_patterns=None):
         return os.path.join(root_directory, '{0}.html'.format(
             filename.replace(' ', '')))
 
-    patterns = extra_patterns[:]
+    patterns = patterns[:]
     for chapter, sections in toc.items():
         chapter_base = _sanitize_filename(chapter)
         chapter_path = _reference_path(chapter_base)
@@ -452,6 +461,38 @@ def process_html(path, navigation):
 
     with codecs.open(path, 'w', encoding=ENCODING) as html_file:
         html_file.write(str(html))
+
+    return True
+
+
+def process_css(path, patterns=CSS_PATTERNS):
+    """
+    Process the *CSS* file at given path.
+
+    Parameters
+    ----------
+    path : unicode
+        Path of the *CSS* file to process.
+    patterns : array_like, optional
+        Patterns to search and replace for.
+
+    Returns
+    -------
+    bool
+        Definition success.
+    """
+
+    if patterns is None:
+        patterns = []
+
+    with codecs.open(path, encoding=ENCODING) as css_file:
+        css = list(OrderedDict.fromkeys(css_file.readlines()))
+        for i, line in enumerate(css):
+            for pattern, replacement in patterns:
+                css[i] = re.sub(pattern, replacement, line)
+
+    with codecs.open(path, 'w', encoding=ENCODING) as css_file:
+        css_file.write(''.join(css))
 
     return True
 
