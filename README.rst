@@ -3,7 +3,7 @@ Cinematic Color
 
 **A VES Technology Committee White Paper**
 
-..  image:: https://raw.githubusercontent.com/ves-tech/cinematiccolor/master/assets/images/cinematic-color-jumbotron.jpg
+..  image:: https://raw.githubusercontent.com/ves-tech/cinematiccolor/master/latex/assets/images/cinematic-color-jumbotron.jpg
 
 This repository contains the source of the current
 `Cinematic Color <http://cinematiccolor.org>`_ website and associated publication.
