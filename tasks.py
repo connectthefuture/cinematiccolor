@@ -363,10 +363,12 @@ def build_html(ctx, process_html=True):
         print('Processing "{0}" file...'.format(css_file))
         process.process_css(css_file)
 
+    # Stand-in process.
     with ctx.cd(HTML_RELEASE_DIRECTORY):
         ctx.run('mv {0} {1}'.format(
             INDEX_DOCUMENT_NAME.replace('tex', 'html'),
             'no-{0}'.format(INDEX_DOCUMENT_NAME)).replace('tex', 'html'))
+        ctx.run('cp -r ../stand-in/* .')
 
 
 @task(clean, build_pdf, build_html)
