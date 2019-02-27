@@ -126,7 +126,7 @@ Visual Studio Code and LaTeX Workshop
 
 `Visual Studio Code <https://code.visualstudio.com/>`_ can be used along with
 the `LaTeX Workshop <https://github.com/James-Yu/LaTeX-Workshop>`_ extension to
-edit the *LaTeX* source. The following settings are recommended::
+edit the *LaTeX* source. The following settings are recommended:
 
 .. code:: json
 
