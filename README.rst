@@ -121,6 +121,47 @@ Overleaf
 -   The *Fork* can be kept in sync with the *Cinematic Color* repository by
     following this `Github guide <https://help.github.com/en/articles/syncing-a-fork>`_.
 
+Visual Studio Code and LaTeX Workshop
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Visual Studio Code <https://code.visualstudio.com/>`_ can be used along with
+the `LaTeX Workshop <https://github.com/James-Yu/LaTeX-Workshop>`_ extension to
+edit the *LaTeX* source. The following settings are recommended::
+
+.. code:: json
+
+    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.latex.recipes": [{
+        "name": "pdflatex ➞ biber ➞ pdflatex × 2",
+        "tools": [
+            "pdflatex",
+            "biber",
+            "pdflatex",
+            "pdflatex"
+        ]
+    }],
+    "latex-workshop.latex.tools": [{
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "--shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "args": [
+                "%DOCFILE%"
+            ],
+            "command": "biber",
+            "env": {},
+            "name": "biber"
+        }
+    ]
+
 About
 -----
 
