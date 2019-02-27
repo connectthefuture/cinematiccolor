@@ -11,18 +11,18 @@ The CDL defines a color correction, with a fixed series of steps/ordering:
 
 Having a fixed order is not always ideal. For example, given a single CDL you cannot desaturate the image to grey-scale, and then tint the image using scales and offsets. (The opposite is possible, of course). But having an unambiguous way to interchange simple grade data is a huge improvement in interoperability. The ASC has also defined an XML format for the grade data. The Scaling, Offset and Power are sent as 9 numbers (the SOP) and saturation is sent as a single number (SAT).
 
-	<ColorCorrectionCollection>
-	<ColorCorrection id="example_correction_01">
-			<SOPNode>
-		<Slope> 1.1 1.1 1.1 </Slope>
-		<Offset> -0.05 -0.01 0.05 </Offset>
-		<Power> 1.0 1.0 1.0 </Power>
-	</SOPNode>
-	<SatNode>
-		<Saturation> 1.1 </Saturation>
-	</SatNode>
-</ColorCorrection>
-	</ColorCorrectionCollection>
+% 	<ColorCorrectionCollection>
+% 	<ColorCorrection id="example_correction_01">
+% 			<SOPNode>
+% 		<Slope> 1.1 1.1 1.1 </Slope>
+% 		<Offset> -0.05 -0.01 0.05 </Offset>
+% 		<Power> 1.0 1.0 1.0 </Power>
+% 	</SOPNode>
+% 	<SatNode>
+% 		<Saturation> 1.1 </Saturation>
+% 	</SatNode>
+% </ColorCorrection>
+% 	</ColorCorrectionCollection>
 
 Example .ccc (Color Correction Collection) xml file demonstrating the SOP and Sat elements.
 
