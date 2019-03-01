@@ -279,8 +279,8 @@ def build_html(ctx, process_html=True):
 
     ctx.run('cp -r {0} {1}'.format(ASSETS_DIRECTORY, HTML_BUILD_DIRECTORY))
 
-    # "ToC" file generation requires invoking "latex" two times.
     with ctx.cd(HTML_BUILD_DIRECTORY):
+        # ".toc" and ".bbl" file generation.
         ctx.run(
             'pdflatex --shell-escape -interaction=nonstopmode {0}'.format(
                 ROOT_DOCUMENT_NAME),
@@ -288,6 +288,7 @@ def build_html(ctx, process_html=True):
         ctx.run(
             'biber {0}'.format(ROOT_DOCUMENT_NAME.replace('tex', 'bcf')),
             warn=True)
+        # "TeX4Ht" invokation.
         ctx.run(
             'make4ht -ul -c {0} {1} '
             '"" '
