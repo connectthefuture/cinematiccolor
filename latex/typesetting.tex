@@ -262,11 +262,11 @@ An achromatic named link to~\ccAchromaticNameref{subsubsec:abney-effect} section
 \begin{lstlisting}[caption={A table with mathematics.}]
 \begin{table}[H]
     \begin{tabular}{l c c c c c c c c c c c}
-        \ccLatexHLine
+        \ccLatexHLine%
         $\boldsymbol{EV}$ & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
-        \ccLatexHLine
-        $\boldsymbol{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \ccLatexNewline
-        \ccLatexHLine
+        \ccLatexHLine%
+        $\boldsymbol{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \ccLatexNewline%
+        \ccLatexHLine%
     \end{tabular}
     \caption{A table with mathematics.}%
     \label{tab:a-table-with-mathematics}
@@ -275,11 +275,11 @@ An achromatic named link to~\ccAchromaticNameref{subsubsec:abney-effect} section
 
 \begin{table}[H]
     \begin{tabular}{l c c c c c c c c c c c}
-        \ccLatexHLine
+        \ccLatexHLine%
         $\boldsymbol{EV}$ & -8 & -3 & -2 & -1 & -0.5 & 0 & 0.5 & 1 & 2 & 3 & 8 \\
-        \ccLatexHLine
-        $\boldsymbol{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \ccLatexNewline
-        \ccLatexHLine
+        \ccLatexHLine%
+        $\boldsymbol{2^{EV}}$ & 0.004 & 0.125 & 0.25 & 0.5 & 0.707 & 1 & 1.414 & 2 & 4 & 8 & 256 \ccLatexNewline%
+        \ccLatexHLine%
     \end{tabular}
     \caption{A table with mathematics.}%
     \label{tab:a-table-with-mathematics}
@@ -391,13 +391,13 @@ A simple \textit{Jeri} embedding example that shows in both the \textit{HTML} an
 
 \begin{lstlisting}[caption={Simple \textit{Jeri} Embedding.}]
 \begin{figure}[H]
-    \unless\ifdefined\HCode
+    \unless\ifdefined\HCode%
         \includegraphics[alt={Illuminant E.},width=0.475\textwidth]{mitsuba-cornellbox-metamerism-E.jpg}\hfill
         \includegraphics[alt={CIE Standard Illuminant A.},width=0.475\textwidth]{mitsuba-cornellbox-metamerism-A.jpg}
     \fi
-    \ifdefined\HCode
+    \ifdefined\HCode%
         \ccJeriContainer{simple-jeri-embedding}
-        \JavaScript
+        \JavaScript%
             const simpleJeriEmbeddingData = {
                 title: 'Simple Jeri Embedding',
                 children: [{
@@ -411,7 +411,7 @@ A simple \textit{Jeri} embedding example that shows in both the \textit{HTML} an
                 ]
             };
             Jeri.renderViewer(document.getElementById('simple-jeri-embedding'), simpleJeriEmbeddingData);
-        \EndJavaScript
+        \EndJavaScript%
     \fi
     \caption{Simple \textit{Jeri} Embedding.}%
     \label{fig:simple-jeri-embedding}
@@ -419,13 +419,13 @@ A simple \textit{Jeri} embedding example that shows in both the \textit{HTML} an
 \end{lstlisting}
 
 \begin{figure}[H]
-    \unless\ifdefined\HCode
+    \unless\ifdefined\HCode%
         \includegraphics[alt={Illuminant E.},width=0.475\textwidth]{mitsuba-cornellbox-metamerism-E.jpg}\hfill
         \includegraphics[alt={CIE Standard Illuminant A.},width=0.475\textwidth]{mitsuba-cornellbox-metamerism-A.jpg}
     \fi
-    \ifdefined\HCode
+    \ifdefined\HCode%
         \ccJeriContainer{simple-jeri-embedding}
-        \JavaScript
+        \JavaScript%
             const simpleJeriEmbeddingData = {
                 title: 'Simple Jeri Embedding',
                 children: [{
@@ -439,7 +439,7 @@ A simple \textit{Jeri} embedding example that shows in both the \textit{HTML} an
                 ]
             };
             Jeri.renderViewer(document.getElementById('simple-jeri-embedding'), simpleJeriEmbeddingData);
-        \EndJavaScript
+        \EndJavaScript%
     \fi
     \caption{Simple \textit{Jeri} Embedding.}%
     \label{fig:simple-jeri-embedding}
@@ -452,9 +452,9 @@ The nested tab hierarchy has no elegant equivalent in the \textit{PDF} output th
 
 \begin{lstlisting}[caption={Complex \textit{Jeri} Embedding.}]
 \begin{figure}[H]
-    \ifdefined\HCode
+    \ifdefined\HCode%
         \ccJeriContainer{complex-jeri-embedding}
-        \JavaScript
+        \JavaScript%
             const complexJeriEmbeddingData = {
                 title: 'Complex Jeri Embedding',
                 children: [{
@@ -480,7 +480,7 @@ The nested tab hierarchy has no elegant equivalent in the \textit{PDF} output th
                 ]
             };
             Jeri.renderViewer(document.getElementById('complex-jeri-embedding'), complexJeriEmbeddingData);
-        \EndJavaScript
+        \EndJavaScript%
     \fi
     \caption{Complex \textit{Jeri} Embedding.}%
     \label{fig:complex-jeri-embedding}
@@ -488,9 +488,9 @@ The nested tab hierarchy has no elegant equivalent in the \textit{PDF} output th
 \end{lstlisting}
 
 \begin{figure}[H]
-    \ifdefined\HCode
+    \ifdefined\HCode%
         \ccJeriContainer{complex-jeri-embedding}
-        \JavaScript
+        \JavaScript%
             const complexJeriEmbeddingData = {
                 title: 'Complex Jeri Embedding',
                 children: [{
