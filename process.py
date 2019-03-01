@@ -239,7 +239,12 @@ def conform_filenames(toc, root_directory, patterns=None):
             content = html_file.read()
 
         with codecs.open(html_path, 'w', encoding=ENCODING) as html_file:
-            for pattern, replacement in patterns:
+            # Replace patterns using longest first, avoids issues such as
+            # "AboutColorScience" being replaced with "Aboutcolor-science".
+            for pattern, replacement in sorted(
+                        patterns,
+                        reverse=True,
+                        key=lambda x: len(x[-1])):
                 content = content.replace(pattern, replacement)
 
             html_file.write(content)
