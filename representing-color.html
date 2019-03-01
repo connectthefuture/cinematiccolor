@@ -350,34 +350,27 @@
           the sign, allowing the coding of negative values as well.
           4 Œ 2-3 = 4 Œ = ¡ 5 Œ 2-3 = 5 Œ = 6 Œ 2-3 = 6 Œ = ¿ 4 Œ
           22 = 16 5 Œ 22 = 20 6 Œ 22 = 24 4 Œ 28 = 1024 5 Œ 28 =
-          1280 6 Œ 28 = 1536 This approach allows for an almost
-          ideal representation of scene-referred imagery, providing
-          adequate precision in both the shadows and the
-          highlights. In modern visual effects and color pipelines,
-          OpenEXR by Industrial Light Magic (2003) is most commonly
-          used to store floating-point imagery and helped to
-          popularize the 16 bit half-float format. For games, where
-          the balance between performance and memory use (or both)
-          and quality often lies firmly towards performance,
-          smaller floating point formats dropping the sign bit or
-          having less precision (or both) are common. For more
-          information on these, please refer to sections 3.4.3,
-          3.4.4.1 and 3.5.3. For storage and performance reasons,
-          it is common to encode high-dynamic range, scene-referred
-          color spaces with integer representations. Digital motion
-          picture cameras often record 10 or 12 bit integer media,
-          e.g. ProRes, X-AVC, HDCAM SR or DPX files using an
-          integer logarithmic encoding. It allows for most of the
-          benefits of floating point representations, without
-          actually requiring floating-point storage media. Being
-          integer, logarithmic image data is also suitable for
-          transporting over SDI. In logarithmic encodings,
-          successive code values in the integer log space map to
-          multiplicative values in linear space. Put more
-          intuitively, this is analogous to converting each pixel
-          to a representation of the number of stops above or below
-          a reference level, and then storing an integer
-          representation of this quantity.</p>
+          1280 6 Œ 28 = 1536 For games, where the balance between
+          performance and memory use (or both) and quality often
+          lies firmly towards performance, smaller floating point
+          formats dropping the sign bit or having less precision
+          (or both) are common. For more information on these,
+          please refer to sections 3.4.3, 3.4.4.1 and 3.5.3. For
+          storage and performance reasons, it is common to encode
+          high-dynamic range, scene-referred color spaces with
+          integer representations. Digital motion picture cameras
+          often record 10 or 12 bit integer media, e.g. ProRes,
+          X-AVC, HDCAM SR or DPX files using an integer logarithmic
+          encoding. It allows for most of the benefits of floating
+          point representations, without actually requiring
+          floating-point storage media. Being integer, logarithmic
+          image data is also suitable for transporting over SDI. In
+          logarithmic encodings, successive code values in the
+          integer log space map to multiplicative values in linear
+          space. Put more intuitively, this is analogous to
+          converting each pixel to a representation of the number
+          of stops above or below a reference level, and then
+          storing an integer representation of this quantity.</p>
           <p class="indent">As logarithmic images encode an
           extensive dynamic range, most mid-tone pixels reside in
           the central portion of the encoded scale. Thus, if you
