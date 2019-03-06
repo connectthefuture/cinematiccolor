@@ -213,7 +213,7 @@ def serve(ctx, port=8900):
         ctx.run('python3 -m http.server {0};'.format(port))
 
 
-@task
+@task(asciify)
 def build_pdf(ctx):
     """
     Builds the *PDF*.
@@ -254,7 +254,7 @@ def build_pdf(ctx):
             warn=True)
 
 
-@task
+@task(asciify)
 def build_html(ctx, process_html=True):
     """
     Builds the *HTML* website.
@@ -373,7 +373,7 @@ def build_html(ctx, process_html=True):
         ctx.run('cp -r ../stand-in/* .')
 
 
-@task(clean, asciify, build_pdf, build_html)
+@task(clean, build_pdf, build_html)
 def build_all(ctx):
     """
     Cleans and builds all the targets, i.e. *PDF* and *HTML* website.
