@@ -1,53 +1,53 @@
 \section{Color Difference Encoding}%
 \label{sec:color-difference-encoding}
 
-Due to the human visual system’s greater sensitivity to detail in luminance than color, it is common to convert image data to a color opponent encoding such as Y′CBCR and to subsample the chroma channels in order to reduce bandwidth and storage requirements with minimal impact on the appearance of the image. While this is useful for monitoring and delivery, within a VFX pipeline it is preferable to maintain full resolution in all channels. A reduction in chroma resolution which is imperceptible to the eye, may have a negative impact on keying and other image processing.
-ITU-R BT.709 specifies the transform from R′G′B′ (note the primes, indicating that the image data is non-linearly encoded, not scene-referred linear) to Y′CBCR for HDTV, and these are the equations used by default in most software encoders and decoders, and almost all hardware implementations. The equations are as follows:
-	E′Y = 0.2126×E′R + 0.7152×E′G + 0.0722×E′B
-	E′CB =  (E′B − E′Y) / 1.8556
-	E′CR =  (E′R − E′Y) / 1.5748
-Where E′R, E′G and E′B are the non-linearly coded R′G′B′ values ranged 0-1, and E′Y, E′CB and E′CR are the resulting luma (it is important to differentiate this from luminance) and color difference signals. The luma is ranged 0-1 and the two color difference signals are ranged −0.5 to 0.5.
-The coefficients in the luma equation are derived from the second line of the Normalised Primary Matrix (RGB to CIE XYZ matrix) for the Rec. 709 primaries with D65 white, rounded to four decimal places. These are the coefficients which would convert scene-referred linear RGB to CIE luminance. Thus E′Y is an approximation of a non-linear coding of the relative luminance of a Rec. 709 color. For achromatic colors (R = G = B) it matches exactly.
+Due to the human visual system's greater sensitivity to detail in luminance than color, it is common to convert image data to a color opponent encoding such as Y?CBCR and to subsample the chroma channels in order to reduce bandwidth and storage requirements with minimal impact on the appearance of the image. While this is useful for monitoring and delivery, within a VFX pipeline it is preferable to maintain full resolution in all channels. A reduction in chroma resolution which is imperceptible to the eye, may have a negative impact on keying and other image processing.
+ITU-R BT.709 specifies the transform from R?G?B? (note the primes, indicating that the image data is non-linearly encoded, not scene-referred linear) to Y?CBCR for HDTV, and these are the equations used by default in most software encoders and decoders, and almost all hardware implementations. The equations are as follows:
+	E?Y = 0.2126?E?R + 0.7152?E?G + 0.0722?E?B
+	E?CB =  (E?B ? E?Y) / 1.8556
+	E?CR =  (E?R ? E?Y) / 1.5748
+Where E?R, E?G and E?B are the non-linearly coded R?G?B? values ranged 0-1, and E?Y, E?CB and E?CR are the resulting luma (it is important to differentiate this from luminance) and color difference signals. The luma is ranged 0-1 and the two color difference signals are ranged ?0.5 to 0.5.
+The coefficients in the luma equation are derived from the second line of the Normalised Primary Matrix (RGB to CIE XYZ matrix) for the Rec. 709 primaries with D65 white, rounded to four decimal places. These are the coefficients which would convert scene-referred linear RGB to CIE luminance. Thus E?Y is an approximation of a non-linear coding of the relative luminance of a Rec. 709 color. For achromatic colors (R = G = B) it matches exactly.
 When integer coded for transmission over SDI or HDMI, or storage in a file, these values are mapped to integer using the following equations:
-	D′Y = round((219×E′Y + 16)×2(n − 8))
-	D′CB = round((224×E′CB + 128)×2(n − 8))
-	D′CR = round((224×E′CR + 128)×2(n − 8))
+	D?Y = round((219?E?Y + 16)?2(n ? 8))
+	D?CB = round((224?E?CB + 128)?2(n ? 8))
+	D?CR = round((224?E?CR + 128)?2(n ? 8))
 Where n is the bit depth.
-JPEG coding uses a variation on this, where the 0-1 of the luma signal is mapped to the entire 0-255 range, and the −0.5 to 0.5 of the chroma components is mapped to 0-256, and the values then clamped to the 0-255 range for storage as 8 bit integer. But JPEG uses the older ITU-R BT.601 luma weightings (0.299, 0.587 and 0.114).
+JPEG coding uses a variation on this, where the 0-1 of the luma signal is mapped to the entire 0-255 range, and the ?0.5 to 0.5 of the chroma components is mapped to 0-256, and the values then clamped to the 0-255 range for storage as 8 bit integer. But JPEG uses the older ITU-R BT.601 luma weightings (0.299, 0.587 and 0.114).
 ITU-R BT.2020 specifies a different set of equations, with luma weighting coefficients derived from the Rec. 2020 primaries. It also defines two different color difference codings.
-The first is referred to as “non-constant luminance” because it follows the form of the Rec. 709 coding, where Y′ is not a non-linear encoding of relative luminance (a weighted sum of linear R, G and B) but rather is a weighted sum of the already non-linearly encoded R′, G′ and B′. The equations are as follows:
-	Y' = 0.2627×R'  0.6780×G'  0.0593×B'
-	C′B = (B′ − Y′) / 1.8814
-	C′R = (R′ − Y′) / 1.4746
-The second is referred to as “constant luminance” encoding, and takes linear R, G and B as input. The equations are as follows:
-	Y′C = f(0.2627×R  0.6780×G  0.0593×B)
-Where f(x) is the non-linear encoding function (the Rec. 2020 OETF, as given in Section 4.1.4). R, G and B are then non-linearly encoded with the same function to produce R′, G′ and B′, and the colour difference signals calculated as follows:
-	if NB ≤ B′ − Y′C ≤ 0:
-C′BC = (B′ − Y′C ) / −2×NB
-else if 0 < B′ − Y′C ≤ PB :
-	C′BC = (B′ − Y′C ) / 2×PB
-	if NR ≤ R′ − Y′C ≤ 0:
-C′RC = (R′ − Y′C ) / −2×NR
-else if 0 < R′ − Y′C ≤ PR :
-	C′RC = (R′ − Y′C ) / 2×PR
+The first is referred to as "non-constant luminance" because it follows the form of the Rec. 709 coding, where Y? is not a non-linear encoding of relative luminance (a weighted sum of linear R, G and B) but rather is a weighted sum of the already non-linearly encoded R?, G? and B?. The equations are as follows:
+	Y' = 0.2627?R'  0.6780?G'  0.0593?B'
+	C?B = (B? ? Y?) / 1.8814
+	C?R = (R? ? Y?) / 1.4746
+The second is referred to as "constant luminance" encoding, and takes linear R, G and B as input. The equations are as follows:
+	Y?C = f(0.2627?R  0.6780?G  0.0593?B)
+Where f(x) is the non-linear encoding function (the Rec. 2020 OETF, as given in Section 4.1.4). R, G and B are then non-linearly encoded with the same function to produce R?, G? and B?, and the colour difference signals calculated as follows:
+	if NB ? B? ? Y?C ? 0:
+C?BC = (B? ? Y?C ) / ?2?NB
+else if 0 < B? ? Y?C ? PB :
+	C?BC = (B? ? Y?C ) / 2?PB
+	if NR ? R? ? Y?C ? 0:
+C?RC = (R? ? Y?C ) / ?2?NR
+else if 0 < R? ? Y?C ? PR :
+	C?RC = (R? ? Y?C ) / 2?PR
 Where the constants are given precisely in the spec, but it is also noted that for practical purposes the following values can be used:
 	PB = 0.7910
 NB = 0.9702
 PR = 0.4969
 NR = 0.8591
-ITU-R BT.2020 specifies a new color difference encoding for HDR,  ICTCP.This is referred to as “constant intensity” encoding, and was originally developed by Dolby. This encoding first transforms linear RGB, range 0-1, to LMS using the following equations:
-	L = (1688×R + 2146×G + 262×B) / 4096
-M = (683×R + 2951×G + 462×B) / 4096
-S = (99×R + 309×G + 3688×B) / 4096
-These are then non-linearly encoded using either the PQ inverse EOTF or the HLG OETF, as appropriate, to produce L′M′S′, which is encoded as  ICTCP using the following equations:
+ITU-R BT.2020 specifies a new color difference encoding for HDR,  ICTCP.This is referred to as "constant intensity" encoding, and was originally developed by Dolby. This encoding first transforms linear RGB, range 0-1, to LMS using the following equations:
+	L = (1688?R + 2146?G + 262?B) / 4096
+M = (683?R + 2951?G + 462?B) / 4096
+S = (99?R + 309?G + 3688?B) / 4096
+These are then non-linearly encoded using either the PQ inverse EOTF or the HLG OETF, as appropriate, to produce L?M?S?, which is encoded as  ICTCP using the following equations:
 	I = 0.5L' + 0.5M'
-	CT = (6610×L' −13613×M' + 7003×S') / 4096
-CP = (17933×L' − 17390×M' − 543×S') / 4096
-Integer coding of all these uses the same method as given above for ITU-R BT.709. ITU-R BT.2020 additionally specifies a “full range” integer coding, as opposed to the standard coding (referred to as “narrow range”, see Section 4.7.1) where the luma / intensity component is encoded using:
-	D = round((2n − 1)×E′)
+	CT = (6610?L' ?13613?M' + 7003?S') / 4096
+CP = (17933?L' ? 17390?M' ? 543?S') / 4096
+Integer coding of all these uses the same method as given above for ITU-R BT.709. ITU-R BT.2020 additionally specifies a "full range" integer coding, as opposed to the standard coding (referred to as "narrow range", see Section 4.7.1) where the luma / intensity component is encoded using:
+	D = round((2n ? 1)?E?)
 and the chroma components using:
-	D = round((2n − 1)×E′ + 2(n − 1))
+	D = round((2n ? 1)?E? + 2(n ? 1))
 
 
-Writing in progress…
+Writing in progress?
 

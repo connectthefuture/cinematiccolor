@@ -24,12 +24,15 @@ __email__ = 'ves-tech-color@googlegroups.com'
 __status__ = 'Production'
 
 __all__ = [
-    'INDEX_DOCUMENT_NAME', 'ROOT_DOCUMENT_NAME', 'TYPESETTING_DOCUMENT_NAME',
-    'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY', 'ASSETS_DIRECTORY',
-    'JERI_DIRECTORY', 'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY',
-    'HTML_RELEASE_DIRECTORY', 'TIDY_HTML', 'message_box', 'clean',
-    'formatting', 'serve', 'build_pdf', 'build_html', 'build_all', 'gh_deploy'
+    'UTILITIES_DIRECTORY', 'INDEX_DOCUMENT_NAME', 'ROOT_DOCUMENT_NAME',
+    'TYPESETTING_DOCUMENT_NAME', 'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY',
+    'ASSETS_DIRECTORY', 'JERI_DIRECTORY', 'PDF_BUILD_DIRECTORY',
+    'HTML_BUILD_DIRECTORY', 'HTML_RELEASE_DIRECTORY', 'TIDY_HTML',
+    'message_box', 'clean', 'asciify', 'serve', 'build_pdf', 'build_html',
+    'build_all', 'gh_deploy'
 ]
+
+UTILITIES_DIRECTORY = 'utilities'
 
 INDEX_DOCUMENT_NAME = 'index.tex'
 
@@ -167,16 +170,14 @@ def clean(ctx, bytecode=False):
 
 
 @task
-def formatting(ctx, yapf=False):
+def asciify(ctx, ):
     """
-    Formats the codebase with *Yapf*.
+    Converts unicode characters to ASCII.
 
     Parameters
     ----------
     ctx : invoke.context.Context
         Context.
-    yapf : bool, optional
-        Whether to format the codebase with *Yapf*.
 
     Returns
     -------
@@ -184,9 +185,9 @@ def formatting(ctx, yapf=False):
         Task success.
     """
 
-    if yapf:
-        message_box('Formatting codebase with "Yapf"...')
-        ctx.run('yapf -p -i -r .')
+    message_box('Converting unicode characters to ASCII...')
+    with ctx.cd('utilities'):
+        ctx.run('./unicode_to_ascii.py')
 
 
 @task
@@ -372,7 +373,7 @@ def build_html(ctx, process_html=True):
         ctx.run('cp -r ../stand-in/* .')
 
 
-@task(clean, build_pdf, build_html)
+@task(clean, asciify, build_pdf, build_html)
 def build_all(ctx):
     """
     Cleans and builds all the targets, i.e. *PDF* and *HTML* website.

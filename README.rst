@@ -166,5 +166,5 @@ About
 -----
 
 | **Cinematic Color** by Cinematic Color Authors - 2012-2019
-| Copyright © 2012-2019 – Colour Developers – `ves-tech-color@googlegroups.com <ves-tech-color@googlegroups.com>`_
+| Copyright © 2012-2019 - Colour Developers - `ves-tech-color@googlegroups.com <ves-tech-color@googlegroups.com>`_
 | `https://github.com/ves-tech/cinematiccolor <https://github.com/ves-tech/cinematiccolor>`_

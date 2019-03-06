@@ -12,14 +12,14 @@ The primaries and white points of some common color encodings are plotted on the
 \subsection{Rec. 709}%
 \label{subsec:rec-709}
 
-ITU-R BT.709, commonly referred to as Rec. 709, specifies a D65 white point and a piecewise transfer function. It is important to be aware that the transfer function given for Rec. 709 is an encoding function (OETF) for a video camera, not an EOTF for a display, making it a scene-referred encoding. It is, in fact, rare to find the Rec. 709 curve implemented exactly in any camera, as video cameras often include a ‘knee’ for highlight compression and other user controls which cause the image to diverge from the standard. This means that it is not normally possible to accurately invert Rec. 709 material to scene-referred linear. Where necessary, ITU-R BT.2087-0 recommends the use of a simple square function to revert material from a Rec. 709 camera to scene-referred linear.
+ITU-R BT.709, commonly referred to as Rec. 709, specifies a D65 white point and a piecewise transfer function. It is important to be aware that the transfer function given for Rec. 709 is an encoding function (OETF) for a video camera, not an EOTF for a display, making it a scene-referred encoding. It is, in fact, rare to find the Rec. 709 curve implemented exactly in any camera, as video cameras often include a 'knee' for highlight compression and other user controls which cause the image to diverge from the standard. This means that it is not normally possible to accurately invert Rec. 709 material to scene-referred linear. Where necessary, ITU-R BT.2087-0 recommends the use of a simple square function to revert material from a Rec. 709 camera to scene-referred linear.
 
 The encoding function specified in Rec. 709 is:
 
-	if L ≥ 0.018:
-            		V = 1.099 × L0.45 - 0.099
+	if L ? 0.018:
+            		V = 1.099 ? L0.45 - 0.099
 	else:
-		V = L × 4.5
+		V = L ? 4.5
 
 Where L is scene light, normalized to 0-1, and V is the encoded value. This output value is also normalized to 0-1 but is usually stored as an integer, in either full or legal range (see Section 4.7).
 
@@ -39,16 +39,16 @@ White Point
 \label{subsec:bt-1886}
 
 The ACES Still Life reference image encoded with the Rec. 709 (BT.1886) Output Transform.
-Copyright © A.M.P.A.S.
+Copyright ? A.M.P.A.S.
 The EOTF used for display of Rec. 709 material is specified by ITU-R BT.1886, which was introduced later, as no EOTF was specified originally in Rec. 709. It is a variation on a gamma curve, intended to more accurately replicate the response of legacy CRT displays. The BT.1886 equation takes account of the black level of the display in use, but for display technologies, such as OLED, which are capable of producing a true black, BT.1886 becomes a pure 2.4 gamma power law curve. In fact, standard practice is to calibrate OLED displays to a non-zero black level. However, when encoding material for an unspecified BT.1886 display, where the black level is unknown, the norm is to use a pure 2.4 gamma, as is done in the ACES Rec. 709 Output Transform, for example.
 
 A BT.1886 display uses the primaries as defined by Rec. 709, and the following EOTF:
 
-	L = a × (V + b)2.4
+	L = a ? (V + b)2.4
 
 Where L is the screen luminance and V the encoded signal (ranged 0-1). The constants a and b are calculated from the target black level LB and white level LW (normally 100 cd/m2 for a grading reference monitor, but often considerably higher for a consumer TV) using the following equations:
-	a = (LW1/2.4 − LB1/2.4)2.4
-	b = LB1/2.4 / (LW1/2.4 − LB1/2.4)
+	a = (LW1/2.4 ? LB1/2.4)2.4
+	b = LB1/2.4 / (LW1/2.4 ? LB1/2.4)
 
 When encoding desired display colorimetry for BT.1886 display, where the black level of the display is unknown (as is always the situation when delivering video for a wide audience) the recommended approach is to use a value of zero for LB. For this reason, the ACES Rec. 709 Output Transform uses pure 2.4 gamma.
 
@@ -56,7 +56,7 @@ When encoding desired display colorimetry for BT.1886 display, where the black l
 \label{subsec:srgb}
 
 The ACES Still Life reference image encoded with the sRGB Output Transform.
-Copyright © A.M.P.A.S.
+Copyright ? A.M.P.A.S.
 Due to differences in inherent display technologies, there is substantial variation in the appearance of RGB when the same code values are sent to multiple displays, making the unambiguous distribution of RGB imagery difficult. As a solution, a standard idealized computer display has been defined, sRGB, which real displays often attempt to reproduce. The intent of sRGB (Standard RGB) is to define the color characteristics of a standardized RGB display, such that imagery on one monitor matches the appearance of a different monitor. Older display technologies (such as CRTs) naturally approach the sRGB specification. However, modern technologies, such as LCD and OLED which have very different inherent image responses, typically provide an option to emulate the sRGB specification to maintain compatibility with existing imagery.
 
 sRGB uses the primaries and D65 white point specified in ITU-R BT.709, and thus can represent the same gamut of colors as Rec. 709.
@@ -64,11 +64,11 @@ sRGB uses the primaries and D65 white point specified in ITU-R BT.709, and thus 
 The sRGB encoding function is defined as:
 
 	if L > 0.003131:
-            		V = 1.055 × L1/2.4 - 0.055
+            		V = 1.055 ? L1/2.4 - 0.055
 	else:
-		V = L × 12.92
+		V = L ? 12.92
 
-Where L is the luminance of the image normalized to the range 0-1 and V is the resulting encoded signal. The sRGB encoded signal is commonly stored as an 8 bit integer, which would be round(V × 255).
+Where L is the luminance of the image normalized to the range 0-1 and V is the resulting encoded signal. The sRGB encoded signal is commonly stored as an 8 bit integer, which would be round(V ? 255).
 
 The sRGB decoding function is defined as:
 
@@ -98,15 +98,15 @@ White Point
 \label{subsec:rec-2020}
 
 The ACES Still Life reference image encoded with the Rec. 2020 100 nits Output Transform
-Copyright © A.M.P.A.S.
+Copyright ? A.M.P.A.S.
 ITU-R BT.2020, commonly called Rec. 2020 defines a color space wider than Rec. 709, using D65 white, which was initially defined for wide gamut standard dynamic range encodings, but whose primaries have been adopted for HDR. These primaries are in fact normally used simply as encoding primaries, with the colors limited to a smaller gamut such as P3, since no current display covers the Rec. 2020 gamut. Like Rec. 709, the Rec. 2020 specification defines an encoding curve for a hypothetical SDR camera which is in fact almost never used. The OETF defined by Rec. 2020 is:
 
-	if L ≥ β:
-            		V = α × L0.45 - (α - 1)
+	if L ? ?:
+            		V = ? ? L0.45 - (? - 1)
 	else:
-		V = L × 4.5
+		V = L ? 4.5
 
-The values of α and β are defined as 1.09929682680944 and 0.018053968510807 respectively at full precision, but the document clarifies that for practical purposes in 10 bit systems the values 1.099 and 0.018 can be used (making this the same equation as that for Rec. 709) and for 12 bit systems, 1.0993 and 0.0181 can be used.
+The values of ? and ? are defined as 1.09929682680944 and 0.018053968510807 respectively at full precision, but the document clarifies that for practical purposes in 10 bit systems the values 1.099 and 0.018 can be used (making this the same equation as that for Rec. 709) and for 12 bit systems, 1.0993 and 0.0181 can be used.
 
 In SDR, Rec. 2020 specifies a display with a BT.1886 EOTF. But in fact, Rec. 2020 is more commonly used only as a set of primaries for an output referred encoding, together with either ST.2084 or HLG curves.
 
@@ -123,8 +123,8 @@ White Point
 \label{subsec:st-2084-pq}
 
 The ACES Still Life reference image encoded with the ST.2084 1000 nits Output Transform.
-Copyright © A.M.P.A.S.
-SMPTE ST.2084 is an output referred encoding curve used for high dynamic range displays, normally in conjunction with Rec. 2020 primaries. It can encode values up to 10,000 cd/m2, and was originally specified by Dolby under the name PQ, for Perceptual Quantizer. To encode such a wide range without visible banding, ST.2084 requires at least 12 bit processing to be used in production. For delivery at least 10 bits are required, and although visible banding is possible at this bit depth, experiments by Dolby have indicated that noise present in real-world images makes this banding imperceptible. Integer codings may use either “narrow range” or “full range” (see section 4.7).
+Copyright ? A.M.P.A.S.
+SMPTE ST.2084 is an output referred encoding curve used for high dynamic range displays, normally in conjunction with Rec. 2020 primaries. It can encode values up to 10,000 cd/m2, and was originally specified by Dolby under the name PQ, for Perceptual Quantizer. To encode such a wide range without visible banding, ST.2084 requires at least 12 bit processing to be used in production. For delivery at least 10 bits are required, and although visible banding is possible at this bit depth, experiments by Dolby have indicated that noise present in real-world images makes this banding imperceptible. Integer codings may use either "narrow range" or "full range" (see section 4.7).
 
 Because PQ is perceptually uniform, it can be a useful working space for applying grades, or as a shaper for LUTs (see section 4.4.3) and some game engines do exactly this, transforming from linear to PQ in order to apply a look as a 3D LUT, and then transforming back to linear for further processing.
 
@@ -132,47 +132,47 @@ ITU-R BT.2100 specifies both an OETF and EOTF for PQ, which are not the inverse 
 
 The ST.2084 EOTF is an absolute encoding, defined by the following equation:
 
-	L = 10000 × ((V1/m2 - c1) / (c2 - c3 × V1/m2))1/m1
+	L = 10000 ? ((V1/m2 - c1) / (c2 - c3 ? V1/m2))1/m1
 
 Where L is the display luminance in cd/m2 and the constants are:
 	m1 = 2610 / 16384
-	m2 = 2523 / 4096 × 128
+	m2 = 2523 / 4096 ? 128
 	c1 = 3424 / 4096
-	c2 = 2413 / 4096 × 32
-	c3 = 2392 / 4096 × 32
+	c2 = 2413 / 4096 ? 32
+	c3 = 2392 / 4096 ? 32
 
 
 
 While the output of the ST.2084 EOTF is defined in absolute units of cd/m2, the input to the function is less rigorously defined. As such, there is some debate as to what transform to apply to scene-referred linear data before converting to ST.2084. The most basic approach would be to simply scale the scene-referred linear values to set diffuse white to a particular display brightness and then encode with the inverse of the ST.2084 EOTF. However, this would make display light directly proportional to scene light and, as has been discussed in Section 2, due to the difference in absolute luminance and viewing environment, this will not normally give a perceptual match. Some form of view transform is usually required. This can be left to the colorist to add as part of the look, but a base transform which adds some contrast and roll-off in the highlights and shadows can be beneficial. It is also worth bearing in mind that the traditional lift, gamma, and gain operators are particularly unsuitable for acting on ST.2084 image data, where 0-1 represent zero to 10,000 cd/m2. Highlights, in particular, can swing uncontrollably into extreme values as a result of small changes. Modern grading systems offer alternate grading operators tailored to the needs of HDR grading.
 
-The most universally available view transforms for HDR are the ACES Output Transforms. Versions are included for 1000, 2000, and 4000 cd/m2. These aim to provide an HDR image which is perceptually similar to the result of the ACES SDR Output Transforms, placing diffuse white at about 86 cd/m2, and reserving the higher luminances for specular highlights and in-frame light sources. This is in line with the original intent of the ST.2084 specification, which says that it “is intended to enable the creation of video images with an increased luminance range; not for the creation of video images with overall higher luminance levels.” However, as more experience has been gained with delivering in HDR, many people have come to feel that a higher level for diffuse white is preferable and that, particularly given the higher brightnesses of current consumer SDR televisions and computer displays, this gives a better perceptual match between SDR and HDR versions of the same image. ITU-R BT.2408-0 recommends setting diffuse white at 203 cd/m2, but acknowledges that it is a creative choice. This kind of exposure offset can be achieved in ACES as part of an HDR specific Look Transform which simply applies gain in linear. The parametric Output Transforms which form part of ACES 1.1 include a parameter for “mid-point luminance” (18% grey) but this is not currently exposed to end users and is fixed at 15 cd/m2 to provide backward compatibility with ACES 1.0.3.
+The most universally available view transforms for HDR are the ACES Output Transforms. Versions are included for 1000, 2000, and 4000 cd/m2. These aim to provide an HDR image which is perceptually similar to the result of the ACES SDR Output Transforms, placing diffuse white at about 86 cd/m2, and reserving the higher luminances for specular highlights and in-frame light sources. This is in line with the original intent of the ST.2084 specification, which says that it "is intended to enable the creation of video images with an increased luminance range; not for the creation of video images with overall higher luminance levels." However, as more experience has been gained with delivering in HDR, many people have come to feel that a higher level for diffuse white is preferable and that, particularly given the higher brightnesses of current consumer SDR televisions and computer displays, this gives a better perceptual match between SDR and HDR versions of the same image. ITU-R BT.2408-0 recommends setting diffuse white at 203 cd/m2, but acknowledges that it is a creative choice. This kind of exposure offset can be achieved in ACES as part of an HDR specific Look Transform which simply applies gain in linear. The parametric Output Transforms which form part of ACES 1.1 include a parameter for "mid-point luminance" (18% grey) but this is not currently exposed to end users and is fixed at 15 cd/m2 to provide backward compatibility with ACES 1.0.3.
 
-Some manufacturers implement view transforms for HDR in their cameras for on-set HDR monitoring, and provide LUTs which match those transforms for use in post. ARRI’s ALF-2 and RED’s IPP2 LUTs can be used as output transforms for LogC/ALEXA Wide Gamut and Log3G10/RED Wide Gamut working spaces respectively, and other color encodings can be transformed to those to make them suitable as input for the LUTs. Some grading systems implement these as options in their color management pipelines, and also offer their own proprietary view transforms. When using a proprietary tone mapping algorithm it is important to ensure that a method is available, usually by baking a LUT, for implementing the transforms in other software.
+Some manufacturers implement view transforms for HDR in their cameras for on-set HDR monitoring, and provide LUTs which match those transforms for use in post. ARRI's ALF-2 and RED's IPP2 LUTs can be used as output transforms for LogC/ALEXA Wide Gamut and Log3G10/RED Wide Gamut working spaces respectively, and other color encodings can be transformed to those to make them suitable as input for the LUTs. Some grading systems implement these as options in their color management pipelines, and also offer their own proprietary view transforms. When using a proprietary tone mapping algorithm it is important to ensure that a method is available, usually by baking a LUT, for implementing the transforms in other software.
 
 \subsection{Hybrid Log Gamma (HLG)}%
 \label{subsec:hybrid-log-gamma-hlg}
 
 The ACES Still Life reference image encoded with the HLG Output Transform.
-Notice that the image looks “normal”, if somewhat muted on an SDR display.
-Copyright © A.M.P.A.S.
-Hybrid Log Gamma is an encoding designed by the BBC in collaboration with NHK. It is defined as a scene referred encoding so is based on an OETF but also defines an EOTF to work in conjunction with it. When concatenated, these produce the encoding’s OOTF, a system gamma, which defines the relationship between scene light and display light. The HLG OOTF is a power function whose exponent is dependent on the peak white of the particular display. It is also, unlike most transfer functions, not simply applied to each RGB component independently, but rather it incorporates the luminance value, a weighted sum of the three linear components, in the calculation.
+Notice that the image looks "normal", if somewhat muted on an SDR display.
+Copyright ? A.M.P.A.S.
+Hybrid Log Gamma is an encoding designed by the BBC in collaboration with NHK. It is defined as a scene referred encoding so is based on an OETF but also defines an EOTF to work in conjunction with it. When concatenated, these produce the encoding's OOTF, a system gamma, which defines the relationship between scene light and display light. The HLG OOTF is a power function whose exponent is dependent on the peak white of the particular display. It is also, unlike most transfer functions, not simply applied to each RGB component independently, but rather it incorporates the luminance value, a weighted sum of the three linear components, in the calculation.
 
-Part of the design intent of HLG is that the OETF encodes a high dynamic range scene using a curve which is broadly similar to that which might be used by a traditional SDR video camera with a highlight compressing ‘knee’. This means that an HLG signal displayed on an SDR monitor, which has no way of interpreting the signal as HDR and simply applies a BT.1886 EOTF, will produce a reasonable looking image. Because HLG encodings normally use Rec. 2020 primaries, rather than Rec. 709, the image is likely to look somewhat desaturated, but it will be watchable. This backward compatibility is intended to enable HLG signals to be processed through legacy SDR infrastructure in studios and outside broadcast trucks, without all monitors needing to be replaced with HDR displays. In order to provide this kind of compatibility, it is recommended to set exposure so diffuse white falls at 75% in HLG. On a 1000 cd/m2 display this will produce the same 203 cd/m2 luminance as using ST.2084 according to ITU-R BT.2408-0, as mentioned above.
+Part of the design intent of HLG is that the OETF encodes a high dynamic range scene using a curve which is broadly similar to that which might be used by a traditional SDR video camera with a highlight compressing 'knee'. This means that an HLG signal displayed on an SDR monitor, which has no way of interpreting the signal as HDR and simply applies a BT.1886 EOTF, will produce a reasonable looking image. Because HLG encodings normally use Rec. 2020 primaries, rather than Rec. 709, the image is likely to look somewhat desaturated, but it will be watchable. This backward compatibility is intended to enable HLG signals to be processed through legacy SDR infrastructure in studios and outside broadcast trucks, without all monitors needing to be replaced with HDR displays. In order to provide this kind of compatibility, it is recommended to set exposure so diffuse white falls at 75% in HLG. On a 1000 cd/m2 display this will produce the same 203 cd/m2 luminance as using ST.2084 according to ITU-R BT.2408-0, as mentioned above.
 
-Whilst HLG provides additional headroom for highlights by ‘emulating’ a traditional SDR camera knee, a large increase in dynamic range is also achieved by no longer using a linear part of the OETF near black. This is a significant difference from the SDR Rec. 709 curve. Not having a linear portion to the OETF means that noise reduction in the blacks must be achieved by alternative processing in the camera.
+Whilst HLG provides additional headroom for highlights by 'emulating' a traditional SDR camera knee, a large increase in dynamic range is also achieved by no longer using a linear part of the OETF near black. This is a significant difference from the SDR Rec. 709 curve. Not having a linear portion to the OETF means that noise reduction in the blacks must be achieved by alternative processing in the camera.
 
 The HLG encoding function is defined by ITU-R BT.2100 as:
 
-	If L ≤ 1/12:
-		V = sqrt(3 × L)
+	If L ? 1/12:
+		V = sqrt(3 ? L)
 	else:
-		V = a × ln(12 × L - b) + c
+		V = a ? ln(12 ? L - b) + c
 
 Where the constants are:
 
 	a = 0.17883277
-	b = 1 - 4 × a
-	c = 0.5 - a × ln(4 × a)
+	b = 1 - 4 ? a
+	c = 0.5 - a ? ln(4 ? a)
 
 And L is normalized such that the entire scene dynamic range to be encoded is scaled to the 0-1 range.
 
@@ -180,27 +180,27 @@ And L is normalized such that the entire scene dynamic range to be encoded is sc
 
 The HLG EOTF is defined in terms of its OOTF, which is:
 
-	RD = α × YSγ-1  × RS
-	GD = α × YSγ-1 × GS
-	BD = α × YSγ-1 × BS
+	RD = ? ? YS?-1  ? RS
+	GD = ? ? YS?-1 ? GS
+	BD = ? ? YS?-1 ? BS
 
 Where [RS, GS, BS] is the scene light for the three components, and [RD, GD, BD] is the display light for the components. YS is the scene luminance, calculated as:
 
-	YS = 0.2627 × RS + 0.6780 × GS + 0.0593 × BS
+	YS = 0.2627 ? RS + 0.6780 ? GS + 0.0593 ? BS
 
 And:
-α = LW
-	γ = 1.2 + 0.42 × Log10(LW ￼/ 1000)
+? = LW
+	? = 1.2 + 0.42 ? Log10(LW ?/ 1000)
 
 The values of RS, GS and BS are derived by inverting the encoding function for each component using the following formula:
 
-E = max(0, V × (1 - β) + β)
-	If E ≤ 0.5:
+E = max(0, V ? (1 - ?) + ?)
+	If E ? 0.5:
 L = E2 / 3
 else:
 	L = (exp((E - c) / a) + b) / 12
 Where:
-β = sqrt(3 × (LB / LW)1/γ)
+? = sqrt(3 ? (LB / LW)1/?)
 
 
 
@@ -210,11 +210,11 @@ In practice, while HLG may be used as a scene referred encoding in situations su
 \label{subsec:p3-dci}
 
 The ACES Still Life reference image encoded with the P3 DCI Output Transform.
-Note that this output transform includes a “D60 sim”, giving the image a slight magenta tint when viewed on an sRGB (D65) display. On the intended P3 DCI display neutrals would appear with ACES (~D60) white.
-Copyright © A.M.P.A.S.
+Note that this output transform includes a "D60 sim", giving the image a slight magenta tint when viewed on an sRGB (D65) display. On the intended P3 DCI display neutrals would appear with ACES (~D60) white.
+Copyright ? A.M.P.A.S.
 DCI-P3 is a color space commonly used in digital cinema production, as it is well suited to theatrical presentation since it describes the native primaries of a DLP projector. Whereas the sRGB specification uses a color encoding suited for the desktop environment, the DCI-P3 specification uses a color encoding suited for theatrical luminance levels.
 
-A projector calibrated to DCI-P3 uses a pure 2.6 gamma EOTF with a white point of 0.314, 0.351. The P3 primaries are wide-gamut relative to desktop standards; pure sRGB red is relatively desaturated with a distinctly orange-red hue, while pure P3 red is “blood” red, almost on the spectral locus. The DCI white point is not necessarily the creative white point used in mastering. Productions are free to master to any white point they prefer, provided all mastered colors fall within the allowed DCI gamut. Indeed, for artistic considerations, the DCI white point is often avoided due to its greenish cast relative to the daylight curve.
+A projector calibrated to DCI-P3 uses a pure 2.6 gamma EOTF with a white point of 0.314, 0.351. The P3 primaries are wide-gamut relative to desktop standards; pure sRGB red is relatively desaturated with a distinctly orange-red hue, while pure P3 red is "blood" red, almost on the spectral locus. The DCI white point is not necessarily the creative white point used in mastering. Productions are free to master to any white point they prefer, provided all mastered colors fall within the allowed DCI gamut. Indeed, for artistic considerations, the DCI white point is often avoided due to its greenish cast relative to the daylight curve.
 
 
 Red
@@ -230,30 +230,30 @@ White Point
 \label{subsec:p3-d65}
 
 The ACES Still Life reference image encoded with the P3 D65 48 nits Output Transform.
-Copyright © A.M.P.A.S.
-The Primaries of P3 are also used in combination with a D65 white point. Where projectors are calibrated to P3 D65 the same 2.6 gamma as P3 DCI is used, but for wide gamut desktop displays the EOTF used is 2.2 gamma. In addition, P3 D65 is often used as a “limiting gamut” when a wider gamut such as BT. 2020 is used as the encoding gamut, but where the target display is not capable of covering that gamut.
+Copyright ? A.M.P.A.S.
+The Primaries of P3 are also used in combination with a D65 white point. Where projectors are calibrated to P3 D65 the same 2.6 gamma as P3 DCI is used, but for wide gamut desktop displays the EOTF used is 2.2 gamma. In addition, P3 D65 is often used as a "limiting gamut" when a wider gamut such as BT. 2020 is used as the encoding gamut, but where the target display is not capable of covering that gamut.
 
 \subsection{X'Y'Z'}%
 \label{subsec:x-y-z}
 
 The ACES Still Life reference image encoded with the DCDM Output Transform.
 On an sRGB display it is low contrast (due to the 2.6 gamma) and the colors appear incorrect, since XYZ values are being interpreted as if they were RGB.
-Copyright © A.M.P.A.S.
-The Digital Cinema Initiative (DCI) specification defines the standard for digital cinema mastering and theatrical exhibition, including colorimetry. The encoding specified for DCP mastering is  X’Y’Z‘ (called “x-prime, y-prime, z-prime”). It is an output-referred, gamma 2.6 encoding of CIE-XYZ, with a reference white at 48cd/m2. As the X’Y’Z’ coding space spans an area larger than the visual gamut, the minimum display gamut specified by DCI is that of P3.
+Copyright ? A.M.P.A.S.
+The Digital Cinema Initiative (DCI) specification defines the standard for digital cinema mastering and theatrical exhibition, including colorimetry. The encoding specified for DCP mastering is  X'Y'Z' (called "x-prime, y-prime, z-prime"). It is an output-referred, gamma 2.6 encoding of CIE-XYZ, with a reference white at 48cd/m2. As the X'Y'Z' coding space spans an area larger than the visual gamut, the minimum display gamut specified by DCI is that of P3.
 
-The intent of the X’Y’Z’ coding space is display-referred, such that the full-color appearance of the theatrical imagery, such as any film emulation 3D LUTs, are fully baked into the X’Y’Z’ image. Therefore, an image in X’Y’Z’ is completely unambiguous; there should be essentially no color variation between properly calibrated theatrical digital projectors.
-The DCI specification chose a gamma 2.6 encoding after a series of perceptual experiments using “golden-eye observers” to maximize the bit-depth fidelity under theatrical viewing conditions. DCI specifies 12 bits per channel, which is intended to prevent banding artifacts under even the most trying conditions. DCI also specifies a series of color patches which are useful in calibration. (Please refer to the DCI specification for additional details.) X’Y’Z’ files are encoded using JPEG-2000 compression, which is a lossy, wavelet compression codec. No inter-frame compression is used, which allows for both forward and backward scrubbing. The DCI specification also defines two resolutions known as “2K” and “4K”. The 2K raster is 2048x1080 and the 4K raster is 4096x2160. DCI compliant films must fill at least one of these axes. Material with an aspect ratio of 1.85:1 - “flat” - is typically delivered for a 2K release at 1998x1080, and 2.39:1 - “scope” - is delivered for a 2K release at 2048x858. For 4K release, double these sizes. DCP encoders accept 16 bit tiffs, so the convention is to utilize the full 16 bit coding range of 0-65535, and then to let the compressor just use the high order 12 bits.
+The intent of the X'Y'Z' coding space is display-referred, such that the full-color appearance of the theatrical imagery, such as any film emulation 3D LUTs, are fully baked into the X'Y'Z' image. Therefore, an image in X'Y'Z' is completely unambiguous; there should be essentially no color variation between properly calibrated theatrical digital projectors.
+The DCI specification chose a gamma 2.6 encoding after a series of perceptual experiments using "golden-eye observers" to maximize the bit-depth fidelity under theatrical viewing conditions. DCI specifies 12 bits per channel, which is intended to prevent banding artifacts under even the most trying conditions. DCI also specifies a series of color patches which are useful in calibration. (Please refer to the DCI specification for additional details.) X'Y'Z' files are encoded using JPEG-2000 compression, which is a lossy, wavelet compression codec. No inter-frame compression is used, which allows for both forward and backward scrubbing. The DCI specification also defines two resolutions known as "2K" and "4K". The 2K raster is 2048x1080 and the 4K raster is 4096x2160. DCI compliant films must fill at least one of these axes. Material with an aspect ratio of 1.85:1 - "flat" - is typically delivered for a 2K release at 1998x1080, and 2.39:1 - "scope" - is delivered for a 2K release at 2048x858. For 4K release, double these sizes. DCP encoders accept 16 bit tiffs, so the convention is to utilize the full 16 bit coding range of 0-65535, and then to let the compressor just use the high order 12 bits.
 
-The method for conversion from a DCI P3 encoding to X’Y’Z’ is:
+The method for conversion from a DCI P3 encoding to X'Y'Z' is:
 	XYZ = 	  0.44516982   0.27713441   0.17228267 	  R2.6
-		  0.20949168   0.72159525   0.06891307	      ×	  G2.6
+		  0.20949168   0.72159525   0.06891307	      ?	  G2.6
 		  0.00000000   0.04706056   0.90735539   	  B2.6
-	X’Y’Z’ = round(4095 × (clamp(XYZ) × 48 / 52.37)1/2.6)
+	X'Y'Z' = round(4095 ? (clamp(XYZ) ? 48 / 52.37)1/2.6)
 Where R, G and B are 2.6 gamma coded DCI P3 values in the range 0-1.
 
-The matrix shown converts [1, 1, 1] to [3794, 3960, 3890], the reference code values for DCI white. A different matrix is needed for material mastered to a different white point, i.e. encoded for a projector with a different white point and a viewer adapted to that white. A change of creative white baked into a P3-DCI encoding (such as the ACES “D60 sim”) does not require a change of matrix.
+The matrix shown converts [1, 1, 1] to [3794, 3960, 3890], the reference code values for DCI white. A different matrix is needed for material mastered to a different white point, i.e. encoded for a projector with a different white point and a viewer adapted to that white. A change of creative white baked into a P3-DCI encoding (such as the ACES "D60 sim") does not require a change of matrix.
 
-The value of 48/52.37 is called the normalizing constant and is included to permit mastering with creative white points other than the DCI calibration white. Equal DCDM code values produce Equal Energy white (Illuminant E – the result of a flat spectral power distribution). Unequal code values are needed to produce other whites, such as DCI white, or D65. If code values of [4095, 4095, 4095] produced Equal Energy white at 48 cd/m2, the values needed to produce D65 white at 48 cd/m2 would be [4016, 4095, 4232] and 4232 is outside the range possible with 12 bit integer coding.
+The value of 48/52.37 is called the normalizing constant and is included to permit mastering with creative white points other than the DCI calibration white. Equal DCDM code values produce Equal Energy white (Illuminant E - the result of a flat spectral power distribution). Unequal code values are needed to produce other whites, such as DCI white, or D65. If code values of [4095, 4095, 4095] produced Equal Energy white at 48 cd/m2, the values needed to produce D65 white at 48 cd/m2 would be [4016, 4095, 4232] and 4232 is outside the range possible with 12 bit integer coding.
 
 See Kennel (2007) for additional details on mastering for digital cinema. The full DCI specification by Digital Cinema Initiatives (2018) is freely available online; highly recommended reading for those involved in theatrical mastering.
 
@@ -263,9 +263,9 @@ See Kennel (2007) for additional details on mastering for digital cinema. The fu
 LogC is the encoding used in the ARRI ALEXA series of cameras, including the AMIRA. It is used together with the ALEXA Wide Gamut primaries and a white point of D65. The exact encoding curve varies slightly with the Exposure Index (EI) set on the camera, keeping 18% grey to an encoded value of 400/1023, and applying highlight compression at EI values above 1600 to prevent sensor clipping falling above the LogC 0-1 range. The exact linearization curves for LogC at all EI values are included as 1D LUTs in the Input Transforms in the ACES GitHub repository, together with the Python code which generates those 1D LUTs. However, in many cases, the simplified form of the curve for EI800 is sufficient, for which the encoding function is:
 
 	if L > cut:
-		V = c × log10(a × L + b) + d
+		V = c ? log10(a ? L + b) + d
 else:
-V = e × L + f
+V = e ? L + f
 
 At EI800 the values of the constants are:
 
@@ -275,14 +275,14 @@ At EI800 the values of the constants are:
 	c = 0.247190
 	d = 0.385537
 e = 5.367655
-￼	f = 0.092809
+?	f = 0.092809
 
 The decoding function is:
 
-	if V > e × cut + f:
-L = (10(V − d) / c − b) / a
+	if V > e ? cut + f:
+L = (10(V ? d) / c ? b) / a
 else:
-(V − f) / e
+(V ? f) / e
 
 
 
@@ -302,29 +302,29 @@ Cameras from Blackmagic Design (BMD) use different log encoding curves, dependin
 \subsection{Canon CLog}%
 \label{subsec:canon-clog}
 
-Canon cameras offer a range of options for encoding curves and primaries, making for a very large number of permutations. Primaries can be selected from Cinema Gamut, Rec. 2020 and Rec. 709 (see sections above for the latter three). For the encoding curve, there is a choice of Canon Log 1, 2 and 3. It is important to ascertain which primaries and Canon Log variant were used when shooting, in order to linearize correctly and transform to the working color space. Many applications are unable to read the Canon metadata which specifies the recording primaries and encoding curve, so it can be useful to open the media in the Canon XF Utility, available from Canon’s website, and make a note of the settings.
+Canon cameras offer a range of options for encoding curves and primaries, making for a very large number of permutations. Primaries can be selected from Cinema Gamut, Rec. 2020 and Rec. 709 (see sections above for the latter three). For the encoding curve, there is a choice of Canon Log 1, 2 and 3. It is important to ascertain which primaries and Canon Log variant were used when shooting, in order to linearize correctly and transform to the working color space. Many applications are unable to read the Canon metadata which specifies the recording primaries and encoding curve, so it can be useful to open the media in the Canon XF Utility, available from Canon's website, and make a note of the settings.
 
 The latest iteration of Canon Log is Canon Log 3, for which the encoding function is:
 
 	if L < -0.014:
-		V = −0.42889912 × log10(1 - 14.98325 × L) + 0.07623209
-	else if L ≤ 0.014:
-		V = 2.3069815 × L + 0.073059361
+		V = ?0.42889912 ? log10(1 - 14.98325 ? L) + 0.07623209
+	else if L ? 0.014:
+		V = 2.3069815 ? L + 0.073059361
 	else:
-V =  0.42889912 × log10(1 + 14.98325 × L) + 0.069886632
+V =  0.42889912 ? log10(1 + 14.98325 ? L) + 0.069886632
 
-However, this is complicated by the fact that this formula takes as its input what Canon refers to as “linear IRE”. This is given by dividing the more commonly used reflectance value by 0.9. Thus 18% grey would be input to the function not as 0.18, but rather as 0.2. Also the function returns ‘IRE’ but Canon Log image data is more likely to be stored as unscaled code values, so while the function returns 0.327954 for an input of 0.2, the 10 bit code value stored for 18% grey will be round(64 + 0.327954 × (940 - 64)) = 351.
+However, this is complicated by the fact that this formula takes as its input what Canon refers to as "linear IRE". This is given by dividing the more commonly used reflectance value by 0.9. Thus 18% grey would be input to the function not as 0.18, but rather as 0.2. Also the function returns 'IRE' but Canon Log image data is more likely to be stored as unscaled code values, so while the function returns 0.327954 for an input of 0.2, the 10 bit code value stored for 18% grey will be round(64 + 0.327954 ? (940 - 64)) = 351.
 
 
 
-Bearing the above in mind, the decoding function for Canon Log 3 “IRE” to “linear IRE” is:
+Bearing the above in mind, the decoding function for Canon Log 3 "IRE" to "linear IRE" is:
 
 	if V < 0.04076162:
-		L = - (10(0.07623209 − V ) / 0.42889912 − 1) / 14.98325
-	else if V ≤ 0.105357102:
+		L = - (10(0.07623209 ? V ) / 0.42889912 ? 1) / 14.98325
+	else if V ? 0.105357102:
 		L = (V - 0.073059361) / 2.3069815
 	else:
-		L = (10( V − 0.069886632 ) / 0.42889912 − 1) / 14.98325
+		L = (10( V ? 0.069886632 ) / 0.42889912 ? 1) / 14.98325
 
 Red
 Green
@@ -337,17 +337,17 @@ White Point
 
 \subsection{GoPro ProTune}%
 \label{subsec:gopro-protune}
-ProTune “Flat” is a log mode available in the GoPro range of action cameras. It allows disabling of much of the image processing normally applied in camera. The curve encodes the range 0-1 to log values in the range 0-1, so linearization will not yield values >1 unless gain is subsequently applied. Equally, the curve is not able to encode negative values, but because the sensor A/D has a black offset, this should be subtracted after linearization, which may result in some negative values.
+ProTune "Flat" is a log mode available in the GoPro range of action cameras. It allows disabling of much of the image processing normally applied in camera. The curve encodes the range 0-1 to log values in the range 0-1, so linearization will not yield values >1 unless gain is subsequently applied. Equally, the curve is not able to encode negative values, but because the sensor A/D has a black offset, this should be subtracted after linearization, which may result in some negative values.
 
 The encoding function is:
 
-	V = ln(L × 112 + 1) / ln(113)
+	V = ln(L ? 112 + 1) / ln(113)
 
 
 
 The decoding function is:
 
-	L = (113V − 1) / 112
+	L = (113V ? 1) / 112
 
 
 Red
@@ -367,9 +367,9 @@ V-Log, paired with V-Gamut is the log recording format used by the Panasonic Var
 The V-Log encoding function is:
 
 	if L < 0.01:
-		V = 5.6 × L + 0.125
+		V = 5.6 ? L + 0.125
 	else:
-		V = c × log10(L + b) + d
+		V = c ? log10(L + b) + d
 
 Where the constants are:
 
@@ -382,9 +382,9 @@ d = 0.598206
 The V-Log decoding function is:
 
 	if V < 0.181:
-		L = (V − 0.125) / 5.6
+		L = (V ? 0.125) / 5.6
 	else:
-		L = 10.0(V − d) / c – b
+		L = 10.0(V ? d) / c - b
 
 
 Red
@@ -398,14 +398,14 @@ White Point
 
 \subsection{RED Log3G10}%
 \label{subsec:red-log3g10}
-Over the years, RED have used various log encodings and primaries with their cameras, and the details of these have not been published. The current RED IPP2 image processing uses primaries called RED Wide Gamut RGB, paired with a log encoding called Log3G10, the details of which have been published in a white paper. The numbers 3 and 10 in the name indicate that 18% grey is encoded as ⅓, and the curve encodes 10 stops above mid-grey; that is to say, 0.18 × 210 is encoded as 1.0 in Log3G10.
+Over the years, RED have used various log encodings and primaries with their cameras, and the details of these have not been published. The current RED IPP2 image processing uses primaries called RED Wide Gamut RGB, paired with a log encoding called Log3G10, the details of which have been published in a white paper. The numbers 3 and 10 in the name indicate that 18% grey is encoded as ?, and the curve encodes 10 stops above mid-grey; that is to say, 0.18 ? 210 is encoded as 1.0 in Log3G10.
 
 The encoding function is:
 
 	if L < -0.01:
-		V = (L + 0.01) × 15.1927
+		V = (L + 0.01) ? 15.1927
 	else:
-		V = a × log10(b × (L + 0.01) + 1)
+		V = a ? log10(b ? (L + 0.01) + 1)
 
 Where the constants are:
 
@@ -417,9 +417,9 @@ b = 155.975327
 The decoding function is:
 
 	if V < 0:
-		L = (V / 15.1927) − 0.01
+		L = (V / 15.1927) ? 0.01
 	else:
-		L = ((10V / a − 1) / b) − 0.01
+		L = ((10V / a ? 1) / b) ? 0.01
 
 
 Red
@@ -434,36 +434,36 @@ White Point
 \subsection{Sony SLog}%
 \label{subsec:sony-slog}
 
-Sony has offered a range of encoding curves in their cameras, with the latest being S-Log3. The original S-Log is now deprecated, and not something likely to be seen on current productions. S-Log2 and S-Log3 are still both current. S-Log2 is normally paired with S-Gamut primaries, whereas S-Log3 may be paired either with S-Gamut3 or S-Gamut3.Cine primaries. S-Gamut and S-Gamut3 use the same wide gamut primaries; it is simply that the matrices used in the camera to transform to them from the sensor native color space are different. As has been mentioned previously in Section 3.3.1, a 3x3 camera matrix can only ever be an approximation of the ideal transform to set of encoding primaries. S-Gamut and S-Gamut3 use different optimizations. S-Gamut3 has the additional advantage that the transform to ACES is the same at all color temperatures, whereas for S-Gamut, two Input Transforms are provided by Sony for use under tungsten and daylight. S-Gamut3.Cine is slightly less wide gamut than S-Gamut3, and was designed to be more closely aligned with P3 primaries, making manual grading to P3 simpler. In a scene-referred workflow there is no benefit to this, and indeed recording in S-Gamut3.Cine will clip some colors which may be present in the scene, compared to S-Gamut3. Nonetheless, many people use S-Gamut3.Cine as the default camera setting, so it is important to ascertain which was used. As with Canon footage, using Sony’s own software can be a useful way of reading metadata from the files which might not otherwise be available. Some Sony cameras also include XML files with the media, which can provide useful information.
+Sony has offered a range of encoding curves in their cameras, with the latest being S-Log3. The original S-Log is now deprecated, and not something likely to be seen on current productions. S-Log2 and S-Log3 are still both current. S-Log2 is normally paired with S-Gamut primaries, whereas S-Log3 may be paired either with S-Gamut3 or S-Gamut3.Cine primaries. S-Gamut and S-Gamut3 use the same wide gamut primaries; it is simply that the matrices used in the camera to transform to them from the sensor native color space are different. As has been mentioned previously in Section 3.3.1, a 3x3 camera matrix can only ever be an approximation of the ideal transform to set of encoding primaries. S-Gamut and S-Gamut3 use different optimizations. S-Gamut3 has the additional advantage that the transform to ACES is the same at all color temperatures, whereas for S-Gamut, two Input Transforms are provided by Sony for use under tungsten and daylight. S-Gamut3.Cine is slightly less wide gamut than S-Gamut3, and was designed to be more closely aligned with P3 primaries, making manual grading to P3 simpler. In a scene-referred workflow there is no benefit to this, and indeed recording in S-Gamut3.Cine will clip some colors which may be present in the scene, compared to S-Gamut3. Nonetheless, many people use S-Gamut3.Cine as the default camera setting, so it is important to ascertain which was used. As with Canon footage, using Sony's own software can be a useful way of reading metadata from the files which might not otherwise be available. Some Sony cameras also include XML files with the media, which can provide useful information.
 
 The S-Log2 encoding function is:
 
-	if L ≥ 0:
-		V = (64 + 876×(0.432699 × log10(155 × L / 197.1 + 0.037584) + 0.646596)) / 1023
+	if L ? 0:
+		V = (64 + 876?(0.432699 ? log10(155 ? L / 197.1 + 0.037584) + 0.646596)) / 1023
 	else:
-		V = (64 + 876 × (L × 3.53881278538813 / 0.9 + 0.030001222851889303)) / 1023
+		V = (64 + 876 ? (L ? 3.53881278538813 / 0.9 + 0.030001222851889303)) / 1023
 
 The S-Log3 encoding function is:
 
-	if L ≥ 0.01125:
-		V = (420 + log10((L + 0.01) / 0.19) × 261.5) / 1023
+	if L ? 0.01125:
+		V = (420 + log10((L + 0.01) / 0.19) ? 261.5) / 1023
 	else:
-		V = (L × 76.2102946929 / 0.01125 + 95) / 1023
+		V = (L ? 76.2102946929 / 0.01125 + 95) / 1023
 
 
 The S-Log2 decoding function is:
 
-	if V ≥ (64 + 0.030001222851889303 × 876) / 1023:
-		L = 197.1×(10((V×1023 – 64) / 876 – 0.646596) / 0.432699  – 0.037584) / 155
+	if V ? (64 + 0.030001222851889303 ? 876) / 1023:
+		L = 197.1?(10((V?1023 - 64) / 876 - 0.646596) / 0.432699  - 0.037584) / 155
 	else:
-		L = 0.9×( (V×1023 − 64) / 876 – 0.030001222851889303 ) / 3.53881278538813
+		L = 0.9?( (V?1023 ? 64) / 876 - 0.030001222851889303 ) / 3.53881278538813
 
 The S-Log3 decoding function is:
 
-	if V ≥ 171.2102946929 / 1023:
-		L = 10(V × 1023 − 420) / 261.5 × 0.19 − 0.01
+	if V ? 171.2102946929 / 1023:
+		L = 10(V ? 1023 ? 420) / 261.5 ? 0.19 ? 0.01
 	else:
-		L = (V × 1023 – 95) × 0.01125000 / 76.2102946929
+		L = (V ? 1023 - 95) ? 0.01125000 / 76.2102946929
 
 
 
@@ -491,18 +491,18 @@ White Point
 
 ACEScc is a logarithmic variant of the ACES color space for use in grading. It is a pure log curve, so each stop change of exposure is represented by an equal offset of the ACEScc value throughout the range. It uses AP1 primaries, which are the same as those used by ACEScg. Being a pure log curve, ACEScc cannot encode negative values (although the ACES spec asks that implementers provide some means of handling negative values in order to preserve them through a transform to ACEScc and back). It encodes a very wide dynamic range, with 1.0 representing a linear value of 222.86, or 10.27 stops above mid-grey.
 
-An integer form of ACEScc is ACESproxy, designed for on set live grading, such that CDL corrections applied to the 0-100% ‘IRE’ range of ACESproxy will give the same result when the same corrections are applied to ACEScc. ACESproxy exists in 10 and 12 bit variants. ACEScc can be converted to ACESproxy with the following equation:
+An integer form of ACEScc is ACESproxy, designed for on set live grading, such that CDL corrections applied to the 0-100% 'IRE' range of ACESproxy will give the same result when the same corrections are applied to ACEScc. ACESproxy exists in 10 and 12 bit variants. ACEScc can be converted to ACESproxy with the following equation:
 
-	ACESproxy = 16 × 2n-8 + clamp(ACEScc) × 219× 2n-8
+	ACESproxy = 16 ? 2n-8 + clamp(ACEScc) ? 219? 2n-8
 
 Where n is the bit depth.
 
 The encoding function of ACEScc is:
 
-	if L ≥ 0:
-		V = (9.72 − 16) / 17.52
+	if L ? 0:
+		V = (9.72 ? 16) / 17.52
 	else if L < 2-15:
-		V = (log2(2-16 + L × 0.5) + 9.72) / 17.52
+		V = (log2(2-16 + L ? 0.5) + 9.72) / 17.52
 	else:
 		V = (log2(L) + 9.72) / 17.52
 
@@ -510,10 +510,10 @@ The encoding function of ACEScc is:
 
 The decoding function is:
 
-	If V ≤ (9.72 - 15) / 17.52:
-		L = (2V × 17.52 − 9.72 − 2-16) × 2
+	If V ? (9.72 - 15) / 17.52:
+		L = (2V ? 17.52 ? 9.72 ? 2-16) ? 2
 	else if V < (log2(65504) + 9.72) / 17.52:
-		L = 2V × 17.52 − 9.72
+		L = 2V ? 17.52 ? 9.72
 	else:
 		L = 65504
 
@@ -533,8 +533,8 @@ ACEScct is a variation on ACEScc, which is identical through most of the curve b
 
 The ACEScct encoding function is:
 
-	if L ≤ 0.0078125:
-		V = 10.5402377416545 × L + 0.0729055341958355
+	if L ? 0.0078125:
+		V = 10.5402377416545 ? L + 0.0729055341958355
 	else:
 		V = (log2(L) + 9.72) / 17.52
 
@@ -542,10 +542,10 @@ The ACEScct encoding function is:
 
 The decoding function is:
 
-	if V ≤ 0.155251141552511:
-		L = (V − 0.0729055341958355) / 10.5402377416545
+	if V ? 0.155251141552511:
+		L = (V ? 0.0729055341958355) / 10.5402377416545
 	else if V < (log2(65504) + 9.72) / 17.52:
-		L = 2V × 17.52 − 9.72
+		L = 2V ? 17.52 ? 9.72
 	else:
 		L = 65504
 
@@ -555,20 +555,20 @@ The decoding function is:
 The Cineon log encoding differs from digital motion-picture camera log encodings in that Cineon is a logarithmic encoding of the actual optical density of the film negative. The non-linearities and cross-channel effects of film mean that there are no CIE xy values which can be said to be the primaries of a Cineon encoding. This means that there is not one formula which precisely reverts Cineon film scans to scene-referred linear. Various functions are proposed for linearising film scans.
 
 The Cineon linearization function used by Nuke (which RED also use as REDlogFIlm) is:
-	L = (10(1023 × V - 685) / 300 − 0.0108) / (1 − 0.0108)
+	L = (10(1023 ? V - 685) / 300 ? 0.0108) / (1 ? 0.0108)
 
 
 
 And its inverse is:
-	V = (log10(V × (1 − 0.0108) + 0.0108) × 300 + 685) / 1023
+	V = (log10(V ? (1 ? 0.0108) + 0.0108) ? 300 + 685) / 1023
 
-Another option is the ‘Pivoted log lin’ formula (PLogLin):
-	L = 10.0(V × 1023 − 445) × 0.002 / 0.6 × 0.18
+Another option is the 'Pivoted log lin' formula (PLogLin):
+	L = 10.0(V ? 1023 ? 445) ? 0.002 / 0.6 ? 0.18
 
 
 
 And its inverse:
-	V = (log10(L / 0.18) × 0.6 / 0.002 + 445) / 1023
+	V = (log10(L / 0.18) ? 0.6 / 0.002 + 445) / 1023
 
 The constants in the PLogLin equation are derived from a linear grey value of 0.18 mapping to a 10 bit value of 445, and a negative gamma of 0.6 with a density of 0.002 per 10 bit code value.
 

@@ -22,24 +22,24 @@ During quantization, the information between each quantizer step is discarded an
 4-bit quantization of a continuous sinusoidal signal, there are 24==16 quantizer steps.
 
 
-Quantization error decreases the signal-to-noise ratio (SNR) which in the context of digital imaging typically creates banding and contouring artifacts. They can be reduced by introducing a small amount of noise (≈ ½ quantizer step) before the quantization, this is called dithering, and even though it also reduces the SNR, the noise introduced by dithering is usually more compelling than banding artifacts, although it may increase the required bandwidth for compressed deliverables.
+Quantization error decreases the signal-to-noise ratio (SNR) which in the context of digital imaging typically creates banding and contouring artifacts. They can be reduced by introducing a small amount of noise (? ? quantizer step) before the quantization, this is called dithering, and even though it also reduces the SNR, the noise introduced by dithering is usually more compelling than banding artifacts, although it may increase the required bandwidth for compressed deliverables.
 
 \subsection{Perceptual Coding}%
 \label{subsec:perceptual-coding}
 
 As Poynton (1998) explains, a color imaging system is perceptually uniform if a small perturbation of a component value is approximately equally perceptible across the range of that value.
 
-Most electronic color imaging systems account for the non-linearity of the HVS and its logarithmic perceptual response to brightness when encoding RGB scene relative luminance values (linear-light values) into R’G’B’ perceptually uniform values using an OETF. The encoding process makes the reduction of bandwidth and the number of bits required per pixel possible by optimizing digital codes allocation as described in the next section.
+Most electronic color imaging systems account for the non-linearity of the HVS and its logarithmic perceptual response to brightness when encoding RGB scene relative luminance values (linear-light values) into R'G'B' perceptually uniform values using an OETF. The encoding process makes the reduction of bandwidth and the number of bits required per pixel possible by optimizing digital codes allocation as described in the next section.
 
 Comparing 4 bit linear and perceptually uniform quantization of an image.
-Image copyright © Disney 2018
+Image copyright ? Disney 2018
 
-Old cathode ray tube (CRTs) displays’ electron gun characteristics imposed an EOTF that is approximately the inverse of the HVS perception of brightness. The combination of HVS perceptual response to brightness with the CRT power function produces code values displayed in a perceptually uniform way. Non-linear coding was well understood by the engineers who designed the NTSC television system and was necessary to achieve good visual performance. Modern Standard Dynamic Range (SDR) display devices, e.g. Liquid Crystal Display (LCD), plasma, and Digital Light Processing (DLP), replicate this behavior by imposing a 2.2, 2.4 or 2.6 power function through signal processing circuitry. Their response to the input signal is often reasonably modeled using a gain-offset-gamma (GOG) approximation.
+Old cathode ray tube (CRTs) displays' electron gun characteristics imposed an EOTF that is approximately the inverse of the HVS perception of brightness. The combination of HVS perceptual response to brightness with the CRT power function produces code values displayed in a perceptually uniform way. Non-linear coding was well understood by the engineers who designed the NTSC television system and was necessary to achieve good visual performance. Modern Standard Dynamic Range (SDR) display devices, e.g. Liquid Crystal Display (LCD), plasma, and Digital Light Processing (DLP), replicate this behavior by imposing a 2.2, 2.4 or 2.6 power function through signal processing circuitry. Their response to the input signal is often reasonably modeled using a gain-offset-gamma (GOG) approximation.
 
-L = (gain × V + offset)ɣ
-where L is the normalized luminance emitted from the display, V is the normalized input device code value, and γ is the Gamma exponent and is discussed in details in section 2.5.5.
+L = (gain ? V + offset)?
+where L is the normalized luminance emitted from the display, V is the normalized input device code value, and ? is the Gamma exponent and is discussed in details in section 2.5.5.
 
-As described in section 2.2.6, an increment in Luminance is judged relative to the previous amount. The difference between a Luminance value L and a Luminance value L + ΔL is noticeable for ΔL > ~0.01L. In other words, the just-noticeable-difference (JND) between two Luminance values is about 1%.
+As described in section 2.2.6, an increment in Luminance is judged relative to the previous amount. The difference between a Luminance value L and a Luminance value L + ?L is noticeable for ?L > ~0.01L. In other words, the just-noticeable-difference (JND) between two Luminance values is about 1%.
 
 The 1.01 (101 / 100) ratio is known as the Weber contrast or Weber fraction. On a linear-light values scale from code 0 to code 255, code 100 is the location where the Weber contrast reaches 1% It increases for codes below 100, raising the perceptible difference between adjacent codes and possibly producing banding and contouring artifacts while decreasing for codes over 100, higher codes become wasteful and could be discarded without affecting the perception of the image.
 An ideal non-linear transfer function allocates code values to minimize the just-noticeable difference. Advanced approaches, e.g. DICOM GSDF and PQ, account for the spatial frequency behavior of the HVS and leverage Barten (2003) Contrast Sensitivity Function (CSF) to model almost optimal functions.
@@ -52,7 +52,7 @@ The contrast ratio is the ratio between the lowest luminance (reference black) a
 
 For 8 bit linear-light code values, the artifact devoid contrast ratio is only 2.55:1 (255 / 100). The "code 100" problem as Poynton (2003) terms it, can be addressed by using 12 bit coding (4095 code values) yielding an artifact devoid contrast ratio of 40.95:1, however, most of those codes cannot be visually discriminated.
 
-On the other hand, using a logarithmic or power based perceptual coding, the required number of code values can be dramatically reduced, for example maintaining a 1.01 Weber contrast over scene relative luminance range of [0.01, 100] (contrast ratio of 100:1), requires approximately 462 codes (≈ 9 bits).
+On the other hand, using a logarithmic or power based perceptual coding, the required number of code values can be dramatically reduced, for example maintaining a 1.01 Weber contrast over scene relative luminance range of [0.01, 100] (contrast ratio of 100:1), requires approximately 462 codes (? 9 bits).
 
 
 Perceptual coding is not required when using 16 bit integer (artifacts free contrast ratio of 655.35:1) or half float-representations (Weber contrast of 0.1%, 2^10 = 1024 code values per stop) but file formats adopting those representations are more costly in term of storage and computation.
@@ -62,32 +62,32 @@ Perceptual coding is not required when using 16 bit integer (artifacts free cont
 
 Integer representations are not appropriate for storing linear high-dynamic range scene-referred imagery due to the typical luminance distribution in real-world scenes, even when they are middle-grey normalized. Floating-point systems gracefully address the precision issues associated with encoding scene-referred linear imagery. They represent numbers approximately to a fixed number of significant digits, i.e. the significand, scaled by an exponent in some fixed base, e.g. 2, 10 or 16.
 
-The same unit can represent different orders of magnitude, for example, the temperature of the cosmic microwave background radiation is -270.45 °C while the quasar 3C273 temperature has been estimated to 10 trillion °C. Whereas with integer representations, the interval between two consecutive values is the same throughout the domain, with floating point representations the intervals increase as the exponent does. Fractional values can be represented using a negative exponent, and one bit is reserved to indicate the sign, allowing the coding of negative values as well.
-4 × 2-3 = 4 × ⅛ = ½
-5 × 2-3 = 5 × ⅛ = ⅝
-6 × 2-3 = 6 × ⅛ = ¾
-…
-4 × 22 = 16
-5 × 22 = 20
-6 × 22 = 24
-…
-4 × 28 = 1024
-5 × 28 = 1280
-6 × 28 = 1536
+The same unit can represent different orders of magnitude, for example, the temperature of the cosmic microwave background radiation is -270.45 ?C while the quasar 3C273 temperature has been estimated to 10 trillion ?C. Whereas with integer representations, the interval between two consecutive values is the same throughout the domain, with floating point representations the intervals increase as the exponent does. Fractional values can be represented using a negative exponent, and one bit is reserved to indicate the sign, allowing the coding of negative values as well.
+4 ? 2-3 = 4 ? ? = ?
+5 ? 2-3 = 5 ? ? = ?
+6 ? 2-3 = 6 ? ? = ?
+?
+4 ? 22 = 16
+5 ? 22 = 20
+6 ? 22 = 24
+?
+4 ? 28 = 1024
+5 ? 28 = 1280
+6 ? 28 = 1536
 % This approach allows for an almost ideal representation of scene-referred imagery, providing adequate precision in both the shadows and the highlights. In modern visual effects and color pipelines, OpenEXR by Industrial Light & Magic (2003) is most commonly used to store floating-point imagery and helped to popularize the 16 bit half-float format.
 For games, where the balance between performance and memory use (or both) and quality often lies firmly towards performance, smaller floating point formats dropping the sign bit or having less precision (or both) are common. For more information on these, please refer to sections 3.4.3, 3.4.4.1 and 3.5.3.
 For storage and performance reasons, it is common to encode high-dynamic range, scene-referred color spaces with integer representations. Digital motion picture cameras often record 10 or 12 bit integer media, e.g. ProRes, X-AVC, HDCAM SR or DPX files using an integer logarithmic encoding. It allows for most of the benefits of floating point representations, without actually requiring floating-point storage media. Being integer, logarithmic image data is also suitable for transporting over SDI. In logarithmic encodings, successive code values in the integer log space map to multiplicative values in linear space. Put more intuitively, this is analogous to converting each pixel to a representation of the number of stops above or below a reference level, and then storing an integer representation of this quantity.
 
 As logarithmic images encode an extensive dynamic range, most mid-tone pixels reside in the central portion of the encoded scale. Thus, if you directly display a logarithmic image on a sRGB monitor, it exhibits low contrast.
 
-Marcie, a famous reference image in theatrical exhibition and DI workflows, is shown as logarithmically encoded and exhibit low contrast. Image copyright © Eastman Kodak Company.
+Marcie, a famous reference image in theatrical exhibition and DI workflows, is shown as logarithmically encoded and exhibit low contrast. Image copyright ? Eastman Kodak Company.
 
 \subsection{Gamma}%
 \label{subsec:gamma}
 
-Gamma (γ) is a numerical parameter giving the exponent of a power function assumed to approximate the relationship between a signal quantity (such as a video signal code) and light power.
+Gamma (?) is a numerical parameter giving the exponent of a power function assumed to approximate the relationship between a signal quantity (such as a video signal code) and light power.
 
-Encoding gamma (γE), characteristic of OETFs uses an exponent approximately between 0.4 and 0.5 while decoding gamma (γD), characteristic of EOTFs uses an exponent approximately between 2.2 and 2.6.
+Encoding gamma (?E), characteristic of OETFs uses an exponent approximately between 0.4 and 0.5 while decoding gamma (?D), characteristic of EOTFs uses an exponent approximately between 2.2 and 2.6.
 
 The various gamma values are usually dependent on the color imaging systems and their defined viewing conditions. A color imaging system achieves representation of a scene in a way that matches viewer expectation of the appearance of that scene instead of attempting to reproduce physical color stimuli quantities. An outdoor sunlight scene can have luminance over 50,000 cd/m2 but may be displayed on a consumer electronic display with a white peak luminance of 320 cd/m2.
 

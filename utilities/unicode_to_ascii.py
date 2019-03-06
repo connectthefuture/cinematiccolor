@@ -30,6 +30,7 @@ SUBSTITUTIONS = {
     '”': '"',
     '‘': "'",
     '’': "'",
+    '′': "'",
 }
 
 
@@ -46,10 +47,12 @@ def unicode_to_ascii(root_directory):
 
     for root, dirnames, filenames in os.walk(root_directory):
         for filename in filenames:
-            if (not filename.endswith('.py') and
-                    not filename.endswith('.bib') and
-                    not filename.endswith('.rst') and
-                    filename != 'unicode_to_ascii.py'):
+            if (not filename.endswith('.tex') and not filename.endswith('.py')
+                    and not filename.endswith('.bib')
+                    and not filename.endswith('.rst')):
+                continue
+
+            if filename == 'unicode_to_ascii.py':
                 continue
 
             filename = os.path.join(root, filename)
@@ -60,11 +63,10 @@ def unicode_to_ascii(root_directory):
                 for key, value in SUBSTITUTIONS.items():
                     content = content.replace(key, value)
 
-                content = unicodedata.normalize('NFD', content).encode(
-                    'ascii', 'ignore')
+                content = unicodedata.normalize('NFD', content)
 
                 file_handle.write(content)
 
 
 if __name__ == '__main__':
-    unicode_to_ascii(os.path.join('..', 'colour'))
+    unicode_to_ascii(os.path.join('..'))
