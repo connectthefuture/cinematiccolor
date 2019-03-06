@@ -242,9 +242,7 @@ def conform_filenames(toc, root_directory, patterns=None):
             # Replace patterns using longest first, avoids issues such as
             # "AboutColorScience" being replaced with "Aboutcolor-science".
             for pattern, replacement in sorted(
-                        patterns,
-                        reverse=True,
-                        key=lambda x: len(x[-1])):
+                    patterns, reverse=True, key=lambda x: len(x[-1])):
                 content = content.replace(pattern, replacement)
 
             html_file.write(content)
