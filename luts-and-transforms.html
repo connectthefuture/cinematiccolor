@@ -203,14 +203,14 @@
           approximations by averaging nearby samples. LUTs are also
           useful when wanting to separate the calculation of a
           transform from its application. For example, in color
-          pipelines it is often useful to bake a series of color
+          pipelines it is often useful to "bake" a series of color
           transforms into a single lookup table, which is then
           suitable for distribution and re-use, even in situations
           where the original data sets are not appropriate for
           distribution.</p>
           <p class="indent">It is important to bear in mind that a
-          LUT is a black box transforming one set of values into a
-          new set of values. A color transform expressed as a LUT
+          LUT is a "black box" transforming one set of values into
+          a new set of values. A color transform expressed as a LUT
           will be designed for input in a particular color
           encoding, and will produce output which may be in the
           same or a different encoding. If the image data to be
@@ -391,7 +391,7 @@
           on the x-axis and y-axis of the graph represent, it may
           not yield the best results to minimize error in this
           fashion. Often in VFX and HDR workflows, due to the
-          nature of the human visual system, its more visually
+          nature of the human visual system, it’s more visually
           appealing to minimize the error in a visually uniform
           space. A quick and dirty way to do this is to
           logarithmically distribute the sample points. This will
@@ -401,7 +401,7 @@
           distributed point sampling.</p>
           <p class="indent">The concept of optimal placement of
           sample points can be extended to 3D LUTs where it is
-          common to wrap a 3D LUT in a matched set of 1D shaper
+          common to wrap a 3D LUT in a matched set of 1D ’shaper’
           LUTs. Say the ceiling is set at a pixel value of 100.0.
           Dividing this into equally sampled regions for a 32x32x32
           LUT yields a cell size of about 3. Assuming a reasonable
@@ -422,10 +422,10 @@
           original dynamic range.</p>
           <p class="indent">This second shaper is only necessary
           for transforms such as those from linear to linear. If
-          the transform is linear to log, or linear to ‘video, only
-          an input shaper is normally needed. Shaper LUTs may be
-          separate files, applied sequentially with the 3D LUT, or
-          may be included in a single 1D+3D combined LUT.</p>
+          the transform is linear to log, or linear to ‘video’,
+          only an input shaper is normally needed. Shaper LUTs may
+          be separate files, applied sequentially with the 3D LUT,
+          or may be included in a single 1D+3D combined LUT.</p>
           <h4 class="subsectionHead"><span class=
           "titlemark">4.4.4</span> <a href=
           "contents.html#QQ2-37-160" id="x37-1590004.4.4">Half
@@ -456,7 +456,7 @@
           LUT implementations, and for these, it is often simpler
           to create a human-readable LUT first and then convert
           with suitable utility software to the binary form.</p>
-          <p class="indent">for clarity, resulting in 9 Œ 9 Œ 9 =
+          <p class="indent">for clarity, resulting in 9 ? 9 ? 9 =
           729 different colored patches Grading and compositing
           systems include the functionality to read such images and
           generate LUTs, either from transforms applied by their
@@ -477,19 +477,19 @@
           when a shaper is required, to create a LUT for HDR image
           data, the situation is more complex. Decisions need to be
           made, and there is no one correct solution. Sometimes the
-          possible range of the input data is known if it comes
-          from a specific camera perhaps but it is often necessary
-          to decide on a sensible input range, and accept that data
-          outside this range may be clipped. It is also useful to
-          consider what data may be clipped in the final output, so
-          as not to waste input range on unnecessary values. For
-          example, if baking a LUT to apply the ACES RRT plus an
-          SDR ODT to ACES linear data, any shaper which includes
-          input values above 16.3 is wasteful, as these will be
-          clipped by the ODT. A balance needs to be struck between
-          covering a sufficient range, and not spreading the
-          available table entries too thinly, which can result in
-          distortions from interpolation if the shaper does not
+          possible range of the input data is known - if it comes
+          from a specific camera perhaps - but it is often
+          necessary to decide on a sensible input range, and accept
+          that data outside this range may be clipped. It is also
+          useful to consider what data may be clipped in the final
+          output, so as not to waste input range on unnecessary
+          values. For example, if baking a LUT to apply the ACES
+          RRT plus an SDR ODT to ACES linear data, any shaper which
+          includes input values above 16.3 is wasteful, as these
+          will be clipped by the ODT. A balance needs to be struck
+          between covering a sufficient range, and not spreading
+          the available table entries too thinly, which can result
+          in distortions from interpolation if the shaper does not
           include enough points for the range. It can be helpful to
           calculate forward and reverse shapers and pass a linear
           ramp through a concatenation of the two, looking for
@@ -502,7 +502,7 @@
           ACEScct range 0.0-0.304 (-0.007-0.047 linear).
           Interpolating linearly for values in this large interval,
           when they are in fact logarithmically spaced, results in
-          this kink. For the full range covered by ACEScct, a 16
+          this "kink". For the full range covered by ACEScct, a 16
           bits are needed before the distortion becomes negligible
           with uniformly spaced samples. The alternative is to use
           a non-uniform shaper if the LUT format supports that. The
@@ -519,10 +519,10 @@
           Lattice, are available and can create and convert both 1D
           and 3D LUTs, they cannot work with LUTs which include
           both a 1D shaper and a 3D cube in the same file. Neither
-          can Nukes GenerateLUT node. Therefore it is necessary
+          can Nuke’s GenerateLUT node. Therefore it is necessary
           either to manually split the process under consideration
           into the 1D and 3D components, and bake separate LUTs, or
-          else use command line tools such as OCIOs ociobakelut
+          else use command line tools such as OCIO’s ociobakelut
           which have options to select a shaper space and range for
           formats which support combined 1D + 3D LUTs. For example,
           the command below will create a Cinespace LUT which will
@@ -633,7 +633,7 @@
           the user to create transforms which can be varied
           dynamically.</p>
           <p class="indent">Examples include GLSL, or proprietary
-          variations such as Autodesks Matchbox Shaders (also
+          variations such as Autodesk’s Matchbox Shaders (also
           adopted by FilmLight) and DCTL for DaVinci Resolve.</p>
           <div class="breadcrumb-navigation text-center">
             <a href="colour-science-for-python.html"><button class=

@@ -188,12 +188,12 @@
           "titlemark">3.6</span> <a href=
           "cinematic-color.html#QQ2-28-105" id=
           "x28-1040003.6">Compositing</a></h3>
-          <p class="noindent">A shot from Rogue One: A Star Wars
-          Story, starting with a CG background plate (top), adding
+          <p class="noindent">A shot from "Rogue One: A Star Wars
+          Story", starting with a CG background plate (top), adding
           in a live-action foreground element (middle) and the
           final composite image (bottom). All three images have an
-          Output Transform for a Rec. 709 display. ľ and Lucasfilm
-          Ltd. All Rights Reserved</p>
+          Output Transform for a Rec. 709 display. ? and ?
+          Lucasfilm Ltd. All Rights Reserved</p>
           <p class="indent">Compositing is the process where
           live-action and CG elements are manipulated and merged.
           Image processing in scene-referred linear and logarithmic
@@ -270,24 +270,25 @@
           approximation of scene-referred linear using a simple
           gamma or sRGB curve is an improvement, but still tends to
           de-emphasize the specular highlights. This is because
-          even though the operation is being applied in linear, it
-          is downstream of the output transform, and the highlights
-          have already been tone mapped for a lower dynamic range
-          display, restricting them to the 0-1 range, and thus do
-          not have physically-plausible amounts of energy.
-          Applications like Adobe After Effects work in this way by
-          default when the use linear option is chosen for filters,
-          simply removing an assumed 2.2 gamma before the filter
-          and reapplying it afterward. Applying a defocus in
-          scene-referred linear reveals a bokeh effect on each of
-          the bell tower lights, mimicking the visual look of
-          having performed this defocus during camera acquisition.
-          This is because the pixel values are proportional to
-          light in the original scene, and thus very bright pixels
-          have sufficient energy to remain visible when blended
-          with their neighbors. Other energy effects such as
-          motion-blur achieve similar improvements in realism from
-          working in a scene-referred linear space.</p>
+          even though the operation is being applied in ’linear’,
+          it is downstream of the output transform, and the
+          highlights have already been tone mapped for a lower
+          dynamic range display, restricting them to the 0-1 range,
+          and thus do not have physically-plausible amounts of
+          energy. Applications like Adobe After Effects work in
+          this way by default when the "use linear" option is
+          chosen for filters, simply removing an assumed 2.2 gamma
+          before the filter and reapplying it afterward. Applying a
+          defocus in scene-referred linear reveals a bokeh effect
+          on each of the bell tower lights, mimicking the visual
+          look of having performed this defocus during camera
+          acquisition. This is because the pixel values are
+          proportional to light in the original scene, and thus
+          very bright pixels have sufficient energy to remain
+          visible when blended with their neighbors. Other energy
+          effects such as motion-blur achieve similar improvements
+          in realism from working in a scene-referred linear
+          space.</p>
           <h4 class="subsectionHead"><span class=
           "titlemark">3.6.2</span> <a href=
           "contents.html#QQ2-28-107" id=
@@ -316,7 +317,7 @@
           filtering, and converting back will greatly reduce the
           visual impact of overshoot and undershoot. Though
           log-space processing results in a gross distortion of
-          energy, for conversions which dont integrate large
+          energy, for conversions which don’t integrate large
           portions of the image, such as lens distortion effects
           for plates and not blurs, this works well. For images
           without alpha, a similar method is to apply a simple
@@ -349,21 +350,21 @@
           effective when applied to floating-point imagery. For
           example, the screen operator, which remains effective
           when applied to matte passes, is sometimes used on RGB
-          data to emulate a partial add. As the screen operator is
-          ill-defined above 1.0, unexpected results will occur when
-          applied to HDR data. Some compositing packages swap out
-          screen for max when either input is outside of 0.0-1.0,
-          but this is primarily to prevent artifacts and is not
-          artistically helpful. Alternative partial add maths such
-          as hypotenuse are useful but do not exactly replicate the
-          original intent of screen. Another related issue to
-          beware of when compositing is that when combining HDR
-          image, alphas must not go outside the range of 0 to 1.
-          While it is entirely reasonable for the RGB channels to
-          have any values, even negative in certain situations,
-          compositing operators such as over, produce totally
-          invalid results on alphas outside of the range 0 to
-          1.</p>
+          data to emulate a "partial add". As the screen operator
+          is ill-defined above 1.0, unexpected results will occur
+          when applied to HDR data. Some compositing packages swap
+          out screen for max when either input is outside of
+          0.0-1.0, but this is primarily to prevent artifacts and
+          is not artistically helpful. Alternative "partial add"
+          maths such as hypotenuse are useful but do not exactly
+          replicate the original intent of screen. Another related
+          issue to beware of when compositing is that when
+          combining HDR image, alphas must not go outside the range
+          of 0 to 1. While it is entirely reasonable for the RGB
+          channels to have any values, even negative in certain
+          situations, compositing operators such as over, produce
+          totally invalid results on alphas outside of the range 0
+          to 1.</p>
           <p class="indent">One subtlety of working with floating
           point imagery is that artists must become familiar with
           some of the corner cases in floating-point
@@ -381,13 +382,13 @@
           "titlemark">3.6.3</span> <a href=
           "contents.html#QQ2-28-108" id="x28-1070003.6.3">Negative
           Values</a></h4>
-          <p class="noindent">A frame from The Avengers: Infinity
-          War. The frame in the original Alexa LogC encoding (top),
-          The frame transformed to ACEScc with negative values in
-          shown as purple fringing visible in particular on the top
-          right light (middle) and the final frame (bottom) ľ 2018
-          MARVEL</p>
-          <p class="indent">CIE 1931 2ř Standard Observer
+          <p class="noindent">A frame from ’The Avengers: Infinity
+          War". The frame in the original Alexa LogC encoding
+          (top), The frame transformed to ACEScc with negative
+          values in shown as purple fringing visible in particular
+          on the top right light (middle) and the final frame
+          (bottom) ? 2018 MARVEL</p>
+          <p class="indent">CIE 1931 2? Standard Observer
           chromaticity plot of the image above The above image
           contains pixel values which are positive in ALEXA Wide
           Gamut but negative in ACEScg as they are outside of the
@@ -410,8 +411,8 @@
           have been found to produce values outside of their
           specified encoding gamut. That could lead to negative
           scene-referred linear values even without transforming
-          away from the cameras encoding gamut. Like NaNs and Inf
-          values, this comes with the territory. Dont just clip
+          away from the camera’s encoding gamut. Like NaNs and Inf
+          values, this comes with the territory. Don’t just clip
           these values! These negative values can pass through some
           operations without causing issues and should normally be
           preserved when delivering VFX renders to DI. However, the
@@ -433,9 +434,9 @@
           same unreal color, matching the original plate.</p>
           <p class="indent">This is also something to watch out for
           in games. As mentioned in Section 3.4.3 Games, games may
-          render in less precise small floating-point formats when
-          an alpha channel is not needed and performance and memory
-          bandwidth are more important than precision. It is
+          render in less precise "small" floating-point formats
+          when an alpha channel is not needed and performance and
+          memory bandwidth are more important than precision. It is
           important to remember that these floating point formats
           do not have a sign bit so do not support negative
           numbers, and thus cannot store out-of-gamut colors. If
@@ -448,11 +449,11 @@
           "titlemark">3.6.4</span> <a href=
           "contents.html#QQ2-28-109" id="x28-1080003.6.4">Working
           with Log Imagery</a></h4>
-          <p class="noindent">Log plates captured for Avengers:
-          Infinity War (left, right) and The Amazing Spider-Man
-          (middle). Images from Avengers: Infinity War are ľ 2018
-          MARVEL. Images from The Amazing Spider-Man Courtesy of
-          Columbia Pictures. ľ 2012 Columbia Pictures Industries,
+          <p class="noindent">Log plates captured for "Avengers:
+          Infinity War" (left, right) and "The Amazing Spider-Man"
+          (middle). Images from "Avengers: Infinity War" are ? 2018
+          MARVEL. Images from "The Amazing Spider-Man" Courtesy of
+          Columbia Pictures. ? 2012 Columbia Pictures Industries,
           Inc. All rights reserved. Despite scene-referred linear
           having benefits in many compositing operators, log-like
           spaces are sometimes still useful in modern compositing
@@ -505,7 +506,7 @@
           done at the top of the compositing graph, the CG neutral
           elements are composited in, and then before the file is
           written out the neutralization is undone. This approach
-          is often called reverse out, and its advantage is that
+          is often called "reverse out," and its advantage is that
           the output delivery is consistent with the input plate,
           independent of the color neutralization process. An
           analogous set of operations are often applied with lens
@@ -517,7 +518,7 @@
           plate needs to be reflected or otherwise used in a CG
           render. The same is true with undistorted plates. It may
           be useful to write them to disk if a tracking or
-          photogrammetry application, for example, cant apply the
+          photogrammetry application, for example, can’t apply the
           same lens un-distortion as the compositing
           application.</p>
           <p class="indent">It is important to draw a distinction
@@ -544,7 +545,7 @@
           "x28-1100003.6.6">Premultiplication</a></h4>
           <p class="noindent">Premultiplication implies that one
           starts with an RGB color, adds the concept of
-          transparency, and then premultiplies by it. This isnt
+          transparency, and then premultiplies by it. This isn’t
           actually true. Premultiplied RGB is the natural
           representation for color and transparency and is the
           native output of renderers. A nice mental model for
@@ -567,12 +568,12 @@
           suffices.</p>
           <p class="indent">So how should unpremultiplied RGBA be
           interpreted? Unpremultiplied RGBA is most easily
-          understood as, If this pixel were fully opaque, how much
-          light would have been emitted? This representation is
+          understood as, "If this pixel were fully opaque, how much
+          light would have been emitted?" This representation is
           certainly useful in specific compositing contexts such as
           when pulling luma keys from CG elements, but as
           converting to unpremultiplied RGBA is a lossy
-          approximation its prudent to only do the conversion when
+          approximation it’s prudent to only do the conversion when
           absolutely necessary.</p>
           <p class="indent">For additional information on
           premultiplied versus unpremultiplied RGBA
@@ -602,7 +603,7 @@
           artifacts which are masked by an SDR output transform
           that might be revealed by an HDR output transform.</p>
           <p class="indent">The inclusion of deliverables for HDR
-          displays makes this even more critical, as artists
+          displays makes this even more critical, as artists’
           workstations may be unable to show an HDR image at all,
           and even if they can, they are unlikely to accurately
           represent the final HDR deliverable. If HDR monitoring is
@@ -627,7 +628,7 @@
           match across shots and sequences. It is easy to make
           individual shots that are self-consistent, yet fall apart
           when viewed side to side. Most critical is the inspection
-          of shadow detail. Stopping up the final composites,
+          of shadow detail. "Stopping up" the final composites,
           shadows should have a consistent color and density both
           inter-shot and intra-shot. Flat black portions of the
           image should be avoided - lest they reappear in DI
@@ -635,7 +636,7 @@
           live-action and the computer-generated imagery.
           Inspecting highlights, one should confirm that their
           intensity, color, sharpness, and flare appearance are
-          similarly consistent. For visual effects shots that dont
+          similarly consistent. For visual effects shots that don’t
           modify the entire live-action plate, the portions of the
           image that should be unaffected by the visual effects
           elements should be compared against the original
