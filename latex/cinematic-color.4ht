@@ -3,7 +3,16 @@
 \NewConfigure{ccAchromaticNameref}{2}
 \def\:temp#1{\a:ccAchromaticNameref\o:ccAchromaticNameref:{#1}\b:ccAchromaticNameref}
 \HLet\ccAchromaticNameref\:temp
-
 \Configure{ccAchromaticNameref}{\HCode{<span class="achromatic-link">}}{\HCode{</span>}}
+
+\NewConfigure{ccReviewerItem}{2}
+\def\:temp#1{\a:ccReviewerItem\o:ccReviewerItem:{#1}\b:ccReviewerItem}
+\HLet\ccReviewerItem\:temp
+\Configure{ccReviewerItem}{\HCode{<li class="list-inline-item">}}{\HCode{</li>}}
+
+\NewConfigure{ccReviewersList}{2}
+\def\:temp#1{\a:ccReviewersList\o:ccReviewersList:{#1}\b:ccReviewersList}
+\HLet\ccReviewersList\:temp
+\Configure{ccReviewersList}{\HCode{<ul class="list-inline">\Hnewline}}{\HCode{</ul>\Hnewline}}
 
 \Hinput{cinematic-color}

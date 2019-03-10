@@ -1,9 +1,24 @@
 \ProvidesPackage{cinematic-color}
 
-\RequirePackage{csquotes}
+\RequirePackage{amsmath}
+\RequirePackage[utf8]{inputenc} % NOI
+\RequirePackage{csquotes} % NOI
+\RequirePackage[english]{babel} % NOI
+\RequirePackage[backend=biber,style=apa]{biblatex}
+\RequirePackage{float}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[bottom]{footmisc}
 \RequirePackage{graphicx}
 \RequirePackage{listings}
+\RequirePackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage{pgffor}
+\RequirePackage[detect-family=true,detect-mode=true,range-phrase=--,per-mode=symbol,bracket-unit-denominator=false,per-mode=repeated-symbol]{siunitx}
+\RequirePackage[default,osf]{sourcesanspro}
+\RequirePackage[usetransparent=false]{svg}
+\RequirePackage{textcomp}
+\RequirePackage{url}
 \RequirePackage{xcolor}
+\RequirePackage{hyperref} % NOI
 
 \define@key{Gin}{alt}{}
 
@@ -22,7 +37,7 @@
 % "csquotes" citation command.
 \SetCiteCommand{\parencite}
 
-% Custom commands.
+% Custom commands definitions.
 \newcommand{\ccAchromaticNameref}[1]{{\hypersetup{hidelinks}\nameref{#1}}}
 
 \newcommand\ccLatexNewline{\unless\ifdefined\HCode\\\fi}
@@ -40,17 +55,25 @@
     \selectfont
 }
 
+\newcommand{\ccReviewerItem}[1]{%
+    \mbox{#1}\quad%
+}
+\newcommand{\ccReviewersList}[1]{%
+    \foreach \ccReviewer in #1{%
+        \ccReviewerItem{\ccReviewer}
+    }
+}
 
 % URL typeface.
 \def\ccUrlFont{\sf}
 
-% Custom environments.
+% Custom environments definitions.
 \newenvironment{ccKeyPoints}
     {%
         \unless\ifdefined\HCode%
             \ccPar%
         \fi
-        \large{\textbf{Concepts Review}}
+        {\large\textbf{Concepts Review}}
     }
     {}
 

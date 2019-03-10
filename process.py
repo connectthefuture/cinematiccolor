@@ -72,7 +72,7 @@ NAVBAR_A_TEMPLATE = '<a class="nav-link" href="{href}">{text}</a>'
 
 SUBTITLE_TEMPLATE = '<h2 class="sub-title">{text}</h2>'
 
-AUTHORS_UL_TEMPLATE = '<ul class="list-inline pt-3">{text}</ul>'
+AUTHORS_UL_TEMPLATE = '<ul class="list-inline">{text}</ul>'
 
 AUTHORS_LI_TEMPLATE = '<li class="list-inline-item">{text}</li>'
 
