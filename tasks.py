@@ -213,7 +213,7 @@ def format(ctx):
 @task
 def serve(ctx, port=8900):
     """
-    Servers the *HTML* website on given port.
+    Serves the *HTML* website on given port.
 
     Parameters
     ----------
