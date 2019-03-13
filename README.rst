@@ -35,13 +35,13 @@ Primary Dependencies
 
 **Cinematic Color** requires various dependencies in order to build:
 
--   `LaTeX <https://www.latex-project.org/>`_ (`MacTeX <http://www.tug.org/mactex/>`_ on *macOs*).
--   `Inkscape <https://inkscape.org/>`_
--   `Tidy <http://www.html-tidy.org/>`_
--   `Python 3.6 <https://www.python.org/download/releases/>`_
--   `Invoke <http://www.pyinvoke.org/>`_
--   `html5lib <https://pypi.org/project/html5lib/>`_
 -   `Beautiful Soup 4 <https://www.crummy.com/software/BeautifulSoup/>`_
+-   `html5lib <https://pypi.org/project/html5lib/>`_
+-   `Inkscape <https://inkscape.org/>`_
+-   `Invoke <http://www.pyinvoke.org/>`_
+-   `LaTeX <https://www.latex-project.org/>`_ (`MacTeX <http://www.tug.org/mactex/>`_ on *macOs*).
+-   `Python 3.6 <https://www.python.org/download/releases/>`_
+-   `Tidy <http://www.html-tidy.org/>`_
 
 Secondary Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -72,7 +72,7 @@ dedicated environment::
 
     conda create -y -n cinematic-color-2 python=3.6
     source activate cinematic-color-2
-    conda install -y beautifulsoup4 html5lib invoke pylint yapf
+    conda install -y beautifulsoup4 invoke html5lib pylint yapf
     pip install ghp-import
 
 .. note:: *Inkscape 0.92* command line usage on *macOs* requires passing images
