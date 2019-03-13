@@ -6,8 +6,10 @@ Invoke - Tasks
 
 from __future__ import print_function, unicode_literals
 
+import biblib.bib
 import glob
 import os
+import re
 import subprocess
 from invoke import task
 from invoke.exceptions import Failure
@@ -28,7 +30,7 @@ __all__ = [
     'TYPESETTING_DOCUMENT_NAME', 'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY',
     'ASSETS_DIRECTORY', 'JERI_DIRECTORY', 'PDF_BUILD_DIRECTORY',
     'HTML_BUILD_DIRECTORY', 'HTML_RELEASE_DIRECTORY', 'TIDY_HTML',
-    'message_box', 'clean', 'asciify', 'serve', 'build_pdf', 'build_html',
+    'message_box', 'clean', 'format', 'serve', 'build_pdf', 'build_html',
     'build_all', 'gh_deploy'
 ]
 
@@ -170,9 +172,9 @@ def clean(ctx, bytecode=False):
 
 
 @task
-def asciify(ctx, ):
+def format(ctx):
     """
-    Converts unicode characters to ASCII.
+    Converts unicode characters to ASCII and cleanup the *BIB* file.
 
     Parameters
     ----------
@@ -186,9 +188,27 @@ def asciify(ctx, ):
     """
 
     message_box('Converting unicode characters to ASCII...')
-    with ctx.cd('utilities'):
+    with ctx.cd(UTILITIES_DIRECTORY):
         ctx.run('./unicode_to_ascii.py')
 
+    message_box('Cleaning up "BIB" file...')
+    with ctx.cd(LATEX_SOURCE_DIRECTORY):
+        bibtex_path = os.path.join(LATEX_SOURCE_DIRECTORY, BIBLIOGRAPHY_NAME)
+        with open(bibtex_path) as bibtex_file:
+            bibtex = biblib.bib.Parser().parse(bibtex_file.read()).get_entries()
+
+        for entry in bibtex.values():
+            try:
+                del entry['file']
+            except KeyError:
+                pass
+            for key, value in entry.items():
+                entry[key] = re.sub('(?<!\\\\)\\&', '\\&', value)
+
+        with open(bibtex_path, 'w') as bibtex_file:
+            for entry in bibtex.values():
+                bibtex_file.write(entry.to_bib())
+                bibtex_file.write('\n')
 
 @task
 def serve(ctx, port=8900):
@@ -213,7 +233,7 @@ def serve(ctx, port=8900):
         ctx.run('python3 -m http.server {0};'.format(port))
 
 
-@task(asciify)
+@task(format)
 def build_pdf(ctx):
     """
     Builds the *PDF*.
@@ -254,7 +274,7 @@ def build_pdf(ctx):
             warn=True)
 
 
-@task(asciify)
+@task(format)
 def build_html(ctx, process_html=True):
     """
     Builds the *HTML* website.

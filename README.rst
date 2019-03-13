@@ -36,6 +36,7 @@ Primary Dependencies
 **Cinematic Color** requires various dependencies in order to build:
 
 -   `Beautiful Soup 4 <https://www.crummy.com/software/BeautifulSoup/>`_
+-   `biblib <https://github.com/aclements/biblib/>`_
 -   `html5lib <https://pypi.org/project/html5lib/>`_
 -   `Inkscape <https://inkscape.org/>`_
 -   `Invoke <http://www.pyinvoke.org/>`_
@@ -72,8 +73,8 @@ dedicated environment::
 
     conda create -y -n cinematic-color-2 python=3.6
     source activate cinematic-color-2
-    conda install -y beautifulsoup4 invoke html5lib pylint yapf
-    pip install ghp-import
+    conda install -y beautifulsoup4 html5lib invoke pylint yapf
+    pip install ghp-import git+https://github.com/aclements/biblib.git
 
 .. note:: *Inkscape 0.92* command line usage on *macOs* requires passing images
     with an absolute path which breaks portability of the project.
