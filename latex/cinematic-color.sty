@@ -57,6 +57,36 @@
     \selectfont
 }
 
+\newcommand{\ccHOne}[1]{%
+    \unless\ifdefined\HCode%
+        {\huge #1}
+    \else
+        #1
+    \fi
+}
+\newcommand{\ccHTwo}[1]{%
+    \unless\ifdefined\HCode%
+        {\LARGE #1}
+    \else
+        #1
+    \fi
+}
+\newcommand{\ccHThree}[1]{%
+    \unless\ifdefined\HCode%
+        {\Large #1}
+    \else
+        #1
+    \fi
+}
+\newcommand{\ccHFour}[1]{%
+    \unless\ifdefined\HCode%
+        {\large #1}
+    \else
+        #1
+    \fi
+}
+
+
 \newcommand{\ccName}[1]{%
     \makebox[1.15\width]{\textbf{#1}}
 }

@@ -5,6 +5,26 @@
 \HLet\ccAchromaticNameref\:temp
 \Configure{ccAchromaticNameref}{\HCode{<span class="achromatic-link">}}{\HCode{</span>}}
 
+\NewConfigure{ccHOne}{2}
+\def\:temp#1{\a:ccHOne\o:ccHOne:{#1}\b:ccHOne}
+\HLet\ccHOne\:temp
+\Configure{ccHOne}{\HCode{<h1>}}{\HCode{</h1>}}
+
+\NewConfigure{ccHTwo}{2}
+\def\:temp#1{\a:ccHTwo\o:ccHTwo:{#1}\b:ccHTwo}
+\HLet\ccHTwo\:temp
+\Configure{ccHTwo}{\HCode{<h2>}}{\HCode{</h2>}}
+
+\NewConfigure{ccHThree}{2}
+\def\:temp#1{\a:ccHThree\o:ccHThree:{#1}\b:ccHThree}
+\HLet\ccHThree\:temp
+\Configure{ccHThree}{\HCode{<h3>}}{\HCode{</h3>}}
+
+\NewConfigure{ccHFour}{2}
+\def\:temp#1{\a:ccHFour\o:ccHFour:{#1}\b:ccHFour}
+\HLet\ccHFour\:temp
+\Configure{ccHFour}{\HCode{<h3>}}{\HCode{</h3>}}
+
 \NewConfigure{ccName}{2}
 \def\:temp#1{\a:ccName\o:ccName:{#1}\b:ccName}
 \HLet\ccName\:temp
