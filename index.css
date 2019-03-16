@@ -15,8 +15,9 @@
 .cmmi-5{font-size:50%;font-style: italic;}
 .cmsy-7{font-size:70%;}
 .cmsy-5{font-size:50%;}
-.ec-lmss-17{font-size:170%; font-family: "Source Sans Pro", "Segoe UI", Calibri, Candara, Arial, sans-serif;}
-.ec-lmss-17{ font-family: "Source Sans Pro", "Segoe UI", Calibri, Candara, Arial, sans-serif;}
+.ec-lmssbx-10{ font-family: "Source Sans Pro", "Segoe UI", Calibri, Candara, Arial, sans-serif; font-weight: bold;}
+.ec-lmss-9{font-size:90%; font-family: "Source Sans Pro", "Segoe UI", Calibri, Candara, Arial, sans-serif;}
+.ec-lmss-9{ font-family: "Source Sans Pro", "Segoe UI", Calibri, Candara, Arial, sans-serif;}
 .ec-lmss-12{font-size:120%; font-family: "Source Sans Pro", "Segoe UI", Calibri, Candara, Arial, sans-serif;}
 .ec-lmss-12{ font-family: "Source Sans Pro", "Segoe UI", Calibri, Candara, Arial, sans-serif;}
 .ec-lmss-12x-x-120{font-size:144%; font-family: "Source Sans Pro", "Segoe UI", Calibri, Candara, Arial, sans-serif;}
