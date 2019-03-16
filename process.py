@@ -22,9 +22,8 @@ __all__ = [
     'ENCODING', 'NAVBAR_TEMPLATE', 'NAVBAR_DROPDOWN_LI_TEMPLATE',
     'NAVBAR_DROPDOWN_A_TEMPLATE', 'NAVBAR_DROPDOWN_DIV_TEMPLATE',
     'NAVBAR_DROPDOWN_ITEM_TEMPLATE', 'NAVBAR_A_TEMPLATE', 'SUBTITLE_TEMPLATE',
-    'AUTHORS_UL_TEMPLATE', 'AUTHORS_LI_TEMPLATE', 'CSS_PATTERNS',
-    'parse_sections', 'parse_toc', 'build_navigation', 'process_title',
-    'process_html', 'process_css', 'process_index'
+    'CSS_PATTERNS', 'parse_sections', 'parse_toc', 'build_navigation',
+    'process_title', 'process_html', 'process_css', 'process_index'
 ]
 
 codecs.register_error('strict', codecs.ignore_errors)
@@ -71,10 +70,6 @@ NAVBAR_DROPDOWN_ITEM_TEMPLATE = ('<a class="dropdown-item" '
 NAVBAR_A_TEMPLATE = '<a class="nav-link" href="{href}">{text}</a>'
 
 SUBTITLE_TEMPLATE = '<h2 class="sub-title">{text}</h2>'
-
-AUTHORS_UL_TEMPLATE = '<ul class="list-inline">{text}</ul>'
-
-AUTHORS_LI_TEMPLATE = '<li class="list-inline-item">{text}</li>'
 
 CSS_PATTERNS = ((
     'font-family: sans-serif;',
@@ -338,48 +333,68 @@ def process_title(path):
     with codecs.open(path, encoding=ENCODING) as html_file:
         html = BeautifulSoup(html_file, 'html5lib', from_encoding=ENCODING)
 
+        # Attributions processing.
+        empty_strings = []
+        for ul in html.find_all('ul', **{'class_': 'list-attribution'}):
+            for descendant in ul.descendants:
+                if isinstance(descendant, NavigableString):
+                    if len(re.sub('\xa0|\\s', '', descendant.string)) == 0:
+                        empty_strings.append(descendant)
+                else:
+                    if descendant.string is not None:
+                        string = re.sub('\xa0', '', descendant.string.strip())
+                        string = re.sub('\\s+', ' ', string)
+                        descendant.string = string
+
+        for string in empty_strings:
+            string.extract()
+
+        for ul in html.find_all('ul', **{'class_': 'attribution'}):
+            li_a = ul.find_all('li')
+            ul.insert(0, li_a[-1].extract())
+
         # Extracting "page-tile" section to make it a "body" top-level element.
-        section = html.body.find('section', **{'class_': 'page-title'})
-        section.extract()
-        html.body.insert(0, section)
+        # section = html.body.find('section', **{'class_': 'page-title'})
+        # section.extract()
+        # html.body.insert(0, section)
 
-        container = section.find(
-            'div', **{'class_': 'container-fluid text-center pt-3'})
+        # container = section.find(
+        #     'div', **{'class_': 'container-fluid text-center pt-3'})
 
-        # Creating the sub-title.
-        h1 = section.find('h1')
-        h1.find('br').extract()
-        h2 = BeautifulSoup(
-            SUBTITLE_TEMPLATE.format(
-                **{'text': list(h1.children)[-1].extract().string}),
-            'html.parser').find('h2')
-        container.append(h2)
+        # # Creating the sub-title.
+        # h1 = section.find('h1')
+        # h1.find('br').extract()
+        # h2 = BeautifulSoup(
+        #     SUBTITLE_TEMPLATE.format(
+        #         **{'text': list(h1.children)[-1].extract().string}),
+        #     'html.parser').find('h2')
+        # container.append(h2)
 
-        # Formatting "author" div.
-        div = section.find('div', **{'class_': 'author'}).extract()
-        for br in div.find_all('br'):
-            br.extract()
+        # # Formatting "author" div.
+        # div = section.find('div', **{'class_': 'author'}).extract()
+        # for br in div.find_all('br'):
+        #     br.extract()
 
-        authors = []
-        for child in div.children:
-            author = child.string.strip()
+        # authors = []
+        # for child in div.children:
+        #     author = child.string.strip()
 
-            if author:
-                author = ' '.join(author.split(',')[::-1])
-                authors.append(
-                    BeautifulSoup(
-                        AUTHORS_LI_TEMPLATE.format(**{'text': author}),
-                        'html.parser').prettify())
+        #     if author:
+        #         author = ' '.join(author.split(',')[::-1])
+        #         authors.append(
+        #             BeautifulSoup(
+        #                 AUTHORS_LI_TEMPLATE.format(**{'text': author}),
+        #                 'html.parser').prettify())
 
-            child.extract()
+        #     child.extract()
 
-        container.append(
-            BeautifulSoup(
-                AUTHORS_UL_TEMPLATE.format(**{'text': '\n'.join(authors)}),
-                'html.parser').find('ul'))
+        # container.append(
+        #     BeautifulSoup(
+        #         AUTHORS_UL_TEMPLATE.format(**{'text': '\n'.join(authors)}),
+        #         'html.parser').find('ul'))
 
-        # Removing unused "<br>" tag.
-        list(section.find_all('br'))[-1].extract()
+        # # Removing unused "<br>" tag.
+        # list(section.find_all('br'))[-1].extract()
 
     with codecs.open(path, 'w', encoding=ENCODING) as html_file:
         html_file.write(str(html))

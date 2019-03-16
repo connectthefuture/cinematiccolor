@@ -5,14 +5,24 @@
 \HLet\ccAchromaticNameref\:temp
 \Configure{ccAchromaticNameref}{\HCode{<span class="achromatic-link">}}{\HCode{</span>}}
 
-\NewConfigure{ccReviewerItem}{2}
-\def\:temp#1{\a:ccReviewerItem\o:ccReviewerItem:{#1}\b:ccReviewerItem}
-\HLet\ccReviewerItem\:temp
-\Configure{ccReviewerItem}{\HCode{<li class="list-inline-item">}}{\HCode{</li>}}
+\NewConfigure{ccName}{2}
+\def\:temp#1{\a:ccName\o:ccName:{#1}\b:ccName}
+\HLet\ccName\:temp
+\Configure{ccName}{\HCode{<li class="attribution-name list-item">}}{\HCode{</li>}}
 
-\NewConfigure{ccReviewersList}{2}
-\def\:temp#1{\a:ccReviewersList\o:ccReviewersList:{#1}\b:ccReviewersList}
-\HLet\ccReviewersList\:temp
-\Configure{ccReviewersList}{\HCode{<ul class="list-inline">\Hnewline}}{\HCode{</ul>\Hnewline}}
+\NewConfigure{ccAffiliation}{2}
+\def\:temp#1{\a:ccAffiliation\o:ccAffiliation:{#1}\b:ccAffiliation}
+\HLet\ccAffiliation\:temp
+\Configure{ccAffiliation}{\HCode{<li class="attribution-affiliation list-item">}}{\HCode{</li>}}
+
+\NewConfigure{ccAttribution}{2}
+\def\:temp#1{\a:ccAttribution\o:ccAttribution:{#1}\b:ccAttribution}
+\HLet\ccAttribution\:temp
+\Configure{ccAttribution}{\HCode{<li class="list-inline-item"><ul class="attribution list-unstyled p-3">}}{\HCode{</ul></li>}}
+
+\NewConfigure{ccAttributionList}{2}
+\def\:temp#1{\a:ccAttributionList\o:ccAttributionList:{#1}\b:ccAttributionList}
+\HLet\ccAttributionList\:temp
+\Configure{ccAttributionList}{\HCode{<ul class="list-attribution list-inline">\Hnewline}}{\HCode{</ul>\Hnewline}}
 
 \Hinput{cinematic-color}

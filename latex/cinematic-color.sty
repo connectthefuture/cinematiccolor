@@ -14,10 +14,12 @@
 \RequirePackage{pgffor}
 \RequirePackage[detect-family=true,detect-mode=true,range-phrase=--,per-mode=symbol,bracket-unit-denominator=false,per-mode=repeated-symbol]{siunitx}
 \RequirePackage[default,osf]{sourcesanspro}
+\RequirePackage{stackengine}
 \RequirePackage[usetransparent=false]{svg}
 \RequirePackage{textcomp}
 \RequirePackage{url}
 \RequirePackage{xcolor}
+\RequirePackage{xstring}
 \RequirePackage{hyperref} % NOI
 
 \define@key{Gin}{alt}{}
@@ -55,12 +57,22 @@
     \selectfont
 }
 
-\newcommand{\ccReviewerItem}[1]{%
-    \mbox{#1}\quad%
+\newcommand{\ccName}[1]{%
+    \makebox[1.15\width]{\textbf{#1}}
 }
-\newcommand{\ccReviewersList}[1]{%
-    \foreach \ccReviewer in #1{%
-        \ccReviewerItem{\ccReviewer}
+\newcommand{\ccAffiliation}[1]{%
+    \makebox[1.15\width]{\small{#1}}
+}
+\newcommand{\ccAttribution}[1]{%
+    \StrCut{#1}{/}\name\affiliation
+     \Longstack[c]{%
+        \ccName{\name}
+        \ccAffiliation{\affiliation}
+    }
+}
+\newcommand{\ccAttributionList}[1]{%
+    \foreach \attribution in #1{%
+        \ccAttribution{\attribution}
     }
 }
 

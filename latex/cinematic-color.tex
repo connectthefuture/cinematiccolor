@@ -7,21 +7,27 @@
 
 \addbibresource{bibliography.bib}
 
-\input{common/cinematic-color-title.tex}
-
 \color{ccbodycolor}
 
 \begin{document}
 
-\maketitle
+\input{common/cinematic-color-title.tex}
 
 \input{common/ves-title.tex}
 
+\vspace{5mm}
+
 \input{common/contributors-and-reviewers.tex}
+
+\thispagestyle{empty}
+
+\newpage
+
+\setcounter{page}{1}
 
 \input{chapters/preface/preface.tex}
 
-{\ccTabularNums
+{\ccTabularNums%
 \microtypesetup{protrusion=false}
     \tableofcontents
 \microtypesetup{protrusion=true}
