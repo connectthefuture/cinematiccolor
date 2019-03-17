@@ -1,823 +1,145 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-  <title>Text Formatting</title>
-  <meta charset="utf-8" />
-  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-  "generator" />
-  <meta content="width=device-width,initial-scale=1" name=
-  "viewport" />
-  <link href="cinematic-color.css" rel="stylesheet" type=
-  "text/css" />
-  <meta content="cinematic-color.tex" name="src" />
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
-  type="text/javascript"></script>
-  <script src="assets/js/jeri/jeri.min.js" type=
-  "text/javascript"></script>
-  <script type="text/javascript">
-  //<![CDATA[
+<html lang="en" xml:lang="en"><head><title>Text Formatting</title> 
+<meta charset="utf-8"/> 
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name="generator"/> 
+<meta content="width=device-width,initial-scale=1" name="viewport"/> 
+<link href="cinematic-color.css" rel="stylesheet" type="text/css"/> 
+<meta content="cinematic-color.tex" name="src"/> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js" type="text/javascript"></script> 
+<script src="https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js" type="text/javascript"></script> 
+<script src="assets/js/jeri/jeri.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+</script> 
+<script type="text/javascript"> 
+(function() { 
+var cx = '000762316508951405781:qrigrsppwri'; 
+var gcse = document.createElement('script'); 
+gcse.type = 'text/javascript'; 
+gcse.async = true; 
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
+var s = document.getElementsByTagName('script')[0]; 
+s.parentNode.insertBefore(gcse, s); 
+})(); 
+</script> 
+</head><body><nav class="navbar navbar-expand-md navbar-light bg-light">
+<a class="navbar-brand" href="#">Cinematic Color 2</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="preface.html" id="preface" role="button">Preface</a><div aria-labelledby="preface" class="dropdown-menu"><a class="dropdown-item" href="description.html">Description</a><a class="dropdown-item" href="authorship.html">Authorship</a><a class="dropdown-item" href="on-the-web.html">On the Web</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">Introduction</a><div aria-labelledby="introduction" class="dropdown-menu"><a class="dropdown-item" href="intended-audience.html">Intended Audience</a><a class="dropdown-item" href="how-to-read-this-document.html">How to Read this Document</a><a class="dropdown-item" href="the-goal.html">The Goal</a><a class="dropdown-item" href="converging-approaches.html">Converging Approaches</a><a class="dropdown-item" href="a-general-model-of-color-processing.html">A General Model of Color Processing</a><a class="dropdown-item" href="color-management-challenges.html">Color Management Challenges</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">Color Science</a><div aria-labelledby="color-science" class="dropdown-menu"><a class="dropdown-item" href="about-color-science.html">About Color Science</a><a class="dropdown-item" href="electromagnetic-spectrum.html">Electromagnetic Spectrum</a><a class="dropdown-item" href="human-visual-system.html">Human Visual System</a><a class="dropdown-item" href="basic-colorimetry.html">Basic Colorimetry</a><a class="dropdown-item" href="advanced-colorimetry.html">Advanced Colorimetry</a><a class="dropdown-item" href="representing-color.html">Representing Color</a><a class="dropdown-item" href="color-imaging-systems.html">Color Imaging Systems</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">Workflow</a><div aria-labelledby="workflow" class="dropdown-menu"><a class="dropdown-item" href="about-workflow.html">About Workflow</a><a class="dropdown-item" href="academy-color-encoding-system-aces.html">Academy Color Encoding System (ACES)</a><a class="dropdown-item" href="the-look.html">The Look</a><a class="dropdown-item" href="on-set.html">On Set</a><a class="dropdown-item" href="visual-effects-animation-and-games.html">Visual Effects, Animation and Games</a><a class="dropdown-item" href="compositing.html">Compositing</a><a class="dropdown-item" href="di-grading.html">DI Grading</a><a class="dropdown-item" href="critical-monitoring.html">Critical Monitoring</a><a class="dropdown-item" href="finishing.html">Finishing</a><a class="dropdown-item" href="archives.html">Archives</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">Appendix</a><div aria-labelledby="appendix" class="dropdown-menu"><a class="dropdown-item" href="common-rgb-color-encodings.html">Common RGB Color Encodings</a><a class="dropdown-item" href="opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class="dropdown-item" href="colour-science-for-python.html">Colour Science for Python</a><a class="dropdown-item" href="luts-and-transforms.html">LUTs and Transforms</a><a class="dropdown-item" href="asc-cdl.html">ASC CDL</a><a class="dropdown-item" href="aces-ctl.html">ACES CTL</a><a class="dropdown-item" href="full-and-legal-ranges.html">Full and Legal ranges</a><a class="dropdown-item" href="color-difference-encoding.html">Color Difference Encoding</a><a class="dropdown-item" href="camera-characterization.html">Camera Characterization</a><a class="dropdown-item" href="file-formats.html">File Formats</a><a class="dropdown-item" href="color-matching-experiments.html">Color Matching Experiments</a><a class="dropdown-item" href="grassmann-s-law-of-additive-color-mixture.html">Grassmann's Law of Additive Color Mixture</a><a class="dropdown-item" href="software.html">Software</a><a class="dropdown-item" href="acknowledgements.html">Acknowledgements</a></div></li><li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li><li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li></ul>
+<form class="navbar-form navbar-right" id="cse-search-box-form-id" onsubmit="return executeSearchQuery();" role="search">
+<div class="input-group">
+<input autocomplete="on" class="form-control" id="cse-search-input-box-id" size="25" type="text"/>
+<script async="" src="https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id" type="text/javascript">
+</script>
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+</span>
+</div>
+</form>
+</div>
+</nav><gcse:searchresults-only></gcse:searchresults-only> 
+<link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/> 
 
-  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
-  //]]>
-  </script>
-  <script type="text/javascript">
-  //<![CDATA[
+ <article class="page-content"> <div class="container-fluid py-3"> 
+<div class="row"> 
+<div class="col-md-2"></div> 
+<div class="col-md-8"> 
+ <h3 class="likesectionHead"><a href="cinematic-color.html#QQ2-52-184" id="x52-1820005">Text Formatting</a></h3>
+   
+<h4 class="likesubsectionHead"><a href="typesetting.html#QQ2-52-185" id="x52-1830005">Bold, Italic, Underlining and Emphasis</a></h4>
+<div class="environment-listing border d-block my-3 p-3">
+<a id="x52-183001r2"></a>
+<a id="x52-183002"></a>
+<pre class="listings"><span class="label"><a id="x52-183003r1"></a></span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">textbf</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">Lorem</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ipsum</span><span class="ec-lmtt-8">}</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">underline</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">dolor</span><span class="ec-lmtt-8">}</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sit</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">amet</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">textit</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">consectetur</span><span class="ec-lmtt-8">}</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">textbf</span><span class="ec-lmtt-8">{\</span><span class="ec-lmtt-8">textit</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">adipiscing</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">elit</span><span class="ec-lmtt-8">},</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sed</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">do</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">eiusmod</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">textbf</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">tempor</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">incididunt</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ut</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">labore</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">et</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">emph</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">dolore</span><span class="ec-lmtt-8">}</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">magna</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">aliqua</span><span class="ec-lmtt-8">}.</span><span class="ec-lmss-8"> </span><span class="label"><a id="x52-183004r2"></a></span></pre>
+<figcaption class="figure-caption"><span class="caption-name">Listing 5.2:</span> Bold,
+italic,
+underlining
+and
+emphasis.</figcaption>
+</div>
+<strong>
+</strong><p class="indent"><strong>   <span class="ec-lmssbx-10">Lorem ipsum</span></strong> <span class="underline">dolor</span> sit amet, <i><span class="ec-lmsso-10">consectetur</span></i> <strong><i><span class="ec-lmssbo-10">adipiscing elit</span></i></strong>, sed do eiusmod <strong><span class="ec-lmssbx-10">tempor</span>
+<span class="ec-lmssbx-10">incididunt ut labore et </span><span class="ec-lmssbo-10">dolore </span><span class="ec-lmssbx-10">magna aliqua</span></strong>.
+</p>   
+<h4 class="likesubsectionHead"><a href="typesetting.html#QQ2-52-187" id="x52-1840005">Paragraphs, New Lines and Text Justification</a></h4>
+<div class="environment-listing border d-block my-3 p-3">
+<a id="x52-184001r3"></a>
+<a id="x52-184002"></a>
+<pre class="listings"><span class="label"><a id="x52-184003r1"></a></span><span class="ec-lmtt-8">‘‘</span><span class="ec-lmtt-8">Lorem</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ipsum</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">dolor</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sit</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">amet</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">consectetur</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">adipiscing</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">elit</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sed</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">do</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">eiusmod</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">tempor</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">incididunt</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ut</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">labore</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">et</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">dolore</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">magna</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">aliqua</span><span class="ec-lmtt-8">.’’</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184004r2"></a></span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184005r3"></a></span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">begin</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">flushleft</span><span class="ec-lmtt-8">}</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184006r4"></a></span><span class="ec-lmtt-8">Ut</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">enim</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ad</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">minim</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">veniam</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">quis</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">nostrud</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">exercitation</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ullamco</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">laboris</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">nisi</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ut</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">aliquip</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ex</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ea</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">commodo</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">consequat</span><span class="ec-lmtt-8">.</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184007r5"></a></span><span class="ec-lmtt-8">Duis</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">aute</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">irure</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">dolor</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">in</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">reprehenderit</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">in</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">voluptate</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">velit</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">esse</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">cillum</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">dolore</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">eu</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">fugiat</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">nulla</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">pariatur</span><span class="ec-lmtt-8">.</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184008r6"></a></span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">end</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">flushleft</span><span class="ec-lmtt-8">}</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184009r7"></a></span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184010r8"></a></span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">begin</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">center</span><span class="ec-lmtt-8">}</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184011r9"></a></span><span class="ec-lmtt-8">Excepteur</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sint</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">occaecat</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">cupidatat</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">non</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">proident</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sunt</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">in</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">culpa</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">qui</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">officia</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">deserunt</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">mollit</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">anim</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">id</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">est</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">laborum</span><span class="ec-lmtt-8">.</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184012r10"></a></span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">end</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">center</span><span class="ec-lmtt-8">}</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184013r11"></a></span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184014r12"></a></span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">begin</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">flushright</span><span class="ec-lmtt-8">}</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184015r13"></a></span><span class="ec-lmtt-8">Sed</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ut</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">perspiciatis</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">unde</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">omnis</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">iste</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">natus</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">error</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sit</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">voluptatem</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">accusantium</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">doloremque</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">laudantium</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">totam</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">rem</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">aperiam</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">eaque</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ipsa</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">quae</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ab</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">illo</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">inventore</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">veritatis</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">et</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">quasi</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">architecto</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">beatae</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">vitae</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">dicta</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sunt</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">explicabo</span><span class="ec-lmtt-8">.</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184016r14"></a></span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">end</span><span class="ec-lmtt-8">{</span><span class="ec-lmtt-8">flushright</span><span class="ec-lmtt-8">}</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184017r15"></a></span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184018r16"></a></span><span class="ec-lmtt-8">Nemo</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">enim</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ipsam</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">voluptatem</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">quia</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">voluptas</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sit</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">aspernatur</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">aut</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">odit</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">aut</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">fugit</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sed</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">quia</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">consequuntur</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">magni</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">dolores</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">eos</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">qui</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ratione</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">voluptatem</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sequi</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">nesciunt</span><span class="ec-lmtt-8">.</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184019r17"></a></span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">ccPar</span><span class="ec-lmtt-8">%</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184020r18"></a></span><span class="ec-lmtt-8">Neque</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">porro</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">quisquam</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">est</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">qui</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">dolorem</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ipsum</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">quia</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">dolor</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sit</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">amet</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">consectetur</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">adipisci</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">velit</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">sed</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">quia</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">non</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">numquam</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">eius</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">modi</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">tempora</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">incidunt</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ut</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">labore</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">et</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">dolore</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">magnam</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">aliquam</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">quaerat</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">voluptatem</span><span class="ec-lmtt-8">.</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184021r19"></a></span><span class="ec-lmtt-8">\</span><span class="ec-lmtt-8">ccPar</span><span class="ec-lmtt-8">%</span><span class="ec-lmtt-8"> </span><br/><span class="label"><a id="x52-184022r20"></a></span><span class="ec-lmtt-8">Ut</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">enim</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ad</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">minima</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">veniam</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">quis</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">nostrum</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">exercitationem</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ullam</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">corporis</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">suscipit</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">laboriosam</span><span class="ec-lmtt-8">,</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">nisi</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ut</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">aliquid</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ex</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">ea</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">commodi</span><span class="ec-lmtt-8"> </span><span class="ec-lmtt-8">consequatur</span><span class="ec-lmtt-8">?</span><span class="ec-lmss-8"> </span><span class="label"><a id="x52-184023r21"></a></span></pre>
+<figcaption class="figure-caption"><span class="caption-name">Listing 5.3:</span> Paragraphs,
+new
+lines
+and
+text
+justification.</figcaption>
+</div>
+<p class="indent">   “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua.”
+</p>
+<div class="flushleft">
+                                                                  
 
-  (function() { 
-  var cx = '000762316508951405781:qrigrsppwri'; 
-  var gcse = document.createElement('script'); 
-  gcse.type = 'text/javascript'; 
-  gcse.async = true; 
-  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
-  var s = document.getElementsByTagName('script')[0]; 
-  s.parentNode.insertBefore(gcse, s); 
-  })(); 
-  //]]>
-  </script>
-  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
-  "stylesheet" type="text/css" />
-  <link href="assets/css/custom.css" rel="stylesheet" type=
-  "text/css" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">Cinematic Color 2</a>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "preface.html" id="preface" role="button">Preface</a>
-          <div aria-labelledby="preface" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "description.html">Description</a><a class=
-            "dropdown-item" href=
-            "authorship.html">Authorship</a><a class=
-            "dropdown-item" href="on-the-web.html">On the Web</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "introduction.html" id="introduction" role=
-          "button">Introduction</a>
-          <div aria-labelledby="introduction" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "intended-audience.html">Intended Audience</a><a class=
-            "dropdown-item" href=
-            "how-to-read-this-document.html">How to Read this
-            Document</a><a class="dropdown-item" href=
-            "the-goal.html">The Goal</a><a class="dropdown-item"
-            href="converging-approaches.html">Converging
-            Approaches</a><a class="dropdown-item" href=
-            "a-general-model-of-color-processing.html">A General
-            Model of Color Processing</a><a class="dropdown-item"
-            href="color-management-challenges.html">Color
-            Management Challenges</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "color-science.html" id="color-science" role=
-          "button">Color Science</a>
-          <div aria-labelledby="color-science" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-color-science.html">About Color
-            Science</a><a class="dropdown-item" href=
-            "electromagnetic-spectrum.html">Electromagnetic
-            Spectrum</a><a class="dropdown-item" href=
-            "human-visual-system.html">Human Visual
-            System</a><a class="dropdown-item" href=
-            "basic-colorimetry.html">Basic Colorimetry</a><a class=
-            "dropdown-item" href=
-            "advanced-colorimetry.html">Advanced
-            Colorimetry</a><a class="dropdown-item" href=
-            "representing-color.html">Representing
-            Color</a><a class="dropdown-item" href=
-            "color-imaging-systems.html">Color Imaging Systems</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "workflow.html" id="workflow" role="button">Workflow</a>
-          <div aria-labelledby="workflow" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-workflow.html">About Workflow</a><a class=
-            "dropdown-item" href=
-            "academy-color-encoding-system-aces.html">Academy Color
-            Encoding System (ACES)</a><a class="dropdown-item"
-            href="the-look.html">The Look</a><a class=
-            "dropdown-item" href="on-set.html">On Set</a><a class=
-            "dropdown-item" href=
-            "visual-effects-animation-and-games.html">Visual
-            Effects, Animation and Games</a><a class=
-            "dropdown-item" href=
-            "compositing.html">Compositing</a><a class=
-            "dropdown-item" href="di-grading.html">DI
-            Grading</a><a class="dropdown-item" href=
-            "critical-monitoring.html">Critical
-            Monitoring</a><a class="dropdown-item" href=
-            "finishing.html">Finishing</a><a class="dropdown-item"
-            href="archives.html">Archives</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "appendix.html" id="appendix" role="button">Appendix</a>
-          <div aria-labelledby="appendix" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "common-rgb-color-encodings.html">Common RGB Color
-            Encodings</a><a class="dropdown-item" href=
-            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-            "dropdown-item" href=
-            "colour-science-for-python.html">Colour Science for
-            Python</a><a class="dropdown-item" href=
-            "luts-and-transforms.html">LUTs and
-            Transforms</a><a class="dropdown-item" href=
-            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
-            href="aces-ctl.html">ACES CTL</a><a class=
-            "dropdown-item" href="full-and-legal-ranges.html">Full
-            and Legal ranges</a><a class="dropdown-item" href=
-            "color-difference-encoding.html">Color Difference
-            Encoding</a><a class="dropdown-item" href=
-            "camera-characterization.html">Camera
-            Characterization</a><a class="dropdown-item" href=
-            "file-formats.html">File Formats</a><a class=
-            "dropdown-item" href=
-            "color-matching-experiments.html">Color Matching
-            Experiments</a><a class="dropdown-item" href=
-            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
-            Law of Additive Color Mixture</a><a class=
-            "dropdown-item" href=
-            "software.html">Software</a><a class="dropdown-item"
-            href="acknowledgements.html">Acknowledgements</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="glossary.html">Glossary</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href=
-          "bibliography.html">Bibliography</a>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" id=
-      "cse-search-box-form-id" onsubmit=
-      "return executeSearchQuery();" placeholder="Search" role=
-      "search" name="cse-search-box-form-id">
-        <div class="input-group">
-          <input autocomplete="on" class="form-control" id=
-          "cse-search-input-box-id" size="25" type="text" /> 
-          <script async="async" src=
-          "https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id"
-          type="text/javascript"></script>
-        </div>
-      </form>
-    </div>
-  </nav>
-  <article class="page-content">
-    <div class="container-fluid py-3">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <h3 class="likesectionHead"><a href=
-          "cinematic-color.html#QQ2-52-184" id="x52-1820005">Text
-          Formatting</a></h3>
-          <h4 class="likesubsectionHead"><a href=
-          "typesetting.html#QQ2-52-185" id="x52-1830005">Bold,
-          Italic, Underlining and Emphasis</a></h4>
-          <div class="environment-listing border d-block my-3 p-3">
-            <a id="x52-183001r2"></a> <a id="x52-183002"></a>
-            <pre class="listings"><span class="label"><a id=
-            "x52-183003r1"></a></span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">textbf</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">Lorem</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ipsum</span><span class=
-            "ec-lmtt-8">}</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">underline</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">dolor</span><span class=
-            "ec-lmtt-8">}</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sit</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">amet</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">textit</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">consectetur</span><span class=
-            "ec-lmtt-8">}</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">textbf</span><span class=
-            "ec-lmtt-8">{\</span><span class=
-            "ec-lmtt-8">textit</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">adipiscing</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">elit</span><span class=
-            "ec-lmtt-8">},</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sed</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">do</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">eiusmod</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">textbf</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">tempor</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">incididunt</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ut</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">labore</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">et</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">emph</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">dolore</span><span class=
-            "ec-lmtt-8">}</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">magna</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">aliqua</span><span class=
-            "ec-lmtt-8">}.</span><span class=
-            "ec-lmss-8"> </span><span class="label"><a id=
-            "x52-183004r2"></a></span></pre>
-            <figcaption class="figure-caption">
-              <span class="caption-name">Listing&nbsp;5.2:</span>
-              Bold, italic, underlining and emphasis.
-            </figcaption>
-          </div>
-          <p class="indent"><strong><span class=
-          "ec-lmssbx-10">Lorem ipsum</span></strong> <span class=
-          "underline">dolor</span> sit amet, <i><span class=
-          "ec-lmsso-10">consectetur</span></i>
-          <strong><i><span class="ec-lmssbo-10">adipiscing
-          elit</span></i></strong>, sed do eiusmod
-          <strong><span class="ec-lmssbx-10">tempor</span>
-          <span class="ec-lmssbx-10">incididunt ut labore et</span>
-          <span class="ec-lmssbo-10">dolore</span> <span class=
-          "ec-lmssbx-10">magna aliqua</span></strong>.</p>
-          <h4 class="likesubsectionHead"><a href=
-          "typesetting.html#QQ2-52-187" id=
-          "x52-1840005">Paragraphs, New Lines and Text
-          Justification</a></h4>
-          <div class="environment-listing border d-block my-3 p-3">
-            <a id="x52-184001r3"></a> <a id="x52-184002"></a>
-            <pre class="listings"><span class="label"><a id=
-            "x52-184003r1"></a></span><span class=
-            "ec-lmtt-8">‘‘</span><span class=
-            "ec-lmtt-8">Lorem</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ipsum</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">dolor</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sit</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">amet</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">consectetur</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">adipiscing</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">elit</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sed</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">do</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">eiusmod</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">tempor</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">incididunt</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ut</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">labore</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">et</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">dolore</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">magna</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">aliqua</span><span class=
-            "ec-lmtt-8">.’’</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184004r2"></a></span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184005r3"></a></span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">begin</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">flushleft</span><span class=
-            "ec-lmtt-8">}</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184006r4"></a></span><span class=
-            "ec-lmtt-8">Ut</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">enim</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ad</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">minim</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">veniam</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">quis</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">nostrud</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">exercitation</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ullamco</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">laboris</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">nisi</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ut</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">aliquip</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ex</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ea</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">commodo</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">consequat</span><span class=
-            "ec-lmtt-8">.</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184007r5"></a></span><span class=
-            "ec-lmtt-8">Duis</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">aute</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">irure</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">dolor</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">in</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">reprehenderit</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">in</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">voluptate</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">velit</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">esse</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">cillum</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">dolore</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">eu</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">fugiat</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">nulla</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">pariatur</span><span class=
-            "ec-lmtt-8">.</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184008r6"></a></span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">end</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">flushleft</span><span class=
-            "ec-lmtt-8">}</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184009r7"></a></span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184010r8"></a></span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">begin</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">center</span><span class=
-            "ec-lmtt-8">}</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184011r9"></a></span><span class=
-            "ec-lmtt-8">Excepteur</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sint</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">occaecat</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">cupidatat</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">non</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">proident</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sunt</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">in</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">culpa</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">qui</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">officia</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">deserunt</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">mollit</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">anim</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">id</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">est</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">laborum</span><span class=
-            "ec-lmtt-8">.</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184012r10"></a></span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">end</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">center</span><span class=
-            "ec-lmtt-8">}</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184013r11"></a></span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184014r12"></a></span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">begin</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">flushright</span><span class=
-            "ec-lmtt-8">}</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184015r13"></a></span><span class=
-            "ec-lmtt-8">Sed</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ut</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">perspiciatis</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">unde</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">omnis</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">iste</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">natus</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">error</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sit</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">voluptatem</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">accusantium</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">doloremque</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">laudantium</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">totam</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">rem</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">aperiam</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">eaque</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ipsa</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">quae</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ab</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">illo</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">inventore</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">veritatis</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">et</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">quasi</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">architecto</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">beatae</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">vitae</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">dicta</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sunt</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">explicabo</span><span class=
-            "ec-lmtt-8">.</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184016r14"></a></span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">end</span><span class=
-            "ec-lmtt-8">{</span><span class=
-            "ec-lmtt-8">flushright</span><span class=
-            "ec-lmtt-8">}</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184017r15"></a></span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184018r16"></a></span><span class=
-            "ec-lmtt-8">Nemo</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">enim</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ipsam</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">voluptatem</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">quia</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">voluptas</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sit</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">aspernatur</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">aut</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">odit</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">aut</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">fugit</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sed</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">quia</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">consequuntur</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">magni</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">dolores</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">eos</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">qui</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ratione</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">voluptatem</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sequi</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">nesciunt</span><span class=
-            "ec-lmtt-8">.</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184019r17"></a></span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">ccPar</span><span class=
-            "ec-lmtt-8">%</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184020r18"></a></span><span class=
-            "ec-lmtt-8">Neque</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">porro</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">quisquam</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">est</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">qui</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">dolorem</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ipsum</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">quia</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">dolor</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sit</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">amet</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">consectetur</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">adipisci</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">velit</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">sed</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">quia</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">non</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">numquam</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">eius</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">modi</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">tempora</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">incidunt</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ut</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">labore</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">et</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">dolore</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">magnam</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">aliquam</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">quaerat</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">voluptatem</span><span class=
-            "ec-lmtt-8">.</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184021r19"></a></span><span class=
-            "ec-lmtt-8">\</span><span class=
-            "ec-lmtt-8">ccPar</span><span class=
-            "ec-lmtt-8">%</span><span class=
-            "ec-lmtt-8"> </span><br /><span class="label"><a id=
-            "x52-184022r20"></a></span><span class=
-            "ec-lmtt-8">Ut</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">enim</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ad</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">minima</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">veniam</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">quis</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">nostrum</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">exercitationem</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ullam</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">corporis</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">suscipit</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">laboriosam</span><span class=
-            "ec-lmtt-8">,</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">nisi</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ut</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">aliquid</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ex</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">ea</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">commodi</span><span class=
-            "ec-lmtt-8"> </span><span class=
-            "ec-lmtt-8">consequatur</span><span class=
-            "ec-lmtt-8">?</span><span class=
-            "ec-lmss-8"> </span><span class="label"><a id=
-            "x52-184023r21"></a></span></pre>
-            <figcaption class="figure-caption">
-              <span class="caption-name">Listing&nbsp;5.3:</span>
-              Paragraphs, new lines and text justification.
-            </figcaption>
-          </div>
-          <p class="indent">“Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua.”</p>
-          <div class="flushleft">
-            <p class="noindent">Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur.</p>
-          </div>
-          <div class="center">
-            <p class="noindent">Excepteur sint occaecat cupidatat
-            non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.</p>
-          </div>
-          <div class="flushright">
-            <p class="noindent">Sed ut perspiciatis unde omnis iste
-            natus error sit voluptatem accusantium doloremque
-            laudantium, totam rem aperiam, eaque ipsa quae ab illo
-            inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo.</p>
-          </div>
-          <p class="indent">Nemo enim ipsam voluptatem quia
-          voluptas sit aspernatur aut odit aut fugit, sed quia
-          consequuntur magni dolores eos qui ratione voluptatem
-          sequi nesciunt.</p>
-          <p class="indent">Neque porro quisquam est, qui dolorem
-          ipsum quia dolor sit amet, consectetur, adipisci velit,
-          sed quia non numquam eius modi tempora incidunt ut labore
-          et dolore magnam aliquam quaerat voluptatem.</p>
-          <p class="indent">Ut enim ad minima veniam, quis nostrum
-          exercitationem ullam corporis suscipit laboriosam, nisi
-          ut aliquid ex ea commodi consequatur?</p>
-          <div class="breadcrumb-navigation text-center">
-            <a href="style-guide.html"><button class=
-            "btn btn-light mx-3" type=
-            "button">Previous</button></a><a href=
-            "typesetting.html#text-formatting.html"><button class=
-            "btn btn-light mx-3" type=
-            "button">Up</button></a><a href=
-            "footnotes.html"><button class="btn btn-light mx-3"
-            type="button">Next</button></a>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-  </article>
-  <footer class="page-footer">
-    <div class="container-fluid text-center py-3">
-      Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ <a href=
-      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
-    </div>
-  </footer>
-  <script src="assets/js/jquery/jquery.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/popper/popper.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/bootstrap/bootstrap.min.js" type=
-  "text/javascript"></script> 
-  <script type="text/javascript">
-  //<![CDATA[
+                                                                  
+<p class="noindent"> 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur.</p></div>
+<div class="center">
+<p class="noindent">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+mollit anim id est laborum.</p></div>                                            
+<div class="flushright">
+<p class="noindent"> 
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p></div>
+<p class="indent">   Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
+nesciunt.
+</p><p class="indent">   Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore
+magnam aliquam quaerat voluptatem.
+</p><p class="indent">   Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+laboriosam, nisi ut aliquid ex ea commodi consequatur?
+                                                                  
 
-  function executeSearchQuery() { 
-  var input = document.getElementById('cse-search-input-box-id'); 
-  var element = google.search.cse.element.getElement('searchresults-only0'); 
-  if (input.value == '') { 
-  element.clearAllResults(); 
-  } else { 
-  element.execute(input.value); 
-  } 
-  return false; 
-  } 
-  //]]>
-  </script>
-</body>
-</html>
+                                                                  
+</p>   
+<div class="breadcrumb-navigation text-center"><a href="style-guide.html"><button class="btn btn-light mx-3" type="button">Previous</button></a><a href="typesetting.html#text-formatting.html"><button class="btn btn-light mx-3" type="button">Up</button></a><a href="footnotes.html"><button class="btn btn-light mx-3" type="button">Next</button></a></div>   </div> 
+<div class="col-md-2"></div> 
+</div> 
+</div> 
+</article>  <footer class="page-footer"> 
+<div class="container-fluid text-center py-3"> 
+Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ 
+<a href="mailto:ves-tech-color@googlegroups.com"> 
+ves-tech-color@googlegroups.com</a> 
+</div> 
+</footer>  <script src="assets/js/jquery/jquery.min.js" type="text/javascript"></script> 
+<script src="assets/js/popper/popper.min.js" type="text/javascript"></script> 
+<script src="assets/js/bootstrap/bootstrap.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+function executeSearchQuery() { 
+var input = document.getElementById('cse-search-input-box-id'); 
+var element = google.search.cse.element.getElement('searchresults-only0'); 
+if (input.value == '') { 
+element.clearAllResults(); 
+} else { 
+element.execute(input.value); 
+} 
+return false; 
+} 
+</script> 
+ 
+ 
+</body></html>

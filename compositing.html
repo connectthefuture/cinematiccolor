@@ -1,712 +1,411 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-  <title>Compositing</title>
-  <meta charset="utf-8" />
-  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-  "generator" />
-  <meta content="width=device-width,initial-scale=1" name=
-  "viewport" />
-  <link href="cinematic-color.css" rel="stylesheet" type=
-  "text/css" />
-  <meta content="cinematic-color.tex" name="src" />
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
-  type="text/javascript"></script>
-  <script src="assets/js/jeri/jeri.min.js" type=
-  "text/javascript"></script>
-  <script type="text/javascript">
-  //<![CDATA[
+<html lang="en" xml:lang="en"><head><title>Compositing</title> 
+<meta charset="utf-8"/> 
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name="generator"/> 
+<meta content="width=device-width,initial-scale=1" name="viewport"/> 
+<link href="cinematic-color.css" rel="stylesheet" type="text/css"/> 
+<meta content="cinematic-color.tex" name="src"/> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js" type="text/javascript"></script> 
+<script src="https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js" type="text/javascript"></script> 
+<script src="assets/js/jeri/jeri.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+</script> 
+<script type="text/javascript"> 
+(function() { 
+var cx = '000762316508951405781:qrigrsppwri'; 
+var gcse = document.createElement('script'); 
+gcse.type = 'text/javascript'; 
+gcse.async = true; 
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
+var s = document.getElementsByTagName('script')[0]; 
+s.parentNode.insertBefore(gcse, s); 
+})(); 
+</script> 
+</head><body><nav class="navbar navbar-expand-md navbar-light bg-light">
+<a class="navbar-brand" href="#">Cinematic Color 2</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="preface.html" id="preface" role="button">Preface</a><div aria-labelledby="preface" class="dropdown-menu"><a class="dropdown-item" href="description.html">Description</a><a class="dropdown-item" href="authorship.html">Authorship</a><a class="dropdown-item" href="on-the-web.html">On the Web</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">Introduction</a><div aria-labelledby="introduction" class="dropdown-menu"><a class="dropdown-item" href="intended-audience.html">Intended Audience</a><a class="dropdown-item" href="how-to-read-this-document.html">How to Read this Document</a><a class="dropdown-item" href="the-goal.html">The Goal</a><a class="dropdown-item" href="converging-approaches.html">Converging Approaches</a><a class="dropdown-item" href="a-general-model-of-color-processing.html">A General Model of Color Processing</a><a class="dropdown-item" href="color-management-challenges.html">Color Management Challenges</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">Color Science</a><div aria-labelledby="color-science" class="dropdown-menu"><a class="dropdown-item" href="about-color-science.html">About Color Science</a><a class="dropdown-item" href="electromagnetic-spectrum.html">Electromagnetic Spectrum</a><a class="dropdown-item" href="human-visual-system.html">Human Visual System</a><a class="dropdown-item" href="basic-colorimetry.html">Basic Colorimetry</a><a class="dropdown-item" href="advanced-colorimetry.html">Advanced Colorimetry</a><a class="dropdown-item" href="representing-color.html">Representing Color</a><a class="dropdown-item" href="color-imaging-systems.html">Color Imaging Systems</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">Workflow</a><div aria-labelledby="workflow" class="dropdown-menu"><a class="dropdown-item" href="about-workflow.html">About Workflow</a><a class="dropdown-item" href="academy-color-encoding-system-aces.html">Academy Color Encoding System (ACES)</a><a class="dropdown-item" href="the-look.html">The Look</a><a class="dropdown-item" href="on-set.html">On Set</a><a class="dropdown-item" href="visual-effects-animation-and-games.html">Visual Effects, Animation and Games</a><a class="dropdown-item" href="compositing.html">Compositing</a><a class="dropdown-item" href="di-grading.html">DI Grading</a><a class="dropdown-item" href="critical-monitoring.html">Critical Monitoring</a><a class="dropdown-item" href="finishing.html">Finishing</a><a class="dropdown-item" href="archives.html">Archives</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">Appendix</a><div aria-labelledby="appendix" class="dropdown-menu"><a class="dropdown-item" href="common-rgb-color-encodings.html">Common RGB Color Encodings</a><a class="dropdown-item" href="opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class="dropdown-item" href="colour-science-for-python.html">Colour Science for Python</a><a class="dropdown-item" href="luts-and-transforms.html">LUTs and Transforms</a><a class="dropdown-item" href="asc-cdl.html">ASC CDL</a><a class="dropdown-item" href="aces-ctl.html">ACES CTL</a><a class="dropdown-item" href="full-and-legal-ranges.html">Full and Legal ranges</a><a class="dropdown-item" href="color-difference-encoding.html">Color Difference Encoding</a><a class="dropdown-item" href="camera-characterization.html">Camera Characterization</a><a class="dropdown-item" href="file-formats.html">File Formats</a><a class="dropdown-item" href="color-matching-experiments.html">Color Matching Experiments</a><a class="dropdown-item" href="grassmann-s-law-of-additive-color-mixture.html">Grassmann's Law of Additive Color Mixture</a><a class="dropdown-item" href="software.html">Software</a><a class="dropdown-item" href="acknowledgements.html">Acknowledgements</a></div></li><li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li><li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li></ul>
+<form class="navbar-form navbar-right" id="cse-search-box-form-id" onsubmit="return executeSearchQuery();" role="search">
+<div class="input-group">
+<input autocomplete="on" class="form-control" id="cse-search-input-box-id" size="25" type="text"/>
+<script async="" src="https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id" type="text/javascript">
+</script>
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+</span>
+</div>
+</form>
+</div>
+</nav><gcse:searchresults-only></gcse:searchresults-only> 
+<link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/> 
 
-  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
-  //]]>
-  </script>
-  <script type="text/javascript">
-  //<![CDATA[
+ <article class="page-content"> <div class="container-fluid py-3"> 
+<div class="row"> 
+<div class="col-md-2"></div> 
+<div class="col-md-8"> 
+ <h3 class="sectionHead"><span class="titlemark">3.6   </span> <a href="cinematic-color.html#QQ2-28-105" id="x28-1040003.6">Compositing</a></h3>
+<p class="noindent">A shot from "Rogue One: A Star Wars Story", starting with a CG background plate
+(top), adding in a live-action foreground element (middle) and the final composite image
+(bottom). All three images have an Output Transform for a Rec. 709 display. ? and ?
+Lucasfilm Ltd. All Rights Reserved
+</p><p class="indent">   Compositing is the process where live-action and CG elements are manipulated and
+merged. Image processing in scene-referred linear and logarithmic encoding spaces are
+both useful, though scene-referred linear is the default. As in lighting, image display
+typically leverages viewing transforms that emulate the final output. Examples of
+commercially available compositing applications include Foundry Nuke, Adobe After
+Effects, Blackmagic Design Fusion, and Autodesk Flame.
+</p><p class="indent">   In feature film visual effects, live-action photographic plates are typically represented
+on disk either as raw captures of the camera data, as a log encoding of the linear camera
+data, often as DPX files, or as linear EXR files. Log files are typically encoded using the
+encoding primaries of the source camera, such as ALEXA Wide Gamut, whereas EXR files
+may use camera primaries or generalized primaries such as the AP0 primaries of
+ACES2065-1. When working with log frames, the compositing package typically converts
+the images to scene-referred linear on input using a manufacturer specified transfer
+function, and a matrix transform to the working-space gamut if required, and converts
+back to the original color space on output. In its simplest form, the end to end
+compositing process represents a no-op, aiming to leave pixels not modified by the
+effect exactly as they were in the original plate. Such behavior is absolutely
+critical, as typically not all the shots will go through the VFX workflow, and VFX
+processed shots must seamlessly intercut with the remainder of the motion
+picture.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.6.1   </span> <a href="contents.html#QQ2-28-106" id="x28-1050003.6.1">Scene-Referred Linear is Preferred for Compositing</a></h4>
+<p class="noindent">The benefits of scene-referred linear compositing are numerous; similar to the benefits
+found in rendering, shading, and lighting. All operations which blend energy with spatially
+neighboring pixels: motion blur, defocus, image distortion, and resizing, for example, have
+more physically plausible, aka realistic, results by default. Anti-aliasing works
+better. Light mixing preserves the appearance of the original renders. Most
+importantly, even simple compositing operations such as over produce more realistic
+results, particularly on semi-transparent elements like hair, volumetrics and fx
+elements.
+</p><p class="indent">   San Francisco City Hall at Night - An HDR scene-referred linear image (top left),
+Defocus applied to LDR output-referred values (top right), The original scene defocused
+in camera (bottom left), Defocus applied to the HDR scene-referred linear data before
+the output transform (bottom right). All four images use the ACES sRGB Output
+Transform. These image helps illustrate the energy implications of using different
+                                                                  
 
-  (function() { 
-  var cx = '000762316508951405781:qrigrsppwri'; 
-  var gcse = document.createElement('script'); 
-  gcse.type = 'text/javascript'; 
-  gcse.async = true; 
-  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
-  var s = document.getElementsByTagName('script')[0]; 
-  s.parentNode.insertBefore(gcse, s); 
-  })(); 
-  //]]>
-  </script>
-  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
-  "stylesheet" type="text/css" />
-  <link href="assets/css/custom.css" rel="stylesheet" type=
-  "text/css" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">Cinematic Color 2</a>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "preface.html" id="preface" role="button">Preface</a>
-          <div aria-labelledby="preface" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "description.html">Description</a><a class=
-            "dropdown-item" href=
-            "authorship.html">Authorship</a><a class=
-            "dropdown-item" href="on-the-web.html">On the Web</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "introduction.html" id="introduction" role=
-          "button">Introduction</a>
-          <div aria-labelledby="introduction" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "intended-audience.html">Intended Audience</a><a class=
-            "dropdown-item" href=
-            "how-to-read-this-document.html">How to Read this
-            Document</a><a class="dropdown-item" href=
-            "the-goal.html">The Goal</a><a class="dropdown-item"
-            href="converging-approaches.html">Converging
-            Approaches</a><a class="dropdown-item" href=
-            "a-general-model-of-color-processing.html">A General
-            Model of Color Processing</a><a class="dropdown-item"
-            href="color-management-challenges.html">Color
-            Management Challenges</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "color-science.html" id="color-science" role=
-          "button">Color Science</a>
-          <div aria-labelledby="color-science" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-color-science.html">About Color
-            Science</a><a class="dropdown-item" href=
-            "electromagnetic-spectrum.html">Electromagnetic
-            Spectrum</a><a class="dropdown-item" href=
-            "human-visual-system.html">Human Visual
-            System</a><a class="dropdown-item" href=
-            "basic-colorimetry.html">Basic Colorimetry</a><a class=
-            "dropdown-item" href=
-            "advanced-colorimetry.html">Advanced
-            Colorimetry</a><a class="dropdown-item" href=
-            "representing-color.html">Representing
-            Color</a><a class="dropdown-item" href=
-            "color-imaging-systems.html">Color Imaging Systems</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "workflow.html" id="workflow" role="button">Workflow</a>
-          <div aria-labelledby="workflow" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-workflow.html">About Workflow</a><a class=
-            "dropdown-item" href=
-            "academy-color-encoding-system-aces.html">Academy Color
-            Encoding System (ACES)</a><a class="dropdown-item"
-            href="the-look.html">The Look</a><a class=
-            "dropdown-item" href="on-set.html">On Set</a><a class=
-            "dropdown-item" href=
-            "visual-effects-animation-and-games.html">Visual
-            Effects, Animation and Games</a><a class=
-            "dropdown-item" href=
-            "compositing.html">Compositing</a><a class=
-            "dropdown-item" href="di-grading.html">DI
-            Grading</a><a class="dropdown-item" href=
-            "critical-monitoring.html">Critical
-            Monitoring</a><a class="dropdown-item" href=
-            "finishing.html">Finishing</a><a class="dropdown-item"
-            href="archives.html">Archives</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "appendix.html" id="appendix" role="button">Appendix</a>
-          <div aria-labelledby="appendix" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "common-rgb-color-encodings.html">Common RGB Color
-            Encodings</a><a class="dropdown-item" href=
-            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-            "dropdown-item" href=
-            "colour-science-for-python.html">Colour Science for
-            Python</a><a class="dropdown-item" href=
-            "luts-and-transforms.html">LUTs and
-            Transforms</a><a class="dropdown-item" href=
-            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
-            href="aces-ctl.html">ACES CTL</a><a class=
-            "dropdown-item" href="full-and-legal-ranges.html">Full
-            and Legal ranges</a><a class="dropdown-item" href=
-            "color-difference-encoding.html">Color Difference
-            Encoding</a><a class="dropdown-item" href=
-            "camera-characterization.html">Camera
-            Characterization</a><a class="dropdown-item" href=
-            "file-formats.html">File Formats</a><a class=
-            "dropdown-item" href=
-            "color-matching-experiments.html">Color Matching
-            Experiments</a><a class="dropdown-item" href=
-            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
-            Law of Additive Color Mixture</a><a class=
-            "dropdown-item" href=
-            "software.html">Software</a><a class="dropdown-item"
-            href="acknowledgements.html">Acknowledgements</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="glossary.html">Glossary</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href=
-          "bibliography.html">Bibliography</a>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" id=
-      "cse-search-box-form-id" onsubmit=
-      "return executeSearchQuery();" placeholder="Search" role=
-      "search" name="cse-search-box-form-id">
-        <div class="input-group">
-          <input autocomplete="on" class="form-control" id=
-          "cse-search-input-box-id" size="25" type="text" /> 
-          <script async="async" src=
-          "https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id"
-          type="text/javascript"></script>
-        </div>
-      </form>
-    </div>
-  </nav>
-  <article class="page-content">
-    <div class="container-fluid py-3">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <h3 class="sectionHead"><span class=
-          "titlemark">3.6</span> <a href=
-          "cinematic-color.html#QQ2-28-105" id=
-          "x28-1040003.6">Compositing</a></h3>
-          <p class="noindent">A shot from "Rogue One: A Star Wars
-          Story", starting with a CG background plate (top), adding
-          in a live-action foreground element (middle) and the
-          final composite image (bottom). All three images have an
-          Output Transform for a Rec. 709 display. ? and ?
-          Lucasfilm Ltd. All Rights Reserved</p>
-          <p class="indent">Compositing is the process where
-          live-action and CG elements are manipulated and merged.
-          Image processing in scene-referred linear and logarithmic
-          encoding spaces are both useful, though scene-referred
-          linear is the default. As in lighting, image display
-          typically leverages viewing transforms that emulate the
-          final output. Examples of commercially available
-          compositing applications include Foundry Nuke, Adobe
-          After Effects, Blackmagic Design Fusion, and Autodesk
-          Flame.</p>
-          <p class="indent">In feature film visual effects,
-          live-action photographic plates are typically represented
-          on disk either as raw captures of the camera data, as a
-          log encoding of the linear camera data, often as DPX
-          files, or as linear EXR files. Log files are typically
-          encoded using the encoding primaries of the source
-          camera, such as ALEXA Wide Gamut, whereas EXR files may
-          use camera primaries or generalized primaries such as the
-          AP0 primaries of ACES2065-1. When working with log
-          frames, the compositing package typically converts the
-          images to scene-referred linear on input using a
-          manufacturer specified transfer function, and a matrix
-          transform to the working-space gamut if required, and
-          converts back to the original color space on output. In
-          its simplest form, the end to end compositing process
-          represents a no-op, aiming to leave pixels not modified
-          by the effect exactly as they were in the original plate.
-          Such behavior is absolutely critical, as typically not
-          all the shots will go through the VFX workflow, and VFX
-          processed shots must seamlessly intercut with the
-          remainder of the motion picture.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.6.1</span> <a href=
-          "contents.html#QQ2-28-106" id=
-          "x28-1050003.6.1">Scene-Referred Linear is Preferred for
-          Compositing</a></h4>
-          <p class="noindent">The benefits of scene-referred linear
-          compositing are numerous; similar to the benefits found
-          in rendering, shading, and lighting. All operations which
-          blend energy with spatially neighboring pixels: motion
-          blur, defocus, image distortion, and resizing, for
-          example, have more physically plausible, aka realistic,
-          results by default. Anti-aliasing works better. Light
-          mixing preserves the appearance of the original renders.
-          Most importantly, even simple compositing operations such
-          as over produce more realistic results, particularly on
-          semi-transparent elements like hair, volumetrics and fx
-          elements.</p>
-          <p class="indent">San Francisco City Hall at Night - An
-          HDR scene-referred linear image (top left), Defocus
-          applied to LDR output-referred values (top right), The
-          original scene defocused in camera (bottom left), Defocus
-          applied to the HDR scene-referred linear data before the
-          output transform (bottom right). All four images use the
-          ACES sRGB Output Transform. These image helps illustrate
-          the energy implications of using different linearization
-          philosophies. Pay particular attention to the appearance
-          of the lights in the bell tower on the top of the dome.
-          How much energy is represented in those pixels? The least
-          realistic defocus effect is achieved by applying the
-          filter kernel directly to the output-referred pixel
-          values without any linearization. Since in this case
-          there is only a small difference between the pixel values
-          of the lights and that of diffuse white, the defocus
-          causes the lights to be lost in the surrounding
-          pixels.</p>
-          <p class="indent">San Francisco City Hall at Night - The
-          original scene defocused in camera (left), Defocus
-          applied to the HDR scene-referred linear data before the
-          output transform (middle). Defocus applied to
-          pseudo-linearized output-referred data (right). All three
-          images use the ACES sRGB Output Transform. Applying the
-          same defocus to image data which has been converted to an
-          approximation of scene-referred linear using a simple
-          gamma or sRGB curve is an improvement, but still tends to
-          de-emphasize the specular highlights. This is because
-          even though the operation is being applied in ’linear’,
-          it is downstream of the output transform, and the
-          highlights have already been tone mapped for a lower
-          dynamic range display, restricting them to the 0-1 range,
-          and thus do not have physically-plausible amounts of
-          energy. Applications like Adobe After Effects work in
-          this way by default when the "use linear" option is
-          chosen for filters, simply removing an assumed 2.2 gamma
-          before the filter and reapplying it afterward. Applying a
-          defocus in scene-referred linear reveals a bokeh effect
-          on each of the bell tower lights, mimicking the visual
-          look of having performed this defocus during camera
-          acquisition. This is because the pixel values are
-          proportional to light in the original scene, and thus
-          very bright pixels have sufficient energy to remain
-          visible when blended with their neighbors. Other energy
-          effects such as motion-blur achieve similar improvements
-          in realism from working in a scene-referred linear
-          space.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.6.2</span> <a href=
-          "contents.html#QQ2-28-107" id=
-          "x28-1060003.6.2">Scene-Referred Linear Compositing
-          Challenges</a></h4>
-          <p class="noindent">There are some challenges with
-          working with high-dynamic ranges in compositing. First,
-          filtering operators that use sharp, negative lobed
-          kernels like as lanczos, keys, and sinc are very
-          susceptible to ringing, i.e. negative values around
-          highlights. While interpolatory filters such as box,
-          gaussian, bilinear and bicubic cannot cause this
-          artifact, they tend to introduce softening. When sharp
-          filtering is required like lens distortions, resizing,
-          and other spatial warping techniques a variety of
-          approaches are useful to mitigate such HDR artifacts. A
-          non-exhaustive set of methods are listed below</p>
-          <p class="indent">The simplest approach to mitigating
-          overshoot/undershoot artifacts is to roll off the
-          highlights, process the image, and then unroll the
-          highlights back. While this does not preserve highlight
-          energy as it has the net effect of reducing specular
-          intensity, the results are visually pleasing. The
-          approach is also suitable for processing images with
-          alpha. For images without alpha, converting to log,
-          filtering, and converting back will greatly reduce the
-          visual impact of overshoot and undershoot. Though
-          log-space processing results in a gross distortion of
-          energy, for conversions which don’t integrate large
-          portions of the image, such as lens distortion effects
-          for plates and not blurs, this works well. For images
-          without alpha, a similar method is to apply a simple
-          invertible tonemap, filtering, and then inverting back. A
-          method as simple as 1/(1+color) produces pleasing results
-          by effectively weighting each sample as a function of its
-          brightness. Another approach to HDR filtering is to apply
-          a simple camera flare model, where very bright highlights
-          share their energy with neighboring pixels.</p>
-          <p class="indent">For all approaches that undertake a
-          form of perceptual encoding, care must be taken to ensure
-          enough precision is maintained during filtering. 16-bit
-          floating point may not be suitable.</p>
-          <p class="indent">An image with negative black halos
-          around highlights, produced by a Lanczos 6 resizing
-          filter with negative lobes (left) and the image converted
-          to a log space before resizing, thus avoiding negative
-          black haloes (right). Applying negative-lobed filter
-          kernels to high-dynamic range images, may cause
-          visually-significant ringing artifacts introducing black
-          silhouettes around sharp specular highlights. Ringing
-          artifacts may be avoided when using sharp filters on HDR
-          imagery by processing in alternate color spaces, such as
-          log, using energy-roll off approaches, or by pre-flaring
-          highlight regions. This image demonstrates the results of
-          the roll-off technique.</p>
-          <p class="indent">Another challenge in working with
-          scene-referred linear data in compositing is that tricks
-          often relied upon in integer compositing may not be
-          effective when applied to floating-point imagery. For
-          example, the screen operator, which remains effective
-          when applied to matte passes, is sometimes used on RGB
-          data to emulate a "partial add". As the screen operator
-          is ill-defined above 1.0, unexpected results will occur
-          when applied to HDR data. Some compositing packages swap
-          out screen for max when either input is outside of
-          0.0-1.0, but this is primarily to prevent artifacts and
-          is not artistically helpful. Alternative "partial add"
-          maths such as hypotenuse are useful but do not exactly
-          replicate the original intent of screen. Another related
-          issue to beware of when compositing is that when
-          combining HDR image, alphas must not go outside the range
-          of 0 to 1. While it is entirely reasonable for the RGB
-          channels to have any values, even negative in certain
-          situations, compositing operators such as over, produce
-          totally invalid results on alphas outside of the range 0
-          to 1.</p>
-          <p class="indent">One subtlety of working with floating
-          point imagery is that artists must become familiar with
-          some of the corner cases in floating-point
-          representations: NaNs and Infs. For example, when
-          dividing by very small values, such as during
-          un-premultiplication, it is possible to drive a color
-          value up high enough to generate infinity. NaNs are also
-          frequent and may be introduced during lighting and
-          shading inside the renderer, or during divide by zero
-          operations. Both NaNs and Inf can cause issues in
-          compositing if not detected and cleaned, as most image
-          processing algorithms are not robust to their presence
-          and generally fail in unexpected ways.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.6.3</span> <a href=
-          "contents.html#QQ2-28-108" id="x28-1070003.6.3">Negative
-          Values</a></h4>
-          <p class="noindent">A frame from ’The Avengers: Infinity
-          War". The frame in the original Alexa LogC encoding
-          (top), The frame transformed to ACEScc with negative
-          values in shown as purple fringing visible in particular
-          on the top right light (middle) and the final frame
-          (bottom) ? 2018 MARVEL</p>
-          <p class="indent">CIE 1931 2? Standard Observer
-          chromaticity plot of the image above The above image
-          contains pixel values which are positive in ALEXA Wide
-          Gamut but negative in ACEScg as they are outside of the
-          ACEScg gamut. This results in overly strong purple
-          fringing and clamped values when viewed through an ACES
-          Output Transform. The frame above the light shows the
-          issue clearly. Even pixel values which are on or near the
-          inside of the gamut boundary can result in artifacts.
-          There are a number of potential approaches to solving
-          this problem. Working in the original camera encoding
-          gamut, ALEXA Wide Gamut in this case, is one option.
-          Creating a technical grade for the shot which removes the
-          artifact, and providing that as a LUT for use in VFX is
-          another. With that option, it will be obvious if anything
-          in compositing makes the artifact reappear.</p>
-          <p class="indent">Negative values may occur in a
-          scene-referred linear color if the working gamut is
-          smaller than, or even just different from, the encoding
-          gamut of the plate. In some extreme examples, cameras
-          have been found to produce values outside of their
-          specified encoding gamut. That could lead to negative
-          scene-referred linear values even without transforming
-          away from the camera’s encoding gamut. Like NaNs and Inf
-          values, this comes with the territory. Don’t just clip
-          these values! These negative values can pass through some
-          operations without causing issues and should normally be
-          preserved when delivering VFX renders to DI. However, the
-          results of some mathematical operations used in
-          compositing are undefined for negative numbers and may
-          create NaNs or Infs, or push a small negative value to a
-          much larger one. Sometimes, where negative values will be
-          clamped by the final display transform, it may be safe to
-          clamp them in the comp. This is a risky strategy though.
-          Changes to the grade may make the clamping visible,
-          causing artifacts such as black holes in the image. It is
-          generally preferable to use an approach such as
-          offsetting the values before an operation to make
-          everything positive and then subtracting the offset
-          afterward. Remember that compositing should be a no-op
-          for unaffected pixels, so even if a pixel value
-          represents an unreal color in the plate, the VFX shot
-          should be returned to DI with values representing that
-          same unreal color, matching the original plate.</p>
-          <p class="indent">This is also something to watch out for
-          in games. As mentioned in Section 3.4.3 Games, games may
-          render in less precise "small" floating-point formats
-          when an alpha channel is not needed and performance and
-          memory bandwidth are more important than precision. It is
-          important to remember that these floating point formats
-          do not have a sign bit so do not support negative
-          numbers, and thus cannot store out-of-gamut colors. If
-          asked to do so, clipping will silently occur. Care must
-          be taken to either choose the appropriate floating-point
-          format, handle negative values explicitly or bring
-          out-of-gamut values into the working gamut to avoid the
-          silent artefacts that would otherwise occur.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.6.4</span> <a href=
-          "contents.html#QQ2-28-109" id="x28-1080003.6.4">Working
-          with Log Imagery</a></h4>
-          <p class="noindent">Log plates captured for "Avengers:
-          Infinity War" (left, right) and "The Amazing Spider-Man"
-          (middle). Images from "Avengers: Infinity War" are ? 2018
-          MARVEL. Images from "The Amazing Spider-Man" Courtesy of
-          Columbia Pictures. ? 2012 Columbia Pictures Industries,
-          Inc. All rights reserved. Despite scene-referred linear
-          having benefits in many compositing operators, log-like
-          spaces are sometimes still useful in modern compositing
-          workflows. This is in part due to it being very
-          straightforward to express some operations in a log
-          space, like exposure or contrast adjustment, and in part,
-          because some packages were designed around processing log
-          imagery so the controls and feel of the operations are
-          more intuitive, or familiar to artists, with log images.
-          Modern compositing applications can apply almost every
-          operation directly to scene-referred linear data, but it
-          may still be useful to work with log imagery. In log
-          space, both the linear and gamma contrast operators have
-          reasonable performance. This is one of the reasons that
-          colorists often prefer to work in log-like spaces. Other
-          operations which can be useful to perform in the log
-          domain are grain matching, pulling keys, and many spatial
-          distortion operators. But care must be taken when using
-          log color spaces in compositing, as not all log
-          transforms preserve the full range of scene-referred
-          linear code values. Most such conversions clip values
-          above certain highlight color, below a certain shadow
-          color, and some clip all negative values.</p>
-          <p class="indent">Scene-referred linear data is not
-          suitable as input to a 3D LUT due to its code value
-          distribution, range and the distribution of sensitivity
-          in the human visual system as seen in Section 2.5.3. To
-          address that problem, image data is often transformed
-          into a log representation before a 3D LUT is applied.
-          Some LUTs include this transform as a 1D shaper within
-          the LUT file itself. See Appendix 4.4.3 for more
-          detail.</p>
-          <p class="indent">ACES defines two standardized log
-          working spaces, ACEScc and ACEScct, which are commonly
-          used in grading.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.6.5</span> <a href=
-          "contents.html#QQ2-28-110" id="x28-1090003.6.5">Plate
-          Timing, Neutralization, and Grading</a></h4>
-          <p class="noindent">When working with plate photography
-          it is often useful to apply primary color corrections for
-          each plate to neutralize the lighting across a sequence.
-          During the shoot, there will inevitably be color drift
-          across the shots, produced by events like the sun moving
-          behind a cloud or the lighting moved to different
-          locations from one day to the next. Using neutralized
-          plates in lighting and compositing leads to nice gains in
-          efficiency as light rigs and sequence standards track
-          better. In most workflows the plate neutralization is
-          done at the top of the compositing graph, the CG neutral
-          elements are composited in, and then before the file is
-          written out the neutralization is undone. This approach
-          is often called "reverse out," and its advantage is that
-          the output delivery is consistent with the input plate,
-          independent of the color neutralization process. An
-          analogous set of operations are often applied with lens
-          distortion being removed at the head of a comp and then
-          reapplied as one of the last steps. In some facilities,
-          neutralized plates are written out to disk so everyone
-          dealing with the images works with the neutralized
-          result. This may be helpful to have if the background
-          plate needs to be reflected or otherwise used in a CG
-          render. The same is true with undistorted plates. It may
-          be useful to write them to disk if a tracking or
-          photogrammetry application, for example, can’t apply the
-          same lens un-distortion as the compositing
-          application.</p>
-          <p class="indent">It is important to draw a distinction
-          between the correction necessary for plate
-          neutralizations, and the potentially more sophisticated
-          Look that is crafted by the colorist. Color corrections
-          used for plate neutralization must be reversible, and as
-          such are typically handled as either simple offsets in
-          camera log space or as simple gains in linear. More
-          complex operations such as contrast and saturation are
-          usually avoided as these type of corrections break the
-          linearity of the plate, are often implemented differently
-          in different software packages and will likely make
-          compositing more difficult. In DI grading, the full suite
-          of color operators can be used: contrast, keys,
-          primaries, and secondaries, as there is no need to invert
-          this process.</p>
-          <p class="indent">For additional detail on the process of
-          conforming sequences and neutralizing plates, see 3.6.1
-          Conforming.XXX</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.6.6</span> <a href=
-          "contents.html#QQ2-28-111" id=
-          "x28-1100003.6.6">Premultiplication</a></h4>
-          <p class="noindent">Premultiplication implies that one
-          starts with an RGB color, adds the concept of
-          transparency, and then premultiplies by it. This isn’t
-          actually true. Premultiplied RGB is the natural
-          representation for color and transparency and is the
-          native output of renderers. A nice mental model for
-          premultiplied RGBA is that the RGB channels represent how
-          much light is emitted from within the region of the
-          pixel, and alpha represents how much a pixel blocks light
-          behind it. As alpha represents the fraction of occlusion,
-          to maintain physical correctness alpha values must be
-          between 0 and 1. RGB channels have no such constraints
-          and can range from -infinity to infinity.</p>
-          <p class="indent">Furthermore, there is absolutely no
-          issue with RGB colors greater than alpha. This is a
-          common misconception. Even when alpha is zero, a positive
-          RGB color is a completely reasonable approximation of a
-          physical process that emits light without occluding
-          anything behind it. Indeed, this situation is common in
-          emissive FX renders such as fire. Fire will also scatter
-          and absorb light from the environment but it may in such
-          a negligible amount that a zero-valued alpha
-          suffices.</p>
-          <p class="indent">So how should unpremultiplied RGBA be
-          interpreted? Unpremultiplied RGBA is most easily
-          understood as, "If this pixel were fully opaque, how much
-          light would have been emitted?" This representation is
-          certainly useful in specific compositing contexts such as
-          when pulling luma keys from CG elements, but as
-          converting to unpremultiplied RGBA is a lossy
-          approximation it’s prudent to only do the conversion when
-          absolutely necessary.</p>
-          <p class="indent">For additional information on
-          premultiplied versus unpremultiplied RGBA
-          representations, see Porter and Duff (1984) and Blinn
-          (1998).</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.6.7</span> <a href=
-          "contents.html#QQ2-28-112" id="x28-1110003.6.7">Technical
-          Checks</a></h4>
-          <p class="noindent">It is not normally practical for the
-          workstations used for animation, lighting, VFX and
-          compositing to show an entirely accurate preview of the
-          final deliverable, especially if the principal master is
-          HDR. Furthermore, while artists typically craft imagery
-          assuming a particular viewing exposure, it is possible
-          that the imagery will be stylistically color graded in
-          unexpected ways in the DI grade. Therefore, care must be
-          taken to preserve a wide dynamic range in the
-          scene-referred linear working space, avoiding
-          output-referred cheats and checking the result on an SDR
-          display by pushing and pulling the exposure prior to the
-          SDR viewing transform. Indeed, many facilities run a
-          barrage of tests, often referred to as Quality Check
-          (QC), Technical Checks or The Gauntlet to ensure that all
-          completed CG and composites are robust enough to stand up
-          to the manipulations of DI grading and that there are no
-          artifacts which are masked by an SDR output transform
-          that might be revealed by an HDR output transform.</p>
-          <p class="indent">The inclusion of deliverables for HDR
-          displays makes this even more critical, as artists’
-          workstations may be unable to show an HDR image at all,
-          and even if they can, they are unlikely to accurately
-          represent the final HDR deliverable. If HDR monitoring is
-          not possible at the desktop, having just a single shared
-          HDR monitor to perform technical checks during the course
-          of work can help prevent surprises that would otherwise
-          only be discovered late during HDR finishing.</p>
-          <p class="indent">At a minimum, artists working in
-          scene-referred linear, namely the lighter and compositor,
-          should aspire to view their imagery at a range of
-          exposures as part of their regular production workflow.
-          This enables artists to have a true sense of the dynamic
-          range in their imagery and to match computer-generated
-          elements with similar precision. In compositing, it is
-          also expedient to convert the imagery to the color space,
-          quantization, and clamping that will be delivered to DI,
-          to test how the imagery holds up to drastic color grades.
-          Best practice is to simulate substantial exposure
-          adjustments, as well as contrast and saturation boosts,
-          to confirm that all portions of the imagery track in a
-          consistent manner. This is particularly important to
-          match across shots and sequences. It is easy to make
-          individual shots that are self-consistent, yet fall apart
-          when viewed side to side. Most critical is the inspection
-          of shadow detail. "Stopping up" the final composites,
-          shadows should have a consistent color and density both
-          inter-shot and intra-shot. Flat black portions of the
-          image should be avoided - lest they reappear in DI
-          grading - and grain/noise must match between the
-          live-action and the computer-generated imagery.
-          Inspecting highlights, one should confirm that their
-          intensity, color, sharpness, and flare appearance are
-          similarly consistent. For visual effects shots that don’t
-          modify the entire live-action plate, the portions of the
-          image that should be unaffected by the visual effects
-          elements should be compared against the original
-          live-action plate. It is important to make sure that no
-          unintended changes to black levels, color balance, grain,
-          resolution, bit depth or lens distortion have crept into
-          the process.</p>
-          <div class="breadcrumb-navigation text-center">
-            <a href=
-            "visual-effects-animation-and-games.html"><button class="btn btn-light mx-3"
-            type="button">Previous</button></a><a href=
-            "workflow.html#compositing.html"><button class=
-            "btn btn-light mx-3" type=
-            "button">Up</button></a><a href=
-            "di-grading.html"><button class="btn btn-light mx-3"
-            type="button">Next</button></a>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-  </article>
-  <footer class="page-footer">
-    <div class="container-fluid text-center py-3">
-      Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ <a href=
-      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
-    </div>
-  </footer>
-  <script src="assets/js/jquery/jquery.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/popper/popper.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/bootstrap/bootstrap.min.js" type=
-  "text/javascript"></script> 
-  <script type="text/javascript">
-  //<![CDATA[
+                                                                  
+linearization philosophies. Pay particular attention to the appearance of the lights in the
+bell tower on the top of the dome. How much energy is represented in those pixels? The
+least realistic defocus effect is achieved by applying the filter kernel directly to
+the output-referred pixel values without any linearization. Since in this case
+there is only a small difference between the pixel values of the lights and that
+of diffuse white, the defocus causes the lights to be lost in the surrounding
+pixels.
+</p><p class="indent">   San Francisco City Hall at Night - The original scene defocused in camera (left),
+Defocus applied to the HDR scene-referred linear data before the output transform
+(middle). Defocus applied to pseudo-linearized output-referred data (right). All three
+images use the ACES sRGB Output Transform. Applying the same defocus to image
+data which has been converted to an approximation of scene-referred linear
+using a simple gamma or sRGB curve is an improvement, but still tends to
+de-emphasize the specular highlights. This is because even though the operation is
+being applied in ’linear’, it is downstream of the output transform, and the
+highlights have already been tone mapped for a lower dynamic range display,
+restricting them to the 0-1 range, and thus do not have physically-plausible
+amounts of energy. Applications like Adobe After Effects work in this way by
+default when the "use linear" option is chosen for filters, simply removing an
+assumed 2.2 gamma before the filter and reapplying it afterward. Applying a
+defocus in scene-referred linear reveals a bokeh effect on each of the bell tower
+lights, mimicking the visual look of having performed this defocus during camera
+acquisition. This is because the pixel values are proportional to light in the
+original scene, and thus very bright pixels have sufficient energy to remain visible
+when blended with their neighbors. Other energy effects such as motion-blur
+achieve similar improvements in realism from working in a scene-referred linear
+space.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.6.2   </span> <a href="contents.html#QQ2-28-107" id="x28-1060003.6.2">Scene-Referred Linear Compositing Challenges</a></h4>
+<p class="noindent">There are some challenges with working with high-dynamic ranges in compositing. First,
+filtering operators that use sharp, negative lobed kernels like as lanczos, keys, and sinc are
+very susceptible to ringing, i.e. negative values around highlights. While interpolatory
+filters such as box, gaussian, bilinear and bicubic cannot cause this artifact, they tend
+to introduce softening. When sharp filtering is required like lens distortions,
+resizing, and other spatial warping techniques a variety of approaches are useful
+to mitigate such HDR artifacts. A non-exhaustive set of methods are listed
+below
+</p><p class="indent">   The simplest approach to mitigating overshoot/undershoot artifacts is to roll off the
+highlights, process the image, and then unroll the highlights back. While this does not
+preserve highlight energy as it has the net effect of reducing specular intensity, the results
+are visually pleasing. The approach is also suitable for processing images with alpha. For
+images without alpha, converting to log, filtering, and converting back will greatly reduce
+the visual impact of overshoot and undershoot. Though log-space processing results in a
+gross distortion of energy, for conversions which don’t integrate large portions of
+the image, such as lens distortion effects for plates and not blurs, this works
+well. For images without alpha, a similar method is to apply a simple invertible
+                                                                  
 
-  function executeSearchQuery() { 
-  var input = document.getElementById('cse-search-input-box-id'); 
-  var element = google.search.cse.element.getElement('searchresults-only0'); 
-  if (input.value == '') { 
-  element.clearAllResults(); 
-  } else { 
-  element.execute(input.value); 
-  } 
-  return false; 
-  } 
-  //]]>
-  </script>
-</body>
-</html>
+                                                                  
+tonemap, filtering, and then inverting back. A method as simple as 1/(1+color)
+produces pleasing results by effectively weighting each sample as a function of
+its brightness. Another approach to HDR filtering is to apply a simple camera
+flare model, where very bright highlights share their energy with neighboring
+pixels.
+</p><p class="indent">   For all approaches that undertake a form of perceptual encoding, care must be taken
+to ensure enough precision is maintained during filtering. 16-bit floating point may not be
+suitable.
+</p><p class="indent">   An image with negative black halos around highlights, produced by a Lanczos 6
+resizing filter with negative lobes (left) and the image converted to a log space before
+resizing, thus avoiding negative black haloes (right). Applying negative-lobed filter
+kernels to high-dynamic range images, may cause visually-significant ringing
+artifacts introducing black silhouettes around sharp specular highlights. Ringing
+artifacts may be avoided when using sharp filters on HDR imagery by processing
+in alternate color spaces, such as log, using energy-roll off approaches, or by
+pre-flaring highlight regions. This image demonstrates the results of the roll-off
+technique.
+</p><p class="indent">   Another challenge in working with scene-referred linear data in compositing is that
+tricks often relied upon in integer compositing may not be effective when applied to
+floating-point imagery. For example, the screen operator, which remains effective when
+applied to matte passes, is sometimes used on RGB data to emulate a "partial add". As
+the screen operator is ill-defined above 1.0, unexpected results will occur when applied to
+HDR data. Some compositing packages swap out screen for max when either input is
+outside of 0.0-1.0, but this is primarily to prevent artifacts and is not artistically
+helpful. Alternative "partial add" maths such as hypotenuse are useful but do not
+exactly replicate the original intent of screen. Another related issue to beware of
+when compositing is that when combining HDR image, alphas must not go
+outside the range of 0 to 1. While it is entirely reasonable for the RGB channels
+to have any values, even negative in certain situations, compositing operators
+such as over, produce totally invalid results on alphas outside of the range 0 to
+1.
+</p><p class="indent">   One subtlety of working with floating point imagery is that artists must become
+familiar with some of the corner cases in floating-point representations: NaNs and Infs.
+For example, when dividing by very small values, such as during un-premultiplication, it is
+possible to drive a color value up high enough to generate infinity. NaNs are
+also frequent and may be introduced during lighting and shading inside the
+renderer, or during divide by zero operations. Both NaNs and Inf can cause
+issues in compositing if not detected and cleaned, as most image processing
+algorithms are not robust to their presence and generally fail in unexpected
+ways.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.6.3   </span> <a href="contents.html#QQ2-28-108" id="x28-1070003.6.3">Negative Values</a></h4>
+<p class="noindent">A frame from ’The Avengers: Infinity War". The frame in the original Alexa LogC
+encoding (top), The frame transformed to ACEScc with negative values in shown as
+purple fringing visible in particular on the top right light (middle) and the final frame
+(bottom) ? 2018 MARVEL
+                                                                  
+
+                                                                  
+</p><p class="indent">   CIE 1931 2? Standard Observer chromaticity plot of the image above The above
+image contains pixel values which are positive in ALEXA Wide Gamut but negative in
+ACEScg as they are outside of the ACEScg gamut. This results in overly strong purple
+fringing and clamped values when viewed through an ACES Output Transform. The
+frame above the light shows the issue clearly. Even pixel values which are on or near the
+inside of the gamut boundary can result in artifacts. There are a number of potential
+approaches to solving this problem. Working in the original camera encoding gamut,
+ALEXA Wide Gamut in this case, is one option. Creating a technical grade for the shot
+which removes the artifact, and providing that as a LUT for use in VFX is another. With
+that option, it will be obvious if anything in compositing makes the artifact
+reappear.
+</p><p class="indent">   Negative values may occur in a scene-referred linear color if the working gamut is
+smaller than, or even just different from, the encoding gamut of the plate. In some
+extreme examples, cameras have been found to produce values outside of their
+specified encoding gamut. That could lead to negative scene-referred linear
+values even without transforming away from the camera’s encoding gamut.
+Like NaNs and Inf values, this comes with the territory. Don’t just clip these
+values! These negative values can pass through some operations without causing
+issues and should normally be preserved when delivering VFX renders to DI.
+However, the results of some mathematical operations used in compositing are
+undefined for negative numbers and may create NaNs or Infs, or push a small
+negative value to a much larger one. Sometimes, where negative values will be
+clamped by the final display transform, it may be safe to clamp them in the
+comp. This is a risky strategy though. Changes to the grade may make the
+clamping visible, causing artifacts such as black holes in the image. It is generally
+preferable to use an approach such as offsetting the values before an operation to
+make everything positive and then subtracting the offset afterward. Remember
+that compositing should be a no-op for unaffected pixels, so even if a pixel
+value represents an unreal color in the plate, the VFX shot should be returned
+to DI with values representing that same unreal color, matching the original
+plate.
+</p><p class="indent">   This is also something to watch out for in games. As mentioned in Section 3.4.3
+Games, games may render in less precise "small" floating-point formats when an alpha
+channel is not needed and performance and memory bandwidth are more important than
+precision. It is important to remember that these floating point formats do not have a
+sign bit so do not support negative numbers, and thus cannot store out-of-gamut colors.
+If asked to do so, clipping will silently occur. Care must be taken to either choose the
+appropriate floating-point format, handle negative values explicitly or bring out-of-gamut
+values into the working gamut to avoid the silent artefacts that would otherwise
+occur.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.6.4   </span> <a href="contents.html#QQ2-28-109" id="x28-1080003.6.4">Working with Log Imagery</a></h4>
+<p class="noindent">Log plates captured for "Avengers: Infinity War" (left, right) and "The Amazing
+Spider-Man" (middle). Images from "Avengers: Infinity War" are ? 2018 MARVEL.
+Images from "The Amazing Spider-Man" Courtesy of Columbia Pictures. ? 2012
+Columbia Pictures Industries, Inc. All rights reserved. Despite scene-referred linear
+                                                                  
+
+                                                                  
+having benefits in many compositing operators, log-like spaces are sometimes still
+useful in modern compositing workflows. This is in part due to it being very
+straightforward to express some operations in a log space, like exposure or contrast
+adjustment, and in part, because some packages were designed around processing
+log imagery so the controls and feel of the operations are more intuitive, or
+familiar to artists, with log images. Modern compositing applications can apply
+almost every operation directly to scene-referred linear data, but it may still
+be useful to work with log imagery. In log space, both the linear and gamma
+contrast operators have reasonable performance. This is one of the reasons
+that colorists often prefer to work in log-like spaces. Other operations which
+can be useful to perform in the log domain are grain matching, pulling keys,
+and many spatial distortion operators. But care must be taken when using log
+color spaces in compositing, as not all log transforms preserve the full range
+of scene-referred linear code values. Most such conversions clip values above
+certain highlight color, below a certain shadow color, and some clip all negative
+values.
+</p><p class="indent">   Scene-referred linear data is not suitable as input to a 3D LUT due to its code value
+distribution, range and the distribution of sensitivity in the human visual system as seen
+in Section 2.5.3. To address that problem, image data is often transformed
+into a log representation before a 3D LUT is applied. Some LUTs include this
+transform as a 1D shaper within the LUT file itself. See Appendix 4.4.3 for more
+detail.
+</p><p class="indent">   ACES defines two standardized log working spaces, ACEScc and ACEScct, which are
+commonly used in grading.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.6.5   </span> <a href="contents.html#QQ2-28-110" id="x28-1090003.6.5">Plate Timing, Neutralization, and Grading</a></h4>
+<p class="noindent">When working with plate photography it is often useful to apply primary color corrections
+for each plate to neutralize the lighting across a sequence. During the shoot, there will
+inevitably be color drift across the shots, produced by events like the sun moving
+behind a cloud or the lighting moved to different locations from one day to
+the next. Using neutralized plates in lighting and compositing leads to nice
+gains in efficiency as light rigs and sequence standards track better. In most
+workflows the plate neutralization is done at the top of the compositing graph,
+the CG neutral elements are composited in, and then before the file is written
+out the neutralization is undone. This approach is often called "reverse out,"
+and its advantage is that the output delivery is consistent with the input plate,
+independent of the color neutralization process. An analogous set of operations are
+often applied with lens distortion being removed at the head of a comp and
+then reapplied as one of the last steps. In some facilities, neutralized plates
+are written out to disk so everyone dealing with the images works with the
+neutralized result. This may be helpful to have if the background plate needs to be
+reflected or otherwise used in a CG render. The same is true with undistorted
+plates. It may be useful to write them to disk if a tracking or photogrammetry
+application, for example, can’t apply the same lens un-distortion as the compositing
+application.
+</p><p class="indent">   It is important to draw a distinction between the correction necessary for plate
+                                                                  
+
+                                                                  
+neutralizations, and the potentially more sophisticated Look that is crafted by the
+colorist. Color corrections used for plate neutralization must be reversible, and as such
+are typically handled as either simple offsets in camera log space or as simple
+gains in linear. More complex operations such as contrast and saturation are
+usually avoided as these type of corrections break the linearity of the plate, are
+often implemented differently in different software packages and will likely make
+compositing more difficult. In DI grading, the full suite of color operators can be used:
+contrast, keys, primaries, and secondaries, as there is no need to invert this
+process.
+</p><p class="indent">   For additional detail on the process of conforming sequences and neutralizing plates,
+see 3.6.1 Conforming.XXX
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.6.6   </span> <a href="contents.html#QQ2-28-111" id="x28-1100003.6.6">Premultiplication</a></h4>
+<p class="noindent">Premultiplication implies that one starts with an RGB color, adds the concept of
+transparency, and then premultiplies by it. This isn’t actually true. Premultiplied RGB is
+the natural representation for color and transparency and is the native output of
+renderers. A nice mental model for premultiplied RGBA is that the RGB channels
+represent how much light is emitted from within the region of the pixel, and alpha
+represents how much a pixel blocks light behind it. As alpha represents the fraction of
+occlusion, to maintain physical correctness alpha values must be between 0
+and 1. RGB channels have no such constraints and can range from -infinity to
+infinity.
+</p><p class="indent">   Furthermore, there is absolutely no issue with RGB colors greater than alpha.
+This is a common misconception. Even when alpha is zero, a positive RGB
+color is a completely reasonable approximation of a physical process that emits
+light without occluding anything behind it. Indeed, this situation is common in
+emissive FX renders such as fire. Fire will also scatter and absorb light from the
+environment but it may in such a negligible amount that a zero-valued alpha
+suffices.
+</p><p class="indent">   So how should unpremultiplied RGBA be interpreted? Unpremultiplied RGBA is most
+easily understood as, "If this pixel were fully opaque, how much light would have been
+emitted?" This representation is certainly useful in specific compositing contexts such as
+when pulling luma keys from CG elements, but as converting to unpremultiplied RGBA is
+a lossy approximation it’s prudent to only do the conversion when absolutely
+necessary.
+</p><p class="indent">   For additional information on premultiplied versus unpremultiplied RGBA
+representations, see Porter and Duff (1984) and Blinn (1998).
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.6.7   </span> <a href="contents.html#QQ2-28-112" id="x28-1110003.6.7">Technical Checks</a></h4>
+<p class="noindent">It is not normally practical for the workstations used for animation, lighting, VFX and
+compositing to show an entirely accurate preview of the final deliverable, especially if the
+principal master is HDR. Furthermore, while artists typically craft imagery assuming a
+particular viewing exposure, it is possible that the imagery will be stylistically color graded
+                                                                  
+
+                                                                  
+in unexpected ways in the DI grade. Therefore, care must be taken to preserve a wide
+dynamic range in the scene-referred linear working space, avoiding output-referred cheats
+and checking the result on an SDR display by pushing and pulling the exposure prior
+to the SDR viewing transform. Indeed, many facilities run a barrage of tests,
+often referred to as Quality Check (QC), Technical Checks or The Gauntlet to
+ensure that all completed CG and composites are robust enough to stand up
+to the manipulations of DI grading and that there are no artifacts which are
+masked by an SDR output transform that might be revealed by an HDR output
+transform.
+</p><p class="indent">   The inclusion of deliverables for HDR displays makes this even more critical, as
+artists’ workstations may be unable to show an HDR image at all, and even if they can,
+they are unlikely to accurately represent the final HDR deliverable. If HDR monitoring is
+not possible at the desktop, having just a single shared HDR monitor to perform
+technical checks during the course of work can help prevent surprises that would
+otherwise only be discovered late during HDR finishing.
+</p><p class="indent">   At a minimum, artists working in scene-referred linear, namely the lighter and
+compositor, should aspire to view their imagery at a range of exposures as part of their
+regular production workflow. This enables artists to have a true sense of the dynamic
+range in their imagery and to match computer-generated elements with similar precision.
+In compositing, it is also expedient to convert the imagery to the color space,
+quantization, and clamping that will be delivered to DI, to test how the imagery holds up
+to drastic color grades. Best practice is to simulate substantial exposure adjustments, as
+well as contrast and saturation boosts, to confirm that all portions of the imagery track
+in a consistent manner. This is particularly important to match across shots and
+sequences. It is easy to make individual shots that are self-consistent, yet fall
+apart when viewed side to side. Most critical is the inspection of shadow detail.
+"Stopping up" the final composites, shadows should have a consistent color
+and density both inter-shot and intra-shot. Flat black portions of the image
+should be avoided - lest they reappear in DI grading - and grain/noise must
+match between the live-action and the computer-generated imagery. Inspecting
+highlights, one should confirm that their intensity, color, sharpness, and flare
+appearance are similarly consistent. For visual effects shots that don’t modify the
+entire live-action plate, the portions of the image that should be unaffected by
+the visual effects elements should be compared against the original live-action
+plate. It is important to make sure that no unintended changes to black levels,
+color balance, grain, resolution, bit depth or lens distortion have crept into the
+process.
+                                                                  
+
+                                                                  
+</p>   
+<div class="breadcrumb-navigation text-center"><a href="visual-effects-animation-and-games.html"><button class="btn btn-light mx-3" type="button">Previous</button></a><a href="workflow.html#compositing.html"><button class="btn btn-light mx-3" type="button">Up</button></a><a href="di-grading.html"><button class="btn btn-light mx-3" type="button">Next</button></a></div>   </div> 
+<div class="col-md-2"></div> 
+</div> 
+</div> 
+</article>  <footer class="page-footer"> 
+<div class="container-fluid text-center py-3"> 
+Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ 
+<a href="mailto:ves-tech-color@googlegroups.com"> 
+ves-tech-color@googlegroups.com</a> 
+</div> 
+</footer>  <script src="assets/js/jquery/jquery.min.js" type="text/javascript"></script> 
+<script src="assets/js/popper/popper.min.js" type="text/javascript"></script> 
+<script src="assets/js/bootstrap/bootstrap.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+function executeSearchQuery() { 
+var input = document.getElementById('cse-search-input-box-id'); 
+var element = google.search.cse.element.getElement('searchresults-only0'); 
+if (input.value == '') { 
+element.clearAllResults(); 
+} else { 
+element.execute(input.value); 
+} 
+return false; 
+} 
+</script> 
+ 
+ 
+</body></html>

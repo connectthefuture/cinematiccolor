@@ -1,732 +1,432 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-  <title>Human Visual System</title>
-  <meta charset="utf-8" />
-  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-  "generator" />
-  <meta content="width=device-width,initial-scale=1" name=
-  "viewport" />
-  <link href="cinematic-color.css" rel="stylesheet" type=
-  "text/css" />
-  <meta content="cinematic-color.tex" name="src" />
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
-  type="text/javascript"></script>
-  <script src="assets/js/jeri/jeri.min.js" type=
-  "text/javascript"></script>
-  <script type="text/javascript">
-  //<![CDATA[
+<html lang="en" xml:lang="en"><head><title>Human Visual System</title> 
+<meta charset="utf-8"/> 
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name="generator"/> 
+<meta content="width=device-width,initial-scale=1" name="viewport"/> 
+<link href="cinematic-color.css" rel="stylesheet" type="text/css"/> 
+<meta content="cinematic-color.tex" name="src"/> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js" type="text/javascript"></script> 
+<script src="https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js" type="text/javascript"></script> 
+<script src="assets/js/jeri/jeri.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+</script> 
+<script type="text/javascript"> 
+(function() { 
+var cx = '000762316508951405781:qrigrsppwri'; 
+var gcse = document.createElement('script'); 
+gcse.type = 'text/javascript'; 
+gcse.async = true; 
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
+var s = document.getElementsByTagName('script')[0]; 
+s.parentNode.insertBefore(gcse, s); 
+})(); 
+</script> 
+</head><body><nav class="navbar navbar-expand-md navbar-light bg-light">
+<a class="navbar-brand" href="#">Cinematic Color 2</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="preface.html" id="preface" role="button">Preface</a><div aria-labelledby="preface" class="dropdown-menu"><a class="dropdown-item" href="description.html">Description</a><a class="dropdown-item" href="authorship.html">Authorship</a><a class="dropdown-item" href="on-the-web.html">On the Web</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">Introduction</a><div aria-labelledby="introduction" class="dropdown-menu"><a class="dropdown-item" href="intended-audience.html">Intended Audience</a><a class="dropdown-item" href="how-to-read-this-document.html">How to Read this Document</a><a class="dropdown-item" href="the-goal.html">The Goal</a><a class="dropdown-item" href="converging-approaches.html">Converging Approaches</a><a class="dropdown-item" href="a-general-model-of-color-processing.html">A General Model of Color Processing</a><a class="dropdown-item" href="color-management-challenges.html">Color Management Challenges</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">Color Science</a><div aria-labelledby="color-science" class="dropdown-menu"><a class="dropdown-item" href="about-color-science.html">About Color Science</a><a class="dropdown-item" href="electromagnetic-spectrum.html">Electromagnetic Spectrum</a><a class="dropdown-item" href="human-visual-system.html">Human Visual System</a><a class="dropdown-item" href="basic-colorimetry.html">Basic Colorimetry</a><a class="dropdown-item" href="advanced-colorimetry.html">Advanced Colorimetry</a><a class="dropdown-item" href="representing-color.html">Representing Color</a><a class="dropdown-item" href="color-imaging-systems.html">Color Imaging Systems</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">Workflow</a><div aria-labelledby="workflow" class="dropdown-menu"><a class="dropdown-item" href="about-workflow.html">About Workflow</a><a class="dropdown-item" href="academy-color-encoding-system-aces.html">Academy Color Encoding System (ACES)</a><a class="dropdown-item" href="the-look.html">The Look</a><a class="dropdown-item" href="on-set.html">On Set</a><a class="dropdown-item" href="visual-effects-animation-and-games.html">Visual Effects, Animation and Games</a><a class="dropdown-item" href="compositing.html">Compositing</a><a class="dropdown-item" href="di-grading.html">DI Grading</a><a class="dropdown-item" href="critical-monitoring.html">Critical Monitoring</a><a class="dropdown-item" href="finishing.html">Finishing</a><a class="dropdown-item" href="archives.html">Archives</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">Appendix</a><div aria-labelledby="appendix" class="dropdown-menu"><a class="dropdown-item" href="common-rgb-color-encodings.html">Common RGB Color Encodings</a><a class="dropdown-item" href="opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class="dropdown-item" href="colour-science-for-python.html">Colour Science for Python</a><a class="dropdown-item" href="luts-and-transforms.html">LUTs and Transforms</a><a class="dropdown-item" href="asc-cdl.html">ASC CDL</a><a class="dropdown-item" href="aces-ctl.html">ACES CTL</a><a class="dropdown-item" href="full-and-legal-ranges.html">Full and Legal ranges</a><a class="dropdown-item" href="color-difference-encoding.html">Color Difference Encoding</a><a class="dropdown-item" href="camera-characterization.html">Camera Characterization</a><a class="dropdown-item" href="file-formats.html">File Formats</a><a class="dropdown-item" href="color-matching-experiments.html">Color Matching Experiments</a><a class="dropdown-item" href="grassmann-s-law-of-additive-color-mixture.html">Grassmann's Law of Additive Color Mixture</a><a class="dropdown-item" href="software.html">Software</a><a class="dropdown-item" href="acknowledgements.html">Acknowledgements</a></div></li><li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li><li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li></ul>
+<form class="navbar-form navbar-right" id="cse-search-box-form-id" onsubmit="return executeSearchQuery();" role="search">
+<div class="input-group">
+<input autocomplete="on" class="form-control" id="cse-search-input-box-id" size="25" type="text"/>
+<script async="" src="https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id" type="text/javascript">
+</script>
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+</span>
+</div>
+</form>
+</div>
+</nav><gcse:searchresults-only></gcse:searchresults-only> 
+<link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/> 
 
-  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
-  //]]>
-  </script>
-  <script type="text/javascript">
-  //<![CDATA[
+ <article class="page-content"> <div class="container-fluid py-3"> 
+<div class="row"> 
+<div class="col-md-2"></div> 
+<div class="col-md-8"> 
+ <h3 class="sectionHead"><span class="titlemark">2.3   </span> <a href="cinematic-color.html#QQ2-17-21" id="x17-200002.3">Human Visual System</a></h3>
+<p class="noindent">Visual perception, a process by which humans acquire knowledge about their
+environment, is initiated when environmental light enters the eye and induces electrical
+signals subsequently processed within the brain where an image is formed. Acquiring
+knowledge is a cognitive process distinct from strict optical mechanisms. There are
+optical similarities between a camera and the eye in the way they capture an image of the
+environment but a camera does not have perceptual capabilities or cognitive abilities; it
+does not know about the world.
+</p><p class="indent">   The principal components on the visual pathway are as follows: Eye Optic nerve Optic
+chiasma Optic tract Lateral geniculate body Optic radiation Visual cortex Visual
+association cortex
+</p><p class="indent">   Principal components of the human visual system.
+</p><p class="indent">   Their study is beyond the scope of this document but it is important to
+highlight that while the light from the environment is captured and converted to
+electrical impulses by the eye, most of the information extraction happens in
+the cerebral cortex and multiple interpretations of the sensory stimulation are
+possible.
+</p><p class="indent">   Rotating snakes: Circular snakes appear to rotate spontaneously.
+Kitaoka, A. (2003). Rotating snakes. Retrieved October 14, 2018, from
+http://www.ritsumei.ac.jp/ akitaoka/rotsnake.gif
+</p><p class="indent">   Optical illusions are the result of light stimuli producing ambiguous and
+conflicting interpretations. They are important because they demonstrate that the
+stimulation of the eye does not entirely determine perception. Our perceptions
+correspond to the models the HVS has constructed rather than the original sensory
+stimulation. Palmer (1999) explains that "the observer constructs a model of what
+environmental situation might have produced the observed pattern of sensory
+stimulation." Key Points Visual perception allows human to acquire knowledge
+about their environment. Knowledge acquisition is a cognitive process. Camera
+and the eye have optical similarities, but a camera does not have cognitive
+abilities. Most of the information extraction happens in the cerebral cortex.
+Optical illusions demonstrate that eye stimulation is not solely responsible for
+our perceptions: the HVS constructs a best-fitting model of the environmental
+situation.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">2.3.1   </span> <a href="contents.html#QQ2-17-22" id="x17-210002.3.1">The Eye</a></h4>
+<p class="noindent">The eye is of particular interest being the sensor with which the HVS probes the
+environmental light.
+</p><p class="indent">   Cross section of the human eye. https://commons.wikimedia.org/wiki/File:Eyesection.svg
+</p><p class="indent">   The light pathway through the eye starts at the cornea, a transparent and curved
+organized group of tissue layers. The cornea represents the largest index of refraction
+                                                                  
 
-  (function() { 
-  var cx = '000762316508951405781:qrigrsppwri'; 
-  var gcse = document.createElement('script'); 
-  gcse.type = 'text/javascript'; 
-  gcse.async = true; 
-  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
-  var s = document.getElementsByTagName('script')[0]; 
-  s.parentNode.insertBefore(gcse, s); 
-  })(); 
-  //]]>
-  </script>
-  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
-  "stylesheet" type="text/css" />
-  <link href="assets/css/custom.css" rel="stylesheet" type=
-  "text/css" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">Cinematic Color 2</a>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "preface.html" id="preface" role="button">Preface</a>
-          <div aria-labelledby="preface" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "description.html">Description</a><a class=
-            "dropdown-item" href=
-            "authorship.html">Authorship</a><a class=
-            "dropdown-item" href="on-the-web.html">On the Web</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "introduction.html" id="introduction" role=
-          "button">Introduction</a>
-          <div aria-labelledby="introduction" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "intended-audience.html">Intended Audience</a><a class=
-            "dropdown-item" href=
-            "how-to-read-this-document.html">How to Read this
-            Document</a><a class="dropdown-item" href=
-            "the-goal.html">The Goal</a><a class="dropdown-item"
-            href="converging-approaches.html">Converging
-            Approaches</a><a class="dropdown-item" href=
-            "a-general-model-of-color-processing.html">A General
-            Model of Color Processing</a><a class="dropdown-item"
-            href="color-management-challenges.html">Color
-            Management Challenges</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "color-science.html" id="color-science" role=
-          "button">Color Science</a>
-          <div aria-labelledby="color-science" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-color-science.html">About Color
-            Science</a><a class="dropdown-item" href=
-            "electromagnetic-spectrum.html">Electromagnetic
-            Spectrum</a><a class="dropdown-item" href=
-            "human-visual-system.html">Human Visual
-            System</a><a class="dropdown-item" href=
-            "basic-colorimetry.html">Basic Colorimetry</a><a class=
-            "dropdown-item" href=
-            "advanced-colorimetry.html">Advanced
-            Colorimetry</a><a class="dropdown-item" href=
-            "representing-color.html">Representing
-            Color</a><a class="dropdown-item" href=
-            "color-imaging-systems.html">Color Imaging Systems</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "workflow.html" id="workflow" role="button">Workflow</a>
-          <div aria-labelledby="workflow" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-workflow.html">About Workflow</a><a class=
-            "dropdown-item" href=
-            "academy-color-encoding-system-aces.html">Academy Color
-            Encoding System (ACES)</a><a class="dropdown-item"
-            href="the-look.html">The Look</a><a class=
-            "dropdown-item" href="on-set.html">On Set</a><a class=
-            "dropdown-item" href=
-            "visual-effects-animation-and-games.html">Visual
-            Effects, Animation and Games</a><a class=
-            "dropdown-item" href=
-            "compositing.html">Compositing</a><a class=
-            "dropdown-item" href="di-grading.html">DI
-            Grading</a><a class="dropdown-item" href=
-            "critical-monitoring.html">Critical
-            Monitoring</a><a class="dropdown-item" href=
-            "finishing.html">Finishing</a><a class="dropdown-item"
-            href="archives.html">Archives</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "appendix.html" id="appendix" role="button">Appendix</a>
-          <div aria-labelledby="appendix" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "common-rgb-color-encodings.html">Common RGB Color
-            Encodings</a><a class="dropdown-item" href=
-            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-            "dropdown-item" href=
-            "colour-science-for-python.html">Colour Science for
-            Python</a><a class="dropdown-item" href=
-            "luts-and-transforms.html">LUTs and
-            Transforms</a><a class="dropdown-item" href=
-            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
-            href="aces-ctl.html">ACES CTL</a><a class=
-            "dropdown-item" href="full-and-legal-ranges.html">Full
-            and Legal ranges</a><a class="dropdown-item" href=
-            "color-difference-encoding.html">Color Difference
-            Encoding</a><a class="dropdown-item" href=
-            "camera-characterization.html">Camera
-            Characterization</a><a class="dropdown-item" href=
-            "file-formats.html">File Formats</a><a class=
-            "dropdown-item" href=
-            "color-matching-experiments.html">Color Matching
-            Experiments</a><a class="dropdown-item" href=
-            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
-            Law of Additive Color Mixture</a><a class=
-            "dropdown-item" href=
-            "software.html">Software</a><a class="dropdown-item"
-            href="acknowledgements.html">Acknowledgements</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="glossary.html">Glossary</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href=
-          "bibliography.html">Bibliography</a>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" id=
-      "cse-search-box-form-id" onsubmit=
-      "return executeSearchQuery();" placeholder="Search" role=
-      "search" name="cse-search-box-form-id">
-        <div class="input-group">
-          <input autocomplete="on" class="form-control" id=
-          "cse-search-input-box-id" size="25" type="text" /> 
-          <script async="async" src=
-          "https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id"
-          type="text/javascript"></script>
-        </div>
-      </form>
-    </div>
-  </nav>
-  <article class="page-content">
-    <div class="container-fluid py-3">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <h3 class="sectionHead"><span class=
-          "titlemark">2.3</span> <a href=
-          "cinematic-color.html#QQ2-17-21" id="x17-200002.3">Human
-          Visual System</a></h3>
-          <p class="noindent">Visual perception, a process by which
-          humans acquire knowledge about their environment, is
-          initiated when environmental light enters the eye and
-          induces electrical signals subsequently processed within
-          the brain where an image is formed. Acquiring knowledge
-          is a cognitive process distinct from strict optical
-          mechanisms. There are optical similarities between a
-          camera and the eye in the way they capture an image of
-          the environment but a camera does not have perceptual
-          capabilities or cognitive abilities; it does not know
-          about the world.</p>
-          <p class="indent">The principal components on the visual
-          pathway are as follows: Eye Optic nerve Optic chiasma
-          Optic tract Lateral geniculate body Optic radiation
-          Visual cortex Visual association cortex</p>
-          <p class="indent">Principal components of the human
-          visual system.</p>
-          <p class="indent">Their study is beyond the scope of this
-          document but it is important to highlight that while the
-          light from the environment is captured and converted to
-          electrical impulses by the eye, most of the information
-          extraction happens in the cerebral cortex and multiple
-          interpretations of the sensory stimulation are
-          possible.</p>
-          <p class="indent">Rotating snakes: Circular snakes appear
-          to rotate spontaneously. Kitaoka, A. (2003). Rotating
-          snakes. Retrieved October 14, 2018, from
-          http://www.ritsumei.ac.jp/&nbsp;akitaoka/rotsnake.gif</p>
-          <p class="indent">Optical illusions are the result of
-          light stimuli producing ambiguous and conflicting
-          interpretations. They are important because they
-          demonstrate that the stimulation of the eye does not
-          entirely determine perception. Our perceptions correspond
-          to the models the HVS has constructed rather than the
-          original sensory stimulation. Palmer (1999) explains that
-          "the observer constructs a model of what environmental
-          situation might have produced the observed pattern of
-          sensory stimulation." Key Points Visual perception allows
-          human to acquire knowledge about their environment.
-          Knowledge acquisition is a cognitive process. Camera and
-          the eye have optical similarities, but a camera does not
-          have cognitive abilities. Most of the information
-          extraction happens in the cerebral cortex. Optical
-          illusions demonstrate that eye stimulation is not solely
-          responsible for our perceptions: the HVS constructs a
-          best-fitting model of the environmental situation.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">2.3.1</span> <a href=
-          "contents.html#QQ2-17-22" id="x17-210002.3.1">The
-          Eye</a></h4>
-          <p class="noindent">The eye is of particular interest
-          being the sensor with which the HVS probes the
-          environmental light.</p>
-          <p class="indent">Cross section of the human eye.
-          https://commons.wikimedia.org/wiki/File:Eyesection.svg</p>
-          <p class="indent">The light pathway through the eye
-          starts at the cornea, a transparent and curved organized
-          group of tissue layers. The cornea represents the largest
-          index of refraction (1.376) change at its interface with
-          air. It contributes 3/4 of the eye focusing power
-          although its focus is fixed. Upon exiting the cornea, the
-          light traverses the aqueous humor, a water-like fluid
-          with a refractive index of 1.336, filling the anterior
-          and posterior chambers of the eye and providing nutrition
-          to the surrounding tissues.</p>
-          <p class="indent">Similar to a camera diaphragm, the
-          iris, a ciliary muscle, controls the pupil size and
-          therefore the amount of light reaching the retina. The
-          pupil diameter varies from 7mm in dark viewing conditions
-          to 3mm in bright viewing conditions</p>
-          <p class="indent">The light not absorbed by the iris
-          enters the lens which provides the accommodation function
-          (optical power change) by adjusting its shape allowing to
-          focus at various distances. Its biconvex shape becomes
-          flattened thus decreasing optical power to focus at a
-          distance and fatter to increase optical power to focus at
-          nearby objects. Its refraction index varies from edges to
-          center (1.386 to 1.406) to reduce chromatic
-          aberration.</p>
-          <p class="indent">The light traverses the vitreous humor,
-          a thick fluid with a refractive index of 1.336, filling
-          the space between the lens and the retina, to finally
-          reach the retina.</p>
-          <p class="indent">Key Points The eye is the HVS light
-          sensor and is analogous to a camera. Light enters the HVS
-          through the cornea, the eye element with the strongest
-          focusing power. The iris controls the amount of light
-          reaching the back of the eye by changing the pupil
-          diameter akin to a camera diaphragm. The lens allows the
-          eye to focus on objects at varying distances by changing
-          its shape, i.e. accommodation.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">2.3.2</span> <a href=
-          "contents.html#QQ2-17-23" id=
-          "x17-220002.3.2">Retina</a></h4>
-          <p class="noindent">The retina is a light-sensitive
-          tissue composed of layers of neurons connected by
-          synapses and receiving the optical image formed by the
-          front eye elements. It contains the photoreceptor cells,
-          the initial signal processing and transmission elements
-          of the HVS.</p>
-          <p class="indent">We move our head and eyes so that the
-          image of objects we look at falls on the fovea, a 1.5mm
-          central pit area of the retina with increased density of
-          photoreceptor cells and responsible for high-resolution
-          vision.</p>
-          <p class="indent">Light traverses almost all the retinal
-          layers before reaching the photoreceptor cells. Light
-          triggers chemical changes in the photoreceptor cells
-          which in turn, send a signal to the bipolar and
-          horizontal cells. The signal is then propagated to the
-          amacrine cells and ganglion cells, and finally to the
-          optic nerve.</p>
-          <p class="indent">Each synapse between the neural cells
-          can perform an arithmetical operation such as
-          amplification, gain control or nonlinear mapping, giving
-          the eye the ability to perform spatial and temporal
-          optical image sharpening.</p>
-          <p class="indent">The retina layers.</p>
-          <p class="indent">Key Points The retina contains the
-          photoreceptor cells, the initial signal processing and
-          transmission elements of the HVS. The fovea is a central
-          retinal area with increased photoreceptor cells density,
-          our heads and eyes are moving so that objects images fall
-          on it. Neural cells perform optical image sharpening.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">2.3.3</span> <a href=
-          "contents.html#QQ2-17-24" id=
-          "x17-230002.3.3">Photoreceptors</a></h4>
-          <p class="noindent">The photoreceptors are a type of
-          neuron specialized for phototransduction, a process by
-          which light is converted into electrical signals. There
-          are two main classes of retinal photoreceptors: Cone cell
-          Rod cells The third class of photoreceptor cells within
-          the retina is the Intrinsically Photosensitive Retinal
-          Ganglion Cells (ipRGC) which play a significant role in
-          the modulation of circadian rhythms, pupillary response,
-          and adaptation.</p>
-          <h5 class="subsubsectionHead"><a href="#x17-240002.3.3"
-          id="x17-240002.3.3">Cones and Photopic Vision</a></h5>
-          <p class="noindent">Cone cells mediate photopic vision,
-          which is vision under daytime illumination conditions,
-          and are responsible for color perception. In the
-          photoreceptor layer of the retina, cone cells of types L,
-          M, S (sensitive to Long, Medium and Short wavelengths
-          respectively) measure light with respective peak
-          absorption at wavelengths of about 564 nm, 534 nm, and
-          420 nm.</p>
-          <p class="indent">Photopic vision luminance levels are
-          usually defined for Luminance &gt; 10 cd/m2.</p>
-          <p class="indent">The long, medium, and short cone
-          fundamentals for 2 degrees showing respective peak
-          absorption at wavelengths of about 564 nm, 534 nm, and
-          420 nm.</p>
-          <p class="indent">Most humans possess L, M, and S cone
-          cells with similar distributions and peak absorptions,
-          however a significant part of the population is affected
-          by some form of color vision deficiency or color
-          blindness. The most common types are: Protanomaly:
-          Defective L cone cells; the complete absence of L cone
-          cells is known as Protanopia or red-dichromacy.
-          Deuteranomaly: Defective M cone cells with peak of
-          sensitivity moved towards the red sensitive cones; the
-          complete absence of M cone cells is known as
-          Deuteranopia. Tritanomaly: defective S cone cells, an
-          alleviated form of blue-yellow color blindness; the
-          complete absence of S cone cells is known as Tritanopia.
-          Monochromats only carry a single type of cone cells.
-          Tetrachromats carry four types of cone cells.</p>
-          <h5 class="subsubsectionHead"><a href="#x17-250002.3.3"
-          id="x17-250002.3.3">Rods and Scotopic Vision</a></h5>
-          <p class="noindent">The rod cells mediate scotopic
-          vision, which is vision under dark illumination
-          conditions and where rods are the principle active
-          photoreceptors. They measure light with peak absorption
-          at a wavelength of about 507 nm.</p>
-          <p class="indent">Scotopic vision luminance levels are
-          defined for Luminance &lt; 0.001 cd/m2. The rod cells are
-          about 100 times more sensitive to light than the cone
-          cells.</p>
-          <h5 class="subsubsectionHead"><a href="#x17-260002.3.3"
-          id="x17-260002.3.3">Mesopic Vision</a></h5>
-          <p class="noindent">Mesopic vision is the result of the
-          photopic vision and scotopic vision being active at the
-          same time and occurs at low illumination conditions, and
-          is usually defined for luminance in range 0.001 to 3
-          cd/m2. CIE 1924 Photopic and CIE 1951 Scotopic Standard
-          Observers. They are presented along with a Photopic
-          Luminance Mesopic Luminous Efficiency Function modeling
-          the sensitivity of the HVS for illumination levels
-          between Photopic and Scotopic visions at 20</p>
-          <h5 class="subsubsectionHead"><a href="#x17-270002.3.3"
-          id="x17-270002.3.3">Distribution</a></h5>
-          <p class="noindent">The distribution of photoreceptors in
-          the retina, note their total absence in the blind
-          spot.</p>
-          <p class="indent">There are around 6.8?106 cones cells
-          and approximately 110-125?106 rod cells in the retina.
-          Cone cells are concentrated in the fovea and sparsely
-          distributed in the peripheral retina. The asymmetry in
-          the L, M and S cone cells distribution, the absence of S
-          cone cells in the fovea centralis and their wide spacing
-          into its periphery account for chromatic aberration. When
-          the image is focused on the fovea centralis where reside
-          the L and M cone cells, the S cone cells receive the
-          shorter wavelength components. The axial chromatic
-          aberration of the lens blur those components, thus a
-          lower spatial resolution is required for the S cone
-          cells.</p>
-          <p class="indent">No rod cells are located in the central
-          fovea region, allowing for increased spatial acuity to be
-          conveyed by the cone cells. The blind spot is a notable
-          area without photoreceptors and where the ganglion cell
-          axons leave the eye to form the optic nerve.</p>
-          <p class="indent">A single cone cell feeds its signals
-          into a single ganglion cell while hundreds of rods pool
-          their responses to feed into a single ganglion cell
-          establishing a system of information compression between
-          the photoreceptors and the optical nerve.</p>
-          <p class="indent">Key Points There are two main classes
-          of photoreceptor cells in the retina: cones and rods.
-          Cone cells are responsible for color perception, and
-          photopic vision, the vision under daytime illumination
-          conditions, with luminance levels defined for Luminance
-          &gt; 10 cd/m2. Rod cells are responsible for scotopic
-          vision, the vision under dark illumination conditions,
-          with luminance levels defined for Luminance &lt; 0.001
-          cd/m2 Rod cells are about 100 times more sensitive to
-          light than the cone cells.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">2.3.4</span> <a href=
-          "contents.html#QQ2-17-29" id="x17-280002.3.4">Dynamic
-          Range</a></h4>
-          <p class="noindent">From starlight luminance levels
-          around 10-4 cd/m2 to sunlight luminance levels reaching
-          105 cd/m2 or over 109 cd/m2 for a direct Sun luminance
-          measurement, our world exhibits a wide dynamic range. In
-          this context, dynamic range is the ratio between the
-          maximum and minimum measurable light quantity in a
-          scene.</p>
-          <p class="indent">The dynamic range of the human visual
-          system.</p>
-          <p class="indent">The dynamic range of the HVS is the
-          ratio between the most luminous stimulus causing complete
-          photoreceptors bleaching with no damage and the smallest
-          detectable light stimulus. Hood and Finkelstein (1986)
-          and Ferwerda, Pattanaik, Shirley and Greenberg (1996)
-          report from 10-6 to 10 cd/m2 for scotopic light levels
-          and from 0.01 to 108 cd/m2 for the photopic range.
-          However, the HVS, like any capture imaging devices, is
-          unable to perceive this full range at once. Only a
-          fraction is observable simultaneously, inducing HVS
-          adaptation to illumination level variations.</p>
-          <p class="indent">The simultaneous dynamic range or
-          steady-state dynamic range is defined as the ratio
-          between the highest and lowest luminance values at which
-          objects are detected while being in a state of full
-          adaptation. It is the range of stimulus intensities over
-          which photoreceptors are able to signal a change. Kunkel
-          and Reinhard (2009) performed a series of psychophysical
-          experiments on a high dynamic range display and
-          determined that the HVS simultaneous dynamic range spans
-          a range of 12.3 stops (3.7 log10 units) under
-          illumination conditions with an adapting field varying
-          from 1.78 cd/m2 to 17.8 cd/m2. They also found that the
-          upper detection threshold was higher when the HVS is
-          adapted to a brighter environment and thus that the
-          maximum display luminance should be increased
-          accordingly.</p>
-          <p class="indent">In the context of motion pictures and
-          games, it is useful to talk about dynamic range in terms
-          of photographic stops, i.e. doubling or halving of
-          luminance. Stops are calculated as the log2 of the test
-          luminance relative to a reference luminance level.</p>
-          <p class="indent">Relative exposure in stops is the log2
-          of the luminance relative to some reference exposure
-          level. Any normalization factor suffices for relative
-          comparisons.</p>
-          <p class="indent">EV -8 -3 -2 -1 -0.5 0 0.5 1 2 3 8 0.004
-          0.125 0.250 0.500 0.707 1 1.414 2 4 8 256 Scene-referred
-          exposure values are often referenced in units of stops
-          (EV), as the range between values is large for direct
-          numerical comparisons. For example, it is difficult to
-          get an intuition for what it means to reduce the exposure
-          of an image by a factor of 0.004, it is generally more
-          intuitive to refer to the same quantity as "-8
-          stops".</p>
-          <p class="indent">Key Points The dynamic range of a scene
-          is the ratio between the maximum and minimum measurable
-          light quantity. The dynamic range of the HVS is the ratio
-          between the most intense non-damaging luminous stimulus
-          and the smallest detectable light stimulus. The HVS, like
-          cameras, only perceive a fraction of the full extent of
-          its dynamic range simultaneously. The HVS simultaneous or
-          steady-state dynamic range spans over 12.3 stops; the
-          upper detection threshold rises with a brighter
-          environment and thus requires brighter displays. Dynamic
-          range is often expressed in stops, a doubling or halving
-          of luminance.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">2.3.5</span> <a href=
-          "contents.html#QQ2-17-30" id=
-          "x17-290002.3.5">Adaptation</a></h4>
-          <p class="noindent">The human visual system dynamically
-          adapts to different illumination levels to improve the
-          visual response. The three essential adaptation
-          mechanisms of the HVS are: Dark adaptation Light
-          adaptation Chromatic adaptation</p>
-          <h5 class="subsubsectionHead"><a href="#x17-300002.3.5"
-          id="x17-300002.3.5">Dark Adaptation</a></h5>
-          <p class="noindent">Dark adaptation occurs when luminance
-          level decreases. As a result of the lack of illumination,
-          the observer’s visual system adapts to the stimuli and
-          the visual sensitivity increases. Initially, upon
-          entering a dark area, the cone cells’ sensitivity
-          increases to reach full adaptation after around 10
-          minutes, when the rod cells’ sensitivity outperforms that
-          of the cones, and complete adaptation is reached within
-          30 minutes.</p>
-          <p class="indent">A notable effect of the rod cells
-          driving the visual system at low luminance level is that
-          there is not enough light energy to be able to
-          discriminate colors. Another notable effect, the Purkinje
-          Effect or Purkinje Shift, characterizes the HVS peak
-          luminance sensitivity shift toward shorter wavelengths of
-          the visible spectrum.</p>
-          <h5 class="subsubsectionHead"><a href="#x17-310002.3.5"
-          id="x17-310002.3.5">Light Adaptation</a></h5>
-          <p class="noindent">Light adaptation is similar to dark
-          adaption, but instead, the visual sensitivity decreases
-          with luminance level increase. The adaptation process
-          happening when entering a bright area is faster than dark
-          adaptation. The rod cells first saturate as rhodopsin the
-          photopigment of the rods, photo-bleaches, while the cone
-          cells continue to adapt reaching peak sensitivity within
-          5-10 minutes.</p>
-          <h5 class="subsubsectionHead"><a href="#x17-320002.3.5"
-          id="x17-320002.3.5">Chromatic Adaptation</a></h5>
-          <p class="noindent">The CIE defines chromatic adaptation
-          as the "visual process whereby approximate compensation
-          is made for changes in the colo(u)rs of stimuli,
-          especially in the case of changes in illuminants".</p>
-          <p class="indent">Chromatic adaptation controls the
-          independent sensitivity of the three cones cells type and
-          is the most important adaptation mechanism in color
-          appearance. A white object viewed under different
-          lighting conditions (daylight, tungsten or incandescent
-          lighting) retains its white appearance because the
-          sensitivity of the cone cells is independently adjusted
-          to compensate for the changes in energy level at the
-          wavelength ranges they are sensitive to. Chromatic
-          adaptation can be thought of as analogous to the
-          automatic white balancing feature of a camera.</p>
-          <p class="indent">It is important to make a distinction
-          between the adapted white, defined by the CIE as the
-          "colour stimulus that an observer who is adapted to the
-          viewing environment would judge to be perfectly
-          achromatic and to have a luminance factor of unity" and
-          the adopted white defined as the "spectral radiance
-          distribution as seen by an image capture or measurement
-          device and converted to colour signals that are
-          considered to be perfectly achromatic and to have an
-          observer adaptive luminance factor of unity; i.e., colour
-          signals that are considered to correspond to a perfect
-          white diffuser". The adopted white, used in the color
-          imaging system, is specified and known while the adapted
-          white of the HVS can only be estimated.</p>
-          <p class="indent">Chromatic adaptation occurs at a faster
-          rate than dark and light adaptation. Rinner and
-          Gegenfurtner (2000) measured two separate adaptation
-          mechanisms representing 40</p>
-          <p class="indent">Through a series of experiments that
-          measured the spatial, temporal, and chromatic properties
-          of chromatic-adaptation mechanisms, Fairchild (1993) has
-          shown clear evidence that along the well known sensory
-          mechanisms supporting an automatic response to a
-          stimulus, e.g. retinal gain control, there were also
-          cognitive mechanisms dependent on the observer knowledge
-          of the scene content. The cognitive mechanisms are very
-          effective when viewing hard-copy images, e.g. print of a
-          photograph: they allow the observer to discount the scene
-          illuminant, but they do not work with soft-copy displays,
-          e.g. a monitor displaying the photograph, as those cannot
-          be interpreted as illuminated objects and thus only
-          sensory mechanisms are active.</p>
-          <p class="indent">Key Points Lack of illumination
-          triggers dark adaptation, rod cells sensitivity increases
-          and outperforms that of the cones; full adaptation occurs
-          within 30 minutes. Light adaptation happens when entering
-          a bright area, rod cells saturate while cone cells are
-          adapting; full adaptation occurs within 5-10 minutes.
-          Chromatic adaptation controls the independent sensitivity
-          of the cone cells, causing objects to retain their
-          appearance under different illumination conditions;
-          chromatic adaptation is fast: it happens in the course of
-          a few milliseconds and reaches completion within 2
-          minutes. Chromatic adaptation is commonly compared to the
-          white-balancing feature of a camera.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">2.3.6</span> <a href=
-          "contents.html#QQ2-17-34" id=
-          "x17-330002.3.6">Non-Linearity of the HVS</a></h4>
-          <p class="noindent">The response of the rods to
-          increasing field luminance on a log-log scale. Davson, H.
-          (1990). Physiology of the Eye. Macmillan International
-          Higher Education. ISBN:134909997X -
-          colour-science.org</p>
-          <p class="indent">The just-noticeable difference (JND) is
-          the minimum change in stimulus intensity required to
-          produce a detectable variation in sensory experience.
-          Weber’s law states that the JND between two stimuli is
-          proportional to the magnitude of the stimuli: an
-          increment is judged relative to the previous amount.</p>
-          <p class="indent">In Elements of psychophysics, Fechner
-          (1860) mathematically characterized Weber’s law showing
-          that it follows a logarithmic transformation: the
-          subjective sensation of a stimulus is proportional to the
-          logarithm of the stimulus intensity. Fechner’s scaling
-          has been found to apply to the perception of brightness,
-          at moderate and high brightness, with perceived
-          brightness being proportional to the logarithm of the
-          actual intensity.</p>
-          <p class="indent">At lower levels of brightness, the De
-          Vries-Rose law applies which states that the perception
-          of brightness is proportional to the square root of the
-          actual intensity.</p>
-          <p class="indent">Stevens generalises Fechner’s law: the
-          results of the physical-perceptual relationship of his
-          experiments on a logarithmic scale were characterized by
-          straight lines with different slopes, suggesting that the
-          relationship between perceptual magnitude and stimulus
-          intensity follows a power law with varying exponent.</p>
-          <p class="indent">Perceived magnitude of stimuli of
-          increased intensity following a power law with varying
-          exponent and displayed on a linear scale. Stevens, S. S.
-          (1975). Psychophysics: introduction to its perceptual,
-          neural, and social prospects. (Wiley, Ed.) (2nd ed.).
-          Wiley. ISBN:9780471824374</p>
-          <p class="indent">Stimuli of figure 2.x.x displayed on a
-          log-log scale and characterized by straight lines with
-          different slopes. Stevens, S. S. (1975). Psychophysics:
-          introduction to its perceptual, neural, and social
-          prospects. (Wiley, Ed.) (2nd ed.). Wiley.
-          ISBN:9780471824374</p>
-          <p class="indent">Because of the various HVS adaptation
-          mechanisms, perceived brightness has a non-linear
-          relationship with the actual physical intensity of the
-          stimulus. A cube root commonly approximates it. Multiple
-          models of lightness were proposed leading to the creation
-          of CIE L* in 1976. CIE L* characterizes the perceptual
-          response to relative luminance.</p>
-          <p class="indent">CIE L* characterizes the perceptual
-          response to relative luminance.</p>
-          <p class="indent">CIE L* was developed for colorimetric
-          measurements of colored samples under a uniform
-          illumination source. It was not tested for high
-          illumination conditions with color stimuli orders of
-          magnitude below or above a perfect white diffuse
-          reflector. The resulting uncertainty in Lightness
-          prediction for High Dynamic Range (HDR) imaging
-          applications leads scientific research into searching for
-          a better function. Fairchild and Wyble (2010) and
-          Fairchild and Chen (2011) proposed a new
-          physiologically-plausible hyperbolic function based on
-          Michaelis-Menten kinetics, a model of enzyme kinetics.
-          Abebe, Pouli, Larabi, and Reinhard (2017) modified
-          Fairchild and Chen (2011) function to account for
-          emissive color stimuli. As the writing of this document,
-          the CIE has not yet adopted a new suitable function.</p>
-          <p class="indent">With the related objective of finding a
-          function adapted to HDR image formation, Miller (2014)
-          designed the Perceptual Quantizer (PQ). It is an
-          important function, standardized by the Society of Motion
-          Picture and Television Engineers as SMPTE ST 2084 and
-          this document frequently refers to it.</p>
-          <p class="indent">Key Points</p>
-          <p class="indent">Writing in-progress?</p>
-          <div class="breadcrumb-navigation text-center">
-            <a href="electromagnetic-spectrum.html"><button class=
-            "btn btn-light mx-3" type=
-            "button">Previous</button></a><a href=
-            "color-science.html#human-visual-system.html"><button class="btn btn-light mx-3"
-            type="button">Up</button></a><a href=
-            "basic-colorimetry.html"><button class=
-            "btn btn-light mx-3" type="button">Next</button></a>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-  </article>
-  <footer class="page-footer">
-    <div class="container-fluid text-center py-3">
-      Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ <a href=
-      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
-    </div>
-  </footer>
-  <script src="assets/js/jquery/jquery.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/popper/popper.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/bootstrap/bootstrap.min.js" type=
-  "text/javascript"></script> 
-  <script type="text/javascript">
-  //<![CDATA[
+                                                                  
+(1.376) change at its interface with air. It contributes 3/4 of the eye focusing power
+although its focus is fixed. Upon exiting the cornea, the light traverses the aqueous
+humor, a water-like fluid with a refractive index of 1.336, filling the anterior
+and posterior chambers of the eye and providing nutrition to the surrounding
+tissues.
+</p><p class="indent">   Similar to a camera diaphragm, the iris, a ciliary muscle, controls the pupil size and
+therefore the amount of light reaching the retina. The pupil diameter varies from 7mm in
+dark viewing conditions to 3mm in bright viewing conditions
+</p><p class="indent">   The light not absorbed by the iris enters the lens which provides the accommodation
+function (optical power change) by adjusting its shape allowing to focus at various
+distances. Its biconvex shape becomes flattened thus decreasing optical power to focus at
+a distance and fatter to increase optical power to focus at nearby objects. Its
+refraction index varies from edges to center (1.386 to 1.406) to reduce chromatic
+aberration.
+</p><p class="indent">   The light traverses the vitreous humor, a thick fluid with a refractive index of
+1.336, filling the space between the lens and the retina, to finally reach the
+retina.
+</p><p class="indent">   Key Points The eye is the HVS light sensor and is analogous to a camera. Light
+enters the HVS through the cornea, the eye element with the strongest focusing power.
+The iris controls the amount of light reaching the back of the eye by changing the pupil
+diameter akin to a camera diaphragm. The lens allows the eye to focus on objects at
+varying distances by changing its shape, i.e. accommodation.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">2.3.2   </span> <a href="contents.html#QQ2-17-23" id="x17-220002.3.2">Retina</a></h4>
+<p class="noindent">The retina is a light-sensitive tissue composed of layers of neurons connected by synapses
+and receiving the optical image formed by the front eye elements. It contains the
+photoreceptor cells, the initial signal processing and transmission elements of the
+HVS.
+</p><p class="indent">   We move our head and eyes so that the image of objects we look at falls on the
+fovea, a 1.5mm central pit area of the retina with increased density of photoreceptor cells
+and responsible for high-resolution vision.
+</p><p class="indent">   Light traverses almost all the retinal layers before reaching the photoreceptor cells.
+Light triggers chemical changes in the photoreceptor cells which in turn, send a signal to
+the bipolar and horizontal cells. The signal is then propagated to the amacrine cells and
+ganglion cells, and finally to the optic nerve.
+</p><p class="indent">   Each synapse between the neural cells can perform an arithmetical operation such as
+amplification, gain control or nonlinear mapping, giving the eye the ability to perform
+spatial and temporal optical image sharpening.
+</p><p class="indent">   The retina layers.
+</p><p class="indent">   Key Points The retina contains the photoreceptor cells, the initial signal processing
+and transmission elements of the HVS. The fovea is a central retinal area with increased
+photoreceptor cells density, our heads and eyes are moving so that objects images fall on
+it. Neural cells perform optical image sharpening.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">2.3.3   </span> <a href="contents.html#QQ2-17-24" id="x17-230002.3.3">Photoreceptors</a></h4>
+<p class="noindent">The photoreceptors are a type of neuron specialized for phototransduction, a process by
+which light is converted into electrical signals. There are two main classes of retinal
+photoreceptors: Cone cell Rod cells The third class of photoreceptor cells within the
+retina is the Intrinsically Photosensitive Retinal Ganglion Cells (ipRGC) which play a
+significant role in the modulation of circadian rhythms, pupillary response, and
+adaptation.
+</p>   
+<h5 class="subsubsectionHead"><a href="#x17-240002.3.3" id="x17-240002.3.3">Cones and Photopic Vision</a></h5>
+<p class="noindent">Cone cells mediate photopic vision, which is vision under daytime illumination conditions,
+and are responsible for color perception. In the photoreceptor layer of the retina, cone
+cells of types L, M, S (sensitive to Long, Medium and Short wavelengths respectively)
+measure light with respective peak absorption at wavelengths of about 564 nm, 534 nm,
+and 420 nm.
+</p><p class="indent">   Photopic vision luminance levels are usually defined for Luminance &gt; 10
+cd/m2.
+</p><p class="indent">   The long, medium, and short cone fundamentals for 2 degrees showing respective
+peak absorption at wavelengths of about 564 nm, 534 nm, and 420 nm.
+</p><p class="indent">   Most humans possess L, M, and S cone cells with similar distributions and peak
+absorptions, however a significant part of the population is affected by some form of color
+vision deficiency or color blindness. The most common types are: Protanomaly: Defective
+L cone cells; the complete absence of L cone cells is known as Protanopia or
+red-dichromacy. Deuteranomaly: Defective M cone cells with peak of sensitivity moved
+towards the red sensitive cones; the complete absence of M cone cells is known as
+Deuteranopia. Tritanomaly: defective S cone cells, an alleviated form of blue-yellow color
+blindness; the complete absence of S cone cells is known as Tritanopia. Monochromats
+only carry a single type of cone cells. Tetrachromats carry four types of cone
+cells.
+</p>   
+<h5 class="subsubsectionHead"><a href="#x17-250002.3.3" id="x17-250002.3.3">Rods and Scotopic Vision</a></h5>
+<p class="noindent">The rod cells mediate scotopic vision, which is vision under dark illumination conditions
+and where rods are the principle active photoreceptors. They measure light with peak
+absorption at a wavelength of about 507 nm.
+</p><p class="indent">   Scotopic vision luminance levels are defined for Luminance &lt; 0.001 cd/m2. The rod
+cells are about 100 times more sensitive to light than the cone cells.
+</p>   
+<h5 class="subsubsectionHead"><a href="#x17-260002.3.3" id="x17-260002.3.3">Mesopic Vision</a></h5>
+<p class="noindent">Mesopic vision is the result of the photopic vision and scotopic vision being active at the
+same time and occurs at low illumination conditions, and is usually defined for luminance
+                                                                  
 
-  function executeSearchQuery() { 
-  var input = document.getElementById('cse-search-input-box-id'); 
-  var element = google.search.cse.element.getElement('searchresults-only0'); 
-  if (input.value == '') { 
-  element.clearAllResults(); 
-  } else { 
-  element.execute(input.value); 
-  } 
-  return false; 
-  } 
-  //]]>
-  </script>
-</body>
-</html>
+                                                                  
+in range 0.001 to 3 cd/m2. CIE 1924 Photopic and CIE 1951 Scotopic Standard
+Observers. They are presented along with a Photopic Luminance Mesopic Luminous
+Efficiency Function modeling the sensitivity of the HVS for illumination levels between
+Photopic and Scotopic visions at 20
+</p>   
+<h5 class="subsubsectionHead"><a href="#x17-270002.3.3" id="x17-270002.3.3">Distribution</a></h5>
+<p class="noindent">The distribution of photoreceptors in the retina, note their total absence in the blind
+spot.
+</p><p class="indent">   There are around 6.8?106 cones cells and approximately 110-125?106 rod cells in the
+retina. Cone cells are concentrated in the fovea and sparsely distributed in the
+peripheral retina. The asymmetry in the L, M and S cone cells distribution, the
+absence of S cone cells in the fovea centralis and their wide spacing into its
+periphery account for chromatic aberration. When the image is focused on the
+fovea centralis where reside the L and M cone cells, the S cone cells receive the
+shorter wavelength components. The axial chromatic aberration of the lens blur
+those components, thus a lower spatial resolution is required for the S cone
+cells.
+</p><p class="indent">   No rod cells are located in the central fovea region, allowing for increased spatial
+acuity to be conveyed by the cone cells. The blind spot is a notable area without
+photoreceptors and where the ganglion cell axons leave the eye to form the optic
+nerve.
+</p><p class="indent">   A single cone cell feeds its signals into a single ganglion cell while hundreds
+of rods pool their responses to feed into a single ganglion cell establishing a
+system of information compression between the photoreceptors and the optical
+nerve.
+</p><p class="indent">   Key Points There are two main classes of photoreceptor cells in the retina: cones and
+rods. Cone cells are responsible for color perception, and photopic vision, the vision under
+daytime illumination conditions, with luminance levels defined for Luminance &gt;
+10 cd/m2. Rod cells are responsible for scotopic vision, the vision under dark
+illumination conditions, with luminance levels defined for Luminance &lt; 0.001
+cd/m2 Rod cells are about 100 times more sensitive to light than the cone
+cells.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">2.3.4   </span> <a href="contents.html#QQ2-17-29" id="x17-280002.3.4">Dynamic Range</a></h4>
+<p class="noindent">From starlight luminance levels around 10-4 cd/m2 to sunlight luminance levels reaching
+105 cd/m2 or over 109 cd/m2 for a direct Sun luminance measurement, our world
+exhibits a wide dynamic range. In this context, dynamic range is the ratio between the
+maximum and minimum measurable light quantity in a scene.
+</p><p class="indent">   The dynamic range of the human visual system.
+</p><p class="indent">   The dynamic range of the HVS is the ratio between the most luminous stimulus
+causing complete photoreceptors bleaching with no damage and the smallest detectable
+light stimulus. Hood and Finkelstein (1986) and Ferwerda, Pattanaik, Shirley and
+Greenberg (1996) report from 10-6 to 10 cd/m2 for scotopic light levels and from
+                                                                  
+
+                                                                  
+0.01 to 108 cd/m2 for the photopic range. However, the HVS, like any capture
+imaging devices, is unable to perceive this full range at once. Only a fraction
+is observable simultaneously, inducing HVS adaptation to illumination level
+variations.
+</p><p class="indent">   The simultaneous dynamic range or steady-state dynamic range is defined as the ratio
+between the highest and lowest luminance values at which objects are detected
+while being in a state of full adaptation. It is the range of stimulus intensities
+over which photoreceptors are able to signal a change. Kunkel and Reinhard
+(2009) performed a series of psychophysical experiments on a high dynamic
+range display and determined that the HVS simultaneous dynamic range spans
+a range of 12.3 stops (3.7 log10 units) under illumination conditions with an
+adapting field varying from 1.78 cd/m2 to 17.8 cd/m2. They also found that the
+upper detection threshold was higher when the HVS is adapted to a brighter
+environment and thus that the maximum display luminance should be increased
+accordingly.
+</p><p class="indent">   In the context of motion pictures and games, it is useful to talk about dynamic range
+in terms of photographic stops, i.e. doubling or halving of luminance. Stops are
+calculated as the log2 of the test luminance relative to a reference luminance
+level.
+</p><p class="indent">   Relative exposure in stops is the log2 of the luminance relative to some reference
+exposure level. Any normalization factor suffices for relative comparisons.
+</p><p class="indent">   EV -8 -3 -2 -1 -0.5 0 0.5 1 2 3 8 0.004 0.125 0.250 0.500 0.707 1 1.414 2 4 8 256
+Scene-referred exposure values are often referenced in units of stops (EV), as the range
+between values is large for direct numerical comparisons. For example, it is difficult to
+get an intuition for what it means to reduce the exposure of an image by a
+factor of 0.004, it is generally more intuitive to refer to the same quantity as "-8
+stops".
+</p><p class="indent">   Key Points The dynamic range of a scene is the ratio between the maximum and
+minimum measurable light quantity. The dynamic range of the HVS is the ratio between
+the most intense non-damaging luminous stimulus and the smallest detectable light
+stimulus. The HVS, like cameras, only perceive a fraction of the full extent of its dynamic
+range simultaneously. The HVS simultaneous or steady-state dynamic range spans over
+12.3 stops; the upper detection threshold rises with a brighter environment and thus
+requires brighter displays. Dynamic range is often expressed in stops, a doubling or
+halving of luminance.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">2.3.5   </span> <a href="contents.html#QQ2-17-30" id="x17-290002.3.5">Adaptation</a></h4>
+<p class="noindent">The human visual system dynamically adapts to different illumination levels to improve
+the visual response. The three essential adaptation mechanisms of the HVS are: Dark
+adaptation Light adaptation Chromatic adaptation
+</p>   
+<h5 class="subsubsectionHead"><a href="#x17-300002.3.5" id="x17-300002.3.5">Dark Adaptation</a></h5>
+<p class="noindent">Dark adaptation occurs when luminance level decreases. As a result of the lack of
+                                                                  
+
+                                                                  
+illumination, the observer’s visual system adapts to the stimuli and the visual sensitivity
+increases. Initially, upon entering a dark area, the cone cells’ sensitivity increases to
+reach full adaptation after around 10 minutes, when the rod cells’ sensitivity
+outperforms that of the cones, and complete adaptation is reached within 30
+minutes.
+</p><p class="indent">   A notable effect of the rod cells driving the visual system at low luminance
+level is that there is not enough light energy to be able to discriminate colors.
+Another notable effect, the Purkinje Effect or Purkinje Shift, characterizes the
+HVS peak luminance sensitivity shift toward shorter wavelengths of the visible
+spectrum.
+</p>   
+<h5 class="subsubsectionHead"><a href="#x17-310002.3.5" id="x17-310002.3.5">Light Adaptation</a></h5>
+<p class="noindent">Light adaptation is similar to dark adaption, but instead, the visual sensitivity decreases
+with luminance level increase. The adaptation process happening when entering a bright
+area is faster than dark adaptation. The rod cells first saturate as rhodopsin the
+photopigment of the rods, photo-bleaches, while the cone cells continue to adapt
+reaching peak sensitivity within 5-10 minutes.
+</p>   
+<h5 class="subsubsectionHead"><a href="#x17-320002.3.5" id="x17-320002.3.5">Chromatic Adaptation</a></h5>
+<p class="noindent">The CIE defines chromatic adaptation as the "visual process whereby approximate
+compensation is made for changes in the colo(u)rs of stimuli, especially in the case of
+changes in illuminants".
+</p><p class="indent">   Chromatic adaptation controls the independent sensitivity of the three cones cells
+type and is the most important adaptation mechanism in color appearance.
+A white object viewed under different lighting conditions (daylight, tungsten
+or incandescent lighting) retains its white appearance because the sensitivity
+of the cone cells is independently adjusted to compensate for the changes in
+energy level at the wavelength ranges they are sensitive to. Chromatic adaptation
+can be thought of as analogous to the automatic white balancing feature of a
+camera.
+</p><p class="indent">   It is important to make a distinction between the adapted white, defined by the
+CIE as the "colour stimulus that an observer who is adapted to the viewing
+environment would judge to be perfectly achromatic and to have a luminance factor of
+unity" and the adopted white defined as the "spectral radiance distribution
+as seen by an image capture or measurement device and converted to colour
+signals that are considered to be perfectly achromatic and to have an observer
+adaptive luminance factor of unity; i.e., colour signals that are considered to
+correspond to a perfect white diffuser". The adopted white, used in the color imaging
+system, is specified and known while the adapted white of the HVS can only be
+estimated.
+</p><p class="indent">   Chromatic adaptation occurs at a faster rate than dark and light adaptation. Rinner
+and Gegenfurtner (2000) measured two separate adaptation mechanisms representing
+40
+                                                                  
+
+                                                                  
+</p><p class="indent">   Through a series of experiments that measured the spatial, temporal, and chromatic
+properties of chromatic-adaptation mechanisms, Fairchild (1993) has shown clear
+evidence that along the well known sensory mechanisms supporting an automatic
+response to a stimulus, e.g. retinal gain control, there were also cognitive mechanisms
+dependent on the observer knowledge of the scene content. The cognitive mechanisms
+are very effective when viewing hard-copy images, e.g. print of a photograph: they
+allow the observer to discount the scene illuminant, but they do not work with
+soft-copy displays, e.g. a monitor displaying the photograph, as those cannot
+be interpreted as illuminated objects and thus only sensory mechanisms are
+active.
+</p><p class="indent">   Key Points Lack of illumination triggers dark adaptation, rod cells sensitivity increases
+and outperforms that of the cones; full adaptation occurs within 30 minutes. Light
+adaptation happens when entering a bright area, rod cells saturate while cone cells are
+adapting; full adaptation occurs within 5-10 minutes. Chromatic adaptation controls the
+independent sensitivity of the cone cells, causing objects to retain their appearance
+under different illumination conditions; chromatic adaptation is fast: it happens
+in the course of a few milliseconds and reaches completion within 2 minutes.
+Chromatic adaptation is commonly compared to the white-balancing feature of a
+camera.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">2.3.6   </span> <a href="contents.html#QQ2-17-34" id="x17-330002.3.6">Non-Linearity of the HVS</a></h4>
+<p class="noindent">The response of the rods to increasing field luminance on a log-log scale. Davson,
+H. (1990). Physiology of the Eye. Macmillan International Higher Education.
+ISBN:134909997X - colour-science.org
+</p><p class="indent">   The just-noticeable difference (JND) is the minimum change in stimulus intensity
+required to produce a detectable variation in sensory experience. Weber’s law states that
+the JND between two stimuli is proportional to the magnitude of the stimuli: an
+increment is judged relative to the previous amount.
+</p><p class="indent">   In Elements of psychophysics, Fechner (1860) mathematically characterized Weber’s
+law showing that it follows a logarithmic transformation: the subjective sensation of a
+stimulus is proportional to the logarithm of the stimulus intensity. Fechner’s scaling has
+been found to apply to the perception of brightness, at moderate and high
+brightness, with perceived brightness being proportional to the logarithm of the actual
+intensity.
+</p><p class="indent">   At lower levels of brightness, the De Vries-Rose law applies which states that
+the perception of brightness is proportional to the square root of the actual
+intensity.
+</p><p class="indent">   Stevens generalises Fechner’s law: the results of the physical-perceptual
+relationship of his experiments on a logarithmic scale were characterized by
+straight lines with different slopes, suggesting that the relationship between
+perceptual magnitude and stimulus intensity follows a power law with varying
+exponent.
+</p><p class="indent">   Perceived magnitude of stimuli of increased intensity following a power law with
+varying exponent and displayed on a linear scale. Stevens, S. S. (1975). Psychophysics:
+introduction to its perceptual, neural, and social prospects. (Wiley, Ed.) (2nd ed.). Wiley.
+ISBN:9780471824374
+                                                                  
+
+                                                                  
+</p><p class="indent">   Stimuli of figure 2.x.x displayed on a log-log scale and characterized by straight
+lines with different slopes. Stevens, S. S. (1975). Psychophysics: introduction
+to its perceptual, neural, and social prospects. (Wiley, Ed.) (2nd ed.). Wiley.
+ISBN:9780471824374
+</p><p class="indent">   Because of the various HVS adaptation mechanisms, perceived brightness has a
+non-linear relationship with the actual physical intensity of the stimulus. A cube root
+commonly approximates it. Multiple models of lightness were proposed leading to the
+creation of CIE L* in 1976. CIE L* characterizes the perceptual response to relative
+luminance.
+</p><p class="indent">   CIE L* characterizes the perceptual response to relative luminance.
+</p><p class="indent">   CIE L* was developed for colorimetric measurements of colored samples under a
+uniform illumination source. It was not tested for high illumination conditions
+with color stimuli orders of magnitude below or above a perfect white diffuse
+reflector. The resulting uncertainty in Lightness prediction for High Dynamic Range
+(HDR) imaging applications leads scientific research into searching for a better
+function. Fairchild and Wyble (2010) and Fairchild and Chen (2011) proposed a
+new physiologically-plausible hyperbolic function based on Michaelis-Menten
+kinetics, a model of enzyme kinetics. Abebe, Pouli, Larabi, and Reinhard (2017)
+modified Fairchild and Chen (2011) function to account for emissive color stimuli.
+As the writing of this document, the CIE has not yet adopted a new suitable
+function.
+</p><p class="indent">   With the related objective of finding a function adapted to HDR image formation,
+Miller (2014) designed the Perceptual Quantizer (PQ). It is an important function,
+standardized by the Society of Motion Picture and Television Engineers as SMPTE ST
+2084 and this document frequently refers to it.
+</p><p class="indent">   Key Points
+</p><p class="indent">   Writing in-progress?
+                                                                  
+
+                                                                  
+</p>   
+<div class="breadcrumb-navigation text-center"><a href="electromagnetic-spectrum.html"><button class="btn btn-light mx-3" type="button">Previous</button></a><a href="color-science.html#human-visual-system.html"><button class="btn btn-light mx-3" type="button">Up</button></a><a href="basic-colorimetry.html"><button class="btn btn-light mx-3" type="button">Next</button></a></div>   </div> 
+<div class="col-md-2"></div> 
+</div> 
+</div> 
+</article>  <footer class="page-footer"> 
+<div class="container-fluid text-center py-3"> 
+Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ 
+<a href="mailto:ves-tech-color@googlegroups.com"> 
+ves-tech-color@googlegroups.com</a> 
+</div> 
+</footer>  <script src="assets/js/jquery/jquery.min.js" type="text/javascript"></script> 
+<script src="assets/js/popper/popper.min.js" type="text/javascript"></script> 
+<script src="assets/js/bootstrap/bootstrap.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+function executeSearchQuery() { 
+var input = document.getElementById('cse-search-input-box-id'); 
+var element = google.search.cse.element.getElement('searchresults-only0'); 
+if (input.value == '') { 
+element.clearAllResults(); 
+} else { 
+element.execute(input.value); 
+} 
+return false; 
+} 
+</script> 
+ 
+ 
+</body></html>

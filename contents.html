@@ -1,1049 +1,239 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-  <title>Contents</title>
-  <meta charset="utf-8" />
-  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-  "generator" />
-  <meta content="width=device-width,initial-scale=1" name=
-  "viewport" />
-  <link href="cinematic-color.css" rel="stylesheet" type=
-  "text/css" />
-  <meta content="cinematic-color.tex" name="src" />
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
-  type="text/javascript"></script>
-  <script src="assets/js/jeri/jeri.min.js" type=
-  "text/javascript"></script>
-  <script type="text/javascript">
-  //<![CDATA[
+<html lang="en" xml:lang="en"><head><title>Contents</title> 
+<meta charset="utf-8"/> 
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name="generator"/> 
+<meta content="width=device-width,initial-scale=1" name="viewport"/> 
+<link href="cinematic-color.css" rel="stylesheet" type="text/css"/> 
+<meta content="cinematic-color.tex" name="src"/> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js" type="text/javascript"></script> 
+<script src="https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js" type="text/javascript"></script> 
+<script src="assets/js/jeri/jeri.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+</script> 
+<script type="text/javascript"> 
+(function() { 
+var cx = '000762316508951405781:qrigrsppwri'; 
+var gcse = document.createElement('script'); 
+gcse.type = 'text/javascript'; 
+gcse.async = true; 
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
+var s = document.getElementsByTagName('script')[0]; 
+s.parentNode.insertBefore(gcse, s); 
+})(); 
+</script> 
+</head><body><nav class="navbar navbar-expand-md navbar-light bg-light">
+<a class="navbar-brand" href="#">Cinematic Color 2</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="preface.html" id="preface" role="button">Preface</a><div aria-labelledby="preface" class="dropdown-menu"><a class="dropdown-item" href="description.html">Description</a><a class="dropdown-item" href="authorship.html">Authorship</a><a class="dropdown-item" href="on-the-web.html">On the Web</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">Introduction</a><div aria-labelledby="introduction" class="dropdown-menu"><a class="dropdown-item" href="intended-audience.html">Intended Audience</a><a class="dropdown-item" href="how-to-read-this-document.html">How to Read this Document</a><a class="dropdown-item" href="the-goal.html">The Goal</a><a class="dropdown-item" href="converging-approaches.html">Converging Approaches</a><a class="dropdown-item" href="a-general-model-of-color-processing.html">A General Model of Color Processing</a><a class="dropdown-item" href="color-management-challenges.html">Color Management Challenges</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">Color Science</a><div aria-labelledby="color-science" class="dropdown-menu"><a class="dropdown-item" href="about-color-science.html">About Color Science</a><a class="dropdown-item" href="electromagnetic-spectrum.html">Electromagnetic Spectrum</a><a class="dropdown-item" href="human-visual-system.html">Human Visual System</a><a class="dropdown-item" href="basic-colorimetry.html">Basic Colorimetry</a><a class="dropdown-item" href="advanced-colorimetry.html">Advanced Colorimetry</a><a class="dropdown-item" href="representing-color.html">Representing Color</a><a class="dropdown-item" href="color-imaging-systems.html">Color Imaging Systems</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">Workflow</a><div aria-labelledby="workflow" class="dropdown-menu"><a class="dropdown-item" href="about-workflow.html">About Workflow</a><a class="dropdown-item" href="academy-color-encoding-system-aces.html">Academy Color Encoding System (ACES)</a><a class="dropdown-item" href="the-look.html">The Look</a><a class="dropdown-item" href="on-set.html">On Set</a><a class="dropdown-item" href="visual-effects-animation-and-games.html">Visual Effects, Animation and Games</a><a class="dropdown-item" href="compositing.html">Compositing</a><a class="dropdown-item" href="di-grading.html">DI Grading</a><a class="dropdown-item" href="critical-monitoring.html">Critical Monitoring</a><a class="dropdown-item" href="finishing.html">Finishing</a><a class="dropdown-item" href="archives.html">Archives</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">Appendix</a><div aria-labelledby="appendix" class="dropdown-menu"><a class="dropdown-item" href="common-rgb-color-encodings.html">Common RGB Color Encodings</a><a class="dropdown-item" href="opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class="dropdown-item" href="colour-science-for-python.html">Colour Science for Python</a><a class="dropdown-item" href="luts-and-transforms.html">LUTs and Transforms</a><a class="dropdown-item" href="asc-cdl.html">ASC CDL</a><a class="dropdown-item" href="aces-ctl.html">ACES CTL</a><a class="dropdown-item" href="full-and-legal-ranges.html">Full and Legal ranges</a><a class="dropdown-item" href="color-difference-encoding.html">Color Difference Encoding</a><a class="dropdown-item" href="camera-characterization.html">Camera Characterization</a><a class="dropdown-item" href="file-formats.html">File Formats</a><a class="dropdown-item" href="color-matching-experiments.html">Color Matching Experiments</a><a class="dropdown-item" href="grassmann-s-law-of-additive-color-mixture.html">Grassmann's Law of Additive Color Mixture</a><a class="dropdown-item" href="software.html">Software</a><a class="dropdown-item" href="acknowledgements.html">Acknowledgements</a></div></li><li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li><li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li></ul>
+<form class="navbar-form navbar-right" id="cse-search-box-form-id" onsubmit="return executeSearchQuery();" role="search">
+<div class="input-group">
+<input autocomplete="on" class="form-control" id="cse-search-input-box-id" size="25" type="text"/>
+<script async="" src="https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id" type="text/javascript">
+</script>
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+</span>
+</div>
+</form>
+</div>
+</nav><gcse:searchresults-only></gcse:searchresults-only> 
+<link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/> 
 
-  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
-  //]]>
-  </script>
-  <script type="text/javascript">
-  //<![CDATA[
+ <article class="page-content"> <div class="container-fluid py-3"> 
+<div class="row"> 
+<div class="col-md-2"></div> 
+<div class="col-md-8"> 
+ <h2 class="likechapterHead"><a href="cinematic-color.html#QQ2-6-5" id="x6-5000"><span class="ecrm-1000">Contents</span></a></h2>
+<div class="tableofcontents">   
+<span class="chapterToc"><span class="ecrm-1000">1 </span><a href="introduction.html#x7-60001"><span class="ecrm-1000">Introduction</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">1.1 </span><a href="intended-audience.html#x8-70001.1"><span class="ecrm-1000">Intended Audience</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">1.2 </span><a href="how-to-read-this-document.html#x9-80001.2"><span class="ecrm-1000">How to Read this Document</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">1.3 </span><a href="the-goal.html#x10-90001.3"><span class="ecrm-1000">The Goal</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">1.4 </span><a href="converging-approaches.html#x11-100001.4"><span class="ecrm-1000">Converging Approaches</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">1.5 </span><a href="a-general-model-of-color-processing.html#x12-110001.5"><span class="ecrm-1000">A General Model of Color Processing</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">1.5.1 </span><a href="a-general-model-of-color-processing.html#x12-120001.5.1" id="QQ2-12-12"><span class="ecrm-1000">ACES</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">1.6 </span><a href="color-management-challenges.html#x13-130001.6"><span class="ecrm-1000">Color Management Challenges</span></a></span>
+<br/>   <span class="chapterToc"><span class="ecrm-1000">2 </span><a href="color-science.html#x14-140002"><span class="ecrm-1000">Color Science</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">2.1 </span><a href="about-color-science.html#x15-150002.1"><span class="ecrm-1000">About Color Science</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">2.2 </span><a href="electromagnetic-spectrum.html#x16-160002.2"><span class="ecrm-1000">Electromagnetic Spectrum</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.2.1 </span><a href="electromagnetic-spectrum.html#x16-170002.2.1" id="QQ2-16-18"><span class="ecrm-1000">Radiometric Quantities of Interest</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.2.2 </span><a href="electromagnetic-spectrum.html#x16-180002.2.2" id="QQ2-16-19"><span class="ecrm-1000">Photometric Quantities of Interest</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.2.3 </span><a href="electromagnetic-spectrum.html#x16-190002.2.3" id="QQ2-16-20"><span class="ecrm-1000">Spectral Distribution</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">2.3 </span><a href="human-visual-system.html#x17-200002.3"><span class="ecrm-1000">Human Visual System</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.3.1 </span><a href="human-visual-system.html#x17-210002.3.1" id="QQ2-17-22"><span class="ecrm-1000">The Eye</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.3.2 </span><a href="human-visual-system.html#x17-220002.3.2" id="QQ2-17-23"><span class="ecrm-1000">Retina</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.3.3 </span><a href="human-visual-system.html#x17-230002.3.3" id="QQ2-17-24"><span class="ecrm-1000">Photoreceptors</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.3.4 </span><a href="human-visual-system.html#x17-280002.3.4" id="QQ2-17-29"><span class="ecrm-1000">Dynamic Range</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.3.5 </span><a href="human-visual-system.html#x17-290002.3.5" id="QQ2-17-30"><span class="ecrm-1000">Adaptation</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.3.6 </span><a href="human-visual-system.html#x17-330002.3.6" id="QQ2-17-34"><span class="ecrm-1000">Non-Linearity of the HVS</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">2.4 </span><a href="basic-colorimetry.html#x18-340002.4"><span class="ecrm-1000">Basic Colorimetry</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.4.1 </span><a href="basic-colorimetry.html#x18-350002.4.1" id="QQ2-18-36"><span class="ecrm-1000">Origins of Colorimetry</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.4.2 </span><a href="basic-colorimetry.html#x18-360002.4.2" id="QQ2-18-37"><span class="ecrm-1000">Blackbody Radiation, Light sources and Illuminants</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.4.3 </span><a href="basic-colorimetry.html#x18-370002.4.3" id="QQ2-18-38"><span class="ecrm-1000">Reflectance, Transmittance and Absorptance</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.4.4 </span><a href="basic-colorimetry.html#x18-380002.4.4" id="QQ2-18-39"><span class="ecrm-1000">Standard Observers</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.4.5 </span><a href="basic-colorimetry.html#x18-390002.4.5" id="QQ2-18-40"><span class="ecrm-1000">CIE XYZ Tristimulus Values and Metamerism</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.4.6 </span><a href="basic-colorimetry.html#x18-420002.4.6" id="QQ2-18-43"><span class="ecrm-1000">CIE xyY Color Space and Chromaticity Diagram</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.4.7 </span><a href="basic-colorimetry.html#x18-430002.4.7" id="QQ2-18-44"><span class="ecrm-1000">Perceptually Uniform Color Spaces and Color Difference</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.4.8 </span><a href="basic-colorimetry.html#x18-440002.4.8" id="QQ2-18-45"><span class="ecrm-1000">Additive RGB Color Spaces</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">2.5 </span><a href="advanced-colorimetry.html#x19-500002.5"><span class="ecrm-1000">Advanced Colorimetry</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.5.1 </span><a href="advanced-colorimetry.html#x19-510002.5.1" id="QQ2-19-52"><span class="ecrm-1000">Viewing Conditions</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.5.2 </span><a href="advanced-colorimetry.html#x19-520002.5.2" id="QQ2-19-53"><span class="ecrm-1000">Terminology</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.5.3 </span><a href="advanced-colorimetry.html#x19-530002.5.3" id="QQ2-19-54"><span class="ecrm-1000">Color Appearance Phenomena</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">2.6 </span><a href="representing-color.html#x20-650002.6"><span class="ecrm-1000">Representing Color</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.6.1 </span><a href="representing-color.html#x20-660002.6.1" id="QQ2-20-67"><span class="ecrm-1000">Digital Image - Raster Graphics</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.6.2 </span><a href="representing-color.html#x20-670002.6.2" id="QQ2-20-68"><span class="ecrm-1000">Quantization</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.6.3 </span><a href="representing-color.html#x20-680002.6.3" id="QQ2-20-69"><span class="ecrm-1000">Perceptual Coding</span></a></span>
+                                                                  
 
-  (function() { 
-  var cx = '000762316508951405781:qrigrsppwri'; 
-  var gcse = document.createElement('script'); 
-  gcse.type = 'text/javascript'; 
-  gcse.async = true; 
-  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
-  var s = document.getElementsByTagName('script')[0]; 
-  s.parentNode.insertBefore(gcse, s); 
-  })(); 
-  //]]>
-  </script>
-  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
-  "stylesheet" type="text/css" />
-  <link href="assets/css/custom.css" rel="stylesheet" type=
-  "text/css" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">Cinematic Color 2</a>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "preface.html" id="preface" role="button">Preface</a>
-          <div aria-labelledby="preface" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "description.html">Description</a><a class=
-            "dropdown-item" href=
-            "authorship.html">Authorship</a><a class=
-            "dropdown-item" href="on-the-web.html">On the Web</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "introduction.html" id="introduction" role=
-          "button">Introduction</a>
-          <div aria-labelledby="introduction" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "intended-audience.html">Intended Audience</a><a class=
-            "dropdown-item" href=
-            "how-to-read-this-document.html">How to Read this
-            Document</a><a class="dropdown-item" href=
-            "the-goal.html">The Goal</a><a class="dropdown-item"
-            href="converging-approaches.html">Converging
-            Approaches</a><a class="dropdown-item" href=
-            "a-general-model-of-color-processing.html">A General
-            Model of Color Processing</a><a class="dropdown-item"
-            href="color-management-challenges.html">Color
-            Management Challenges</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "color-science.html" id="color-science" role=
-          "button">Color Science</a>
-          <div aria-labelledby="color-science" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-color-science.html">About Color
-            Science</a><a class="dropdown-item" href=
-            "electromagnetic-spectrum.html">Electromagnetic
-            Spectrum</a><a class="dropdown-item" href=
-            "human-visual-system.html">Human Visual
-            System</a><a class="dropdown-item" href=
-            "basic-colorimetry.html">Basic Colorimetry</a><a class=
-            "dropdown-item" href=
-            "advanced-colorimetry.html">Advanced
-            Colorimetry</a><a class="dropdown-item" href=
-            "representing-color.html">Representing
-            Color</a><a class="dropdown-item" href=
-            "color-imaging-systems.html">Color Imaging Systems</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "workflow.html" id="workflow" role="button">Workflow</a>
-          <div aria-labelledby="workflow" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-workflow.html">About Workflow</a><a class=
-            "dropdown-item" href=
-            "academy-color-encoding-system-aces.html">Academy Color
-            Encoding System (ACES)</a><a class="dropdown-item"
-            href="the-look.html">The Look</a><a class=
-            "dropdown-item" href="on-set.html">On Set</a><a class=
-            "dropdown-item" href=
-            "visual-effects-animation-and-games.html">Visual
-            Effects, Animation and Games</a><a class=
-            "dropdown-item" href=
-            "compositing.html">Compositing</a><a class=
-            "dropdown-item" href="di-grading.html">DI
-            Grading</a><a class="dropdown-item" href=
-            "critical-monitoring.html">Critical
-            Monitoring</a><a class="dropdown-item" href=
-            "finishing.html">Finishing</a><a class="dropdown-item"
-            href="archives.html">Archives</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "appendix.html" id="appendix" role="button">Appendix</a>
-          <div aria-labelledby="appendix" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "common-rgb-color-encodings.html">Common RGB Color
-            Encodings</a><a class="dropdown-item" href=
-            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-            "dropdown-item" href=
-            "colour-science-for-python.html">Colour Science for
-            Python</a><a class="dropdown-item" href=
-            "luts-and-transforms.html">LUTs and
-            Transforms</a><a class="dropdown-item" href=
-            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
-            href="aces-ctl.html">ACES CTL</a><a class=
-            "dropdown-item" href="full-and-legal-ranges.html">Full
-            and Legal ranges</a><a class="dropdown-item" href=
-            "color-difference-encoding.html">Color Difference
-            Encoding</a><a class="dropdown-item" href=
-            "camera-characterization.html">Camera
-            Characterization</a><a class="dropdown-item" href=
-            "file-formats.html">File Formats</a><a class=
-            "dropdown-item" href=
-            "color-matching-experiments.html">Color Matching
-            Experiments</a><a class="dropdown-item" href=
-            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
-            Law of Additive Color Mixture</a><a class=
-            "dropdown-item" href=
-            "software.html">Software</a><a class="dropdown-item"
-            href="acknowledgements.html">Acknowledgements</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="glossary.html">Glossary</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href=
-          "bibliography.html">Bibliography</a>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" id=
-      "cse-search-box-form-id" onsubmit=
-      "return executeSearchQuery();" placeholder="Search" role=
-      "search" name="cse-search-box-form-id">
-        <div class="input-group">
-          <input autocomplete="on" class="form-control" id=
-          "cse-search-input-box-id" size="25" type="text" /> 
-          <script async="async" src=
-          "https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id"
-          type="text/javascript"></script>
-        </div>
-      </form>
-    </div>
-  </nav>
-  <article class="page-content">
-    <div class="container-fluid py-3">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <h2 class="likechapterHead"><a href=
-          "cinematic-color.html#QQ2-6-5" id="x6-5000"><span class=
-          "ecrm-1000">Contents</span></a></h2>
-          <div class="tableofcontents">
-            <span class="chapterToc"><span class=
-            "ecrm-1000">1</span> <a href=
-            "introduction.html#x7-60001"><span class=
-            "ecrm-1000">Introduction</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">1.1</span>
-            <a href="intended-audience.html#x8-70001.1"><span class="ecrm-1000">
-            Intended Audience</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">1.2</span>
-            <a href="how-to-read-this-document.html#x9-80001.2"><span class="ecrm-1000">
-            How to Read this Document</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">1.3</span>
-            <a href="the-goal.html#x10-90001.3"><span class=
-            "ecrm-1000">The Goal</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">1.4</span>
-            <a href="converging-approaches.html#x11-100001.4"><span class="ecrm-1000">
-            Converging Approaches</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">1.5</span>
-            <a href="a-general-model-of-color-processing.html#x12-110001.5">
-            <span class="ecrm-1000">A General Model of Color
-            Processing</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">1.5.1</span>
-            <a href=
-            "a-general-model-of-color-processing.html#x12-120001.5.1"
-            id="QQ2-12-12"><span class=
-            "ecrm-1000">ACES</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">1.6</span>
-            <a href="color-management-challenges.html#x13-130001.6">
-            <span class="ecrm-1000">Color Management
-            Challenges</span></a></span><br />
-            <span class="chapterToc"><span class=
-            "ecrm-1000">2</span> <a href=
-            "color-science.html#x14-140002"><span class=
-            "ecrm-1000">Color Science</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">2.1</span>
-            <a href="about-color-science.html#x15-150002.1"><span class="ecrm-1000">
-            About Color Science</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">2.2</span>
-            <a href="electromagnetic-spectrum.html#x16-160002.2"><span class="ecrm-1000">
-            Electromagnetic Spectrum</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.2.1</span>
-            <a href="electromagnetic-spectrum.html#x16-170002.2.1"
-            id="QQ2-16-18"><span class="ecrm-1000">Radiometric
-            Quantities of Interest</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.2.2</span>
-            <a href="electromagnetic-spectrum.html#x16-180002.2.2"
-            id="QQ2-16-19"><span class="ecrm-1000">Photometric
-            Quantities of Interest</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.2.3</span>
-            <a href="electromagnetic-spectrum.html#x16-190002.2.3"
-            id="QQ2-16-20"><span class="ecrm-1000">Spectral
-            Distribution</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">2.3</span>
-            <a href="human-visual-system.html#x17-200002.3"><span class="ecrm-1000">
-            Human Visual System</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.3.1</span>
-            <a href="human-visual-system.html#x17-210002.3.1" id=
-            "QQ2-17-22"><span class="ecrm-1000">The
-            Eye</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.3.2</span>
-            <a href="human-visual-system.html#x17-220002.3.2" id=
-            "QQ2-17-23"><span class=
-            "ecrm-1000">Retina</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.3.3</span>
-            <a href="human-visual-system.html#x17-230002.3.3" id=
-            "QQ2-17-24"><span class=
-            "ecrm-1000">Photoreceptors</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.3.4</span>
-            <a href="human-visual-system.html#x17-280002.3.4" id=
-            "QQ2-17-29"><span class="ecrm-1000">Dynamic
-            Range</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.3.5</span>
-            <a href="human-visual-system.html#x17-290002.3.5" id=
-            "QQ2-17-30"><span class=
-            "ecrm-1000">Adaptation</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.3.6</span>
-            <a href="human-visual-system.html#x17-330002.3.6" id=
-            "QQ2-17-34"><span class="ecrm-1000">Non-Linearity of
-            the HVS</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">2.4</span>
-            <a href="basic-colorimetry.html#x18-340002.4"><span class="ecrm-1000">
-            Basic Colorimetry</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.4.1</span>
-            <a href="basic-colorimetry.html#x18-350002.4.1" id=
-            "QQ2-18-36"><span class="ecrm-1000">Origins of
-            Colorimetry</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.4.2</span>
-            <a href="basic-colorimetry.html#x18-360002.4.2" id=
-            "QQ2-18-37"><span class="ecrm-1000">Blackbody
-            Radiation, Light sources and
-            Illuminants</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.4.3</span>
-            <a href="basic-colorimetry.html#x18-370002.4.3" id=
-            "QQ2-18-38"><span class="ecrm-1000">Reflectance,
-            Transmittance and Absorptance</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.4.4</span>
-            <a href="basic-colorimetry.html#x18-380002.4.4" id=
-            "QQ2-18-39"><span class="ecrm-1000">Standard
-            Observers</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.4.5</span>
-            <a href="basic-colorimetry.html#x18-390002.4.5" id=
-            "QQ2-18-40"><span class="ecrm-1000">CIE XYZ Tristimulus
-            Values and Metamerism</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.4.6</span>
-            <a href="basic-colorimetry.html#x18-420002.4.6" id=
-            "QQ2-18-43"><span class="ecrm-1000">CIE xyY Color Space
-            and Chromaticity Diagram</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.4.7</span>
-            <a href="basic-colorimetry.html#x18-430002.4.7" id=
-            "QQ2-18-44"><span class="ecrm-1000">Perceptually
-            Uniform Color Spaces and Color
-            Difference</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.4.8</span>
-            <a href="basic-colorimetry.html#x18-440002.4.8" id=
-            "QQ2-18-45"><span class="ecrm-1000">Additive RGB Color
-            Spaces</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">2.5</span>
-            <a href="advanced-colorimetry.html#x19-500002.5"><span class="ecrm-1000">
-            Advanced Colorimetry</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.5.1</span>
-            <a href="advanced-colorimetry.html#x19-510002.5.1" id=
-            "QQ2-19-52"><span class="ecrm-1000">Viewing
-            Conditions</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.5.2</span>
-            <a href="advanced-colorimetry.html#x19-520002.5.2" id=
-            "QQ2-19-53"><span class=
-            "ecrm-1000">Terminology</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.5.3</span>
-            <a href="advanced-colorimetry.html#x19-530002.5.3" id=
-            "QQ2-19-54"><span class="ecrm-1000">Color Appearance
-            Phenomena</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">2.6</span>
-            <a href="representing-color.html#x20-650002.6"><span class="ecrm-1000">
-            Representing Color</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.6.1</span>
-            <a href="representing-color.html#x20-660002.6.1" id=
-            "QQ2-20-67"><span class="ecrm-1000">Digital Image -
-            Raster Graphics</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.6.2</span>
-            <a href="representing-color.html#x20-670002.6.2" id=
-            "QQ2-20-68"><span class=
-            "ecrm-1000">Quantization</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.6.3</span>
-            <a href="representing-color.html#x20-680002.6.3" id=
-            "QQ2-20-69"><span class="ecrm-1000">Perceptual
-            Coding</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.6.4</span>
-            <a href="representing-color.html#x20-690002.6.4" id=
-            "QQ2-20-70"><span class="ecrm-1000">Floating-Point and
-            Logarithmic Representations</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.6.5</span>
-            <a href="representing-color.html#x20-700002.6.5" id=
-            "QQ2-20-71"><span class=
-            "ecrm-1000">Gamma</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.6.6</span>
-            <a href="representing-color.html#x20-710002.6.6" id=
-            "QQ2-20-72"><span class="ecrm-1000">Color
-            Encodings</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">2.7</span>
-            <a href="color-imaging-systems.html#x21-720002.7"><span class="ecrm-1000">
-            Color Imaging Systems</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.7.1</span>
-            <a href="color-imaging-systems.html#x21-730002.7.1" id=
-            "QQ2-21-74"><span class="ecrm-1000">Image
-            Capture</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.7.2</span>
-            <a href="color-imaging-systems.html#x21-740002.7.2" id=
-            "QQ2-21-75"><span class="ecrm-1000">Signal
-            Processing</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">2.7.3</span>
-            <a href="color-imaging-systems.html#x21-750002.7.3" id=
-            "QQ2-21-76"><span class="ecrm-1000">Image
-            Formation</span></a></span><br />
-            <span class="chapterToc"><span class=
-            "ecrm-1000">3</span> <a href=
-            "workflow.html#x22-760003"><span class=
-            "ecrm-1000">Workflow</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">3.1</span>
-            <a href="about-workflow.html#x23-770003.1"><span class=
-            "ecrm-1000">About Workflow</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">3.2</span>
-            <a href="academy-color-encoding-system-aces.html#x24-780003.2">
-            <span class="ecrm-1000">Academy Color Encoding System
-            (ACES)</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.2.1</span>
-            <a href=
-            "academy-color-encoding-system-aces.html#x24-790003.2.1"
-            id="QQ2-24-80"><span class="ecrm-1000">Input
-            Transforms</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.2.2</span>
-            <a href=
-            "academy-color-encoding-system-aces.html#x24-800003.2.2"
-            id="QQ2-24-81"><span class="ecrm-1000">Working
-            Space</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.2.3</span>
-            <a href=
-            "academy-color-encoding-system-aces.html#x24-810003.2.3"
-            id="QQ2-24-82"><span class="ecrm-1000">Look
-            Transform</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.2.4</span>
-            <a href=
-            "academy-color-encoding-system-aces.html#x24-820003.2.4"
-            id="QQ2-24-83"><span class="ecrm-1000">Output Transform
-            (RRT and ODT)</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">3.3</span>
-            <a href="the-look.html#x25-830003.3"><span class=
-            "ecrm-1000">The Look</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.3.1</span>
-            <a href="the-look.html#x25-840003.3.1" id=
-            "QQ2-25-85"><span class="ecrm-1000">Establishing the
-            Look</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.3.2</span>
-            <a href="the-look.html#x25-860003.3.2" id=
-            "QQ2-25-87"><span class="ecrm-1000">Look
-            Management</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">3.4</span>
-            <a href="on-set.html#x26-870003.4"><span class=
-            "ecrm-1000">On Set</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.4.1</span>
-            <a href="on-set.html#x26-880003.4.1" id=
-            "QQ2-26-89"><span class="ecrm-1000">Camera
-            profiles</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.4.2</span>
-            <a href="on-set.html#x26-890003.4.2" id=
-            "QQ2-26-90"><span class="ecrm-1000">Monitoring on
-            set</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.4.3</span>
-            <a href="on-set.html#x26-900003.4.3" id=
-            "QQ2-26-91"><span class=
-            "ecrm-1000">Editorial</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.4.4</span>
-            <a href="on-set.html#x26-910003.4.4" id=
-            "QQ2-26-92"><span class="ecrm-1000">Digital Imaging
-            Technician (DIT)</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.4.5</span>
-            <a href="on-set.html#x26-920003.4.5" id=
-            "QQ2-26-93"><span class="ecrm-1000">Reference
-            Capture</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.4.6</span>
-            <a href="on-set.html#x26-930003.4.6" id=
-            "QQ2-26-94"><span class="ecrm-1000">HDR Environment
-            Capture</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">3.5</span>
-            <a href="visual-effects-animation-and-games.html#x27-940003.5">
-            <span class="ecrm-1000">Visual Effects, Animation and
-            Games</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.5.1</span>
-            <a href=
-            "visual-effects-animation-and-games.html#x27-950003.5.1"
-            id="QQ2-27-96"><span class="ecrm-1000">Visual
-            Effects</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.5.2</span>
-            <a href=
-            "visual-effects-animation-and-games.html#x27-960003.5.2"
-            id="QQ2-27-97"><span class=
-            "ecrm-1000">Animation</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.5.3</span>
-            <a href=
-            "visual-effects-animation-and-games.html#x27-970003.5.3"
-            id="QQ2-27-98"><span class=
-            "ecrm-1000">Games</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.5.4</span>
-            <a href=
-            "visual-effects-animation-and-games.html#x27-980003.5.4"
-            id="QQ2-27-99"><span class="ecrm-1000">Texture
-            Painting</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.5.5</span>
-            <a href=
-            "visual-effects-animation-and-games.html#x27-1000003.5.5"
-            id="QQ2-27-101"><span class="ecrm-1000">Matte
-            Painting</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.5.6</span>
-            <a href=
-            "visual-effects-animation-and-games.html#x27-1010003.5.6"
-            id="QQ2-27-102"><span class="ecrm-1000">Lighting,
-            Shading, and Rendering</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">3.6</span>
-            <a href="compositing.html#x28-1040003.6"><span class=
-            "ecrm-1000">Compositing</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.6.1</span>
-            <a href="compositing.html#x28-1050003.6.1" id=
-            "QQ2-28-106"><span class="ecrm-1000">Scene-Referred
-            Linear is Preferred for
-            Compositing</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.6.2</span>
-            <a href="compositing.html#x28-1060003.6.2" id=
-            "QQ2-28-107"><span class="ecrm-1000">Scene-Referred
-            Linear Compositing Challenges</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.6.3</span>
-            <a href="compositing.html#x28-1070003.6.3" id=
-            "QQ2-28-108"><span class="ecrm-1000">Negative
-            Values</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.6.4</span>
-            <a href="compositing.html#x28-1080003.6.4" id=
-            "QQ2-28-109"><span class="ecrm-1000">Working with Log
-            Imagery</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.6.5</span>
-            <a href="compositing.html#x28-1090003.6.5" id=
-            "QQ2-28-110"><span class="ecrm-1000">Plate Timing,
-            Neutralization, and Grading</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.6.6</span>
-            <a href="compositing.html#x28-1100003.6.6" id=
-            "QQ2-28-111"><span class=
-            "ecrm-1000">Premultiplication</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.6.7</span>
-            <a href="compositing.html#x28-1110003.6.7" id=
-            "QQ2-28-112"><span class="ecrm-1000">Technical
-            Checks</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">3.7</span>
-            <a href="di-grading.html#x29-1120003.7"><span class=
-            "ecrm-1000">DI Grading</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.7.1</span>
-            <a href="di-grading.html#x29-1130003.7.1" id=
-            "QQ2-29-114"><span class=
-            "ecrm-1000">Conforming</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.7.2</span>
-            <a href="di-grading.html#x29-1140003.7.2" id=
-            "QQ2-29-115"><span class="ecrm-1000">Unmanaged Output
-            Referred Grading</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.7.3</span>
-            <a href="di-grading.html#x29-1150003.7.3" id=
-            "QQ2-29-116"><span class="ecrm-1000">Color Managed
-            Scene Referred Grading</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.7.4</span>
-            <a href="di-grading.html#x29-1160003.7.4" id=
-            "QQ2-29-117"><span class="ecrm-1000">DI Color
-            Grading</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">3.8</span>
-            <a href="critical-monitoring.html#x30-1200003.8"><span class="ecrm-1000">
-            Critical Monitoring</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.8.1</span>
-            <a href="critical-monitoring.html#x30-1210003.8.1" id=
-            "QQ2-30-122"><span class="ecrm-1000">Cinema
-            Projection</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.8.2</span>
-            <a href="critical-monitoring.html#x30-1220003.8.2" id=
-            "QQ2-30-123"><span class="ecrm-1000">Reference
-            Monitors</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.8.3</span>
-            <a href="critical-monitoring.html#x30-1230003.8.3" id=
-            "QQ2-30-124"><span class="ecrm-1000">HDR
-            Displays</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.8.4</span>
-            <a href="critical-monitoring.html#x30-1240003.8.4" id=
-            "QQ2-30-125"><span class="ecrm-1000">Color Management
-            for Mastering</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">3.9</span>
-            <a href="finishing.html#x31-1260003.9"><span class=
-            "ecrm-1000">Finishing</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.9.1</span>
-            <a href="finishing.html#x31-1270003.9.1" id=
-            "QQ2-31-128"><span class="ecrm-1000">Multiple
-            deliverables</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">3.10</span>
-            <a href="archives.html#x32-1290003.10"><span class=
-            "ecrm-1000">Archives</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.10.1</span>
-            <a href="archives.html#x32-1300003.10.1" id=
-            "QQ2-32-131"><span class="ecrm-1000">Open Archives
-            Information System (OAIS)</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">3.10.2</span>
-            <a href="archives.html#x32-1310003.10.2" id=
-            "QQ2-32-132"><span class="ecrm-1000">Archive
-            Elements</span></a></span><br />
-            <span class="chapterToc"><span class=
-            "ecrm-1000">4</span> <a href=
-            "appendix.html#x33-1320004"><span class=
-            "ecrm-1000">Appendix</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.1</span>
-            <a href="common-rgb-color-encodings.html#x34-1330004.1">
-            <span class="ecrm-1000">Common RGB Color
-            Encodings</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.1</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1340004.1.1" id=
-            "QQ2-34-135"><span class="ecrm-1000">Rec.
-            709</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.2</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1350004.1.2" id=
-            "QQ2-34-136"><span class=
-            "ecrm-1000">BT.1886</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.3</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1360004.1.3" id=
-            "QQ2-34-137"><span class=
-            "ecrm-1000">sRGB</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.4</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1370004.1.4" id=
-            "QQ2-34-138"><span class="ecrm-1000">Rec.
-            2020</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.5</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1380004.1.5" id=
-            "QQ2-34-139"><span class="ecrm-1000">ST.2084 /
-            PQ</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.6</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1390004.1.6" id=
-            "QQ2-34-140"><span class="ecrm-1000">Hybrid Log Gamma
-            (HLG)</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.7</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1400004.1.7" id=
-            "QQ2-34-141"><span class="ecrm-1000">P3
-            DCI</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.8</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1410004.1.8" id=
-            "QQ2-34-142"><span class="ecrm-1000">P3
-            D65</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.9</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1420004.1.9" id=
-            "QQ2-34-143"><span class=
-            "ecrm-1000">X’Y’Z’</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.10</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1430004.1.10" id=
-            "QQ2-34-144"><span class="ecrm-1000">ALEXA
-            LogC</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.11</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1440004.1.11" id=
-            "QQ2-34-145"><span class="ecrm-1000">Blackmagic
-            Film</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.12</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1450004.1.12" id=
-            "QQ2-34-146"><span class="ecrm-1000">Canon
-            CLog</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.13</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1460004.1.13" id=
-            "QQ2-34-147"><span class="ecrm-1000">GoPro
-            ProTune</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.14</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1470004.1.14" id=
-            "QQ2-34-148"><span class="ecrm-1000">Panasonic
-            V-Log</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.15</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1480004.1.15" id=
-            "QQ2-34-149"><span class="ecrm-1000">RED
-            Log3G10</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.16</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1490004.1.16" id=
-            "QQ2-34-150"><span class="ecrm-1000">Sony
-            SLog</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.17</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1500004.1.17" id=
-            "QQ2-34-151"><span class=
-            "ecrm-1000">ACEScc</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.18</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1510004.1.18" id=
-            "QQ2-34-152"><span class=
-            "ecrm-1000">ACEScct</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.1.19</span>
-            <a href=
-            "common-rgb-color-encodings.html#x34-1520004.1.19" id=
-            "QQ2-34-153"><span class=
-            "ecrm-1000">Cineon</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.2</span>
-            <a href="opencolorio-ocio.html#x35-1530004.2"><span class="ecrm-1000">
-            OpenColorIO (OCIO)</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.3</span>
-            <a href="colour-science-for-python.html#x36-1540004.3"><span class="ecrm-1000">
-            Colour Science for Python</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.4</span>
-            <a href="luts-and-transforms.html#x37-1550004.4"><span class="ecrm-1000">
-            LUTs and Transforms</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.4.1</span>
-            <a href="luts-and-transforms.html#x37-1560004.4.1" id=
-            "QQ2-37-157"><span class="ecrm-1000">1D
-            LUTs</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.4.2</span>
-            <a href="luts-and-transforms.html#x37-1570004.4.2" id=
-            "QQ2-37-158"><span class="ecrm-1000">3D
-            LUTs</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.4.3</span>
-            <a href="luts-and-transforms.html#x37-1580004.4.3" id=
-            "QQ2-37-159"><span class="ecrm-1000">Using Shaper
-            LUTs</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.4.4</span>
-            <a href="luts-and-transforms.html#x37-1590004.4.4" id=
-            "QQ2-37-160"><span class="ecrm-1000">Half Float
-            LUTs</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.4.5</span>
-            <a href="luts-and-transforms.html#x37-1600004.4.5" id=
-            "QQ2-37-161"><span class="ecrm-1000">Creating
-            LUTs</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.4.6</span>
-            <a href="luts-and-transforms.html#x37-1610004.4.6" id=
-            "QQ2-37-162"><span class="ecrm-1000">GPU
-            Implementations</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.5</span>
-            <a href="asc-cdl.html#x38-1620004.5"><span class=
-            "ecrm-1000">ASC CDL</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.6</span>
-            <a href="aces-ctl.html#x39-1630004.6"><span class=
-            "ecrm-1000">ACES CTL</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.7</span>
-            <a href="full-and-legal-ranges.html#x40-1640004.7"><span class="ecrm-1000">
-            Full and Legal ranges</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.7.1</span>
-            <a href="full-and-legal-ranges.html#x40-1650004.7.1"
-            id="QQ2-40-166"><span class="ecrm-1000">Legal
-            Range</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.7.2</span>
-            <a href="full-and-legal-ranges.html#x40-1660004.7.2"
-            id="QQ2-40-167"><span class="ecrm-1000">Full
-            Range</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.8</span>
-            <a href="color-difference-encoding.html#x41-1670004.8"><span class="ecrm-1000">
-            Color Difference Encoding</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.9</span>
-            <a href="camera-characterization.html#x42-1680004.9"><span class="ecrm-1000">
-            Camera Characterization</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.10</span>
-            <a href="file-formats.html#x43-1690004.10"><span class=
-            "ecrm-1000">File Formats</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.10.1</span>
-            <a href="file-formats.html#x43-1700004.10.1" id=
-            "QQ2-43-171"><span class=
-            "ecrm-1000">DPX</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.10.2</span>
-            <a href="file-formats.html#x43-1710004.10.2" id=
-            "QQ2-43-172"><span class=
-            "ecrm-1000">EXR</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.11</span>
-            <a href=
-            "color-matching-experiments.html#x44-1720004.11"><span class="ecrm-1000">
-            Color Matching Experiments</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.12</span>
-            <a href=
-            "grassmann-s-law-of-additive-color-mixture.html#x45-1730004.12">
-            <span class="ecrm-1000">Grassmann’s Law of Additive
-            Color Mixture</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.13</span>
-            <a href="software.html#x46-1740004.13"><span class=
-            "ecrm-1000">Software</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.13.1</span>
-            <a href="software.html#x46-1750004.13.1" id=
-            "QQ2-46-176"><span class="ecrm-1000">Open Source
-            Software</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "ecrm-1000">&nbsp;</span><span class=
-            "subsectionToc"><span class="ecrm-1000">4.13.2</span>
-            <a href="software.html#x46-1760004.13.2" id=
-            "QQ2-46-177"><span class="ecrm-1000">Commercial
-            Software</span></a></span><br />
-            <span class="ecrm-1000">&nbsp;</span><span class=
-            "sectionToc"><span class="ecrm-1000">4.14</span>
-            <a href=
-            "acknowledgements.html#x47-1770004.14"><span class=
-            "ecrm-1000">Acknowledgements</span></a></span><br />
-            <span class="chapterToc"><span class=
-            "ecrm-1000">5</span> <a href=
-            "glossary.html#x48-1780005"><span class=
-            "ecrm-1000">Glossary</span></a></span>
-          </div>
-          <div class="breadcrumb-navigation text-center">
-            <a href="preface.html"><button class=
-            "btn btn-light mx-3" type=
-            "button">Previous</button></a><a href=
-            "cinematic-color.html#contents.html"><button class=
-            "btn btn-light mx-3" type=
-            "button">Up</button></a><a href=
-            "introduction.html"><button class="btn btn-light mx-3"
-            type="button">Next</button></a>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-  </article>
-  <footer class="page-footer">
-    <div class="container-fluid text-center py-3">
-      Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ <a href=
-      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
-    </div>
-  </footer>
-  <script src="assets/js/jquery/jquery.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/popper/popper.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/bootstrap/bootstrap.min.js" type=
-  "text/javascript"></script> 
-  <script type="text/javascript">
-  //<![CDATA[
+                                                                  
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.6.4 </span><a href="representing-color.html#x20-690002.6.4" id="QQ2-20-70"><span class="ecrm-1000">Floating-Point and Logarithmic Representations</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.6.5 </span><a href="representing-color.html#x20-700002.6.5" id="QQ2-20-71"><span class="ecrm-1000">Gamma</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.6.6 </span><a href="representing-color.html#x20-710002.6.6" id="QQ2-20-72"><span class="ecrm-1000">Color Encodings</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">2.7 </span><a href="color-imaging-systems.html#x21-720002.7"><span class="ecrm-1000">Color Imaging Systems</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.7.1 </span><a href="color-imaging-systems.html#x21-730002.7.1" id="QQ2-21-74"><span class="ecrm-1000">Image Capture</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.7.2 </span><a href="color-imaging-systems.html#x21-740002.7.2" id="QQ2-21-75"><span class="ecrm-1000">Signal Processing</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">2.7.3 </span><a href="color-imaging-systems.html#x21-750002.7.3" id="QQ2-21-76"><span class="ecrm-1000">Image Formation</span></a></span>
+<br/>   <span class="chapterToc"><span class="ecrm-1000">3 </span><a href="workflow.html#x22-760003"><span class="ecrm-1000">Workflow</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">3.1 </span><a href="about-workflow.html#x23-770003.1"><span class="ecrm-1000">About Workflow</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">3.2 </span><a href="academy-color-encoding-system-aces.html#x24-780003.2"><span class="ecrm-1000">Academy Color Encoding System (ACES)</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.2.1 </span><a href="academy-color-encoding-system-aces.html#x24-790003.2.1" id="QQ2-24-80"><span class="ecrm-1000">Input Transforms</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.2.2 </span><a href="academy-color-encoding-system-aces.html#x24-800003.2.2" id="QQ2-24-81"><span class="ecrm-1000">Working Space</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.2.3 </span><a href="academy-color-encoding-system-aces.html#x24-810003.2.3" id="QQ2-24-82"><span class="ecrm-1000">Look Transform</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.2.4 </span><a href="academy-color-encoding-system-aces.html#x24-820003.2.4" id="QQ2-24-83"><span class="ecrm-1000">Output Transform (RRT and ODT)</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">3.3 </span><a href="the-look.html#x25-830003.3"><span class="ecrm-1000">The Look</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.3.1 </span><a href="the-look.html#x25-840003.3.1" id="QQ2-25-85"><span class="ecrm-1000">Establishing the Look</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.3.2 </span><a href="the-look.html#x25-860003.3.2" id="QQ2-25-87"><span class="ecrm-1000">Look Management</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">3.4 </span><a href="on-set.html#x26-870003.4"><span class="ecrm-1000">On Set</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.4.1 </span><a href="on-set.html#x26-880003.4.1" id="QQ2-26-89"><span class="ecrm-1000">Camera profiles</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.4.2 </span><a href="on-set.html#x26-890003.4.2" id="QQ2-26-90"><span class="ecrm-1000">Monitoring on set</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.4.3 </span><a href="on-set.html#x26-900003.4.3" id="QQ2-26-91"><span class="ecrm-1000">Editorial</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.4.4 </span><a href="on-set.html#x26-910003.4.4" id="QQ2-26-92"><span class="ecrm-1000">Digital Imaging Technician (DIT)</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.4.5 </span><a href="on-set.html#x26-920003.4.5" id="QQ2-26-93"><span class="ecrm-1000">Reference Capture</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.4.6 </span><a href="on-set.html#x26-930003.4.6" id="QQ2-26-94"><span class="ecrm-1000">HDR Environment Capture</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">3.5 </span><a href="visual-effects-animation-and-games.html#x27-940003.5"><span class="ecrm-1000">Visual Effects, Animation and Games</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.5.1 </span><a href="visual-effects-animation-and-games.html#x27-950003.5.1" id="QQ2-27-96"><span class="ecrm-1000">Visual Effects</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.5.2 </span><a href="visual-effects-animation-and-games.html#x27-960003.5.2" id="QQ2-27-97"><span class="ecrm-1000">Animation</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.5.3 </span><a href="visual-effects-animation-and-games.html#x27-970003.5.3" id="QQ2-27-98"><span class="ecrm-1000">Games</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.5.4 </span><a href="visual-effects-animation-and-games.html#x27-980003.5.4" id="QQ2-27-99"><span class="ecrm-1000">Texture Painting</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.5.5 </span><a href="visual-effects-animation-and-games.html#x27-1000003.5.5" id="QQ2-27-101"><span class="ecrm-1000">Matte Painting</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.5.6 </span><a href="visual-effects-animation-and-games.html#x27-1010003.5.6" id="QQ2-27-102"><span class="ecrm-1000">Lighting, Shading, and Rendering</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">3.6 </span><a href="compositing.html#x28-1040003.6"><span class="ecrm-1000">Compositing</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.6.1 </span><a href="compositing.html#x28-1050003.6.1" id="QQ2-28-106"><span class="ecrm-1000">Scene-Referred Linear is Preferred for Compositing</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.6.2 </span><a href="compositing.html#x28-1060003.6.2" id="QQ2-28-107"><span class="ecrm-1000">Scene-Referred Linear Compositing Challenges</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.6.3 </span><a href="compositing.html#x28-1070003.6.3" id="QQ2-28-108"><span class="ecrm-1000">Negative Values</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.6.4 </span><a href="compositing.html#x28-1080003.6.4" id="QQ2-28-109"><span class="ecrm-1000">Working with Log Imagery</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.6.5 </span><a href="compositing.html#x28-1090003.6.5" id="QQ2-28-110"><span class="ecrm-1000">Plate Timing, Neutralization, and Grading</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.6.6 </span><a href="compositing.html#x28-1100003.6.6" id="QQ2-28-111"><span class="ecrm-1000">Premultiplication</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.6.7 </span><a href="compositing.html#x28-1110003.6.7" id="QQ2-28-112"><span class="ecrm-1000">Technical Checks</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">3.7 </span><a href="di-grading.html#x29-1120003.7"><span class="ecrm-1000">DI Grading</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.7.1 </span><a href="di-grading.html#x29-1130003.7.1" id="QQ2-29-114"><span class="ecrm-1000">Conforming</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.7.2 </span><a href="di-grading.html#x29-1140003.7.2" id="QQ2-29-115"><span class="ecrm-1000">Unmanaged Output Referred Grading</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.7.3 </span><a href="di-grading.html#x29-1150003.7.3" id="QQ2-29-116"><span class="ecrm-1000">Color Managed Scene Referred Grading</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.7.4 </span><a href="di-grading.html#x29-1160003.7.4" id="QQ2-29-117"><span class="ecrm-1000">DI Color Grading</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">3.8 </span><a href="critical-monitoring.html#x30-1200003.8"><span class="ecrm-1000">Critical Monitoring</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.8.1 </span><a href="critical-monitoring.html#x30-1210003.8.1" id="QQ2-30-122"><span class="ecrm-1000">Cinema Projection</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.8.2 </span><a href="critical-monitoring.html#x30-1220003.8.2" id="QQ2-30-123"><span class="ecrm-1000">Reference Monitors</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.8.3 </span><a href="critical-monitoring.html#x30-1230003.8.3" id="QQ2-30-124"><span class="ecrm-1000">HDR Displays</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.8.4 </span><a href="critical-monitoring.html#x30-1240003.8.4" id="QQ2-30-125"><span class="ecrm-1000">Color Management for Mastering</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">3.9 </span><a href="finishing.html#x31-1260003.9"><span class="ecrm-1000">Finishing</span></a></span>
+                                                                  
 
-  function executeSearchQuery() { 
-  var input = document.getElementById('cse-search-input-box-id'); 
-  var element = google.search.cse.element.getElement('searchresults-only0'); 
-  if (input.value == '') { 
-  element.clearAllResults(); 
-  } else { 
-  element.execute(input.value); 
-  } 
-  return false; 
-  } 
-  //]]>
-  </script>
-</body>
-</html>
+                                                                  
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.9.1 </span><a href="finishing.html#x31-1270003.9.1" id="QQ2-31-128"><span class="ecrm-1000">Multiple deliverables</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">3.10 </span><a href="archives.html#x32-1290003.10"><span class="ecrm-1000">Archives</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.10.1 </span><a href="archives.html#x32-1300003.10.1" id="QQ2-32-131"><span class="ecrm-1000">Open Archives Information System (OAIS)</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">3.10.2 </span><a href="archives.html#x32-1310003.10.2" id="QQ2-32-132"><span class="ecrm-1000">Archive Elements</span></a></span>
+<br/>   <span class="chapterToc"><span class="ecrm-1000">4 </span><a href="appendix.html#x33-1320004"><span class="ecrm-1000">Appendix</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.1 </span><a href="common-rgb-color-encodings.html#x34-1330004.1"><span class="ecrm-1000">Common RGB Color Encodings</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.1 </span><a href="common-rgb-color-encodings.html#x34-1340004.1.1" id="QQ2-34-135"><span class="ecrm-1000">Rec. 709</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.2 </span><a href="common-rgb-color-encodings.html#x34-1350004.1.2" id="QQ2-34-136"><span class="ecrm-1000">BT.1886</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.3 </span><a href="common-rgb-color-encodings.html#x34-1360004.1.3" id="QQ2-34-137"><span class="ecrm-1000">sRGB</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.4 </span><a href="common-rgb-color-encodings.html#x34-1370004.1.4" id="QQ2-34-138"><span class="ecrm-1000">Rec. 2020</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.5 </span><a href="common-rgb-color-encodings.html#x34-1380004.1.5" id="QQ2-34-139"><span class="ecrm-1000">ST.2084 / PQ</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.6 </span><a href="common-rgb-color-encodings.html#x34-1390004.1.6" id="QQ2-34-140"><span class="ecrm-1000">Hybrid Log Gamma (HLG)</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.7 </span><a href="common-rgb-color-encodings.html#x34-1400004.1.7" id="QQ2-34-141"><span class="ecrm-1000">P3 DCI</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.8 </span><a href="common-rgb-color-encodings.html#x34-1410004.1.8" id="QQ2-34-142"><span class="ecrm-1000">P3 D65</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.9 </span><a href="common-rgb-color-encodings.html#x34-1420004.1.9" id="QQ2-34-143"><span class="ecrm-1000">X’Y’Z’</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.10 </span><a href="common-rgb-color-encodings.html#x34-1430004.1.10" id="QQ2-34-144"><span class="ecrm-1000">ALEXA LogC</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.11 </span><a href="common-rgb-color-encodings.html#x34-1440004.1.11" id="QQ2-34-145"><span class="ecrm-1000">Blackmagic Film</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.12 </span><a href="common-rgb-color-encodings.html#x34-1450004.1.12" id="QQ2-34-146"><span class="ecrm-1000">Canon CLog</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.13 </span><a href="common-rgb-color-encodings.html#x34-1460004.1.13" id="QQ2-34-147"><span class="ecrm-1000">GoPro ProTune</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.14 </span><a href="common-rgb-color-encodings.html#x34-1470004.1.14" id="QQ2-34-148"><span class="ecrm-1000">Panasonic V-Log</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.15 </span><a href="common-rgb-color-encodings.html#x34-1480004.1.15" id="QQ2-34-149"><span class="ecrm-1000">RED Log3G10</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.16 </span><a href="common-rgb-color-encodings.html#x34-1490004.1.16" id="QQ2-34-150"><span class="ecrm-1000">Sony SLog</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.17 </span><a href="common-rgb-color-encodings.html#x34-1500004.1.17" id="QQ2-34-151"><span class="ecrm-1000">ACEScc</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.18 </span><a href="common-rgb-color-encodings.html#x34-1510004.1.18" id="QQ2-34-152"><span class="ecrm-1000">ACEScct</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.1.19 </span><a href="common-rgb-color-encodings.html#x34-1520004.1.19" id="QQ2-34-153"><span class="ecrm-1000">Cineon</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.2 </span><a href="opencolorio-ocio.html#x35-1530004.2"><span class="ecrm-1000">OpenColorIO (OCIO)</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.3 </span><a href="colour-science-for-python.html#x36-1540004.3"><span class="ecrm-1000">Colour Science for Python</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.4 </span><a href="luts-and-transforms.html#x37-1550004.4"><span class="ecrm-1000">LUTs and Transforms</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.4.1 </span><a href="luts-and-transforms.html#x37-1560004.4.1" id="QQ2-37-157"><span class="ecrm-1000">1D LUTs</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.4.2 </span><a href="luts-and-transforms.html#x37-1570004.4.2" id="QQ2-37-158"><span class="ecrm-1000">3D LUTs</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.4.3 </span><a href="luts-and-transforms.html#x37-1580004.4.3" id="QQ2-37-159"><span class="ecrm-1000">Using Shaper LUTs</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.4.4 </span><a href="luts-and-transforms.html#x37-1590004.4.4" id="QQ2-37-160"><span class="ecrm-1000">Half Float LUTs</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.4.5 </span><a href="luts-and-transforms.html#x37-1600004.4.5" id="QQ2-37-161"><span class="ecrm-1000">Creating LUTs</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.4.6 </span><a href="luts-and-transforms.html#x37-1610004.4.6" id="QQ2-37-162"><span class="ecrm-1000">GPU Implementations</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.5 </span><a href="asc-cdl.html#x38-1620004.5"><span class="ecrm-1000">ASC CDL</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.6 </span><a href="aces-ctl.html#x39-1630004.6"><span class="ecrm-1000">ACES CTL</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.7 </span><a href="full-and-legal-ranges.html#x40-1640004.7"><span class="ecrm-1000">Full and Legal ranges</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.7.1 </span><a href="full-and-legal-ranges.html#x40-1650004.7.1" id="QQ2-40-166"><span class="ecrm-1000">Legal Range</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.7.2 </span><a href="full-and-legal-ranges.html#x40-1660004.7.2" id="QQ2-40-167"><span class="ecrm-1000">Full Range</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.8 </span><a href="color-difference-encoding.html#x41-1670004.8"><span class="ecrm-1000">Color Difference Encoding</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.9 </span><a href="camera-characterization.html#x42-1680004.9"><span class="ecrm-1000">Camera Characterization</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.10 </span><a href="file-formats.html#x43-1690004.10"><span class="ecrm-1000">File Formats</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.10.1 </span><a href="file-formats.html#x43-1700004.10.1" id="QQ2-43-171"><span class="ecrm-1000">DPX</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.10.2 </span><a href="file-formats.html#x43-1710004.10.2" id="QQ2-43-172"><span class="ecrm-1000">EXR</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.11 </span><a href="color-matching-experiments.html#x44-1720004.11"><span class="ecrm-1000">Color Matching Experiments</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.12 </span><a href="grassmann-s-law-of-additive-color-mixture.html#x45-1730004.12"><span class="ecrm-1000">Grassmann’s Law of Additive Color Mixture</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.13 </span><a href="software.html#x46-1740004.13"><span class="ecrm-1000">Software</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.13.1 </span><a href="software.html#x46-1750004.13.1" id="QQ2-46-176"><span class="ecrm-1000">Open Source Software</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="ecrm-1000"> </span><span class="subsectionToc"><span class="ecrm-1000">4.13.2 </span><a href="software.html#x46-1760004.13.2" id="QQ2-46-177"><span class="ecrm-1000">Commercial Software</span></a></span>
+<br/>   <span class="ecrm-1000"> </span><span class="sectionToc"><span class="ecrm-1000">4.14 </span><a href="acknowledgements.html#x47-1770004.14"><span class="ecrm-1000">Acknowledgements</span></a></span>
+                                                                  
+
+                                                                  
+<br/>   <span class="chapterToc"><span class="ecrm-1000">5 </span><a href="glossary.html#x48-1780005"><span class="ecrm-1000">Glossary</span></a></span>
+</div>
+                                                                  
+
+                                                                  
+<div class="breadcrumb-navigation text-center"><a href="preface.html"><button class="btn btn-light mx-3" type="button">Previous</button></a><a href="cinematic-color.html#contents.html"><button class="btn btn-light mx-3" type="button">Up</button></a><a href="introduction.html"><button class="btn btn-light mx-3" type="button">Next</button></a></div>  </div> 
+<div class="col-md-2"></div> 
+</div> 
+</div> 
+</article>  <footer class="page-footer"> 
+<div class="container-fluid text-center py-3"> 
+Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ 
+<a href="mailto:ves-tech-color@googlegroups.com"> 
+ves-tech-color@googlegroups.com</a> 
+</div> 
+</footer>  <script src="assets/js/jquery/jquery.min.js" type="text/javascript"></script> 
+<script src="assets/js/popper/popper.min.js" type="text/javascript"></script> 
+<script src="assets/js/bootstrap/bootstrap.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+function executeSearchQuery() { 
+var input = document.getElementById('cse-search-input-box-id'); 
+var element = google.search.cse.element.getElement('searchresults-only0'); 
+if (input.value == '') { 
+element.clearAllResults(); 
+} else { 
+element.execute(input.value); 
+} 
+return false; 
+} 
+</script> 
+ 
+ 
+</body></html>

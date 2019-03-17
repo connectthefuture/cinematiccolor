@@ -1,363 +1,168 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-  <title>Color Management Challenges</title>
-  <meta charset="utf-8" />
-  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-  "generator" />
-  <meta content="width=device-width,initial-scale=1" name=
-  "viewport" />
-  <link href="cinematic-color.css" rel="stylesheet" type=
-  "text/css" />
-  <meta content="cinematic-color.tex" name="src" />
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
-  type="text/javascript"></script>
-  <script src="assets/js/jeri/jeri.min.js" type=
-  "text/javascript"></script>
-  <script type="text/javascript">
-  //<![CDATA[
+<html lang="en" xml:lang="en"><head><title>Color Management Challenges</title> 
+<meta charset="utf-8"/> 
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name="generator"/> 
+<meta content="width=device-width,initial-scale=1" name="viewport"/> 
+<link href="cinematic-color.css" rel="stylesheet" type="text/css"/> 
+<meta content="cinematic-color.tex" name="src"/> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js" type="text/javascript"></script> 
+<script src="https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js" type="text/javascript"></script> 
+<script src="assets/js/jeri/jeri.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+</script> 
+<script type="text/javascript"> 
+(function() { 
+var cx = '000762316508951405781:qrigrsppwri'; 
+var gcse = document.createElement('script'); 
+gcse.type = 'text/javascript'; 
+gcse.async = true; 
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
+var s = document.getElementsByTagName('script')[0]; 
+s.parentNode.insertBefore(gcse, s); 
+})(); 
+</script> 
+</head><body><nav class="navbar navbar-expand-md navbar-light bg-light">
+<a class="navbar-brand" href="#">Cinematic Color 2</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="preface.html" id="preface" role="button">Preface</a><div aria-labelledby="preface" class="dropdown-menu"><a class="dropdown-item" href="description.html">Description</a><a class="dropdown-item" href="authorship.html">Authorship</a><a class="dropdown-item" href="on-the-web.html">On the Web</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">Introduction</a><div aria-labelledby="introduction" class="dropdown-menu"><a class="dropdown-item" href="intended-audience.html">Intended Audience</a><a class="dropdown-item" href="how-to-read-this-document.html">How to Read this Document</a><a class="dropdown-item" href="the-goal.html">The Goal</a><a class="dropdown-item" href="converging-approaches.html">Converging Approaches</a><a class="dropdown-item" href="a-general-model-of-color-processing.html">A General Model of Color Processing</a><a class="dropdown-item" href="color-management-challenges.html">Color Management Challenges</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">Color Science</a><div aria-labelledby="color-science" class="dropdown-menu"><a class="dropdown-item" href="about-color-science.html">About Color Science</a><a class="dropdown-item" href="electromagnetic-spectrum.html">Electromagnetic Spectrum</a><a class="dropdown-item" href="human-visual-system.html">Human Visual System</a><a class="dropdown-item" href="basic-colorimetry.html">Basic Colorimetry</a><a class="dropdown-item" href="advanced-colorimetry.html">Advanced Colorimetry</a><a class="dropdown-item" href="representing-color.html">Representing Color</a><a class="dropdown-item" href="color-imaging-systems.html">Color Imaging Systems</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">Workflow</a><div aria-labelledby="workflow" class="dropdown-menu"><a class="dropdown-item" href="about-workflow.html">About Workflow</a><a class="dropdown-item" href="academy-color-encoding-system-aces.html">Academy Color Encoding System (ACES)</a><a class="dropdown-item" href="the-look.html">The Look</a><a class="dropdown-item" href="on-set.html">On Set</a><a class="dropdown-item" href="visual-effects-animation-and-games.html">Visual Effects, Animation and Games</a><a class="dropdown-item" href="compositing.html">Compositing</a><a class="dropdown-item" href="di-grading.html">DI Grading</a><a class="dropdown-item" href="critical-monitoring.html">Critical Monitoring</a><a class="dropdown-item" href="finishing.html">Finishing</a><a class="dropdown-item" href="archives.html">Archives</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">Appendix</a><div aria-labelledby="appendix" class="dropdown-menu"><a class="dropdown-item" href="common-rgb-color-encodings.html">Common RGB Color Encodings</a><a class="dropdown-item" href="opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class="dropdown-item" href="colour-science-for-python.html">Colour Science for Python</a><a class="dropdown-item" href="luts-and-transforms.html">LUTs and Transforms</a><a class="dropdown-item" href="asc-cdl.html">ASC CDL</a><a class="dropdown-item" href="aces-ctl.html">ACES CTL</a><a class="dropdown-item" href="full-and-legal-ranges.html">Full and Legal ranges</a><a class="dropdown-item" href="color-difference-encoding.html">Color Difference Encoding</a><a class="dropdown-item" href="camera-characterization.html">Camera Characterization</a><a class="dropdown-item" href="file-formats.html">File Formats</a><a class="dropdown-item" href="color-matching-experiments.html">Color Matching Experiments</a><a class="dropdown-item" href="grassmann-s-law-of-additive-color-mixture.html">Grassmann's Law of Additive Color Mixture</a><a class="dropdown-item" href="software.html">Software</a><a class="dropdown-item" href="acknowledgements.html">Acknowledgements</a></div></li><li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li><li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li></ul>
+<form class="navbar-form navbar-right" id="cse-search-box-form-id" onsubmit="return executeSearchQuery();" role="search">
+<div class="input-group">
+<input autocomplete="on" class="form-control" id="cse-search-input-box-id" size="25" type="text"/>
+<script async="" src="https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id" type="text/javascript">
+</script>
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+</span>
+</div>
+</form>
+</div>
+</nav><gcse:searchresults-only></gcse:searchresults-only> 
+<link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/> 
 
-  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
-  //]]>
-  </script>
-  <script type="text/javascript">
-  //<![CDATA[
+ <article class="page-content"> <div class="container-fluid py-3"> 
+<div class="row"> 
+<div class="col-md-2"></div> 
+<div class="col-md-8"> 
+ <h3 class="sectionHead"><span class="titlemark">1.6   </span> <a href="cinematic-color.html#QQ2-13-13" id="x13-130001.6">Color Management Challenges</a></h3>
+<p class="noindent">While the approaches in different industries and departments have converged, there
+are still many challenges when speaking about and working with color. They
+are:
+</p><p class="indent">   Multiple Requirements: It is difficult to lump on-set capture, visual effects, animation,
+games, grading and finishing into a single bucket, as each discipline has potentially
+different color pipeline goals and constraints. For example, in visual effects production,
+one of the golden rules is that image regions absent of visual effects should not be
+modified in any way. This places a constraint on color pipelines: that color conversions
+applied to the photography must be perfectly invertible. Animation and games have their
+own unique set of requirements, such as high-fidelity handling of saturated portions
+of the color gamut along with large areas of smooth color gradients. On-set
+capture teams are focused on a shot to shot consistency, capturing as much
+dynamic range with as little noise as possible. Grading teams have to deliver a
+set of final images that retain the intended look and feel of the production
+and take maximum advantage of the output device(s), standard dynamic range
+(SDR) and high-dynamic range (HDR). Thus, color pipelines must keep track of
+the "big picture" priorities but are often tailored to specific productions and
+groups.
+</p><p class="indent">   Varying Terminology: Working with color in a single production setting can be a
+challenge. An additional complicating factor is the abundance of overlapping
+and overloaded terminology for describing color and operations on color. As
+more parts of the production pipeline interact, from on-set capture to visual
+effects to grading and mastering, the history, and constraints that defined how
+each group thinks and talks about color come in contact when they may not
+have previously. Terms like grade, HDR, linear, brightness, gamma, light, look
+development or LUT may have clear, but different, meanings in two adjacent
+production groups. On top of overloaded terms, many acronyms in use add a level of
+perceived complexity to what would otherwise be an easily understood process. The
+Glossary in the Appendix is our attempt to address some of this overloading of
+terms.
+</p><p class="indent">   Various Color Philosophies: There are many schools of thought on how to best
+manage color in digital motion-picture production. There is far more variation in
+motion-picture color management than in desktop publishing. Some facilities render in
+high-dynamic range (HDR) color spaces. Other facilities prefer to render in low-dynamic
+range (LDR). Some facilities rely on the output display characteristics, like gamma, as the
+primary tool in crafting the final image appearance. Others do not. It is challenging to
+provide standardized workflows and toolsets when the current practice has such
+variation.
+</p><p class="indent">   Complex Software Ecosystem: Another challenge is that the majority of the motion
+picture, visual effects, animation and games productions use many software tools: on-set
+monitoring, LUT boxes, image viewers, 2D and 3D painting applications, compositing
+applications, lighting tools, editing and grading suite, media generation and transcoding
+software and so on. Although it is imperative that artists work in a color managed
+                                                                  
 
-  (function() { 
-  var cx = '000762316508951405781:qrigrsppwri'; 
-  var gcse = document.createElement('script'); 
-  gcse.type = 'text/javascript'; 
-  gcse.async = true; 
-  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
-  var s = document.getElementsByTagName('script')[0]; 
-  s.parentNode.insertBefore(gcse, s); 
-  })(); 
-  //]]>
-  </script>
-  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
-  "stylesheet" type="text/css" />
-  <link href="assets/css/custom.css" rel="stylesheet" type=
-  "text/css" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">Cinematic Color 2</a>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "preface.html" id="preface" role="button">Preface</a>
-          <div aria-labelledby="preface" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "description.html">Description</a><a class=
-            "dropdown-item" href=
-            "authorship.html">Authorship</a><a class=
-            "dropdown-item" href="on-the-web.html">On the Web</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "introduction.html" id="introduction" role=
-          "button">Introduction</a>
-          <div aria-labelledby="introduction" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "intended-audience.html">Intended Audience</a><a class=
-            "dropdown-item" href=
-            "how-to-read-this-document.html">How to Read this
-            Document</a><a class="dropdown-item" href=
-            "the-goal.html">The Goal</a><a class="dropdown-item"
-            href="converging-approaches.html">Converging
-            Approaches</a><a class="dropdown-item" href=
-            "a-general-model-of-color-processing.html">A General
-            Model of Color Processing</a><a class="dropdown-item"
-            href="color-management-challenges.html">Color
-            Management Challenges</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "color-science.html" id="color-science" role=
-          "button">Color Science</a>
-          <div aria-labelledby="color-science" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-color-science.html">About Color
-            Science</a><a class="dropdown-item" href=
-            "electromagnetic-spectrum.html">Electromagnetic
-            Spectrum</a><a class="dropdown-item" href=
-            "human-visual-system.html">Human Visual
-            System</a><a class="dropdown-item" href=
-            "basic-colorimetry.html">Basic Colorimetry</a><a class=
-            "dropdown-item" href=
-            "advanced-colorimetry.html">Advanced
-            Colorimetry</a><a class="dropdown-item" href=
-            "representing-color.html">Representing
-            Color</a><a class="dropdown-item" href=
-            "color-imaging-systems.html">Color Imaging Systems</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "workflow.html" id="workflow" role="button">Workflow</a>
-          <div aria-labelledby="workflow" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-workflow.html">About Workflow</a><a class=
-            "dropdown-item" href=
-            "academy-color-encoding-system-aces.html">Academy Color
-            Encoding System (ACES)</a><a class="dropdown-item"
-            href="the-look.html">The Look</a><a class=
-            "dropdown-item" href="on-set.html">On Set</a><a class=
-            "dropdown-item" href=
-            "visual-effects-animation-and-games.html">Visual
-            Effects, Animation and Games</a><a class=
-            "dropdown-item" href=
-            "compositing.html">Compositing</a><a class=
-            "dropdown-item" href="di-grading.html">DI
-            Grading</a><a class="dropdown-item" href=
-            "critical-monitoring.html">Critical
-            Monitoring</a><a class="dropdown-item" href=
-            "finishing.html">Finishing</a><a class="dropdown-item"
-            href="archives.html">Archives</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "appendix.html" id="appendix" role="button">Appendix</a>
-          <div aria-labelledby="appendix" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "common-rgb-color-encodings.html">Common RGB Color
-            Encodings</a><a class="dropdown-item" href=
-            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-            "dropdown-item" href=
-            "colour-science-for-python.html">Colour Science for
-            Python</a><a class="dropdown-item" href=
-            "luts-and-transforms.html">LUTs and
-            Transforms</a><a class="dropdown-item" href=
-            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
-            href="aces-ctl.html">ACES CTL</a><a class=
-            "dropdown-item" href="full-and-legal-ranges.html">Full
-            and Legal ranges</a><a class="dropdown-item" href=
-            "color-difference-encoding.html">Color Difference
-            Encoding</a><a class="dropdown-item" href=
-            "camera-characterization.html">Camera
-            Characterization</a><a class="dropdown-item" href=
-            "file-formats.html">File Formats</a><a class=
-            "dropdown-item" href=
-            "color-matching-experiments.html">Color Matching
-            Experiments</a><a class="dropdown-item" href=
-            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
-            Law of Additive Color Mixture</a><a class=
-            "dropdown-item" href=
-            "software.html">Software</a><a class="dropdown-item"
-            href="acknowledgements.html">Acknowledgements</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="glossary.html">Glossary</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href=
-          "bibliography.html">Bibliography</a>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" id=
-      "cse-search-box-form-id" onsubmit=
-      "return executeSearchQuery();" placeholder="Search" role=
-      "search" name="cse-search-box-form-id">
-        <div class="input-group">
-          <input autocomplete="on" class="form-control" id=
-          "cse-search-input-box-id" size="25" type="text" /> 
-          <script async="async" src=
-          "https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id"
-          type="text/javascript"></script>
-        </div>
-      </form>
-    </div>
-  </nav>
-  <article class="page-content">
-    <div class="container-fluid py-3">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <h3 class="sectionHead"><span class=
-          "titlemark">1.6</span> <a href=
-          "cinematic-color.html#QQ2-13-13" id="x13-130001.6">Color
-          Management Challenges</a></h3>
-          <p class="noindent">While the approaches in different
-          industries and departments have converged, there are
-          still many challenges when speaking about and working
-          with color. They are:</p>
-          <p class="indent">Multiple Requirements: It is difficult
-          to lump on-set capture, visual effects, animation, games,
-          grading and finishing into a single bucket, as each
-          discipline has potentially different color pipeline goals
-          and constraints. For example, in visual effects
-          production, one of the golden rules is that image regions
-          absent of visual effects should not be modified in any
-          way. This places a constraint on color pipelines: that
-          color conversions applied to the photography must be
-          perfectly invertible. Animation and games have their own
-          unique set of requirements, such as high-fidelity
-          handling of saturated portions of the color gamut along
-          with large areas of smooth color gradients. On-set
-          capture teams are focused on a shot to shot consistency,
-          capturing as much dynamic range with as little noise as
-          possible. Grading teams have to deliver a set of final
-          images that retain the intended look and feel of the
-          production and take maximum advantage of the output
-          device(s), standard dynamic range (SDR) and high-dynamic
-          range (HDR). Thus, color pipelines must keep track of the
-          "big picture" priorities but are often tailored to
-          specific productions and groups.</p>
-          <p class="indent">Varying Terminology: Working with color
-          in a single production setting can be a challenge. An
-          additional complicating factor is the abundance of
-          overlapping and overloaded terminology for describing
-          color and operations on color. As more parts of the
-          production pipeline interact, from on-set capture to
-          visual effects to grading and mastering, the history, and
-          constraints that defined how each group thinks and talks
-          about color come in contact when they may not have
-          previously. Terms like grade, HDR, linear, brightness,
-          gamma, light, look development or LUT may have clear, but
-          different, meanings in two adjacent production groups. On
-          top of overloaded terms, many acronyms in use add a level
-          of perceived complexity to what would otherwise be an
-          easily understood process. The Glossary in the Appendix
-          is our attempt to address some of this overloading of
-          terms.</p>
-          <p class="indent">Various Color Philosophies: There are
-          many schools of thought on how to best manage color in
-          digital motion-picture production. There is far more
-          variation in motion-picture color management than in
-          desktop publishing. Some facilities render in
-          high-dynamic range (HDR) color spaces. Other facilities
-          prefer to render in low-dynamic range (LDR). Some
-          facilities rely on the output display characteristics,
-          like gamma, as the primary tool in crafting the final
-          image appearance. Others do not. It is challenging to
-          provide standardized workflows and toolsets when the
-          current practice has such variation.</p>
-          <p class="indent">Complex Software Ecosystem: Another
-          challenge is that the majority of the motion picture,
-          visual effects, animation and games productions use many
-          software tools: on-set monitoring, LUT boxes, image
-          viewers, 2D and 3D painting applications, compositing
-          applications, lighting tools, editing and grading suite,
-          media generation and transcoding software and so on.
-          Although it is imperative that artists work in a color
-          managed pipeline across multiple applications, color
-          support is quite varied between software vendors.
-          Ideally, all software tools that interchange images,
-          perform color conversions or display images should be
-          color managed consistently. This is not the case. Each
-          production and facility has to understand the
-          capabilities and behavior of the applications they elect
-          to use as part of their pipeline design. The issue of
-          interchange takes on an even more complex angle when you
-          consider that multiple facilities often share image
-          assets on a single production. Color management practices
-          and technologies that encourage high-fidelity, consistent
-          interchange are sorely needed.</p>
-          <p class="indent">Protecting Imagery: On-set capture,
-          visual effects, and animation are not the end of the line
-          for image processing. Digital intermediate (DI) Grading
-          is a powerful tool for crafting the final appearance of a
-          motion picture that may substantially impact the
-          appearance of the final image. It is, therefore, a
-          necessity for on-set capture and post-production color
-          pipelines to protect the fidelity of the captured and
-          rendered image, even under drastic color corrections. It
-          is very likely that late stage color corrections will
-          reveal underlying problems in the captured or
-          computer-generated imagery if digital intermediate is not
-          considered earlier in production. Artifacts not visible
-          in production because of the viewing conditions or
-          introduced by changes made in post-production might be
-          very obvious in HDR or at 2 stops less exposure. The
-          eventual application of compression is also a
-          consideration. Future-Proofing Required: Display
-          technology is continually evolving, most recently with
-          high resolution (UltraHD), wide color gamut (Rec. 2020)
-          and higher dynamic range (Rec. 2100). For large
-          productions, it is very prudent to take all steps
-          possible to future-proof the computer-generated (CG)
-          imagery so that visual effects (VFX) elements can be
-          repurposed and do not need to be recreated when the next
-          generation of display technology appears. It is good
-          practice to work and archive at the source resolution.
-          Color space, bit depth, and dynamic range should also be
-          protected. These requirements can be very demanding of
-          storage, bandwidth and processing power in modern times,
-          often resulting in the use of compression algorithms to
-          ease the strain. Some of these may be visually lossless
-          yet still impact the color pipeline in the later
-          stages.</p>
-          <div class="breadcrumb-navigation text-center">
-            <a href=
-            "a-general-model-of-color-processing.html"><button class="btn btn-light mx-3"
-            type="button">Previous</button></a><a href=
-            "introduction.html#color-management-challenges.html"><button class="btn btn-light mx-3"
-            type="button">Up</button></a>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-  </article>
-  <footer class="page-footer">
-    <div class="container-fluid text-center py-3">
-      Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ <a href=
-      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
-    </div>
-  </footer>
-  <script src="assets/js/jquery/jquery.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/popper/popper.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/bootstrap/bootstrap.min.js" type=
-  "text/javascript"></script> 
-  <script type="text/javascript">
-  //<![CDATA[
+                                                                  
+pipeline across multiple applications, color support is quite varied between software
+vendors. Ideally, all software tools that interchange images, perform color conversions or
+display images should be color managed consistently. This is not the case. Each
+production and facility has to understand the capabilities and behavior of the
+applications they elect to use as part of their pipeline design. The issue of interchange
+takes on an even more complex angle when you consider that multiple facilities
+often share image assets on a single production. Color management practices
+and technologies that encourage high-fidelity, consistent interchange are sorely
+needed.
+</p><p class="indent">   Protecting Imagery: On-set capture, visual effects, and animation are not the end of
+the line for image processing. Digital intermediate (DI) Grading is a powerful tool
+for crafting the final appearance of a motion picture that may substantially
+impact the appearance of the final image. It is, therefore, a necessity for on-set
+capture and post-production color pipelines to protect the fidelity of the captured
+and rendered image, even under drastic color corrections. It is very likely that
+late stage color corrections will reveal underlying problems in the captured or
+computer-generated imagery if digital intermediate is not considered earlier in
+production. Artifacts not visible in production because of the viewing conditions or
+introduced by changes made in post-production might be very obvious in HDR
+or at 2 stops less exposure. The eventual application of compression is also
+a consideration. Future-Proofing Required: Display technology is continually
+evolving, most recently with high resolution (UltraHD), wide color gamut (Rec.
+2020) and higher dynamic range (Rec. 2100). For large productions, it is very
+prudent to take all steps possible to future-proof the computer-generated (CG)
+imagery so that visual effects (VFX) elements can be repurposed and do not need
+to be recreated when the next generation of display technology appears. It is
+good practice to work and archive at the source resolution. Color space, bit
+depth, and dynamic range should also be protected. These requirements can be
+very demanding of storage, bandwidth and processing power in modern times,
+often resulting in the use of compression algorithms to ease the strain. Some
+of these may be visually lossless yet still impact the color pipeline in the later
+stages.
+                                                                  
 
-  function executeSearchQuery() { 
-  var input = document.getElementById('cse-search-input-box-id'); 
-  var element = google.search.cse.element.getElement('searchresults-only0'); 
-  if (input.value == '') { 
-  element.clearAllResults(); 
-  } else { 
-  element.execute(input.value); 
-  } 
-  return false; 
-  } 
-  //]]>
-  </script>
-</body>
-</html>
+                                                                  
+</p>   
+<div class="breadcrumb-navigation text-center"><a href="a-general-model-of-color-processing.html"><button class="btn btn-light mx-3" type="button">Previous</button></a><a href="introduction.html#color-management-challenges.html"><button class="btn btn-light mx-3" type="button">Up</button></a></div>  </div> 
+<div class="col-md-2"></div> 
+</div> 
+</div> 
+</article>  <footer class="page-footer"> 
+<div class="container-fluid text-center py-3"> 
+Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ 
+<a href="mailto:ves-tech-color@googlegroups.com"> 
+ves-tech-color@googlegroups.com</a> 
+</div> 
+</footer>  <script src="assets/js/jquery/jquery.min.js" type="text/javascript"></script> 
+<script src="assets/js/popper/popper.min.js" type="text/javascript"></script> 
+<script src="assets/js/bootstrap/bootstrap.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+function executeSearchQuery() { 
+var input = document.getElementById('cse-search-input-box-id'); 
+var element = google.search.cse.element.getElement('searchresults-only0'); 
+if (input.value == '') { 
+element.clearAllResults(); 
+} else { 
+element.execute(input.value); 
+} 
+return false; 
+} 
+</script> 
+ 
+ 
+</body></html>

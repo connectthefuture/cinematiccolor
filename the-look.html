@@ -1,736 +1,433 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-  <title>The Look</title>
-  <meta charset="utf-8" />
-  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-  "generator" />
-  <meta content="width=device-width,initial-scale=1" name=
-  "viewport" />
-  <link href="cinematic-color.css" rel="stylesheet" type=
-  "text/css" />
-  <meta content="cinematic-color.tex" name="src" />
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
-  type="text/javascript"></script>
-  <script src="assets/js/jeri/jeri.min.js" type=
-  "text/javascript"></script>
-  <script type="text/javascript">
-  //<![CDATA[
+<html lang="en" xml:lang="en"><head><title>The Look</title> 
+<meta charset="utf-8"/> 
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name="generator"/> 
+<meta content="width=device-width,initial-scale=1" name="viewport"/> 
+<link href="cinematic-color.css" rel="stylesheet" type="text/css"/> 
+<meta content="cinematic-color.tex" name="src"/> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js" type="text/javascript"></script> 
+<script src="https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js" type="text/javascript"></script> 
+<script src="assets/js/jeri/jeri.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+</script> 
+<script type="text/javascript"> 
+(function() { 
+var cx = '000762316508951405781:qrigrsppwri'; 
+var gcse = document.createElement('script'); 
+gcse.type = 'text/javascript'; 
+gcse.async = true; 
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
+var s = document.getElementsByTagName('script')[0]; 
+s.parentNode.insertBefore(gcse, s); 
+})(); 
+</script> 
+</head><body><nav class="navbar navbar-expand-md navbar-light bg-light">
+<a class="navbar-brand" href="#">Cinematic Color 2</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="preface.html" id="preface" role="button">Preface</a><div aria-labelledby="preface" class="dropdown-menu"><a class="dropdown-item" href="description.html">Description</a><a class="dropdown-item" href="authorship.html">Authorship</a><a class="dropdown-item" href="on-the-web.html">On the Web</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">Introduction</a><div aria-labelledby="introduction" class="dropdown-menu"><a class="dropdown-item" href="intended-audience.html">Intended Audience</a><a class="dropdown-item" href="how-to-read-this-document.html">How to Read this Document</a><a class="dropdown-item" href="the-goal.html">The Goal</a><a class="dropdown-item" href="converging-approaches.html">Converging Approaches</a><a class="dropdown-item" href="a-general-model-of-color-processing.html">A General Model of Color Processing</a><a class="dropdown-item" href="color-management-challenges.html">Color Management Challenges</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">Color Science</a><div aria-labelledby="color-science" class="dropdown-menu"><a class="dropdown-item" href="about-color-science.html">About Color Science</a><a class="dropdown-item" href="electromagnetic-spectrum.html">Electromagnetic Spectrum</a><a class="dropdown-item" href="human-visual-system.html">Human Visual System</a><a class="dropdown-item" href="basic-colorimetry.html">Basic Colorimetry</a><a class="dropdown-item" href="advanced-colorimetry.html">Advanced Colorimetry</a><a class="dropdown-item" href="representing-color.html">Representing Color</a><a class="dropdown-item" href="color-imaging-systems.html">Color Imaging Systems</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">Workflow</a><div aria-labelledby="workflow" class="dropdown-menu"><a class="dropdown-item" href="about-workflow.html">About Workflow</a><a class="dropdown-item" href="academy-color-encoding-system-aces.html">Academy Color Encoding System (ACES)</a><a class="dropdown-item" href="the-look.html">The Look</a><a class="dropdown-item" href="on-set.html">On Set</a><a class="dropdown-item" href="visual-effects-animation-and-games.html">Visual Effects, Animation and Games</a><a class="dropdown-item" href="compositing.html">Compositing</a><a class="dropdown-item" href="di-grading.html">DI Grading</a><a class="dropdown-item" href="critical-monitoring.html">Critical Monitoring</a><a class="dropdown-item" href="finishing.html">Finishing</a><a class="dropdown-item" href="archives.html">Archives</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">Appendix</a><div aria-labelledby="appendix" class="dropdown-menu"><a class="dropdown-item" href="common-rgb-color-encodings.html">Common RGB Color Encodings</a><a class="dropdown-item" href="opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class="dropdown-item" href="colour-science-for-python.html">Colour Science for Python</a><a class="dropdown-item" href="luts-and-transforms.html">LUTs and Transforms</a><a class="dropdown-item" href="asc-cdl.html">ASC CDL</a><a class="dropdown-item" href="aces-ctl.html">ACES CTL</a><a class="dropdown-item" href="full-and-legal-ranges.html">Full and Legal ranges</a><a class="dropdown-item" href="color-difference-encoding.html">Color Difference Encoding</a><a class="dropdown-item" href="camera-characterization.html">Camera Characterization</a><a class="dropdown-item" href="file-formats.html">File Formats</a><a class="dropdown-item" href="color-matching-experiments.html">Color Matching Experiments</a><a class="dropdown-item" href="grassmann-s-law-of-additive-color-mixture.html">Grassmann's Law of Additive Color Mixture</a><a class="dropdown-item" href="software.html">Software</a><a class="dropdown-item" href="acknowledgements.html">Acknowledgements</a></div></li><li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li><li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li></ul>
+<form class="navbar-form navbar-right" id="cse-search-box-form-id" onsubmit="return executeSearchQuery();" role="search">
+<div class="input-group">
+<input autocomplete="on" class="form-control" id="cse-search-input-box-id" size="25" type="text"/>
+<script async="" src="https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id" type="text/javascript">
+</script>
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+</span>
+</div>
+</form>
+</div>
+</nav><gcse:searchresults-only></gcse:searchresults-only> 
+<link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/> 
 
-  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
-  //]]>
-  </script>
-  <script type="text/javascript">
-  //<![CDATA[
+ <article class="page-content"> <div class="container-fluid py-3"> 
+<div class="row"> 
+<div class="col-md-2"></div> 
+<div class="col-md-8"> 
+ <h3 class="sectionHead"><span class="titlemark">3.3   </span> <a href="cinematic-color.html#QQ2-25-84" id="x25-830003.3">The Look</a></h3>
+<p class="noindent">The visual style or Look of a production is integral to the audience’s experience of the
+media, be it live-action, animation or game. It evolves from pre-production through
+to delivery and can be modified anywhere in the pipeline. In live-action, the
+Look is often adjusted, finessed and approved in the DI grade, which is the
+final stage of post-production. In animation and games, the overall process
+is very similar except that the finished Look is established earlier on during
+content development and a final DI grade is less common or less impactful to the
+Look.
+</p><p class="indent">   The Look is the product of design, lighting, and grading. Crafting the Look involves
+many collaborators, many ideas and many processes. In order to view camera and CG
+scene-referred content in a meaningful way, it is important to add an approximation
+of the Look and an output transform that matches the display in use. Look
+Management is the process of accurately communicating the intended Look throughout
+production.
+</p><p class="indent">   The existence of a look should always be considered even if it is not explicitly defined
+in a color pipeline. The earlier the Look is established the more decisions on lighting, VFX
+and editing are based on a common understanding. Even without making a choice, the
+project still has a look.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.3.1   </span> <a href="contents.html#QQ2-25-85" id="x25-840003.3.1">Establishing the Look</a></h4>
+<p class="noindent">Design influences in pre-production begin with the producers and director discussing
+ideas. The Look begins with these ideas and concepts, sometimes collected in the form of
+a design scrapbook. In live-action, the Directory of Photography (DP), costume
+and set designers, makeup, the post-production supervisor, concept artists, and
+others then work together to develop an early version of the Look, which is
+then built into a look transform as a LUT, ASC Color Decision List (CDL) or
+other similar proprietary formats. These early discussions drive the selection of
+cameras, lighting, stages, locations, costumes and image processing. Sometimes
+extensive camera and DI grading tests are made to confirm viability or assist in the
+decision-making process, but usually, ideas remain relatively fluid in the early period. The
+director’s scrapbook often helps to communicate the influences as well as the
+intent.
+</p><p class="indent">   A selection of final images from live-action visual effects, animation and games. The
+look of each is driven by the creative direction of the production. In this small selection,
+you can see a variety of choices around contrast, saturation and dominant colors. Images
+are ? 2018 MARVEL, ? Disney/Pixar, ? Disney 2018 and ? and ? Lucasfilm Ltd. All
+Rights Reserved. Imagery from Battlefield V courtesy of Electronic Arts Inc, ? 2018
+Electronic Arts Inc. All rights reserved. Images ? Disney/Pixar ? Geoff Boyle All rights
+reserved.
+                                                                  
 
-  (function() { 
-  var cx = '000762316508951405781:qrigrsppwri'; 
-  var gcse = document.createElement('script'); 
-  gcse.type = 'text/javascript'; 
-  gcse.async = true; 
-  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
-  var s = document.getElementsByTagName('script')[0]; 
-  s.parentNode.insertBefore(gcse, s); 
-  })(); 
-  //]]>
-  </script>
-  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
-  "stylesheet" type="text/css" />
-  <link href="assets/css/custom.css" rel="stylesheet" type=
-  "text/css" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">Cinematic Color 2</a>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "preface.html" id="preface" role="button">Preface</a>
-          <div aria-labelledby="preface" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "description.html">Description</a><a class=
-            "dropdown-item" href=
-            "authorship.html">Authorship</a><a class=
-            "dropdown-item" href="on-the-web.html">On the Web</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "introduction.html" id="introduction" role=
-          "button">Introduction</a>
-          <div aria-labelledby="introduction" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "intended-audience.html">Intended Audience</a><a class=
-            "dropdown-item" href=
-            "how-to-read-this-document.html">How to Read this
-            Document</a><a class="dropdown-item" href=
-            "the-goal.html">The Goal</a><a class="dropdown-item"
-            href="converging-approaches.html">Converging
-            Approaches</a><a class="dropdown-item" href=
-            "a-general-model-of-color-processing.html">A General
-            Model of Color Processing</a><a class="dropdown-item"
-            href="color-management-challenges.html">Color
-            Management Challenges</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "color-science.html" id="color-science" role=
-          "button">Color Science</a>
-          <div aria-labelledby="color-science" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-color-science.html">About Color
-            Science</a><a class="dropdown-item" href=
-            "electromagnetic-spectrum.html">Electromagnetic
-            Spectrum</a><a class="dropdown-item" href=
-            "human-visual-system.html">Human Visual
-            System</a><a class="dropdown-item" href=
-            "basic-colorimetry.html">Basic Colorimetry</a><a class=
-            "dropdown-item" href=
-            "advanced-colorimetry.html">Advanced
-            Colorimetry</a><a class="dropdown-item" href=
-            "representing-color.html">Representing
-            Color</a><a class="dropdown-item" href=
-            "color-imaging-systems.html">Color Imaging Systems</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "workflow.html" id="workflow" role="button">Workflow</a>
-          <div aria-labelledby="workflow" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-workflow.html">About Workflow</a><a class=
-            "dropdown-item" href=
-            "academy-color-encoding-system-aces.html">Academy Color
-            Encoding System (ACES)</a><a class="dropdown-item"
-            href="the-look.html">The Look</a><a class=
-            "dropdown-item" href="on-set.html">On Set</a><a class=
-            "dropdown-item" href=
-            "visual-effects-animation-and-games.html">Visual
-            Effects, Animation and Games</a><a class=
-            "dropdown-item" href=
-            "compositing.html">Compositing</a><a class=
-            "dropdown-item" href="di-grading.html">DI
-            Grading</a><a class="dropdown-item" href=
-            "critical-monitoring.html">Critical
-            Monitoring</a><a class="dropdown-item" href=
-            "finishing.html">Finishing</a><a class="dropdown-item"
-            href="archives.html">Archives</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "appendix.html" id="appendix" role="button">Appendix</a>
-          <div aria-labelledby="appendix" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "common-rgb-color-encodings.html">Common RGB Color
-            Encodings</a><a class="dropdown-item" href=
-            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-            "dropdown-item" href=
-            "colour-science-for-python.html">Colour Science for
-            Python</a><a class="dropdown-item" href=
-            "luts-and-transforms.html">LUTs and
-            Transforms</a><a class="dropdown-item" href=
-            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
-            href="aces-ctl.html">ACES CTL</a><a class=
-            "dropdown-item" href="full-and-legal-ranges.html">Full
-            and Legal ranges</a><a class="dropdown-item" href=
-            "color-difference-encoding.html">Color Difference
-            Encoding</a><a class="dropdown-item" href=
-            "camera-characterization.html">Camera
-            Characterization</a><a class="dropdown-item" href=
-            "file-formats.html">File Formats</a><a class=
-            "dropdown-item" href=
-            "color-matching-experiments.html">Color Matching
-            Experiments</a><a class="dropdown-item" href=
-            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
-            Law of Additive Color Mixture</a><a class=
-            "dropdown-item" href=
-            "software.html">Software</a><a class="dropdown-item"
-            href="acknowledgements.html">Acknowledgements</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="glossary.html">Glossary</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href=
-          "bibliography.html">Bibliography</a>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" id=
-      "cse-search-box-form-id" onsubmit=
-      "return executeSearchQuery();" placeholder="Search" role=
-      "search" name="cse-search-box-form-id">
-        <div class="input-group">
-          <input autocomplete="on" class="form-control" id=
-          "cse-search-input-box-id" size="25" type="text" /> 
-          <script async="async" src=
-          "https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id"
-          type="text/javascript"></script>
-        </div>
-      </form>
-    </div>
-  </nav>
-  <article class="page-content">
-    <div class="container-fluid py-3">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <h3 class="sectionHead"><span class=
-          "titlemark">3.3</span> <a href=
-          "cinematic-color.html#QQ2-25-84" id="x25-830003.3">The
-          Look</a></h3>
-          <p class="noindent">The visual style or Look of a
-          production is integral to the audience’s experience of
-          the media, be it live-action, animation or game. It
-          evolves from pre-production through to delivery and can
-          be modified anywhere in the pipeline. In live-action, the
-          Look is often adjusted, finessed and approved in the DI
-          grade, which is the final stage of post-production. In
-          animation and games, the overall process is very similar
-          except that the finished Look is established earlier on
-          during content development and a final DI grade is less
-          common or less impactful to the Look.</p>
-          <p class="indent">The Look is the product of design,
-          lighting, and grading. Crafting the Look involves many
-          collaborators, many ideas and many processes. In order to
-          view camera and CG scene-referred content in a meaningful
-          way, it is important to add an approximation of the Look
-          and an output transform that matches the display in use.
-          Look Management is the process of accurately
-          communicating the intended Look throughout
-          production.</p>
-          <p class="indent">The existence of a look should always
-          be considered even if it is not explicitly defined in a
-          color pipeline. The earlier the Look is established the
-          more decisions on lighting, VFX and editing are based on
-          a common understanding. Even without making a choice, the
-          project still has a look.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.3.1</span> <a href=
-          "contents.html#QQ2-25-85" id=
-          "x25-840003.3.1">Establishing the Look</a></h4>
-          <p class="noindent">Design influences in pre-production
-          begin with the producers and director discussing ideas.
-          The Look begins with these ideas and concepts, sometimes
-          collected in the form of a design scrapbook. In
-          live-action, the Directory of Photography (DP), costume
-          and set designers, makeup, the post-production
-          supervisor, concept artists, and others then work
-          together to develop an early version of the Look, which
-          is then built into a look transform as a LUT, ASC Color
-          Decision List (CDL) or other similar proprietary formats.
-          These early discussions drive the selection of cameras,
-          lighting, stages, locations, costumes and image
-          processing. Sometimes extensive camera and DI grading
-          tests are made to confirm viability or assist in the
-          decision-making process, but usually, ideas remain
-          relatively fluid in the early period. The director’s
-          scrapbook often helps to communicate the influences as
-          well as the intent.</p>
-          <p class="indent">A selection of final images from
-          live-action visual effects, animation and games. The look
-          of each is driven by the creative direction of the
-          production. In this small selection, you can see a
-          variety of choices around contrast, saturation and
-          dominant colors. Images are ? 2018 MARVEL, ?
-          Disney/Pixar, ? Disney 2018 and ? and ? Lucasfilm Ltd.
-          All Rights Reserved. Imagery from Battlefield V courtesy
-          of Electronic Arts Inc, ? 2018 Electronic Arts Inc. All
-          rights reserved. Images ? Disney/Pixar ? Geoff Boyle All
-          rights reserved.</p>
-          <p class="indent">If the Look evolves progressively from
-          an established concept, through Look Management, and into
-          the DI grade it results in higher quality deliverables
-          and can also save a great deal of time, effort and money.
-          Even with the most careful Look Management, there are
-          likely to be many modifications in the final stage, the
-          DI grade. More of this is discussed later in the 3.6 DI
-          Grading. Sometimes the colorist may be asked to
-          dramatically diverge from the original artistic intent,
-          and this may be for any number of reasons.</p>
-          <p class="indent">A shot from "Avengers: Infinity War"
-          with a generic Rec. 709 look (top) and the show’s actual
-          look (bottom) ? 2018 MARVEL Once source images exist it
-          is up to Look Management to enable all the contributors
-          to view the images as intended, then for DI grading to
-          perfect the Look on a scene by scene basis and to manage
-          elements within each frame if necessary. The DI colorist
-          is also responsible for managing any differences that
-          occur as a result of different color gamut, dynamic range
-          or resolution in the final delivery versions. There are
-          two schools of thought on this. Some studios prefer that
-          all versions are as similar as possible and are prepared
-          to surrender the extremes of gamut and dynamic range to
-          ensure that. Others seek to exploit the full use of
-          high-dynamic range and wide color gamuts even though the
-          differences between delivery versions are more
-          apparent.</p>
-          <p class="indent">Crafting the Look in the widest color
-          space, highest dynamic range and highest resolution
-          provides a more future proof master deliverable,
-          especially if the project remains scene-referred. Some
-          organisations use this as a marketing differentiator.
-          Lighting, makeup and production design decisions for an
-          HDR screen master are very different to those made for an
-          SDR television master, so it is best to consider the
-          primary target display technology as early as
-          possible.</p>
-          <p class="indent">A shot from "Rogue One: A Star Wars
-          Story" with a generic Rec. 709 look (top) and the show’s
-          actual look (bottom). The source colors for the bright
-          magenta / pink of the X-Wing’s engines were outside of
-          the Rec. 709 gamut. ? and ? Lucasfilm Ltd. All Rights
-          Reserved In some productions, particularly in animation,
-          the Look is set in early pre-production, with a little
-          latitude for DI grading allowed to help continuity and
-          atmosphere. There are situations when the Look may be
-          quite different for some deliverables, e.g. for HDR
-          Displays, or the Look may evolve over time, for example,
-          TV series can look different between early seasons. These
-          may need to be better matched for box sets later on.
-          Often, the Look is not fully defined until the DI grading
-          stage and then the extra flexibility of source referred
-          VFX elements is advantageous. The Look can change even if
-          the final DI colorist is involved from the very start
-          either on-set or for the dailies. Changes to contrast,
-          color or brightness might behave differently on CG
-          material compared to camera sourced media. Whilst it is
-          the intent in an ideal world that CG elements exactly
-          match the scene-referred pixel values that the
-          live-action camera would have captured, in reality, the
-          capture process itself may have variations. Then the
-          colorist has to correct for continuity as well as apply
-          the Look. Differences between elements are also likely to
-          occur if the Look Management is not applied correctly
-          across all departments and facilities.</p>
-          <p class="indent">A live-action image from a camera test
-          shoot with an ACES Rec. 709 output transform (top) and a
-          test grade crafted to even out the skin tones (bottom).
-          Images are ? Geoff Boyle The responsibility of approving
-          the Look can fall to the producer, director,
-          cinematographer, colorist, VFX supervisor. Sometimes even
-          the editor is involved. Often there are disagreements on
-          the Look and the way it is interpreted scene-to-scene.
-          For that reason, it helps to clarify whose vision the
-          post-production team are working towards. Without clear
-          direction, much time will be lost preparing alternate
-          versions or re-rendering fixes in the final DI grade as
-          decisions change. Whoever makes the decisions on the
-          Look, someone then has to take responsibility for it
-          through to delivery. That is usually either the Director
-          of Photography or the colorist. The senior colorist is
-          likely to be more accessible but may not be appointed
-          until much later in the post-production timetable. Whilst
-          there is a strong tendency for everyone to become
-          familiar and comfortable with the Look set in the color
-          managed pipeline it can happen that quite significant
-          changes are made at the final grading stages in order to
-          better communicate an impression to the audience. Often
-          the full resolution images are not seen on a large
-          calibrated display in the edited sequence until the DI
-          master grade when there is no longer an obligation to use
-          reversible transforms. The DI colorist can then finesse
-          each scene to work within the Look or tweak the Look to
-          better convey the artistic intent.</p>
-          <p class="indent">The Look for animation is guided by
-          artwork created in visual development. Translating the
-          creative style into a Look that can be applied to CG
-          animation is an iterative process utilizing render tests
-          of neutrally lit character rigs as well as more complete
-          scenes that are representative of the storytelling
-          environment. In a facility where there is a history of
-          previous Looks, one of these may be selected as a
-          starting point for further development. It can also help
-          to start with a relatively neutral look before
-          incorporating specific creative touches. A neutral look
-          is useful for verifying the technical quality of renders
-          and the accuracy of physical simulations.</p>
-          <p class="indent">A progression of Looks. (Top) A generic
-          gamma 2.2 output. (Middle) Standard show Look with
-          contrast and saturation boost, plus highlight
-          compression. (Bottom) Final stylized Look incorporating
-          orange-yellow filter. Images are ?Disney. All Rights
-          Reserved.</p>
-          <p class="indent">The initial pass at the Look tries to
-          establish the desired contrast and overall shape of the
-          tone curve along with the appropriate level of color
-          saturation. Once this is established more specific
-          adjustments can be made to dial in characteristics such
-          as the behavior of bright highlights and shadow detail. A
-          controlled amount of color distortion may be desirable
-          sometimes, for example, to lend warmth to highlights.
-          These fine adjustments may not be easy to make with a
-          general test image, but can be made more obvious by
-          selecting the right image content. Characters are
-          particularly useful for fine-tuning the appearance of
-          facial contours, highlights in the hair and the overall
-          reproduction of skin tones, while environments are useful
-          for evaluating color relationships and setting the
-          behavior of very bright light sources. Because the final
-          viewed color is a product of both the rendered or
-          captured image and the Look it is viewed through, it is
-          important to set the Look early so that changes do not
-          impact approved images once production is underway. Once
-          a base Look has been set for the movie, it may also be
-          complemented by secondary Looks to support the story as
-          it shifts into different environments.</p>
-          <p class="indent">A generic Rec. 709 look (top) and the
-          project’s actual look for this scene (bottom). Imagery
-          from Battlefield V courtesy of Electronic Arts Inc, ?
-          2018 Electronic Arts Inc. All rights reserved. The Look
-          for a games project is established in much the same way
-          as for an animated feature. Tests using environments and
-          characters are run to establish the desired contrast,
-          saturation and overall shape of any S-curve that may be
-          required (if any). In the context of a game, a Look has
-          to serve not just the vision of the art director but also
-          the goals of the gameplay designers. If a Look is overly
-          contrasty, it may interfere with gameplay by making
-          enemies hiding in shadows effectively invisible to the
-          player. By the same token, if the tone curve’s shoulder
-          is too abrupt, the detail in the highlights may be lost,
-          which can hinder gameplay if bright objects or enemies
-          can’t be differentiated from bright skies or lights.
-          Content is often validated against the game Look as well
-          as a neutral Look. Since games are real-time and often
-          built as a result of rapid iteration, the ability to
-          change is held in high regard and thus content may be
-          reused in multiple very different Looks. For example,
-          gameplay may require a different Look for low health, or
-          the game may be played at different times of day. Thus
-          validating the content holds up in both the target Look
-          and a neutral Look gives confidence the lighting or Look
-          can be changed without requiring significant asset
-          rework. Checking content in a neutral and
-          project-specific Look mirrors animation and live-action
-          workflows.</p>
-          <p class="indent">Games can be made with fairly small
-          teams and as such, one person may perform many separate
-          roles. There is generally no one person who tends to own
-          Look creation, though the art director will typically
-          drive it and make the final call to sign off on assets,
-          lighting and Look adjustments made by a team of artists.
-          One difference with live-action and animation is that
-          because game engines generate new images every time the
-          game is played, the opportunity to change and refine the
-          Look extends even closer to the time when the audience
-          sees the finished frames even tuning it to suit the
-          individual display being used. By association, they have
-          less ability to fall back to manually created and
-          fine-tuned trim passes like visual effects and animation
-          projects to optimize the display quality for different
-          displays’ dynamic range and gamut. Although broad
-          operating parameters can be set for the engine to work
-          within and interpolate accordingly. Efforts such as the
-          "HDR Gaming Interest Group" (HGIG) aim to optimize the
-          images generated to best utilize the characteristics of
-          each display.</p>
-          <p class="indent">Key Points Even without making a
-          choice, each project has its Look. The Look influences
-          audience perception of imagery. The earlier the Look is
-          established the more effective it is implemented. Testing
-          with a neutral look is useful for verifying technical
-          quality and accuracy The base Look may be complemented by
-          secondary looks for some scenes</p>
-          <h5 class="subsubsectionHead"><a href="#x25-850003.3.1"
-          id="x25-850003.3.1">Displaying Scene-Referred
-          Imagery</a></h5>
-          <p class="noindent">One of the complexities associated
-          with scene-referred imagery is display reproduction.
-          While scene-referred imagery is natural for processing,
-          displays can only reproduce a much lower dynamic (LDR)
-          range. While at first glance it seems like a reasonable
-          approach to directly map scene-referred linear directly
-          to the display, at least for the overlapping portions of
-          the contrast range, in practice this yields unpleasing
-          results. See "Color Management for Digital Cinema"
-          Giorgianni (2005), for further justification, and Section
-          3.2 for a visual example.</p>
-          <p class="indent">This challenge has been approached and
-          intuitively solved by artists for millena. The world is a
-          high dynamic range environment. Artists have striven to
-          render artistic versions of reality on low dynamic range
-          media. In the color community, there are many aspects to
-          pleasingly reproducing high dynamic range pixels on a low
-          dynamic range display, but one of the most important is
-          known as tone mapping and is an active area of research.
-          Surprisingly, many pleasing tonal renditions of
-          high-dynamic range data to low dynamic range displays use
-          similarly shaped transforms. On first glance this may be
-          surprising, but when one sits down and designs a tone
-          rendering transform there are convergent processes at
-          work corresponding to what yields a pleasing image
-          appearance. Other considerations for reproducing high
-          dynamic range on low dynamic range displays include gamut
-          mapping, highlight bleaching and saturation changes.</p>
-          <p class="indent">First, most tone renderings map a
-          traditional scene grey exposure to a central value on the
-          output display. Directly mapping the remaining
-          scene-referred linear image to display results in an
-          image with low apparent contrast as a consequence of the
-          display surround. Thus, one adds a reconstruction slope
-          greater than 1:1 to bump the mid-tone contrast. Of
-          course, with this increase, in contrast, the shadows and
-          highlights are severely clipped, so a roll-off in
-          contrast of lower than 1:1 is applied on both the high
-          and low ends to allow for highlight and shadow detail to
-          have smooth transitions. With this high contrast portion
-          in the middle and low contrast portions at the extrema,
-          the final curve resembles an "S" shape as shown
-          below.</p>
-          <p class="indent">The ACES sRGB Output Transform applied
-          to a ramp in the ACEScc color space. An "S-shaped" curve
-          is traditionally used to cinematically tone render
-          scene-referred HDR colorimetry into an image suitable for
-          output on a low dynamic range display. The input axis is
-          an ACEScc logarithmic base 2 coding of scene-referred
-          linear pixels. The output axis corresponds to code-values
-          for an sRGB display.</p>
-          <p class="indent">The final transfer curve from
-          scene-referred linear to display is shockingly consistent
-          between technologies, with both digital and film imaging
-          pipelines having roughly matched end to end transforms.
-          If a film color process is characterized from negative to
-          print, it almost exactly produces this "S-shaped"
-          transfer curve, which is not surprising given the
-          pleasant tonal reproductions film offers. In traditional
-          film imaging process, the negative stock captures a wide
-          dynamic range and the print stock imparts a very pleasing
-          tone mapping for reproduction on limited dynamic range
-          devices (the theatrical print "positive"). Broadly
-          speaking, film negatives encode an HDR scene-referred
-          image, and the print embodies an output-referred tone
-          mapping. For those interested in further details on the
-          high-dynamic range imaging processes implicit in the film
-          development process, see the Ansel Adams Photography
-          Series [Adams 84].</p>
-          <p class="indent">It should be noted that while there is
-          significant convergence on filmic tone mapping, a filmic
-          curve may not be desirable in games, tv or film.
-          Productions choosing to reproduce a particularly stylized
-          visual, such as a cartoony or highly ambient-lit
-          appearance, may not wish to see the additional contrast
-          or toe from such an operator, so may elect to have a less
-          pronounced curve.</p>
-          <p class="indent">To summarize, it is strongly advised
-          not to directly map high-dynamic range scene-referred
-          data to the display. A tone rendering is required, and
-          there is great historical precedence for using a global
-          "S-Shaped" operator. HDR scene-acquisition accurately
-          records a wide range of scene-luminance values, and with
-          a proper tone mapping operator, much of this range can be
-          visually preserved during reproduction on low-dynamic
-          range devices.</p>
-          <p class="indent">Please refer to Section 3.2 for a
-          visual comparison between an S-shaped tone mapping
-          operator versus a simple gamma transform.</p>
-          <p class="indent">Specific considerations taken into
-          account when crafting the Look for a film, animation or
-          game are discussed later in 3.6 DI Grading</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.3.2</span> <a href=
-          "contents.html#QQ2-25-87" id="x25-860003.3.2">Look
-          Management</a></h4>
-          <p class="noindent">Locking down the Look early on is a
-          critical first step in crafting cinematic images, as it
-          underpins every other part of the process. The remainder
-          of the pipeline relies on visualizations that are created
-          by working, translating or transcoding the Look and this
-          is known as Look Management.</p>
-          <p class="indent">An overview of the filmmaking process
-          shows that Look Management is core to each stage. The
-          mistaken belief that the Look is the product of just the
-          DP during shooting, or the colorist during mastering
-          discourages a well-managed pipeline, without which the
-          visual effects process is rather in the dark. Decisions
-          earlier in the chain cannot easily be protected without a
-          carefully color managed pipeline. Meaningful tests should
-          be performed early on, saving a lot of work and some
-          potentially unpleasant surprises later. In high-end
-          productions changes to the Look can be suggested all
-          through post-production and communicated to everyone else
-          via color decision lists of some sort. The CDL is one
-          such mechanism but is quite limited in scope, there are
-          other more complex proprietary solutions in use.</p>
-          <p class="indent">When a look is applied to imagery as it
-          is captured or saved to disk, it’s called "baking the
-          Look". The Look should not be baked in at the source or
-          early in post-production. If the Look is baked in early,
-          all the problems of output-referred workflows are very
-          apparent, especially if the Look is strong. Continuity is
-          more difficult and there is very little latitude to alter
-          or modify the Look later on. Exposures, color balance,
-          and lighting have to be close to perfect since there is
-          little more information for the colorist to use in the
-          final stages. VFX could still be delivered
-          scene-referred, but the expectation is that they match
-          the main content. Delivering to multiple formats is still
-          possible, but usually, any differences that take
-          advantage of wider tonal range or color gamut are
-          severely limited. It is strongly recommended that the
-          Look is NOT baked in until the final DI grading
-          stage.</p>
-          <p class="indent">Working with multiple gamuts is a
-          subject that can’t be avoided for a show of even moderate
-          complexity. Almost every camera has a different encoding
-          gamut. The working gamut used for a show will likely be
-          distinct from any of the camera encoding gamuts. The
-          working gamut will also likely be distinct from the final
-          output display gamut. This is guaranteed if the show will
-          be seen on multiple types of displays. The advent of the
-          multi-gamut workflow has added an additional layer of
-          complexity to setting up a project and communicating
-          between artists, departments and companies. As such, it
-          is especially important to define the choice of gamuts to
-          be used for capture, grading, lighting, rendering,
-          compositing, and final display as early as possible and
-          to agree on how and when the gamut choices should be
-          presented to users. For many artists, a successful setup
-          will be one where they aren’t aware of the gamuts being
-          used. OpenColorIO (2003)’s "role" feature allows some of
-          these choices to be safely hidden from artists. It is
-          very easy to get lost in a thicket of similar, but not
-          quite matching, gamuts if images and color data aren’t
-          properly tracked or labeled.</p>
-          <p class="indent">One of the benefits of ACES in the
-          world of multiple gamuts is that it provides a clear
-          standard for mapping between the different sets of gamuts
-          used for cameras, rendering, compositing, grading, and
-          final output.</p>
-          <p class="indent">The choice of working gamut affects the
-          feel of controls and operations that affect color.
-          Choosing a space that is too wide may break some
-          operators, like keyers, or may just make otherwise
-          familiar operators and controls feel unfamiliar to
-          artists. Working in the camera encoding gamut may be
-          useful for these jobs. For some operations, a compositor
-          may transform to the camera encoding gamut, apply the
-          operation and then transform back to the working gamut.
-          This is similar in spirit to the time-honored trick of
-          resizing in log described in 3.5.4 Working with Log
-          Imagery.</p>
-          <p class="indent">When the reference Look is created in a
-          DI grading system, the process is saved just as it is in
-          case it needs to be modified or used to derive other
-          looks. The Look itself is sampled in a 3D LUT format that
-          can be loaded into color managed applications. Because
-          some applications have specific requirements for the LUT
-          formatting, it is not unusual to generate multiple LUTs.
-          However, it is preferable to find a common LUT format
-          that works with as many applications as possible with a
-          high fidelity. Exporting the Look as a LUT is the easiest
-          way to share it but using a parameter based method such
-          as CDL is also an option for simpler looks. Many
-          facilities use the combination of a show LUT with a CDL
-          in front of it.</p>
-          <p class="indent">Once the Look has been established for
-          a CG animation project the process that created it is
-          saved just as it is in DI grading systems. The best
-          solution is to use a color management system, like
-          OpenColorIO, that is shared across all the applications
-          and can apply Looks contextually. This allows for a high
-          degree of automation in Look Management and can help
-          eliminate operator error. Tagging images with metadata
-          can assist this system by automatically managing looks
-          across productions and also within a production when
-          multiple looks are employed. A good color management
-          system should be able to generate notes that can feedback
-          to artists working at their desktops and also feed
-          forward to the colorist for DI grading.</p>
-          <p class="indent">Games tend to be produced primarily
-          using a single toolset, the "engine". Within the engine
-          itself, color management is largely handled
-          automatically, being a single piece of software. For
-          assets that are created externally to the engine, like
-          textures and sometimes materials, it is desirable to have
-          a representation of the Look of the project that can be
-          used in the authoring packages used for those assets for
-          validation purposes. In this case it is common to export
-          a LUT or other representation of the Look, much like
-          animation and live-action. Color management must also be
-          handled with defined import/export paths allowing
-          management of externally created content, ideally via
-          similar tools to VFX/Animation but are sometimes handled
-          manually.</p>
-          <p class="indent">Key Points Look Management visualises
-          the Look through production and post-production
-          Irreversibly applying the Look is called "baking in the
-          Look" The Look should not be baked in until the final DI
-          grading stage Look Management should consider multiple
-          gamut sources and deliverables Metadata is crucial for
-          good Look Management</p>
-          <div class="breadcrumb-navigation text-center">
-            <a href=
-            "academy-color-encoding-system-aces.html"><button class="btn btn-light mx-3"
-            type="button">Previous</button></a><a href=
-            "workflow.html#the-look.html"><button class=
-            "btn btn-light mx-3" type=
-            "button">Up</button></a><a href=
-            "on-set.html"><button class="btn btn-light mx-3" type=
-            "button">Next</button></a>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-  </article>
-  <footer class="page-footer">
-    <div class="container-fluid text-center py-3">
-      Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ <a href=
-      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
-    </div>
-  </footer>
-  <script src="assets/js/jquery/jquery.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/popper/popper.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/bootstrap/bootstrap.min.js" type=
-  "text/javascript"></script> 
-  <script type="text/javascript">
-  //<![CDATA[
+                                                                  
+</p><p class="indent">   If the Look evolves progressively from an established concept, through Look
+Management, and into the DI grade it results in higher quality deliverables and can also
+save a great deal of time, effort and money. Even with the most careful Look
+Management, there are likely to be many modifications in the final stage, the DI grade.
+More of this is discussed later in the 3.6 DI Grading. Sometimes the colorist may be
+asked to dramatically diverge from the original artistic intent, and this may be for any
+number of reasons.
+</p><p class="indent">   A shot from "Avengers: Infinity War" with a generic Rec. 709 look (top) and the
+show’s actual look (bottom) ? 2018 MARVEL Once source images exist it is
+up to Look Management to enable all the contributors to view the images as
+intended, then for DI grading to perfect the Look on a scene by scene basis and to
+manage elements within each frame if necessary. The DI colorist is also responsible
+for managing any differences that occur as a result of different color gamut,
+dynamic range or resolution in the final delivery versions. There are two schools of
+thought on this. Some studios prefer that all versions are as similar as possible
+and are prepared to surrender the extremes of gamut and dynamic range to
+ensure that. Others seek to exploit the full use of high-dynamic range and wide
+color gamuts even though the differences between delivery versions are more
+apparent.
+</p><p class="indent">   Crafting the Look in the widest color space, highest dynamic range and highest
+resolution provides a more future proof master deliverable, especially if the project
+remains scene-referred. Some organisations use this as a marketing differentiator.
+Lighting, makeup and production design decisions for an HDR screen master are very
+different to those made for an SDR television master, so it is best to consider the primary
+target display technology as early as possible.
+</p><p class="indent">   A shot from "Rogue One: A Star Wars Story" with a generic Rec. 709 look
+(top) and the show’s actual look (bottom). The source colors for the bright
+magenta / pink of the X-Wing’s engines were outside of the Rec. 709 gamut. ?
+and ? Lucasfilm Ltd. All Rights Reserved In some productions, particularly in
+animation, the Look is set in early pre-production, with a little latitude for DI
+grading allowed to help continuity and atmosphere. There are situations when
+the Look may be quite different for some deliverables, e.g. for HDR Displays,
+or the Look may evolve over time, for example, TV series can look different
+between early seasons. These may need to be better matched for box sets later on.
+Often, the Look is not fully defined until the DI grading stage and then the extra
+flexibility of source referred VFX elements is advantageous. The Look can change
+even if the final DI colorist is involved from the very start either on-set or for
+the dailies. Changes to contrast, color or brightness might behave differently
+on CG material compared to camera sourced media. Whilst it is the intent in
+an ideal world that CG elements exactly match the scene-referred pixel values
+that the live-action camera would have captured, in reality, the capture process
+itself may have variations. Then the colorist has to correct for continuity as
+well as apply the Look. Differences between elements are also likely to occur
+if the Look Management is not applied correctly across all departments and
+facilities.
+</p><p class="indent">   A live-action image from a camera test shoot with an ACES Rec. 709 output
+transform (top) and a test grade crafted to even out the skin tones (bottom). Images are
+? Geoff Boyle The responsibility of approving the Look can fall to the producer, director,
+cinematographer, colorist, VFX supervisor. Sometimes even the editor is involved. Often
+there are disagreements on the Look and the way it is interpreted scene-to-scene. For
+                                                                  
 
-  function executeSearchQuery() { 
-  var input = document.getElementById('cse-search-input-box-id'); 
-  var element = google.search.cse.element.getElement('searchresults-only0'); 
-  if (input.value == '') { 
-  element.clearAllResults(); 
-  } else { 
-  element.execute(input.value); 
-  } 
-  return false; 
-  } 
-  //]]>
-  </script>
-</body>
-</html>
+                                                                  
+that reason, it helps to clarify whose vision the post-production team are working
+towards. Without clear direction, much time will be lost preparing alternate versions or
+re-rendering fixes in the final DI grade as decisions change. Whoever makes the decisions
+on the Look, someone then has to take responsibility for it through to delivery.
+That is usually either the Director of Photography or the colorist. The senior
+colorist is likely to be more accessible but may not be appointed until much
+later in the post-production timetable. Whilst there is a strong tendency for
+everyone to become familiar and comfortable with the Look set in the color
+managed pipeline it can happen that quite significant changes are made at
+the final grading stages in order to better communicate an impression to the
+audience. Often the full resolution images are not seen on a large calibrated display
+in the edited sequence until the DI master grade when there is no longer an
+obligation to use reversible transforms. The DI colorist can then finesse each
+scene to work within the Look or tweak the Look to better convey the artistic
+intent.
+</p><p class="indent">   The Look for animation is guided by artwork created in visual development.
+Translating the creative style into a Look that can be applied to CG animation is an
+iterative process utilizing render tests of neutrally lit character rigs as well as more
+complete scenes that are representative of the storytelling environment. In a facility
+where there is a history of previous Looks, one of these may be selected as a
+starting point for further development. It can also help to start with a relatively
+neutral look before incorporating specific creative touches. A neutral look is
+useful for verifying the technical quality of renders and the accuracy of physical
+simulations.
+</p><p class="indent">   A progression of Looks. (Top) A generic gamma 2.2 output. (Middle) Standard show
+Look with contrast and saturation boost, plus highlight compression. (Bottom) Final
+stylized Look incorporating orange-yellow filter. Images are ?Disney. All Rights
+Reserved.
+</p><p class="indent">   The initial pass at the Look tries to establish the desired contrast and overall shape of
+the tone curve along with the appropriate level of color saturation. Once this is
+established more specific adjustments can be made to dial in characteristics such as
+the behavior of bright highlights and shadow detail. A controlled amount of
+color distortion may be desirable sometimes, for example, to lend warmth to
+highlights. These fine adjustments may not be easy to make with a general test
+image, but can be made more obvious by selecting the right image content.
+Characters are particularly useful for fine-tuning the appearance of facial contours,
+highlights in the hair and the overall reproduction of skin tones, while environments
+are useful for evaluating color relationships and setting the behavior of very
+bright light sources. Because the final viewed color is a product of both the
+rendered or captured image and the Look it is viewed through, it is important
+to set the Look early so that changes do not impact approved images once
+production is underway. Once a base Look has been set for the movie, it may also be
+complemented by secondary Looks to support the story as it shifts into different
+environments.
+</p><p class="indent">   A generic Rec. 709 look (top) and the project’s actual look for this scene (bottom).
+Imagery from Battlefield V courtesy of Electronic Arts Inc, ? 2018 Electronic Arts Inc. All
+rights reserved. The Look for a games project is established in much the same way as for
+an animated feature. Tests using environments and characters are run to establish the
+desired contrast, saturation and overall shape of any S-curve that may be required (if
+any). In the context of a game, a Look has to serve not just the vision of the art director
+                                                                  
+
+                                                                  
+but also the goals of the gameplay designers. If a Look is overly contrasty, it may
+interfere with gameplay by making enemies hiding in shadows effectively invisible to the
+player. By the same token, if the tone curve’s shoulder is too abrupt, the detail
+in the highlights may be lost, which can hinder gameplay if bright objects or
+enemies can’t be differentiated from bright skies or lights. Content is often
+validated against the game Look as well as a neutral Look. Since games are
+real-time and often built as a result of rapid iteration, the ability to change is
+held in high regard and thus content may be reused in multiple very different
+Looks. For example, gameplay may require a different Look for low health, or the
+game may be played at different times of day. Thus validating the content holds
+up in both the target Look and a neutral Look gives confidence the lighting
+or Look can be changed without requiring significant asset rework. Checking
+content in a neutral and project-specific Look mirrors animation and live-action
+workflows.
+</p><p class="indent">   Games can be made with fairly small teams and as such, one person may perform
+many separate roles. There is generally no one person who tends to own Look creation,
+though the art director will typically drive it and make the final call to sign off on assets,
+lighting and Look adjustments made by a team of artists. One difference with live-action
+and animation is that because game engines generate new images every time the game is
+played, the opportunity to change and refine the Look extends even closer to the time
+when the audience sees the finished frames even tuning it to suit the individual display
+being used. By association, they have less ability to fall back to manually created and
+fine-tuned trim passes like visual effects and animation projects to optimize the
+display quality for different displays’ dynamic range and gamut. Although broad
+operating parameters can be set for the engine to work within and interpolate
+accordingly. Efforts such as the "HDR Gaming Interest Group" (HGIG) aim
+to optimize the images generated to best utilize the characteristics of each
+display.
+</p><p class="indent">   Key Points Even without making a choice, each project has its Look. The Look
+influences audience perception of imagery. The earlier the Look is established the more
+effective it is implemented. Testing with a neutral look is useful for verifying technical
+quality and accuracy The base Look may be complemented by secondary looks for some
+scenes
+</p>   
+<h5 class="subsubsectionHead"><a href="#x25-850003.3.1" id="x25-850003.3.1">Displaying Scene-Referred Imagery</a></h5>
+<p class="noindent">One of the complexities associated with scene-referred imagery is display reproduction.
+While scene-referred imagery is natural for processing, displays can only reproduce a
+much lower dynamic (LDR) range. While at first glance it seems like a reasonable
+approach to directly map scene-referred linear directly to the display, at least for the
+overlapping portions of the contrast range, in practice this yields unpleasing results. See
+"Color Management for Digital Cinema" Giorgianni (2005), for further justification, and
+Section 3.2 for a visual example.
+</p><p class="indent">   This challenge has been approached and intuitively solved by artists for millena. The
+world is a high dynamic range environment. Artists have striven to render artistic versions
+of reality on low dynamic range media. In the color community, there are many aspects to
+pleasingly reproducing high dynamic range pixels on a low dynamic range display, but one
+                                                                  
+
+                                                                  
+of the most important is known as tone mapping and is an active area of research.
+Surprisingly, many pleasing tonal renditions of high-dynamic range data to low
+dynamic range displays use similarly shaped transforms. On first glance this may be
+surprising, but when one sits down and designs a tone rendering transform there are
+convergent processes at work corresponding to what yields a pleasing image
+appearance. Other considerations for reproducing high dynamic range on low
+dynamic range displays include gamut mapping, highlight bleaching and saturation
+changes.
+</p><p class="indent">   First, most tone renderings map a traditional scene grey exposure to a central value
+on the output display. Directly mapping the remaining scene-referred linear image to
+display results in an image with low apparent contrast as a consequence of the
+display surround. Thus, one adds a reconstruction slope greater than 1:1 to bump
+the mid-tone contrast. Of course, with this increase, in contrast, the shadows
+and highlights are severely clipped, so a roll-off in contrast of lower than 1:1 is
+applied on both the high and low ends to allow for highlight and shadow detail to
+have smooth transitions. With this high contrast portion in the middle and low
+contrast portions at the extrema, the final curve resembles an "S" shape as shown
+below.
+</p><p class="indent">   The ACES sRGB Output Transform applied to a ramp in the ACEScc color space. An
+"S-shaped" curve is traditionally used to cinematically tone render scene-referred HDR
+colorimetry into an image suitable for output on a low dynamic range display. The input
+axis is an ACEScc logarithmic base 2 coding of scene-referred linear pixels. The output
+axis corresponds to code-values for an sRGB display.
+</p><p class="indent">   The final transfer curve from scene-referred linear to display is shockingly consistent
+between technologies, with both digital and film imaging pipelines having roughly
+matched end to end transforms. If a film color process is characterized from negative to
+print, it almost exactly produces this "S-shaped" transfer curve, which is not surprising
+given the pleasant tonal reproductions film offers. In traditional film imaging process, the
+negative stock captures a wide dynamic range and the print stock imparts a very pleasing
+tone mapping for reproduction on limited dynamic range devices (the theatrical print
+"positive"). Broadly speaking, film negatives encode an HDR scene-referred image, and
+the print embodies an output-referred tone mapping. For those interested in
+further details on the high-dynamic range imaging processes implicit in the
+film development process, see the Ansel Adams Photography Series [Adams
+84].
+</p><p class="indent">   It should be noted that while there is significant convergence on filmic tone mapping,
+a filmic curve may not be desirable in games, tv or film. Productions choosing to
+reproduce a particularly stylized visual, such as a cartoony or highly ambient-lit
+appearance, may not wish to see the additional contrast or toe from such an operator, so
+may elect to have a less pronounced curve.
+</p><p class="indent">   To summarize, it is strongly advised not to directly map high-dynamic range
+scene-referred data to the display. A tone rendering is required, and there is great
+historical precedence for using a global "S-Shaped" operator. HDR scene-acquisition
+accurately records a wide range of scene-luminance values, and with a proper tone
+mapping operator, much of this range can be visually preserved during reproduction on
+low-dynamic range devices.
+</p><p class="indent">   Please refer to Section 3.2 for a visual comparison between an S-shaped tone mapping
+operator versus a simple gamma transform.
+</p><p class="indent">   Specific considerations taken into account when crafting the Look for a film,
+animation or game are discussed later in 3.6 DI Grading
+                                                                  
+
+                                                                  
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.3.2   </span> <a href="contents.html#QQ2-25-87" id="x25-860003.3.2">Look Management</a></h4>
+<p class="noindent">Locking down the Look early on is a critical first step in crafting cinematic images, as it
+underpins every other part of the process. The remainder of the pipeline relies on
+visualizations that are created by working, translating or transcoding the Look and this is
+known as Look Management.
+</p><p class="indent">   An overview of the filmmaking process shows that Look Management is core to each
+stage. The mistaken belief that the Look is the product of just the DP during shooting,
+or the colorist during mastering discourages a well-managed pipeline, without which
+the visual effects process is rather in the dark. Decisions earlier in the chain
+cannot easily be protected without a carefully color managed pipeline. Meaningful
+tests should be performed early on, saving a lot of work and some potentially
+unpleasant surprises later. In high-end productions changes to the Look can
+be suggested all through post-production and communicated to everyone else
+via color decision lists of some sort. The CDL is one such mechanism but is
+quite limited in scope, there are other more complex proprietary solutions in
+use.
+</p><p class="indent">   When a look is applied to imagery as it is captured or saved to disk, it’s called
+"baking the Look". The Look should not be baked in at the source or early in
+post-production. If the Look is baked in early, all the problems of output-referred
+workflows are very apparent, especially if the Look is strong. Continuity is more
+difficult and there is very little latitude to alter or modify the Look later on.
+Exposures, color balance, and lighting have to be close to perfect since there is little
+more information for the colorist to use in the final stages. VFX could still be
+delivered scene-referred, but the expectation is that they match the main content.
+Delivering to multiple formats is still possible, but usually, any differences that
+take advantage of wider tonal range or color gamut are severely limited. It is
+strongly recommended that the Look is NOT baked in until the final DI grading
+stage.
+</p><p class="indent">   Working with multiple gamuts is a subject that can’t be avoided for a show of even
+moderate complexity. Almost every camera has a different encoding gamut. The working
+gamut used for a show will likely be distinct from any of the camera encoding gamuts.
+The working gamut will also likely be distinct from the final output display gamut. This is
+guaranteed if the show will be seen on multiple types of displays. The advent of the
+multi-gamut workflow has added an additional layer of complexity to setting up a project
+and communicating between artists, departments and companies. As such, it is especially
+important to define the choice of gamuts to be used for capture, grading, lighting,
+rendering, compositing, and final display as early as possible and to agree on how
+and when the gamut choices should be presented to users. For many artists, a
+successful setup will be one where they aren’t aware of the gamuts being used.
+OpenColorIO (2003)’s "role" feature allows some of these choices to be safely
+hidden from artists. It is very easy to get lost in a thicket of similar, but not
+quite matching, gamuts if images and color data aren’t properly tracked or
+labeled.
+</p><p class="indent">   One of the benefits of ACES in the world of multiple gamuts is that it provides a clear
+standard for mapping between the different sets of gamuts used for cameras, rendering,
+                                                                  
+
+                                                                  
+compositing, grading, and final output.
+</p><p class="indent">   The choice of working gamut affects the feel of controls and operations that affect
+color. Choosing a space that is too wide may break some operators, like keyers, or may
+just make otherwise familiar operators and controls feel unfamiliar to artists.
+Working in the camera encoding gamut may be useful for these jobs. For some
+operations, a compositor may transform to the camera encoding gamut, apply the
+operation and then transform back to the working gamut. This is similar in spirit to
+the time-honored trick of resizing in log described in 3.5.4 Working with Log
+Imagery.
+</p><p class="indent">   When the reference Look is created in a DI grading system, the process is saved just
+as it is in case it needs to be modified or used to derive other looks. The Look itself is
+sampled in a 3D LUT format that can be loaded into color managed applications.
+Because some applications have specific requirements for the LUT formatting, it
+is not unusual to generate multiple LUTs. However, it is preferable to find a
+common LUT format that works with as many applications as possible with a high
+fidelity. Exporting the Look as a LUT is the easiest way to share it but using
+a parameter based method such as CDL is also an option for simpler looks.
+Many facilities use the combination of a show LUT with a CDL in front of
+it.
+</p><p class="indent">   Once the Look has been established for a CG animation project the process that
+created it is saved just as it is in DI grading systems. The best solution is to use a color
+management system, like OpenColorIO, that is shared across all the applications and
+can apply Looks contextually. This allows for a high degree of automation in
+Look Management and can help eliminate operator error. Tagging images with
+metadata can assist this system by automatically managing looks across productions
+and also within a production when multiple looks are employed. A good color
+management system should be able to generate notes that can feedback to
+artists working at their desktops and also feed forward to the colorist for DI
+grading.
+</p><p class="indent">   Games tend to be produced primarily using a single toolset, the "engine". Within the
+engine itself, color management is largely handled automatically, being a single piece of
+software. For assets that are created externally to the engine, like textures and sometimes
+materials, it is desirable to have a representation of the Look of the project that can be
+used in the authoring packages used for those assets for validation purposes. In
+this case it is common to export a LUT or other representation of the Look,
+much like animation and live-action. Color management must also be handled
+with defined import/export paths allowing management of externally created
+content, ideally via similar tools to VFX/Animation but are sometimes handled
+manually.
+</p><p class="indent">   Key Points Look Management visualises the Look through production and
+post-production Irreversibly applying the Look is called "baking in the Look" The Look
+should not be baked in until the final DI grading stage Look Management should
+consider multiple gamut sources and deliverables Metadata is crucial for good Look
+Management
+                                                                  
+
+                                                                  
+</p>   
+<div class="breadcrumb-navigation text-center"><a href="academy-color-encoding-system-aces.html"><button class="btn btn-light mx-3" type="button">Previous</button></a><a href="workflow.html#the-look.html"><button class="btn btn-light mx-3" type="button">Up</button></a><a href="on-set.html"><button class="btn btn-light mx-3" type="button">Next</button></a></div>   </div> 
+<div class="col-md-2"></div> 
+</div> 
+</div> 
+</article>  <footer class="page-footer"> 
+<div class="container-fluid text-center py-3"> 
+Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ 
+<a href="mailto:ves-tech-color@googlegroups.com"> 
+ves-tech-color@googlegroups.com</a> 
+</div> 
+</footer>  <script src="assets/js/jquery/jquery.min.js" type="text/javascript"></script> 
+<script src="assets/js/popper/popper.min.js" type="text/javascript"></script> 
+<script src="assets/js/bootstrap/bootstrap.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+function executeSearchQuery() { 
+var input = document.getElementById('cse-search-input-box-id'); 
+var element = google.search.cse.element.getElement('searchresults-only0'); 
+if (input.value == '') { 
+element.clearAllResults(); 
+} else { 
+element.execute(input.value); 
+} 
+return false; 
+} 
+</script> 
+ 
+ 
+</body></html>

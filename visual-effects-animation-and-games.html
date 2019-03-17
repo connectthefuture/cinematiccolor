@@ -1,1017 +1,639 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-  <title>Visual Effects, Animation and Games</title>
-  <meta charset="utf-8" />
-  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-  "generator" />
-  <meta content="width=device-width,initial-scale=1" name=
-  "viewport" />
-  <link href="cinematic-color.css" rel="stylesheet" type=
-  "text/css" />
-  <meta content="cinematic-color.tex" name="src" />
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
-  type="text/javascript"></script>
-  <script src="assets/js/jeri/jeri.min.js" type=
-  "text/javascript"></script>
-  <script type="text/javascript">
-  //<![CDATA[
+<html lang="en" xml:lang="en"><head><title>Visual Effects, Animation and Games</title> 
+<meta charset="utf-8"/> 
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name="generator"/> 
+<meta content="width=device-width,initial-scale=1" name="viewport"/> 
+<link href="cinematic-color.css" rel="stylesheet" type="text/css"/> 
+<meta content="cinematic-color.tex" name="src"/> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js" type="text/javascript"></script> 
+<script src="https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js" type="text/javascript"></script> 
+<script src="assets/js/jeri/jeri.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+</script> 
+<script type="text/javascript"> 
+(function() { 
+var cx = '000762316508951405781:qrigrsppwri'; 
+var gcse = document.createElement('script'); 
+gcse.type = 'text/javascript'; 
+gcse.async = true; 
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
+var s = document.getElementsByTagName('script')[0]; 
+s.parentNode.insertBefore(gcse, s); 
+})(); 
+</script> 
+</head><body><nav class="navbar navbar-expand-md navbar-light bg-light">
+<a class="navbar-brand" href="#">Cinematic Color 2</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="preface.html" id="preface" role="button">Preface</a><div aria-labelledby="preface" class="dropdown-menu"><a class="dropdown-item" href="description.html">Description</a><a class="dropdown-item" href="authorship.html">Authorship</a><a class="dropdown-item" href="on-the-web.html">On the Web</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">Introduction</a><div aria-labelledby="introduction" class="dropdown-menu"><a class="dropdown-item" href="intended-audience.html">Intended Audience</a><a class="dropdown-item" href="how-to-read-this-document.html">How to Read this Document</a><a class="dropdown-item" href="the-goal.html">The Goal</a><a class="dropdown-item" href="converging-approaches.html">Converging Approaches</a><a class="dropdown-item" href="a-general-model-of-color-processing.html">A General Model of Color Processing</a><a class="dropdown-item" href="color-management-challenges.html">Color Management Challenges</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">Color Science</a><div aria-labelledby="color-science" class="dropdown-menu"><a class="dropdown-item" href="about-color-science.html">About Color Science</a><a class="dropdown-item" href="electromagnetic-spectrum.html">Electromagnetic Spectrum</a><a class="dropdown-item" href="human-visual-system.html">Human Visual System</a><a class="dropdown-item" href="basic-colorimetry.html">Basic Colorimetry</a><a class="dropdown-item" href="advanced-colorimetry.html">Advanced Colorimetry</a><a class="dropdown-item" href="representing-color.html">Representing Color</a><a class="dropdown-item" href="color-imaging-systems.html">Color Imaging Systems</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">Workflow</a><div aria-labelledby="workflow" class="dropdown-menu"><a class="dropdown-item" href="about-workflow.html">About Workflow</a><a class="dropdown-item" href="academy-color-encoding-system-aces.html">Academy Color Encoding System (ACES)</a><a class="dropdown-item" href="the-look.html">The Look</a><a class="dropdown-item" href="on-set.html">On Set</a><a class="dropdown-item" href="visual-effects-animation-and-games.html">Visual Effects, Animation and Games</a><a class="dropdown-item" href="compositing.html">Compositing</a><a class="dropdown-item" href="di-grading.html">DI Grading</a><a class="dropdown-item" href="critical-monitoring.html">Critical Monitoring</a><a class="dropdown-item" href="finishing.html">Finishing</a><a class="dropdown-item" href="archives.html">Archives</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">Appendix</a><div aria-labelledby="appendix" class="dropdown-menu"><a class="dropdown-item" href="common-rgb-color-encodings.html">Common RGB Color Encodings</a><a class="dropdown-item" href="opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class="dropdown-item" href="colour-science-for-python.html">Colour Science for Python</a><a class="dropdown-item" href="luts-and-transforms.html">LUTs and Transforms</a><a class="dropdown-item" href="asc-cdl.html">ASC CDL</a><a class="dropdown-item" href="aces-ctl.html">ACES CTL</a><a class="dropdown-item" href="full-and-legal-ranges.html">Full and Legal ranges</a><a class="dropdown-item" href="color-difference-encoding.html">Color Difference Encoding</a><a class="dropdown-item" href="camera-characterization.html">Camera Characterization</a><a class="dropdown-item" href="file-formats.html">File Formats</a><a class="dropdown-item" href="color-matching-experiments.html">Color Matching Experiments</a><a class="dropdown-item" href="grassmann-s-law-of-additive-color-mixture.html">Grassmann's Law of Additive Color Mixture</a><a class="dropdown-item" href="software.html">Software</a><a class="dropdown-item" href="acknowledgements.html">Acknowledgements</a></div></li><li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li><li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li></ul>
+<form class="navbar-form navbar-right" id="cse-search-box-form-id" onsubmit="return executeSearchQuery();" role="search">
+<div class="input-group">
+<input autocomplete="on" class="form-control" id="cse-search-input-box-id" size="25" type="text"/>
+<script async="" src="https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id" type="text/javascript">
+</script>
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+</span>
+</div>
+</form>
+</div>
+</nav><gcse:searchresults-only></gcse:searchresults-only> 
+<link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/> 
 
-  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
-  //]]>
-  </script>
-  <script type="text/javascript">
-  //<![CDATA[
+ <article class="page-content"> <div class="container-fluid py-3"> 
+<div class="row"> 
+<div class="col-md-2"></div> 
+<div class="col-md-8"> 
+ <h3 class="sectionHead"><span class="titlemark">3.5   </span> <a href="cinematic-color.html#QQ2-27-95" id="x27-940003.5">Visual Effects, Animation and Games</a></h3>
+   
+<h4 class="subsectionHead"><span class="titlemark">3.5.1   </span> <a href="contents.html#QQ2-27-96" id="x27-950003.5.1">Visual Effects</a></h4>
+<p class="noindent">Captured camera log plate (top), ACEScg workign space image (middle) and Rec. 709
+final image (bottom). Shot form "Avengers: Infinity War" ? 2018 MARVEL The
+traditional visual effects color pipeline is based around the core principle of doing no harm
+to the plate, to allow for the seamless intercutting of VFX and non-VFX shots. Plate
+photography is brought into the pipeline in whatever color space is delivered, typically
+the camera log, and then converted to scene-referred linear values using an
+invertible transform. Sometimes the camera’s encoding gamut is kept and only a
+pure 1D camera to linear transform is used. With a more modern approach, the
+linearization is accompanied by a matrix transform to convert to a wide-gamut
+working space like ACEScg. A working space gamut separate from the camera
+encoding gamut is especially useful if multiple different cameras, each with its own
+encoding gamut, are used during shooting. For visualization, a 3D LUT is used
+which emulates the eventual output transform. This was traditionally based on a
+print film emulation or a similar "S-shaped" curve, but is now more commonly
+created entirely in the grading suite. During the visual effects process, the output
+transform is never baked into the imagery except for intermediate deliveries
+such as editorial output or rough preview screenings. These deliveries are used
+to enable other parts of production, but are not the "final" deliverable. The
+delivery to the colorist should be the highest-fidelity representation of the original
+photography. Getting to this highest-fidelity representation typically involves
+going back to the camera encoding gamut and camera log space used when
+delivering plates, or rendering scene-referred linear to EXR files in a specified
+gamut.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.5.2   </span> <a href="contents.html#QQ2-27-97" id="x27-960003.5.2">Animation</a></h4>
+<p class="noindent">A series of the elements used for a shot from "The Incredibles 2". The three images
+represent the linear, Rec. 709 working space image (top) and the default look for a Rec.
+709 display (middle) and the final show look for a Rec. 709 display. Images ?
+Disney/Pixar In animated features, all imagery is generated synthetically. Plate
+invertibility is a non-issue as there are no camera plates to match. The lack of real-world
+elements to match typically means that far more more latitude is allowed in the selection
+of viewing transforms. Despite such freedoms, it is often preferable to carry over those
+aspects of the traditional film workflow which are beneficial even in a fully-CG context.
+Think of an animated feature as creating a "virtual movie-set", complete with a
+                                                                  
 
-  (function() { 
-  var cx = '000762316508951405781:qrigrsppwri'; 
-  var gcse = document.createElement('script'); 
-  gcse.type = 'text/javascript'; 
-  gcse.async = true; 
-  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
-  var s = document.getElementsByTagName('script')[0]; 
-  s.parentNode.insertBefore(gcse, s); 
-  })(); 
-  //]]>
-  </script>
-  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
-  "stylesheet" type="text/css" />
-  <link href="assets/css/custom.css" rel="stylesheet" type=
-  "text/css" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">Cinematic Color 2</a>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "preface.html" id="preface" role="button">Preface</a>
-          <div aria-labelledby="preface" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "description.html">Description</a><a class=
-            "dropdown-item" href=
-            "authorship.html">Authorship</a><a class=
-            "dropdown-item" href="on-the-web.html">On the Web</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "introduction.html" id="introduction" role=
-          "button">Introduction</a>
-          <div aria-labelledby="introduction" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "intended-audience.html">Intended Audience</a><a class=
-            "dropdown-item" href=
-            "how-to-read-this-document.html">How to Read this
-            Document</a><a class="dropdown-item" href=
-            "the-goal.html">The Goal</a><a class="dropdown-item"
-            href="converging-approaches.html">Converging
-            Approaches</a><a class="dropdown-item" href=
-            "a-general-model-of-color-processing.html">A General
-            Model of Color Processing</a><a class="dropdown-item"
-            href="color-management-challenges.html">Color
-            Management Challenges</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "color-science.html" id="color-science" role=
-          "button">Color Science</a>
-          <div aria-labelledby="color-science" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-color-science.html">About Color
-            Science</a><a class="dropdown-item" href=
-            "electromagnetic-spectrum.html">Electromagnetic
-            Spectrum</a><a class="dropdown-item" href=
-            "human-visual-system.html">Human Visual
-            System</a><a class="dropdown-item" href=
-            "basic-colorimetry.html">Basic Colorimetry</a><a class=
-            "dropdown-item" href=
-            "advanced-colorimetry.html">Advanced
-            Colorimetry</a><a class="dropdown-item" href=
-            "representing-color.html">Representing
-            Color</a><a class="dropdown-item" href=
-            "color-imaging-systems.html">Color Imaging Systems</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "workflow.html" id="workflow" role="button">Workflow</a>
-          <div aria-labelledby="workflow" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-workflow.html">About Workflow</a><a class=
-            "dropdown-item" href=
-            "academy-color-encoding-system-aces.html">Academy Color
-            Encoding System (ACES)</a><a class="dropdown-item"
-            href="the-look.html">The Look</a><a class=
-            "dropdown-item" href="on-set.html">On Set</a><a class=
-            "dropdown-item" href=
-            "visual-effects-animation-and-games.html">Visual
-            Effects, Animation and Games</a><a class=
-            "dropdown-item" href=
-            "compositing.html">Compositing</a><a class=
-            "dropdown-item" href="di-grading.html">DI
-            Grading</a><a class="dropdown-item" href=
-            "critical-monitoring.html">Critical
-            Monitoring</a><a class="dropdown-item" href=
-            "finishing.html">Finishing</a><a class="dropdown-item"
-            href="archives.html">Archives</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "appendix.html" id="appendix" role="button">Appendix</a>
-          <div aria-labelledby="appendix" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "common-rgb-color-encodings.html">Common RGB Color
-            Encodings</a><a class="dropdown-item" href=
-            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-            "dropdown-item" href=
-            "colour-science-for-python.html">Colour Science for
-            Python</a><a class="dropdown-item" href=
-            "luts-and-transforms.html">LUTs and
-            Transforms</a><a class="dropdown-item" href=
-            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
-            href="aces-ctl.html">ACES CTL</a><a class=
-            "dropdown-item" href="full-and-legal-ranges.html">Full
-            and Legal ranges</a><a class="dropdown-item" href=
-            "color-difference-encoding.html">Color Difference
-            Encoding</a><a class="dropdown-item" href=
-            "camera-characterization.html">Camera
-            Characterization</a><a class="dropdown-item" href=
-            "file-formats.html">File Formats</a><a class=
-            "dropdown-item" href=
-            "color-matching-experiments.html">Color Matching
-            Experiments</a><a class="dropdown-item" href=
-            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
-            Law of Additive Color Mixture</a><a class=
-            "dropdown-item" href=
-            "software.html">Software</a><a class="dropdown-item"
-            href="acknowledgements.html">Acknowledgements</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="glossary.html">Glossary</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href=
-          "bibliography.html">Bibliography</a>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" id=
-      "cse-search-box-form-id" onsubmit=
-      "return executeSearchQuery();" placeholder="Search" role=
-      "search" name="cse-search-box-form-id">
-        <div class="input-group">
-          <input autocomplete="on" class="form-control" id=
-          "cse-search-input-box-id" size="25" type="text" /> 
-          <script async="async" src=
-          "https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id"
-          type="text/javascript"></script>
-        </div>
-      </form>
-    </div>
-  </nav>
-  <article class="page-content">
-    <div class="container-fluid py-3">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <h3 class="sectionHead"><span class=
-          "titlemark">3.5</span> <a href=
-          "cinematic-color.html#QQ2-27-95" id="x27-940003.5">Visual
-          Effects, Animation and Games</a></h3>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.5.1</span> <a href=
-          "contents.html#QQ2-27-96" id="x27-950003.5.1">Visual
-          Effects</a></h4>
-          <p class="noindent">Captured camera log plate (top),
-          ACEScg workign space image (middle) and Rec. 709 final
-          image (bottom). Shot form "Avengers: Infinity War" ? 2018
-          MARVEL The traditional visual effects color pipeline is
-          based around the core principle of doing no harm to the
-          plate, to allow for the seamless intercutting of VFX and
-          non-VFX shots. Plate photography is brought into the
-          pipeline in whatever color space is delivered, typically
-          the camera log, and then converted to scene-referred
-          linear values using an invertible transform. Sometimes
-          the camera’s encoding gamut is kept and only a pure 1D
-          camera to linear transform is used. With a more modern
-          approach, the linearization is accompanied by a matrix
-          transform to convert to a wide-gamut working space like
-          ACEScg. A working space gamut separate from the camera
-          encoding gamut is especially useful if multiple different
-          cameras, each with its own encoding gamut, are used
-          during shooting. For visualization, a 3D LUT is used
-          which emulates the eventual output transform. This was
-          traditionally based on a print film emulation or a
-          similar "S-shaped" curve, but is now more commonly
-          created entirely in the grading suite. During the visual
-          effects process, the output transform is never baked into
-          the imagery except for intermediate deliveries such as
-          editorial output or rough preview screenings. These
-          deliveries are used to enable other parts of production,
-          but are not the "final" deliverable. The delivery to the
-          colorist should be the highest-fidelity representation of
-          the original photography. Getting to this
-          highest-fidelity representation typically involves going
-          back to the camera encoding gamut and camera log space
-          used when delivering plates, or rendering scene-referred
-          linear to EXR files in a specified gamut.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.5.2</span> <a href=
-          "contents.html#QQ2-27-97" id=
-          "x27-960003.5.2">Animation</a></h4>
-          <p class="noindent">A series of the elements used for a
-          shot from "The Incredibles 2". The three images represent
-          the linear, Rec. 709 working space image (top) and the
-          default look for a Rec. 709 display (middle) and the
-          final show look for a Rec. 709 display. Images ?
-          Disney/Pixar In animated features, all imagery is
-          generated synthetically. Plate invertibility is a
-          non-issue as there are no camera plates to match. The
-          lack of real-world elements to match typically means that
-          far more more latitude is allowed in the selection of
-          viewing transforms. Despite such freedoms, it is often
-          preferable to carry over those aspects of the traditional
-          film workflow which are beneficial even in a fully-CG
-          context. Think of an animated feature as creating a
-          "virtual movie-set", complete with a virtual camera,
-          lighting and target display. Of course, while these
-          virtual color transforms can be inspired by real-world
-          counterparts, it is generally preferable to use
-          idealizing simplifications which do not delve into the
-          peculiarities inherent to color in physical imaging
-          workflows. Physically-inspired animated feature color
-          pipelines require selection of a working-space gamut and
-          a visualization, look or output, transform. The
-          working-space gamut is chosen based on the deliverable
-          needs of the project as well as authoring constraints of
-          the production. If the show needs to deliver finals
-          covering Rec. 2020, Rec. 709 and DCI-P3, it is important
-          to choose a color space and authoring workflow that will
-          cover these gamuts. The gamut of desktop monitors is a
-          limiting factor on the creative utilization of wide gamut
-          colors. Ideally, they should be matched to the primary
-          wide gamut deliverable. Multiple manufacturers offer
-          monitors that support P3, making this a viable target
-          gamut for the desktop. Care should be taken that the
-          reference monitor is calibrated to the correct white
-          point and EOTF as well as primaries. Like visual effects,
-          the output transform for an animated feature was
-          traditionally inspired by characteristics of film print
-          stock but is now more commonly a product of the lighting
-          supervisors, art directors and color scientists. It has
-          diverged from film print stock characteristics due in
-          part to the desire for bright saturated colors in
-          animation, but also because digital cinema has become the
-          primary market. It is now more common to match film
-          prints to the digital cinema master than to match the
-          digital cinema master to a film print. Like in visual
-          effects, the output transform is only baked into
-          intermediate deliveries such as editorial output or rough
-          preview screenings. The delivery to the colorist should
-          be the highest-fidelity representation of the rendered
-          imagery. As floating-point images have gained more
-          widespread support within software and hardware used
-          outside of animation and systems like ACES become more
-          widely used, it is now common to deliver floating-point
-          EXR files directly from the CG pipeline to DI grading.
-          Establishing a look for the output transform early in the
-          animation process makes it the primary driver of the look
-          of the final image. Grading for animations tends to have
-          a lighter effect on the Look of the image than for visual
-          effects, focusing on continuity and fine-tuning of the
-          overall project. Animated-feature color workflows have
-          historically relied upon a single-step viewing transform,
-          which directly converts from linear to the display, often
-          using a gamma transform. However, physically inspired
-          animated-feature color workflows (which separate the
-          negative vs. print transform) are becoming increasingly
-          preferred due to the ease of working with HDR rendering
-          spaces and the robust hand-off to DI. With the advent of
-          multiple deliverables, often including HDR, working in a
-          scene-referred space is particularly beneficial. The same
-          scene-referred rendering can be passed through different
-          display transforms, with only a trim pass in the final
-          grade required to produce HDR and SDR deliverables.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.5.3</span> <a href=
-          "contents.html#QQ2-27-98" id=
-          "x27-970003.5.3">Games</a></h4>
-          <p class="noindent">A series of the elements used for a
-          shot from Battlefield V. The three images represent the
-          linear, Rec. 709 working space image (top), the ungraded
-          image with a generic Rec. 709 output transform (middle)
-          and the final show look for a Rec. 709 display. Imagery
-          from Battlefield V courtesy of Electronic Arts Inc, ?
-          2018 Electronic Arts Inc. All rights reserved. Games and
-          real-time projects are very much like animations in that
-          every aspect of the scene is simulated in CG: the virtual
-          lights, cameras, set and characters, without being
-          constrained to match a live-action plate. Developments in
-          color processing in real time rendering have largely
-          aligned with those in the visual effects and animation
-          space, finding that approaches that maintain physical
-          plausibility by computing lighting and material
-          reflectance in scene-referred linear wide-gamut spaces
-          and that separate the lighting and material reflectance
-          from the display pipeline provide for the most realistic
-          results and the most flexibility in targeting many types
-          of displays.</p>
-          <p class="indent">Games have vastly reduced frame
-          processing time compared to non-real-time CG, due to
-          their frames being entirely generated in real-time, i.e.
-          30, 60, 90 frames per second or higher. As such they
-          rarely have the luxury of working natively with 16 bit
-          floating point data for textures, and instead operate
-          primarily using heavily compressed hardware-accelerated
-          texture formats which trade quality for a dramatic
-          reduction in memory footprint and increase in
-          performance. See section 3.4.4.1 Textures in games for
-          more on this topic.</p>
-          <p class="indent">Another important performance, quality
-          tradeoff to note is related to runtime floating point
-          formats. When alpha channels are not needed and
-          performance and/or memory footprint are more important
-          than precision, games sometimes prefer to use floating
-          point formats smaller than 16 bit. Colloquially known as
-          "small float" or "mini float" formats, these floating
-          point formats have the same 5 bit exponent size as 16 bit
-          floats. They thus have very similar positive range to 16
-          bit floats, but they have a reduced size mantissa so
-          precision is reduced. Most importantly these formats also
-          do not have a sign bit, so do not support negative
-          numbers and cannot store out-of-gamut colors. See "Small
-          floats" in Appendix 4.11.</p>
-          <p class="indent">Much like animation,
-          physically-inspired games color pipelines require
-          selection of a working-space gamut and a visualization,
-          or output, transform. The working-space gamut is chosen
-          based on the deliverable needs of the game as well as
-          authoring constraints of the production pipeline. If a
-          game will need to render on devices covering Rec. 2020,
-          Rec. 709 and P3, it will be important to choose a gamut
-          and authoring workflow that will cover these display
-          gamuts. At the time of writing, the majority of games are
-          produced and rendered in the Rec. 709 / sRGB gamut,
-          primarily for reasons of convenience including use of
-          legacy assets and performance. Although some games do
-          natively render in a wider gamut and it is expected for
-          games to rapidly follow Animation into native support for
-          wider color gamuts.</p>
-          <p class="indent">When it comes to gamut handling there
-          does not seem to be a standardised approach in games.
-          Many different options exist, each with their own
-          tradeoffs, and it is likely different games will take
-          different approaches depending on how this best suits
-          their situation. Several options are highlighted
-          below</p>
-          <p class="indent">The engine runs natively in the Rec.
-          709 gamut and all color data, such as textures, movies,
-          and dynamically animated colors, are provided in this
-          same gamut. Output may be in a wider gamut, but unless
-          post processing also operates in a wider gamut then no
-          wide gamut colors will be available. The engine runs
-          natively in the Rec. 709 gamut and the majority of color
-          data, such as textures, movies and dynamically animated
-          colors, are provided in this same gamut. The renderer
-          uses signed floating point formats internally and employs
-          the "scRGB" gamut which uses the same color primaries as
-          Rec. 709 but supports wider gamuts through the use of
-          negative numbers. Selected color data may be authored in
-          a wider gamut and encoded in scRGB, requiring use of
-          signed floating point texture formats which usually carry
-          memory and/or performance overheads. See 3.4.4.1 Textures
-          in games for more detail. This option can be appealing if
-          the vast majority of color data is not wide gamut, only a
-          few selected wide gamut assets exist, the performance and
-          memory overheads are acceptable, and no obvious rendering
-          artefacts are visible. See 3.4.6.2 The Rendering Gamut
-          Impact for more detail. The engine runs natively in a
-          wider gamut, say P3 or Rec. 2020, and the engine employs
-          color management to propagate the gamut of all color
-          assets to the renderer. The renderer dynamically
-          transforms all color data, such as textures, movies and
-          dynamically animated colors, into the native gamut of the
-          renderer at the cost of performance overhead in the
-          renderer. Usually only gamut expansion is supported, as
-          gamut reduction is more complex and expensive. A side
-          benefit of this runtime transformation is that range
-          compression/expansion (scale/bias) can be applied for
-          free, allowing some artefacts associated with compressed
-          textures to be minimised. Small float formats are
-          supported. This option can be appealing if games can
-          accommodate the additional rendering cost and complexity
-          of managing the gamut mapping in the renderer. The engine
-          runs natively in a wider gamut, say P3 or Rec. 2020, and
-          the engine employs color management to transform the
-          gamut of all color assets into the renderer’s native
-          gamut offline as a preprocessing step. This comes at the
-          cost of a potential loss of quality due to quantisation
-          and texture compression. See 3.4.4.1 Textures in games
-          for more detail. The renderer presumes all colors are in
-          the working gamut. Small float formats are supported.
-          This option can be appealing if games cannot afford
-          additional runtime performance overhead or renderer
-          complexity but can accommodate some quality loss
-          associated with storing wide gamut textures in low bit
-          depth compressed formats, or are willing to pay the
-          additional cost to disable texture compression and/or use
-          less compressed formats in the case that visual artefacts
-          are seen.</p>
-          <p class="indent">These are just a few examples of how
-          gamut can be handled; it is likely that many more options
-          exist and are in use. In any of the cases where wide
-          gamut is supported, the necessary gamut reduction must be
-          undertaken if outputting to a narrow gamut display. What
-          is important to note is the need for color management of
-          the source assets, and that the fundamental principles
-          still align with the other CG approaches in this document
-          regardless of how the renderer handles them.</p>
-          <p class="indent">Games also have a more varied approach
-          to output transforms. Filmic Tonemapping by Duiker (2006)
-          is a widely used approach that started with LUTs based on
-          film print stock measurements but then gave way to
-          analytical approximations, Hable (2010), to the original
-          curve that form their own family of curves. Many games
-          projects use the Reinhard (2005) algorithm, Drago (2003)
-          Adaptive Logarithmic mapping and still other more ad-hoc
-          approaches have been developed to suit each game. In
-          recent releases, Unreal and Unity have both adopted
-          elements of the ACES working spaces and output
-          transforms. Games engines typically combine more limited
-          output transforms with extensive, dynamic color
-          correction controls, typically including an ability to
-          use 3D LUTs.</p>
-          <p class="indent">As the range of displays widens to
-          include larger variations in dynamic range and gamut,
-          separating the working space gamut from the display gamut
-          and the color correction from the output transform
-          becomes increasingly important. One advantage games have
-          over the other CG productions is the entirely real-time
-          nature of their rendering. Games can dynamically adjust
-          their display mapping to best suit the capability of the
-          display and can rely less on fixed mastering levels like
-          the current set of ACES Output Transforms. This can help
-          achieve the best possible quality for each display, but
-          also carries with it gameplay implications. It is
-          important for both competitive and social gaming that
-          gameplay-essential luminance ranges be visible on all
-          displays, to ensure games remain playable and no gamer is
-          at a disadvantage if they are playing on a less capable
-          display. This dynamic display mapping requires knowledge
-          of the display characteristics, which is not always easy
-          to ascertain.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.5.4</span> <a href=
-          "contents.html#QQ2-27-99" id="x27-980003.5.4">Texture
-          Painting</a></h4>
-          <p class="noindent">Theses color maps represent the color
-          modulation of the diffuse, specular and reflection
-          components of a surface shader and the beauty render. ?
-          2018 MARVEL Formerly a majority of 2D texture painting
-          applications worked most intuitively in output-referred
-          color spaces, where the painted image was directly
-          displayed on the screen. However, the texture authoring
-          landscape in the VFX industry has dramatically changed
-          with the commercial release of Mari (2010) and other 3D
-          paint packages like Substance Designer (2010) and
-          Substance Painter (2014). These 3D painting packages
-          adopt a scene-referred rendering workflow where artists
-          are able to paint plausible reflectance values while
-          reviewing their work in a viewport that approximates the
-          shading and lighting of the final render and includes the
-          in-house or client output transform. Because 3D viewports
-          are driven by physically-based real-time renderers that
-          strive to present a close approximation of the asset
-          appearance as computed by the offline renderers, artists
-          are able to paint much more in context.</p>
-          <p class="indent">Examples of the effect of varying
-          material parameters. Each parameter is varied across the
-          row from zero to one with the other parameters held
-          constant. - Physically-Based Shading at Disney, Burley,
-          2012</p>
-          <p class="indent">One point worth discussing is the
-          somewhat muddied question of whether a texture is
-          scene-referred or output-referred, or if scene-referred,
-          what that means. For diffuse textures, it is relatively
-          easy to say what it represents at any point in the
-          lighting and rendering pipeline: diffuse reflectance
-          values specified in the working gamut used for asset
-          development. For textures that represent specular
-          roughness, normal distribution, sub-surface scattering
-          mean free path or other more technical aspects of a
-          surface’s response to lighting, the texture may represent
-          a linear value, a gamma-encoded value, a log value or
-          values from another bespoke measurement space. The
-          connection between these values and the working gamut for
-          asset development is also less clear. The values in those
-          textures are best thought of as being
-          "parameter-referred" as they only have meaning for the
-          parameterization of the surface shader being used. The
-          choice of which parameters to expose for a given material
-          and which measures and space to use for them is a subject
-          of much debate. See Burley (2012) for an interesting
-          discussion of the considerations involved in
-          parameterizing surface shaders. Given the dependence on
-          the surface shader parameterization, painting textures in
-          a 3D paint package with a physically plausible shader
-          that shares the parameterization of the production
-          renderer becomes much more important. Painting textures
-          in a 2D application for parameters that aren’t easily
-          mapped to a display can be an exercise in frustration,
-          often leading to a guessing game as to what effect a
-          change to the texture will have on the look of a 3D
-          asset. Regardless of the approach chosen, one must
-          distinguish painted color maps and data maps: bump maps,
-          normal maps, iso maps, control maps, etc, which should
-          not be processed colorimetrically.</p>
-          <p class="indent">A shot from "Rogue One: A Star Wars
-          Story" including an X Wing model (top) with the painted
-          diffuse (bottom, left), specular intensity (bottom,
-          middle) and specular roughness (bottom, right) maps.
-          Texture reference might be sourced from the internet or
-          other sources of output-referred imagery such as the
-          JPG/TIFF output from a digital camera. In this scenario,
-          a common approach is to utilize an inverse tone
-          rendering, to convert output-referred imagery to a
-          hypothetical scene-referred space. Conceptually, the
-          texture artist is painting the tone rendered appearance
-          of the texture, not the texture itself. There are a few
-          challenges with this conversion from output-referred to
-          scene-referred space. First, the tone rendering may not
-          be invertible, particularly when filmic 3D LUTs are used
-          for image preview. Second, traditional s-shaped tone
-          renderings have very horizontal portions of the curve,
-          which when inverted result in very steeply sloped
-          transfer functions. This steep contrast has the effect of
-          amplifying small changes in input code values. For
-          example, a steep inverse could result in the situation
-          where a single code value change in a painted texture
-          could correspond to a delta of a stop or more of
-          scene-referred linear light. This sensitivity is very
-          challenging for artists to work with.</p>
-          <p class="indent">For text and logos, the goal is often
-          to convert to scene-referred linear through the inverse
-          of the project Look, specifically so that when the text
-          or logos are integrated with other imagery and run
-          through the forward version of the project Look, the
-          original text and logo colors are returned. Thus, the
-          overall effect is a no-op on the logo and text.</p>
-          <p class="indent">A common solution to these issues is to
-          be a bit more modest in the goal of perfectly inverting
-          the display transform. Simplifying the problem, we can
-          instead aim to create an approximate 1D inverse, tuned to
-          be well behaved both in terms of color performance and
-          dynamic range. Of course, as a consequence of this
-          simplification, the texture painting is not truly
-          WYSIWYG. Thus, a residual difference visualization 3D LUT
-          is crafted for accurate color preview in the texture
-          painting tool.</p>
-          <p class="indent">Another axis of variation in texturing
-          is when to perform the conversion to scene-referred
-          linear. The suggested approach is to linearize prior to
-          mipmap texture generation. The primary advantage of this
-          approach is that scene-referred linear energy is
-          preserved through all the mipmap levels, allowing for the
-          highest fidelity sampling and fewest color space related
-          artifacts. Further, disallowing color space conversions
-          at shading time prevents shaders from using undesirable,
-          non-linear, color math. The disadvantage is that the
-          storage requirements for linearized data are potentially
-          increased, i.e., even if a texture is painted at 8 bits
-          of precision in an output-referred space, increased
-          bit-depths are required after conversion to
-          scene-referred linear. When dealing with 16 bit painted
-          textures, this is less of a concern as the delta in file
-          size is smaller.</p>
-          <p class="indent">It is common for facilities to have an
-          Onset Capture department whose responsibility is to
-          acquire the texture references for a show. They are often
-          processed with a flavor of DCRaw, Libraw or a dedicated
-          in-house tool that output the texture reference data as
-          scene-referred linear light values encoded with the
-          facility working color space inside an EXR file. In a
-          controlled environment, the use of cross-polarizing
-          filters and polarised lighting during acquisition further
-          allows for increased reference texture fidelity as the
-          specular response of the sample is attenuated producing a
-          more useful representation of its reflectance. See 3.3.5
-          On-Set Reference Capture for more detail.</p>
-          <h5 class="subsubsectionHead"><a href="#x27-990003.5.4"
-          id="x27-990003.5.4">Textures in Games</a></h5>
-          <p class="noindent">As mentioned in section 3.4.3, games
-          are often biased heavily towards the performance end of
-          the performance, quality tradeoff. Games make much use of
-          heavily compressed hardware-accelerated texture formats
-          which trade quality for a dramatic reduction in memory
-          footprint and increase in performance. Compressed
-          textures are not required, but are often used. In
-          addition, there is not always a one to one correlation
-          between the storage format and the runtime format; some
-          games transcode from one format to another to ensure
-          minimal storage or loading overhead while still being
-          able to leverage hardware texture compression in the
-          renderer. By far the most common formats are 8 bit and
-          unsigned (storing positive-only values) although some are
-          16 bit. 16 bit formats are larger and often slower, so
-          tend to be used sparingly but are still useful especially
-          those that are floating point with support for a sign
-          bit. It is usual for textures to be authored at high
-          quality, but resized and compressed in a conditioning
-          pipeline before they are stored on disk or streamed. HDR
-          formats are supported by hardware in various guises,
-          including several variants of 16 bit floating point:
-          uncompressed, small float formats with no sign bit,
-          compressed with no sign bit and compressed with a sign
-          bit, and compressed shared exponent formats like RGBE
-          also with no sign bit. Since texture compression is lossy
-          and involves bit depth reduction, artefacts including
-          quantisation can be seen. In this case it can be
-          beneficial to scale/bias SDR textures to use the full 0-1
-          range before compression, propagate this scale/bias to
-          the game engine and remove it at runtime. This can
-          minimise artefacts for a small per-texture runtime cost.
-          See "Block Compression" in Appendix 4.10 for more
-          information on compressed textures. Another GPU hardware
-          feature used extensively by games is support for free
-          OETF/EOTF application. Since scene-referred linear
-          rendering is preferred, but textures are usually stored
-          perceptually encoded, GPUs feature hardware to apply a
-          free EOTF to each texel fetched, linearizing these values
-          before filtering and before they are used as inputs to
-          the renderer. In addition GPUs can apply a free OETF to a
-          value before writing it to memory if this is required.
-          Unfortunately, the only transfer function supported is
-          the sRGB. See 4.1.3 sRGB for the definition of the sRGB
-          transfer function. At time of writing there is no
-          hardware support for any other transfer function,
-          including PQ. Even with that support, it is important to
-          note that only the transfer function part of the sRGB
-          specification is provided; there is no gamut handling in
-          hardware.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.5.5</span> <a href=
-          "contents.html#QQ2-27-101" id="x27-1000003.5.5">Matte
-          Painting</a></h4>
-          <p class="noindent">Matte painters and paint packages
-          work in as many different ways as there are facilities
-          and software packages. In this example, the painter works
-          in an output-referred color space. As renders are
-          natively in scene-referred linear, a mapping from the
-          matte painting space to the rendering working space is
-          required, regardless of which approach is chosen. It is
-          often useful to consider matte painting and texture
-          painting as two different color workflows. In matte
-          painting, it is very common for the artist to want to
-          paint values which will eventually utilize the full
-          scene-referred linear dynamic range, even when working in
-          an output-referred space. Thus, an inversion which allows
-          for the creation of bright specular values is preferable.
-          In such cases, it is often convenient to provide a visual
-          preview both at a normal exposure, as well as a few stops
-          darker, to let the artist have a good feel for the
-          dynamic range in their plate. Applying an inversion in
-          this context has many of the potential downsides
-          described for texture painting, namely that an exact
-          inverse isn’t guaranteed to exist for all color and that
-          the inverse of a tone curve with strong highlight
-          compression may lead to excessively bright values when an
-          output-referred image is brought back into the working
-          space. To avoid those issues, some workflows elect to
-          perform matte painting on scene-referred values. The
-          scene-referred values are typically encoded in a
-          non-linear fashion for compatibility with integer based
-          tools and to utilize the largest dynamic range possible.
-          One option is to use a logarithmic encoding and to
-          provide a viewing transform that incorporates the look
-          for the show. This will be familiar to artists who have
-          experience with films scans, but it also changes the feel
-          of paint tools that are normally used in a
-          display-referred context. Another option is to use a
-          hybrid log-gamma encoding. This hybrid encoding uses a
-          curve which is gamma-shaped for the standard range of
-          image values and transitions into a logarithmic shape for
-          bright values like highlights. The gamma portion of the
-          curve allows tools that are built for a display-referred
-          working space to continue to work as expected, including
-          blending operations which are designed for gamma-encoded
-          material. The logarithmic shape for highlights allows
-          details to be preserved throughout the process. Artists
-          can paint directly on the matte image without any
-          additional viewing transform. A viewing transform that
-          incorporates the look for the show is still useful, to
-          see how the painted values will appear in their final
-          presentation. These viewing transform can be applied
-          using an ICC profile or a 3D LUT as supported by the
-          paint application.</p>
-          <h4 class="subsectionHead"><span class=
-          "titlemark">3.5.6</span> <a href=
-          "contents.html#QQ2-27-102" id="x27-1010003.5.6">Lighting,
-          Shading, and Rendering</a></h4>
-          <p class="noindent">The stages of rendering, lighting,
-          and shading most closely approximate physical realism
-          when performed in a color space that is scene-referred
-          linear, high-dynamic range and wide-gamut. Ideally, no
-          color space conversions should be required during the
-          rendering process, as all input assets such as textures,
-          plate re-projections, and skydomes, can be linearized and
-          gamut mapped beforehand.</p>
-          <p class="indent">Image viewing of scene-referred linear
-          data is typically handled by converting to the color
-          space being delivered to digital intermediate, often a
-          log encoding of the color space, and then applying the
-          view transform suitable for the specified display. For
-          convenience, these transforms are typically baked into a
-          single 3D LUT, though care must be taken to assure the
-          LUT has suitable fidelity over an appropriate HDR domain.
-          A simple cube 3D LUT is not suitable for use with linear
-          data. A 1D shaper LUT, or mathematical transform needs to
-          be applied prior to the cube to give the mesh points a
-          more appropriate spacing. See Appendix 4.4 for more
-          detail on LUTs.</p>
-          <p class="indent">A rendered image with no output
-          transform applied (top), an image with a generic Rec. 709
-          output transform (middle) and the show’s final look
-          (bottom). Images from "Moana" Courtesy of Walt Disney
-          Animation Studios. Images ? Disney. All rights
-          reserved.</p>
-          <p class="indent">In this raw visualization of a
-          high-dynamic range, scene-referred linear render, values
-          from the source image greater than 1.0 are clipped when
-          sent to the display. Using a naive gamma 2.2
-          visualization to map scene-referred linear to
-          output-referred values results in an image with low
-          apparent contrast and clipped highlights. Observe
-          clipping in the wave and eye. Using an S-shaped tone
-          curve applied in a log space to visualize the
-          scene-referred linear render yields a pleasing appearance
-          of contrast, with well-balanced highlight and shadow
-          details.</p>
-          <h5 class="subsubsectionHead"><a href="#x27-1020003.5.6"
-          id="x27-1020003.5.6">Scene-Referred Linear is Preferred
-          for Lighting</a></h5>
-          <p class="noindent">A render is a simulation of a real
-          scene. In the real world, there is a linear relationship
-          between the incoming and outgoing energy from a surface,
-          i.e. the incoming light that is scattered or absorbed. To
-          simulate that interaction properly, working with units
-          that refer to the physical units of energy in the world
-          and applying operations that maintain the linearity of
-          these relationships makes the simulation more
-          straightforward.</p>
-          <p class="indent">First, the render itself benefits.
-          Physically plausible light transport renderer mechanisms
-          such as global illumination yield natural results when
-          given scenes with linear high-dynamic range data.
-          Physically-based specular models combined with area
-          lights produce physically plausible results with
-          high-dynamic range data. Rendering in scene-referred
-          linear also allows lights and material components to be
-          re-balanced post-render, with results that track
-          identically as if the original render had been tweaked.
-          Storing rendered images in a floating-point container is
-          most common to preserve maximum image fidelity; the EXR
-          format is most widely used in VFX and animation and
-          increasingly in games and for interchange in
-          post-production. See 4.9.2 EXR for a more in-depth
-          description of OpenEXR.</p>
-          <p class="indent">Figure 1 from ’OpenEXR Color
-          Management’ by Kainz (2004), ILM advocating for the use
-          of scene-referred linear values in lighting, rendering
-          and compositing. Many of the devices and acronyms have
-          changed, but the core concepts remain valid.</p>
-          <p class="indent">As with preserving the dynamic range of
-          the camera into DI Grading, rendering CGI in a
-          high-dynamic range scene-referred linear space makes it
-          simpler to produce HDR and SDR versions of the film.
-          Rather than baking in tone and gamut mapping applicable
-          only to one display format, different output transforms
-          can be applied to the same scene-referred image data to
-          view it on HDR or SDR displays. One issue to watch out
-          for with high-dynamic range renders is render noise. When
-          scene textures like skydomes contain very bright areas,
-          like the sun or other compact light sources, i.e. areas
-          that substantially contribute to the scene illumination
-          with relative luminance values well above 1.0, care must
-          be taken in sampling to avoid noise. Rendering techniques
-          such as multi-importance sampling (MIS) are useful to
-          mitigate such issues. Even still, it is common to paint
-          out very compact or very bright light sources, such as
-          the sun, from skydomes, and then to add them back into
-          the scene as native renderer lights to allow for both
-          lower-noise sampling and often greater artistic
-          control.</p>
-          <p class="indent">Light shaders also benefit from working
-          with scene-referred linear, specifically in the area of
-          light falloff. In the distant past, the default mode of
-          working with lights in computer-graphics was to not use
-          falloff. However, when combined with physically-based
-          shading models, using an inverse-square law light falloff
-          behaves naturally as the relative size of a light
-          diminishes with the square of the distance as a light
-          recedes from a surface, or vice versa. Note that this is
-          a simplification of the full solid angle-based equation
-          for the projected area of a surface or light and that
-          this can be problematic in particular when scenes are
-          modeled with large units, say 1 unit is 1 meter, and it
-          becomes common for objects to be less than one unit from
-          lights. In this case, the distance value less than 1
-          drives the results of the inverse-square law falloff term
-          to be considerably greater than 1, no longer resembling a
-          falloff. If one tries to shoehorn realistic lighting
-          falloff models into output-referred rendering, the
-          non-linearity of output-referred spaces make it’s very
-          difficult to avoid clipping and generally implausible
-          results. On the downside, one consequence of working with
-          natural light falloff is that it’s often required to have
-          very high light intensity values. It is therefore common
-          to express light intensity in user interfaces in terms of
-          "exposure" or "stops," as it’s much friendlier to the
-          artist to present an interface value of "+20 stops,"
-          compared to an RGB value of "1048576.0".</p>
-          <p class="indent">Anti-aliasing operations also benefit
-          from using scene-referred linear values, though one must
-          be more careful with renderer reconstruction filters.
-          Negatively lobed filters such as Catmull-Rom have an
-          increased tendency to exhibit ringing artifacts due to
-          the extra dynamic range. This is a particular problem on
-          elements lit with very bright "rim lights," as this
-          creates bright specular highlights directly in contact
-          with edges. The core challenge here is the same as when
-          handling very bright, very small sections of imagery in
-          compositing. There are a number of common approaches to
-          working around such filtering issues. First, for
-          operations that shows ringing artifacts, switching the
-          filter to a box or gaussian filter will remove the
-          artifact, at the expense of softening the image slightly.
-          If the issue only happens in a few places, this may be a
-          reasonable approach. Second, very bright specular samples
-          can be rolled-off such that these samples do not
-          contribute such large amounts of energy. However, this
-          throws out much of the visually significant appearance
-          which adds so much to the realism. Another approach is
-          that the extra energy can be spread amongst neighboring
-          pixels such that the specular hits show an effect
-          analogous to camera flare. Both of these effects can be
-          implemented in compositing.</p>
-          <h5 class="subsubsectionHead"><a href="#x27-1030003.5.6"
-          id="x27-1030003.5.6">The Rendering Gamut Impact</a></h5>
-          <p class="noindent">A shot from "Rogue One: A Star Wars
-          Story" with a green beam of light that is far outside of
-          the Rec. 709 gamut.</p>
-          <p class="indent">One decision that has taken on more
-          prominence recently is the choice of gamut to use for
-          rendering. It is important to acknowledge that the
-          rendering gamut affects the way computations are
-          performed, especially indirect lighting as shown by
-          Agland (2014). Rendering an image using sRGB textures and
-          then converting it to ACEScg will yield a different image
-          than having rendered with ACEScg textures in the first
-          place.</p>
-          <p class="indent">Mathematical operations are dependent
-          on the chosen basis vectors. In the space of color, the
-          basis vectors are defined by the choice of RGB color
-          space primaries. The same operations performed in
-          different RGB color spaces will yield different
-          tristimulus values once converted back to CIE XYZ color
-          space. For example multiplication, division and power
-          operations are dependent on the RGB color space primaries
-          while addition and subtraction are not. Quoting Rick
-          Sayre from Pixar:</p>
-          <p class="indent">"The RGB basis vectors typically become
-          non-orthogonal when transformed to XYZ, and definitely so
-          in this case. Thus there should be no surprise that
-          component-wise multiply does not yield a proper transform
-          between two non-orthogonal spaces."</p>
-          <p class="indent">Illustration of the effect of
-          multiplying various colors by themselves into different
-          RGB color spaces: the resulting colors are different. The
-          various samples are generated as follows: 3 random sRGB
-          color space values are picked and converted to the three
-          studied RGB color spaces, they are exponentiated,
-          converted back to sRGB color space, plotted in the CIE
-          1931 Chromaticity Diagram on the left and displayed as
-          swatches on the right. This introduces the concept that
-          some RGB color spaces are more suitable than others when
-          it comes to 3D content generation and computer graphics
-          imagery in general. This problem is typically solved by
-          using spectral rendering or leveraging a spectral
-          renderer as the ground truth base against which the RGB
-          color space is selected.</p>
-          <p class="indent">Renders of the same scene using Rec.
-          709 primaries (first row), 47 spectral bins (second row),
-          Rec. 2020 primaries (third row), spectral minus Rec. 709
-          primaries render residuals (fourth row), spectral minus
-          Rec. 2020 primaries render residuals (fifth row). The
-          last row shows composite images assembled with three
-          vertical stripes of respectively the Rec. 709 primaries,
-          spectral and, Rec. 2020 primaries renders.</p>
-          <p class="indent">Tests and research conducted by Ward
-          and Eydelberg-Vileshin (2002), Langlands and Mansencal
-          (2014) and Mansencal (2014) showed that gamuts with
-          primaries closest to the spectral locus, i.e. spectrally
-          sharp primaries, tend to minimize the errors compared to
-          spectral ground truth renders. Usage of gamuts such as
-          Sharp RGB, Rec. 2020 or ACEScg is often beneficial for
-          this reason but it is contextual and sometimes, Rec. 709
-          can perform slightly better. In the previous image,
-          direct illumination tends to match between the renders.
-          Areas that show the effect of multiple light bounces,
-          i.e., the ceiling, in the Rec. 709 and Rec. 2020
-          primaries renders tend to exhibit increased saturation,
-          especially in the Rec. 709 primaries render or slight
-          loss of energy, especially in the Rec. 2020 render.
-          Excluding outliers, e.g., the visible light source, the
-          RMSE with the spectral render are 0.0083 and 0.0116 for
-          respectively the Rec. 2020 primaries and Rec. 709
-          primaries renders.</p>
-          <p class="indent">As of the writing, these is no first
-          principal or formal mathematical proof that one
-          particular working space is best for computer graphics.
-          As demonstrated, any choice of gamut will introduce error
-          relative to ground truth spectral renders though wide
-          gamut spaces such as Rec. 2020 or ACEScg tend to match
-          spectral ground truth renders most closely. The
-          working-space gamut is typically chosen based on the
-          deliverable needs of the project as well as authoring
-          constraints of the production. If the show needs to
-          deliver finals covering Rec. 2020, Rec. 709 and DCI-P3,
-          it is important to choose a color space and authoring
-          workflow that will cover these gamuts. See 3.4.1 Visual
-          Effects, 3.4.2 Animation and 3.4.3 Games for
-          considerations specific to different types of
-          projects.</p>
-          <div class="breadcrumb-navigation text-center">
-            <a href="on-set.html"><button class=
-            "btn btn-light mx-3" type=
-            "button">Previous</button></a><a href=
-            "workflow.html#visual-effects-animation-and-games.html"><button class="btn btn-light mx-3"
-            type="button">Up</button></a><a href=
-            "compositing.html"><button class="btn btn-light mx-3"
-            type="button">Next</button></a>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-  </article>
-  <footer class="page-footer">
-    <div class="container-fluid text-center py-3">
-      Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ <a href=
-      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
-    </div>
-  </footer>
-  <script src="assets/js/jquery/jquery.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/popper/popper.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/bootstrap/bootstrap.min.js" type=
-  "text/javascript"></script> 
-  <script type="text/javascript">
-  //<![CDATA[
+                                                                  
+virtual camera, lighting and target display. Of course, while these virtual color
+transforms can be inspired by real-world counterparts, it is generally preferable to use
+idealizing simplifications which do not delve into the peculiarities inherent to
+color in physical imaging workflows. Physically-inspired animated feature color
+pipelines require selection of a working-space gamut and a visualization, look or
+output, transform. The working-space gamut is chosen based on the deliverable
+needs of the project as well as authoring constraints of the production. If the
+show needs to deliver finals covering Rec. 2020, Rec. 709 and DCI-P3, it is
+important to choose a color space and authoring workflow that will cover these
+gamuts. The gamut of desktop monitors is a limiting factor on the creative
+utilization of wide gamut colors. Ideally, they should be matched to the primary
+wide gamut deliverable. Multiple manufacturers offer monitors that support P3,
+making this a viable target gamut for the desktop. Care should be taken that the
+reference monitor is calibrated to the correct white point and EOTF as well
+as primaries. Like visual effects, the output transform for an animated feature
+was traditionally inspired by characteristics of film print stock but is now more
+commonly a product of the lighting supervisors, art directors and color scientists.
+It has diverged from film print stock characteristics due in part to the desire
+for bright saturated colors in animation, but also because digital cinema has
+become the primary market. It is now more common to match film prints to
+the digital cinema master than to match the digital cinema master to a film
+print. Like in visual effects, the output transform is only baked into intermediate
+deliveries such as editorial output or rough preview screenings. The delivery to the
+colorist should be the highest-fidelity representation of the rendered imagery. As
+floating-point images have gained more widespread support within software and
+hardware used outside of animation and systems like ACES become more widely
+used, it is now common to deliver floating-point EXR files directly from the
+CG pipeline to DI grading. Establishing a look for the output transform early
+in the animation process makes it the primary driver of the look of the final
+image. Grading for animations tends to have a lighter effect on the Look of
+the image than for visual effects, focusing on continuity and fine-tuning of the
+overall project. Animated-feature color workflows have historically relied upon a
+single-step viewing transform, which directly converts from linear to the display,
+often using a gamma transform. However, physically inspired animated-feature
+color workflows (which separate the negative vs. print transform) are becoming
+increasingly preferred due to the ease of working with HDR rendering spaces and the
+robust hand-off to DI. With the advent of multiple deliverables, often including
+HDR, working in a scene-referred space is particularly beneficial. The same
+scene-referred rendering can be passed through different display transforms,
+with only a trim pass in the final grade required to produce HDR and SDR
+deliverables.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.5.3   </span> <a href="contents.html#QQ2-27-98" id="x27-970003.5.3">Games</a></h4>
+<p class="noindent">A series of the elements used for a shot from Battlefield V. The three images represent
+the linear, Rec. 709 working space image (top), the ungraded image with a generic Rec.
+709 output transform (middle) and the final show look for a Rec. 709 display. Imagery
+                                                                  
 
-  function executeSearchQuery() { 
-  var input = document.getElementById('cse-search-input-box-id'); 
-  var element = google.search.cse.element.getElement('searchresults-only0'); 
-  if (input.value == '') { 
-  element.clearAllResults(); 
-  } else { 
-  element.execute(input.value); 
-  } 
-  return false; 
-  } 
-  //]]>
-  </script>
-</body>
-</html>
+                                                                  
+from Battlefield V courtesy of Electronic Arts Inc, ? 2018 Electronic Arts Inc. All rights
+reserved. Games and real-time projects are very much like animations in that every aspect
+of the scene is simulated in CG: the virtual lights, cameras, set and characters, without
+being constrained to match a live-action plate. Developments in color processing in real
+time rendering have largely aligned with those in the visual effects and animation space,
+finding that approaches that maintain physical plausibility by computing lighting
+and material reflectance in scene-referred linear wide-gamut spaces and that
+separate the lighting and material reflectance from the display pipeline provide for
+the most realistic results and the most flexibility in targeting many types of
+displays.
+</p><p class="indent">   Games have vastly reduced frame processing time compared to non-real-time CG, due
+to their frames being entirely generated in real-time, i.e. 30, 60, 90 frames per second or
+higher. As such they rarely have the luxury of working natively with 16 bit floating
+point data for textures, and instead operate primarily using heavily compressed
+hardware-accelerated texture formats which trade quality for a dramatic reduction in
+memory footprint and increase in performance. See section 3.4.4.1 Textures in games for
+more on this topic.
+</p><p class="indent">   Another important performance, quality tradeoff to note is related to runtime floating
+point formats. When alpha channels are not needed and performance and/or
+memory footprint are more important than precision, games sometimes prefer to
+use floating point formats smaller than 16 bit. Colloquially known as "small
+float" or "mini float" formats, these floating point formats have the same 5 bit
+exponent size as 16 bit floats. They thus have very similar positive range to 16
+bit floats, but they have a reduced size mantissa so precision is reduced. Most
+importantly these formats also do not have a sign bit, so do not support negative
+numbers and cannot store out-of-gamut colors. See "Small floats" in Appendix
+4.11.
+</p><p class="indent">   Much like animation, physically-inspired games color pipelines require selection of a
+working-space gamut and a visualization, or output, transform. The working-space
+gamut is chosen based on the deliverable needs of the game as well as authoring
+constraints of the production pipeline. If a game will need to render on devices
+covering Rec. 2020, Rec. 709 and P3, it will be important to choose a gamut
+and authoring workflow that will cover these display gamuts. At the time of
+writing, the majority of games are produced and rendered in the Rec. 709 / sRGB
+gamut, primarily for reasons of convenience including use of legacy assets and
+performance. Although some games do natively render in a wider gamut and it is
+expected for games to rapidly follow Animation into native support for wider color
+gamuts.
+</p><p class="indent">   When it comes to gamut handling there does not seem to be a standardised approach
+in games. Many different options exist, each with their own tradeoffs, and it is likely
+different games will take different approaches depending on how this best suits their
+situation. Several options are highlighted below
+</p><p class="indent">   The engine runs natively in the Rec. 709 gamut and all color data, such as textures,
+movies, and dynamically animated colors, are provided in this same gamut. Output may
+be in a wider gamut, but unless post processing also operates in a wider gamut then no
+wide gamut colors will be available. The engine runs natively in the Rec. 709 gamut and
+the majority of color data, such as textures, movies and dynamically animated
+colors, are provided in this same gamut. The renderer uses signed floating point
+formats internally and employs the "scRGB" gamut which uses the same color
+primaries as Rec. 709 but supports wider gamuts through the use of negative
+                                                                  
+
+                                                                  
+numbers. Selected color data may be authored in a wider gamut and encoded in
+scRGB, requiring use of signed floating point texture formats which usually carry
+memory and/or performance overheads. See 3.4.4.1 Textures in games for more
+detail. This option can be appealing if the vast majority of color data is not
+wide gamut, only a few selected wide gamut assets exist, the performance and
+memory overheads are acceptable, and no obvious rendering artefacts are visible.
+See 3.4.6.2 The Rendering Gamut Impact for more detail. The engine runs
+natively in a wider gamut, say P3 or Rec. 2020, and the engine employs color
+management to propagate the gamut of all color assets to the renderer. The
+renderer dynamically transforms all color data, such as textures, movies and
+dynamically animated colors, into the native gamut of the renderer at the cost of
+performance overhead in the renderer. Usually only gamut expansion is supported, as
+gamut reduction is more complex and expensive. A side benefit of this runtime
+transformation is that range compression/expansion (scale/bias) can be applied
+for free, allowing some artefacts associated with compressed textures to be
+minimised. Small float formats are supported. This option can be appealing
+if games can accommodate the additional rendering cost and complexity of
+managing the gamut mapping in the renderer. The engine runs natively in a wider
+gamut, say P3 or Rec. 2020, and the engine employs color management to
+transform the gamut of all color assets into the renderer’s native gamut offline as a
+preprocessing step. This comes at the cost of a potential loss of quality due to
+quantisation and texture compression. See 3.4.4.1 Textures in games for more detail.
+The renderer presumes all colors are in the working gamut. Small float formats
+are supported. This option can be appealing if games cannot afford additional
+runtime performance overhead or renderer complexity but can accommodate
+some quality loss associated with storing wide gamut textures in low bit depth
+compressed formats, or are willing to pay the additional cost to disable texture
+compression and/or use less compressed formats in the case that visual artefacts are
+seen.
+</p><p class="indent">   These are just a few examples of how gamut can be handled; it is likely that many
+more options exist and are in use. In any of the cases where wide gamut is supported,
+the necessary gamut reduction must be undertaken if outputting to a narrow
+gamut display. What is important to note is the need for color management
+of the source assets, and that the fundamental principles still align with the
+other CG approaches in this document regardless of how the renderer handles
+them.
+</p><p class="indent">   Games also have a more varied approach to output transforms. Filmic Tonemapping
+by Duiker (2006) is a widely used approach that started with LUTs based on film print
+stock measurements but then gave way to analytical approximations, Hable (2010), to
+the original curve that form their own family of curves. Many games projects use the
+Reinhard (2005) algorithm, Drago (2003) Adaptive Logarithmic mapping and still other
+more ad-hoc approaches have been developed to suit each game. In recent releases,
+Unreal and Unity have both adopted elements of the ACES working spaces and output
+transforms. Games engines typically combine more limited output transforms with
+extensive, dynamic color correction controls, typically including an ability to use 3D
+LUTs.
+</p><p class="indent">   As the range of displays widens to include larger variations in dynamic range and
+gamut, separating the working space gamut from the display gamut and the color
+correction from the output transform becomes increasingly important. One advantage
+games have over the other CG productions is the entirely real-time nature of their
+                                                                  
+
+                                                                  
+rendering. Games can dynamically adjust their display mapping to best suit the capability
+of the display and can rely less on fixed mastering levels like the current set of ACES
+Output Transforms. This can help achieve the best possible quality for each display, but
+also carries with it gameplay implications. It is important for both competitive
+and social gaming that gameplay-essential luminance ranges be visible on all
+displays, to ensure games remain playable and no gamer is at a disadvantage
+if they are playing on a less capable display. This dynamic display mapping
+requires knowledge of the display characteristics, which is not always easy to
+ascertain.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.5.4   </span> <a href="contents.html#QQ2-27-99" id="x27-980003.5.4">Texture Painting</a></h4>
+<p class="noindent">Theses color maps represent the color modulation of the diffuse, specular and reflection
+components of a surface shader and the beauty render. ? 2018 MARVEL Formerly a
+majority of 2D texture painting applications worked most intuitively in output-referred
+color spaces, where the painted image was directly displayed on the screen. However, the
+texture authoring landscape in the VFX industry has dramatically changed with the
+commercial release of Mari (2010) and other 3D paint packages like Substance
+Designer (2010) and Substance Painter (2014). These 3D painting packages adopt
+a scene-referred rendering workflow where artists are able to paint plausible
+reflectance values while reviewing their work in a viewport that approximates
+the shading and lighting of the final render and includes the in-house or client
+output transform. Because 3D viewports are driven by physically-based real-time
+renderers that strive to present a close approximation of the asset appearance
+as computed by the offline renderers, artists are able to paint much more in
+context.
+</p><p class="indent">   Examples of the effect of varying material parameters. Each parameter is varied across
+the row from zero to one with the other parameters held constant. - Physically-Based
+Shading at Disney, Burley, 2012
+</p><p class="indent">   One point worth discussing is the somewhat muddied question of whether a texture is
+scene-referred or output-referred, or if scene-referred, what that means. For diffuse
+textures, it is relatively easy to say what it represents at any point in the lighting and
+rendering pipeline: diffuse reflectance values specified in the working gamut
+used for asset development. For textures that represent specular roughness,
+normal distribution, sub-surface scattering mean free path or other more technical
+aspects of a surface’s response to lighting, the texture may represent a linear
+value, a gamma-encoded value, a log value or values from another bespoke
+measurement space. The connection between these values and the working
+gamut for asset development is also less clear. The values in those textures are
+best thought of as being "parameter-referred" as they only have meaning for
+the parameterization of the surface shader being used. The choice of which
+parameters to expose for a given material and which measures and space to
+use for them is a subject of much debate. See Burley (2012) for an interesting
+discussion of the considerations involved in parameterizing surface shaders. Given the
+dependence on the surface shader parameterization, painting textures in a 3D paint
+package with a physically plausible shader that shares the parameterization of the
+production renderer becomes much more important. Painting textures in a 2D
+                                                                  
+
+                                                                  
+application for parameters that aren’t easily mapped to a display can be an
+exercise in frustration, often leading to a guessing game as to what effect a
+change to the texture will have on the look of a 3D asset. Regardless of the
+approach chosen, one must distinguish painted color maps and data maps: bump
+maps, normal maps, iso maps, control maps, etc, which should not be processed
+colorimetrically.
+</p><p class="indent">   A shot from "Rogue One: A Star Wars Story" including an X Wing model (top) with
+the painted diffuse (bottom, left), specular intensity (bottom, middle) and specular
+roughness (bottom, right) maps. Texture reference might be sourced from the internet or
+other sources of output-referred imagery such as the JPG/TIFF output from a
+digital camera. In this scenario, a common approach is to utilize an inverse tone
+rendering, to convert output-referred imagery to a hypothetical scene-referred space.
+Conceptually, the texture artist is painting the tone rendered appearance of the texture,
+not the texture itself. There are a few challenges with this conversion from
+output-referred to scene-referred space. First, the tone rendering may not be
+invertible, particularly when filmic 3D LUTs are used for image preview. Second,
+traditional s-shaped tone renderings have very horizontal portions of the curve,
+which when inverted result in very steeply sloped transfer functions. This steep
+contrast has the effect of amplifying small changes in input code values. For
+example, a steep inverse could result in the situation where a single code value
+change in a painted texture could correspond to a delta of a stop or more of
+scene-referred linear light. This sensitivity is very challenging for artists to work
+with.
+</p><p class="indent">   For text and logos, the goal is often to convert to scene-referred linear through the
+inverse of the project Look, specifically so that when the text or logos are integrated with
+other imagery and run through the forward version of the project Look, the original text
+and logo colors are returned. Thus, the overall effect is a no-op on the logo and
+text.
+</p><p class="indent">   A common solution to these issues is to be a bit more modest in the goal of perfectly
+inverting the display transform. Simplifying the problem, we can instead aim
+to create an approximate 1D inverse, tuned to be well behaved both in terms
+of color performance and dynamic range. Of course, as a consequence of this
+simplification, the texture painting is not truly WYSIWYG. Thus, a residual difference
+visualization 3D LUT is crafted for accurate color preview in the texture painting
+tool.
+</p><p class="indent">   Another axis of variation in texturing is when to perform the conversion to
+scene-referred linear. The suggested approach is to linearize prior to mipmap texture
+generation. The primary advantage of this approach is that scene-referred linear energy is
+preserved through all the mipmap levels, allowing for the highest fidelity sampling and
+fewest color space related artifacts. Further, disallowing color space conversions at
+shading time prevents shaders from using undesirable, non-linear, color math. The
+disadvantage is that the storage requirements for linearized data are potentially increased,
+i.e., even if a texture is painted at 8 bits of precision in an output-referred space,
+increased bit-depths are required after conversion to scene-referred linear. When dealing
+with 16 bit painted textures, this is less of a concern as the delta in file size is
+smaller.
+</p><p class="indent">   It is common for facilities to have an Onset Capture department whose responsibility
+is to acquire the texture references for a show. They are often processed with a flavor of
+DCRaw, Libraw or a dedicated in-house tool that output the texture reference data as
+scene-referred linear light values encoded with the facility working color space inside an
+                                                                  
+
+                                                                  
+EXR file. In a controlled environment, the use of cross-polarizing filters and polarised
+lighting during acquisition further allows for increased reference texture fidelity
+as the specular response of the sample is attenuated producing a more useful
+representation of its reflectance. See 3.3.5 On-Set Reference Capture for more
+detail.
+</p>   
+<h5 class="subsubsectionHead"><a href="#x27-990003.5.4" id="x27-990003.5.4">Textures in Games</a></h5>
+<p class="noindent">As mentioned in section 3.4.3, games are often biased heavily towards the performance
+end of the performance, quality tradeoff. Games make much use of heavily compressed
+hardware-accelerated texture formats which trade quality for a dramatic reduction in
+memory footprint and increase in performance. Compressed textures are not required, but
+are often used. In addition, there is not always a one to one correlation between
+the storage format and the runtime format; some games transcode from one
+format to another to ensure minimal storage or loading overhead while still being
+able to leverage hardware texture compression in the renderer. By far the most
+common formats are 8 bit and unsigned (storing positive-only values) although
+some are 16 bit. 16 bit formats are larger and often slower, so tend to be used
+sparingly but are still useful especially those that are floating point with support for
+a sign bit. It is usual for textures to be authored at high quality, but resized
+and compressed in a conditioning pipeline before they are stored on disk or
+streamed. HDR formats are supported by hardware in various guises, including
+several variants of 16 bit floating point: uncompressed, small float formats with
+no sign bit, compressed with no sign bit and compressed with a sign bit, and
+compressed shared exponent formats like RGBE also with no sign bit. Since
+texture compression is lossy and involves bit depth reduction, artefacts including
+quantisation can be seen. In this case it can be beneficial to scale/bias SDR
+textures to use the full 0-1 range before compression, propagate this scale/bias to
+the game engine and remove it at runtime. This can minimise artefacts for
+a small per-texture runtime cost. See "Block Compression" in Appendix 4.10
+for more information on compressed textures. Another GPU hardware feature
+used extensively by games is support for free OETF/EOTF application. Since
+scene-referred linear rendering is preferred, but textures are usually stored perceptually
+encoded, GPUs feature hardware to apply a free EOTF to each texel fetched,
+linearizing these values before filtering and before they are used as inputs to the
+renderer. In addition GPUs can apply a free OETF to a value before writing it to
+memory if this is required. Unfortunately, the only transfer function supported is
+the sRGB. See 4.1.3 sRGB for the definition of the sRGB transfer function. At
+time of writing there is no hardware support for any other transfer function,
+including PQ. Even with that support, it is important to note that only the transfer
+function part of the sRGB specification is provided; there is no gamut handling in
+hardware.
+</p>
+                                                                  
+
+                                                                  
+<h4 class="subsectionHead"><span class="titlemark">3.5.5   </span> <a href="contents.html#QQ2-27-101" id="x27-1000003.5.5">Matte Painting</a></h4>
+<p class="noindent">Matte painters and paint packages work in as many different ways as there are facilities
+and software packages. In this example, the painter works in an output-referred
+color space. As renders are natively in scene-referred linear, a mapping from the
+matte painting space to the rendering working space is required, regardless of
+which approach is chosen. It is often useful to consider matte painting and
+texture painting as two different color workflows. In matte painting, it is very
+common for the artist to want to paint values which will eventually utilize the full
+scene-referred linear dynamic range, even when working in an output-referred space.
+Thus, an inversion which allows for the creation of bright specular values is
+preferable. In such cases, it is often convenient to provide a visual preview both
+at a normal exposure, as well as a few stops darker, to let the artist have a
+good feel for the dynamic range in their plate. Applying an inversion in this
+context has many of the potential downsides described for texture painting,
+namely that an exact inverse isn’t guaranteed to exist for all color and that the
+inverse of a tone curve with strong highlight compression may lead to excessively
+bright values when an output-referred image is brought back into the working
+space. To avoid those issues, some workflows elect to perform matte painting
+on scene-referred values. The scene-referred values are typically encoded in a
+non-linear fashion for compatibility with integer based tools and to utilize the
+largest dynamic range possible. One option is to use a logarithmic encoding
+and to provide a viewing transform that incorporates the look for the show.
+This will be familiar to artists who have experience with films scans, but it also
+changes the feel of paint tools that are normally used in a display-referred context.
+Another option is to use a hybrid log-gamma encoding. This hybrid encoding
+uses a curve which is gamma-shaped for the standard range of image values
+and transitions into a logarithmic shape for bright values like highlights. The
+gamma portion of the curve allows tools that are built for a display-referred
+working space to continue to work as expected, including blending operations
+which are designed for gamma-encoded material. The logarithmic shape for
+highlights allows details to be preserved throughout the process. Artists can paint
+directly on the matte image without any additional viewing transform. A viewing
+transform that incorporates the look for the show is still useful, to see how the
+painted values will appear in their final presentation. These viewing transform
+can be applied using an ICC profile or a 3D LUT as supported by the paint
+application.
+</p>   
+<h4 class="subsectionHead"><span class="titlemark">3.5.6   </span> <a href="contents.html#QQ2-27-102" id="x27-1010003.5.6">Lighting, Shading, and Rendering</a></h4>
+<p class="noindent">The stages of rendering, lighting, and shading most closely approximate physical realism
+when performed in a color space that is scene-referred linear, high-dynamic range and
+wide-gamut. Ideally, no color space conversions should be required during the rendering
+process, as all input assets such as textures, plate re-projections, and skydomes, can be
+linearized and gamut mapped beforehand.
+</p><p class="indent">   Image viewing of scene-referred linear data is typically handled by converting to the
+color space being delivered to digital intermediate, often a log encoding of the color
+space, and then applying the view transform suitable for the specified display. For
+                                                                  
+
+                                                                  
+convenience, these transforms are typically baked into a single 3D LUT, though care must
+be taken to assure the LUT has suitable fidelity over an appropriate HDR domain. A
+simple cube 3D LUT is not suitable for use with linear data. A 1D shaper LUT,
+or mathematical transform needs to be applied prior to the cube to give the
+mesh points a more appropriate spacing. See Appendix 4.4 for more detail on
+LUTs.
+</p><p class="indent">   A rendered image with no output transform applied (top), an image with a generic
+Rec. 709 output transform (middle) and the show’s final look (bottom). Images from
+"Moana" Courtesy of Walt Disney Animation Studios. Images ? Disney. All rights
+reserved.
+</p><p class="indent">   In this raw visualization of a high-dynamic range, scene-referred linear render,
+values from the source image greater than 1.0 are clipped when sent to the
+display. Using a naive gamma 2.2 visualization to map scene-referred linear
+to output-referred values results in an image with low apparent contrast and
+clipped highlights. Observe clipping in the wave and eye. Using an S-shaped tone
+curve applied in a log space to visualize the scene-referred linear render yields
+a pleasing appearance of contrast, with well-balanced highlight and shadow
+details.
+</p>   
+<h5 class="subsubsectionHead"><a href="#x27-1020003.5.6" id="x27-1020003.5.6">Scene-Referred Linear is Preferred for Lighting</a></h5>
+<p class="noindent">A render is a simulation of a real scene. In the real world, there is a linear relationship
+between the incoming and outgoing energy from a surface, i.e. the incoming light that is
+scattered or absorbed. To simulate that interaction properly, working with units
+that refer to the physical units of energy in the world and applying operations
+that maintain the linearity of these relationships makes the simulation more
+straightforward.
+</p><p class="indent">   First, the render itself benefits. Physically plausible light transport renderer
+mechanisms such as global illumination yield natural results when given scenes with linear
+high-dynamic range data. Physically-based specular models combined with area lights
+produce physically plausible results with high-dynamic range data. Rendering in
+scene-referred linear also allows lights and material components to be re-balanced
+post-render, with results that track identically as if the original render had been tweaked.
+Storing rendered images in a floating-point container is most common to preserve
+maximum image fidelity; the EXR format is most widely used in VFX and animation and
+increasingly in games and for interchange in post-production. See 4.9.2 EXR for a more
+in-depth description of OpenEXR.
+</p><p class="indent">   Figure 1 from ’OpenEXR Color Management’ by Kainz (2004), ILM advocating for
+the use of scene-referred linear values in lighting, rendering and compositing.
+Many of the devices and acronyms have changed, but the core concepts remain
+valid.
+</p><p class="indent">   As with preserving the dynamic range of the camera into DI Grading, rendering CGI in
+a high-dynamic range scene-referred linear space makes it simpler to produce HDR and
+SDR versions of the film. Rather than baking in tone and gamut mapping applicable only
+to one display format, different output transforms can be applied to the same
+scene-referred image data to view it on HDR or SDR displays. One issue to watch out for
+with high-dynamic range renders is render noise. When scene textures like skydomes
+                                                                  
+
+                                                                  
+contain very bright areas, like the sun or other compact light sources, i.e. areas that
+substantially contribute to the scene illumination with relative luminance values well
+above 1.0, care must be taken in sampling to avoid noise. Rendering techniques such as
+multi-importance sampling (MIS) are useful to mitigate such issues. Even still,
+it is common to paint out very compact or very bright light sources, such as
+the sun, from skydomes, and then to add them back into the scene as native
+renderer lights to allow for both lower-noise sampling and often greater artistic
+control.
+</p><p class="indent">   Light shaders also benefit from working with scene-referred linear, specifically in the
+area of light falloff. In the distant past, the default mode of working with lights in
+computer-graphics was to not use falloff. However, when combined with physically-based
+shading models, using an inverse-square law light falloff behaves naturally as the
+relative size of a light diminishes with the square of the distance as a light recedes
+from a surface, or vice versa. Note that this is a simplification of the full solid
+angle-based equation for the projected area of a surface or light and that this can
+be problematic in particular when scenes are modeled with large units, say 1
+unit is 1 meter, and it becomes common for objects to be less than one unit
+from lights. In this case, the distance value less than 1 drives the results of the
+inverse-square law falloff term to be considerably greater than 1, no longer resembling a
+falloff. If one tries to shoehorn realistic lighting falloff models into output-referred
+rendering, the non-linearity of output-referred spaces make it’s very difficult to avoid
+clipping and generally implausible results. On the downside, one consequence of
+working with natural light falloff is that it’s often required to have very high
+light intensity values. It is therefore common to express light intensity in user
+interfaces in terms of "exposure" or "stops," as it’s much friendlier to the artist
+to present an interface value of "+20 stops," compared to an RGB value of
+"1048576.0".
+</p><p class="indent">   Anti-aliasing operations also benefit from using scene-referred linear values, though
+one must be more careful with renderer reconstruction filters. Negatively lobed filters
+such as Catmull-Rom have an increased tendency to exhibit ringing artifacts due to the
+extra dynamic range. This is a particular problem on elements lit with very bright "rim
+lights," as this creates bright specular highlights directly in contact with edges. The core
+challenge here is the same as when handling very bright, very small sections of
+imagery in compositing. There are a number of common approaches to working
+around such filtering issues. First, for operations that shows ringing artifacts,
+switching the filter to a box or gaussian filter will remove the artifact, at the
+expense of softening the image slightly. If the issue only happens in a few places,
+this may be a reasonable approach. Second, very bright specular samples can
+be rolled-off such that these samples do not contribute such large amounts of
+energy. However, this throws out much of the visually significant appearance
+which adds so much to the realism. Another approach is that the extra energy
+can be spread amongst neighboring pixels such that the specular hits show an
+effect analogous to camera flare. Both of these effects can be implemented in
+compositing.
+</p>
+                                                                  
+
+                                                                  
+<h5 class="subsubsectionHead"><a href="#x27-1030003.5.6" id="x27-1030003.5.6">The Rendering Gamut Impact</a></h5>
+<p class="noindent">A shot from "Rogue One: A Star Wars Story" with a green beam of light that is far
+outside of the Rec. 709 gamut.
+</p><p class="indent">   One decision that has taken on more prominence recently is the choice of gamut to
+use for rendering. It is important to acknowledge that the rendering gamut affects the
+way computations are performed, especially indirect lighting as shown by Agland (2014).
+Rendering an image using sRGB textures and then converting it to ACEScg will
+yield a different image than having rendered with ACEScg textures in the first
+place.
+</p><p class="indent">   Mathematical operations are dependent on the chosen basis vectors. In the space of
+color, the basis vectors are defined by the choice of RGB color space primaries. The
+same operations performed in different RGB color spaces will yield different
+tristimulus values once converted back to CIE XYZ color space. For example
+multiplication, division and power operations are dependent on the RGB color
+space primaries while addition and subtraction are not. Quoting Rick Sayre from
+Pixar:
+</p><p class="indent">   "The RGB basis vectors typically become non-orthogonal when transformed
+to XYZ, and definitely so in this case. Thus there should be no surprise that
+component-wise multiply does not yield a proper transform between two non-orthogonal
+spaces."
+</p><p class="indent">   Illustration of the effect of multiplying various colors by themselves into different RGB
+color spaces: the resulting colors are different. The various samples are generated as
+follows: 3 random sRGB color space values are picked and converted to the three studied
+RGB color spaces, they are exponentiated, converted back to sRGB color space, plotted
+in the CIE 1931 Chromaticity Diagram on the left and displayed as swatches on the right.
+This introduces the concept that some RGB color spaces are more suitable than others
+when it comes to 3D content generation and computer graphics imagery in
+general. This problem is typically solved by using spectral rendering or leveraging a
+spectral renderer as the ground truth base against which the RGB color space is
+selected.
+</p><p class="indent">   Renders of the same scene using Rec. 709 primaries (first row), 47 spectral bins
+(second row), Rec. 2020 primaries (third row), spectral minus Rec. 709 primaries
+render residuals (fourth row), spectral minus Rec. 2020 primaries render residuals
+(fifth row). The last row shows composite images assembled with three vertical
+stripes of respectively the Rec. 709 primaries, spectral and, Rec. 2020 primaries
+renders.
+</p><p class="indent">   Tests and research conducted by Ward and Eydelberg-Vileshin (2002), Langlands and
+Mansencal (2014) and Mansencal (2014) showed that gamuts with primaries closest to
+the spectral locus, i.e. spectrally sharp primaries, tend to minimize the errors compared to
+spectral ground truth renders. Usage of gamuts such as Sharp RGB, Rec. 2020 or
+ACEScg is often beneficial for this reason but it is contextual and sometimes,
+Rec. 709 can perform slightly better. In the previous image, direct illumination
+tends to match between the renders. Areas that show the effect of multiple
+light bounces, i.e., the ceiling, in the Rec. 709 and Rec. 2020 primaries renders
+tend to exhibit increased saturation, especially in the Rec. 709 primaries render
+or slight loss of energy, especially in the Rec. 2020 render. Excluding outliers,
+e.g., the visible light source, the RMSE with the spectral render are 0.0083
+and 0.0116 for respectively the Rec. 2020 primaries and Rec. 709 primaries
+renders.
+</p><p class="indent">   As of the writing, these is no first principal or formal mathematical proof that one
+                                                                  
+
+                                                                  
+particular working space is best for computer graphics. As demonstrated, any choice of
+gamut will introduce error relative to ground truth spectral renders though wide gamut
+spaces such as Rec. 2020 or ACEScg tend to match spectral ground truth renders most
+closely. The working-space gamut is typically chosen based on the deliverable needs of the
+project as well as authoring constraints of the production. If the show needs to deliver
+finals covering Rec. 2020, Rec. 709 and DCI-P3, it is important to choose a color space
+and authoring workflow that will cover these gamuts. See 3.4.1 Visual Effects, 3.4.2
+Animation and 3.4.3 Games for considerations specific to different types of
+projects.
+                                                                  
+
+                                                                  
+</p>   
+<div class="breadcrumb-navigation text-center"><a href="on-set.html"><button class="btn btn-light mx-3" type="button">Previous</button></a><a href="workflow.html#visual-effects-animation-and-games.html"><button class="btn btn-light mx-3" type="button">Up</button></a><a href="compositing.html"><button class="btn btn-light mx-3" type="button">Next</button></a></div>    </div> 
+<div class="col-md-2"></div> 
+</div> 
+</div> 
+</article>  <footer class="page-footer"> 
+<div class="container-fluid text-center py-3"> 
+Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ 
+<a href="mailto:ves-tech-color@googlegroups.com"> 
+ves-tech-color@googlegroups.com</a> 
+</div> 
+</footer>  <script src="assets/js/jquery/jquery.min.js" type="text/javascript"></script> 
+<script src="assets/js/popper/popper.min.js" type="text/javascript"></script> 
+<script src="assets/js/bootstrap/bootstrap.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+function executeSearchQuery() { 
+var input = document.getElementById('cse-search-input-box-id'); 
+var element = google.search.cse.element.getElement('searchresults-only0'); 
+if (input.value == '') { 
+element.clearAllResults(); 
+} else { 
+element.execute(input.value); 
+} 
+return false; 
+} 
+</script> 
+ 
+ 
+</body></html>

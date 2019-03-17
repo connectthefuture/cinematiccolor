@@ -1,393 +1,149 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
-  <title>3 Workflow</title>
-  <meta charset="utf-8" />
-  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
-  "generator" />
-  <meta content="width=device-width,initial-scale=1" name=
-  "viewport" />
-  <link href="cinematic-color.css" rel="stylesheet" type=
-  "text/css" />
-  <meta content="cinematic-color.tex" name="src" />
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
-  type="text/javascript"></script>
-  <script src=
-  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
-  type="text/javascript"></script>
-  <script src="assets/js/jeri/jeri.min.js" type=
-  "text/javascript"></script>
-  <script type="text/javascript">
-  //<![CDATA[
+<html lang="en" xml:lang="en"><head><title>3 Workflow</title> 
+<meta charset="utf-8"/> 
+<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name="generator"/> 
+<meta content="width=device-width,initial-scale=1" name="viewport"/> 
+<link href="cinematic-color.css" rel="stylesheet" type="text/css"/> 
+<meta content="cinematic-color.tex" name="src"/> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js" type="text/javascript"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js" type="text/javascript"></script> 
+<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js" type="text/javascript"></script> 
+<script src="https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js" type="text/javascript"></script> 
+<script src="assets/js/jeri/jeri.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+</script> 
+<script type="text/javascript"> 
+(function() { 
+var cx = '000762316508951405781:qrigrsppwri'; 
+var gcse = document.createElement('script'); 
+gcse.type = 'text/javascript'; 
+gcse.async = true; 
+gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
+var s = document.getElementsByTagName('script')[0]; 
+s.parentNode.insertBefore(gcse, s); 
+})(); 
+</script> 
+</head><body><nav class="navbar navbar-expand-md navbar-light bg-light">
+<a class="navbar-brand" href="#">Cinematic Color 2</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="preface.html" id="preface" role="button">Preface</a><div aria-labelledby="preface" class="dropdown-menu"><a class="dropdown-item" href="description.html">Description</a><a class="dropdown-item" href="authorship.html">Authorship</a><a class="dropdown-item" href="on-the-web.html">On the Web</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">Introduction</a><div aria-labelledby="introduction" class="dropdown-menu"><a class="dropdown-item" href="intended-audience.html">Intended Audience</a><a class="dropdown-item" href="how-to-read-this-document.html">How to Read this Document</a><a class="dropdown-item" href="the-goal.html">The Goal</a><a class="dropdown-item" href="converging-approaches.html">Converging Approaches</a><a class="dropdown-item" href="a-general-model-of-color-processing.html">A General Model of Color Processing</a><a class="dropdown-item" href="color-management-challenges.html">Color Management Challenges</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">Color Science</a><div aria-labelledby="color-science" class="dropdown-menu"><a class="dropdown-item" href="about-color-science.html">About Color Science</a><a class="dropdown-item" href="electromagnetic-spectrum.html">Electromagnetic Spectrum</a><a class="dropdown-item" href="human-visual-system.html">Human Visual System</a><a class="dropdown-item" href="basic-colorimetry.html">Basic Colorimetry</a><a class="dropdown-item" href="advanced-colorimetry.html">Advanced Colorimetry</a><a class="dropdown-item" href="representing-color.html">Representing Color</a><a class="dropdown-item" href="color-imaging-systems.html">Color Imaging Systems</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">Workflow</a><div aria-labelledby="workflow" class="dropdown-menu"><a class="dropdown-item" href="about-workflow.html">About Workflow</a><a class="dropdown-item" href="academy-color-encoding-system-aces.html">Academy Color Encoding System (ACES)</a><a class="dropdown-item" href="the-look.html">The Look</a><a class="dropdown-item" href="on-set.html">On Set</a><a class="dropdown-item" href="visual-effects-animation-and-games.html">Visual Effects, Animation and Games</a><a class="dropdown-item" href="compositing.html">Compositing</a><a class="dropdown-item" href="di-grading.html">DI Grading</a><a class="dropdown-item" href="critical-monitoring.html">Critical Monitoring</a><a class="dropdown-item" href="finishing.html">Finishing</a><a class="dropdown-item" href="archives.html">Archives</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">Appendix</a><div aria-labelledby="appendix" class="dropdown-menu"><a class="dropdown-item" href="common-rgb-color-encodings.html">Common RGB Color Encodings</a><a class="dropdown-item" href="opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class="dropdown-item" href="colour-science-for-python.html">Colour Science for Python</a><a class="dropdown-item" href="luts-and-transforms.html">LUTs and Transforms</a><a class="dropdown-item" href="asc-cdl.html">ASC CDL</a><a class="dropdown-item" href="aces-ctl.html">ACES CTL</a><a class="dropdown-item" href="full-and-legal-ranges.html">Full and Legal ranges</a><a class="dropdown-item" href="color-difference-encoding.html">Color Difference Encoding</a><a class="dropdown-item" href="camera-characterization.html">Camera Characterization</a><a class="dropdown-item" href="file-formats.html">File Formats</a><a class="dropdown-item" href="color-matching-experiments.html">Color Matching Experiments</a><a class="dropdown-item" href="grassmann-s-law-of-additive-color-mixture.html">Grassmann's Law of Additive Color Mixture</a><a class="dropdown-item" href="software.html">Software</a><a class="dropdown-item" href="acknowledgements.html">Acknowledgements</a></div></li><li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li><li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li></ul>
+<form class="navbar-form navbar-right" id="cse-search-box-form-id" onsubmit="return executeSearchQuery();" role="search">
+<div class="input-group">
+<input autocomplete="on" class="form-control" id="cse-search-input-box-id" size="25" type="text"/>
+<script async="" src="https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id" type="text/javascript">
+</script>
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+</span>
+</div>
+</form>
+</div>
+</nav><gcse:searchresults-only></gcse:searchresults-only> 
+<link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/> 
 
-  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
-  //]]>
-  </script>
-  <script type="text/javascript">
-  //<![CDATA[
+ <article class="page-content"> <div class="container-fluid py-3"> 
+<div class="row"> 
+<div class="col-md-2"></div> 
+<div class="col-md-8"> 
+ <h2 class="chapterHead"><span class="titlemark">Chapter 3</span><br/><a href="cinematic-color.html#QQ2-22-77" id="x22-760003">Workflow</a></h2>
+<div class="sectionTOCS">   
+ <span class="sectionToc">3.1 <a href="about-workflow.html#x23-770003.1">About Workflow</a></span>
+<br/>    <span class="sectionToc">3.2 <a href="academy-color-encoding-system-aces.html#x24-780003.2">Academy Color Encoding System (ACES)</a></span>
+<br/>     <span class="subsectionToc">3.2.1 <a href="academy-color-encoding-system-aces.html#x24-790003.2.1">Input Transforms</a></span>
+<br/>     <span class="subsectionToc">3.2.2 <a href="academy-color-encoding-system-aces.html#x24-800003.2.2">Working Space</a></span>
+<br/>     <span class="subsectionToc">3.2.3 <a href="academy-color-encoding-system-aces.html#x24-810003.2.3">Look Transform</a></span>
+<br/>     <span class="subsectionToc">3.2.4 <a href="academy-color-encoding-system-aces.html#x24-820003.2.4">Output Transform (RRT and ODT)</a></span>
+<br/>    <span class="sectionToc">3.3 <a href="the-look.html#x25-830003.3">The Look</a></span>
+<br/>     <span class="subsectionToc">3.3.1 <a href="the-look.html#x25-840003.3.1">Establishing the Look</a></span>
+<br/>     <span class="subsectionToc">3.3.2 <a href="the-look.html#x25-860003.3.2">Look Management</a></span>
+<br/>    <span class="sectionToc">3.4 <a href="on-set.html#x26-870003.4">On Set</a></span>
+<br/>     <span class="subsectionToc">3.4.1 <a href="on-set.html#x26-880003.4.1">Camera profiles</a></span>
+<br/>     <span class="subsectionToc">3.4.2 <a href="on-set.html#x26-890003.4.2">Monitoring on set</a></span>
+<br/>     <span class="subsectionToc">3.4.3 <a href="on-set.html#x26-900003.4.3">Editorial</a></span>
+<br/>     <span class="subsectionToc">3.4.4 <a href="on-set.html#x26-910003.4.4">Digital Imaging Technician (DIT)</a></span>
+<br/>     <span class="subsectionToc">3.4.5 <a href="on-set.html#x26-920003.4.5">Reference Capture</a></span>
+<br/>     <span class="subsectionToc">3.4.6 <a href="on-set.html#x26-930003.4.6">HDR Environment Capture</a></span>
+<br/>    <span class="sectionToc">3.5 <a href="visual-effects-animation-and-games.html#x27-940003.5">Visual Effects, Animation and Games</a></span>
+<br/>     <span class="subsectionToc">3.5.1 <a href="visual-effects-animation-and-games.html#x27-950003.5.1">Visual Effects</a></span>
+<br/>     <span class="subsectionToc">3.5.2 <a href="visual-effects-animation-and-games.html#x27-960003.5.2">Animation</a></span>
+<br/>     <span class="subsectionToc">3.5.3 <a href="visual-effects-animation-and-games.html#x27-970003.5.3">Games</a></span>
+<br/>     <span class="subsectionToc">3.5.4 <a href="visual-effects-animation-and-games.html#x27-980003.5.4">Texture Painting</a></span>
+<br/>     <span class="subsectionToc">3.5.5 <a href="visual-effects-animation-and-games.html#x27-1000003.5.5">Matte Painting</a></span>
+<br/>     <span class="subsectionToc">3.5.6 <a href="visual-effects-animation-and-games.html#x27-1010003.5.6">Lighting, Shading, and Rendering</a></span>
+<br/>    <span class="sectionToc">3.6 <a href="compositing.html#x28-1040003.6">Compositing</a></span>
+<br/>     <span class="subsectionToc">3.6.1 <a href="compositing.html#x28-1050003.6.1">Scene-Referred Linear is Preferred for Compositing</a></span>
+<br/>     <span class="subsectionToc">3.6.2 <a href="compositing.html#x28-1060003.6.2">Scene-Referred Linear Compositing Challenges</a></span>
+<br/>     <span class="subsectionToc">3.6.3 <a href="compositing.html#x28-1070003.6.3">Negative Values</a></span>
+<br/>     <span class="subsectionToc">3.6.4 <a href="compositing.html#x28-1080003.6.4">Working with Log Imagery</a></span>
+<br/>     <span class="subsectionToc">3.6.5 <a href="compositing.html#x28-1090003.6.5">Plate Timing, Neutralization, and Grading</a></span>
+<br/>     <span class="subsectionToc">3.6.6 <a href="compositing.html#x28-1100003.6.6">Premultiplication</a></span>
+<br/>     <span class="subsectionToc">3.6.7 <a href="compositing.html#x28-1110003.6.7">Technical Checks</a></span>
+<br/>    <span class="sectionToc">3.7 <a href="di-grading.html#x29-1120003.7">DI Grading</a></span>
+<br/>     <span class="subsectionToc">3.7.1 <a href="di-grading.html#x29-1130003.7.1">Conforming</a></span>
+<br/>     <span class="subsectionToc">3.7.2 <a href="di-grading.html#x29-1140003.7.2">Unmanaged Output Referred Grading</a></span>
+<br/>     <span class="subsectionToc">3.7.3 <a href="di-grading.html#x29-1150003.7.3">Color Managed Scene Referred Grading</a></span>
+<br/>     <span class="subsectionToc">3.7.4 <a href="di-grading.html#x29-1160003.7.4">DI Color Grading</a></span>
+<br/>    <span class="sectionToc">3.8 <a href="critical-monitoring.html#x30-1200003.8">Critical Monitoring</a></span>
+<br/>     <span class="subsectionToc">3.8.1 <a href="critical-monitoring.html#x30-1210003.8.1">Cinema Projection</a></span>
+<br/>     <span class="subsectionToc">3.8.2 <a href="critical-monitoring.html#x30-1220003.8.2">Reference Monitors</a></span>
+<br/>     <span class="subsectionToc">3.8.3 <a href="critical-monitoring.html#x30-1230003.8.3">HDR Displays</a></span>
+<br/>     <span class="subsectionToc">3.8.4 <a href="critical-monitoring.html#x30-1240003.8.4">Color Management for Mastering</a></span>
+<br/>    <span class="sectionToc">3.9 <a href="finishing.html#x31-1260003.9">Finishing</a></span>
+<br/>     <span class="subsectionToc">3.9.1 <a href="finishing.html#x31-1270003.9.1">Multiple deliverables</a></span>
+<br/>    <span class="sectionToc">3.10 <a href="archives.html#x32-1290003.10">Archives</a></span>
+<br/>     <span class="subsectionToc">3.10.1 <a href="archives.html#x32-1300003.10.1">Open Archives Information System (OAIS)</a></span>
+                                                                  
 
-  (function() { 
-  var cx = '000762316508951405781:qrigrsppwri'; 
-  var gcse = document.createElement('script'); 
-  gcse.type = 'text/javascript'; 
-  gcse.async = true; 
-  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
-  var s = document.getElementsByTagName('script')[0]; 
-  s.parentNode.insertBefore(gcse, s); 
-  })(); 
-  //]]>
-  </script>
-  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
-  "stylesheet" type="text/css" />
-  <link href="assets/css/custom.css" rel="stylesheet" type=
-  "text/css" />
-</head>
-<body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">Cinematic Color 2</a>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "preface.html" id="preface" role="button">Preface</a>
-          <div aria-labelledby="preface" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "description.html">Description</a><a class=
-            "dropdown-item" href=
-            "authorship.html">Authorship</a><a class=
-            "dropdown-item" href="on-the-web.html">On the Web</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "introduction.html" id="introduction" role=
-          "button">Introduction</a>
-          <div aria-labelledby="introduction" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "intended-audience.html">Intended Audience</a><a class=
-            "dropdown-item" href=
-            "how-to-read-this-document.html">How to Read this
-            Document</a><a class="dropdown-item" href=
-            "the-goal.html">The Goal</a><a class="dropdown-item"
-            href="converging-approaches.html">Converging
-            Approaches</a><a class="dropdown-item" href=
-            "a-general-model-of-color-processing.html">A General
-            Model of Color Processing</a><a class="dropdown-item"
-            href="color-management-challenges.html">Color
-            Management Challenges</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "color-science.html" id="color-science" role=
-          "button">Color Science</a>
-          <div aria-labelledby="color-science" class=
-          "dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-color-science.html">About Color
-            Science</a><a class="dropdown-item" href=
-            "electromagnetic-spectrum.html">Electromagnetic
-            Spectrum</a><a class="dropdown-item" href=
-            "human-visual-system.html">Human Visual
-            System</a><a class="dropdown-item" href=
-            "basic-colorimetry.html">Basic Colorimetry</a><a class=
-            "dropdown-item" href=
-            "advanced-colorimetry.html">Advanced
-            Colorimetry</a><a class="dropdown-item" href=
-            "representing-color.html">Representing
-            Color</a><a class="dropdown-item" href=
-            "color-imaging-systems.html">Color Imaging Systems</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "workflow.html" id="workflow" role="button">Workflow</a>
-          <div aria-labelledby="workflow" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "about-workflow.html">About Workflow</a><a class=
-            "dropdown-item" href=
-            "academy-color-encoding-system-aces.html">Academy Color
-            Encoding System (ACES)</a><a class="dropdown-item"
-            href="the-look.html">The Look</a><a class=
-            "dropdown-item" href="on-set.html">On Set</a><a class=
-            "dropdown-item" href=
-            "visual-effects-animation-and-games.html">Visual
-            Effects, Animation and Games</a><a class=
-            "dropdown-item" href=
-            "compositing.html">Compositing</a><a class=
-            "dropdown-item" href="di-grading.html">DI
-            Grading</a><a class="dropdown-item" href=
-            "critical-monitoring.html">Critical
-            Monitoring</a><a class="dropdown-item" href=
-            "finishing.html">Finishing</a><a class="dropdown-item"
-            href="archives.html">Archives</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a aria-expanded="false" aria-haspopup="true" class=
-          "nav-link dropdown-toggle" data-toggle="dropdown" href=
-          "appendix.html" id="appendix" role="button">Appendix</a>
-          <div aria-labelledby="appendix" class="dropdown-menu">
-            <a class="dropdown-item" href=
-            "common-rgb-color-encodings.html">Common RGB Color
-            Encodings</a><a class="dropdown-item" href=
-            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
-            "dropdown-item" href=
-            "colour-science-for-python.html">Colour Science for
-            Python</a><a class="dropdown-item" href=
-            "luts-and-transforms.html">LUTs and
-            Transforms</a><a class="dropdown-item" href=
-            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
-            href="aces-ctl.html">ACES CTL</a><a class=
-            "dropdown-item" href="full-and-legal-ranges.html">Full
-            and Legal ranges</a><a class="dropdown-item" href=
-            "color-difference-encoding.html">Color Difference
-            Encoding</a><a class="dropdown-item" href=
-            "camera-characterization.html">Camera
-            Characterization</a><a class="dropdown-item" href=
-            "file-formats.html">File Formats</a><a class=
-            "dropdown-item" href=
-            "color-matching-experiments.html">Color Matching
-            Experiments</a><a class="dropdown-item" href=
-            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
-            Law of Additive Color Mixture</a><a class=
-            "dropdown-item" href=
-            "software.html">Software</a><a class="dropdown-item"
-            href="acknowledgements.html">Acknowledgements</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="glossary.html">Glossary</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href=
-          "bibliography.html">Bibliography</a>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" id=
-      "cse-search-box-form-id" onsubmit=
-      "return executeSearchQuery();" placeholder="Search" role=
-      "search" name="cse-search-box-form-id">
-        <div class="input-group">
-          <input autocomplete="on" class="form-control" id=
-          "cse-search-input-box-id" size="25" type="text" /> 
-          <script async="async" src=
-          "https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id"
-          type="text/javascript"></script>
-        </div>
-      </form>
-    </div>
-  </nav>
-  <article class="page-content">
-    <div class="container-fluid py-3">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <h2 class="chapterHead"><span class=
-          "titlemark">Chapter&nbsp;3</span><br />
-          <a href="cinematic-color.html#QQ2-22-77" id=
-          "x22-760003">Workflow</a></h2>
-          <div class="sectionTOCS">
-            &nbsp;<span class="sectionToc">3.1 <a href=
-            "about-workflow.html#x23-770003.1">About
-            Workflow</a></span><br />
-            &nbsp;<span class="sectionToc">3.2 <a href=
-            "academy-color-encoding-system-aces.html#x24-780003.2">Academy
-            Color Encoding System (ACES)</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.2.1 <a href=
-            "academy-color-encoding-system-aces.html#x24-790003.2.1">
-            Input Transforms</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.2.2 <a href=
-            "academy-color-encoding-system-aces.html#x24-800003.2.2">
-            Working Space</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.2.3 <a href=
-            "academy-color-encoding-system-aces.html#x24-810003.2.3">
-            Look Transform</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.2.4 <a href=
-            "academy-color-encoding-system-aces.html#x24-820003.2.4">
-            Output Transform (RRT and ODT)</a></span><br />
-            &nbsp;<span class="sectionToc">3.3 <a href=
-            "the-look.html#x25-830003.3">The Look</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.3.1 <a href=
-            "the-look.html#x25-840003.3.1">Establishing the
-            Look</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.3.2 <a href=
-            "the-look.html#x25-860003.3.2">Look
-            Management</a></span><br />
-            &nbsp;<span class="sectionToc">3.4 <a href=
-            "on-set.html#x26-870003.4">On Set</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.4.1 <a href=
-            "on-set.html#x26-880003.4.1">Camera
-            profiles</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.4.2 <a href=
-            "on-set.html#x26-890003.4.2">Monitoring on
-            set</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.4.3 <a href=
-            "on-set.html#x26-900003.4.3">Editorial</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.4.4 <a href=
-            "on-set.html#x26-910003.4.4">Digital Imaging Technician
-            (DIT)</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.4.5 <a href=
-            "on-set.html#x26-920003.4.5">Reference
-            Capture</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.4.6 <a href=
-            "on-set.html#x26-930003.4.6">HDR Environment
-            Capture</a></span><br />
-            &nbsp;<span class="sectionToc">3.5 <a href=
-            "visual-effects-animation-and-games.html#x27-940003.5">Visual
-            Effects, Animation and Games</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.5.1 <a href=
-            "visual-effects-animation-and-games.html#x27-950003.5.1">
-            Visual Effects</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.5.2 <a href=
-            "visual-effects-animation-and-games.html#x27-960003.5.2">
-            Animation</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.5.3 <a href=
-            "visual-effects-animation-and-games.html#x27-970003.5.3">
-            Games</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.5.4 <a href=
-            "visual-effects-animation-and-games.html#x27-980003.5.4">
-            Texture Painting</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.5.5 <a href=
-            "visual-effects-animation-and-games.html#x27-1000003.5.5">
-            Matte Painting</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.5.6 <a href=
-            "visual-effects-animation-and-games.html#x27-1010003.5.6">
-            Lighting, Shading, and Rendering</a></span><br />
-            &nbsp;<span class="sectionToc">3.6 <a href=
-            "compositing.html#x28-1040003.6">Compositing</a></span><br />
+                                                                  
+<br/>     <span class="subsectionToc">3.10.2 <a href="archives.html#x32-1310003.10.2">Archive Elements</a></span>
+</div>
 
-            &nbsp;&nbsp;<span class="subsectionToc">3.6.1 <a href=
-            "compositing.html#x28-1050003.6.1">Scene-Referred
-            Linear is Preferred for Compositing</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.6.2 <a href=
-            "compositing.html#x28-1060003.6.2">Scene-Referred
-            Linear Compositing Challenges</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.6.3 <a href=
-            "compositing.html#x28-1070003.6.3">Negative
-            Values</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.6.4 <a href=
-            "compositing.html#x28-1080003.6.4">Working with Log
-            Imagery</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.6.5 <a href=
-            "compositing.html#x28-1090003.6.5">Plate Timing,
-            Neutralization, and Grading</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.6.6 <a href=
-            "compositing.html#x28-1100003.6.6">Premultiplication</a></span><br />
 
-            &nbsp;&nbsp;<span class="subsectionToc">3.6.7 <a href=
-            "compositing.html#x28-1110003.6.7">Technical
-            Checks</a></span><br />
-            &nbsp;<span class="sectionToc">3.7 <a href=
-            "di-grading.html#x29-1120003.7">DI
-            Grading</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.7.1 <a href=
-            "di-grading.html#x29-1130003.7.1">Conforming</a></span><br />
 
-            &nbsp;&nbsp;<span class="subsectionToc">3.7.2 <a href=
-            "di-grading.html#x29-1140003.7.2">Unmanaged Output
-            Referred Grading</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.7.3 <a href=
-            "di-grading.html#x29-1150003.7.3">Color Managed Scene
-            Referred Grading</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.7.4 <a href=
-            "di-grading.html#x29-1160003.7.4">DI Color
-            Grading</a></span><br />
-            &nbsp;<span class="sectionToc">3.8 <a href=
-            "critical-monitoring.html#x30-1200003.8">Critical
-            Monitoring</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.8.1 <a href=
-            "critical-monitoring.html#x30-1210003.8.1">Cinema
-            Projection</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.8.2 <a href=
-            "critical-monitoring.html#x30-1220003.8.2">Reference
-            Monitors</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.8.3 <a href=
-            "critical-monitoring.html#x30-1230003.8.3">HDR
-            Displays</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.8.4 <a href=
-            "critical-monitoring.html#x30-1240003.8.4">Color
-            Management for Mastering</a></span><br />
-            &nbsp;<span class="sectionToc">3.9 <a href=
-            "finishing.html#x31-1260003.9">Finishing</a></span><br />
 
-            &nbsp;&nbsp;<span class="subsectionToc">3.9.1 <a href=
-            "finishing.html#x31-1270003.9.1">Multiple
-            deliverables</a></span><br />
-            &nbsp;<span class="sectionToc">3.10 <a href=
-            "archives.html#x32-1290003.10">Archives</a></span><br />
 
-            &nbsp;&nbsp;<span class="subsectionToc">3.10.1 <a href=
-            "archives.html#x32-1300003.10.1">Open Archives
-            Information System (OAIS)</a></span><br />
-            &nbsp;&nbsp;<span class="subsectionToc">3.10.2 <a href=
-            "archives.html#x32-1310003.10.2">Archive
-            Elements</a></span>
-          </div>
-          <div class="breadcrumb-navigation text-center">
-            <a href="color-science.html"><button class=
-            "btn btn-light mx-3" type=
-            "button">Previous</button></a><a href=
-            "cinematic-color.html#workflow.html"><button class=
-            "btn btn-light mx-3" type=
-            "button">Up</button></a><a href=
-            "appendix.html"><button class="btn btn-light mx-3"
-            type="button">Next</button></a>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-  </article>
-  <footer class="page-footer">
-    <div class="container-fluid text-center py-3">
-      Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ <a href=
-      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
-    </div>
-  </footer>
-  <script src="assets/js/jquery/jquery.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/popper/popper.min.js" type=
-  "text/javascript"></script> 
-  <script src="assets/js/bootstrap/bootstrap.min.js" type=
-  "text/javascript"></script> 
-  <script type="text/javascript">
-  //<![CDATA[
 
-  function executeSearchQuery() { 
-  var input = document.getElementById('cse-search-input-box-id'); 
-  var element = google.search.cse.element.getElement('searchresults-only0'); 
-  if (input.value == '') { 
-  element.clearAllResults(); 
-  } else { 
-  element.execute(input.value); 
-  } 
-  return false; 
-  } 
-  //]]>
-  </script>
-</body>
-</html>
+
+
+
+                                                                  
+
+                                                                  
+<div class="breadcrumb-navigation text-center"><a href="color-science.html"><button class="btn btn-light mx-3" type="button">Previous</button></a><a href="cinematic-color.html#workflow.html"><button class="btn btn-light mx-3" type="button">Up</button></a><a href="appendix.html"><button class="btn btn-light mx-3" type="button">Next</button></a></div>  </div> 
+<div class="col-md-2"></div> 
+</div> 
+</div> 
+</article>  <footer class="page-footer"> 
+<div class="container-fluid text-center py-3"> 
+Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ 
+<a href="mailto:ves-tech-color@googlegroups.com"> 
+ves-tech-color@googlegroups.com</a> 
+</div> 
+</footer>  <script src="assets/js/jquery/jquery.min.js" type="text/javascript"></script> 
+<script src="assets/js/popper/popper.min.js" type="text/javascript"></script> 
+<script src="assets/js/bootstrap/bootstrap.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+function executeSearchQuery() { 
+var input = document.getElementById('cse-search-input-box-id'); 
+var element = google.search.cse.element.getElement('searchresults-only0'); 
+if (input.value == '') { 
+element.clearAllResults(); 
+} else { 
+element.execute(input.value); 
+} 
+return false; 
+} 
+</script> 
+ 
+ 
+</body></html>
