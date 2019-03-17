@@ -51,6 +51,10 @@
 
 \newcommand\ccPar{\par\null\par}
 
+\newcommand*{\ccListLength}[1]{%
+    \StrCount{#1,}{,}%
+}
+
 \newcommand\ccTabularNums{%
     \def\sourcesanspro@figurealign{T}%
     \def\familydefault{SourceSansPro-T\sourcesanspro@figurestyle}%
@@ -86,7 +90,6 @@
         #1
     \fi
 }
-
 
 \newcommand{\ccName}[1]{%
     \makebox[1.15\width]{\textbf{#1}}

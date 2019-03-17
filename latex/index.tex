@@ -8,12 +8,21 @@
 
 \input{common/cinematic-color-title.tex}
 
-\noindent{\href{./cinematic-color.html}{\includegraphics[alt={Cinematic Color - Jumbotron.},width=\textwidth]{cinematic-color-jumbotron.jpg}}}
+\ifdefined\HCode%
+    \def\ccIndexImages{%
+        https://via.placeholder.com/1280x720.png?text=Image 1,%
+        https://via.placeholder.com/1280x720.png?text=Image 2,%
+        https://via.placeholder.com/1280x720.png?text=Image 3,%
+        https://via.placeholder.com/1280x720.png?text=Image 4,%
+        https://via.placeholder.com/1280x720.png?text=Image 5,%
+        https://via.placeholder.com/1280x720.png?text=Image 6%
+    }
+    \ccCarousel{\ccIndexImages}
+\fi
+% \noindent{\href{./cinematic-color.html}{\includegraphics[alt={Cinematic Color - Jumbotron.},width=\textwidth]{cinematic-color-jumbotron.jpg}}}
 
 \input{common/ves-title.tex}
-
 \ccLatexVSpace{5mm}
-
 \input{common/contributors-and-reviewers.tex}
 
 \begin{center}
