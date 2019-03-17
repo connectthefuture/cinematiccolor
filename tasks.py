@@ -56,7 +56,10 @@ HTML_BUILD_DIRECTORY = os.sep.join(['build', 'html'])
 
 HTML_RELEASE_DIRECTORY = 'cinematic-color'
 
-TIDY_HTML = ['tidy', '-q', '-i', '-utf8', '-asxhtml', '-m']
+TIDY_HTML = [
+    'tidy', '-q', '-i', '-utf8', '-asxhtml', '-m', '--custom-tags',
+    'blocklevel', '--drop-empty-elements', 'no'
+]
 
 
 def message_box(message, width=79, padding=3, print_callable=print):
@@ -195,7 +198,8 @@ def format(ctx):
     with ctx.cd(LATEX_SOURCE_DIRECTORY):
         bibtex_path = os.path.join(LATEX_SOURCE_DIRECTORY, BIBLIOGRAPHY_NAME)
         with open(bibtex_path) as bibtex_file:
-            bibtex = biblib.bib.Parser().parse(bibtex_file.read()).get_entries()
+            bibtex = biblib.bib.Parser().parse(
+                bibtex_file.read()).get_entries()
 
         for entry in bibtex.values():
             try:
@@ -209,6 +213,7 @@ def format(ctx):
             for entry in bibtex.values():
                 bibtex_file.write(entry.to_bib())
                 bibtex_file.write('\n')
+
 
 @task
 def serve(ctx, port=8900):

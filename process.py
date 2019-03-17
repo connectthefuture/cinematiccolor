@@ -47,20 +47,25 @@ NAVBAR_TEMPLATE = """
     </button>
     <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto"></ul>
-        <form class="navbar-form navbar-right" id="cse-search-box-form-id" \
-onsubmit="return executeSearchQuery();" role="search">
+        <form
+            class="navbar-form navbar-right"
+            id="cse-search-box-form-id"
+            onsubmit="return executeSearchQuery();"
+            role="search">
             <div class="input-group">
-                <input type="text" class="form-control" \
-id="cse-search-input-box-id" size="25" autocomplete="on">
-                <script async type="text/javascript" \
-src="https://cse.google.com/cse/brand?form=cse-search-box-form-id&\
-inputbox=cse-search-input-box-id">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="cse-search-input-box-id"
+                    autocomplete="on">
+                <script async
+                    type="text/javascript"
+                    src="https://cse.google.com/cse/brand?\
+form=cse-search-box-form-id&inputbox=cse-search-input-box-id">
                 </script>
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </span>
+                <button type="submit" class="btn btn-dark">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
         </form>
     </div>
