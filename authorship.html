@@ -41,6 +41,20 @@
   window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
   //]]>
   </script>
+  <script type="text/javascript">
+  //<![CDATA[
+
+  (function() { 
+  var cx = '000762316508951405781:qrigrsppwri'; 
+  var gcse = document.createElement('script'); 
+  gcse.type = 'text/javascript'; 
+  gcse.async = true; 
+  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(gcse, s); 
+  })(); 
+  //]]>
+  </script>
   <link href="assets/css/bootstrap/bootstrap.min.css" rel=
   "stylesheet" type="text/css" />
   <link href="assets/css/custom.css" rel="stylesheet" type=
@@ -173,9 +187,17 @@
           "bibliography.html">Bibliography</a>
         </li>
       </ul>
-      <form class="form-inline my-3 my-md-0">
-        <input class="form-control" placeholder="Search" type=
-        "text" />
+      <form class="navbar-form navbar-right" id=
+      "cse-search-box-form-id" onsubmit=
+      "return executeSearchQuery();" placeholder="Search" role=
+      "search" name="cse-search-box-form-id">
+        <div class="input-group">
+          <input autocomplete="on" class="form-control" id=
+          "cse-search-input-box-id" size="25" type="text" /> 
+          <script async="async" src=
+          "https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id"
+          type="text/javascript"></script>
+        </div>
       </form>
     </div>
   </nav>
@@ -229,6 +251,21 @@
   <script src="assets/js/popper/popper.min.js" type=
   "text/javascript"></script> 
   <script src="assets/js/bootstrap/bootstrap.min.js" type=
-  "text/javascript"></script>
+  "text/javascript"></script> 
+  <script type="text/javascript">
+  //<![CDATA[
+
+  function executeSearchQuery() { 
+  var input = document.getElementById('cse-search-input-box-id'); 
+  var element = google.search.cse.element.getElement('searchresults-only0'); 
+  if (input.value == '') { 
+  element.clearAllResults(); 
+  } else { 
+  element.execute(input.value); 
+  } 
+  return false; 
+  } 
+  //]]>
+  </script>
 </body>
 </html>
