@@ -48,7 +48,7 @@ NAVBAR_TEMPLATE = """
     <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto"></ul>
         <form class="navbar-form navbar-right" id="cse-search-box-form-id" \
-onsubmit="return executeSearchQuery();" role="search" placeholder="Search">
+onsubmit="return executeSearchQuery();" role="search">
             <div class="input-group">
                 <input type="text" class="form-control" \
 id="cse-search-input-box-id" size="25" autocomplete="on">
