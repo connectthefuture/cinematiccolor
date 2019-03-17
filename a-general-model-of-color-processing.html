@@ -1,188 +1,404 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en"><head><title>A General Model of Color Processing</title> 
-<meta charset="utf-8"/> 
-<meta content="TeX4ht (http://www.tug.org/tex4ht/)" name="generator"/> 
-<meta content="width=device-width,initial-scale=1" name="viewport"/> 
-<link href="cinematic-color.css" rel="stylesheet" type="text/css"/> 
-<meta content="cinematic-color.tex" name="src"/> 
- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js" type="text/javascript"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js" type="text/javascript"></script> 
-<script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js" type="text/javascript"></script> 
-<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js" type="text/javascript"></script> 
-<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js" type="text/javascript"></script> 
-<script src="https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js" type="text/javascript"></script> 
-<script src="assets/js/jeri/jeri.min.js" type="text/javascript"></script> 
-<script type="text/javascript"> 
-window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
-</script> 
-<script type="text/javascript"> 
-(function() { 
-var cx = '000762316508951405781:qrigrsppwri'; 
-var gcse = document.createElement('script'); 
-gcse.type = 'text/javascript'; 
-gcse.async = true; 
-gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
-var s = document.getElementsByTagName('script')[0]; 
-s.parentNode.insertBefore(gcse, s); 
-})(); 
-</script> 
-</head><body><nav class="navbar navbar-expand-md navbar-light bg-light">
-<a class="navbar-brand" href="#">Cinematic Color 2</a>
-<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbar">
-<ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="preface.html" id="preface" role="button">Preface</a><div aria-labelledby="preface" class="dropdown-menu"><a class="dropdown-item" href="description.html">Description</a><a class="dropdown-item" href="authorship.html">Authorship</a><a class="dropdown-item" href="on-the-web.html">On the Web</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="introduction.html" id="introduction" role="button">Introduction</a><div aria-labelledby="introduction" class="dropdown-menu"><a class="dropdown-item" href="intended-audience.html">Intended Audience</a><a class="dropdown-item" href="how-to-read-this-document.html">How to Read this Document</a><a class="dropdown-item" href="the-goal.html">The Goal</a><a class="dropdown-item" href="converging-approaches.html">Converging Approaches</a><a class="dropdown-item" href="a-general-model-of-color-processing.html">A General Model of Color Processing</a><a class="dropdown-item" href="color-management-challenges.html">Color Management Challenges</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="color-science.html" id="color-science" role="button">Color Science</a><div aria-labelledby="color-science" class="dropdown-menu"><a class="dropdown-item" href="about-color-science.html">About Color Science</a><a class="dropdown-item" href="electromagnetic-spectrum.html">Electromagnetic Spectrum</a><a class="dropdown-item" href="human-visual-system.html">Human Visual System</a><a class="dropdown-item" href="basic-colorimetry.html">Basic Colorimetry</a><a class="dropdown-item" href="advanced-colorimetry.html">Advanced Colorimetry</a><a class="dropdown-item" href="representing-color.html">Representing Color</a><a class="dropdown-item" href="color-imaging-systems.html">Color Imaging Systems</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="workflow.html" id="workflow" role="button">Workflow</a><div aria-labelledby="workflow" class="dropdown-menu"><a class="dropdown-item" href="about-workflow.html">About Workflow</a><a class="dropdown-item" href="academy-color-encoding-system-aces.html">Academy Color Encoding System (ACES)</a><a class="dropdown-item" href="the-look.html">The Look</a><a class="dropdown-item" href="on-set.html">On Set</a><a class="dropdown-item" href="visual-effects-animation-and-games.html">Visual Effects, Animation and Games</a><a class="dropdown-item" href="compositing.html">Compositing</a><a class="dropdown-item" href="di-grading.html">DI Grading</a><a class="dropdown-item" href="critical-monitoring.html">Critical Monitoring</a><a class="dropdown-item" href="finishing.html">Finishing</a><a class="dropdown-item" href="archives.html">Archives</a></div></li><li class="nav-item dropdown"><a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="appendix.html" id="appendix" role="button">Appendix</a><div aria-labelledby="appendix" class="dropdown-menu"><a class="dropdown-item" href="common-rgb-color-encodings.html">Common RGB Color Encodings</a><a class="dropdown-item" href="opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class="dropdown-item" href="colour-science-for-python.html">Colour Science for Python</a><a class="dropdown-item" href="luts-and-transforms.html">LUTs and Transforms</a><a class="dropdown-item" href="asc-cdl.html">ASC CDL</a><a class="dropdown-item" href="aces-ctl.html">ACES CTL</a><a class="dropdown-item" href="full-and-legal-ranges.html">Full and Legal ranges</a><a class="dropdown-item" href="color-difference-encoding.html">Color Difference Encoding</a><a class="dropdown-item" href="camera-characterization.html">Camera Characterization</a><a class="dropdown-item" href="file-formats.html">File Formats</a><a class="dropdown-item" href="color-matching-experiments.html">Color Matching Experiments</a><a class="dropdown-item" href="grassmann-s-law-of-additive-color-mixture.html">Grassmann's Law of Additive Color Mixture</a><a class="dropdown-item" href="software.html">Software</a><a class="dropdown-item" href="acknowledgements.html">Acknowledgements</a></div></li><li class="nav-item"><a class="nav-link" href="glossary.html">Glossary</a></li><li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li></ul>
-<form class="navbar-form navbar-right" id="cse-search-box-form-id" onsubmit="return executeSearchQuery();" role="search">
-<div class="input-group">
-<input autocomplete="on" class="form-control" id="cse-search-input-box-id" size="25" type="text"/>
-<script async="" src="https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id" type="text/javascript">
-</script>
-<span class="input-group-btn">
-<button class="btn btn-default" type="submit">
-<span class="glyphicon glyphicon-search"></span>
-</button>
-</span>
-</div>
-</form>
-</div>
-</nav><gcse:searchresults-only></gcse:searchresults-only> 
-<link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
-<link href="assets/css/custom.css" rel="stylesheet" type="text/css"/> 
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0" />
+  <title>A General Model of Color Processing</title>
+  <meta charset="utf-8" />
+  <meta content="TeX4ht (http://www.tug.org/tex4ht/)" name=
+  "generator" />
+  <meta content="width=device-width,initial-scale=1" name=
+  "viewport" />
+  <link href="cinematic-color.css" rel="stylesheet" type=
+  "text/css" />
+  <meta content="cinematic-color.tex" name="src" />
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
+  type="text/javascript"></script>
+  <script src=
+  "https://rawgit.com/colour-science/colour-analysis-three.js/master/dist/colour-analysis.js"
+  type="text/javascript"></script>
+  <script src="assets/js/jeri/jeri.min.js" type=
+  "text/javascript"></script>
+  <script type="text/javascript">
+  //<![CDATA[
 
- <article class="page-content"> <div class="container-fluid py-3"> 
-<div class="row"> 
-<div class="col-md-2"></div> 
-<div class="col-md-8"> 
- <h3 class="sectionHead"><span class="titlemark">1.5   </span> <a href="cinematic-color.html#QQ2-12-11" id="x12-110001.5">A General Model of Color Processing</a></h3>
-<p class="noindent">Digital color management follows a clear general path tightly coupled with digital
-imaging. The high-level diagram below covers this path, from reflectance, image
-formation, storage and processing to display.
-</p><p class="indent">   The ’Computer Graphics’ box hides a complex pipeline that largely mimics the
-physical processes that precede it in this diagram, with the goals of creating content that
-will blend seamlessly with the captured image. Key: Purple - physical light, Blue - stored
-light, Green - Synthetic light, Orange - perceived light
-</p><p class="indent">   While there are many imaging considerations along the full imaging pipeline, such as
-spatial and temporal considerations, this discussion restricted itself to the propagation
-and transformation of color in the imaging pipeline.
-</p><p class="indent">   The simplest example of the digital color pipeline for cinema is exemplified by a
-digital camera, covering the full imaging pipeline from lens to sensor to the display on the
-back of the camera. Even this simplest case involves processing and transforms that are a
-microcosm of more complex pipelines. From this example, it is possible to expand to
-cover pipelines and workflows that have processing steps in-camera, on-set, in a scanning
-house, with editors, in a renderer, visual effects, animation and games teams, colorists,
-distribution processing, cinemas, streaming services and everywhere in between.
-In this section, the paper will present simple models for thinking about color
-processing and understanding which aspects are important in each phase of
-production.
-</p><p class="indent">   In the simple case mentioned above, an image captured by a digital camera and
-displayed on the screen on the back of the camera, there are a series of states and
-transforms to consider: Light reflected off a surface, into camera’s lens and onto an image
-sensor Sensor photosite values encoded and stored in memory A transform to combine
-adjacent Red, Green and Blue photosites into single pixel values A "working space" image
-in memory A transform to remap the intensities of the combined pixels for display A
-"displayable" image ready to be sent to the display hardware The display hardware
-showing the image
-</p><p class="indent">   Optical diagram of a typical mirrorless digital camera. Unknown. (n.d.). DSLR Optical
-Diagram. Retrieved October 14, 2018, from <a class="url" href="https://www.dpreview.com/forums/post/61693925">https://www.dpreview.com/forums/post/61693925</a>
-</p><p class="indent">   The aspects of the example above that will show up repeatedly throughout this
-document are:
-</p><p class="indent">   Input, Working, Output: The example includes the stages that are common to most
-modern color pipelines, namely an Input, Capture or Generated image state, a
-Working image state used for editing and production and an Output image
-state used for display. There may be other steps along the way, but virtually all
-modern color pipeline designs contain these three distinct states. The Input
-image for a visual effects or animated feature or game may be the product of a
-renderer.
-</p><p class="indent">   Scene-referred, Output-referred images: The sensor image in Step 3 represents the
-intensity of light in the scene, filtered through the camera’s lens and specific
-red, green and blue filters over each sensor photosite. The "working space"
-image from Step 5 also represents the intensity of light in the scene, but may be
-                                                                  
+  window.colourAnalysisServer = 'https://www.colour-science.org:8020'; 
+  //]]>
+  </script>
+  <script type="text/javascript">
+  //<![CDATA[
 
-                                                                  
-device-independent, at least slightly abstracted from the camera sensor and
-processing hardware. After being transformed for display, the image in Step 6 has
-values representing the activations necessary for each of the target display’s
-pixels.
-</p><p class="indent">   Transforms - Input, Output, Look: Going between each image state is a
-transformation that has a specific, meaningful effect. The most widely used transforms
-will typically include a remapping of intensities and some degree of remapping of the
-color gamut: the underlying meaning of the red, green and blue of each pixel.
-There are many more exotic transforms, and often a number of these simpler
-transforms are concatenated. Transforms going from Input to the Working space are
-usually strictly defined based on the capabilities of the capture device and the
-attributes of the working space. Transforms from the Working space to the Output
-space usually combine an element of artistry, commonly referred to as "the
-Look", with an explicit mapping based on the capabilities of the output device.
-Later sections of the document contain many examples of transforms used in
-practice.
-</p><p class="indent">   Staged Processing: The process to go from light hitting the sensor to a display
-emitting light is defined by a specific, staged processing pipeline. Transforms take color
-from one image state to the next, constrained by the processing needs of each successive
-stage and the limitations and capabilities of the capture, processing and display hardware.
-Images may be written to disk or passed along an IO line representing the state of
-color at any of the points in the processing chain, as different applications or
-departments within production may be the source or the destination for the
-data.
-</p><p class="indent">   Meaning and Placement - Understanding how to work with an image or color data set
-is more natural when you can be clear about what the data is supposed to represent and
-where it lives in the production or product’s processing chain. These two elements,
-meaning and placement, provide the context needed to apply transformations and make
-aesthetic judgements in production.
-</p>   
-<h4 class="subsectionHead"><span class="titlemark">1.5.1   </span> <a href="contents.html#QQ2-12-12" id="x12-120001.5.1">ACES</a></h4>
-<p class="noindent">The Academy Color Encoding System (ACES) is a color management system that
-embodied the general model of color processing described above. It codifies and
-standardizes many of the elements described in the Workflow section with an eye towards
-addressing many of the difficulties listed in the Challenges section below. The basic
-system diagram for ACES is presented below.
-</p><p class="indent">   ACES system diagram
-</p><p class="indent">   This diagram contains scene-referred imagery, transforms converting from one state or
-color space to the next, working spaces, output-referred imagery and an ordered, staged
-processing pipeline.
-</p><p class="indent">   ACES is one of many ways to define a color pipeline, but it presents a nice
-embodiment of the general model of color processing presented above, mirrored in most
-of the examples discussed in this paper. ACES will be referenced throughout this
-document because it is open, well documented, widely available and has been used
-successfully in a wide variety of projects of all types and complexities. It provides a great
-starting point for exploration. This should not be taken as a suggestion that ACES is the
-                                                                  
+  (function() { 
+  var cx = '000762316508951405781:qrigrsppwri'; 
+  var gcse = document.createElement('script'); 
+  gcse.type = 'text/javascript'; 
+  gcse.async = true; 
+  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx; 
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(gcse, s); 
+  })(); 
+  //]]>
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">Cinematic Color 2</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded=
+    "false" aria-label="Toggle navigation" class="navbar-toggler"
+    data-target="#navbarSupportedContent" data-toggle="collapse"
+    type="button"><span class=
+    "navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "preface.html" id="preface" role="button">Preface</a>
+          <div aria-labelledby="preface" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "description.html">Description</a><a class=
+            "dropdown-item" href=
+            "authorship.html">Authorship</a><a class=
+            "dropdown-item" href="on-the-web.html">On the Web</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "introduction.html" id="introduction" role=
+          "button">Introduction</a>
+          <div aria-labelledby="introduction" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "intended-audience.html">Intended Audience</a><a class=
+            "dropdown-item" href=
+            "how-to-read-this-document.html">How to Read this
+            Document</a><a class="dropdown-item" href=
+            "the-goal.html">The Goal</a><a class="dropdown-item"
+            href="converging-approaches.html">Converging
+            Approaches</a><a class="dropdown-item" href=
+            "a-general-model-of-color-processing.html">A General
+            Model of Color Processing</a><a class="dropdown-item"
+            href="color-management-challenges.html">Color
+            Management Challenges</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "color-science.html" id="color-science" role=
+          "button">Color Science</a>
+          <div aria-labelledby="color-science" class=
+          "dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-color-science.html">About Color
+            Science</a><a class="dropdown-item" href=
+            "electromagnetic-spectrum.html">Electromagnetic
+            Spectrum</a><a class="dropdown-item" href=
+            "human-visual-system.html">Human Visual
+            System</a><a class="dropdown-item" href=
+            "basic-colorimetry.html">Basic Colorimetry</a><a class=
+            "dropdown-item" href=
+            "advanced-colorimetry.html">Advanced
+            Colorimetry</a><a class="dropdown-item" href=
+            "representing-color.html">Representing
+            Color</a><a class="dropdown-item" href=
+            "color-imaging-systems.html">Color Imaging Systems</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "workflow.html" id="workflow" role="button">Workflow</a>
+          <div aria-labelledby="workflow" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "about-workflow.html">About Workflow</a><a class=
+            "dropdown-item" href=
+            "academy-color-encoding-system-aces.html">Academy Color
+            Encoding System (ACES)</a><a class="dropdown-item"
+            href="the-look.html">The Look</a><a class=
+            "dropdown-item" href="on-set.html">On Set</a><a class=
+            "dropdown-item" href=
+            "visual-effects-animation-and-games.html">Visual
+            Effects, Animation and Games</a><a class=
+            "dropdown-item" href=
+            "compositing.html">Compositing</a><a class=
+            "dropdown-item" href="di-grading.html">DI
+            Grading</a><a class="dropdown-item" href=
+            "critical-monitoring.html">Critical
+            Monitoring</a><a class="dropdown-item" href=
+            "finishing.html">Finishing</a><a class="dropdown-item"
+            href="archives.html">Archives</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href=
+          "appendix.html" id="appendix" role="button">Appendix</a>
+          <div aria-labelledby="appendix" class="dropdown-menu">
+            <a class="dropdown-item" href=
+            "common-rgb-color-encodings.html">Common RGB Color
+            Encodings</a><a class="dropdown-item" href=
+            "opencolorio-ocio.html">OpenColorIO (OCIO)</a><a class=
+            "dropdown-item" href=
+            "colour-science-for-python.html">Colour Science for
+            Python</a><a class="dropdown-item" href=
+            "luts-and-transforms.html">LUTs and
+            Transforms</a><a class="dropdown-item" href=
+            "asc-cdl.html">ASC CDL</a><a class="dropdown-item"
+            href="aces-ctl.html">ACES CTL</a><a class=
+            "dropdown-item" href="full-and-legal-ranges.html">Full
+            and Legal ranges</a><a class="dropdown-item" href=
+            "color-difference-encoding.html">Color Difference
+            Encoding</a><a class="dropdown-item" href=
+            "camera-characterization.html">Camera
+            Characterization</a><a class="dropdown-item" href=
+            "file-formats.html">File Formats</a><a class=
+            "dropdown-item" href=
+            "color-matching-experiments.html">Color Matching
+            Experiments</a><a class="dropdown-item" href=
+            "grassmann-s-law-of-additive-color-mixture.html">Grassmann's
+            Law of Additive Color Mixture</a><a class=
+            "dropdown-item" href=
+            "software.html">Software</a><a class="dropdown-item"
+            href="acknowledgements.html">Acknowledgements</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="glossary.html">Glossary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=
+          "bibliography.html">Bibliography</a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" id=
+      "cse-search-box-form-id" onsubmit=
+      "return executeSearchQuery();" role="search" name=
+      "cse-search-box-form-id">
+        <div class="input-group">
+          <input autocomplete="on" class="form-control" id=
+          "cse-search-input-box-id" type="text" /> 
+          <script async="async" src=
+          "https://cse.google.com/cse/brand?form=cse-search-box-form-id&amp;inputbox=cse-search-input-box-id"
+          type="text/javascript"></script> <button class=
+          "btn btn-dark" type="submit"><i class=
+          "fa fa-search"></i></button>
+        </div>
+      </form>
+    </div>
+  </nav>
+  <gcse:searchresults-only></gcse:searchresults-only>
+  <link href="assets/css/bootstrap/bootstrap.min.css" rel=
+  "stylesheet" type="text/css" />
+  <link href="assets/css/custom.css" rel="stylesheet" type=
+  "text/css" />
+  <link href=
+  "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet" type="text/css" />
+  <article class="page-content">
+    <div class="container-fluid py-3">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h3 class="sectionHead"><span class=
+          "titlemark">1.5</span> <a href=
+          "cinematic-color.html#QQ2-12-11" id="x12-110001.5">A
+          General Model of Color Processing</a></h3>
+          <p class="noindent">Digital color management follows a
+          clear general path tightly coupled with digital imaging.
+          The high-level diagram below covers this path, from
+          reflectance, image formation, storage and processing to
+          display.</p>
+          <p class="indent">The ’Computer Graphics’ box hides a
+          complex pipeline that largely mimics the physical
+          processes that precede it in this diagram, with the goals
+          of creating content that will blend seamlessly with the
+          captured image. Key: Purple - physical light, Blue -
+          stored light, Green - Synthetic light, Orange - perceived
+          light</p>
+          <p class="indent">While there are many imaging
+          considerations along the full imaging pipeline, such as
+          spatial and temporal considerations, this discussion
+          restricted itself to the propagation and transformation
+          of color in the imaging pipeline.</p>
+          <p class="indent">The simplest example of the digital
+          color pipeline for cinema is exemplified by a digital
+          camera, covering the full imaging pipeline from lens to
+          sensor to the display on the back of the camera. Even
+          this simplest case involves processing and transforms
+          that are a microcosm of more complex pipelines. From this
+          example, it is possible to expand to cover pipelines and
+          workflows that have processing steps in-camera, on-set,
+          in a scanning house, with editors, in a renderer, visual
+          effects, animation and games teams, colorists,
+          distribution processing, cinemas, streaming services and
+          everywhere in between. In this section, the paper will
+          present simple models for thinking about color processing
+          and understanding which aspects are important in each
+          phase of production.</p>
+          <p class="indent">In the simple case mentioned above, an
+          image captured by a digital camera and displayed on the
+          screen on the back of the camera, there are a series of
+          states and transforms to consider: Light reflected off a
+          surface, into camera’s lens and onto an image sensor
+          Sensor photosite values encoded and stored in memory A
+          transform to combine adjacent Red, Green and Blue
+          photosites into single pixel values A "working space"
+          image in memory A transform to remap the intensities of
+          the combined pixels for display A "displayable" image
+          ready to be sent to the display hardware The display
+          hardware showing the image</p>
+          <p class="indent">Optical diagram of a typical mirrorless
+          digital camera. Unknown. (n.d.). DSLR Optical Diagram.
+          Retrieved October 14, 2018, from <a class="url" href=
+          "https://www.dpreview.com/forums/post/61693925">https://www.dpreview.com/forums/post/61693925</a></p>
+          <p class="indent">The aspects of the example above that
+          will show up repeatedly throughout this document are:</p>
+          <p class="indent">Input, Working, Output: The example
+          includes the stages that are common to most modern color
+          pipelines, namely an Input, Capture or Generated image
+          state, a Working image state used for editing and
+          production and an Output image state used for display.
+          There may be other steps along the way, but virtually all
+          modern color pipeline designs contain these three
+          distinct states. The Input image for a visual effects or
+          animated feature or game may be the product of a
+          renderer.</p>
+          <p class="indent">Scene-referred, Output-referred images:
+          The sensor image in Step 3 represents the intensity of
+          light in the scene, filtered through the camera’s lens
+          and specific red, green and blue filters over each sensor
+          photosite. The "working space" image from Step 5 also
+          represents the intensity of light in the scene, but may
+          be device-independent, at least slightly abstracted from
+          the camera sensor and processing hardware. After being
+          transformed for display, the image in Step 6 has values
+          representing the activations necessary for each of the
+          target display’s pixels.</p>
+          <p class="indent">Transforms - Input, Output, Look: Going
+          between each image state is a transformation that has a
+          specific, meaningful effect. The most widely used
+          transforms will typically include a remapping of
+          intensities and some degree of remapping of the color
+          gamut: the underlying meaning of the red, green and blue
+          of each pixel. There are many more exotic transforms, and
+          often a number of these simpler transforms are
+          concatenated. Transforms going from Input to the Working
+          space are usually strictly defined based on the
+          capabilities of the capture device and the attributes of
+          the working space. Transforms from the Working space to
+          the Output space usually combine an element of artistry,
+          commonly referred to as "the Look", with an explicit
+          mapping based on the capabilities of the output device.
+          Later sections of the document contain many examples of
+          transforms used in practice.</p>
+          <p class="indent">Staged Processing: The process to go
+          from light hitting the sensor to a display emitting light
+          is defined by a specific, staged processing pipeline.
+          Transforms take color from one image state to the next,
+          constrained by the processing needs of each successive
+          stage and the limitations and capabilities of the
+          capture, processing and display hardware. Images may be
+          written to disk or passed along an IO line representing
+          the state of color at any of the points in the processing
+          chain, as different applications or departments within
+          production may be the source or the destination for the
+          data.</p>
+          <p class="indent">Meaning and Placement - Understanding
+          how to work with an image or color data set is more
+          natural when you can be clear about what the data is
+          supposed to represent and where it lives in the
+          production or product’s processing chain. These two
+          elements, meaning and placement, provide the context
+          needed to apply transformations and make aesthetic
+          judgements in production.</p>
+          <h4 class="subsectionHead"><span class=
+          "titlemark">1.5.1</span> <a href=
+          "contents.html#QQ2-12-12" id=
+          "x12-120001.5.1">ACES</a></h4>
+          <p class="noindent">The Academy Color Encoding System
+          (ACES) is a color management system that embodied the
+          general model of color processing described above. It
+          codifies and standardizes many of the elements described
+          in the Workflow section with an eye towards addressing
+          many of the difficulties listed in the Challenges section
+          below. The basic system diagram for ACES is presented
+          below.</p>
+          <p class="indent">ACES system diagram</p>
+          <p class="indent">This diagram contains scene-referred
+          imagery, transforms converting from one state or color
+          space to the next, working spaces, output-referred
+          imagery and an ordered, staged processing pipeline.</p>
+          <p class="indent">ACES is one of many ways to define a
+          color pipeline, but it presents a nice embodiment of the
+          general model of color processing presented above,
+          mirrored in most of the examples discussed in this paper.
+          ACES will be referenced throughout this document because
+          it is open, well documented, widely available and has
+          been used successfully in a wide variety of projects of
+          all types and complexities. It provides a great starting
+          point for exploration. This should not be taken as a
+          suggestion that ACES is the only or necessarily the best
+          option. Decisions about which color transforms and spaces
+          to use should be base on the requirements and constraints
+          of a given project.</p>
+          <div class="breadcrumb-navigation text-center">
+            <a href="converging-approaches.html"><button class=
+            "btn btn-light mx-3" type=
+            "button">Previous</button></a><a href=
+            "introduction.html#a-general-model-of-color-processing.html"><button class="btn btn-light mx-3"
+            type="button">Up</button></a><a href=
+            "color-management-challenges.html"><button class=
+            "btn btn-light mx-3" type="button">Next</button></a>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </article>
+  <footer class="page-footer">
+    <div class="container-fluid text-center py-3">
+      Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ <a href=
+      "mailto:ves-tech-color@googlegroups.com">ves-tech-color@googlegroups.com</a>
+    </div>
+  </footer>
+  <script src="assets/js/jquery/jquery.min.js" type=
+  "text/javascript"></script> 
+  <script src="assets/js/popper/popper.min.js" type=
+  "text/javascript"></script> 
+  <script src="assets/js/bootstrap/bootstrap.min.js" type=
+  "text/javascript"></script> 
+  <script type="text/javascript">
+  //<![CDATA[
 
-                                                                  
-only or necessarily the best option. Decisions about which color transforms and
-spaces to use should be base on the requirements and constraints of a given
-project.
-                                                                  
-
-                                                                  
-</p>   
-<div class="breadcrumb-navigation text-center"><a href="converging-approaches.html"><button class="btn btn-light mx-3" type="button">Previous</button></a><a href="introduction.html#a-general-model-of-color-processing.html"><button class="btn btn-light mx-3" type="button">Up</button></a><a href="color-management-challenges.html"><button class="btn btn-light mx-3" type="button">Next</button></a></div>   </div> 
-<div class="col-md-2"></div> 
-</div> 
-</div> 
-</article>  <footer class="page-footer"> 
-<div class="container-fluid text-center py-3"> 
-Copyright © 2012-2019 ‐ Cinematic Color Authors ‐ 
-<a href="mailto:ves-tech-color@googlegroups.com"> 
-ves-tech-color@googlegroups.com</a> 
-</div> 
-</footer>  <script src="assets/js/jquery/jquery.min.js" type="text/javascript"></script> 
-<script src="assets/js/popper/popper.min.js" type="text/javascript"></script> 
-<script src="assets/js/bootstrap/bootstrap.min.js" type="text/javascript"></script> 
-<script type="text/javascript"> 
-function executeSearchQuery() { 
-var input = document.getElementById('cse-search-input-box-id'); 
-var element = google.search.cse.element.getElement('searchresults-only0'); 
-if (input.value == '') { 
-element.clearAllResults(); 
-} else { 
-element.execute(input.value); 
-} 
-return false; 
-} 
-</script> 
- 
- 
-</body></html>
+  function executeSearchQuery() { 
+  var input = document.getElementById('cse-search-input-box-id'); 
+  var element = google.search.cse.element.getElement('searchresults-only0'); 
+  if (input.value == '') { 
+  element.clearAllResults(); 
+  } else { 
+  element.execute(input.value); 
+  } 
+  return false; 
+  } 
+  //]]>
+  </script>
+</body>
+</html>

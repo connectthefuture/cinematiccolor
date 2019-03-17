@@ -45,3 +45,14 @@ pre.listings {
 .carousel .carousel-item {
     transition-duration: 3s;
 }
+
+/* Google Custom Search */
+#cse-search-input-box-id {
+    background: none !important;
+    text-align: center !important;
+    text-indent: 0 !important;
+}
+
+#___gcse_0 {
+    height: 0;
+}
