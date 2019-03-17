@@ -40,3 +40,8 @@ pre.listings {
 .table th {
     border-bottom: 1px solid #dee2e6;
 }
+
+/* Carousel speed */
+.carousel .carousel-item {
+    transition-duration: 3s;
+}
