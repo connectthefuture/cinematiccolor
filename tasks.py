@@ -10,6 +10,7 @@ import biblib.bib
 import glob
 import os
 import re
+import shutil
 import subprocess
 from datetime import datetime
 from invoke import task
@@ -30,10 +31,11 @@ __status__ = 'Production'
 __all__ = [
     'DOMAIN', 'UTILITIES_DIRECTORY', 'INDEX_DOCUMENT_NAME',
     'ROOT_DOCUMENT_NAME', 'TYPESETTING_DOCUMENT_NAME', 'BIBLIOGRAPHY_NAME',
-    'LATEX_SOURCE_DIRECTORY', 'ASSETS_DIRECTORY', 'JERI_DIRECTORY',
-    'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY', 'HTML_RELEASE_DIRECTORY',
-    'SITEMAP_NAME', 'TIDY_HTML', 'message_box', 'clean', 'format', 'serve',
-    'build_pdf', 'build_html', 'build_sitemap', 'build_all', 'gh_deploy'
+    'LATEX_SOURCE_DIRECTORY', 'ASSETS_DIRECTORY', 'EXTRAS_DIRECTORY',
+    'JERI_DIRECTORY', 'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY',
+    'HTML_RELEASE_DIRECTORY', 'SITEMAP_NAME', 'TIDY_HTML', 'message_box',
+    'clean', 'format', 'serve', 'build_pdf', 'build_html', 'build_sitemap',
+    'build_all', 'gh_deploy'
 ]
 
 DOMAIN = 'https://cinematiccolor.org/'
@@ -51,6 +53,8 @@ BIBLIOGRAPHY_NAME = 'bibliography.bib'
 LATEX_SOURCE_DIRECTORY = 'latex'
 
 ASSETS_DIRECTORY = 'assets'
+
+EXTRAS_DIRECTORY = 'extras'
 
 JERI_DIRECTORY = os.sep.join([ASSETS_DIRECTORY, 'js', 'jeri'])
 
@@ -395,6 +399,12 @@ def build_html(ctx, process_html=True):
             'tex', 'css')
         print('Processing "{0}" file...'.format(css_file))
         process.process_css(css_file)
+
+    # Extras directory process.
+    for filename in os.listdir(EXTRAS_DIRECTORY):
+        filename = os.path.join(EXTRAS_DIRECTORY, filename)
+        if os.path.isfile(filename):
+            shutil.copy(filename, HTML_RELEASE_DIRECTORY)
 
     # Stand-in process.
     with ctx.cd(HTML_RELEASE_DIRECTORY):
