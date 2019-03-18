@@ -11,10 +11,12 @@ import glob
 import os
 import re
 import subprocess
+from datetime import datetime
 from invoke import task
 from invoke.exceptions import Failure
 from itertools import chain
 from textwrap import TextWrapper
+from xml.etree import ElementTree
 
 import process
 
@@ -26,13 +28,15 @@ __email__ = 'ves-tech-color@googlegroups.com'
 __status__ = 'Production'
 
 __all__ = [
-    'UTILITIES_DIRECTORY', 'INDEX_DOCUMENT_NAME', 'ROOT_DOCUMENT_NAME',
-    'TYPESETTING_DOCUMENT_NAME', 'BIBLIOGRAPHY_NAME', 'LATEX_SOURCE_DIRECTORY',
-    'ASSETS_DIRECTORY', 'JERI_DIRECTORY', 'PDF_BUILD_DIRECTORY',
-    'HTML_BUILD_DIRECTORY', 'HTML_RELEASE_DIRECTORY', 'TIDY_HTML',
-    'message_box', 'clean', 'format', 'serve', 'build_pdf', 'build_html',
-    'build_all', 'gh_deploy'
+    'DOMAIN', 'UTILITIES_DIRECTORY', 'INDEX_DOCUMENT_NAME',
+    'ROOT_DOCUMENT_NAME', 'TYPESETTING_DOCUMENT_NAME', 'BIBLIOGRAPHY_NAME',
+    'LATEX_SOURCE_DIRECTORY', 'ASSETS_DIRECTORY', 'JERI_DIRECTORY',
+    'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY', 'HTML_RELEASE_DIRECTORY',
+    'SITEMAP_NAME', 'TIDY_HTML', 'message_box', 'clean', 'format', 'serve',
+    'build_pdf', 'build_html', 'build_sitemap', 'build_all', 'gh_deploy'
 ]
+
+DOMAIN = 'https://cinematiccolor.org/'
 
 UTILITIES_DIRECTORY = 'utilities'
 
@@ -55,6 +59,8 @@ PDF_BUILD_DIRECTORY = os.sep.join(['build', 'pdf'])
 HTML_BUILD_DIRECTORY = os.sep.join(['build', 'html'])
 
 HTML_RELEASE_DIRECTORY = 'cinematic-color'
+
+SITEMAP_NAME = 'sitemap.xml'
 
 TIDY_HTML = [
     'tidy', '-q', '-i', '-utf8', '-asxhtml', '-m', '--custom-tags',
@@ -370,8 +376,8 @@ def build_html(ctx, process_html=True):
         print('Processing "{0}" file...'.format(html_file))
         process.process_title(html_file)
 
-        for html_file in glob.glob(
-                os.path.join(HTML_RELEASE_DIRECTORY, '*.html')):
+        for html_file in sorted(
+                glob.glob(os.path.join(HTML_RELEASE_DIRECTORY, '*.html'))):
             print('Processing "{0}" file...'.format(html_file))
 
             process.process_html(html_file, navigation)
@@ -398,7 +404,48 @@ def build_html(ctx, process_html=True):
         ctx.run('cp -r ../stand-in/* .')
 
 
-@task(clean, build_pdf, build_html)
+@task
+def build_sitemap(ctx):
+    """
+    Builds the *HTML* website sitemap.
+
+    Parameters
+    ----------
+    ctx : invoke.context.Context
+        Context.
+
+    Returns
+    -------
+    bool
+        Task success.
+    """
+
+    message_box('Building "HTML" website sitemap...')
+
+    ElementTree.register_namespace('xhtml', 'http://www.w3.org/1999/xhtml')
+
+    urlset = ElementTree.Element('urlset')
+    urlset.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
+
+    time = datetime.now().isoformat()
+    for html_file in sorted(
+            glob.glob(os.path.join(HTML_RELEASE_DIRECTORY, '*.html'))):
+        url = ElementTree.SubElement(urlset, "url")
+        loc = ElementTree.SubElement(url, 'loc')
+        loc.text = '{0}{1}'.format(DOMAIN, os.path.basename(html_file))
+        lastmod = ElementTree.SubElement(url, 'lastmod')
+        lastmod.text = time
+        priority = ElementTree.SubElement(url, 'priority')
+        priority.text = str(1.0)
+
+    ElementTree.ElementTree(urlset).write(
+        os.path.join(HTML_RELEASE_DIRECTORY, SITEMAP_NAME),
+        xml_declaration=True,
+        encoding='utf-8',
+        method='xml')
+
+
+@task(clean, build_pdf, build_html, build_sitemap)
 def build_all(ctx):
     """
     Cleans and builds all the targets, i.e. *PDF* and *HTML* website.
@@ -417,7 +464,7 @@ def build_all(ctx):
     message_box('Building all targets...')
 
 
-@task(clean, build_html)
+@task(clean, build_html, build_sitemap)
 def gh_deploy(ctx):
     """
     Deploys the *HTML* website to *Github Pages*.
