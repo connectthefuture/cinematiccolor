@@ -12,7 +12,7 @@ import os
 import re
 import shutil
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from invoke import task
 from invoke.exceptions import Failure
 from itertools import chain
@@ -437,7 +437,8 @@ def build_sitemap(ctx):
     urlset = ElementTree.Element('urlset')
     urlset.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
 
-    time = datetime.now().isoformat()
+    time = datetime.now().replace(microsecond=0).replace(
+        tzinfo=timezone.utc).isoformat('T')
     for html_file in sorted(
             glob.glob(os.path.join(HTML_RELEASE_DIRECTORY, '*.html'))):
         url = ElementTree.SubElement(urlset, "url")
