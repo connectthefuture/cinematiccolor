@@ -34,7 +34,7 @@ __all__ = [
     'LATEX_SOURCE_DIRECTORY', 'ASSETS_DIRECTORY', 'EXTRAS_DIRECTORY',
     'JERI_DIRECTORY', 'PDF_BUILD_DIRECTORY', 'HTML_BUILD_DIRECTORY',
     'HTML_RELEASE_DIRECTORY', 'SITEMAP_NAME', 'TIDY_HTML', 'message_box',
-    'clean', 'format', 'serve', 'build_pdf', 'build_html', 'build_sitemap',
+    'clean', 'formatting', 'serve', 'build_pdf', 'build_html', 'build_sitemap',
     'build_all', 'gh_deploy'
 ]
 
@@ -185,7 +185,7 @@ def clean(ctx, bytecode=False):
 
 
 @task
-def format(ctx, asciify=True, bibtex=True):
+def formatting(ctx, asciify=True, bibtex=True):
     """
     Converts unicode characters to ASCII and cleanup the *BIB* file.
 
@@ -218,7 +218,7 @@ def format(ctx, asciify=True, bibtex=True):
                 bibtex = biblib.bib.Parser().parse(
                     bibtex_file.read()).get_entries()
 
-            for entry in bibtex.values():
+            for entry in sorted(bibtex.values(), key=lambda x: x.key):
                 try:
                     del entry['file']
                 except KeyError:
@@ -255,7 +255,7 @@ def serve(ctx, port=8900):
         ctx.run('python3 -m http.server {0};'.format(port))
 
 
-@task(format)
+@task(formatting)
 def build_pdf(ctx):
     """
     Builds the *PDF*.
@@ -296,7 +296,7 @@ def build_pdf(ctx):
             warn=True)
 
 
-@task(format)
+@task(formatting)
 def build_html(ctx, process_html=True):
     """
     Builds the *HTML* website.
