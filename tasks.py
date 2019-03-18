@@ -185,7 +185,7 @@ def clean(ctx, bytecode=False):
 
 
 @task
-def format(ctx):
+def format(ctx, asciify=True, bibtex=True):
     """
     Converts unicode characters to ASCII and cleanup the *BIB* file.
 
@@ -193,6 +193,10 @@ def format(ctx):
     ----------
     ctx : invoke.context.Context
         Context.
+    asciify : bool, optional
+        Whether to convert unicode characters to ASCII.
+    bibtex : bool, optional
+        Whether to cleanup the *BibTeX* file.
 
     Returns
     -------
@@ -200,29 +204,32 @@ def format(ctx):
         Task success.
     """
 
-    message_box('Converting unicode characters to ASCII...')
-    with ctx.cd(UTILITIES_DIRECTORY):
-        ctx.run('./unicode_to_ascii.py')
+    if asciify:
+        message_box('Converting unicode characters to ASCII...')
+        with ctx.cd(UTILITIES_DIRECTORY):
+            ctx.run('./unicode_to_ascii.py')
 
-    message_box('Cleaning up "BIB" file...')
-    with ctx.cd(LATEX_SOURCE_DIRECTORY):
-        bibtex_path = os.path.join(LATEX_SOURCE_DIRECTORY, BIBLIOGRAPHY_NAME)
-        with open(bibtex_path) as bibtex_file:
-            bibtex = biblib.bib.Parser().parse(
-                bibtex_file.read()).get_entries()
+    if bibtex:
+        message_box('Cleaning up "BibTeX" file...')
+        with ctx.cd(LATEX_SOURCE_DIRECTORY):
+            bibtex_path = os.path.join(LATEX_SOURCE_DIRECTORY,
+                                       BIBLIOGRAPHY_NAME)
+            with open(bibtex_path) as bibtex_file:
+                bibtex = biblib.bib.Parser().parse(
+                    bibtex_file.read()).get_entries()
 
-        for entry in bibtex.values():
-            try:
-                del entry['file']
-            except KeyError:
-                pass
-            for key, value in entry.items():
-                entry[key] = re.sub('(?<!\\\\)\\&', '\\&', value)
-
-        with open(bibtex_path, 'w') as bibtex_file:
             for entry in bibtex.values():
-                bibtex_file.write(entry.to_bib())
-                bibtex_file.write('\n')
+                try:
+                    del entry['file']
+                except KeyError:
+                    pass
+                for key, value in entry.items():
+                    entry[key] = re.sub('(?<!\\\\)\\&', '\\&', value)
+
+            with open(bibtex_path, 'w') as bibtex_file:
+                for entry in bibtex.values():
+                    bibtex_file.write(entry.to_bib())
+                    bibtex_file.write('\n')
 
 
 @task
