@@ -6,7 +6,7 @@ Cinematic Color
 ..  image:: https://raw.githubusercontent.com/ves-tech/cinematiccolor/master/latex/assets/images/cinematic-color-jumbotron.jpg
 
 This repository contains the source of the current
-`Cinematic Color <http://cinematiccolor.org>`_ website and associated publication.
+`Cinematic Color <https://cinematiccolor.org>`_ website and associated publication.
 
 The initial **Cinematic Color** repository as it was authored and published by
 `Jeremy Selan <https://github.com/jeremyselan>`_ is available at the
@@ -162,6 +162,12 @@ edit the *LaTeX* source. The following settings are recommended:
             "name": "biber"
         }
     ]
+
+License
+-------
+
+**Cinematic Color** has currently no license thus you are currently not free
+to use it even though it is distributed on `Github <https://github.com/>`_!
 
 About
 -----
